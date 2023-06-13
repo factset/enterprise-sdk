@@ -51,25 +51,25 @@ import com.factset.sdk.IRNNotes.JSON;
 public class CommentDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_AUTHOR_ID = "AuthorId";
+  public static final String JSON_PROPERTY_AUTHOR_ID = "authorId";
   private java.util.UUID authorId;
 
-  public static final String JSON_PROPERTY_PARENT_COMMENT_ID = "ParentCommentId";
+  public static final String JSON_PROPERTY_PARENT_COMMENT_ID = "parentCommentId";
   private JsonNullable<java.util.UUID> parentCommentId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_BODY = "Body";
+  public static final String JSON_PROPERTY_BODY = "body";
   private JsonNullable<String> body = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CREATED_AT = "CreatedAt";
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private JsonNullable<String> createdAt = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ATTACHMENTS = "Attachments";
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private JsonNullable<java.util.List<AttachmentSummaryDto>> attachments = JsonNullable.<java.util.List<AttachmentSummaryDto>>undefined();
 
-  public static final String JSON_PROPERTY_SUBCOMMENTS = "Subcomments";
+  public static final String JSON_PROPERTY_SUBCOMMENTS = "subcomments";
   private JsonNullable<java.util.List<SubcommentSummaryDto>> subcomments = JsonNullable.<java.util.List<SubcommentSummaryDto>>undefined();
 
   public CommentDto() { 

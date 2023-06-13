@@ -30,9 +30,9 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20070_data import InlineResponse20070Data
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20069_data_notations import InlineResponse20069DataNotations
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response200_meta import InlineResponse200Meta
-    globals()['InlineResponse20070Data'] = InlineResponse20070Data
+    globals()['InlineResponse20069DataNotations'] = InlineResponse20069DataNotations
     globals()['InlineResponse200Meta'] = InlineResponse200Meta
 
 
@@ -89,7 +89,7 @@ class InlineResponse20070(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse20070Data],),  # noqa: E501
+            'data': ([InlineResponse20069DataNotations],),  # noqa: E501
             'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
@@ -144,7 +144,7 @@ class InlineResponse20070(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20070Data]): List of notations.. [optional]  # noqa: E501
+            data ([InlineResponse20069DataNotations]): List of notations.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse20070(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20070Data]): List of notations.. [optional]  # noqa: E501
+            data ([InlineResponse20069DataNotations]): List of notations.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

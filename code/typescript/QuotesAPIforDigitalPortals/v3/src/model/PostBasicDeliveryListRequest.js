@@ -22,6 +22,7 @@ import PostBasicDeliveryListRequestMeta from './PostBasicDeliveryListRequestMeta
 class PostBasicDeliveryListRequest {
     /**
      * Constructs a new <code>PostBasicDeliveryListRequest</code>.
+     * Request Body
      * @alias module:model/PostBasicDeliveryListRequest
      */
     constructor() { 

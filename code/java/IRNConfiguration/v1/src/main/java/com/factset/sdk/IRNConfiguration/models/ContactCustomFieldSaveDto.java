@@ -52,25 +52,25 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ContactCustomFieldSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CODE = "Code";
+  public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private ContactCustomFieldType type;
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
   private Boolean isHidden = false;
 
-  public static final String JSON_PROPERTY_IS_MANDATORY = "IsMandatory";
+  public static final String JSON_PROPERTY_IS_MANDATORY = "isMandatory";
   private Boolean isMandatory = false;
 
-  public static final String JSON_PROPERTY_FIELD_FORMULA = "FieldFormula";
+  public static final String JSON_PROPERTY_FIELD_FORMULA = "fieldFormula";
   private ContactCustomFieldFormulaDto fieldFormula;
 
-  public static final String JSON_PROPERTY_CONTACT_CUSTOM_FIELD_OPTIONS = "ContactCustomFieldOptions";
+  public static final String JSON_PROPERTY_CONTACT_CUSTOM_FIELD_OPTIONS = "contactCustomFieldOptions";
   private JsonNullable<java.util.List<ContactCustomFieldOptionSaveDto>> contactCustomFieldOptions = JsonNullable.<java.util.List<ContactCustomFieldOptionSaveDto>>undefined();
 
   public ContactCustomFieldSaveDto() { 

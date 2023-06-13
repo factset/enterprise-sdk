@@ -46,14 +46,14 @@ class PhoneNumberTypeDto {
         if (data) {
             obj = obj || new PhoneNumberTypeDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('IsStandard')) {
-                obj['IsStandard'] = ApiClient.convertToType(data['IsStandard'], 'Boolean');
+            if (data.hasOwnProperty('isStandard')) {
+                obj['isStandard'] = ApiClient.convertToType(data['isStandard'], 'Boolean');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class PhoneNumberTypeDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-PhoneNumberTypeDto.prototype['Id'] = undefined;
+PhoneNumberTypeDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-PhoneNumberTypeDto.prototype['Name'] = undefined;
+PhoneNumberTypeDto.prototype['name'] = undefined;
 
 /**
- * @member {Boolean} IsStandard
+ * @member {Boolean} isStandard
  */
-PhoneNumberTypeDto.prototype['IsStandard'] = undefined;
+PhoneNumberTypeDto.prototype['isStandard'] = undefined;
 
 
 

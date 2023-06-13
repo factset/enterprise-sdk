@@ -46,11 +46,11 @@ class RelatedRecordsDto {
         if (data) {
             obj = obj || new RelatedRecordsDto();
 
-            if (data.hasOwnProperty('NoteIds')) {
-                obj['NoteIds'] = ApiClient.convertToType(data['NoteIds'], ['String']);
+            if (data.hasOwnProperty('noteIds')) {
+                obj['noteIds'] = ApiClient.convertToType(data['noteIds'], ['String']);
             }
-            if (data.hasOwnProperty('MeetingIds')) {
-                obj['MeetingIds'] = ApiClient.convertToType(data['MeetingIds'], ['String']);
+            if (data.hasOwnProperty('meetingIds')) {
+                obj['meetingIds'] = ApiClient.convertToType(data['meetingIds'], ['String']);
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class RelatedRecordsDto {
 }
 
 /**
- * @member {Array.<String>} NoteIds
+ * @member {Array.<String>} noteIds
  */
-RelatedRecordsDto.prototype['NoteIds'] = undefined;
+RelatedRecordsDto.prototype['noteIds'] = undefined;
 
 /**
- * @member {Array.<String>} MeetingIds
+ * @member {Array.<String>} meetingIds
  */
-RelatedRecordsDto.prototype['MeetingIds'] = undefined;
+RelatedRecordsDto.prototype['meetingIds'] = undefined;
 
 
 

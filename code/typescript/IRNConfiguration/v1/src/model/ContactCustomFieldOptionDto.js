@@ -46,14 +46,14 @@ class ContactCustomFieldOptionDto {
         if (data) {
             obj = obj || new ContactCustomFieldOptionDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Order')) {
-                obj['Order'] = ApiClient.convertToType(data['Order'], 'Number');
+            if (data.hasOwnProperty('order')) {
+                obj['order'] = ApiClient.convertToType(data['order'], 'Number');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class ContactCustomFieldOptionDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactCustomFieldOptionDto.prototype['Id'] = undefined;
+ContactCustomFieldOptionDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-ContactCustomFieldOptionDto.prototype['Name'] = undefined;
+ContactCustomFieldOptionDto.prototype['name'] = undefined;
 
 /**
- * @member {Number} Order
+ * @member {Number} order
  */
-ContactCustomFieldOptionDto.prototype['Order'] = undefined;
+ContactCustomFieldOptionDto.prototype['order'] = undefined;
 
 
 

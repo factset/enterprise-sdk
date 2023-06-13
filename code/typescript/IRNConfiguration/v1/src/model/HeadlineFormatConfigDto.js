@@ -46,14 +46,14 @@ class HeadlineFormatConfigDto {
         if (data) {
             obj = obj || new HeadlineFormatConfigDto();
 
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('CustomString')) {
-                obj['CustomString'] = ApiClient.convertToType(data['CustomString'], 'String');
+            if (data.hasOwnProperty('customString')) {
+                obj['customString'] = ApiClient.convertToType(data['customString'], 'String');
             }
-            if (data.hasOwnProperty('CustomFieldName')) {
-                obj['CustomFieldName'] = ApiClient.convertToType(data['CustomFieldName'], 'String');
+            if (data.hasOwnProperty('customFieldName')) {
+                obj['customFieldName'] = ApiClient.convertToType(data['customFieldName'], 'String');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class HeadlineFormatConfigDto {
 }
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-HeadlineFormatConfigDto.prototype['Name'] = undefined;
+HeadlineFormatConfigDto.prototype['name'] = undefined;
 
 /**
- * @member {String} CustomString
+ * @member {String} customString
  */
-HeadlineFormatConfigDto.prototype['CustomString'] = undefined;
+HeadlineFormatConfigDto.prototype['customString'] = undefined;
 
 /**
- * @member {String} CustomFieldName
+ * @member {String} customFieldName
  */
-HeadlineFormatConfigDto.prototype['CustomFieldName'] = undefined;
+HeadlineFormatConfigDto.prototype['customFieldName'] = undefined;
 
 
 

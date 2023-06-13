@@ -47,26 +47,26 @@ class UserConfigDto {
         if (data) {
             obj = obj || new UserConfigDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('UserName')) {
-                obj['UserName'] = ApiClient.convertToType(data['UserName'], 'String');
+            if (data.hasOwnProperty('userName')) {
+                obj['userName'] = ApiClient.convertToType(data['userName'], 'String');
             }
-            if (data.hasOwnProperty('SerialNumber')) {
-                obj['SerialNumber'] = ApiClient.convertToType(data['SerialNumber'], 'String');
+            if (data.hasOwnProperty('serialNumber')) {
+                obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
             }
-            if (data.hasOwnProperty('FirstName')) {
-                obj['FirstName'] = ApiClient.convertToType(data['FirstName'], 'String');
+            if (data.hasOwnProperty('firstName')) {
+                obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
             }
-            if (data.hasOwnProperty('LastName')) {
-                obj['LastName'] = ApiClient.convertToType(data['LastName'], 'String');
+            if (data.hasOwnProperty('lastName')) {
+                obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
             }
-            if (data.hasOwnProperty('EmailAddress')) {
-                obj['EmailAddress'] = ApiClient.convertToType(data['EmailAddress'], 'String');
+            if (data.hasOwnProperty('emailAddress')) {
+                obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
             }
-            if (data.hasOwnProperty('Team')) {
-                obj['Team'] = TeamSummaryDto.constructFromObject(data['Team']);
+            if (data.hasOwnProperty('team')) {
+                obj['team'] = TeamSummaryDto.constructFromObject(data['team']);
             }
         }
         return obj;
@@ -76,39 +76,39 @@ class UserConfigDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-UserConfigDto.prototype['Id'] = undefined;
+UserConfigDto.prototype['id'] = undefined;
 
 /**
- * @member {String} UserName
+ * @member {String} userName
  */
-UserConfigDto.prototype['UserName'] = undefined;
+UserConfigDto.prototype['userName'] = undefined;
 
 /**
- * @member {String} SerialNumber
+ * @member {String} serialNumber
  */
-UserConfigDto.prototype['SerialNumber'] = undefined;
+UserConfigDto.prototype['serialNumber'] = undefined;
 
 /**
- * @member {String} FirstName
+ * @member {String} firstName
  */
-UserConfigDto.prototype['FirstName'] = undefined;
+UserConfigDto.prototype['firstName'] = undefined;
 
 /**
- * @member {String} LastName
+ * @member {String} lastName
  */
-UserConfigDto.prototype['LastName'] = undefined;
+UserConfigDto.prototype['lastName'] = undefined;
 
 /**
- * @member {String} EmailAddress
+ * @member {String} emailAddress
  */
-UserConfigDto.prototype['EmailAddress'] = undefined;
+UserConfigDto.prototype['emailAddress'] = undefined;
 
 /**
- * @member {module:model/TeamSummaryDto} Team
+ * @member {module:model/TeamSummaryDto} team
  */
-UserConfigDto.prototype['Team'] = undefined;
+UserConfigDto.prototype['team'] = undefined;
 
 
 

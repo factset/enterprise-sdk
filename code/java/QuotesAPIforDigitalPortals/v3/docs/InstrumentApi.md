@@ -1629,7 +1629,7 @@ Name | Type | Description  | Notes
 
 ## getInstrumentSearchBasic
 
-> InlineResponse20090 getInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit)
+> InlineResponse20092 getInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit)
 
 Basic search for instruments.
 
@@ -1679,7 +1679,7 @@ public class Example {
         BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
         BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
-            InlineResponse20090 result = apiInstance.getInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
+            InlineResponse20092 result = apiInstance.getInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1709,7 +1709,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20090**](InlineResponse20090.md)
+[**InlineResponse20092**](InlineResponse20092.md)
 
 ### Authorization
 
@@ -1768,7 +1768,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = new PostInstrumentBackgroundTextTypeListRequest(); // PostInstrumentBackgroundTextTypeListRequest | 
+        PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = new PostInstrumentBackgroundTextTypeListRequest(); // PostInstrumentBackgroundTextTypeListRequest | Request Body
         try {
             InlineResponse20045 result = apiInstance.postInstrumentBackgroundTextTypeList(postInstrumentBackgroundTextTypeListRequest);
             System.out.println(result);
@@ -1789,7 +1789,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentBackgroundTextTypeListRequest** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)|  | [optional]
+ **postInstrumentBackgroundTextTypeListRequest** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -1852,7 +1852,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = new PostInstrumentBenchmarkListRequest(); // PostInstrumentBenchmarkListRequest | 
+        PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = new PostInstrumentBenchmarkListRequest(); // PostInstrumentBenchmarkListRequest | Request Body
         try {
             InlineResponse20046 result = apiInstance.postInstrumentBenchmarkList(postInstrumentBenchmarkListRequest);
             System.out.println(result);
@@ -1873,7 +1873,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentBenchmarkListRequest** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)|  | [optional]
+ **postInstrumentBenchmarkListRequest** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -1936,7 +1936,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = new PostInstrumentCategoryListRequest(); // PostInstrumentCategoryListRequest | 
+        PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = new PostInstrumentCategoryListRequest(); // PostInstrumentCategoryListRequest | Request Body
         try {
             InlineResponse20047 result = apiInstance.postInstrumentCategoryList(postInstrumentCategoryListRequest);
             System.out.println(result);
@@ -1957,7 +1957,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCategoryListRequest** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)|  | [optional]
+ **postInstrumentCategoryListRequest** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2020,7 +2020,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = new PostInstrumentCompliancePropertyListRequest(); // PostInstrumentCompliancePropertyListRequest | 
+        PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = new PostInstrumentCompliancePropertyListRequest(); // PostInstrumentCompliancePropertyListRequest | Request Body
         try {
             InlineResponse20048 result = apiInstance.postInstrumentCompliancePropertyList(postInstrumentCompliancePropertyListRequest);
             System.out.println(result);
@@ -2041,7 +2041,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCompliancePropertyListRequest** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)|  | [optional]
+ **postInstrumentCompliancePropertyListRequest** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2104,7 +2104,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = new PostInstrumentCrossReferenceListByISINRequest(); // PostInstrumentCrossReferenceListByISINRequest | 
+        PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = new PostInstrumentCrossReferenceListByISINRequest(); // PostInstrumentCrossReferenceListByISINRequest | Request Body
         try {
             InlineResponse20056 result = apiInstance.postInstrumentCrossReferenceListByISIN(postInstrumentCrossReferenceListByISINRequest);
             System.out.println(result);
@@ -2125,7 +2125,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCrossReferenceListByISINRequest** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)|  | [optional]
+ **postInstrumentCrossReferenceListByISINRequest** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)| Request Body |
 
 ### Return type
 
@@ -2188,7 +2188,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = new PostInstrumentCrossReferenceListByWKNRequest(); // PostInstrumentCrossReferenceListByWKNRequest | 
+        PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = new PostInstrumentCrossReferenceListByWKNRequest(); // PostInstrumentCrossReferenceListByWKNRequest | Request Body
         try {
             InlineResponse20057 result = apiInstance.postInstrumentCrossReferenceListByWKN(postInstrumentCrossReferenceListByWKNRequest);
             System.out.println(result);
@@ -2209,7 +2209,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCrossReferenceListByWKNRequest** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)|  | [optional]
+ **postInstrumentCrossReferenceListByWKNRequest** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)| Request Body |
 
 ### Return type
 
@@ -2272,7 +2272,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        PostInstrumentNotationListRequest postInstrumentNotationListRequest = new PostInstrumentNotationListRequest(); // PostInstrumentNotationListRequest | 
+        PostInstrumentNotationListRequest postInstrumentNotationListRequest = new PostInstrumentNotationListRequest(); // PostInstrumentNotationListRequest | Request Body
         try {
             InlineResponse20063 result = apiInstance.postInstrumentNotationList(postInstrumentNotationListRequest);
             System.out.println(result);
@@ -2293,7 +2293,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentNotationListRequest** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)|  | [optional]
+ **postInstrumentNotationListRequest** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2356,7 +2356,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         InstrumentApi apiInstance = new InstrumentApi(defaultClient);
-        PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = new PostInstrumentRatingGradeListRequest(); // PostInstrumentRatingGradeListRequest | 
+        PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = new PostInstrumentRatingGradeListRequest(); // PostInstrumentRatingGradeListRequest | Request Body
         try {
             InlineResponse20064 result = apiInstance.postInstrumentRatingGradeList(postInstrumentRatingGradeListRequest);
             System.out.println(result);
@@ -2377,7 +2377,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentRatingGradeListRequest** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)|  | [optional]
+ **postInstrumentRatingGradeListRequest** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)| Request Body | [optional]
 
 ### Return type
 

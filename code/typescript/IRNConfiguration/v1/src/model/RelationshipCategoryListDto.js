@@ -34,7 +34,7 @@ class RelationshipCategoryListDto {
      * Only for internal use.
      */
     static initialize(obj, ids) { 
-        obj['Ids'] = ids;
+        obj['ids'] = ids;
     }
 
     /**
@@ -48,8 +48,8 @@ class RelationshipCategoryListDto {
         if (data) {
             obj = obj || new RelationshipCategoryListDto();
 
-            if (data.hasOwnProperty('Ids')) {
-                obj['Ids'] = ApiClient.convertToType(data['Ids'], ['String']);
+            if (data.hasOwnProperty('ids')) {
+                obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
         }
         return obj;
@@ -59,9 +59,9 @@ class RelationshipCategoryListDto {
 }
 
 /**
- * @member {Array.<String>} Ids
+ * @member {Array.<String>} ids
  */
-RelationshipCategoryListDto.prototype['Ids'] = undefined;
+RelationshipCategoryListDto.prototype['ids'] = undefined;
 
 
 

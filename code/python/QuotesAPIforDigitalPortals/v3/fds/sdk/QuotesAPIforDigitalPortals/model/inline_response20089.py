@@ -89,7 +89,7 @@ class InlineResponse20089(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse20089Data],),  # noqa: E501
+            'data': (InlineResponse20089Data,),  # noqa: E501
             'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
@@ -144,7 +144,7 @@ class InlineResponse20089(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20089Data]): List of trading schedule event types.. [optional]  # noqa: E501
+            data (InlineResponse20089Data): [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse20089(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20089Data]): List of trading schedule event types.. [optional]  # noqa: E501
+            data (InlineResponse20089Data): [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

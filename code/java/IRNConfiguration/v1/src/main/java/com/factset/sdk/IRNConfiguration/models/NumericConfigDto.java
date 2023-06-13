@@ -44,10 +44,10 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class NumericConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DECIMALS = "Decimals";
+  public static final String JSON_PROPERTY_DECIMALS = "decimals";
   private Integer decimals;
 
-  public static final String JSON_PROPERTY_SPLIT_TYPE = "SplitType";
+  public static final String JSON_PROPERTY_SPLIT_TYPE = "splitType";
   private JsonNullable<String> splitType = JsonNullable.<String>undefined();
 
   public NumericConfigDto() { 

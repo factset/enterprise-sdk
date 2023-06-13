@@ -30,14 +30,14 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20080_country import InlineResponse20080Country
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20080_group import InlineResponse20080Group
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20080_timezone import InlineResponse20080Timezone
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20080_type import InlineResponse20080Type
-    globals()['InlineResponse20080Country'] = InlineResponse20080Country
-    globals()['InlineResponse20080Group'] = InlineResponse20080Group
-    globals()['InlineResponse20080Timezone'] = InlineResponse20080Timezone
-    globals()['InlineResponse20080Type'] = InlineResponse20080Type
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075_data_high import InlineResponse20075DataHigh
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075_data_low import InlineResponse20075DataLow
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075_data_performance import InlineResponse20075DataPerformance
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20076_status import InlineResponse20076Status
+    globals()['InlineResponse20075DataHigh'] = InlineResponse20075DataHigh
+    globals()['InlineResponse20075DataLow'] = InlineResponse20075DataLow
+    globals()['InlineResponse20075DataPerformance'] = InlineResponse20075DataPerformance
+    globals()['InlineResponse20076Status'] = InlineResponse20076Status
 
 
 class InlineResponse20080Data(ModelNormal):
@@ -93,14 +93,14 @@ class InlineResponse20080Data(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (float, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'short_name': (str, none_type,),  # noqa: E501
-            'country': (InlineResponse20080Country,),  # noqa: E501
-            'type': (InlineResponse20080Type,),  # noqa: E501
-            'group': (InlineResponse20080Group,),  # noqa: E501
-            'timezone': (InlineResponse20080Timezone,),  # noqa: E501
-            'count': (float, none_type,),  # noqa: E501
+            'id_notation': (str, none_type,),  # noqa: E501
+            'source_identifier': (str, none_type,),  # noqa: E501
+            'reference_date': (date, none_type,),  # noqa: E501
+            'performance': (InlineResponse20075DataPerformance,),  # noqa: E501
+            'high': (InlineResponse20075DataHigh,),  # noqa: E501
+            'low': (InlineResponse20075DataLow,),  # noqa: E501
+            'volatility': (float, none_type,),  # noqa: E501
+            'status': (InlineResponse20076Status,),  # noqa: E501
         }
 
     @cached_property
@@ -109,14 +109,14 @@ class InlineResponse20080Data(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'short_name': 'shortName',  # noqa: E501
-        'country': 'country',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'group': 'group',  # noqa: E501
-        'timezone': 'timezone',  # noqa: E501
-        'count': 'count',  # noqa: E501
+        'id_notation': 'idNotation',  # noqa: E501
+        'source_identifier': 'sourceIdentifier',  # noqa: E501
+        'reference_date': 'referenceDate',  # noqa: E501
+        'performance': 'performance',  # noqa: E501
+        'high': 'high',  # noqa: E501
+        'low': 'low',  # noqa: E501
+        'volatility': 'volatility',  # noqa: E501
+        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -160,14 +160,14 @@ class InlineResponse20080Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (float, none_type): Identifier of a market.. [optional]  # noqa: E501
-            name (str, none_type): Name of the market.. [optional]  # noqa: E501
-            short_name (str, none_type): Short name of the market.. [optional]  # noqa: E501
-            country (InlineResponse20080Country): [optional]  # noqa: E501
-            type (InlineResponse20080Type): [optional]  # noqa: E501
-            group (InlineResponse20080Group): [optional]  # noqa: E501
-            timezone (InlineResponse20080Timezone): [optional]  # noqa: E501
-            count (float, none_type): Number of entitled notations.. [optional]  # noqa: E501
+            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
+            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
+            reference_date (date, none_type): Reference date of the time range.. [optional]  # noqa: E501
+            performance (InlineResponse20075DataPerformance): [optional]  # noqa: E501
+            high (InlineResponse20075DataHigh): [optional]  # noqa: E501
+            low (InlineResponse20075DataLow): [optional]  # noqa: E501
+            volatility (float, none_type): Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.. [optional]  # noqa: E501
+            status (InlineResponse20076Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,14 +249,14 @@ class InlineResponse20080Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (float, none_type): Identifier of a market.. [optional]  # noqa: E501
-            name (str, none_type): Name of the market.. [optional]  # noqa: E501
-            short_name (str, none_type): Short name of the market.. [optional]  # noqa: E501
-            country (InlineResponse20080Country): [optional]  # noqa: E501
-            type (InlineResponse20080Type): [optional]  # noqa: E501
-            group (InlineResponse20080Group): [optional]  # noqa: E501
-            timezone (InlineResponse20080Timezone): [optional]  # noqa: E501
-            count (float, none_type): Number of entitled notations.. [optional]  # noqa: E501
+            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
+            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
+            reference_date (date, none_type): Reference date of the time range.. [optional]  # noqa: E501
+            performance (InlineResponse20075DataPerformance): [optional]  # noqa: E501
+            high (InlineResponse20075DataHigh): [optional]  # noqa: E501
+            low (InlineResponse20075DataLow): [optional]  # noqa: E501
+            volatility (float, none_type): Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.. [optional]  # noqa: E501
+            status (InlineResponse20076Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

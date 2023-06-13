@@ -17,16 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20082DataCurrency;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20082DataValueUnit;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Accumulated;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083First;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083High;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Latest;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Low;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Market;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083PreviousClose;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Status;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083DataMarket;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083DataRegional;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,17 +42,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse20083Data.JSON_PROPERTY_ID_NOTATION,
   InlineResponse20083Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
-  InlineResponse20083Data.JSON_PROPERTY_VALUE_UNIT,
-  InlineResponse20083Data.JSON_PROPERTY_CURRENCY,
+  InlineResponse20083Data.JSON_PROPERTY_SUSPENDED,
+  InlineResponse20083Data.JSON_PROPERTY_TRADING_STATUS,
+  InlineResponse20083Data.JSON_PROPERTY_PRICE_DELAY,
+  InlineResponse20083Data.JSON_PROPERTY_TICK_SIZE,
+  InlineResponse20083Data.JSON_PROPERTY_LOT_SIZE,
   InlineResponse20083Data.JSON_PROPERTY_MARKET,
-  InlineResponse20083Data.JSON_PROPERTY_QUALITY,
-  InlineResponse20083Data.JSON_PROPERTY_LATEST,
-  InlineResponse20083Data.JSON_PROPERTY_FIRST,
-  InlineResponse20083Data.JSON_PROPERTY_LOW,
-  InlineResponse20083Data.JSON_PROPERTY_HIGH,
-  InlineResponse20083Data.JSON_PROPERTY_PREVIOUS_CLOSE,
-  InlineResponse20083Data.JSON_PROPERTY_ACCUMULATED,
-  InlineResponse20083Data.JSON_PROPERTY_STATUS
+  InlineResponse20083Data.JSON_PROPERTY_REGIONAL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20083Data implements Serializable {
@@ -71,75 +60,26 @@ public class InlineResponse20083Data implements Serializable {
   public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
   private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
-  private InlineResponse20082DataValueUnit valueUnit;
+  public static final String JSON_PROPERTY_SUSPENDED = "suspended";
+  private JsonNullable<Boolean> suspended = JsonNullable.<Boolean>undefined();
 
-  public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private InlineResponse20082DataCurrency currency;
+  public static final String JSON_PROPERTY_TRADING_STATUS = "tradingStatus";
+  private JsonNullable<String> tradingStatus = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_PRICE_DELAY = "priceDelay";
+  private JsonNullable<BigDecimal> priceDelay = JsonNullable.<BigDecimal>undefined();
+
+  public static final String JSON_PROPERTY_TICK_SIZE = "tickSize";
+  private JsonNullable<BigDecimal> tickSize = JsonNullable.<BigDecimal>undefined();
+
+  public static final String JSON_PROPERTY_LOT_SIZE = "lotSize";
+  private JsonNullable<BigDecimal> lotSize = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20083Market market;
+  private InlineResponse20083DataMarket market;
 
-  /**
-   * Quality of the price.
-   */
-  public enum QualityEnum {
-    RLT("RLT"),
-    
-    DLY("DLY"),
-    
-    EOD("EOD");
-
-    private String value;
-
-    QualityEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static QualityEnum fromValue(String value) {
-      for (QualityEnum b : QualityEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-
-  public static final String JSON_PROPERTY_QUALITY = "quality";
-  private JsonNullable<QualityEnum> quality = JsonNullable.<QualityEnum>undefined();
-
-  public static final String JSON_PROPERTY_LATEST = "latest";
-  private InlineResponse20083Latest latest;
-
-  public static final String JSON_PROPERTY_FIRST = "first";
-  private InlineResponse20083First first;
-
-  public static final String JSON_PROPERTY_LOW = "low";
-  private InlineResponse20083Low low;
-
-  public static final String JSON_PROPERTY_HIGH = "high";
-  private InlineResponse20083High high;
-
-  public static final String JSON_PROPERTY_PREVIOUS_CLOSE = "previousClose";
-  private InlineResponse20083PreviousClose previousClose;
-
-  public static final String JSON_PROPERTY_ACCUMULATED = "accumulated";
-  private InlineResponse20083Accumulated accumulated;
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private InlineResponse20083Status status;
+  public static final String JSON_PROPERTY_REGIONAL = "regional";
+  private InlineResponse20083DataRegional regional;
 
   public InlineResponse20083Data() { 
   }
@@ -212,59 +152,177 @@ public class InlineResponse20083Data implements Serializable {
   }
 
 
-  public InlineResponse20083Data valueUnit(InlineResponse20082DataValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
+  public InlineResponse20083Data suspended(Boolean suspended) {
+    this.suspended = JsonNullable.<Boolean>of(suspended);
     return this;
   }
 
    /**
-   * Get valueUnit
-   * @return valueUnit
+   * Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;.
+   * @return suspended
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @ApiModelProperty(value = "Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.")
+  @JsonIgnore
+
+  public Boolean getSuspended() {
+        return suspended.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUSPENDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20082DataValueUnit getValueUnit() {
-    return valueUnit;
+  public JsonNullable<Boolean> getSuspended_JsonNullable() {
+    return suspended;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SUSPENDED)
+  public void setSuspended_JsonNullable(JsonNullable<Boolean> suspended) {
+    this.suspended = suspended;
+  }
+
+  public void setSuspended(Boolean suspended) {
+    this.suspended = JsonNullable.<Boolean>of(suspended);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueUnit(InlineResponse20082DataValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
-  }
-
-
-  public InlineResponse20083Data currency(InlineResponse20082DataCurrency currency) {
-    this.currency = currency;
+  public InlineResponse20083Data tradingStatus(String tradingStatus) {
+    this.tradingStatus = JsonNullable.<String>of(tradingStatus);
     return this;
   }
 
    /**
-   * Get currency
-   * @return currency
+   * Market-specific code of the trading status and/or the suspension of the notation.
+   * @return tradingStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @ApiModelProperty(value = "Market-specific code of the trading status and/or the suspension of the notation.")
+  @JsonIgnore
+
+  public String getTradingStatus() {
+        return tradingStatus.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TRADING_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20082DataCurrency getCurrency() {
-    return currency;
+  public JsonNullable<String> getTradingStatus_JsonNullable() {
+    return tradingStatus;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TRADING_STATUS)
+  public void setTradingStatus_JsonNullable(JsonNullable<String> tradingStatus) {
+    this.tradingStatus = tradingStatus;
+  }
+
+  public void setTradingStatus(String tradingStatus) {
+    this.tradingStatus = JsonNullable.<String>of(tradingStatus);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public InlineResponse20083Data priceDelay(BigDecimal priceDelay) {
+    this.priceDelay = JsonNullable.<BigDecimal>of(priceDelay);
+    return this;
+  }
+
+   /**
+   * Exchange-imposed delay in seconds for delayed-quality tick data.
+   * @return priceDelay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Exchange-imposed delay in seconds for delayed-quality tick data.")
+  @JsonIgnore
+
+  public BigDecimal getPriceDelay() {
+        return priceDelay.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PRICE_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(InlineResponse20082DataCurrency currency) {
-    this.currency = currency;
+
+  public JsonNullable<BigDecimal> getPriceDelay_JsonNullable() {
+    return priceDelay;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE_DELAY)
+  public void setPriceDelay_JsonNullable(JsonNullable<BigDecimal> priceDelay) {
+    this.priceDelay = priceDelay;
+  }
+
+  public void setPriceDelay(BigDecimal priceDelay) {
+    this.priceDelay = JsonNullable.<BigDecimal>of(priceDelay);
   }
 
 
-  public InlineResponse20083Data market(InlineResponse20083Market market) {
+  public InlineResponse20083Data tickSize(BigDecimal tickSize) {
+    this.tickSize = JsonNullable.<BigDecimal>of(tickSize);
+    return this;
+  }
+
+   /**
+   * The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint &#x60;/notation/get&#x60; for the value unit of the &#x60;tickSize&#x60; for this notation.
+   * @return tickSize
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.")
+  @JsonIgnore
+
+  public BigDecimal getTickSize() {
+        return tickSize.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TICK_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<BigDecimal> getTickSize_JsonNullable() {
+    return tickSize;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TICK_SIZE)
+  public void setTickSize_JsonNullable(JsonNullable<BigDecimal> tickSize) {
+    this.tickSize = tickSize;
+  }
+
+  public void setTickSize(BigDecimal tickSize) {
+    this.tickSize = JsonNullable.<BigDecimal>of(tickSize);
+  }
+
+
+  public InlineResponse20083Data lotSize(BigDecimal lotSize) {
+    this.lotSize = JsonNullable.<BigDecimal>of(lotSize);
+    return this;
+  }
+
+   /**
+   * he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.
+   * @return lotSize
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.")
+  @JsonIgnore
+
+  public BigDecimal getLotSize() {
+        return lotSize.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LOT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<BigDecimal> getLotSize_JsonNullable() {
+    return lotSize;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOT_SIZE)
+  public void setLotSize_JsonNullable(JsonNullable<BigDecimal> lotSize) {
+    this.lotSize = lotSize;
+  }
+
+  public void setLotSize(BigDecimal lotSize) {
+    this.lotSize = JsonNullable.<BigDecimal>of(lotSize);
+  }
+
+
+  public InlineResponse20083Data market(InlineResponse20083DataMarket market) {
     this.market = market;
     return this;
   }
@@ -278,231 +336,41 @@ public class InlineResponse20083Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20083Market getMarket() {
+  public InlineResponse20083DataMarket getMarket() {
     return market;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20083Market market) {
+  public void setMarket(InlineResponse20083DataMarket market) {
     this.market = market;
   }
 
 
-  public InlineResponse20083Data quality(QualityEnum quality) {
-    this.quality = JsonNullable.<QualityEnum>of(quality);
+  public InlineResponse20083Data regional(InlineResponse20083DataRegional regional) {
+    this.regional = regional;
     return this;
   }
 
    /**
-   * Quality of the price.
-   * @return quality
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Quality of the price.")
-  @JsonIgnore
-
-  public QualityEnum getQuality() {
-        return quality.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_QUALITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<QualityEnum> getQuality_JsonNullable() {
-    return quality;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_QUALITY)
-  public void setQuality_JsonNullable(JsonNullable<QualityEnum> quality) {
-    this.quality = quality;
-  }
-
-  public void setQuality(QualityEnum quality) {
-    this.quality = JsonNullable.<QualityEnum>of(quality);
-  }
-
-
-  public InlineResponse20083Data latest(InlineResponse20083Latest latest) {
-    this.latest = latest;
-    return this;
-  }
-
-   /**
-   * Get latest
-   * @return latest
+   * Get regional
+   * @return regional
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_LATEST)
+  @JsonProperty(JSON_PROPERTY_REGIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20083Latest getLatest() {
-    return latest;
+  public InlineResponse20083DataRegional getRegional() {
+    return regional;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LATEST)
+  @JsonProperty(JSON_PROPERTY_REGIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLatest(InlineResponse20083Latest latest) {
-    this.latest = latest;
-  }
-
-
-  public InlineResponse20083Data first(InlineResponse20083First first) {
-    this.first = first;
-    return this;
-  }
-
-   /**
-   * Get first
-   * @return first
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FIRST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20083First getFirst() {
-    return first;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FIRST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirst(InlineResponse20083First first) {
-    this.first = first;
-  }
-
-
-  public InlineResponse20083Data low(InlineResponse20083Low low) {
-    this.low = low;
-    return this;
-  }
-
-   /**
-   * Get low
-   * @return low
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_LOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20083Low getLow() {
-    return low;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLow(InlineResponse20083Low low) {
-    this.low = low;
-  }
-
-
-  public InlineResponse20083Data high(InlineResponse20083High high) {
-    this.high = high;
-    return this;
-  }
-
-   /**
-   * Get high
-   * @return high
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_HIGH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20083High getHigh() {
-    return high;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_HIGH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHigh(InlineResponse20083High high) {
-    this.high = high;
-  }
-
-
-  public InlineResponse20083Data previousClose(InlineResponse20083PreviousClose previousClose) {
-    this.previousClose = previousClose;
-    return this;
-  }
-
-   /**
-   * Get previousClose
-   * @return previousClose
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PREVIOUS_CLOSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20083PreviousClose getPreviousClose() {
-    return previousClose;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PREVIOUS_CLOSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPreviousClose(InlineResponse20083PreviousClose previousClose) {
-    this.previousClose = previousClose;
-  }
-
-
-  public InlineResponse20083Data accumulated(InlineResponse20083Accumulated accumulated) {
-    this.accumulated = accumulated;
-    return this;
-  }
-
-   /**
-   * Get accumulated
-   * @return accumulated
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20083Accumulated getAccumulated() {
-    return accumulated;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccumulated(InlineResponse20083Accumulated accumulated) {
-    this.accumulated = accumulated;
-  }
-
-
-  public InlineResponse20083Data status(InlineResponse20083Status status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20083Status getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(InlineResponse20083Status status) {
-    this.status = status;
+  public void setRegional(InlineResponse20083DataRegional regional) {
+    this.regional = regional;
   }
 
 
@@ -520,17 +388,13 @@ public class InlineResponse20083Data implements Serializable {
     InlineResponse20083Data inlineResponse20083Data = (InlineResponse20083Data) o;
     return equalsNullable(this.idNotation, inlineResponse20083Data.idNotation) &&
         equalsNullable(this.sourceIdentifier, inlineResponse20083Data.sourceIdentifier) &&
-        Objects.equals(this.valueUnit, inlineResponse20083Data.valueUnit) &&
-        Objects.equals(this.currency, inlineResponse20083Data.currency) &&
+        equalsNullable(this.suspended, inlineResponse20083Data.suspended) &&
+        equalsNullable(this.tradingStatus, inlineResponse20083Data.tradingStatus) &&
+        equalsNullable(this.priceDelay, inlineResponse20083Data.priceDelay) &&
+        equalsNullable(this.tickSize, inlineResponse20083Data.tickSize) &&
+        equalsNullable(this.lotSize, inlineResponse20083Data.lotSize) &&
         Objects.equals(this.market, inlineResponse20083Data.market) &&
-        equalsNullable(this.quality, inlineResponse20083Data.quality) &&
-        Objects.equals(this.latest, inlineResponse20083Data.latest) &&
-        Objects.equals(this.first, inlineResponse20083Data.first) &&
-        Objects.equals(this.low, inlineResponse20083Data.low) &&
-        Objects.equals(this.high, inlineResponse20083Data.high) &&
-        Objects.equals(this.previousClose, inlineResponse20083Data.previousClose) &&
-        Objects.equals(this.accumulated, inlineResponse20083Data.accumulated) &&
-        Objects.equals(this.status, inlineResponse20083Data.status);
+        Objects.equals(this.regional, inlineResponse20083Data.regional);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -539,7 +403,7 @@ public class InlineResponse20083Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), valueUnit, currency, market, hashCodeNullable(quality), latest, first, low, high, previousClose, accumulated, status);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(suspended), hashCodeNullable(tradingStatus), hashCodeNullable(priceDelay), hashCodeNullable(tickSize), hashCodeNullable(lotSize), market, regional);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -555,17 +419,13 @@ public class InlineResponse20083Data implements Serializable {
     sb.append("class InlineResponse20083Data {\n");
     sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
     sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
-    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    suspended: ").append(toIndentedString(suspended)).append("\n");
+    sb.append("    tradingStatus: ").append(toIndentedString(tradingStatus)).append("\n");
+    sb.append("    priceDelay: ").append(toIndentedString(priceDelay)).append("\n");
+    sb.append("    tickSize: ").append(toIndentedString(tickSize)).append("\n");
+    sb.append("    lotSize: ").append(toIndentedString(lotSize)).append("\n");
     sb.append("    market: ").append(toIndentedString(market)).append("\n");
-    sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
-    sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
-    sb.append("    first: ").append(toIndentedString(first)).append("\n");
-    sb.append("    low: ").append(toIndentedString(low)).append("\n");
-    sb.append("    high: ").append(toIndentedString(high)).append("\n");
-    sb.append("    previousClose: ").append(toIndentedString(previousClose)).append("\n");
-    sb.append("    accumulated: ").append(toIndentedString(accumulated)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    regional: ").append(toIndentedString(regional)).append("\n");
     sb.append("}");
     return sb.toString();
   }

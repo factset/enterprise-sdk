@@ -21,6 +21,7 @@ import StatusObject from './StatusObject';
 class ErrorMetaObject {
     /**
      * Constructs a new <code>ErrorMetaObject</code>.
+     * The meta member contains the meta information of the response.
      * @alias module:model/ErrorMetaObject
      */
     constructor() { 

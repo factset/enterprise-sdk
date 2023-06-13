@@ -57,34 +57,34 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactRelationshipDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP_CATEGORY = "RelationshipCategory";
+  public static final String JSON_PROPERTY_RELATIONSHIP_CATEGORY = "relationshipCategory";
   private RelationshipCategoryIdNameDto relationshipCategory;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP = "Relationship";
+  public static final String JSON_PROPERTY_RELATIONSHIP = "relationship";
   private RelationshipIdNameDto relationship;
 
-  public static final String JSON_PROPERTY_CONTACT = "Contact";
+  public static final String JSON_PROPERTY_CONTACT = "contact";
   private ContactIdNameDto contact;
 
-  public static final String JSON_PROPERTY_SYMBOL = "Symbol";
+  public static final String JSON_PROPERTY_SYMBOL = "symbol";
   private RelationshipSymbolSummaryDto symbol;
 
-  public static final String JSON_PROPERTY_IS_CURRENT = "IsCurrent";
+  public static final String JSON_PROPERTY_IS_CURRENT = "isCurrent";
   private Boolean isCurrent;
 
-  public static final String JSON_PROPERTY_START = "Start";
+  public static final String JSON_PROPERTY_START = "start";
   private JsonNullable<OffsetDateTime> start = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String JSON_PROPERTY_END = "End";
+  public static final String JSON_PROPERTY_END = "end";
   private JsonNullable<OffsetDateTime> end = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String JSON_PROPERTY_TITLE = "Title";
+  public static final String JSON_PROPERTY_TITLE = "title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_COMMENT = "Comment";
+  public static final String JSON_PROPERTY_COMMENT = "comment";
   private JsonNullable<String> comment = JsonNullable.<String>undefined();
 
   public ContactRelationshipDto() { 

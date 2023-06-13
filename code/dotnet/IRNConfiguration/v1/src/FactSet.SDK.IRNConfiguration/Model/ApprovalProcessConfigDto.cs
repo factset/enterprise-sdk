@@ -61,61 +61,61 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets ApprovalLevels
         /// </summary>
-        [DataMember(Name = "ApprovalLevels", EmitDefaultValue = true)]
+        [DataMember(Name = "approvalLevels", EmitDefaultValue = true)]
         public List<ApprovalLevelConfigDto> ApprovalLevels { get; set; }
 
         /// <summary>
         /// Gets or Sets ViewerIds
         /// </summary>
-        [DataMember(Name = "ViewerIds", EmitDefaultValue = true)]
+        [DataMember(Name = "viewerIds", EmitDefaultValue = true)]
         public List<Guid> ViewerIds { get; set; }
 
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsWhenSubmittedForApproval
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsWhenSubmittedForApproval", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsWhenSubmittedForApproval", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsWhenSubmittedForApproval { get; set; }
 
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsWhenApproved
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsWhenApproved", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsWhenApproved", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsWhenApproved { get; set; }
 
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsWhenDenied
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsWhenDenied", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsWhenDenied", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsWhenDenied { get; set; }
 
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsToAuthor
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsToAuthor", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsToAuthor", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsToAuthor { get; set; }
 
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsToApprovers
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsToApprovers", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsToApprovers", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsToApprovers { get; set; }
 
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsToViewers
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsToViewers", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsToViewers", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsToViewers { get; set; }
 
         /// <summary>
         /// Gets or Sets CanAuthorSelfApprove
         /// </summary>
-        [DataMember(Name = "CanAuthorSelfApprove", EmitDefaultValue = true)]
+        [DataMember(Name = "canAuthorSelfApprove", EmitDefaultValue = true)]
         public bool CanAuthorSelfApprove { get; set; }
 
         /// <summary>
         /// Gets or Sets CanAuthorEditPending
         /// </summary>
-        [DataMember(Name = "CanAuthorEditPending", EmitDefaultValue = true)]
+        [DataMember(Name = "canAuthorEditPending", EmitDefaultValue = true)]
         public bool CanAuthorEditPending { get; set; }
 
         /// <summary>

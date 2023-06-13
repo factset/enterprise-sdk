@@ -46,23 +46,23 @@ class RecordChangeDto {
         if (data) {
             obj = obj || new RecordChangeDto();
 
-            if (data.hasOwnProperty('Field')) {
-                obj['Field'] = ApiClient.convertToType(data['Field'], 'String');
+            if (data.hasOwnProperty('field')) {
+                obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('Operation')) {
-                obj['Operation'] = ApiClient.convertToType(data['Operation'], 'String');
+            if (data.hasOwnProperty('operation')) {
+                obj['operation'] = ApiClient.convertToType(data['operation'], 'String');
             }
-            if (data.hasOwnProperty('OldValue')) {
-                obj['OldValue'] = ApiClient.convertToType(data['OldValue'], 'String');
+            if (data.hasOwnProperty('oldValue')) {
+                obj['oldValue'] = ApiClient.convertToType(data['oldValue'], 'String');
             }
-            if (data.hasOwnProperty('NewValue')) {
-                obj['NewValue'] = ApiClient.convertToType(data['NewValue'], 'String');
+            if (data.hasOwnProperty('newValue')) {
+                obj['newValue'] = ApiClient.convertToType(data['newValue'], 'String');
             }
-            if (data.hasOwnProperty('OldList')) {
-                obj['OldList'] = ApiClient.convertToType(data['OldList'], ['String']);
+            if (data.hasOwnProperty('oldList')) {
+                obj['oldList'] = ApiClient.convertToType(data['oldList'], ['String']);
             }
-            if (data.hasOwnProperty('NewList')) {
-                obj['NewList'] = ApiClient.convertToType(data['NewList'], ['String']);
+            if (data.hasOwnProperty('newList')) {
+                obj['newList'] = ApiClient.convertToType(data['newList'], ['String']);
             }
         }
         return obj;
@@ -72,34 +72,34 @@ class RecordChangeDto {
 }
 
 /**
- * @member {String} Field
+ * @member {String} field
  */
-RecordChangeDto.prototype['Field'] = undefined;
+RecordChangeDto.prototype['field'] = undefined;
 
 /**
- * @member {String} Operation
+ * @member {String} operation
  */
-RecordChangeDto.prototype['Operation'] = undefined;
+RecordChangeDto.prototype['operation'] = undefined;
 
 /**
- * @member {String} OldValue
+ * @member {String} oldValue
  */
-RecordChangeDto.prototype['OldValue'] = undefined;
+RecordChangeDto.prototype['oldValue'] = undefined;
 
 /**
- * @member {String} NewValue
+ * @member {String} newValue
  */
-RecordChangeDto.prototype['NewValue'] = undefined;
+RecordChangeDto.prototype['newValue'] = undefined;
 
 /**
- * @member {Array.<String>} OldList
+ * @member {Array.<String>} oldList
  */
-RecordChangeDto.prototype['OldList'] = undefined;
+RecordChangeDto.prototype['oldList'] = undefined;
 
 /**
- * @member {Array.<String>} NewList
+ * @member {Array.<String>} newList
  */
-RecordChangeDto.prototype['NewList'] = undefined;
+RecordChangeDto.prototype['newList'] = undefined;
 
 
 

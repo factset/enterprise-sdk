@@ -12,12 +12,16 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20082DataCurrency from './InlineResponse20082DataCurrency';
-import InlineResponse20082DataValueUnit from './InlineResponse20082DataValueUnit';
-import InlineResponse20083Market from './InlineResponse20083Market';
-import InlineResponse20083Status from './InlineResponse20083Status';
-import InlineResponse20085Ask from './InlineResponse20085Ask';
-import InlineResponse20085Bid from './InlineResponse20085Bid';
+import InlineResponse20084DataCurrency from './InlineResponse20084DataCurrency';
+import InlineResponse20084DataValueUnit from './InlineResponse20084DataValueUnit';
+import InlineResponse20085Accumulated from './InlineResponse20085Accumulated';
+import InlineResponse20085First from './InlineResponse20085First';
+import InlineResponse20085High from './InlineResponse20085High';
+import InlineResponse20085Latest from './InlineResponse20085Latest';
+import InlineResponse20085Low from './InlineResponse20085Low';
+import InlineResponse20085Market from './InlineResponse20085Market';
+import InlineResponse20085PreviousClose from './InlineResponse20085PreviousClose';
+import InlineResponse20085Status from './InlineResponse20085Status';
 
 /**
  * The InlineResponse20085Data model module.
@@ -59,25 +63,37 @@ class InlineResponse20085Data {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
             if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = InlineResponse20082DataValueUnit.constructFromObject(data['valueUnit']);
+                obj['valueUnit'] = InlineResponse20084DataValueUnit.constructFromObject(data['valueUnit']);
             }
             if (data.hasOwnProperty('currency')) {
-                obj['currency'] = InlineResponse20082DataCurrency.constructFromObject(data['currency']);
+                obj['currency'] = InlineResponse20084DataCurrency.constructFromObject(data['currency']);
             }
             if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse20083Market.constructFromObject(data['market']);
+                obj['market'] = InlineResponse20085Market.constructFromObject(data['market']);
             }
             if (data.hasOwnProperty('quality')) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('bid')) {
-                obj['bid'] = InlineResponse20085Bid.constructFromObject(data['bid']);
+            if (data.hasOwnProperty('latest')) {
+                obj['latest'] = InlineResponse20085Latest.constructFromObject(data['latest']);
             }
-            if (data.hasOwnProperty('ask')) {
-                obj['ask'] = InlineResponse20085Ask.constructFromObject(data['ask']);
+            if (data.hasOwnProperty('first')) {
+                obj['first'] = InlineResponse20085First.constructFromObject(data['first']);
+            }
+            if (data.hasOwnProperty('low')) {
+                obj['low'] = InlineResponse20085Low.constructFromObject(data['low']);
+            }
+            if (data.hasOwnProperty('high')) {
+                obj['high'] = InlineResponse20085High.constructFromObject(data['high']);
+            }
+            if (data.hasOwnProperty('previousClose')) {
+                obj['previousClose'] = InlineResponse20085PreviousClose.constructFromObject(data['previousClose']);
+            }
+            if (data.hasOwnProperty('accumulated')) {
+                obj['accumulated'] = InlineResponse20085Accumulated.constructFromObject(data['accumulated']);
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = InlineResponse20083Status.constructFromObject(data['status']);
+                obj['status'] = InlineResponse20085Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -99,17 +115,17 @@ InlineResponse20085Data.prototype['idNotation'] = undefined;
 InlineResponse20085Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataValueUnit} valueUnit
+ * @member {module:model/InlineResponse20084DataValueUnit} valueUnit
  */
 InlineResponse20085Data.prototype['valueUnit'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataCurrency} currency
+ * @member {module:model/InlineResponse20084DataCurrency} currency
  */
 InlineResponse20085Data.prototype['currency'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20083Market} market
+ * @member {module:model/InlineResponse20085Market} market
  */
 InlineResponse20085Data.prototype['market'] = undefined;
 
@@ -120,17 +136,37 @@ InlineResponse20085Data.prototype['market'] = undefined;
 InlineResponse20085Data.prototype['quality'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20085Bid} bid
+ * @member {module:model/InlineResponse20085Latest} latest
  */
-InlineResponse20085Data.prototype['bid'] = undefined;
+InlineResponse20085Data.prototype['latest'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20085Ask} ask
+ * @member {module:model/InlineResponse20085First} first
  */
-InlineResponse20085Data.prototype['ask'] = undefined;
+InlineResponse20085Data.prototype['first'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20083Status} status
+ * @member {module:model/InlineResponse20085Low} low
+ */
+InlineResponse20085Data.prototype['low'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085High} high
+ */
+InlineResponse20085Data.prototype['high'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085PreviousClose} previousClose
+ */
+InlineResponse20085Data.prototype['previousClose'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085Accumulated} accumulated
+ */
+InlineResponse20085Data.prototype['accumulated'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085Status} status
  */
 InlineResponse20085Data.prototype['status'] = undefined;
 

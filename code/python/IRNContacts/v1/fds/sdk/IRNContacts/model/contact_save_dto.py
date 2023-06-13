@@ -125,19 +125,19 @@ class ContactSaveDto(ModelNormal):
 
 
     attribute_map = {
-        'primary_email_address': 'PrimaryEmailAddress',  # noqa: E501
-        'full_name': 'FullName',  # noqa: E501
-        'notes': 'Notes',  # noqa: E501
-        'linked_in_profile': 'LinkedInProfile',  # noqa: E501
-        'person_symbol': 'PersonSymbol',  # noqa: E501
-        'role_id': 'RoleId',  # noqa: E501
-        'type_id': 'TypeId',  # noqa: E501
-        'address': 'Address',  # noqa: E501
-        'phone_numbers': 'PhoneNumbers',  # noqa: E501
-        'left_relationships': 'LeftRelationships',  # noqa: E501
-        'right_relationships': 'RightRelationships',  # noqa: E501
-        'alternative_email_addresses': 'AlternativeEmailAddresses',  # noqa: E501
-        'custom_fields': 'CustomFields',  # noqa: E501
+        'primary_email_address': 'primaryEmailAddress',  # noqa: E501
+        'full_name': 'fullName',  # noqa: E501
+        'notes': 'notes',  # noqa: E501
+        'linked_in_profile': 'linkedInProfile',  # noqa: E501
+        'person_symbol': 'personSymbol',  # noqa: E501
+        'role_id': 'roleId',  # noqa: E501
+        'type_id': 'typeId',  # noqa: E501
+        'address': 'address',  # noqa: E501
+        'phone_numbers': 'phoneNumbers',  # noqa: E501
+        'left_relationships': 'leftRelationships',  # noqa: E501
+        'right_relationships': 'rightRelationships',  # noqa: E501
+        'alternative_email_addresses': 'alternativeEmailAddresses',  # noqa: E501
+        'custom_fields': 'customFields',  # noqa: E501
     }
 
     read_only_vars = {

@@ -50,25 +50,25 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class SaveCustomSymbolTypeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_HIDE_ADDRESS_FIELD = "HideAddressField";
+  public static final String JSON_PROPERTY_HIDE_ADDRESS_FIELD = "hideAddressField";
   private Boolean hideAddressField;
 
-  public static final String JSON_PROPERTY_HIDE_SYMBOL_SUBTYPE = "HideSymbolSubtype";
+  public static final String JSON_PROPERTY_HIDE_SYMBOL_SUBTYPE = "hideSymbolSubtype";
   private Boolean hideSymbolSubtype;
 
-  public static final String JSON_PROPERTY_IS_DEFAULT = "IsDefault";
+  public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
   private Boolean isDefault = false;
 
-  public static final String JSON_PROPERTY_DUE_DILIGENCE_SYMBOL_ENTITY_TYPE = "DueDiligenceSymbolEntityType";
+  public static final String JSON_PROPERTY_DUE_DILIGENCE_SYMBOL_ENTITY_TYPE = "dueDiligenceSymbolEntityType";
   private EntityType dueDiligenceSymbolEntityType;
 
-  public static final String JSON_PROPERTY_SUB_TYPES = "SubTypes";
+  public static final String JSON_PROPERTY_SUB_TYPES = "subTypes";
   private JsonNullable<java.util.List<String>> subTypes = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_IDS = "CustomFieldIds";
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_IDS = "customFieldIds";
   private JsonNullable<java.util.List<java.util.UUID>> customFieldIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
   public SaveCustomSymbolTypeDto() { 

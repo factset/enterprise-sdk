@@ -86,9 +86,9 @@ class HeadlineFormatConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'name': 'Name',  # noqa: E501
-        'custom_string': 'CustomString',  # noqa: E501
-        'custom_field_name': 'CustomFieldName',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'custom_string': 'customString',  # noqa: E501
+        'custom_field_name': 'customFieldName',  # noqa: E501
     }
 
     read_only_vars = {

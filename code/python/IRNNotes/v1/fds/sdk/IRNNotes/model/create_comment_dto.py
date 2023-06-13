@@ -86,9 +86,9 @@ class CreateCommentDto(ModelNormal):
 
 
     attribute_map = {
-        'author_id': 'AuthorId',  # noqa: E501
-        'parent_comment_id': 'ParentCommentId',  # noqa: E501
-        'body': 'Body',  # noqa: E501
+        'author_id': 'authorId',  # noqa: E501
+        'parent_comment_id': 'parentCommentId',  # noqa: E501
+        'body': 'body',  # noqa: E501
     }
 
     read_only_vars = {

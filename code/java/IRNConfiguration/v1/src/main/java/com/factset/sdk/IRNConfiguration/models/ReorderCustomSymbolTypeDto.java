@@ -43,7 +43,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ReorderCustomSymbolTypeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_IDS = "Ids";
+  public static final String JSON_PROPERTY_IDS = "ids";
   private JsonNullable<java.util.List<java.util.UUID>> ids = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
   public ReorderCustomSymbolTypeDto() { 

@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse20038DataCategories from './InlineResponse20038DataCategories';
-import InlineResponse20091InstrumentNsin from './InlineResponse20091InstrumentNsin';
+import InlineResponse20093InstrumentNsin from './InlineResponse20093InstrumentNsin';
 
 /**
  * The InlineResponse20093Instrument model module.
@@ -59,7 +59,7 @@ class InlineResponse20093Instrument {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
             if (data.hasOwnProperty('nsin')) {
-                obj['nsin'] = InlineResponse20091InstrumentNsin.constructFromObject(data['nsin']);
+                obj['nsin'] = InlineResponse20093InstrumentNsin.constructFromObject(data['nsin']);
             }
             if (data.hasOwnProperty('assetClass')) {
                 obj['assetClass'] = ApiClient.convertToType(data['assetClass'], 'String');
@@ -75,25 +75,25 @@ class InlineResponse20093Instrument {
 }
 
 /**
- * Identifier of the instrument.
+ * Identifier of the instrument of the notation.
  * @member {String} id
  */
 InlineResponse20093Instrument.prototype['id'] = undefined;
 
 /**
- * Name of the instrument.
+ * Asset class-unspecific name in English.
  * @member {String} name
  */
 InlineResponse20093Instrument.prototype['name'] = undefined;
 
 /**
- * International Securities Identification Number of the instrument.
+ * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
  * @member {String} isin
  */
 InlineResponse20093Instrument.prototype['isin'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20091InstrumentNsin} nsin
+ * @member {module:model/InlineResponse20093InstrumentNsin} nsin
  */
 InlineResponse20093Instrument.prototype['nsin'] = undefined;
 

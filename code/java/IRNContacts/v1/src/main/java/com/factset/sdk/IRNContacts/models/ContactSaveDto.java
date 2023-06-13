@@ -61,43 +61,43 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_PRIMARY_EMAIL_ADDRESS = "PrimaryEmailAddress";
+  public static final String JSON_PROPERTY_PRIMARY_EMAIL_ADDRESS = "primaryEmailAddress";
   private JsonNullable<String> primaryEmailAddress = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FULL_NAME = "FullName";
+  public static final String JSON_PROPERTY_FULL_NAME = "fullName";
   private JsonNullable<String> fullName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NOTES = "Notes";
+  public static final String JSON_PROPERTY_NOTES = "notes";
   private JsonNullable<String> notes = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_LINKED_IN_PROFILE = "LinkedInProfile";
+  public static final String JSON_PROPERTY_LINKED_IN_PROFILE = "linkedInProfile";
   private JsonNullable<URI> linkedInProfile = JsonNullable.<URI>undefined();
 
-  public static final String JSON_PROPERTY_PERSON_SYMBOL = "PersonSymbol";
+  public static final String JSON_PROPERTY_PERSON_SYMBOL = "personSymbol";
   private JsonNullable<String> personSymbol = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ROLE_ID = "RoleId";
+  public static final String JSON_PROPERTY_ROLE_ID = "roleId";
   private java.util.UUID roleId;
 
-  public static final String JSON_PROPERTY_TYPE_ID = "TypeId";
+  public static final String JSON_PROPERTY_TYPE_ID = "typeId";
   private java.util.UUID typeId;
 
-  public static final String JSON_PROPERTY_ADDRESS = "Address";
+  public static final String JSON_PROPERTY_ADDRESS = "address";
   private ContactAddressDto address;
 
-  public static final String JSON_PROPERTY_PHONE_NUMBERS = "PhoneNumbers";
+  public static final String JSON_PROPERTY_PHONE_NUMBERS = "phoneNumbers";
   private JsonNullable<java.util.List<ContactPhoneSaveDto>> phoneNumbers = JsonNullable.<java.util.List<ContactPhoneSaveDto>>undefined();
 
-  public static final String JSON_PROPERTY_LEFT_RELATIONSHIPS = "LeftRelationships";
+  public static final String JSON_PROPERTY_LEFT_RELATIONSHIPS = "leftRelationships";
   private JsonNullable<java.util.List<ContactRelationshipSaveDto>> leftRelationships = JsonNullable.<java.util.List<ContactRelationshipSaveDto>>undefined();
 
-  public static final String JSON_PROPERTY_RIGHT_RELATIONSHIPS = "RightRelationships";
+  public static final String JSON_PROPERTY_RIGHT_RELATIONSHIPS = "rightRelationships";
   private JsonNullable<java.util.List<ContactRelationshipSaveDto>> rightRelationships = JsonNullable.<java.util.List<ContactRelationshipSaveDto>>undefined();
 
-  public static final String JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES = "AlternativeEmailAddresses";
+  public static final String JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES = "alternativeEmailAddresses";
   private JsonNullable<java.util.List<AlternativeEmailAddressDto>> alternativeEmailAddresses = JsonNullable.<java.util.List<AlternativeEmailAddressDto>>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "CustomFields";
+  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "customFields";
   private JsonNullable<java.util.List<ContactCustomFieldValueSaveDto>> customFields = JsonNullable.<java.util.List<ContactCustomFieldValueSaveDto>>undefined();
 
   public ContactSaveDto() { 

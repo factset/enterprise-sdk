@@ -43,7 +43,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets SplitType
         /// </summary>
-        [DataMember(Name = "SplitType", EmitDefaultValue = true)]
+        [DataMember(Name = "splitType", EmitDefaultValue = true)]
         public string SplitType { get; set; }
 
         /// <summary>

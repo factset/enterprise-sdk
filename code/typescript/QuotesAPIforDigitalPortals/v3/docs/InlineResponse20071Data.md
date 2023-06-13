@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idNotation** | **String** | MDG identifier of the listing. | [optional] 
-**sourceIdentifier** | **String** | Identifier used in the request. | [optional] 
-**instrument** | [**InlineResponse20071DataInstrument**](InlineResponse20071DataInstrument.md) |  | [optional] 
-**permanentIdentifier** | **String** | FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S). | [optional] 
-**regional** | [**InlineResponse20071DataRegional**](InlineResponse20071DataRegional.md) |  | [optional] 
+**id** | **String** | Identifier of the notation. | [optional] 
+**active** | **Boolean** | Indicates whether the notation is active. | [optional] 
+**market** | [**InlineResponse20068DataMarket**](InlineResponse20068DataMarket.md) |  | [optional] 
+**valueUnit** | [**InlineResponse20068DataValueUnit**](InlineResponse20068DataValueUnit.md) |  | [optional] 
+**fsym** | [**InlineResponse20046NotationFsym**](InlineResponse20046NotationFsym.md) |  | [optional] 
+**instrument** | [**InlineResponse20071Instrument**](InlineResponse20071Instrument.md) |  | [optional] 
 
 

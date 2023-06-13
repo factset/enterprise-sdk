@@ -50,28 +50,28 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class RelationshipSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP_CATEGORY_ID = "RelationshipCategoryId";
+  public static final String JSON_PROPERTY_RELATIONSHIP_CATEGORY_ID = "relationshipCategoryId";
   private java.util.UUID relationshipCategoryId;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP_CODE = "RelationshipCode";
+  public static final String JSON_PROPERTY_RELATIONSHIP_CODE = "relationshipCode";
   private JsonNullable<String> relationshipCode = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_BIDIRECTIONAL_NAME = "BidirectionalName";
+  public static final String JSON_PROPERTY_BIDIRECTIONAL_NAME = "bidirectionalName";
   private JsonNullable<String> bidirectionalName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_LEFT_TO_RIGHT_NAME = "LeftToRightName";
+  public static final String JSON_PROPERTY_LEFT_TO_RIGHT_NAME = "leftToRightName";
   private JsonNullable<String> leftToRightName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_RIGHT_TO_LEFT_NAME = "RightToLeftName";
+  public static final String JSON_PROPERTY_RIGHT_TO_LEFT_NAME = "rightToLeftName";
   private JsonNullable<String> rightToLeftName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_HIDE_DATES = "HideDates";
+  public static final String JSON_PROPERTY_HIDE_DATES = "hideDates";
   private Boolean hideDates = false;
 
-  public static final String JSON_PROPERTY_HIDE_COMMENT = "HideComment";
+  public static final String JSON_PROPERTY_HIDE_COMMENT = "hideComment";
   private Boolean hideComment = false;
 
-  public static final String JSON_PROPERTY_HIDE_COMPANY = "HideCompany";
+  public static final String JSON_PROPERTY_HIDE_COMPANY = "hideCompany";
   private Boolean hideCompany = false;
 
   public RelationshipSaveDto() { 

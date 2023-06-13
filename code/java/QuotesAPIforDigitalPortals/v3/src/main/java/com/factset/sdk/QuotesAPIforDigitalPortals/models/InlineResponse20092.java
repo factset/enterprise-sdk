@@ -65,11 +65,11 @@ public class InlineResponse20092 implements Serializable {
   }
 
    /**
-   * List of matching and selected notations.
+   * List of instruments.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of matching and selected notations.")
+  @ApiModelProperty(value = "List of instruments.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

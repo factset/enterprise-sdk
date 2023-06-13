@@ -49,25 +49,25 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
-        [DataMember(Name = "FileName", EmitDefaultValue = true)]
+        [DataMember(Name = "fileName", EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets MimeType
         /// </summary>
-        [DataMember(Name = "MimeType", EmitDefaultValue = true)]
+        [DataMember(Name = "mimeType", EmitDefaultValue = true)]
         public string MimeType { get; set; }
 
         /// <summary>
         /// Gets or Sets Size
         /// </summary>
-        [DataMember(Name = "Size", EmitDefaultValue = true)]
+        [DataMember(Name = "size", EmitDefaultValue = true)]
         public long? Size { get; set; }
 
         /// <summary>

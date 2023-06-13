@@ -43,7 +43,7 @@ public class InlineResponse20077 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<InlineResponse20077Data> data = null;
+  private InlineResponse20077Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse200Meta meta;
@@ -51,36 +51,28 @@ public class InlineResponse20077 implements Serializable {
   public InlineResponse20077() { 
   }
 
-  public InlineResponse20077 data(java.util.List<InlineResponse20077Data> data) {
+  public InlineResponse20077 data(InlineResponse20077Data data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse20077 addDataItem(InlineResponse20077Data dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.ArrayList<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * EOD key figures for a list of notations.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "EOD key figures for a list of notations.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20077Data> getData() {
+  public InlineResponse20077Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<InlineResponse20077Data> data) {
+  public void setData(InlineResponse20077Data data) {
     this.data = data;
   }
 

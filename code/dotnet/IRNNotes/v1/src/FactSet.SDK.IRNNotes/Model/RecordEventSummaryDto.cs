@@ -47,19 +47,19 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>

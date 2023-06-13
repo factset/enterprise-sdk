@@ -2,6 +2,7 @@
 
 # PostInstrumentBackgroundTextTypeListRequest
 
+Request Body
 
 ## Properties
 

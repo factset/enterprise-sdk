@@ -94,12 +94,12 @@ class RelationshipCategoryDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'name': 'Name',  # noqa: E501
-        'is_standard': 'IsStandard',  # noqa: E501
-        'is_contact_to_contact': 'IsContactToContact',  # noqa: E501
-        'is_contact_to_symbol': 'IsContactToSymbol',  # noqa: E501
-        'relationships': 'Relationships',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'is_standard': 'isStandard',  # noqa: E501
+        'is_contact_to_contact': 'isContactToContact',  # noqa: E501
+        'is_contact_to_symbol': 'isContactToSymbol',  # noqa: E501
+        'relationships': 'relationships',  # noqa: E501
     }
 
     read_only_vars = {

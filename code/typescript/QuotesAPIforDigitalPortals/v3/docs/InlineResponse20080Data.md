@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Identifier of a market. | [optional] 
-**name** | **String** | Name of the market. | [optional] 
-**shortName** | **String** | Short name of the market. | [optional] 
-**country** | [**InlineResponse20080Country**](InlineResponse20080Country.md) |  | [optional] 
-**type** | [**InlineResponse20080Type**](InlineResponse20080Type.md) |  | [optional] 
-**group** | [**InlineResponse20080Group**](InlineResponse20080Group.md) |  | [optional] 
-**timezone** | [**InlineResponse20080Timezone**](InlineResponse20080Timezone.md) |  | [optional] 
-**count** | **Number** | Number of entitled notations. | [optional] 
+**idNotation** | **String** | MDG identifier of the listing. | [optional] 
+**sourceIdentifier** | **String** | Identifier used in the request. | [optional] 
+**referenceDate** | **Date** | Reference date of the time range. | [optional] 
+**performance** | [**InlineResponse20075DataPerformance**](InlineResponse20075DataPerformance.md) |  | [optional] 
+**high** | [**InlineResponse20075DataHigh**](InlineResponse20075DataHigh.md) |  | [optional] 
+**low** | [**InlineResponse20075DataLow**](InlineResponse20075DataLow.md) |  | [optional] 
+**volatility** | **Number** | Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year. | [optional] 
+**status** | [**InlineResponse20076Status**](InlineResponse20076Status.md) |  | [optional] 
 
 

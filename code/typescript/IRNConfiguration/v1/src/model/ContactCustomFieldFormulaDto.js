@@ -46,14 +46,14 @@ class ContactCustomFieldFormulaDto {
         if (data) {
             obj = obj || new ContactCustomFieldFormulaDto();
 
-            if (data.hasOwnProperty('Formula')) {
-                obj['Formula'] = ApiClient.convertToType(data['Formula'], 'String');
+            if (data.hasOwnProperty('formula')) {
+                obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
             }
-            if (data.hasOwnProperty('IsScreening')) {
-                obj['IsScreening'] = ApiClient.convertToType(data['IsScreening'], 'Boolean');
+            if (data.hasOwnProperty('isScreening')) {
+                obj['isScreening'] = ApiClient.convertToType(data['isScreening'], 'Boolean');
             }
-            if (data.hasOwnProperty('Symbol')) {
-                obj['Symbol'] = ApiClient.convertToType(data['Symbol'], 'String');
+            if (data.hasOwnProperty('symbol')) {
+                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
         }
         return obj;
@@ -63,20 +63,20 @@ class ContactCustomFieldFormulaDto {
 }
 
 /**
- * @member {String} Formula
+ * @member {String} formula
  */
-ContactCustomFieldFormulaDto.prototype['Formula'] = undefined;
+ContactCustomFieldFormulaDto.prototype['formula'] = undefined;
 
 /**
- * @member {Boolean} IsScreening
+ * @member {Boolean} isScreening
  * @default false
  */
-ContactCustomFieldFormulaDto.prototype['IsScreening'] = false;
+ContactCustomFieldFormulaDto.prototype['isScreening'] = false;
 
 /**
- * @member {String} Symbol
+ * @member {String} symbol
  */
-ContactCustomFieldFormulaDto.prototype['Symbol'] = undefined;
+ContactCustomFieldFormulaDto.prototype['symbol'] = undefined;
 
 
 

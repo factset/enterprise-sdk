@@ -88,11 +88,11 @@ class RatingConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'ratings_visible_to_author': 'RatingsVisibleToAuthor',  # noqa: E501
-        'ratings_visible_to_viewers': 'RatingsVisibleToViewers',  # noqa: E501
-        'ratings_visible_to_all': 'RatingsVisibleToAll',  # noqa: E501
-        'viewer_ids': 'ViewerIds',  # noqa: E501
-        'option_values': 'OptionValues',  # noqa: E501
+        'ratings_visible_to_author': 'ratingsVisibleToAuthor',  # noqa: E501
+        'ratings_visible_to_viewers': 'ratingsVisibleToViewers',  # noqa: E501
+        'ratings_visible_to_all': 'ratingsVisibleToAll',  # noqa: E501
+        'viewer_ids': 'viewerIds',  # noqa: E501
+        'option_values': 'optionValues',  # noqa: E501
     }
 
     read_only_vars = {

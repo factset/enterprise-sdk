@@ -46,14 +46,14 @@ class TeamSummaryDto {
         if (data) {
             obj = obj || new TeamSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class TeamSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-TeamSummaryDto.prototype['Id'] = undefined;
+TeamSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-TeamSummaryDto.prototype['Name'] = undefined;
+TeamSummaryDto.prototype['name'] = undefined;
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-TeamSummaryDto.prototype['Code'] = undefined;
+TeamSummaryDto.prototype['code'] = undefined;
 
 
 

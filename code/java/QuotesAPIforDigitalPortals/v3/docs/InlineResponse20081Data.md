@@ -2,6 +2,7 @@
 
 # InlineResponse20081Data
 
+Average end-of-day (EOD) key figures for various time ranges.
 
 ## Properties
 
@@ -9,12 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **idNotation** | **String** | MDG identifier of the listing. |  [optional]
 **sourceIdentifier** | **String** | Identifier used in the request. |  [optional]
-**suspended** | **Boolean** | Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;. |  [optional]
-**tradingStatus** | **String** | Market-specific code of the trading status and/or the suspension of the notation. |  [optional]
-**priceDelay** | **BigDecimal** | Exchange-imposed delay in seconds for delayed-quality tick data. |  [optional]
-**tickSize** | **BigDecimal** | The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint &#x60;/notation/get&#x60; for the value unit of the &#x60;tickSize&#x60; for this notation. |  [optional]
-**lotSize** | **BigDecimal** | he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value. |  [optional]
-**market** | [**InlineResponse20081DataMarket**](InlineResponse20081DataMarket.md) |  |  [optional]
+**price** | [**InlineResponse20081DataPrice**](InlineResponse20081DataPrice.md) |  |  [optional]
+**volume** | [**InlineResponse20081DataVolume**](InlineResponse20081DataVolume.md) |  |  [optional]
+**value** | [**InlineResponse20081DataValue**](InlineResponse20081DataValue.md) |  |  [optional]
 
 
 ## Implemented Interfaces

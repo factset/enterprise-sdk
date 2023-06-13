@@ -35,7 +35,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets DueDiligenceSymbolEntityType
         /// </summary>
-        [DataMember(Name = "DueDiligenceSymbolEntityType", EmitDefaultValue = false)]
+        [DataMember(Name = "dueDiligenceSymbolEntityType", EmitDefaultValue = false)]
         public EntityType? DueDiligenceSymbolEntityType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomSymbolTypeDetailDto" /> class.
@@ -61,37 +61,37 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets HideAddressField
         /// </summary>
-        [DataMember(Name = "HideAddressField", EmitDefaultValue = true)]
+        [DataMember(Name = "hideAddressField", EmitDefaultValue = true)]
         public bool HideAddressField { get; set; }
 
         /// <summary>
         /// Gets or Sets HideSymbolSubType
         /// </summary>
-        [DataMember(Name = "HideSymbolSubType", EmitDefaultValue = true)]
+        [DataMember(Name = "hideSymbolSubType", EmitDefaultValue = true)]
         public bool HideSymbolSubType { get; set; }
 
         /// <summary>
         /// Gets or Sets IsDefault
         /// </summary>
-        [DataMember(Name = "IsDefault", EmitDefaultValue = true)]
+        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 
         /// <summary>
         /// Gets or Sets SubTypes
         /// </summary>
-        [DataMember(Name = "SubTypes", EmitDefaultValue = true)]
+        [DataMember(Name = "subTypes", EmitDefaultValue = true)]
         public List<CustomSymbolSubTypeDto> SubTypes { get; set; }
 
         /// <summary>

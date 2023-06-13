@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse20082Data from './InlineResponse20082Data';
-import InlineResponse200Meta from './InlineResponse200Meta';
+import InlineResponse2009Meta from './InlineResponse2009Meta';
 
 /**
  * The InlineResponse20082 model module.
@@ -49,10 +49,10 @@ class InlineResponse20082 {
             obj = obj || new InlineResponse20082();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = InlineResponse20082Data.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20082Data]);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse2009Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,12 +62,13 @@ class InlineResponse20082 {
 }
 
 /**
- * @member {module:model/InlineResponse20082Data} data
+ * List of entitled markets.
+ * @member {Array.<module:model/InlineResponse20082Data>} data
  */
 InlineResponse20082.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200Meta} meta
+ * @member {module:model/InlineResponse2009Meta} meta
  */
 InlineResponse20082.prototype['meta'] = undefined;
 

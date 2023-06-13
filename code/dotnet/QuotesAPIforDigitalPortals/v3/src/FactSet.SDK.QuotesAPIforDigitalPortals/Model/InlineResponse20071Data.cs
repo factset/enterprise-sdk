@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// Instrument data with a list of regional-level data and assigned listing-level data.
+    /// InlineResponse20071Data
     /// </summary>
     [DataContract(Name = "inline_response_200_71_data")]
     public partial class InlineResponse20071Data : IEquatable<InlineResponse20071Data>, IValidatableObject
@@ -34,52 +34,59 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20071Data" /> class.
         /// </summary>
-        /// <param name="idNotation">MDG identifier of the listing..</param>
-        /// <param name="sourceIdentifier">Identifier used in the request..</param>
+        /// <param name="id">Identifier of the notation..</param>
+        /// <param name="active">Indicates whether the notation is active..</param>
+        /// <param name="market">market.</param>
+        /// <param name="valueUnit">valueUnit.</param>
+        /// <param name="fsym">fsym.</param>
         /// <param name="instrument">instrument.</param>
-        /// <param name="permanentIdentifier">FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S)..</param>
-        /// <param name="regional">regional.</param>
-        public InlineResponse20071Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20071DataInstrument instrument = default(InlineResponse20071DataInstrument), string permanentIdentifier = default(string), InlineResponse20071DataRegional regional = default(InlineResponse20071DataRegional))
+        public InlineResponse20071Data(string id = default(string), bool? active = default(bool?), InlineResponse20068DataMarket market = default(InlineResponse20068DataMarket), InlineResponse20068DataValueUnit valueUnit = default(InlineResponse20068DataValueUnit), InlineResponse20046NotationFsym fsym = default(InlineResponse20046NotationFsym), InlineResponse20071Instrument instrument = default(InlineResponse20071Instrument))
         {
-            this.IdNotation = idNotation;
-            this.SourceIdentifier = sourceIdentifier;
+            this.Id = id;
+            this.Active = active;
+            this.Market = market;
+            this.ValueUnit = valueUnit;
+            this.Fsym = fsym;
             this.Instrument = instrument;
-            this.PermanentIdentifier = permanentIdentifier;
-            this.Regional = regional;
         }
 
         /// <summary>
-        /// MDG identifier of the listing.
+        /// Identifier of the notation.
         /// </summary>
-        /// <value>MDG identifier of the listing.</value>
-        [DataMember(Name = "idNotation", EmitDefaultValue = true)]
-        public string IdNotation { get; set; }
+        /// <value>Identifier of the notation.</value>
+        [DataMember(Name = "id", EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Identifier used in the request.
+        /// Indicates whether the notation is active.
         /// </summary>
-        /// <value>Identifier used in the request.</value>
-        [DataMember(Name = "sourceIdentifier", EmitDefaultValue = true)]
-        public string SourceIdentifier { get; set; }
+        /// <value>Indicates whether the notation is active.</value>
+        [DataMember(Name = "active", EmitDefaultValue = true)]
+        public bool? Active { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Market
+        /// </summary>
+        [DataMember(Name = "market", EmitDefaultValue = false)]
+        public InlineResponse20068DataMarket Market { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ValueUnit
+        /// </summary>
+        [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
+        public InlineResponse20068DataValueUnit ValueUnit { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Fsym
+        /// </summary>
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse20046NotationFsym Fsym { get; set; }
 
         /// <summary>
         /// Gets or Sets Instrument
         /// </summary>
         [DataMember(Name = "instrument", EmitDefaultValue = false)]
-        public InlineResponse20071DataInstrument Instrument { get; set; }
-
-        /// <summary>
-        /// FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
-        /// </summary>
-        /// <value>FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).</value>
-        [DataMember(Name = "permanentIdentifier", EmitDefaultValue = true)]
-        public string PermanentIdentifier { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Regional
-        /// </summary>
-        [DataMember(Name = "regional", EmitDefaultValue = false)]
-        public InlineResponse20071DataRegional Regional { get; set; }
+        public InlineResponse20071Instrument Instrument { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,11 +96,12 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20071Data {\n");
-            sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
-            sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Active: ").Append(Active).Append("\n");
+            sb.Append("  Market: ").Append(Market).Append("\n");
+            sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
-            sb.Append("  PermanentIdentifier: ").Append(PermanentIdentifier).Append("\n");
-            sb.Append("  Regional: ").Append(Regional).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,29 +138,34 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.IdNotation == input.IdNotation ||
-                    (this.IdNotation != null &&
-                    this.IdNotation.Equals(input.IdNotation))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.SourceIdentifier == input.SourceIdentifier ||
-                    (this.SourceIdentifier != null &&
-                    this.SourceIdentifier.Equals(input.SourceIdentifier))
+                    this.Active == input.Active ||
+                    (this.Active != null &&
+                    this.Active.Equals(input.Active))
+                ) && 
+                (
+                    this.Market == input.Market ||
+                    (this.Market != null &&
+                    this.Market.Equals(input.Market))
+                ) && 
+                (
+                    this.ValueUnit == input.ValueUnit ||
+                    (this.ValueUnit != null &&
+                    this.ValueUnit.Equals(input.ValueUnit))
+                ) && 
+                (
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
                 ) && 
                 (
                     this.Instrument == input.Instrument ||
                     (this.Instrument != null &&
                     this.Instrument.Equals(input.Instrument))
-                ) && 
-                (
-                    this.PermanentIdentifier == input.PermanentIdentifier ||
-                    (this.PermanentIdentifier != null &&
-                    this.PermanentIdentifier.Equals(input.PermanentIdentifier))
-                ) && 
-                (
-                    this.Regional == input.Regional ||
-                    (this.Regional != null &&
-                    this.Regional.Equals(input.Regional))
                 );
         }
 
@@ -165,25 +178,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdNotation != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.IdNotation.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.SourceIdentifier != null)
+                if (this.Active != null)
                 {
-                    hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Active.GetHashCode();
+                }
+                if (this.Market != null)
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
+                if (this.ValueUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
+                if (this.Fsym != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
                 }
                 if (this.Instrument != null)
                 {
                     hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
-                }
-                if (this.PermanentIdentifier != null)
-                {
-                    hashCode = (hashCode * 59) + this.PermanentIdentifier.GetHashCode();
-                }
-                if (this.Regional != null)
-                {
-                    hashCode = (hashCode * 59) + this.Regional.GetHashCode();
                 }
                 return hashCode;
             }

@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20036Fsym;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20055DataValidity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -40,7 +39,6 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
  */
 @JsonPropertyOrder({
   InlineResponse20058Data.JSON_PROPERTY_ID,
-  InlineResponse20058Data.JSON_PROPERTY_FSYM,
   InlineResponse20058Data.JSON_PROPERTY_VALIDITY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -49,9 +47,6 @@ public class InlineResponse20058Data implements Serializable {
 
   public static final String JSON_PROPERTY_ID = "id";
   private JsonNullable<String> id = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_FSYM = "fsym";
-  private InlineResponse20036Fsym fsym;
 
   public static final String JSON_PROPERTY_VALIDITY = "validity";
   private JsonNullable<InlineResponse20055DataValidity> validity = JsonNullable.<InlineResponse20055DataValidity>undefined();
@@ -90,32 +85,6 @@ public class InlineResponse20058Data implements Serializable {
 
   public void setId(String id) {
     this.id = JsonNullable.<String>of(id);
-  }
-
-
-  public InlineResponse20058Data fsym(InlineResponse20036Fsym fsym) {
-    this.fsym = fsym;
-    return this;
-  }
-
-   /**
-   * Get fsym
-   * @return fsym
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20036Fsym getFsym() {
-    return fsym;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsym(InlineResponse20036Fsym fsym) {
-    this.fsym = fsym;
   }
 
 
@@ -166,7 +135,6 @@ public class InlineResponse20058Data implements Serializable {
     }
     InlineResponse20058Data inlineResponse20058Data = (InlineResponse20058Data) o;
     return equalsNullable(this.id, inlineResponse20058Data.id) &&
-        Objects.equals(this.fsym, inlineResponse20058Data.fsym) &&
         equalsNullable(this.validity, inlineResponse20058Data.validity);
   }
 
@@ -176,7 +144,7 @@ public class InlineResponse20058Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), fsym, hashCodeNullable(validity));
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(validity));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -191,7 +159,6 @@ public class InlineResponse20058Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20058Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("    validity: ").append(toIndentedString(validity)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -32,8 +32,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * PostBasicDeliveryListRequest
+ * Request Body
  */
+@ApiModel(description = "Request Body")
 @JsonPropertyOrder({
   PostBasicDeliveryListRequest.JSON_PROPERTY_DATA,
   PostBasicDeliveryListRequest.JSON_PROPERTY_META

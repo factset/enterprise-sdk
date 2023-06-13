@@ -17,9 +17,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20067DataMarket;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091Nsin;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20093Instrument;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20093Nsin;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20093Price;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,13 +37,14 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse20093Data
+ * The data member contains a list of the matching notations.
  */
+@ApiModel(description = "The data member contains a list of the matching notations.")
 @JsonPropertyOrder({
   InlineResponse20093Data.JSON_PROPERTY_ID,
-  InlineResponse20093Data.JSON_PROPERTY_MARKET,
   InlineResponse20093Data.JSON_PROPERTY_SYMBOL,
   InlineResponse20093Data.JSON_PROPERTY_NSIN,
+  InlineResponse20093Data.JSON_PROPERTY_PRICE,
   InlineResponse20093Data.JSON_PROPERTY_INSTRUMENT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -53,14 +54,14 @@ public class InlineResponse20093Data implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private JsonNullable<String> id = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20067DataMarket market;
-
   public static final String JSON_PROPERTY_SYMBOL = "symbol";
   private JsonNullable<String> symbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NSIN = "nsin";
-  private InlineResponse20091Nsin nsin;
+  private InlineResponse20093Nsin nsin;
+
+  public static final String JSON_PROPERTY_PRICE = "price";
+  private InlineResponse20093Price price;
 
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse20093Instrument instrument;
@@ -74,11 +75,11 @@ public class InlineResponse20093Data implements Serializable {
   }
 
    /**
-   * Identifier of a notation.
+   * Identifier of the notation.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a notation.")
+  @ApiModelProperty(value = "Identifier of the notation.")
   @JsonIgnore
 
   public String getId() {
@@ -99,32 +100,6 @@ public class InlineResponse20093Data implements Serializable {
 
   public void setId(String id) {
     this.id = JsonNullable.<String>of(id);
-  }
-
-
-  public InlineResponse20093Data market(InlineResponse20067DataMarket market) {
-    this.market = market;
-    return this;
-  }
-
-   /**
-   * Get market
-   * @return market
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20067DataMarket getMarket() {
-    return market;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20067DataMarket market) {
-    this.market = market;
   }
 
 
@@ -162,7 +137,7 @@ public class InlineResponse20093Data implements Serializable {
   }
 
 
-  public InlineResponse20093Data nsin(InlineResponse20091Nsin nsin) {
+  public InlineResponse20093Data nsin(InlineResponse20093Nsin nsin) {
     this.nsin = nsin;
     return this;
   }
@@ -176,15 +151,41 @@ public class InlineResponse20093Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20091Nsin getNsin() {
+  public InlineResponse20093Nsin getNsin() {
     return nsin;
   }
 
 
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNsin(InlineResponse20091Nsin nsin) {
+  public void setNsin(InlineResponse20093Nsin nsin) {
     this.nsin = nsin;
+  }
+
+
+  public InlineResponse20093Data price(InlineResponse20093Price price) {
+    this.price = price;
+    return this;
+  }
+
+   /**
+   * Get price
+   * @return price
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PRICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20093Price getPrice() {
+    return price;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PRICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPrice(InlineResponse20093Price price) {
+    this.price = price;
   }
 
 
@@ -227,9 +228,9 @@ public class InlineResponse20093Data implements Serializable {
     }
     InlineResponse20093Data inlineResponse20093Data = (InlineResponse20093Data) o;
     return equalsNullable(this.id, inlineResponse20093Data.id) &&
-        Objects.equals(this.market, inlineResponse20093Data.market) &&
         equalsNullable(this.symbol, inlineResponse20093Data.symbol) &&
         Objects.equals(this.nsin, inlineResponse20093Data.nsin) &&
+        Objects.equals(this.price, inlineResponse20093Data.price) &&
         Objects.equals(this.instrument, inlineResponse20093Data.instrument);
   }
 
@@ -239,7 +240,7 @@ public class InlineResponse20093Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), market, hashCodeNullable(symbol), nsin, instrument);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(symbol), nsin, price, instrument);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -254,9 +255,9 @@ public class InlineResponse20093Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20093Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
     sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
     sb.append("}");
     return sb.toString();

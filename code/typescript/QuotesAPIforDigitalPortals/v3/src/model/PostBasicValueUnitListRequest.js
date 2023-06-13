@@ -22,6 +22,7 @@ import PostBasicValueUnitListRequestMeta from './PostBasicValueUnitListRequestMe
 class PostBasicValueUnitListRequest {
     /**
      * Constructs a new <code>PostBasicValueUnitListRequest</code>.
+     * Request Body
      * @alias module:model/PostBasicValueUnitListRequest
      */
     constructor() { 

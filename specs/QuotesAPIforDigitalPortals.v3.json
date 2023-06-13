@@ -76,13 +76,15 @@
         "summary": "List of background text types.",
         "description": "List of background text types.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicBackgroundTextTypeListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -170,13 +172,15 @@
         "summary": "List of deliveries.",
         "description": "List of deliveries.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicDeliveryListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -553,13 +557,15 @@
         "description": "List of markets.",
         "summary": "List of markets.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicMarketListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -796,13 +802,15 @@
         "description": "List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.",
         "summary": "List of Internet media types.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicMediaTypeListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -832,13 +840,15 @@
         "summary": "List of operating market identifier codes (MIC).",
         "description": "List of operating market identifier codes (MIC).",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicMicOperatingListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -1503,13 +1513,15 @@
         "description": "List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.",
         "summary": "List of timezones.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicTimezoneListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -1608,13 +1620,15 @@
         "summary": "List of value units.",
         "description": "List of value units.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicValueUnitListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -1724,13 +1738,15 @@
         "summary": "List of currencies.",
         "description": "List of currencies.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicValueUnitCurrencyListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -1909,13 +1925,15 @@
         "summary": "List of main currencies.",
         "description": "List of main currencies.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostBasicValueUnitCurrencyMainListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -2973,13 +2991,15 @@
         "summary": "List of background text types for instruments.",
         "description": "List of background text types for instruments.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostInstrumentBackgroundTextTypeListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -3009,13 +3029,15 @@
         "summary": "List of benchmarks of a financial instrument.",
         "description": "Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostInstrumentBenchmarkListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -3045,13 +3067,15 @@
         "summary": "List of categories assigned to a specific instrument the application is entitled to see.",
         "description": "List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostInstrumentCategoryListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -3081,13 +3105,15 @@
         "summary": "List of compliance properties for instruments.",
         "description": "List of compliance properties for instruments.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostInstrumentCompliancePropertyListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -3623,13 +3649,15 @@
         "description": "Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.",
         "summary": "Translate a list of ISINs to instruments.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostInstrumentCrossReferenceListByISINRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3659,13 +3687,15 @@
         "description": "Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.",
         "summary": "Translate a list of WKNs to instruments.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostInstrumentCrossReferenceListByWKNRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4232,13 +4262,15 @@
         "summary": "List of active, entitled notations for a set of instruments.",
         "description": "List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostInstrumentNotationListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -4268,13 +4300,15 @@
         "description": "List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.",
         "summary": "List of rating grades for a list of instruments.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostInstrumentRatingGradeListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -4309,7 +4343,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -4412,7 +4446,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -4481,6 +4515,44 @@
             "$ref": "#/components/responses/GetNotationList200Response"
           }
         }
+      }
+    },
+    "/notation/category/list": {
+      "post": {
+        "tags": [
+          "notation"
+        ],
+        "operationId": "post/notation/category/list",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 2,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.",
+        "summary": "List of categories assigned to a specific notation the application is entitled to see.",
+        "requestBody": {
+          "description": "Request Body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostNotationCategoryListRequest"
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/PostNotationCategoryList200Response"
+          }
+        },
+        "parameters": []
       }
     },
     "/notation/crossReference/getByFactSetMarketSymbol": {
@@ -4574,13 +4646,15 @@
         "summary": "List of entitled notations.",
         "description": "List of entitled notations.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostNotationCrossReferenceListByInstrumentRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -4610,13 +4684,15 @@
         "summary": "List of entitled notations.",
         "description": "List of entitled notations.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostNotationCrossReferenceListByISINRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -4646,13 +4722,15 @@
         "summary": "List of entitled notations.",
         "description": "List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostNotationCrossReferenceListBySymbolRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -4687,7 +4765,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -4764,13 +4842,15 @@
         "summary": "Retrieve a list of notations for a given FactSet identifier.",
         "description": "<p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4800,13 +4880,15 @@
         "summary": "Retrieve a list of FactSet identifiers for a given instrument.",
         "description": "<p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4841,7 +4923,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -4931,7 +5013,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -5014,7 +5096,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -5104,7 +5186,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -5187,7 +5269,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -5277,7 +5359,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -5360,7 +5442,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -5450,7 +5532,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -5533,7 +5615,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -5623,7 +5705,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -5706,7 +5788,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -5796,7 +5878,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -5879,7 +5961,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -5969,7 +6051,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -6052,7 +6134,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -6142,7 +6224,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -6225,7 +6307,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -6315,7 +6397,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -6398,7 +6480,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -6488,7 +6570,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -6546,6 +6628,88 @@
         }
       }
     },
+    "/notation/keyFigures/tradingDay/average/get": {
+      "get": {
+        "tags": [
+          "notation"
+        ],
+        "operationId": "get/notation/keyFigures/tradingDay/average/get",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.",
+        "summary": "Average end-of-day (EOD) key figures for different trading days periods.",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
+              "maxLength": 50,
+              "exclusiveMaximum": false,
+              "minLength": 3,
+              "exclusiveMinimum": false,
+              "description": "Identifier to resolve."
+            },
+            "required": true
+          },
+          {
+            "name": "identifierType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "description": "Type of the identifier.",
+              "x-enum-description": [
+                "MDG identifier of a listing.",
+                "FactSet market symbol of a listing.",
+                "Regional FactSet ticker symbol, identifying the primary listing in the region.",
+                "FactSet Permanent Identifier on listing level.",
+                "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
+              ],
+              "enum": [
+                "idNotation",
+                "tickerExchange",
+                "tickerRegion",
+                "fdsPermanentIdentifierListing",
+                "fdsPermanentIdentifierRegional"
+              ]
+            },
+            "required": true
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100,
+                "exclusiveMaximum": false
+              },
+              "uniqueItems": true,
+              "maxItems": 50
+            },
+            "style": "form",
+            "explode": false,
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetNotationKeyFiguresTradingDayAverageGet200Response"
+          }
+        }
+      }
+    },
     "/notation/market/list": {
       "post": {
         "tags": [
@@ -6566,13 +6730,15 @@
         "description": "List of markets with entitled notations. The list contains only markets with at least one active and entitled notation. \nAll identifiers used as parameters must be valid and entitled.",
         "summary": "List of markets with entitled notations.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostNotationMarketListRequest"
               }
             }
-          }
+          },
+          "required": false
         },
         "responses": {
           "200": {
@@ -6599,7 +6765,7 @@
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
         "x-supportsPermissionDeniedResponse": false,
-        "description": "Intraday trading status of a notation.",
+        "description": "Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.",
         "summary": "Intraday trading status of a notation.",
         "parameters": [
           {
@@ -6607,7 +6773,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -6709,7 +6875,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -6847,7 +7013,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -6962,7 +7128,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -7100,7 +7266,7 @@
                 "exclusiveMinimum": false,
                 "maxLength": 50,
                 "exclusiveMaximum": false,
-                "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$"
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$"
               },
               "uniqueItems": true,
               "minItems": 1,
@@ -7215,7 +7381,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -7347,7 +7513,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+              "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
               "maxLength": 50,
               "exclusiveMaximum": false,
               "minLength": 3,
@@ -7474,13 +7640,15 @@
         "summary": "Sequence of market-related events.",
         "description": "Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostPricesTradingScheduleEventListRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -7911,13 +8079,15 @@
         "summary": "Text-based search for notations.",
         "description": "Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.     \n The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.",
         "requestBody": {
+          "description": "Request Body",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PostNotationSearchByTextRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -8129,6 +8299,7 @@
     "schemas": {
       "ErrorMetaObject": {
         "type": "object",
+        "description": "The meta member contains the meta information of the response.",
         "properties": {
           "status": {
             "$ref": "#/components/schemas/StatusObject"
@@ -8178,7 +8349,7 @@
             }
           },
           "x-property-sort": [
-            "detail",
+            "details",
             "encryptedDetails",
             "type",
             "attribute"
@@ -8332,6 +8503,11 @@
         ]
       },
       "PostBasicBackgroundTextTypeListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8380,6 +8556,11 @@
         }
       },
       "PostBasicDeliveryListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8445,6 +8626,11 @@
         }
       },
       "PostBasicMarketListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8566,6 +8752,11 @@
         }
       },
       "PostBasicMediaTypeListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8633,6 +8824,11 @@
         }
       },
       "PostBasicMicOperatingListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8731,6 +8927,11 @@
         }
       },
       "PostBasicTimezoneListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8779,6 +8980,11 @@
         }
       },
       "PostBasicValueUnitListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8850,6 +9056,11 @@
         }
       },
       "PostBasicValueUnitCurrencyListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8921,6 +9132,11 @@
         }
       },
       "PostBasicValueUnitCurrencyMainListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -8992,6 +9208,11 @@
         }
       },
       "PostInstrumentBackgroundTextTypeListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -9043,6 +9264,11 @@
         }
       },
       "PostInstrumentBenchmarkListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -9103,6 +9329,11 @@
         }
       },
       "PostInstrumentCategoryListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -9186,6 +9417,11 @@
         }
       },
       "PostInstrumentCompliancePropertyListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -9237,6 +9473,11 @@
         }
       },
       "PostInstrumentCrossReferenceListByISINRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "required": [
           "data"
         ],
@@ -9281,6 +9522,11 @@
         }
       },
       "PostInstrumentCrossReferenceListByWKNRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "required": [
           "data"
         ],
@@ -9329,6 +9575,11 @@
         }
       },
       "PostInstrumentNotationListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -9603,6 +9854,11 @@
         }
       },
       "PostInstrumentRatingGradeListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -9674,7 +9930,123 @@
           }
         }
       },
+      "PostNotationCategoryListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "x-property-sort": [
+              "identifier",
+              "identifierType",
+              "filter"
+            ],
+            "description": "The data member contains the request's primary data.",
+            "properties": {
+              "identifier": {
+                "type": "string",
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
+                "maxLength": 50,
+                "exclusiveMaximum": false,
+                "minLength": 3,
+                "exclusiveMinimum": false,
+                "description": "Identifier to resolve."
+              },
+              "identifierType": {
+                "type": "string",
+                "description": "Type of the identifier.",
+                "x-enum-description": [
+                  "MDG identifier of a listing.",
+                  "FactSet market symbol of a listing.",
+                  "Regional FactSet ticker symbol, identifying the primary listing in the region.",
+                  "FactSet Permanent Identifier on listing level.",
+                  "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
+                ],
+                "enum": [
+                  "idNotation",
+                  "tickerExchange",
+                  "tickerRegion",
+                  "fdsPermanentIdentifierListing",
+                  "fdsPermanentIdentifierRegional"
+                ]
+              },
+              "filter": {
+                "type": "object",
+                "x-property-sort": [
+                  "dataset"
+                ],
+                "description": "Criteria that filter the items in the response list; only items that match all of the criteria are returned.",
+                "properties": {
+                  "dataset": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id"
+                    ],
+                    "description": "Filter the categories to only return values assigned by a dataset. See endpoint `/category/dataset/list` for valid values.",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true,
+                        "description": "Identifier of a category dataset."
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "identifier",
+              "identifierType"
+            ]
+          },
+          "meta": {
+            "type": "object",
+            "description": "The meta member contains the meta information of the request.",
+            "properties": {
+              "attributes": {
+                "$ref": "#/components/schemas/AttributesMember"
+              },
+              "language": {
+                "$ref": "#/components/schemas/LanguageMember"
+              },
+              "sort": {
+                "description": "Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "dataset.id",
+                    "-dataset.id",
+                    "dataset.name",
+                    "-dataset.name"
+                  ]
+                },
+                "maxItems": 2,
+                "uniqueItems": true,
+                "default": [
+                  "dataset.name"
+                ]
+              }
+            },
+            "x-property-sort": [
+              "attributes",
+              "language",
+              "sort"
+            ]
+          }
+        }
+      },
       "PostNotationCrossReferenceListByInstrumentRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -9695,7 +10067,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[SLR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})|([B-DF-HJ-NP-TV-Z0-9]{6}[0-9])|([A-Z]{2}[A-Z0-9]{9}[0-9])|([A-Z1-9][A-Z0-9]{5})|(0*[0-9]{1,9})|([A-Z0-9]{8}[0-9])$",
+                    "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[SLR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$|^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$|^[A-Z1-9][A-Z0-9]{5}$|^[0-9]{1,9}$|^[A-Z0-9]{8}[0-9]$",
                     "maxLength": 50,
                     "exclusiveMaximum": false,
                     "minLength": 3,
@@ -9822,6 +10194,11 @@
         }
       },
       "PostNotationCrossReferenceListByISINRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -9919,6 +10296,11 @@
         }
       },
       "PostNotationCrossReferenceListBySymbolRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -10019,6 +10401,11 @@
         }
       },
       "PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "required": [
           "data"
         ],
@@ -10033,7 +10420,7 @@
             "properties": {
               "symbologyIdentifier": {
                 "type": "string",
-                "pattern": "^(([0-9A-Z]{6}-[SLR])|([0-9A-Z]{1,47}-[A-Z]{2,4}))$",
+                "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[SLR]$|[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$",
                 "maxLength": 50,
                 "exclusiveMaximum": false,
                 "minLength": 4,
@@ -10064,6 +10451,11 @@
         }
       },
       "PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "required": [
           "data"
         ],
@@ -10086,7 +10478,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[SLR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})|([B-DF-HJ-NP-TV-Z0-9]{6}[0-9])|([A-Z]{2}[A-Z0-9]{9}[0-9])|([A-Z1-9][A-Z0-9]{5})|(0*[0-9]{1,9})|([A-Z0-9]{8}[0-9])$",
+                    "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[SLR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$|^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$|^[A-Z1-9][A-Z0-9]{5}$|^[0-9]{1,9}$|^[A-Z0-9]{8}[0-9]$",
                     "maxLength": 50,
                     "exclusiveMaximum": false,
                     "minLength": 3,
@@ -10155,6 +10547,11 @@
         }
       },
       "PostNotationMarketListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "type": "object",
         "properties": {
           "data": {
@@ -10329,6 +10726,11 @@
         }
       },
       "PostPricesTradingScheduleEventListRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "required": [
           "data"
         ],
@@ -10352,7 +10754,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "pattern": "^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$",
+                    "pattern": "^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$",
                     "maxLength": 50,
                     "exclusiveMaximum": false,
                     "minLength": 3,
@@ -10480,6 +10882,11 @@
         }
       },
       "PostNotationSearchByTextRequest": {
+        "x-property-sort": [
+          "data",
+          "meta"
+        ],
+        "description": "Request Body",
         "required": [
           "data"
         ],
@@ -10908,7 +11315,10 @@
                   }
                 }
               }
-            }
+            },
+            "required": [
+              "text"
+            ]
           },
           "meta": {
             "type": "object",
@@ -10994,7 +11404,11 @@
                 "errors": {
                   "$ref": "#/components/schemas/ErrorObject"
                 }
-              }
+              },
+              "x-property-sort": [
+                "meta",
+                "errors"
+              ]
             }
           }
         }
@@ -11051,7 +11465,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11108,7 +11526,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11167,7 +11589,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11227,7 +11653,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11279,7 +11709,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11325,7 +11759,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11373,7 +11811,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11435,7 +11877,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11588,7 +12034,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11764,7 +12214,11 @@
                     "pagination"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11827,7 +12281,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11882,7 +12340,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -11939,7 +12401,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12024,7 +12490,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12095,7 +12565,11 @@
                     "pagination"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12216,7 +12690,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12298,7 +12776,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12367,7 +12849,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12422,7 +12908,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12497,7 +12987,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12574,7 +13068,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12636,7 +13134,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12683,7 +13185,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12730,7 +13236,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12781,7 +13291,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12855,7 +13369,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -12944,7 +13462,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -13005,7 +13527,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -13092,7 +13618,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -13188,7 +13718,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -13299,7 +13833,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -13372,7 +13910,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -13538,7 +14080,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -13726,7 +14272,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -13886,7 +14436,11 @@
                     "pagination"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14014,7 +14568,11 @@
                     "pagination"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14136,7 +14694,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14216,7 +14778,11 @@
                     "partial"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14294,7 +14860,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14356,7 +14926,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14485,7 +15059,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14576,7 +15154,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14635,7 +15217,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14802,7 +15388,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -14977,7 +15567,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -15046,7 +15640,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -15105,7 +15703,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -15302,7 +15904,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -15396,7 +16002,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -15455,7 +16065,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -15514,7 +16128,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -15823,7 +16441,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16026,7 +16648,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16085,7 +16711,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16144,7 +16774,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16384,7 +17018,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16480,7 +17118,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16576,7 +17218,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16716,7 +17362,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16854,7 +17504,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16875,7 +17529,6 @@
                     "nullable": false,
                     "x-property-sort": [
                       "id",
-                      "fsym",
                       "validity"
                     ],
                     "properties": {
@@ -16885,31 +17538,6 @@
                         "format": "id64",
                         "x-positive": true,
                         "description": "Identifier of the instrument."
-                      },
-                      "fsym": {
-                        "nullable": false,
-                        "type": "object",
-                        "x-property-sort": [
-                          "security"
-                        ],
-                        "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
-                        "properties": {
-                          "security": {
-                            "nullable": false,
-                            "type": "object",
-                            "x-property-sort": [
-                              "permanentIdentifier"
-                            ],
-                            "description": "Security-level identifier.",
-                            "properties": {
-                              "permanentIdentifier": {
-                                "nullable": true,
-                                "type": "string",
-                                "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S)."
-                              }
-                            }
-                          }
-                        }
                       },
                       "validity": {
                         "nullable": true,
@@ -16958,7 +17586,11 @@
                     "pagination"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -16979,7 +17611,6 @@
                     "nullable": false,
                     "x-property-sort": [
                       "id",
-                      "fsym",
                       "validity"
                     ],
                     "properties": {
@@ -16989,31 +17620,6 @@
                         "format": "id64",
                         "x-positive": true,
                         "description": "Identifier of the instrument."
-                      },
-                      "fsym": {
-                        "nullable": false,
-                        "type": "object",
-                        "x-property-sort": [
-                          "security"
-                        ],
-                        "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
-                        "properties": {
-                          "security": {
-                            "nullable": false,
-                            "type": "object",
-                            "x-property-sort": [
-                              "permanentIdentifier"
-                            ],
-                            "description": "Security-level identifier.",
-                            "properties": {
-                              "permanentIdentifier": {
-                                "nullable": true,
-                                "type": "string",
-                                "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S)."
-                              }
-                            }
-                          }
-                        }
                       },
                       "validity": {
                         "nullable": true,
@@ -17062,7 +17668,11 @@
                     "pagination"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -17153,7 +17763,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -17244,7 +17858,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -17363,7 +17981,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -17480,7 +18102,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -19479,7 +20105,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -19744,7 +20374,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -19910,7 +20544,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -20049,7 +20687,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -20238,7 +20880,109 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
+            }
+          }
+        }
+      },
+      "PostNotationCategoryList200Response": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of datasets with their categories as assigned to the notation.",
+                  "nullable": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "nullable": false,
+                    "x-property-sort": [
+                      "dataset",
+                      "categories"
+                    ],
+                    "properties": {
+                      "dataset": {
+                        "nullable": false,
+                        "type": "object",
+                        "x-property-sort": [
+                          "id",
+                          "name"
+                        ],
+                        "description": "Category dataset of the assigned categories. For a list of possible values see endpoint `/category/dataset/list.`",
+                        "properties": {
+                          "id": {
+                            "nullable": true,
+                            "x-sortable": true,
+                            "type": "number",
+                            "format": "id32",
+                            "x-positive": true,
+                            "description": "Identifier of the category dataset."
+                          },
+                          "name": {
+                            "nullable": true,
+                            "x-sortable": true,
+                            "x-default-sort-attribute": true,
+                            "x-default-sort-direction": 1,
+                            "type": "string",
+                            "description": "Name of the category dataset in English."
+                          }
+                        }
+                      },
+                      "categories": {
+                        "nullable": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "nullable": false,
+                          "x-property-sort": [
+                            "id",
+                            "name"
+                          ],
+                          "properties": {
+                            "id": {
+                              "nullable": true,
+                              "type": "number",
+                              "format": "id32",
+                              "x-positive": true,
+                              "description": "Identifier of the category."
+                            },
+                            "name": {
+                              "nullable": true,
+                              "type": "string",
+                              "format": "localizedString",
+                              "description": "Name of the category."
+                            }
+                          }
+                        },
+                        "description": "List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed."
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/components/schemas/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -20359,7 +21103,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -20568,7 +21316,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -20753,7 +21505,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -20976,7 +21732,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -21103,7 +21863,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -21318,7 +22082,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -21515,7 +22283,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -21662,7 +22434,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -21861,7 +22637,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -22039,7 +22819,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -22269,7 +23053,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -22447,7 +23235,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -22677,7 +23469,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -22855,7 +23651,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -23085,7 +23885,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -23232,7 +24036,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -23431,7 +24239,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -23578,7 +24390,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -23777,7 +24593,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -23924,7 +24744,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -24123,7 +24947,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -24270,7 +25098,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -24469,7 +25301,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -24616,7 +25452,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -24815,7 +25655,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -24955,7 +25799,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -25147,7 +25995,218 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
+            }
+          }
+        }
+      },
+      "GetNotationKeyFiguresTradingDayAverageGet200Response": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Average end-of-day (EOD) key figures for various time ranges.",
+                  "nullable": false,
+                  "type": "object",
+                  "x-property-sort": [
+                    "idNotation",
+                    "sourceIdentifier",
+                    "price",
+                    "volume",
+                    "value"
+                  ],
+                  "properties": {
+                    "idNotation": {
+                      "nullable": true,
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true,
+                      "description": "MDG identifier of the listing."
+                    },
+                    "sourceIdentifier": {
+                      "nullable": true,
+                      "type": "string",
+                      "description": "Identifier used in the request."
+                    },
+                    "price": {
+                      "nullable": false,
+                      "type": "object",
+                      "x-property-sort": [
+                        "days5",
+                        "days20",
+                        "days30",
+                        "days38",
+                        "days50",
+                        "days100",
+                        "days200",
+                        "days250"
+                      ],
+                      "description": "Average price. See attribute `valueUnit` in endpoint `/notation/get` for its unit.",
+                      "properties": {
+                        "days5": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "Five trading days."
+                        },
+                        "days20": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "20 trading days."
+                        },
+                        "days30": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "30 trading days."
+                        },
+                        "days38": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "38 trading days."
+                        },
+                        "days50": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "50 trading days."
+                        },
+                        "days100": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "100 trading days."
+                        },
+                        "days200": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "200 trading days."
+                        },
+                        "days250": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "250 trading days."
+                        }
+                      }
+                    },
+                    "volume": {
+                      "nullable": false,
+                      "type": "object",
+                      "x-property-sort": [
+                        "days5",
+                        "days30",
+                        "days50",
+                        "days100",
+                        "days200",
+                        "days250"
+                      ],
+                      "description": "Average trading volume.",
+                      "properties": {
+                        "days5": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "Five trading days."
+                        },
+                        "days30": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "30 trading days."
+                        },
+                        "days50": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "50 trading days."
+                        },
+                        "days100": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "100 trading days."
+                        },
+                        "days200": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "200 trading days."
+                        },
+                        "days250": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "250 trading days."
+                        }
+                      }
+                    },
+                    "value": {
+                      "nullable": false,
+                      "type": "object",
+                      "x-property-sort": [
+                        "days5",
+                        "days30",
+                        "days100",
+                        "days250"
+                      ],
+                      "description": "Average trading value. See attribute `valueUnit` in endpoint `/notation/get` for its unit.",
+                      "properties": {
+                        "days5": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "Five trading days."
+                        },
+                        "days30": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "30 trading days."
+                        },
+                        "days100": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "100 trading days."
+                        },
+                        "days250": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "250 trading days."
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/components/schemas/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -25320,7 +26379,11 @@
                     "pagination"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -25344,7 +26407,8 @@
                     "priceDelay",
                     "tickSize",
                     "lotSize",
-                    "market"
+                    "market",
+                    "regional"
                   ],
                   "properties": {
                     "idNotation": {
@@ -25417,6 +26481,39 @@
                           "description": "Market-specific code of the current market phase."
                         }
                       }
+                    },
+                    "regional": {
+                      "nullable": false,
+                      "type": "object",
+                      "x-property-sort": [
+                        "us"
+                      ],
+                      "description": "Region-specific trading indicators.",
+                      "properties": {
+                        "us": {
+                          "nullable": false,
+                          "type": "object",
+                          "x-property-sort": [
+                            "caveatEmptor",
+                            "proprietaryQuoteEligible"
+                          ],
+                          "description": "Trading indicators specific to the United States.",
+                          "properties": {
+                            "caveatEmptor": {
+                              "nullable": true,
+                              "x-pushable": true,
+                              "type": "boolean",
+                              "description": "Indicates whether a Caveat Emptor (Buyer Beware) warning has been applied to the security."
+                            },
+                            "proprietaryQuoteEligible": {
+                              "nullable": true,
+                              "x-pushable": true,
+                              "type": "boolean",
+                              "description": "Security is eligible for proprietary quoting under SEC Rule 15c-211."
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 },
@@ -25432,7 +26529,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -25840,7 +26941,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -26262,7 +27367,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -26487,7 +27596,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -26752,7 +27865,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -26941,7 +28058,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -27160,7 +28281,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -27285,7 +28410,11 @@
                     "pagination"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -27342,7 +28471,11 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -27505,7 +28638,11 @@
                     "partial"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -27699,7 +28836,11 @@
                     "partial"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -28087,7 +29228,11 @@
                     "partial"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -28281,7 +29426,11 @@
                     "partial"
                   ]
                 }
-              }
+              },
+              "x-property-sort": [
+                "data",
+                "meta"
+              ]
             }
           }
         }
@@ -28344,6 +29493,6 @@
     "url": "https://endpointreference.mdgms.com"
   },
   "x-interface-version": 2,
-  "x-documenter-version": "6.3.0",
-  "x-api-version": "4.0.2"
+  "x-documenter-version": "6.3.4",
+  "x-api-version": "4.2.0"
 }

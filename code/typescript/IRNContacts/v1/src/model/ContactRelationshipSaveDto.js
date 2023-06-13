@@ -46,29 +46,29 @@ class ContactRelationshipSaveDto {
         if (data) {
             obj = obj || new ContactRelationshipSaveDto();
 
-            if (data.hasOwnProperty('RelationshipId')) {
-                obj['RelationshipId'] = ApiClient.convertToType(data['RelationshipId'], 'String');
+            if (data.hasOwnProperty('relationshipId')) {
+                obj['relationshipId'] = ApiClient.convertToType(data['relationshipId'], 'String');
             }
-            if (data.hasOwnProperty('ContactId')) {
-                obj['ContactId'] = ApiClient.convertToType(data['ContactId'], 'String');
+            if (data.hasOwnProperty('contactId')) {
+                obj['contactId'] = ApiClient.convertToType(data['contactId'], 'String');
             }
-            if (data.hasOwnProperty('Start')) {
-                obj['Start'] = ApiClient.convertToType(data['Start'], 'Date');
+            if (data.hasOwnProperty('start')) {
+                obj['start'] = ApiClient.convertToType(data['start'], 'Date');
             }
-            if (data.hasOwnProperty('End')) {
-                obj['End'] = ApiClient.convertToType(data['End'], 'Date');
+            if (data.hasOwnProperty('end')) {
+                obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
-            if (data.hasOwnProperty('Comment')) {
-                obj['Comment'] = ApiClient.convertToType(data['Comment'], 'String');
+            if (data.hasOwnProperty('comment')) {
+                obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
-            if (data.hasOwnProperty('IsCurrent')) {
-                obj['IsCurrent'] = ApiClient.convertToType(data['IsCurrent'], 'Boolean');
+            if (data.hasOwnProperty('isCurrent')) {
+                obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('Symbol')) {
-                obj['Symbol'] = ApiClient.convertToType(data['Symbol'], 'String');
+            if (data.hasOwnProperty('symbol')) {
+                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('Title')) {
-                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
         }
         return obj;
@@ -78,44 +78,44 @@ class ContactRelationshipSaveDto {
 }
 
 /**
- * @member {String} RelationshipId
+ * @member {String} relationshipId
  */
-ContactRelationshipSaveDto.prototype['RelationshipId'] = undefined;
+ContactRelationshipSaveDto.prototype['relationshipId'] = undefined;
 
 /**
- * @member {String} ContactId
+ * @member {String} contactId
  */
-ContactRelationshipSaveDto.prototype['ContactId'] = undefined;
+ContactRelationshipSaveDto.prototype['contactId'] = undefined;
 
 /**
- * @member {Date} Start
+ * @member {Date} start
  */
-ContactRelationshipSaveDto.prototype['Start'] = undefined;
+ContactRelationshipSaveDto.prototype['start'] = undefined;
 
 /**
- * @member {Date} End
+ * @member {Date} end
  */
-ContactRelationshipSaveDto.prototype['End'] = undefined;
+ContactRelationshipSaveDto.prototype['end'] = undefined;
 
 /**
- * @member {String} Comment
+ * @member {String} comment
  */
-ContactRelationshipSaveDto.prototype['Comment'] = undefined;
+ContactRelationshipSaveDto.prototype['comment'] = undefined;
 
 /**
- * @member {Boolean} IsCurrent
+ * @member {Boolean} isCurrent
  */
-ContactRelationshipSaveDto.prototype['IsCurrent'] = undefined;
+ContactRelationshipSaveDto.prototype['isCurrent'] = undefined;
 
 /**
- * @member {String} Symbol
+ * @member {String} symbol
  */
-ContactRelationshipSaveDto.prototype['Symbol'] = undefined;
+ContactRelationshipSaveDto.prototype['symbol'] = undefined;
 
 /**
- * @member {String} Title
+ * @member {String} title
  */
-ContactRelationshipSaveDto.prototype['Title'] = undefined;
+ContactRelationshipSaveDto.prototype['title'] = undefined;
 
 
 

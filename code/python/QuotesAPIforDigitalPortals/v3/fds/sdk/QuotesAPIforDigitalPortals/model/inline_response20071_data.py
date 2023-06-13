@@ -30,10 +30,14 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20071_data_instrument import InlineResponse20071DataInstrument
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20071_data_regional import InlineResponse20071DataRegional
-    globals()['InlineResponse20071DataInstrument'] = InlineResponse20071DataInstrument
-    globals()['InlineResponse20071DataRegional'] = InlineResponse20071DataRegional
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20046_notation_fsym import InlineResponse20046NotationFsym
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068_data_market import InlineResponse20068DataMarket
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068_data_value_unit import InlineResponse20068DataValueUnit
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20071_instrument import InlineResponse20071Instrument
+    globals()['InlineResponse20046NotationFsym'] = InlineResponse20046NotationFsym
+    globals()['InlineResponse20068DataMarket'] = InlineResponse20068DataMarket
+    globals()['InlineResponse20068DataValueUnit'] = InlineResponse20068DataValueUnit
+    globals()['InlineResponse20071Instrument'] = InlineResponse20071Instrument
 
 
 class InlineResponse20071Data(ModelNormal):
@@ -89,11 +93,12 @@ class InlineResponse20071Data(ModelNormal):
         """
         lazy_import()
         return {
-            'id_notation': (str, none_type,),  # noqa: E501
-            'source_identifier': (str, none_type,),  # noqa: E501
-            'instrument': (InlineResponse20071DataInstrument,),  # noqa: E501
-            'permanent_identifier': (str, none_type,),  # noqa: E501
-            'regional': (InlineResponse20071DataRegional,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
+            'active': (bool, none_type,),  # noqa: E501
+            'market': (InlineResponse20068DataMarket,),  # noqa: E501
+            'value_unit': (InlineResponse20068DataValueUnit,),  # noqa: E501
+            'fsym': (InlineResponse20046NotationFsym,),  # noqa: E501
+            'instrument': (InlineResponse20071Instrument,),  # noqa: E501
         }
 
     @cached_property
@@ -102,11 +107,12 @@ class InlineResponse20071Data(ModelNormal):
 
 
     attribute_map = {
-        'id_notation': 'idNotation',  # noqa: E501
-        'source_identifier': 'sourceIdentifier',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'active': 'active',  # noqa: E501
+        'market': 'market',  # noqa: E501
+        'value_unit': 'valueUnit',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
         'instrument': 'instrument',  # noqa: E501
-        'permanent_identifier': 'permanentIdentifier',  # noqa: E501
-        'regional': 'regional',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,11 +156,12 @@ class InlineResponse20071Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
-            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            instrument (InlineResponse20071DataInstrument): [optional]  # noqa: E501
-            permanent_identifier (str, none_type): FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).. [optional]  # noqa: E501
-            regional (InlineResponse20071DataRegional): [optional]  # noqa: E501
+            id (str, none_type): Identifier of the notation.. [optional]  # noqa: E501
+            active (bool, none_type): Indicates whether the notation is active.. [optional]  # noqa: E501
+            market (InlineResponse20068DataMarket): [optional]  # noqa: E501
+            value_unit (InlineResponse20068DataValueUnit): [optional]  # noqa: E501
+            fsym (InlineResponse20046NotationFsym): [optional]  # noqa: E501
+            instrument (InlineResponse20071Instrument): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,11 +243,12 @@ class InlineResponse20071Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
-            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            instrument (InlineResponse20071DataInstrument): [optional]  # noqa: E501
-            permanent_identifier (str, none_type): FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).. [optional]  # noqa: E501
-            regional (InlineResponse20071DataRegional): [optional]  # noqa: E501
+            id (str, none_type): Identifier of the notation.. [optional]  # noqa: E501
+            active (bool, none_type): Indicates whether the notation is active.. [optional]  # noqa: E501
+            market (InlineResponse20068DataMarket): [optional]  # noqa: E501
+            value_unit (InlineResponse20068DataValueUnit): [optional]  # noqa: E501
+            fsym (InlineResponse20046NotationFsym): [optional]  # noqa: E501
+            instrument (InlineResponse20071Instrument): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -1,5 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.InlineResponse20088Data
-List of trading schedule events for a notation.
+Orderbook.
 
 ## Properties
 
@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IdNotation** | **string** | MDG identifier of the listing. | [optional] 
 **SourceIdentifier** | **string** | Identifier used in the request. | [optional] 
-**Range** | [**InlineResponse20088DataRange**](InlineResponse20088DataRange.md) |  | [optional] 
-**Events** | [**List&lt;InlineResponse20088DataEvents&gt;**](InlineResponse20088DataEvents.md) | List of trading schedule events. | [optional] 
+**Quality** | **string** | Quality of the price. | [optional] 
+**Asks** | [**List&lt;InlineResponse20088DataAsks&gt;**](InlineResponse20088DataAsks.md) | List of sell orders aggregated by price. | [optional] 
+**Bids** | [**List&lt;InlineResponse20088DataAsks&gt;**](InlineResponse20088DataAsks.md) | List of buy orders aggregated by price. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

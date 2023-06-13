@@ -58,37 +58,37 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets RelationshipCode
         /// </summary>
-        [DataMember(Name = "RelationshipCode", EmitDefaultValue = true)]
+        [DataMember(Name = "relationshipCode", EmitDefaultValue = true)]
         public string RelationshipCode { get; set; }
 
         /// <summary>
         /// Gets or Sets ParentToChildName
         /// </summary>
-        [DataMember(Name = "ParentToChildName", EmitDefaultValue = true)]
+        [DataMember(Name = "parentToChildName", EmitDefaultValue = true)]
         public string ParentToChildName { get; set; }
 
         /// <summary>
         /// Gets or Sets ChildToParentName
         /// </summary>
-        [DataMember(Name = "ChildToParentName", EmitDefaultValue = true)]
+        [DataMember(Name = "childToParentName", EmitDefaultValue = true)]
         public string ChildToParentName { get; set; }
 
         /// <summary>
         /// Gets or Sets PeerName
         /// </summary>
-        [DataMember(Name = "PeerName", EmitDefaultValue = true)]
+        [DataMember(Name = "peerName", EmitDefaultValue = true)]
         public string PeerName { get; set; }
 
         /// <summary>
         /// Gets or Sets HideDates
         /// </summary>
-        [DataMember(Name = "HideDates", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hideDates", IsRequired = true, EmitDefaultValue = true)]
         public bool HideDates { get; set; }
 
         /// <summary>
         /// Gets or Sets HideComment
         /// </summary>
-        [DataMember(Name = "HideComment", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hideComment", IsRequired = true, EmitDefaultValue = true)]
         public bool HideComment { get; set; }
 
         /// <summary>

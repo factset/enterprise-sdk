@@ -44,10 +44,10 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ApprovalLevelConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_APPROVER_IDS = "ApproverIds";
+  public static final String JSON_PROPERTY_APPROVER_IDS = "approverIds";
   private JsonNullable<java.util.List<java.util.UUID>> approverIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
   public ApprovalLevelConfigDto() { 

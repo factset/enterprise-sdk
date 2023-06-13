@@ -47,7 +47,7 @@ from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20061 import Inline
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20062 import InlineResponse20062
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20063 import InlineResponse20063
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20064 import InlineResponse20064
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20090 import InlineResponse20090
+from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20092 import InlineResponse20092
 from fds.sdk.QuotesAPIforDigitalPortals.model.post_instrument_background_text_type_list_request import PostInstrumentBackgroundTextTypeListRequest
 from fds.sdk.QuotesAPIforDigitalPortals.model.post_instrument_benchmark_list_request import PostInstrumentBenchmarkListRequest
 from fds.sdk.QuotesAPIforDigitalPortals.model.post_instrument_category_list_request import PostInstrumentCategoryListRequest
@@ -1488,7 +1488,7 @@ class InstrumentApi(object):
         self.get_instrument_search_basic_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20090,),  },
+                  { 200: (InlineResponse20092,),  },
                   None
                 ),
                 'auth': [
@@ -1875,7 +1875,9 @@ class InstrumentApi(object):
                 'all': [
                     'post_instrument_cross_reference_list_by_isin_request',
                 ],
-                'required': [],
+                'required': [
+                    'post_instrument_cross_reference_list_by_isin_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -1930,7 +1932,9 @@ class InstrumentApi(object):
                 'all': [
                     'post_instrument_cross_reference_list_by_wkn_request',
                 ],
-                'required': [],
+                'required': [
+                    'post_instrument_cross_reference_list_by_wkn_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -5596,7 +5600,7 @@ class InstrumentApi(object):
         self,
         search_value,
         **kwargs
-    ) -> InlineResponse20090:
+    ) -> InlineResponse20092:
         """Basic search for instruments.  # noqa: E501
 
         Search for instruments whose ISIN, specified NSINs, or name match the search value according to a tolerant full-text match algorithm. Better matching results appear in the response before less relevant matches.  # noqa: E501
@@ -5637,7 +5641,7 @@ class InstrumentApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20090
+            InlineResponse20092
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -5649,7 +5653,7 @@ class InstrumentApi(object):
         self,
         search_value,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20090, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20092, int, typing.MutableMapping]:
         """Basic search for instruments.  # noqa: E501
 
         Search for instruments whose ISIN, specified NSINs, or name match the search value according to a tolerant full-text match algorithm. Better matching results appear in the response before less relevant matches.  # noqa: E501
@@ -5690,7 +5694,7 @@ class InstrumentApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20090
+            InlineResponse20092
                 Response Object
             int
                 Http Status Code
@@ -5706,7 +5710,7 @@ class InstrumentApi(object):
         self,
         search_value,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20090]":
+    ) -> "ApplyResult[InlineResponse20092]":
         """Basic search for instruments.  # noqa: E501
 
         Search for instruments whose ISIN, specified NSINs, or name match the search value according to a tolerant full-text match algorithm. Better matching results appear in the response before less relevant matches.  # noqa: E501
@@ -5747,7 +5751,7 @@ class InstrumentApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20090]
+            ApplyResult[InlineResponse20092]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['search_value'] = \
@@ -5758,7 +5762,7 @@ class InstrumentApi(object):
         self,
         search_value,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20090, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20092, int, typing.MutableMapping]]":
         """Basic search for instruments.  # noqa: E501
 
         Search for instruments whose ISIN, specified NSINs, or name match the search value according to a tolerant full-text match algorithm. Better matching results appear in the response before less relevant matches.  # noqa: E501
@@ -5799,7 +5803,7 @@ class InstrumentApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20090, int, typing.Dict)]
+            ApplyResult[(InlineResponse20092, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['search_value'] = \
@@ -5818,7 +5822,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_background_text_type_list_request (PostInstrumentBackgroundTextTypeListRequest): [optional]
+            post_instrument_background_text_type_list_request (PostInstrumentBackgroundTextTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -5860,7 +5864,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_background_text_type_list_request (PostInstrumentBackgroundTextTypeListRequest): [optional]
+            post_instrument_background_text_type_list_request (PostInstrumentBackgroundTextTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -5906,7 +5910,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_background_text_type_list_request (PostInstrumentBackgroundTextTypeListRequest): [optional]
+            post_instrument_background_text_type_list_request (PostInstrumentBackgroundTextTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -5947,7 +5951,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_background_text_type_list_request (PostInstrumentBackgroundTextTypeListRequest): [optional]
+            post_instrument_background_text_type_list_request (PostInstrumentBackgroundTextTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -5989,7 +5993,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_benchmark_list_request (PostInstrumentBenchmarkListRequest): [optional]
+            post_instrument_benchmark_list_request (PostInstrumentBenchmarkListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6031,7 +6035,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_benchmark_list_request (PostInstrumentBenchmarkListRequest): [optional]
+            post_instrument_benchmark_list_request (PostInstrumentBenchmarkListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6077,7 +6081,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_benchmark_list_request (PostInstrumentBenchmarkListRequest): [optional]
+            post_instrument_benchmark_list_request (PostInstrumentBenchmarkListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6118,7 +6122,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_benchmark_list_request (PostInstrumentBenchmarkListRequest): [optional]
+            post_instrument_benchmark_list_request (PostInstrumentBenchmarkListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6160,7 +6164,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_category_list_request (PostInstrumentCategoryListRequest): [optional]
+            post_instrument_category_list_request (PostInstrumentCategoryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6202,7 +6206,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_category_list_request (PostInstrumentCategoryListRequest): [optional]
+            post_instrument_category_list_request (PostInstrumentCategoryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6248,7 +6252,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_category_list_request (PostInstrumentCategoryListRequest): [optional]
+            post_instrument_category_list_request (PostInstrumentCategoryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6289,7 +6293,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_category_list_request (PostInstrumentCategoryListRequest): [optional]
+            post_instrument_category_list_request (PostInstrumentCategoryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6331,7 +6335,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_compliance_property_list_request (PostInstrumentCompliancePropertyListRequest): [optional]
+            post_instrument_compliance_property_list_request (PostInstrumentCompliancePropertyListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6373,7 +6377,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_compliance_property_list_request (PostInstrumentCompliancePropertyListRequest): [optional]
+            post_instrument_compliance_property_list_request (PostInstrumentCompliancePropertyListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6419,7 +6423,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_compliance_property_list_request (PostInstrumentCompliancePropertyListRequest): [optional]
+            post_instrument_compliance_property_list_request (PostInstrumentCompliancePropertyListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6460,7 +6464,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_compliance_property_list_request (PostInstrumentCompliancePropertyListRequest): [optional]
+            post_instrument_compliance_property_list_request (PostInstrumentCompliancePropertyListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6493,6 +6497,7 @@ class InstrumentApi(object):
 
     def post_instrument_cross_reference_list_by_isin(
         self,
+        post_instrument_cross_reference_list_by_isin_request,
         **kwargs
     ) -> InlineResponse20056:
         """Translate a list of ISINs to instruments.  # noqa: E501
@@ -6500,9 +6505,10 @@ class InstrumentApi(object):
         Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
+        Args:
+            post_instrument_cross_reference_list_by_isin_request (PostInstrumentCrossReferenceListByISINRequest): Request Body
 
         Keyword Args:
-            post_instrument_cross_reference_list_by_isin_request (PostInstrumentCrossReferenceListByISINRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6531,10 +6537,13 @@ class InstrumentApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['post_instrument_cross_reference_list_by_isin_request'] = \
+            post_instrument_cross_reference_list_by_isin_request
         return self.post_instrument_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
     def post_instrument_cross_reference_list_by_isin_with_http_info(
         self,
+        post_instrument_cross_reference_list_by_isin_request,
         **kwargs
     ) -> typing.Tuple[InlineResponse20056, int, typing.MutableMapping]:
         """Translate a list of ISINs to instruments.  # noqa: E501
@@ -6542,9 +6551,10 @@ class InstrumentApi(object):
         Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
+        Args:
+            post_instrument_cross_reference_list_by_isin_request (PostInstrumentCrossReferenceListByISINRequest): Request Body
 
         Keyword Args:
-            post_instrument_cross_reference_list_by_isin_request (PostInstrumentCrossReferenceListByISINRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6577,10 +6587,13 @@ class InstrumentApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['post_instrument_cross_reference_list_by_isin_request'] = \
+            post_instrument_cross_reference_list_by_isin_request
         return self.post_instrument_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
     def post_instrument_cross_reference_list_by_isin_async(
         self,
+        post_instrument_cross_reference_list_by_isin_request,
         **kwargs
     ) -> "ApplyResult[InlineResponse20056]":
         """Translate a list of ISINs to instruments.  # noqa: E501
@@ -6588,9 +6601,10 @@ class InstrumentApi(object):
         Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
+        Args:
+            post_instrument_cross_reference_list_by_isin_request (PostInstrumentCrossReferenceListByISINRequest): Request Body
 
         Keyword Args:
-            post_instrument_cross_reference_list_by_isin_request (PostInstrumentCrossReferenceListByISINRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6618,10 +6632,13 @@ class InstrumentApi(object):
             ApplyResult[InlineResponse20056]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['post_instrument_cross_reference_list_by_isin_request'] = \
+            post_instrument_cross_reference_list_by_isin_request
         return self.post_instrument_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
     def post_instrument_cross_reference_list_by_isin_with_http_info_async(
         self,
+        post_instrument_cross_reference_list_by_isin_request,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse20056, int, typing.MutableMapping]]":
         """Translate a list of ISINs to instruments.  # noqa: E501
@@ -6629,9 +6646,10 @@ class InstrumentApi(object):
         Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
+        Args:
+            post_instrument_cross_reference_list_by_isin_request (PostInstrumentCrossReferenceListByISINRequest): Request Body
 
         Keyword Args:
-            post_instrument_cross_reference_list_by_isin_request (PostInstrumentCrossReferenceListByISINRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6659,11 +6677,14 @@ class InstrumentApi(object):
             ApplyResult[(InlineResponse20056, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['post_instrument_cross_reference_list_by_isin_request'] = \
+            post_instrument_cross_reference_list_by_isin_request
         return self.post_instrument_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
 
     def post_instrument_cross_reference_list_by_wkn(
         self,
+        post_instrument_cross_reference_list_by_wkn_request,
         **kwargs
     ) -> InlineResponse20057:
         """Translate a list of WKNs to instruments.  # noqa: E501
@@ -6671,9 +6692,10 @@ class InstrumentApi(object):
         Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
+        Args:
+            post_instrument_cross_reference_list_by_wkn_request (PostInstrumentCrossReferenceListByWKNRequest): Request Body
 
         Keyword Args:
-            post_instrument_cross_reference_list_by_wkn_request (PostInstrumentCrossReferenceListByWKNRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6702,10 +6724,13 @@ class InstrumentApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['post_instrument_cross_reference_list_by_wkn_request'] = \
+            post_instrument_cross_reference_list_by_wkn_request
         return self.post_instrument_cross_reference_list_by_wkn_endpoint.call_with_http_info(**kwargs)
 
     def post_instrument_cross_reference_list_by_wkn_with_http_info(
         self,
+        post_instrument_cross_reference_list_by_wkn_request,
         **kwargs
     ) -> typing.Tuple[InlineResponse20057, int, typing.MutableMapping]:
         """Translate a list of WKNs to instruments.  # noqa: E501
@@ -6713,9 +6738,10 @@ class InstrumentApi(object):
         Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
+        Args:
+            post_instrument_cross_reference_list_by_wkn_request (PostInstrumentCrossReferenceListByWKNRequest): Request Body
 
         Keyword Args:
-            post_instrument_cross_reference_list_by_wkn_request (PostInstrumentCrossReferenceListByWKNRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6748,10 +6774,13 @@ class InstrumentApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['post_instrument_cross_reference_list_by_wkn_request'] = \
+            post_instrument_cross_reference_list_by_wkn_request
         return self.post_instrument_cross_reference_list_by_wkn_endpoint.call_with_http_info(**kwargs)
 
     def post_instrument_cross_reference_list_by_wkn_async(
         self,
+        post_instrument_cross_reference_list_by_wkn_request,
         **kwargs
     ) -> "ApplyResult[InlineResponse20057]":
         """Translate a list of WKNs to instruments.  # noqa: E501
@@ -6759,9 +6788,10 @@ class InstrumentApi(object):
         Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
+        Args:
+            post_instrument_cross_reference_list_by_wkn_request (PostInstrumentCrossReferenceListByWKNRequest): Request Body
 
         Keyword Args:
-            post_instrument_cross_reference_list_by_wkn_request (PostInstrumentCrossReferenceListByWKNRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6789,10 +6819,13 @@ class InstrumentApi(object):
             ApplyResult[InlineResponse20057]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['post_instrument_cross_reference_list_by_wkn_request'] = \
+            post_instrument_cross_reference_list_by_wkn_request
         return self.post_instrument_cross_reference_list_by_wkn_endpoint.call_with_http_info(**kwargs)
 
     def post_instrument_cross_reference_list_by_wkn_with_http_info_async(
         self,
+        post_instrument_cross_reference_list_by_wkn_request,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse20057, int, typing.MutableMapping]]":
         """Translate a list of WKNs to instruments.  # noqa: E501
@@ -6800,9 +6833,10 @@ class InstrumentApi(object):
         Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
+        Args:
+            post_instrument_cross_reference_list_by_wkn_request (PostInstrumentCrossReferenceListByWKNRequest): Request Body
 
         Keyword Args:
-            post_instrument_cross_reference_list_by_wkn_request (PostInstrumentCrossReferenceListByWKNRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6830,6 +6864,8 @@ class InstrumentApi(object):
             ApplyResult[(InlineResponse20057, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['post_instrument_cross_reference_list_by_wkn_request'] = \
+            post_instrument_cross_reference_list_by_wkn_request
         return self.post_instrument_cross_reference_list_by_wkn_endpoint.call_with_http_info(**kwargs)
 
 
@@ -6844,7 +6880,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_notation_list_request (PostInstrumentNotationListRequest): [optional]
+            post_instrument_notation_list_request (PostInstrumentNotationListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6886,7 +6922,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_notation_list_request (PostInstrumentNotationListRequest): [optional]
+            post_instrument_notation_list_request (PostInstrumentNotationListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6932,7 +6968,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_notation_list_request (PostInstrumentNotationListRequest): [optional]
+            post_instrument_notation_list_request (PostInstrumentNotationListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6973,7 +7009,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_notation_list_request (PostInstrumentNotationListRequest): [optional]
+            post_instrument_notation_list_request (PostInstrumentNotationListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7015,7 +7051,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_rating_grade_list_request (PostInstrumentRatingGradeListRequest): [optional]
+            post_instrument_rating_grade_list_request (PostInstrumentRatingGradeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7057,7 +7093,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_rating_grade_list_request (PostInstrumentRatingGradeListRequest): [optional]
+            post_instrument_rating_grade_list_request (PostInstrumentRatingGradeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7103,7 +7139,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_rating_grade_list_request (PostInstrumentRatingGradeListRequest): [optional]
+            post_instrument_rating_grade_list_request (PostInstrumentRatingGradeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7144,7 +7180,7 @@ class InstrumentApi(object):
 
 
         Keyword Args:
-            post_instrument_rating_grade_list_request (PostInstrumentRatingGradeListRequest): [optional]
+            post_instrument_rating_grade_list_request (PostInstrumentRatingGradeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.

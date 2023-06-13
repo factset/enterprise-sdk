@@ -30,8 +30,10 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072_data_regional import InlineResponse20072DataRegional
-    globals()['InlineResponse20072DataRegional'] = InlineResponse20072DataRegional
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20073_data_instrument import InlineResponse20073DataInstrument
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20073_data_regional import InlineResponse20073DataRegional
+    globals()['InlineResponse20073DataInstrument'] = InlineResponse20073DataInstrument
+    globals()['InlineResponse20073DataRegional'] = InlineResponse20073DataRegional
 
 
 class InlineResponse20073Data(ModelNormal):
@@ -87,10 +89,9 @@ class InlineResponse20073Data(ModelNormal):
         """
         lazy_import()
         return {
-            'id_instrument': (str, none_type,),  # noqa: E501
-            'source_identifier': (str, none_type,),  # noqa: E501
+            'instrument': (InlineResponse20073DataInstrument,),  # noqa: E501
             'permanent_identifier': (str, none_type,),  # noqa: E501
-            'regional': ([InlineResponse20072DataRegional],),  # noqa: E501
+            'regional': ([InlineResponse20073DataRegional],),  # noqa: E501
         }
 
     @cached_property
@@ -99,8 +100,7 @@ class InlineResponse20073Data(ModelNormal):
 
 
     attribute_map = {
-        'id_instrument': 'idInstrument',  # noqa: E501
-        'source_identifier': 'sourceIdentifier',  # noqa: E501
+        'instrument': 'instrument',  # noqa: E501
         'permanent_identifier': 'permanentIdentifier',  # noqa: E501
         'regional': 'regional',  # noqa: E501
     }
@@ -146,10 +146,9 @@ class InlineResponse20073Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_instrument (str, none_type): MDG identifier of the instrument.. [optional]  # noqa: E501
-            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
+            instrument (InlineResponse20073DataInstrument): [optional]  # noqa: E501
             permanent_identifier (str, none_type): FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).. [optional]  # noqa: E501
-            regional ([InlineResponse20072DataRegional]): Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.. [optional]  # noqa: E501
+            regional ([InlineResponse20073DataRegional]): Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,10 +230,9 @@ class InlineResponse20073Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_instrument (str, none_type): MDG identifier of the instrument.. [optional]  # noqa: E501
-            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
+            instrument (InlineResponse20073DataInstrument): [optional]  # noqa: E501
             permanent_identifier (str, none_type): FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).. [optional]  # noqa: E501
-            regional ([InlineResponse20072DataRegional]): Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.. [optional]  # noqa: E501
+            regional ([InlineResponse20073DataRegional]): Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -57,49 +57,49 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets RelationshipId
         /// </summary>
-        [DataMember(Name = "RelationshipId", EmitDefaultValue = false)]
+        [DataMember(Name = "relationshipId", EmitDefaultValue = false)]
         public Guid RelationshipId { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactId
         /// </summary>
-        [DataMember(Name = "ContactId", EmitDefaultValue = true)]
+        [DataMember(Name = "contactId", EmitDefaultValue = true)]
         public Guid? ContactId { get; set; }
 
         /// <summary>
         /// Gets or Sets Start
         /// </summary>
-        [DataMember(Name = "Start", EmitDefaultValue = true)]
+        [DataMember(Name = "start", EmitDefaultValue = true)]
         public DateTime? Start { get; set; }
 
         /// <summary>
         /// Gets or Sets End
         /// </summary>
-        [DataMember(Name = "End", EmitDefaultValue = true)]
+        [DataMember(Name = "end", EmitDefaultValue = true)]
         public DateTime? End { get; set; }
 
         /// <summary>
         /// Gets or Sets Comment
         /// </summary>
-        [DataMember(Name = "Comment", EmitDefaultValue = true)]
+        [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
         /// Gets or Sets IsCurrent
         /// </summary>
-        [DataMember(Name = "IsCurrent", EmitDefaultValue = true)]
+        [DataMember(Name = "isCurrent", EmitDefaultValue = true)]
         public bool IsCurrent { get; set; }
 
         /// <summary>
         /// Gets or Sets Symbol
         /// </summary>
-        [DataMember(Name = "Symbol", EmitDefaultValue = true)]
+        [DataMember(Name = "symbol", EmitDefaultValue = true)]
         public string Symbol { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "Title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>

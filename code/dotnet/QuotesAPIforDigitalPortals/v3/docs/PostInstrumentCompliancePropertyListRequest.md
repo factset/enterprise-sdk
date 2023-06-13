@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostInstrumentCompliancePropertyListRequest
+Request Body
 
 ## Properties
 

@@ -40,10 +40,10 @@ import com.factset.sdk.IRNNotes.JSON;
 public class UserSerialDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_USERNAME = "Username";
+  public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
-  public static final String JSON_PROPERTY_SERIAL_NUMBER = "SerialNumber";
+  public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
   private String serialNumber;
 
   public UserSerialDto() { 

@@ -43,7 +43,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets DefaultId
         /// </summary>
-        [DataMember(Name = "DefaultId", EmitDefaultValue = true)]
+        [DataMember(Name = "defaultId", EmitDefaultValue = true)]
         public Guid? DefaultId { get; set; }
 
         /// <summary>

@@ -2353,7 +2353,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
         ),
-    ) # PostBasicBackgroundTextTypeListRequest |  (optional)
+    ) # PostBasicBackgroundTextTypeListRequest | Request Body (optional)
 
     try:
         # List of background text types.
@@ -2372,7 +2372,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_background_text_type_list_request** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)|  | [optional]
+ **post_basic_background_text_type_list_request** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2458,7 +2458,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             sort=["name"],
         ),
-    ) # PostBasicDeliveryListRequest |  (optional)
+    ) # PostBasicDeliveryListRequest | Request Body (optional)
 
     try:
         # List of deliveries.
@@ -2477,7 +2477,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_delivery_list_request** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)|  | [optional]
+ **post_basic_delivery_list_request** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2571,7 +2571,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 limit=20,
             ),
         ),
-    ) # PostBasicMarketListRequest |  (optional)
+    ) # PostBasicMarketListRequest | Request Body (optional)
 
     try:
         # List of markets.
@@ -2590,7 +2590,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_market_list_request** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)|  | [optional]
+ **post_basic_market_list_request** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2676,7 +2676,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             sort=["name"],
         ),
-    ) # PostBasicMediaTypeListRequest |  (optional)
+    ) # PostBasicMediaTypeListRequest | Request Body (optional)
 
     try:
         # List of Internet media types.
@@ -2695,7 +2695,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_media_type_list_request** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)|  | [optional]
+ **post_basic_media_type_list_request** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2783,7 +2783,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 limit=20,
             ),
         ),
-    ) # PostBasicMicOperatingListRequest |  (optional)
+    ) # PostBasicMicOperatingListRequest | Request Body (optional)
 
     try:
         # List of operating market identifier codes (MIC).
@@ -2802,7 +2802,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_mic_operating_list_request** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)|  | [optional]
+ **post_basic_mic_operating_list_request** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2887,7 +2887,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
         ),
-    ) # PostBasicTimezoneListRequest |  (optional)
+    ) # PostBasicTimezoneListRequest | Request Body (optional)
 
     try:
         # List of timezones.
@@ -2906,7 +2906,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_timezone_list_request** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)|  | [optional]
+ **post_basic_timezone_list_request** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2991,7 +2991,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             language=LanguageMember("language_example"),
             sort=["name"],
         ),
-    ) # PostBasicValueUnitCurrencyListRequest |  (optional)
+    ) # PostBasicValueUnitCurrencyListRequest | Request Body (optional)
 
     try:
         # List of currencies.
@@ -3010,7 +3010,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_value_unit_currency_list_request** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)|  | [optional]
+ **post_basic_value_unit_currency_list_request** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -3095,7 +3095,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             language=LanguageMember("language_example"),
             sort=["name"],
         ),
-    ) # PostBasicValueUnitCurrencyMainListRequest |  (optional)
+    ) # PostBasicValueUnitCurrencyMainListRequest | Request Body (optional)
 
     try:
         # List of main currencies.
@@ -3114,7 +3114,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_value_unit_currency_main_list_request** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)|  | [optional]
+ **post_basic_value_unit_currency_main_list_request** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -3199,7 +3199,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             language=LanguageMember("language_example"),
             sort=["name"],
         ),
-    ) # PostBasicValueUnitListRequest |  (optional)
+    ) # PostBasicValueUnitListRequest | Request Body (optional)
 
     try:
         # List of value units.
@@ -3218,7 +3218,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_basic_value_unit_list_request** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)|  | [optional]
+ **post_basic_value_unit_list_request** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)| Request Body | [optional]
 
 ### Return type
 

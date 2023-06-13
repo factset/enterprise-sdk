@@ -17,11 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataHigh;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataLow;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20074DataPerformance;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20075Status;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20076DataTradingVolume;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20075DataHigh;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20075DataLow;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20075DataPerformance;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20077DataTradingVolume;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,8 +40,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse20077Data
+ * EOD key figures.
  */
+@ApiModel(description = "EOD key figures.")
 @JsonPropertyOrder({
   InlineResponse20077Data.JSON_PROPERTY_ID_NOTATION,
   InlineResponse20077Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
@@ -53,8 +53,7 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
   InlineResponse20077Data.JSON_PROPERTY_AVERAGE_PRICE,
   InlineResponse20077Data.JSON_PROPERTY_TRADING_VOLUME,
   InlineResponse20077Data.JSON_PROPERTY_TRADING_VALUE,
-  InlineResponse20077Data.JSON_PROPERTY_VOLATILITY,
-  InlineResponse20077Data.JSON_PROPERTY_STATUS
+  InlineResponse20077Data.JSON_PROPERTY_VOLATILITY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20077Data implements Serializable {
@@ -70,28 +69,25 @@ public class InlineResponse20077Data implements Serializable {
   private JsonNullable<LocalDate> referenceDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_PERFORMANCE = "performance";
-  private InlineResponse20074DataPerformance performance;
+  private InlineResponse20075DataPerformance performance;
 
   public static final String JSON_PROPERTY_HIGH = "high";
-  private InlineResponse20074DataHigh high;
+  private InlineResponse20075DataHigh high;
 
   public static final String JSON_PROPERTY_LOW = "low";
-  private InlineResponse20074DataLow low;
+  private InlineResponse20075DataLow low;
 
   public static final String JSON_PROPERTY_AVERAGE_PRICE = "averagePrice";
   private JsonNullable<BigDecimal> averagePrice = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_TRADING_VOLUME = "tradingVolume";
-  private InlineResponse20076DataTradingVolume tradingVolume;
+  private InlineResponse20077DataTradingVolume tradingVolume;
 
   public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
   private JsonNullable<BigDecimal> tradingValue = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_VOLATILITY = "volatility";
   private JsonNullable<BigDecimal> volatility = JsonNullable.<BigDecimal>undefined();
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private InlineResponse20075Status status;
 
   public InlineResponse20077Data() { 
   }
@@ -198,7 +194,7 @@ public class InlineResponse20077Data implements Serializable {
   }
 
 
-  public InlineResponse20077Data performance(InlineResponse20074DataPerformance performance) {
+  public InlineResponse20077Data performance(InlineResponse20075DataPerformance performance) {
     this.performance = performance;
     return this;
   }
@@ -212,19 +208,19 @@ public class InlineResponse20077Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20074DataPerformance getPerformance() {
+  public InlineResponse20075DataPerformance getPerformance() {
     return performance;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPerformance(InlineResponse20074DataPerformance performance) {
+  public void setPerformance(InlineResponse20075DataPerformance performance) {
     this.performance = performance;
   }
 
 
-  public InlineResponse20077Data high(InlineResponse20074DataHigh high) {
+  public InlineResponse20077Data high(InlineResponse20075DataHigh high) {
     this.high = high;
     return this;
   }
@@ -238,19 +234,19 @@ public class InlineResponse20077Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20074DataHigh getHigh() {
+  public InlineResponse20075DataHigh getHigh() {
     return high;
   }
 
 
   @JsonProperty(JSON_PROPERTY_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHigh(InlineResponse20074DataHigh high) {
+  public void setHigh(InlineResponse20075DataHigh high) {
     this.high = high;
   }
 
 
-  public InlineResponse20077Data low(InlineResponse20074DataLow low) {
+  public InlineResponse20077Data low(InlineResponse20075DataLow low) {
     this.low = low;
     return this;
   }
@@ -264,14 +260,14 @@ public class InlineResponse20077Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20074DataLow getLow() {
+  public InlineResponse20075DataLow getLow() {
     return low;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLow(InlineResponse20074DataLow low) {
+  public void setLow(InlineResponse20075DataLow low) {
     this.low = low;
   }
 
@@ -310,7 +306,7 @@ public class InlineResponse20077Data implements Serializable {
   }
 
 
-  public InlineResponse20077Data tradingVolume(InlineResponse20076DataTradingVolume tradingVolume) {
+  public InlineResponse20077Data tradingVolume(InlineResponse20077DataTradingVolume tradingVolume) {
     this.tradingVolume = tradingVolume;
     return this;
   }
@@ -324,14 +320,14 @@ public class InlineResponse20077Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_TRADING_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20076DataTradingVolume getTradingVolume() {
+  public InlineResponse20077DataTradingVolume getTradingVolume() {
     return tradingVolume;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TRADING_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTradingVolume(InlineResponse20076DataTradingVolume tradingVolume) {
+  public void setTradingVolume(InlineResponse20077DataTradingVolume tradingVolume) {
     this.tradingVolume = tradingVolume;
   }
 
@@ -404,32 +400,6 @@ public class InlineResponse20077Data implements Serializable {
   }
 
 
-  public InlineResponse20077Data status(InlineResponse20075Status status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20075Status getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(InlineResponse20075Status status) {
-    this.status = status;
-  }
-
-
   /**
    * Return true if this inline_response_200_77_data object is equal to o.
    */
@@ -451,8 +421,7 @@ public class InlineResponse20077Data implements Serializable {
         equalsNullable(this.averagePrice, inlineResponse20077Data.averagePrice) &&
         Objects.equals(this.tradingVolume, inlineResponse20077Data.tradingVolume) &&
         equalsNullable(this.tradingValue, inlineResponse20077Data.tradingValue) &&
-        equalsNullable(this.volatility, inlineResponse20077Data.volatility) &&
-        Objects.equals(this.status, inlineResponse20077Data.status);
+        equalsNullable(this.volatility, inlineResponse20077Data.volatility);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -461,7 +430,7 @@ public class InlineResponse20077Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(referenceDate), performance, high, low, hashCodeNullable(averagePrice), tradingVolume, hashCodeNullable(tradingValue), hashCodeNullable(volatility), status);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(referenceDate), performance, high, low, hashCodeNullable(averagePrice), tradingVolume, hashCodeNullable(tradingValue), hashCodeNullable(volatility));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -485,7 +454,6 @@ public class InlineResponse20077Data implements Serializable {
     sb.append("    tradingVolume: ").append(toIndentedString(tradingVolume)).append("\n");
     sb.append("    tradingValue: ").append(toIndentedString(tradingValue)).append("\n");
     sb.append("    volatility: ").append(toIndentedString(volatility)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

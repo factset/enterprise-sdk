@@ -46,14 +46,14 @@ class RecordEventSummaryDto {
         if (data) {
             obj = obj || new RecordEventSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('CreatedAt')) {
-                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'String');
+            if (data.hasOwnProperty('createdAt')) {
+                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class RecordEventSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-RecordEventSummaryDto.prototype['Id'] = undefined;
+RecordEventSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Type
+ * @member {String} type
  */
-RecordEventSummaryDto.prototype['Type'] = undefined;
+RecordEventSummaryDto.prototype['type'] = undefined;
 
 /**
- * @member {String} CreatedAt
+ * @member {String} createdAt
  */
-RecordEventSummaryDto.prototype['CreatedAt'] = undefined;
+RecordEventSummaryDto.prototype['createdAt'] = undefined;
 
 
 

@@ -927,11 +927,11 @@
       "AlternativeEmailAddressDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "EmailAddress": {
+          "emailAddress": {
             "type": "string",
             "nullable": true
           }
@@ -941,37 +941,37 @@
       "ContactAddressDto": {
         "type": "object",
         "properties": {
-          "GoogleMapsPlaceId": {
+          "googleMapsPlaceId": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "FormattedAddress": {
+          "formattedAddress": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "City": {
+          "city": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "StateProvince": {
+          "stateProvince": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "PostalCode": {
+          "postalCode": {
             "maxLength": 10,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "Country": {
+          "country": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
@@ -983,11 +983,11 @@
       "ContactCustomFieldOptionValueDto": {
         "type": "object",
         "properties": {
-          "OptionId": {
+          "optionId": {
             "type": "string",
             "format": "uuid"
           },
-          "OptionName": {
+          "optionName": {
             "type": "string",
             "nullable": true
           }
@@ -997,15 +997,15 @@
       "ContactCustomFieldValueDto": {
         "type": "object",
         "properties": {
-          "FieldCode": {
+          "fieldCode": {
             "type": "string",
             "nullable": true
           },
-          "Value": {
+          "value": {
             "type": "string",
             "nullable": true
           },
-          "OptionValues": {
+          "optionValues": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactCustomFieldOptionValueDto"
@@ -1017,18 +1017,18 @@
       },
       "ContactCustomFieldValueSaveDto": {
         "required": [
-          "Code"
+          "code"
         ],
         "type": "object",
         "properties": {
-          "Code": {
+          "code": {
             "type": "string"
           },
-          "Value": {
+          "value": {
             "type": "string",
             "nullable": true
           },
-          "OptionValues": {
+          "optionValues": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1036,7 +1036,7 @@
             },
             "nullable": true
           },
-          "EvaluateFormula": {
+          "evaluateFormula": {
             "type": "boolean",
             "default": false
           }
@@ -1046,56 +1046,56 @@
       "ContactDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "PrimaryEmailAddress": {
+          "primaryEmailAddress": {
             "type": "string",
             "nullable": true
           },
-          "Identifier": {
+          "identifier": {
             "type": "string",
             "nullable": true
           },
-          "FullName": {
+          "fullName": {
             "type": "string",
             "nullable": true
           },
-          "Address": {
+          "address": {
             "$ref": "#/components/schemas/ContactAddressDto"
           },
-          "LinkedInProfile": {
+          "linkedInProfile": {
             "type": "string",
             "nullable": true
           },
-          "IsDeleted": {
+          "isDeleted": {
             "type": "boolean"
           },
-          "Employer": {
+          "employer": {
             "$ref": "#/components/schemas/EmployerDto"
           },
-          "Role": {
+          "role": {
             "$ref": "#/components/schemas/ContactRoleDto"
           },
-          "Type": {
+          "type": {
             "$ref": "#/components/schemas/ContactTypeDto"
           },
-          "PhoneNumbers": {
+          "phoneNumbers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactPhoneDto"
             },
             "nullable": true
           },
-          "AlternativeEmailAddresses": {
+          "alternativeEmailAddresses": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AlternativeEmailAddressDto"
             },
             "nullable": true
           },
-          "CustomFields": {
+          "customFields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactCustomFieldValueDto"
@@ -1108,19 +1108,19 @@
       "ContactEventDto": {
         "type": "object",
         "properties": {
-          "EventType": {
+          "eventType": {
             "type": "string",
             "nullable": true
           },
-          "Date": {
+          "date": {
             "type": "string",
             "format": "date-time"
           },
-          "FullName": {
+          "fullName": {
             "type": "string",
             "nullable": true
           },
-          "Details": {
+          "details": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactEventUpdateDto"
@@ -1133,15 +1133,15 @@
       "ContactEventUpdateDto": {
         "type": "object",
         "properties": {
-          "FieldName": {
+          "fieldName": {
             "type": "string",
             "nullable": true
           },
-          "OldValue": {
+          "oldValue": {
             "type": "string",
             "nullable": true
           },
-          "NewValue": {
+          "newValue": {
             "type": "string",
             "nullable": true
           }
@@ -1151,12 +1151,12 @@
       "ContactIdNameDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           }
@@ -1166,20 +1166,20 @@
       "ContactPhoneDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Number": {
+          "number": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "Type": {
+          "type": {
             "$ref": "#/components/schemas/PhoneNumberTypeDto"
           },
-          "IsPrimary": {
+          "isPrimary": {
             "type": "boolean"
           }
         },
@@ -1188,21 +1188,21 @@
       "ContactPhoneSaveDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Number": {
+          "number": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "TypeId": {
+          "typeId": {
             "type": "string",
             "format": "uuid"
           },
-          "IsPrimary": {
+          "isPrimary": {
             "type": "boolean"
           }
         },
@@ -1211,40 +1211,40 @@
       "ContactRelationshipDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "RelationshipCategory": {
+          "relationshipCategory": {
             "$ref": "#/components/schemas/RelationshipCategoryIdNameDto"
           },
-          "Relationship": {
+          "relationship": {
             "$ref": "#/components/schemas/RelationshipIdNameDto"
           },
-          "Contact": {
+          "contact": {
             "$ref": "#/components/schemas/ContactIdNameDto"
           },
-          "Symbol": {
+          "symbol": {
             "$ref": "#/components/schemas/RelationshipSymbolSummaryDto"
           },
-          "IsCurrent": {
+          "isCurrent": {
             "type": "boolean"
           },
-          "Start": {
+          "start": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "End": {
+          "end": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "Title": {
+          "title": {
             "type": "string",
             "nullable": true
           },
-          "Comment": {
+          "comment": {
             "type": "string",
             "nullable": true
           }
@@ -1254,37 +1254,37 @@
       "ContactRelationshipSaveDto": {
         "type": "object",
         "properties": {
-          "RelationshipId": {
+          "relationshipId": {
             "type": "string",
             "format": "uuid"
           },
-          "ContactId": {
+          "contactId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Start": {
+          "start": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "End": {
+          "end": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "Comment": {
+          "comment": {
             "type": "string",
             "nullable": true
           },
-          "IsCurrent": {
+          "isCurrent": {
             "type": "boolean"
           },
-          "Symbol": {
+          "symbol": {
             "type": "string",
             "nullable": true
           },
-          "Title": {
+          "title": {
             "type": "string",
             "nullable": true
           }
@@ -1294,43 +1294,43 @@
       "ContactRelationshipTwoSidedDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "RelationshipCategory": {
+          "relationshipCategory": {
             "$ref": "#/components/schemas/RelationshipCategoryIdNameDto"
           },
-          "Relationship": {
+          "relationship": {
             "$ref": "#/components/schemas/RelationshipIdNameDto"
           },
-          "LeftContact": {
+          "leftContact": {
             "$ref": "#/components/schemas/ContactIdNameDto"
           },
-          "RightContact": {
+          "rightContact": {
             "$ref": "#/components/schemas/ContactIdNameDto"
           },
-          "Symbol": {
+          "symbol": {
             "$ref": "#/components/schemas/RelationshipSymbolSummaryDto"
           },
-          "IsCurrent": {
+          "isCurrent": {
             "type": "boolean"
           },
-          "Start": {
+          "start": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "End": {
+          "end": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "Title": {
+          "title": {
             "type": "string",
             "nullable": true
           },
-          "Comment": {
+          "comment": {
             "type": "string",
             "nullable": true
           }
@@ -1340,46 +1340,46 @@
       "ContactRelationshipTwoSidedSaveDto": {
         "type": "object",
         "properties": {
-          "RelationshipId": {
+          "relationshipId": {
             "type": "string",
             "format": "uuid"
           },
-          "LeftContactId": {
+          "leftContactId": {
             "type": "string",
             "format": "uuid"
           },
-          "RightContactId": {
+          "rightContactId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Start": {
+          "start": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "End": {
+          "end": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "Comment": {
+          "comment": {
             "type": "string",
             "nullable": true
           },
-          "IsCurrent": {
+          "isCurrent": {
             "type": "boolean"
           },
-          "SymbolId": {
+          "symbolId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Symbol": {
+          "symbol": {
             "type": "string",
             "nullable": true
           },
-          "Title": {
+          "title": {
             "type": "string",
             "nullable": true
           }
@@ -1388,16 +1388,16 @@
       },
       "ContactRoleDto": {
         "required": [
-          "Id",
-          "Name"
+          "id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string"
@@ -1408,75 +1408,75 @@
       "ContactSaveDto": {
         "type": "object",
         "properties": {
-          "PrimaryEmailAddress": {
+          "primaryEmailAddress": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "FullName": {
+          "fullName": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "Notes": {
+          "notes": {
             "type": "string",
             "nullable": true
           },
-          "LinkedInProfile": {
+          "linkedInProfile": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "format": "uri",
             "nullable": true
           },
-          "PersonSymbol": {
+          "personSymbol": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "RoleId": {
+          "roleId": {
             "type": "string",
             "format": "uuid"
           },
-          "TypeId": {
+          "typeId": {
             "type": "string",
             "format": "uuid"
           },
-          "Address": {
+          "address": {
             "$ref": "#/components/schemas/ContactAddressDto"
           },
-          "PhoneNumbers": {
+          "phoneNumbers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactPhoneSaveDto"
             },
             "nullable": true
           },
-          "LeftRelationships": {
+          "leftRelationships": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactRelationshipSaveDto"
             },
             "nullable": true
           },
-          "RightRelationships": {
+          "rightRelationships": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactRelationshipSaveDto"
             },
             "nullable": true
           },
-          "AlternativeEmailAddresses": {
+          "alternativeEmailAddresses": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AlternativeEmailAddressDto"
             },
             "nullable": true
           },
-          "CustomFields": {
+          "customFields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactCustomFieldValueSaveDto"
@@ -1489,67 +1489,67 @@
       "ContactSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "PrimaryEmailAddress": {
+          "primaryEmailAddress": {
             "type": "string",
             "nullable": true
           },
-          "Identifier": {
+          "identifier": {
             "type": "string",
             "nullable": true
           },
-          "FullName": {
+          "fullName": {
             "type": "string",
             "nullable": true
           },
-          "EmployerName": {
+          "employerName": {
             "type": "string",
             "nullable": true
           },
-          "EmployerIdentifier": {
+          "employerIdentifier": {
             "type": "string",
             "nullable": true
           },
-          "City": {
+          "city": {
             "type": "string",
             "nullable": true
           },
-          "StateProvince": {
+          "stateProvince": {
             "type": "string",
             "nullable": true
           },
-          "PostalCode": {
+          "postalCode": {
             "type": "string",
             "nullable": true
           },
-          "Country": {
+          "country": {
             "type": "string",
             "nullable": true
           },
-          "Role": {
+          "role": {
             "$ref": "#/components/schemas/ContactRoleDto"
           },
-          "Type": {
+          "type": {
             "$ref": "#/components/schemas/ContactTypeDto"
           },
-          "IsDeleted": {
+          "isDeleted": {
             "type": "boolean"
           },
-          "LastMeeting": {
+          "lastMeeting": {
             "type": "string",
             "nullable": true
           },
-          "AlternativeEmailAddresses": {
+          "alternativeEmailAddresses": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AlternativeEmailAddressDto"
             },
             "nullable": true
           },
-          "CustomFieldValues": {
+          "customFieldValues": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactCustomFieldValueDto"
@@ -1561,16 +1561,16 @@
       },
       "ContactTypeDto": {
         "required": [
-          "Id",
-          "Name"
+          "id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string"
@@ -1580,21 +1580,21 @@
       },
       "EmployerDto": {
         "required": [
-          "Id"
+          "id"
         ],
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "FactsetIdentifier": {
+          "factsetIdentifier": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
@@ -1606,7 +1606,7 @@
       "NewItemDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           }
@@ -1616,7 +1616,7 @@
       "Operation": {
         "type": "object",
         "properties": {
-          "OperationType": {
+          "operationType": {
             "$ref": "#/components/schemas/OperationType"
           },
           "path": {
@@ -1653,17 +1653,17 @@
       "PhoneNumberTypeDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "IsStandard": {
+          "isStandard": {
             "type": "boolean"
           }
         },
@@ -1699,21 +1699,21 @@
       "RecordPreviewDto": {
         "type": "object",
         "properties": {
-          "NoteGuid": {
+          "noteGuid": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "MeetingGuid": {
+          "meetingGuid": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Title": {
+          "title": {
             "type": "string",
             "nullable": true
           },
-          "Date": {
+          "date": {
             "type": "string",
             "format": "date-time"
           }
@@ -1723,11 +1723,11 @@
       "RelationshipCategoryIdNameDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           }
@@ -1737,11 +1737,11 @@
       "RelationshipIdNameDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           }
@@ -1751,15 +1751,15 @@
       "RelationshipSymbolSummaryDto": {
         "type": "object",
         "properties": {
-          "Identifier": {
+          "tdentifier": {
             "type": "string",
             "nullable": true
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Type": {
+          "type": {
             "$ref": "#/components/schemas/SymbolType"
           }
         },

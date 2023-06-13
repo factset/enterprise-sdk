@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## getPricesBidAskGet
 
-> InlineResponse20084 getPricesBidAskGet(identifier, identifierType, opts)
+> InlineResponse20086 getPricesBidAskGet(identifier, identifierType, opts)
 
 Most recent bid and ask prices (best bid / offer) for a notation.
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20084**](InlineResponse20084.md)
+[**InlineResponse20086**](InlineResponse20086.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ## getPricesBidAskList
 
-> InlineResponse20085 getPricesBidAskList(identifiers, identifierType, opts)
+> InlineResponse20087 getPricesBidAskList(identifiers, identifierType, opts)
 
 Most recent bid and ask prices (best bid / offer) for a list of notations.
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20085**](InlineResponse20085.md)
+[**InlineResponse20087**](InlineResponse20087.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ## getPricesGet
 
-> InlineResponse20082 getPricesGet(identifier, identifierType, opts)
+> InlineResponse20084 getPricesGet(identifier, identifierType, opts)
 
 Overview of trading on the most recent trading day, including the latest price, for a notation.
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20082**](InlineResponse20082.md)
+[**InlineResponse20084**](InlineResponse20084.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ## getPricesList
 
-> InlineResponse20083 getPricesList(identifiers, identifierType, opts)
+> InlineResponse20085 getPricesList(identifiers, identifierType, opts)
 
 Overview of trading on the most recent trading day, including the latest price, for a list of notations.
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20083**](InlineResponse20083.md)
+[**InlineResponse20085**](InlineResponse20085.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ## getPricesOrderbookAggregatedGet
 
-> InlineResponse20086 getPricesOrderbookAggregatedGet(identifier, identifierType, opts)
+> InlineResponse20088 getPricesOrderbookAggregatedGet(identifier, identifierType, opts)
 
 Orderbook aggregated by price.
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20086**](InlineResponse20086.md)
+[**InlineResponse20088**](InlineResponse20088.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ## getPricesOrderbookFullGet
 
-> InlineResponse20087 getPricesOrderbookFullGet(identifier, identifierType, opts)
+> InlineResponse20089 getPricesOrderbookFullGet(identifier, identifierType, opts)
 
 Full orderbook
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20087**](InlineResponse20087.md)
+[**InlineResponse20089**](InlineResponse20089.md)
 
 ### Authorization
 
@@ -509,7 +509,7 @@ Name | Type | Description  | Notes
 
 ## getPricesTradingScheduleEventTypeList
 
-> InlineResponse20089 getPricesTradingScheduleEventTypeList(opts)
+> InlineResponse20091 getPricesTradingScheduleEventTypeList(opts)
 
 Trading schedule event types.
 
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20089**](InlineResponse20089.md)
+[**InlineResponse20091**](InlineResponse20091.md)
 
 ### Authorization
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTradingScheduleEventList
 
-> InlineResponse20088 postPricesTradingScheduleEventList(opts)
+> InlineResponse20090 postPricesTradingScheduleEventList(postPricesTradingScheduleEventListRequest)
 
 Sequence of market-related events.
 
@@ -615,12 +615,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PricesApi();
-const opts = {
-  'postPricesTradingScheduleEventListRequest': new quotesapifordigitalportals.PostPricesTradingScheduleEventListRequest() // PostPricesTradingScheduleEventListRequest | 
-};
+const postPricesTradingScheduleEventListRequest = new quotesapifordigitalportals.PostPricesTradingScheduleEventListRequest(); // PostPricesTradingScheduleEventListRequest | Request Body
 
 // Call api endpoint
-apiInstance.postPricesTradingScheduleEventList(opts).then(
+apiInstance.postPricesTradingScheduleEventList(postPricesTradingScheduleEventListRequest).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -639,11 +637,11 @@ apiInstance.postPricesTradingScheduleEventList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postPricesTradingScheduleEventListRequest** | [**PostPricesTradingScheduleEventListRequest**](PostPricesTradingScheduleEventListRequest.md)|  | [optional] 
+ **postPricesTradingScheduleEventListRequest** | [**PostPricesTradingScheduleEventListRequest**](PostPricesTradingScheduleEventListRequest.md)| Request Body | 
 
 ### Return type
 
-[**InlineResponse20088**](InlineResponse20088.md)
+[**InlineResponse20090**](InlineResponse20090.md)
 
 ### Authorization
 

@@ -86,9 +86,9 @@ class CommentaryConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'should_send_email_alerts_to_author': 'ShouldSendEmailAlertsToAuthor',  # noqa: E501
-        'should_send_email_alerts_to_commenters': 'ShouldSendEmailAlertsToCommenters',  # noqa: E501
-        'should_send_email_alerts_to_all': 'ShouldSendEmailAlertsToAll',  # noqa: E501
+        'should_send_email_alerts_to_author': 'shouldSendEmailAlertsToAuthor',  # noqa: E501
+        'should_send_email_alerts_to_commenters': 'shouldSendEmailAlertsToCommenters',  # noqa: E501
+        'should_send_email_alerts_to_all': 'shouldSendEmailAlertsToAll',  # noqa: E501
     }
 
     read_only_vars = {

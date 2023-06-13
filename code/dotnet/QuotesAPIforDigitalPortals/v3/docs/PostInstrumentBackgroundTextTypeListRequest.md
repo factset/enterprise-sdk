@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostInstrumentBackgroundTextTypeListRequest
+Request Body
 
 ## Properties
 

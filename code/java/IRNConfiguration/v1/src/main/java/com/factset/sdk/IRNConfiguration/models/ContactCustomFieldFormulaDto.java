@@ -45,13 +45,13 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ContactCustomFieldFormulaDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FORMULA = "Formula";
+  public static final String JSON_PROPERTY_FORMULA = "formula";
   private JsonNullable<String> formula = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_SCREENING = "IsScreening";
+  public static final String JSON_PROPERTY_IS_SCREENING = "isScreening";
   private Boolean isScreening = false;
 
-  public static final String JSON_PROPERTY_SYMBOL = "Symbol";
+  public static final String JSON_PROPERTY_SYMBOL = "symbol";
   private JsonNullable<String> symbol = JsonNullable.<String>undefined();
 
   public ContactCustomFieldFormulaDto() { 

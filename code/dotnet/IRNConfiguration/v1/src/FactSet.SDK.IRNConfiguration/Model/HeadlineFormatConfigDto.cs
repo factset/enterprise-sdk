@@ -47,19 +47,19 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomString
         /// </summary>
-        [DataMember(Name = "CustomString", EmitDefaultValue = true)]
+        [DataMember(Name = "customString", EmitDefaultValue = true)]
         public string CustomString { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFieldName
         /// </summary>
-        [DataMember(Name = "CustomFieldName", EmitDefaultValue = true)]
+        [DataMember(Name = "customFieldName", EmitDefaultValue = true)]
         public string CustomFieldName { get; set; }
 
         /// <summary>

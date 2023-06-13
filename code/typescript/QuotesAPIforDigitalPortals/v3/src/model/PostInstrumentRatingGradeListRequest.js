@@ -22,6 +22,7 @@ import PostInstrumentRatingGradeListRequestData from './PostInstrumentRatingGrad
 class PostInstrumentRatingGradeListRequest {
     /**
      * Constructs a new <code>PostInstrumentRatingGradeListRequest</code>.
+     * Request Body
      * @alias module:model/PostInstrumentRatingGradeListRequest
      */
     constructor() { 

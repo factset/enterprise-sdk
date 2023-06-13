@@ -55,43 +55,43 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name = "UserName", EmitDefaultValue = true)]
+        [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>
         /// Gets or Sets SerialNumber
         /// </summary>
-        [DataMember(Name = "SerialNumber", EmitDefaultValue = true)]
+        [DataMember(Name = "serialNumber", EmitDefaultValue = true)]
         public string SerialNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
-        [DataMember(Name = "FirstName", EmitDefaultValue = true)]
+        [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
-        [DataMember(Name = "LastName", EmitDefaultValue = true)]
+        [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
         /// Gets or Sets EmailAddress
         /// </summary>
-        [DataMember(Name = "EmailAddress", EmitDefaultValue = true)]
+        [DataMember(Name = "emailAddress", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets Team
         /// </summary>
-        [DataMember(Name = "Team", EmitDefaultValue = false)]
+        [DataMember(Name = "team", EmitDefaultValue = false)]
         public TeamSummaryDto Team { get; set; }
 
         /// <summary>

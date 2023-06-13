@@ -99,13 +99,13 @@ class SaveCustomSymbolTypeDto(ModelNormal):
 
 
     attribute_map = {
-        'name': 'Name',  # noqa: E501
-        'hide_address_field': 'HideAddressField',  # noqa: E501
-        'hide_symbol_subtype': 'HideSymbolSubtype',  # noqa: E501
-        'is_default': 'IsDefault',  # noqa: E501
-        'due_diligence_symbol_entity_type': 'DueDiligenceSymbolEntityType',  # noqa: E501
-        'sub_types': 'SubTypes',  # noqa: E501
-        'custom_field_ids': 'CustomFieldIds',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'hide_address_field': 'hideAddressField',  # noqa: E501
+        'hide_symbol_subtype': 'hideSymbolSubtype',  # noqa: E501
+        'is_default': 'isDefault',  # noqa: E501
+        'due_diligence_symbol_entity_type': 'dueDiligenceSymbolEntityType',  # noqa: E501
+        'sub_types': 'subTypes',  # noqa: E501
+        'custom_field_ids': 'customFieldIds',  # noqa: E501
     }
 
     read_only_vars = {

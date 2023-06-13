@@ -5,6 +5,10 @@
     "description": "Allows users to extract, create, update and configure IRN data.",
     "version": "1"
   },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/irn-notes-api#apiDocumentation"
+  },
   "servers": [
     {
       "url": "https://api.factset.com/research/irn",
@@ -1540,19 +1544,19 @@
       "AttachmentSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "FileName": {
+          "fileName": {
             "type": "string",
             "nullable": true
           },
-          "MimeType": {
+          "mimeType": {
             "type": "string",
             "nullable": true
           },
-          "Size": {
+          "size": {
             "type": "integer",
             "format": "int64",
             "nullable": true
@@ -1563,35 +1567,35 @@
       "CommentDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "AuthorId": {
+          "authorId": {
             "type": "string",
             "format": "uuid"
           },
-          "ParentCommentId": {
+          "parentCommentId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Body": {
+          "body": {
             "type": "string",
             "nullable": true
           },
-          "CreatedAt": {
+          "createdAt": {
             "type": "string",
             "nullable": true
           },
-          "Attachments": {
+          "attachments": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AttachmentSummaryDto"
             },
             "nullable": true
           },
-          "Subcomments": {
+          "subcomments": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SubcommentSummaryDto"
@@ -1604,19 +1608,19 @@
       "CommentSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "UserId": {
+          "userId": {
             "type": "string",
             "format": "uuid"
           },
-          "CreatedAt": {
+          "createdAt": {
             "type": "string",
             "nullable": true
           },
-          "Subcomments": {
+          "subcomments": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SubcommentSummaryDto"
@@ -1629,7 +1633,7 @@
       "CreateBodyDto": {
         "type": "object",
         "properties": {
-          "Content": {
+          "content": {
             "type": "string",
             "nullable": true
           }
@@ -1639,16 +1643,16 @@
       "CreateCommentDto": {
         "type": "object",
         "properties": {
-          "AuthorId": {
+          "authorId": {
             "type": "string",
             "format": "uuid"
           },
-          "ParentCommentId": {
+          "parentCommentId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Body": {
+          "body": {
             "type": "string",
             "nullable": true
           }
@@ -1657,40 +1661,40 @@
       },
       "CreateCustomFieldValueDto": {
         "required": [
-          "Code"
+          "code"
         ],
         "type": "object",
         "properties": {
-          "Code": {
+          "code": {
             "type": "string"
           },
-          "IntegerValue": {
+          "integerValue": {
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "TextValue": {
+          "textValue": {
             "type": "string",
             "nullable": true
           },
-          "FilePathValue": {
+          "filePathValue": {
             "type": "string",
             "nullable": true
           },
-          "NumericValue": {
+          "numericValue": {
             "type": "number",
             "format": "double",
             "nullable": true
           },
-          "DateValue": {
+          "dateValue": {
             "type": "string",
             "nullable": true
           },
-          "ExtendedTextValue": {
+          "extendedTextValue": {
             "type": "string",
             "nullable": true
           },
-          "ContactLookupValues": {
+          "contactLookupValues": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1698,11 +1702,11 @@
             },
             "nullable": true
           },
-          "OptionValue": {
+          "optionValue": {
             "type": "string",
             "nullable": true
           },
-          "OptionValues": {
+          "optionValues": {
             "type": "array",
             "items": {
               "type": "string"
@@ -1715,56 +1719,56 @@
       },
       "CreateNoteDto": {
         "required": [
-          "Author",
-          "Date"
+          "author",
+          "date"
         ],
         "type": "object",
         "properties": {
-          "Author": {
+          "author": {
             "$ref": "#/components/schemas/UserSerialDto"
           },
-          "Title": {
+          "title": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "Identifier": {
+          "identifier": {
             "type": "string",
             "nullable": true
           },
-          "Date": {
+          "date": {
             "type": "string"
           },
-          "SubjectId": {
+          "subjectId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "RecommendationId": {
+          "recommendationId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "SentimentId": {
+          "sentimentId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Body": {
+          "body": {
             "$ref": "#/components/schemas/CreateBodyDto"
           },
-          "Source": {
+          "source": {
             "type": "string",
             "nullable": true
           },
-          "Link": {
+          "link": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "RelatedSymbols": {
+          "relatedSymbols": {
             "maxItems": 100,
             "type": "array",
             "items": {
@@ -1772,7 +1776,7 @@
             },
             "nullable": true
           },
-          "RelatedContacts": {
+          "relatedContacts": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1780,17 +1784,17 @@
             },
             "nullable": true
           },
-          "RelatedRecords": {
+          "relatedRecords": {
             "$ref": "#/components/schemas/RelatedRecordsDto"
           },
-          "CustomFieldValues": {
+          "customFieldValues": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateCustomFieldValueDto"
             },
             "nullable": true
           },
-          "IsPersonal": {
+          "isPersonal": {
             "type": "boolean",
             "default": false
           }
@@ -1800,22 +1804,22 @@
       "CustomFieldValueDto": {
         "type": "object",
         "properties": {
-          "Code": {
+          "code": {
             "type": "string",
             "nullable": true
           },
-          "Value": {
+          "value": {
             "type": "string",
             "nullable": true
           },
-          "Options": {
+          "options": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "ContactValues": {
+          "contactValues": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1829,25 +1833,25 @@
       "EventSnippetDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Type": {
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "NoteId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "MeetingId": {
+          "noteId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "CreatedAt": {
+          "meetingId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "createdAt": {
             "type": "string",
             "format": "date-time"
           }
@@ -1861,7 +1865,7 @@
       "NewItemDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           }
@@ -1871,87 +1875,87 @@
       "NoteDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Date": {
+          "date": {
             "type": "string",
             "nullable": true
           },
-          "CreatedAt": {
+          "createdAt": {
             "type": "string",
             "nullable": true
           },
-          "AuthorId": {
+          "authorId": {
             "type": "string",
             "format": "uuid"
           },
-          "ContributorId": {
+          "contributorId": {
             "type": "string",
             "format": "uuid"
           },
-          "Title": {
+          "title": {
             "type": "string",
             "nullable": true
           },
-          "Identifier": {
+          "identifier": {
             "type": "string",
             "nullable": true
           },
-          "RelatedSymbols": {
+          "relatedSymbols": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "SubjectId": {
+          "subjectId": {
             "type": "string",
             "format": "uuid"
           },
-          "RecommendationId": {
+          "recommendationId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "SentimentId": {
+          "sentimentId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Source": {
+          "source": {
             "type": "string",
             "nullable": true
           },
-          "Link": {
+          "link": {
             "type": "string",
             "nullable": true
           },
-          "Body": {
+          "body": {
             "type": "string",
             "nullable": true
           },
-          "IsPersonal": {
+          "isPersonal": {
             "type": "boolean"
           },
-          "State": {
+          "state": {
             "type": "string",
             "nullable": true
           },
-          "ApprovalStatus": {
+          "approvalStatus": {
             "type": "string",
             "nullable": true
           },
-          "AverageRating": {
+          "averageRating": {
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "RelatedRecords": {
+          "relatedRecords": {
             "$ref": "#/components/schemas/RelatedRecordsDto"
           },
-          "RelatedContacts": {
+          "relatedContacts": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1959,7 +1963,7 @@
             },
             "nullable": true
           },
-          "CustomFields": {
+          "customFields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomFieldValueDto"
@@ -1972,23 +1976,23 @@
       "NoteEventDto": {
         "type": "object",
         "properties": {
-          "CreatedAt": {
+          "createdAt": {
             "type": "string",
             "nullable": true
           },
-          "Type": {
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "User": {
+          "user": {
             "type": "string",
             "nullable": true
           },
-          "Comment": {
+          "comment": {
             "type": "string",
             "nullable": true
           },
-          "ChangeList": {
+          "changeList": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RecordChangeDto"
@@ -2001,50 +2005,50 @@
       "NoteSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Date": {
+          "date": {
             "type": "string",
             "nullable": true
           },
-          "CreatedAt": {
+          "createdAt": {
             "type": "string",
             "nullable": true
           },
-          "AuthorId": {
+          "authorId": {
             "type": "string",
             "format": "uuid"
           },
-          "ContributorId": {
+          "contributorId": {
             "type": "string",
             "format": "uuid"
           },
-          "Title": {
+          "title": {
             "type": "string",
             "nullable": true
           },
-          "Identifier": {
+          "identifier": {
             "type": "string",
             "nullable": true
           },
-          "SubjectId": {
+          "subjectId": {
             "type": "string",
             "format": "uuid"
           },
-          "IsPersonal": {
+          "isPersonal": {
             "type": "boolean"
           },
-          "State": {
+          "state": {
             "type": "string",
             "nullable": true
           },
-          "ApprovalStatus": {
+          "approvalStatus": {
             "type": "string",
             "nullable": true
           },
-          "AttachmentIds": {
+          "attachmentIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -2052,22 +2056,22 @@
             },
             "nullable": true
           },
-          "RelatedSymbols": {
+          "relatedSymbols": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "RecommendationId": {
+          "recommendationId": {
             "type": "string",
             "format": "uuid"
           },
-          "SentimentId": {
+          "sentimentId": {
             "type": "string",
             "format": "uuid"
           },
-          "CustomFields": {
+          "customFields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomFieldValueDto"
@@ -2080,7 +2084,7 @@
       "Operation": {
         "type": "object",
         "properties": {
-          "OperationType": {
+          "operationType": {
             "$ref": "#/components/schemas/OperationType"
           },
           "path": {
@@ -2144,30 +2148,30 @@
       "RecordChangeDto": {
         "type": "object",
         "properties": {
-          "Field": {
+          "field": {
             "type": "string",
             "nullable": true
           },
-          "Operation": {
+          "operation": {
             "type": "string",
             "nullable": true
           },
-          "OldValue": {
+          "oldValue": {
             "type": "string",
             "nullable": true
           },
-          "NewValue": {
+          "newValue": {
             "type": "string",
             "nullable": true
           },
-          "OldList": {
+          "oldList": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "NewList": {
+          "newList": {
             "type": "array",
             "items": {
               "type": "string"
@@ -2180,15 +2184,15 @@
       "RecordEventSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Type": {
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "CreatedAt": {
+          "createdAt": {
             "type": "string",
             "nullable": true
           }
@@ -2198,7 +2202,7 @@
       "RelatedRecordsDto": {
         "type": "object",
         "properties": {
-          "NoteIds": {
+          "noteIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -2206,7 +2210,7 @@
             },
             "nullable": true
           },
-          "MeetingIds": {
+          "meetingIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -2220,15 +2224,15 @@
       "SubcommentSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "UserId": {
+          "userId": {
             "type": "string",
             "format": "uuid"
           },
-          "CreatedAt": {
+          "createdAt": {
             "type": "string",
             "nullable": true
           }
@@ -2238,47 +2242,47 @@
       "UpdateNoteDto": {
         "type": "object",
         "properties": {
-          "Author": {
+          "author": {
             "$ref": "#/components/schemas/UserSerialDto"
           },
-          "Title": {
+          "title": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "SubjectId": {
+          "subjectId": {
             "type": "string",
             "format": "uuid"
           },
-          "NoteDate": {
+          "noteDate": {
             "type": "string",
             "nullable": true
           },
-          "RecommendationId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "SentimentId": {
+          "recommendationId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "Body": {
+          "sentimentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "body": {
             "$ref": "#/components/schemas/CreateBodyDto"
           },
-          "Source": {
+          "source": {
             "type": "string",
             "nullable": true
           },
-          "Link": {
+          "link": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "RelatedSymbols": {
+          "relatedSymbols": {
             "maxItems": 100,
             "type": "array",
             "items": {
@@ -2286,7 +2290,7 @@
             },
             "nullable": true
           },
-          "RelatedContacts": {
+          "relatedContacts": {
             "type": "array",
             "items": {
               "type": "string",
@@ -2294,21 +2298,21 @@
             },
             "nullable": true
           },
-          "RelatedRecords": {
+          "relatedRecords": {
             "$ref": "#/components/schemas/RelatedRecordsDto"
           },
-          "CustomFieldValues": {
+          "customFieldValues": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateCustomFieldValueDto"
             },
             "nullable": true
           },
-          "IsPersonal": {
+          "isPersonal": {
             "type": "boolean",
             "nullable": true
           },
-          "Identifier": {
+          "identifier": {
             "type": "string",
             "nullable": true
           }
@@ -2317,17 +2321,17 @@
       },
       "UserSerialDto": {
         "required": [
-          "SerialNumber",
-          "Username"
+          "serialNumber",
+          "username"
         ],
         "type": "object",
         "properties": {
-          "Username": {
+          "username": {
             "maxLength": 30,
             "minLength": 0,
             "type": "string"
           },
-          "SerialNumber": {
+          "serialNumber": {
             "maxLength": 8,
             "minLength": 0,
             "type": "string"

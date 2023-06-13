@@ -2,7 +2,7 @@
 
 # InlineResponse20084Data
 
-Bid and ask prices for the notation.
+Set of price related data for the notation.
 
 ## Properties
 
@@ -10,12 +10,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **idNotation** | **String** | MDG identifier of the listing. |  [optional]
 **sourceIdentifier** | **String** | Identifier used in the request. |  [optional]
-**valueUnit** | [**InlineResponse20082DataValueUnit**](InlineResponse20082DataValueUnit.md) |  |  [optional]
-**currency** | [**InlineResponse20082DataCurrency**](InlineResponse20082DataCurrency.md) |  |  [optional]
-**market** | [**InlineResponse20083Market**](InlineResponse20083Market.md) |  |  [optional]
+**valueUnit** | [**InlineResponse20084DataValueUnit**](InlineResponse20084DataValueUnit.md) |  |  [optional]
+**currency** | [**InlineResponse20084DataCurrency**](InlineResponse20084DataCurrency.md) |  |  [optional]
+**market** | [**InlineResponse20084DataMarket**](InlineResponse20084DataMarket.md) |  |  [optional]
 **quality** | [**QualityEnum**](#QualityEnum) | Quality of the price. |  [optional]
-**bid** | [**InlineResponse20084DataBid**](InlineResponse20084DataBid.md) |  |  [optional]
-**ask** | [**InlineResponse20084DataAsk**](InlineResponse20084DataAsk.md) |  |  [optional]
+**latest** | [**InlineResponse20084DataLatest**](InlineResponse20084DataLatest.md) |  |  [optional]
+**first** | [**InlineResponse20084DataFirst**](InlineResponse20084DataFirst.md) |  |  [optional]
+**low** | [**InlineResponse20084DataLow**](InlineResponse20084DataLow.md) |  |  [optional]
+**high** | [**InlineResponse20084DataHigh**](InlineResponse20084DataHigh.md) |  |  [optional]
+**previousClose** | [**InlineResponse20084DataPreviousClose**](InlineResponse20084DataPreviousClose.md) |  |  [optional]
+**accumulated** | [**InlineResponse20084DataAccumulated**](InlineResponse20084DataAccumulated.md) |  |  [optional]
 
 
 

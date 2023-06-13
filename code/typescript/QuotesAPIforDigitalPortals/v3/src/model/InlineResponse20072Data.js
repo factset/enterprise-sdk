@@ -49,6 +49,12 @@ class InlineResponse20072Data {
         if (data) {
             obj = obj || new InlineResponse20072Data();
 
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
+            }
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            }
             if (data.hasOwnProperty('instrument')) {
                 obj['instrument'] = InlineResponse20072DataInstrument.constructFromObject(data['instrument']);
             }
@@ -56,7 +62,7 @@ class InlineResponse20072Data {
                 obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
             if (data.hasOwnProperty('regional')) {
-                obj['regional'] = ApiClient.convertToType(data['regional'], [InlineResponse20072DataRegional]);
+                obj['regional'] = InlineResponse20072DataRegional.constructFromObject(data['regional']);
             }
         }
         return obj;
@@ -64,6 +70,18 @@ class InlineResponse20072Data {
 
 
 }
+
+/**
+ * MDG identifier of the listing.
+ * @member {String} idNotation
+ */
+InlineResponse20072Data.prototype['idNotation'] = undefined;
+
+/**
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
+ */
+InlineResponse20072Data.prototype['sourceIdentifier'] = undefined;
 
 /**
  * @member {module:model/InlineResponse20072DataInstrument} instrument
@@ -77,8 +95,7 @@ InlineResponse20072Data.prototype['instrument'] = undefined;
 InlineResponse20072Data.prototype['permanentIdentifier'] = undefined;
 
 /**
- * Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.
- * @member {Array.<module:model/InlineResponse20072DataRegional>} regional
+ * @member {module:model/InlineResponse20072DataRegional} regional
  */
 InlineResponse20072Data.prototype['regional'] = undefined;
 

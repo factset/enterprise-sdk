@@ -46,17 +46,17 @@ class AttachmentSummaryDto {
         if (data) {
             obj = obj || new AttachmentSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('FileName')) {
-                obj['FileName'] = ApiClient.convertToType(data['FileName'], 'String');
+            if (data.hasOwnProperty('fileName')) {
+                obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('MimeType')) {
-                obj['MimeType'] = ApiClient.convertToType(data['MimeType'], 'String');
+            if (data.hasOwnProperty('mimeType')) {
+                obj['mimeType'] = ApiClient.convertToType(data['mimeType'], 'String');
             }
-            if (data.hasOwnProperty('Size')) {
-                obj['Size'] = ApiClient.convertToType(data['Size'], 'Number');
+            if (data.hasOwnProperty('size')) {
+                obj['size'] = ApiClient.convertToType(data['size'], 'Number');
             }
         }
         return obj;
@@ -66,24 +66,24 @@ class AttachmentSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-AttachmentSummaryDto.prototype['Id'] = undefined;
+AttachmentSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} FileName
+ * @member {String} fileName
  */
-AttachmentSummaryDto.prototype['FileName'] = undefined;
+AttachmentSummaryDto.prototype['fileName'] = undefined;
 
 /**
- * @member {String} MimeType
+ * @member {String} mimeType
  */
-AttachmentSummaryDto.prototype['MimeType'] = undefined;
+AttachmentSummaryDto.prototype['mimeType'] = undefined;
 
 /**
- * @member {Number} Size
+ * @member {Number} size
  */
-AttachmentSummaryDto.prototype['Size'] = undefined;
+AttachmentSummaryDto.prototype['size'] = undefined;
 
 
 

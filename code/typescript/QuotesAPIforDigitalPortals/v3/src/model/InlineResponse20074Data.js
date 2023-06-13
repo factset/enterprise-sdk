@@ -12,9 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20074DataHigh from './InlineResponse20074DataHigh';
-import InlineResponse20074DataLow from './InlineResponse20074DataLow';
-import InlineResponse20074DataPerformance from './InlineResponse20074DataPerformance';
+import InlineResponse20073DataRegional from './InlineResponse20073DataRegional';
 
 /**
  * The InlineResponse20074Data model module.
@@ -23,7 +21,7 @@ import InlineResponse20074DataPerformance from './InlineResponse20074DataPerform
 class InlineResponse20074Data {
     /**
      * Constructs a new <code>InlineResponse20074Data</code>.
-     * EOD key figures.
+     * Instrument data with a list of regional-level data and assigned listing-level data.
      * @alias module:model/InlineResponse20074Data
      */
     constructor() { 
@@ -50,29 +48,17 @@ class InlineResponse20074Data {
         if (data) {
             obj = obj || new InlineResponse20074Data();
 
-            if (data.hasOwnProperty('idNotation')) {
-                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
+            if (data.hasOwnProperty('idInstrument')) {
+                obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
             if (data.hasOwnProperty('sourceIdentifier')) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('referenceDate')) {
-                obj['referenceDate'] = ApiClient.convertToType(data['referenceDate'], 'Date');
+            if (data.hasOwnProperty('permanentIdentifier')) {
+                obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('performance')) {
-                obj['performance'] = InlineResponse20074DataPerformance.constructFromObject(data['performance']);
-            }
-            if (data.hasOwnProperty('high')) {
-                obj['high'] = InlineResponse20074DataHigh.constructFromObject(data['high']);
-            }
-            if (data.hasOwnProperty('low')) {
-                obj['low'] = InlineResponse20074DataLow.constructFromObject(data['low']);
-            }
-            if (data.hasOwnProperty('tradingVolume')) {
-                obj['tradingVolume'] = ApiClient.convertToType(data['tradingVolume'], 'Number');
-            }
-            if (data.hasOwnProperty('volatility')) {
-                obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
+            if (data.hasOwnProperty('regional')) {
+                obj['regional'] = ApiClient.convertToType(data['regional'], [InlineResponse20073DataRegional]);
             }
         }
         return obj;
@@ -82,10 +68,10 @@ class InlineResponse20074Data {
 }
 
 /**
- * MDG identifier of the listing.
- * @member {String} idNotation
+ * MDG identifier of the instrument.
+ * @member {String} idInstrument
  */
-InlineResponse20074Data.prototype['idNotation'] = undefined;
+InlineResponse20074Data.prototype['idInstrument'] = undefined;
 
 /**
  * Identifier used in the request.
@@ -94,37 +80,16 @@ InlineResponse20074Data.prototype['idNotation'] = undefined;
 InlineResponse20074Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * Reference date of the time range.
- * @member {Date} referenceDate
+ * FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+ * @member {String} permanentIdentifier
  */
-InlineResponse20074Data.prototype['referenceDate'] = undefined;
+InlineResponse20074Data.prototype['permanentIdentifier'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20074DataPerformance} performance
+ * Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.
+ * @member {Array.<module:model/InlineResponse20073DataRegional>} regional
  */
-InlineResponse20074Data.prototype['performance'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20074DataHigh} high
- */
-InlineResponse20074Data.prototype['high'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20074DataLow} low
- */
-InlineResponse20074Data.prototype['low'] = undefined;
-
-/**
- * Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive).
- * @member {Number} tradingVolume
- */
-InlineResponse20074Data.prototype['tradingVolume'] = undefined;
-
-/**
- * Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
- * @member {Number} volatility
- */
-InlineResponse20074Data.prototype['volatility'] = undefined;
+InlineResponse20074Data.prototype['regional'] = undefined;
 
 
 

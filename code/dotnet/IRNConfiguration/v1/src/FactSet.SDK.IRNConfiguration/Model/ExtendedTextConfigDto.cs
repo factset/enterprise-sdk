@@ -43,7 +43,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets MaxChars
         /// </summary>
-        [DataMember(Name = "MaxChars", EmitDefaultValue = false)]
+        [DataMember(Name = "maxChars", EmitDefaultValue = false)]
         public int MaxChars { get; set; }
 
         /// <summary>

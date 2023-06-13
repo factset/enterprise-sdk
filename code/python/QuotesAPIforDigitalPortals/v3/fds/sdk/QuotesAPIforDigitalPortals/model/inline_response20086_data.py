@@ -30,8 +30,16 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20086_data_asks import InlineResponse20086DataAsks
-    globals()['InlineResponse20086DataAsks'] = InlineResponse20086DataAsks
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_currency import InlineResponse20084DataCurrency
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_value_unit import InlineResponse20084DataValueUnit
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_market import InlineResponse20085Market
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20086_data_ask import InlineResponse20086DataAsk
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20086_data_bid import InlineResponse20086DataBid
+    globals()['InlineResponse20084DataCurrency'] = InlineResponse20084DataCurrency
+    globals()['InlineResponse20084DataValueUnit'] = InlineResponse20084DataValueUnit
+    globals()['InlineResponse20085Market'] = InlineResponse20085Market
+    globals()['InlineResponse20086DataAsk'] = InlineResponse20086DataAsk
+    globals()['InlineResponse20086DataBid'] = InlineResponse20086DataBid
 
 
 class InlineResponse20086Data(ModelNormal):
@@ -63,6 +71,7 @@ class InlineResponse20086Data(ModelNormal):
             'None': None,
             'RLT': "RLT",
             'DLY': "DLY",
+            'EOD': "EOD",
         },
     }
 
@@ -94,9 +103,12 @@ class InlineResponse20086Data(ModelNormal):
         return {
             'id_notation': (str, none_type,),  # noqa: E501
             'source_identifier': (str, none_type,),  # noqa: E501
+            'value_unit': (InlineResponse20084DataValueUnit,),  # noqa: E501
+            'currency': (InlineResponse20084DataCurrency,),  # noqa: E501
+            'market': (InlineResponse20085Market,),  # noqa: E501
             'quality': (str, none_type,),  # noqa: E501
-            'asks': ([InlineResponse20086DataAsks],),  # noqa: E501
-            'bids': ([InlineResponse20086DataAsks],),  # noqa: E501
+            'bid': (InlineResponse20086DataBid,),  # noqa: E501
+            'ask': (InlineResponse20086DataAsk,),  # noqa: E501
         }
 
     @cached_property
@@ -107,9 +119,12 @@ class InlineResponse20086Data(ModelNormal):
     attribute_map = {
         'id_notation': 'idNotation',  # noqa: E501
         'source_identifier': 'sourceIdentifier',  # noqa: E501
+        'value_unit': 'valueUnit',  # noqa: E501
+        'currency': 'currency',  # noqa: E501
+        'market': 'market',  # noqa: E501
         'quality': 'quality',  # noqa: E501
-        'asks': 'asks',  # noqa: E501
-        'bids': 'bids',  # noqa: E501
+        'bid': 'bid',  # noqa: E501
+        'ask': 'ask',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,9 +170,12 @@ class InlineResponse20086Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
+            value_unit (InlineResponse20084DataValueUnit): [optional]  # noqa: E501
+            currency (InlineResponse20084DataCurrency): [optional]  # noqa: E501
+            market (InlineResponse20085Market): [optional]  # noqa: E501
             quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            asks ([InlineResponse20086DataAsks]): List of sell orders aggregated by price.. [optional]  # noqa: E501
-            bids ([InlineResponse20086DataAsks]): List of buy orders aggregated by price.. [optional]  # noqa: E501
+            bid (InlineResponse20086DataBid): [optional]  # noqa: E501
+            ask (InlineResponse20086DataAsk): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,9 +259,12 @@ class InlineResponse20086Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
+            value_unit (InlineResponse20084DataValueUnit): [optional]  # noqa: E501
+            currency (InlineResponse20084DataCurrency): [optional]  # noqa: E501
+            market (InlineResponse20085Market): [optional]  # noqa: E501
             quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            asks ([InlineResponse20086DataAsks]): List of sell orders aggregated by price.. [optional]  # noqa: E501
-            bids ([InlineResponse20086DataAsks]): List of buy orders aggregated by price.. [optional]  # noqa: E501
+            bid (InlineResponse20086DataBid): [optional]  # noqa: E501
+            ask (InlineResponse20086DataAsk): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -46,8 +46,8 @@ class TeamSettingsDto {
         if (data) {
             obj = obj || new TeamSettingsDto();
 
-            if (data.hasOwnProperty('DefaultId')) {
-                obj['DefaultId'] = ApiClient.convertToType(data['DefaultId'], 'String');
+            if (data.hasOwnProperty('defaultId')) {
+                obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class TeamSettingsDto {
 }
 
 /**
- * @member {String} DefaultId
+ * @member {String} defaultId
  */
-TeamSettingsDto.prototype['DefaultId'] = undefined;
+TeamSettingsDto.prototype['defaultId'] = undefined;
 
 
 

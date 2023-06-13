@@ -48,19 +48,19 @@ import com.factset.sdk.IRNNotes.JSON;
 public class EventSnippetDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NOTE_ID = "NoteId";
+  public static final String JSON_PROPERTY_NOTE_ID = "noteId";
   private JsonNullable<java.util.UUID> noteId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_MEETING_ID = "MeetingId";
+  public static final String JSON_PROPERTY_MEETING_ID = "meetingId";
   private JsonNullable<java.util.UUID> meetingId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_CREATED_AT = "CreatedAt";
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
   public EventSnippetDto() { 

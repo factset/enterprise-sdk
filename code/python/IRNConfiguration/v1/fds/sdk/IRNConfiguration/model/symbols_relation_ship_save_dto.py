@@ -105,12 +105,12 @@ class SymbolsRelationShipSaveDto(ModelNormal):
 
 
     attribute_map = {
-        'hide_dates': 'HideDates',  # noqa: E501
-        'hide_comment': 'HideComment',  # noqa: E501
-        'relationship_code': 'RelationshipCode',  # noqa: E501
-        'parent_to_child_name': 'ParentToChildName',  # noqa: E501
-        'child_to_parent_name': 'ChildToParentName',  # noqa: E501
-        'peer_name': 'PeerName',  # noqa: E501
+        'hide_dates': 'hideDates',  # noqa: E501
+        'hide_comment': 'hideComment',  # noqa: E501
+        'relationship_code': 'relationshipCode',  # noqa: E501
+        'parent_to_child_name': 'parentToChildName',  # noqa: E501
+        'child_to_parent_name': 'childToParentName',  # noqa: E501
+        'peer_name': 'peerName',  # noqa: E501
     }
 
     read_only_vars = {

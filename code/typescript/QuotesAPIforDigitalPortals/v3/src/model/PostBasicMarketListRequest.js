@@ -22,6 +22,7 @@ import PostBasicMarketListRequestMeta from './PostBasicMarketListRequestMeta';
 class PostBasicMarketListRequest {
     /**
      * Constructs a new <code>PostBasicMarketListRequest</code>.
+     * Request Body
      * @alias module:model/PostBasicMarketListRequest
      */
     constructor() { 

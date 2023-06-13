@@ -30,24 +30,14 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_accumulated import InlineResponse20082DataAccumulated
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_currency import InlineResponse20082DataCurrency
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_first import InlineResponse20082DataFirst
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_high import InlineResponse20082DataHigh
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_latest import InlineResponse20082DataLatest
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_low import InlineResponse20082DataLow
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_market import InlineResponse20082DataMarket
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_previous_close import InlineResponse20082DataPreviousClose
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_value_unit import InlineResponse20082DataValueUnit
-    globals()['InlineResponse20082DataAccumulated'] = InlineResponse20082DataAccumulated
-    globals()['InlineResponse20082DataCurrency'] = InlineResponse20082DataCurrency
-    globals()['InlineResponse20082DataFirst'] = InlineResponse20082DataFirst
-    globals()['InlineResponse20082DataHigh'] = InlineResponse20082DataHigh
-    globals()['InlineResponse20082DataLatest'] = InlineResponse20082DataLatest
-    globals()['InlineResponse20082DataLow'] = InlineResponse20082DataLow
-    globals()['InlineResponse20082DataMarket'] = InlineResponse20082DataMarket
-    globals()['InlineResponse20082DataPreviousClose'] = InlineResponse20082DataPreviousClose
-    globals()['InlineResponse20082DataValueUnit'] = InlineResponse20082DataValueUnit
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_country import InlineResponse20082Country
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_group import InlineResponse20082Group
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_timezone import InlineResponse20082Timezone
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_type import InlineResponse20082Type
+    globals()['InlineResponse20082Country'] = InlineResponse20082Country
+    globals()['InlineResponse20082Group'] = InlineResponse20082Group
+    globals()['InlineResponse20082Timezone'] = InlineResponse20082Timezone
+    globals()['InlineResponse20082Type'] = InlineResponse20082Type
 
 
 class InlineResponse20082Data(ModelNormal):
@@ -75,12 +65,6 @@ class InlineResponse20082Data(ModelNormal):
     """
 
     allowed_values = {
-        ('quality',): {
-            'None': None,
-            'RLT': "RLT",
-            'DLY': "DLY",
-            'EOD': "EOD",
-        },
     }
 
     validations = {
@@ -109,18 +93,14 @@ class InlineResponse20082Data(ModelNormal):
         """
         lazy_import()
         return {
-            'id_notation': (str, none_type,),  # noqa: E501
-            'source_identifier': (str, none_type,),  # noqa: E501
-            'value_unit': (InlineResponse20082DataValueUnit,),  # noqa: E501
-            'currency': (InlineResponse20082DataCurrency,),  # noqa: E501
-            'market': (InlineResponse20082DataMarket,),  # noqa: E501
-            'quality': (str, none_type,),  # noqa: E501
-            'latest': (InlineResponse20082DataLatest,),  # noqa: E501
-            'first': (InlineResponse20082DataFirst,),  # noqa: E501
-            'low': (InlineResponse20082DataLow,),  # noqa: E501
-            'high': (InlineResponse20082DataHigh,),  # noqa: E501
-            'previous_close': (InlineResponse20082DataPreviousClose,),  # noqa: E501
-            'accumulated': (InlineResponse20082DataAccumulated,),  # noqa: E501
+            'id': (float, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'short_name': (str, none_type,),  # noqa: E501
+            'country': (InlineResponse20082Country,),  # noqa: E501
+            'type': (InlineResponse20082Type,),  # noqa: E501
+            'group': (InlineResponse20082Group,),  # noqa: E501
+            'timezone': (InlineResponse20082Timezone,),  # noqa: E501
+            'count': (float, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -129,18 +109,14 @@ class InlineResponse20082Data(ModelNormal):
 
 
     attribute_map = {
-        'id_notation': 'idNotation',  # noqa: E501
-        'source_identifier': 'sourceIdentifier',  # noqa: E501
-        'value_unit': 'valueUnit',  # noqa: E501
-        'currency': 'currency',  # noqa: E501
-        'market': 'market',  # noqa: E501
-        'quality': 'quality',  # noqa: E501
-        'latest': 'latest',  # noqa: E501
-        'first': 'first',  # noqa: E501
-        'low': 'low',  # noqa: E501
-        'high': 'high',  # noqa: E501
-        'previous_close': 'previousClose',  # noqa: E501
-        'accumulated': 'accumulated',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'short_name': 'shortName',  # noqa: E501
+        'country': 'country',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'group': 'group',  # noqa: E501
+        'timezone': 'timezone',  # noqa: E501
+        'count': 'count',  # noqa: E501
     }
 
     read_only_vars = {
@@ -184,18 +160,14 @@ class InlineResponse20082Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
-            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            value_unit (InlineResponse20082DataValueUnit): [optional]  # noqa: E501
-            currency (InlineResponse20082DataCurrency): [optional]  # noqa: E501
-            market (InlineResponse20082DataMarket): [optional]  # noqa: E501
-            quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            latest (InlineResponse20082DataLatest): [optional]  # noqa: E501
-            first (InlineResponse20082DataFirst): [optional]  # noqa: E501
-            low (InlineResponse20082DataLow): [optional]  # noqa: E501
-            high (InlineResponse20082DataHigh): [optional]  # noqa: E501
-            previous_close (InlineResponse20082DataPreviousClose): [optional]  # noqa: E501
-            accumulated (InlineResponse20082DataAccumulated): [optional]  # noqa: E501
+            id (float, none_type): Identifier of a market.. [optional]  # noqa: E501
+            name (str, none_type): Name of the market.. [optional]  # noqa: E501
+            short_name (str, none_type): Short name of the market.. [optional]  # noqa: E501
+            country (InlineResponse20082Country): [optional]  # noqa: E501
+            type (InlineResponse20082Type): [optional]  # noqa: E501
+            group (InlineResponse20082Group): [optional]  # noqa: E501
+            timezone (InlineResponse20082Timezone): [optional]  # noqa: E501
+            count (float, none_type): Number of entitled notations.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,18 +249,14 @@ class InlineResponse20082Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
-            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            value_unit (InlineResponse20082DataValueUnit): [optional]  # noqa: E501
-            currency (InlineResponse20082DataCurrency): [optional]  # noqa: E501
-            market (InlineResponse20082DataMarket): [optional]  # noqa: E501
-            quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            latest (InlineResponse20082DataLatest): [optional]  # noqa: E501
-            first (InlineResponse20082DataFirst): [optional]  # noqa: E501
-            low (InlineResponse20082DataLow): [optional]  # noqa: E501
-            high (InlineResponse20082DataHigh): [optional]  # noqa: E501
-            previous_close (InlineResponse20082DataPreviousClose): [optional]  # noqa: E501
-            accumulated (InlineResponse20082DataAccumulated): [optional]  # noqa: E501
+            id (float, none_type): Identifier of a market.. [optional]  # noqa: E501
+            name (str, none_type): Name of the market.. [optional]  # noqa: E501
+            short_name (str, none_type): Short name of the market.. [optional]  # noqa: E501
+            country (InlineResponse20082Country): [optional]  # noqa: E501
+            type (InlineResponse20082Type): [optional]  # noqa: E501
+            group (InlineResponse20082Group): [optional]  # noqa: E501
+            timezone (InlineResponse20082Timezone): [optional]  # noqa: E501
+            count (float, none_type): Number of entitled notations.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

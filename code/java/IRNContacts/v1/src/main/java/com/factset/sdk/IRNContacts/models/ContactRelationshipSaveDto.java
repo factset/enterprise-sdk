@@ -51,28 +51,28 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactRelationshipSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP_ID = "RelationshipId";
+  public static final String JSON_PROPERTY_RELATIONSHIP_ID = "relationshipId";
   private java.util.UUID relationshipId;
 
-  public static final String JSON_PROPERTY_CONTACT_ID = "ContactId";
+  public static final String JSON_PROPERTY_CONTACT_ID = "contactId";
   private JsonNullable<java.util.UUID> contactId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_START = "Start";
+  public static final String JSON_PROPERTY_START = "start";
   private JsonNullable<OffsetDateTime> start = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String JSON_PROPERTY_END = "End";
+  public static final String JSON_PROPERTY_END = "end";
   private JsonNullable<OffsetDateTime> end = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String JSON_PROPERTY_COMMENT = "Comment";
+  public static final String JSON_PROPERTY_COMMENT = "comment";
   private JsonNullable<String> comment = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_CURRENT = "IsCurrent";
+  public static final String JSON_PROPERTY_IS_CURRENT = "isCurrent";
   private Boolean isCurrent;
 
-  public static final String JSON_PROPERTY_SYMBOL = "Symbol";
+  public static final String JSON_PROPERTY_SYMBOL = "symbol";
   private JsonNullable<String> symbol = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TITLE = "Title";
+  public static final String JSON_PROPERTY_TITLE = "title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public ContactRelationshipSaveDto() { 

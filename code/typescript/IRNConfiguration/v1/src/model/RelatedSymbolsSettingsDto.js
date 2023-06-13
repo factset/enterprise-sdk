@@ -46,14 +46,14 @@ class RelatedSymbolsSettingsDto {
         if (data) {
             obj = obj || new RelatedSymbolsSettingsDto();
 
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('UsePrevious')) {
-                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            if (data.hasOwnProperty('usePrevious')) {
+                obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class RelatedSymbolsSettingsDto {
 }
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-RelatedSymbolsSettingsDto.prototype['IsHidden'] = undefined;
+RelatedSymbolsSettingsDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  */
-RelatedSymbolsSettingsDto.prototype['IsMandatory'] = undefined;
+RelatedSymbolsSettingsDto.prototype['isMandatory'] = undefined;
 
 /**
- * @member {Boolean} UsePrevious
+ * @member {Boolean} usePrevious
  */
-RelatedSymbolsSettingsDto.prototype['UsePrevious'] = undefined;
+RelatedSymbolsSettingsDto.prototype['usePrevious'] = undefined;
 
 
 

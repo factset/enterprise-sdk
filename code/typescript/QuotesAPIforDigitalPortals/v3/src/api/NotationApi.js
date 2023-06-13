@@ -30,9 +30,12 @@ import InlineResponse20078 from '../model/InlineResponse20078';
 import InlineResponse20079 from '../model/InlineResponse20079';
 import InlineResponse20080 from '../model/InlineResponse20080';
 import InlineResponse20081 from '../model/InlineResponse20081';
-import InlineResponse20091 from '../model/InlineResponse20091';
-import InlineResponse20092 from '../model/InlineResponse20092';
+import InlineResponse20082 from '../model/InlineResponse20082';
+import InlineResponse20083 from '../model/InlineResponse20083';
 import InlineResponse20093 from '../model/InlineResponse20093';
+import InlineResponse20094 from '../model/InlineResponse20094';
+import InlineResponse20095 from '../model/InlineResponse20095';
+import PostNotationCategoryListRequest from '../model/PostNotationCategoryListRequest';
 import PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest from '../model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest';
 import PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest from '../model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest';
 import PostNotationCrossReferenceListByISINRequest from '../model/PostNotationCrossReferenceListByISINRequest';
@@ -67,7 +70,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20071} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20072} and HTTP response
      */
     getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -98,7 +101,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20071;
+      let returnType = InlineResponse20072;
 
       return this.apiClient.callApi(
         '/notation/crossReference/factSetIdentifier/get', 'GET',
@@ -114,7 +117,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20071 > } a Promise, with data of type {@link module:model/InlineResponse20071 }
+     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
      */
     getNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, opts) {
       return this.getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(identifier, identifierType, opts)
@@ -131,7 +134,7 @@ export default class NotationApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20067} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20068} and HTTP response
      */
     getNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, opts) {
       opts = opts || {};
@@ -158,7 +161,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20067;
+      let returnType = InlineResponse20068;
 
       return this.apiClient.callApi(
         '/notation/crossReference/getByFactSetMarketSymbol', 'GET',
@@ -174,7 +177,7 @@ export default class NotationApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language 
-     * @return { Promise.< module:model/InlineResponse20067 > } a Promise, with data of type {@link module:model/InlineResponse20067 }
+     * @return { Promise.< module:model/InlineResponse20068 > } a Promise, with data of type {@link module:model/InlineResponse20068 }
      */
     getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, opts) {
       return this.getNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, opts)
@@ -258,7 +261,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
      */
     getNotationKeyFiguresMonth1GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -289,7 +292,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20076;
+      let returnType = InlineResponse20077;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/month/1/get', 'GET',
@@ -305,7 +308,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
+     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
      */
     getNotationKeyFiguresMonth1Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresMonth1GetWithHttpInfo(identifier, identifierType, opts)
@@ -322,7 +325,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20078} and HTTP response
      */
     getNotationKeyFiguresMonth1ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -353,7 +356,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20077;
+      let returnType = InlineResponse20078;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/month/1/list', 'GET',
@@ -369,7 +372,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
+     * @return { Promise.< module:model/InlineResponse20078 > } a Promise, with data of type {@link module:model/InlineResponse20078 }
      */
     getNotationKeyFiguresMonth1List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresMonth1ListWithHttpInfo(identifiers, identifierType, opts)
@@ -386,7 +389,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
     getNotationKeyFiguresMonth3GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -417,7 +420,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20074;
+      let returnType = InlineResponse20075;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/month/3/get', 'GET',
@@ -433,7 +436,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresMonth3Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresMonth3GetWithHttpInfo(identifier, identifierType, opts)
@@ -450,7 +453,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
      */
     getNotationKeyFiguresMonth3ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -481,7 +484,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20075;
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/month/3/list', 'GET',
@@ -497,7 +500,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
     getNotationKeyFiguresMonth3List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresMonth3ListWithHttpInfo(identifiers, identifierType, opts)
@@ -514,7 +517,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
     getNotationKeyFiguresMonth6GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -545,7 +548,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20074;
+      let returnType = InlineResponse20075;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/month/6/get', 'GET',
@@ -561,7 +564,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresMonth6Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresMonth6GetWithHttpInfo(identifier, identifierType, opts)
@@ -578,7 +581,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
      */
     getNotationKeyFiguresMonth6ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -609,7 +612,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20075;
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/month/6/list', 'GET',
@@ -625,10 +628,74 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
     getNotationKeyFiguresMonth6List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresMonth6ListWithHttpInfo(identifiers, identifierType, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Average end-of-day (EOD) key figures for different trading days periods.
+     * Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20081} and HTTP response
+     */
+    getNotationKeyFiguresTradingDayAverageGetWithHttpInfo(identifier, identifierType, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'identifier' is set
+      if (identifier === undefined || identifier === null) {
+        throw new Error("Missing the required parameter 'identifier' when calling getNotationKeyFiguresTradingDayAverageGet");
+      }
+      // verify the required parameter 'identifierType' is set
+      if (identifierType === undefined || identifierType === null) {
+        throw new Error("Missing the required parameter 'identifierType' when calling getNotationKeyFiguresTradingDayAverageGet");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'identifier': identifier,
+        'identifierType': identifierType,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20081;
+
+      return this.apiClient.callApi(
+        '/notation/keyFigures/tradingDay/average/get', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Average end-of-day (EOD) key figures for different trading days periods.
+     * Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+     * @param {String} identifier 
+     * @param {module:model/String} identifierType 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20081 > } a Promise, with data of type {@link module:model/InlineResponse20081 }
+     */
+    getNotationKeyFiguresTradingDayAverageGet(identifier, identifierType, opts) {
+      return this.getNotationKeyFiguresTradingDayAverageGetWithHttpInfo(identifier, identifierType, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -642,7 +709,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
      */
     getNotationKeyFiguresWeek1GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -673,7 +740,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20076;
+      let returnType = InlineResponse20077;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/week/1/get', 'GET',
@@ -689,7 +756,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
+     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
      */
     getNotationKeyFiguresWeek1Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresWeek1GetWithHttpInfo(identifier, identifierType, opts)
@@ -706,7 +773,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20078} and HTTP response
      */
     getNotationKeyFiguresWeek1ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -737,7 +804,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20077;
+      let returnType = InlineResponse20078;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/week/1/list', 'GET',
@@ -753,7 +820,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
+     * @return { Promise.< module:model/InlineResponse20078 > } a Promise, with data of type {@link module:model/InlineResponse20078 }
      */
     getNotationKeyFiguresWeek1List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresWeek1ListWithHttpInfo(identifiers, identifierType, opts)
@@ -770,7 +837,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
     getNotationKeyFiguresYear10GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -801,7 +868,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20074;
+      let returnType = InlineResponse20075;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/10/get', 'GET',
@@ -817,7 +884,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresYear10Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresYear10GetWithHttpInfo(identifier, identifierType, opts)
@@ -834,7 +901,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
      */
     getNotationKeyFiguresYear10ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -865,7 +932,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20075;
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/10/list', 'GET',
@@ -881,7 +948,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
     getNotationKeyFiguresYear10List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresYear10ListWithHttpInfo(identifiers, identifierType, opts)
@@ -898,7 +965,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
      */
     getNotationKeyFiguresYear1GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -929,7 +996,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20076;
+      let returnType = InlineResponse20077;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/1/get', 'GET',
@@ -945,7 +1012,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
+     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
      */
     getNotationKeyFiguresYear1Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresYear1GetWithHttpInfo(identifier, identifierType, opts)
@@ -962,7 +1029,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20077} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20078} and HTTP response
      */
     getNotationKeyFiguresYear1ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -993,7 +1060,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20077;
+      let returnType = InlineResponse20078;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/1/list', 'GET',
@@ -1009,7 +1076,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
+     * @return { Promise.< module:model/InlineResponse20078 > } a Promise, with data of type {@link module:model/InlineResponse20078 }
      */
     getNotationKeyFiguresYear1List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresYear1ListWithHttpInfo(identifiers, identifierType, opts)
@@ -1026,7 +1093,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
     getNotationKeyFiguresYear3GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -1057,7 +1124,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20074;
+      let returnType = InlineResponse20075;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/3/get', 'GET',
@@ -1073,7 +1140,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresYear3Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresYear3GetWithHttpInfo(identifier, identifierType, opts)
@@ -1090,7 +1157,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
      */
     getNotationKeyFiguresYear3ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -1121,7 +1188,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20075;
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/3/list', 'GET',
@@ -1137,7 +1204,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
     getNotationKeyFiguresYear3List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresYear3ListWithHttpInfo(identifiers, identifierType, opts)
@@ -1154,7 +1221,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
     getNotationKeyFiguresYear5GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -1185,7 +1252,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20074;
+      let returnType = InlineResponse20075;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/5/get', 'GET',
@@ -1201,7 +1268,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresYear5Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresYear5GetWithHttpInfo(identifier, identifierType, opts)
@@ -1218,7 +1285,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
      */
     getNotationKeyFiguresYear5ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -1249,7 +1316,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20075;
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/5/list', 'GET',
@@ -1265,7 +1332,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
     getNotationKeyFiguresYear5List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresYear5ListWithHttpInfo(identifiers, identifierType, opts)
@@ -1282,7 +1349,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
      */
     getNotationKeyFiguresYear7GetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -1313,7 +1380,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20074;
+      let returnType = InlineResponse20075;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/7/get', 'GET',
@@ -1329,7 +1396,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresYear7Get(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresYear7GetWithHttpInfo(identifier, identifierType, opts)
@@ -1346,7 +1413,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20075} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20076} and HTTP response
      */
     getNotationKeyFiguresYear7ListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -1377,7 +1444,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20075;
+      let returnType = InlineResponse20076;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/year/7/list', 'GET',
@@ -1393,7 +1460,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
     getNotationKeyFiguresYear7List(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresYear7ListWithHttpInfo(identifiers, identifierType, opts)
@@ -1410,7 +1477,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20078} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20079} and HTTP response
      */
     getNotationKeyFiguresYearToDateGetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -1441,7 +1508,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20078;
+      let returnType = InlineResponse20079;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/yearToDate/get', 'GET',
@@ -1457,7 +1524,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20078 > } a Promise, with data of type {@link module:model/InlineResponse20078 }
+     * @return { Promise.< module:model/InlineResponse20079 > } a Promise, with data of type {@link module:model/InlineResponse20079 }
      */
     getNotationKeyFiguresYearToDateGet(identifier, identifierType, opts) {
       return this.getNotationKeyFiguresYearToDateGetWithHttpInfo(identifier, identifierType, opts)
@@ -1474,7 +1541,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20079} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20080} and HTTP response
      */
     getNotationKeyFiguresYearToDateListWithHttpInfo(identifiers, identifierType, opts) {
       opts = opts || {};
@@ -1505,7 +1572,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20079;
+      let returnType = InlineResponse20080;
 
       return this.apiClient.callApi(
         '/notation/keyFigures/yearToDate/list', 'GET',
@@ -1521,7 +1588,7 @@ export default class NotationApi {
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20079 > } a Promise, with data of type {@link module:model/InlineResponse20079 }
+     * @return { Promise.< module:model/InlineResponse20080 > } a Promise, with data of type {@link module:model/InlineResponse20080 }
      */
     getNotationKeyFiguresYearToDateList(identifiers, identifierType, opts) {
       return this.getNotationKeyFiguresYearToDateListWithHttpInfo(identifiers, identifierType, opts)
@@ -1611,7 +1678,7 @@ export default class NotationApi {
      * @param {String} opts.language 
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20091} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20093} and HTTP response
      */
     getNotationSearchBasicWithHttpInfo(searchValue, opts) {
       opts = opts || {};
@@ -1644,7 +1711,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20091;
+      let returnType = InlineResponse20093;
 
       return this.apiClient.callApi(
         '/notation/search/basic', 'GET',
@@ -1666,7 +1733,7 @@ export default class NotationApi {
      * @param {String} opts.language 
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
-     * @return { Promise.< module:model/InlineResponse20091 > } a Promise, with data of type {@link module:model/InlineResponse20091 }
+     * @return { Promise.< module:model/InlineResponse20093 > } a Promise, with data of type {@link module:model/InlineResponse20093 }
      */
     getNotationSearchBasic(searchValue, opts) {
       return this.getNotationSearchBasicWithHttpInfo(searchValue, opts)
@@ -1689,7 +1756,7 @@ export default class NotationApi {
      * @param {String} opts.language 
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20093} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20095} and HTTP response
      */
     getNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, opts) {
       opts = opts || {};
@@ -1722,7 +1789,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20093;
+      let returnType = InlineResponse20095;
 
       return this.apiClient.callApi(
         '/notation/searchByTextRankedByVolume', 'GET',
@@ -1744,7 +1811,7 @@ export default class NotationApi {
      * @param {String} opts.language 
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
-     * @return { Promise.< module:model/InlineResponse20093 > } a Promise, with data of type {@link module:model/InlineResponse20093 }
+     * @return { Promise.< module:model/InlineResponse20095 > } a Promise, with data of type {@link module:model/InlineResponse20095 }
      */
     getNotationSearchByTextRankedByVolume(searchValue, opts) {
       return this.getNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, opts)
@@ -1756,13 +1823,13 @@ export default class NotationApi {
 
     /**
      * Intraday trading status of a notation.
-     * Intraday trading status of a notation.
+     * Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.
      * @param {String} identifier 
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.quality  (default to 'DLY')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20081} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20083} and HTTP response
      */
     getNotationStatusGetWithHttpInfo(identifier, identifierType, opts) {
       opts = opts || {};
@@ -1794,7 +1861,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20081;
+      let returnType = InlineResponse20083;
 
       return this.apiClient.callApi(
         '/notation/status/get', 'GET',
@@ -1805,13 +1872,13 @@ export default class NotationApi {
 
     /**
      * Intraday trading status of a notation.
-     * Intraday trading status of a notation.
+     * Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.
      * @param {String} identifier 
      * @param {module:model/String} identifierType 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.quality  (default to 'DLY')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse20081 > } a Promise, with data of type {@link module:model/InlineResponse20081 }
+     * @return { Promise.< module:model/InlineResponse20083 > } a Promise, with data of type {@link module:model/InlineResponse20083 }
      */
     getNotationStatusGet(identifier, identifierType, opts) {
       return this.getNotationStatusGetWithHttpInfo(identifier, identifierType, opts)
@@ -1822,15 +1889,15 @@ export default class NotationApi {
 
 
     /**
-     * Retrieve a list of notations for a given FactSet identifier.
-     * <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>
+     * List of categories assigned to a specific notation the application is entitled to see.
+     * List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest} opts.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20072} and HTTP response
+     * @param {module:model/PostNotationCategoryListRequest} opts.postNotationCategoryListRequest Request Body
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20067} and HTTP response
      */
-    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(opts) {
+    postNotationCategoryListWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest'];
+      let postBody = opts['postNotationCategoryListRequest'];
 
       let pathParams = {
       };
@@ -1846,24 +1913,24 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20072;
+      let returnType = InlineResponse20067;
 
       return this.apiClient.callApi(
-        '/notation/crossReference/factSetIdentifier/listByFactSetIdentifier', 'POST',
+        '/notation/category/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Retrieve a list of notations for a given FactSet identifier.
-     * <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>
+     * List of categories assigned to a specific notation the application is entitled to see.
+     * List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest} opts.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest 
-     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
+     * @param {module:model/PostNotationCategoryListRequest} opts.postNotationCategoryListRequest Request Body
+     * @return { Promise.< module:model/InlineResponse20067 > } a Promise, with data of type {@link module:model/InlineResponse20067 }
      */
-    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(opts) {
-      return this.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(opts)
+    postNotationCategoryList(opts) {
+      return this.postNotationCategoryListWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1871,15 +1938,17 @@ export default class NotationApi {
 
 
     /**
-     * Retrieve a list of FactSet identifiers for a given instrument.
-     * <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest} opts.postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest 
+     * Retrieve a list of notations for a given FactSet identifier.
+     * <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>
+     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest} postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20073} and HTTP response
      */
-    postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(opts) {
-      opts = opts || {};
-      let postBody = opts['postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest'];
+    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest) {
+      let postBody = postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest;
+      // verify the required parameter 'postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest' is set
+      if (postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest === undefined || postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest === null) {
+        throw new Error("Missing the required parameter 'postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest' when calling postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier");
+      }
 
       let pathParams = {
       };
@@ -1898,6 +1967,56 @@ export default class NotationApi {
       let returnType = InlineResponse20073;
 
       return this.apiClient.callApi(
+        '/notation/crossReference/factSetIdentifier/listByFactSetIdentifier', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Retrieve a list of notations for a given FactSet identifier.
+     * <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>
+     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest} postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest Request Body
+     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
+     */
+    postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest) {
+      return this.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Retrieve a list of FactSet identifiers for a given instrument.
+     * <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>
+     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest} postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest Request Body
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20074} and HTTP response
+     */
+    postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest) {
+      let postBody = postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest;
+      // verify the required parameter 'postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest' is set
+      if (postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest === undefined || postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest === null) {
+        throw new Error("Missing the required parameter 'postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest' when calling postNotationCrossReferenceFactSetIdentifierListByInstrument");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20074;
+
+      return this.apiClient.callApi(
         '/notation/crossReference/factSetIdentifier/listByInstrument', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
@@ -1907,12 +2026,11 @@ export default class NotationApi {
     /**
      * Retrieve a list of FactSet identifiers for a given instrument.
      * <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest} opts.postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest 
-     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
+     * @param {module:model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest} postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest Request Body
+     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
-    postNotationCrossReferenceFactSetIdentifierListByInstrument(opts) {
-      return this.postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(opts)
+    postNotationCrossReferenceFactSetIdentifierListByInstrument(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest) {
+      return this.postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1923,8 +2041,8 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceListByISINRequest} opts.postNotationCrossReferenceListByISINRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20069} and HTTP response
+     * @param {module:model/PostNotationCrossReferenceListByISINRequest} opts.postNotationCrossReferenceListByISINRequest Request Body
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20070} and HTTP response
      */
     postNotationCrossReferenceListByISINWithHttpInfo(opts) {
       opts = opts || {};
@@ -1944,7 +2062,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20069;
+      let returnType = InlineResponse20070;
 
       return this.apiClient.callApi(
         '/notation/crossReference/listByISIN', 'POST',
@@ -1957,8 +2075,8 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceListByISINRequest} opts.postNotationCrossReferenceListByISINRequest 
-     * @return { Promise.< module:model/InlineResponse20069 > } a Promise, with data of type {@link module:model/InlineResponse20069 }
+     * @param {module:model/PostNotationCrossReferenceListByISINRequest} opts.postNotationCrossReferenceListByISINRequest Request Body
+     * @return { Promise.< module:model/InlineResponse20070 > } a Promise, with data of type {@link module:model/InlineResponse20070 }
      */
     postNotationCrossReferenceListByISIN(opts) {
       return this.postNotationCrossReferenceListByISINWithHttpInfo(opts)
@@ -1972,8 +2090,8 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceListByInstrumentRequest} opts.postNotationCrossReferenceListByInstrumentRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20068} and HTTP response
+     * @param {module:model/PostNotationCrossReferenceListByInstrumentRequest} opts.postNotationCrossReferenceListByInstrumentRequest Request Body
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20069} and HTTP response
      */
     postNotationCrossReferenceListByInstrumentWithHttpInfo(opts) {
       opts = opts || {};
@@ -1993,7 +2111,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20068;
+      let returnType = InlineResponse20069;
 
       return this.apiClient.callApi(
         '/notation/crossReference/listByInstrument', 'POST',
@@ -2006,8 +2124,8 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceListByInstrumentRequest} opts.postNotationCrossReferenceListByInstrumentRequest 
-     * @return { Promise.< module:model/InlineResponse20068 > } a Promise, with data of type {@link module:model/InlineResponse20068 }
+     * @param {module:model/PostNotationCrossReferenceListByInstrumentRequest} opts.postNotationCrossReferenceListByInstrumentRequest Request Body
+     * @return { Promise.< module:model/InlineResponse20069 > } a Promise, with data of type {@link module:model/InlineResponse20069 }
      */
     postNotationCrossReferenceListByInstrument(opts) {
       return this.postNotationCrossReferenceListByInstrumentWithHttpInfo(opts)
@@ -2021,8 +2139,8 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceListBySymbolRequest} opts.postNotationCrossReferenceListBySymbolRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20070} and HTTP response
+     * @param {module:model/PostNotationCrossReferenceListBySymbolRequest} opts.postNotationCrossReferenceListBySymbolRequest Request Body
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20071} and HTTP response
      */
     postNotationCrossReferenceListBySymbolWithHttpInfo(opts) {
       opts = opts || {};
@@ -2042,7 +2160,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20070;
+      let returnType = InlineResponse20071;
 
       return this.apiClient.callApi(
         '/notation/crossReference/listBySymbol', 'POST',
@@ -2055,8 +2173,8 @@ export default class NotationApi {
      * List of entitled notations.
      * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationCrossReferenceListBySymbolRequest} opts.postNotationCrossReferenceListBySymbolRequest 
-     * @return { Promise.< module:model/InlineResponse20070 > } a Promise, with data of type {@link module:model/InlineResponse20070 }
+     * @param {module:model/PostNotationCrossReferenceListBySymbolRequest} opts.postNotationCrossReferenceListBySymbolRequest Request Body
+     * @return { Promise.< module:model/InlineResponse20071 > } a Promise, with data of type {@link module:model/InlineResponse20071 }
      */
     postNotationCrossReferenceListBySymbol(opts) {
       return this.postNotationCrossReferenceListBySymbolWithHttpInfo(opts)
@@ -2070,8 +2188,8 @@ export default class NotationApi {
      * List of markets with entitled notations.
      * List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationMarketListRequest} opts.postNotationMarketListRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20080} and HTTP response
+     * @param {module:model/PostNotationMarketListRequest} opts.postNotationMarketListRequest Request Body
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20082} and HTTP response
      */
     postNotationMarketListWithHttpInfo(opts) {
       opts = opts || {};
@@ -2091,7 +2209,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20080;
+      let returnType = InlineResponse20082;
 
       return this.apiClient.callApi(
         '/notation/market/list', 'POST',
@@ -2104,8 +2222,8 @@ export default class NotationApi {
      * List of markets with entitled notations.
      * List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationMarketListRequest} opts.postNotationMarketListRequest 
-     * @return { Promise.< module:model/InlineResponse20080 > } a Promise, with data of type {@link module:model/InlineResponse20080 }
+     * @param {module:model/PostNotationMarketListRequest} opts.postNotationMarketListRequest Request Body
+     * @return { Promise.< module:model/InlineResponse20082 > } a Promise, with data of type {@link module:model/InlineResponse20082 }
      */
     postNotationMarketList(opts) {
       return this.postNotationMarketListWithHttpInfo(opts)
@@ -2118,13 +2236,15 @@ export default class NotationApi {
     /**
      * Text-based search for notations.
      * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationSearchByTextRequest} opts.postNotationSearchByTextRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20092} and HTTP response
+     * @param {module:model/PostNotationSearchByTextRequest} postNotationSearchByTextRequest Request Body
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20094} and HTTP response
      */
-    postNotationSearchByTextWithHttpInfo(opts) {
-      opts = opts || {};
-      let postBody = opts['postNotationSearchByTextRequest'];
+    postNotationSearchByTextWithHttpInfo(postNotationSearchByTextRequest) {
+      let postBody = postNotationSearchByTextRequest;
+      // verify the required parameter 'postNotationSearchByTextRequest' is set
+      if (postNotationSearchByTextRequest === undefined || postNotationSearchByTextRequest === null) {
+        throw new Error("Missing the required parameter 'postNotationSearchByTextRequest' when calling postNotationSearchByText");
+      }
 
       let pathParams = {
       };
@@ -2140,7 +2260,7 @@ export default class NotationApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20092;
+      let returnType = InlineResponse20094;
 
       return this.apiClient.callApi(
         '/notation/searchByText', 'POST',
@@ -2152,12 +2272,11 @@ export default class NotationApi {
     /**
      * Text-based search for notations.
      * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PostNotationSearchByTextRequest} opts.postNotationSearchByTextRequest 
-     * @return { Promise.< module:model/InlineResponse20092 > } a Promise, with data of type {@link module:model/InlineResponse20092 }
+     * @param {module:model/PostNotationSearchByTextRequest} postNotationSearchByTextRequest Request Body
+     * @return { Promise.< module:model/InlineResponse20094 > } a Promise, with data of type {@link module:model/InlineResponse20094 }
      */
-    postNotationSearchByText(opts) {
-      return this.postNotationSearchByTextWithHttpInfo(opts)
+    postNotationSearchByText(postNotationSearchByTextRequest) {
+      return this.postNotationSearchByTextWithHttpInfo(postNotationSearchByTextRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

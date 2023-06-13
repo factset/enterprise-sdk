@@ -45,13 +45,13 @@ import com.factset.sdk.IRNNotes.JSON;
 public class SubcommentSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_USER_ID = "UserId";
+  public static final String JSON_PROPERTY_USER_ID = "userId";
   private java.util.UUID userId;
 
-  public static final String JSON_PROPERTY_CREATED_AT = "CreatedAt";
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private JsonNullable<String> createdAt = JsonNullable.<String>undefined();
 
   public SubcommentSummaryDto() { 

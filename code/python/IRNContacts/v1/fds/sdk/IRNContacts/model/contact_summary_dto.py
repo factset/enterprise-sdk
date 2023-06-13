@@ -110,22 +110,22 @@ class ContactSummaryDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'primary_email_address': 'PrimaryEmailAddress',  # noqa: E501
-        'identifier': 'Identifier',  # noqa: E501
-        'full_name': 'FullName',  # noqa: E501
-        'employer_name': 'EmployerName',  # noqa: E501
-        'employer_identifier': 'EmployerIdentifier',  # noqa: E501
-        'city': 'City',  # noqa: E501
-        'state_province': 'StateProvince',  # noqa: E501
-        'postal_code': 'PostalCode',  # noqa: E501
-        'country': 'Country',  # noqa: E501
-        'role': 'Role',  # noqa: E501
-        'type': 'Type',  # noqa: E501
-        'is_deleted': 'IsDeleted',  # noqa: E501
-        'last_meeting': 'LastMeeting',  # noqa: E501
-        'alternative_email_addresses': 'AlternativeEmailAddresses',  # noqa: E501
-        'custom_field_values': 'CustomFieldValues',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'primary_email_address': 'primaryEmailAddress',  # noqa: E501
+        'identifier': 'identifier',  # noqa: E501
+        'full_name': 'fullName',  # noqa: E501
+        'employer_name': 'employerName',  # noqa: E501
+        'employer_identifier': 'employerIdentifier',  # noqa: E501
+        'city': 'city',  # noqa: E501
+        'state_province': 'stateProvince',  # noqa: E501
+        'postal_code': 'postalCode',  # noqa: E501
+        'country': 'country',  # noqa: E501
+        'role': 'role',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
+        'last_meeting': 'lastMeeting',  # noqa: E501
+        'alternative_email_addresses': 'alternativeEmailAddresses',  # noqa: E501
+        'custom_field_values': 'customFieldValues',  # noqa: E501
     }
 
     read_only_vars = {

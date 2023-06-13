@@ -45,13 +45,13 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class OptionsConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_MULTI_SELECT_ENABLED = "MultiSelectEnabled";
+  public static final String JSON_PROPERTY_MULTI_SELECT_ENABLED = "multiSelectEnabled";
   private Boolean multiSelectEnabled;
 
-  public static final String JSON_PROPERTY_ON_THE_FLY_ENABLED = "OnTheFlyEnabled";
+  public static final String JSON_PROPERTY_ON_THE_FLY_ENABLED = "onTheFlyEnabled";
   private Boolean onTheFlyEnabled;
 
-  public static final String JSON_PROPERTY_OPTIONS = "Options";
+  public static final String JSON_PROPERTY_OPTIONS = "options";
   private JsonNullable<java.util.List<String>> options = JsonNullable.<java.util.List<String>>undefined();
 
   public OptionsConfigDto() { 

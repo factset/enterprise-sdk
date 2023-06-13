@@ -144,7 +144,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
 
             // SymbologyIdentifier (string) pattern
-            Regex regexSymbologyIdentifier = new Regex(@"^(([0-9A-Z]{6}-[SLR])|([0-9A-Z]{1,47}-[A-Z]{2,4}))$", RegexOptions.CultureInvariant);
+            Regex regexSymbologyIdentifier = new Regex(@"^[B-DF-HJ-NP-TV-Z0-9]{6}-[SLR]$|[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$", RegexOptions.CultureInvariant);
             if (false == regexSymbologyIdentifier.Match(this.SymbologyIdentifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SymbologyIdentifier, must match a pattern of " + regexSymbologyIdentifier, new [] { "SymbologyIdentifier" });

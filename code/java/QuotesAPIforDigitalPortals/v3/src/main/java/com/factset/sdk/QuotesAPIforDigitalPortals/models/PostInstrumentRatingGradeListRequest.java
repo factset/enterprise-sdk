@@ -32,8 +32,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * PostInstrumentRatingGradeListRequest
+ * Request Body
  */
+@ApiModel(description = "Request Body")
 @JsonPropertyOrder({
   PostInstrumentRatingGradeListRequest.JSON_PROPERTY_DATA,
   PostInstrumentRatingGradeListRequest.JSON_PROPERTY_META

@@ -46,20 +46,20 @@ class RatingConfigDto {
         if (data) {
             obj = obj || new RatingConfigDto();
 
-            if (data.hasOwnProperty('RatingsVisibleToAuthor')) {
-                obj['RatingsVisibleToAuthor'] = ApiClient.convertToType(data['RatingsVisibleToAuthor'], 'Boolean');
+            if (data.hasOwnProperty('ratingsVisibleToAuthor')) {
+                obj['ratingsVisibleToAuthor'] = ApiClient.convertToType(data['ratingsVisibleToAuthor'], 'Boolean');
             }
-            if (data.hasOwnProperty('RatingsVisibleToViewers')) {
-                obj['RatingsVisibleToViewers'] = ApiClient.convertToType(data['RatingsVisibleToViewers'], 'Boolean');
+            if (data.hasOwnProperty('ratingsVisibleToViewers')) {
+                obj['ratingsVisibleToViewers'] = ApiClient.convertToType(data['ratingsVisibleToViewers'], 'Boolean');
             }
-            if (data.hasOwnProperty('RatingsVisibleToAll')) {
-                obj['RatingsVisibleToAll'] = ApiClient.convertToType(data['RatingsVisibleToAll'], 'Boolean');
+            if (data.hasOwnProperty('ratingsVisibleToAll')) {
+                obj['ratingsVisibleToAll'] = ApiClient.convertToType(data['ratingsVisibleToAll'], 'Boolean');
             }
-            if (data.hasOwnProperty('ViewerIds')) {
-                obj['ViewerIds'] = ApiClient.convertToType(data['ViewerIds'], ['String']);
+            if (data.hasOwnProperty('viewerIds')) {
+                obj['viewerIds'] = ApiClient.convertToType(data['viewerIds'], ['String']);
             }
-            if (data.hasOwnProperty('OptionValues')) {
-                obj['OptionValues'] = ApiClient.convertToType(data['OptionValues'], ['Number']);
+            if (data.hasOwnProperty('optionValues')) {
+                obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['Number']);
             }
         }
         return obj;
@@ -69,29 +69,29 @@ class RatingConfigDto {
 }
 
 /**
- * @member {Boolean} RatingsVisibleToAuthor
+ * @member {Boolean} ratingsVisibleToAuthor
  */
-RatingConfigDto.prototype['RatingsVisibleToAuthor'] = undefined;
+RatingConfigDto.prototype['ratingsVisibleToAuthor'] = undefined;
 
 /**
- * @member {Boolean} RatingsVisibleToViewers
+ * @member {Boolean} ratingsVisibleToViewers
  */
-RatingConfigDto.prototype['RatingsVisibleToViewers'] = undefined;
+RatingConfigDto.prototype['ratingsVisibleToViewers'] = undefined;
 
 /**
- * @member {Boolean} RatingsVisibleToAll
+ * @member {Boolean} ratingsVisibleToAll
  */
-RatingConfigDto.prototype['RatingsVisibleToAll'] = undefined;
+RatingConfigDto.prototype['ratingsVisibleToAll'] = undefined;
 
 /**
- * @member {Array.<String>} ViewerIds
+ * @member {Array.<String>} viewerIds
  */
-RatingConfigDto.prototype['ViewerIds'] = undefined;
+RatingConfigDto.prototype['viewerIds'] = undefined;
 
 /**
- * @member {Array.<Number>} OptionValues
+ * @member {Array.<Number>} optionValues
  */
-RatingConfigDto.prototype['OptionValues'] = undefined;
+RatingConfigDto.prototype['optionValues'] = undefined;
 
 
 

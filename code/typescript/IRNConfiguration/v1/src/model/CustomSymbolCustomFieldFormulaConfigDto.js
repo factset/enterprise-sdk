@@ -35,8 +35,8 @@ class CustomSymbolCustomFieldFormulaConfigDto {
      * Only for internal use.
      */
     static initialize(obj, formula, formulaType) { 
-        obj['Formula'] = formula;
-        obj['FormulaType'] = formulaType;
+        obj['formula'] = formula;
+        obj['formulaType'] = formulaType;
     }
 
     /**
@@ -50,11 +50,11 @@ class CustomSymbolCustomFieldFormulaConfigDto {
         if (data) {
             obj = obj || new CustomSymbolCustomFieldFormulaConfigDto();
 
-            if (data.hasOwnProperty('Formula')) {
-                obj['Formula'] = ApiClient.convertToType(data['Formula'], 'String');
+            if (data.hasOwnProperty('formula')) {
+                obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
             }
-            if (data.hasOwnProperty('FormulaType')) {
-                obj['FormulaType'] = ApiClient.convertToType(data['FormulaType'], 'String');
+            if (data.hasOwnProperty('formulaType')) {
+                obj['formulaType'] = ApiClient.convertToType(data['formulaType'], 'String');
             }
         }
         return obj;
@@ -64,14 +64,14 @@ class CustomSymbolCustomFieldFormulaConfigDto {
 }
 
 /**
- * @member {String} Formula
+ * @member {String} formula
  */
-CustomSymbolCustomFieldFormulaConfigDto.prototype['Formula'] = undefined;
+CustomSymbolCustomFieldFormulaConfigDto.prototype['formula'] = undefined;
 
 /**
- * @member {String} FormulaType
+ * @member {String} formulaType
  */
-CustomSymbolCustomFieldFormulaConfigDto.prototype['FormulaType'] = undefined;
+CustomSymbolCustomFieldFormulaConfigDto.prototype['formulaType'] = undefined;
 
 
 

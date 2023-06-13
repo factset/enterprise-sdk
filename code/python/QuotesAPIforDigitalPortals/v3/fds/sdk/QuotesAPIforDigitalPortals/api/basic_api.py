@@ -6669,7 +6669,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_background_text_type_list_request (PostBasicBackgroundTextTypeListRequest): [optional]
+            post_basic_background_text_type_list_request (PostBasicBackgroundTextTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6711,7 +6711,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_background_text_type_list_request (PostBasicBackgroundTextTypeListRequest): [optional]
+            post_basic_background_text_type_list_request (PostBasicBackgroundTextTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6757,7 +6757,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_background_text_type_list_request (PostBasicBackgroundTextTypeListRequest): [optional]
+            post_basic_background_text_type_list_request (PostBasicBackgroundTextTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6798,7 +6798,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_background_text_type_list_request (PostBasicBackgroundTextTypeListRequest): [optional]
+            post_basic_background_text_type_list_request (PostBasicBackgroundTextTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6840,7 +6840,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_delivery_list_request (PostBasicDeliveryListRequest): [optional]
+            post_basic_delivery_list_request (PostBasicDeliveryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6882,7 +6882,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_delivery_list_request (PostBasicDeliveryListRequest): [optional]
+            post_basic_delivery_list_request (PostBasicDeliveryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6928,7 +6928,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_delivery_list_request (PostBasicDeliveryListRequest): [optional]
+            post_basic_delivery_list_request (PostBasicDeliveryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -6969,7 +6969,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_delivery_list_request (PostBasicDeliveryListRequest): [optional]
+            post_basic_delivery_list_request (PostBasicDeliveryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7011,7 +7011,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_market_list_request (PostBasicMarketListRequest): [optional]
+            post_basic_market_list_request (PostBasicMarketListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7053,7 +7053,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_market_list_request (PostBasicMarketListRequest): [optional]
+            post_basic_market_list_request (PostBasicMarketListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7099,7 +7099,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_market_list_request (PostBasicMarketListRequest): [optional]
+            post_basic_market_list_request (PostBasicMarketListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7140,7 +7140,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_market_list_request (PostBasicMarketListRequest): [optional]
+            post_basic_market_list_request (PostBasicMarketListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7182,7 +7182,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_media_type_list_request (PostBasicMediaTypeListRequest): [optional]
+            post_basic_media_type_list_request (PostBasicMediaTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7224,7 +7224,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_media_type_list_request (PostBasicMediaTypeListRequest): [optional]
+            post_basic_media_type_list_request (PostBasicMediaTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7270,7 +7270,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_media_type_list_request (PostBasicMediaTypeListRequest): [optional]
+            post_basic_media_type_list_request (PostBasicMediaTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7311,7 +7311,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_media_type_list_request (PostBasicMediaTypeListRequest): [optional]
+            post_basic_media_type_list_request (PostBasicMediaTypeListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7353,7 +7353,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_mic_operating_list_request (PostBasicMicOperatingListRequest): [optional]
+            post_basic_mic_operating_list_request (PostBasicMicOperatingListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7395,7 +7395,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_mic_operating_list_request (PostBasicMicOperatingListRequest): [optional]
+            post_basic_mic_operating_list_request (PostBasicMicOperatingListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7441,7 +7441,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_mic_operating_list_request (PostBasicMicOperatingListRequest): [optional]
+            post_basic_mic_operating_list_request (PostBasicMicOperatingListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7482,7 +7482,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_mic_operating_list_request (PostBasicMicOperatingListRequest): [optional]
+            post_basic_mic_operating_list_request (PostBasicMicOperatingListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7524,7 +7524,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_timezone_list_request (PostBasicTimezoneListRequest): [optional]
+            post_basic_timezone_list_request (PostBasicTimezoneListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7566,7 +7566,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_timezone_list_request (PostBasicTimezoneListRequest): [optional]
+            post_basic_timezone_list_request (PostBasicTimezoneListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7612,7 +7612,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_timezone_list_request (PostBasicTimezoneListRequest): [optional]
+            post_basic_timezone_list_request (PostBasicTimezoneListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7653,7 +7653,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_timezone_list_request (PostBasicTimezoneListRequest): [optional]
+            post_basic_timezone_list_request (PostBasicTimezoneListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7695,7 +7695,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_currency_list_request (PostBasicValueUnitCurrencyListRequest): [optional]
+            post_basic_value_unit_currency_list_request (PostBasicValueUnitCurrencyListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7737,7 +7737,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_currency_list_request (PostBasicValueUnitCurrencyListRequest): [optional]
+            post_basic_value_unit_currency_list_request (PostBasicValueUnitCurrencyListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7783,7 +7783,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_currency_list_request (PostBasicValueUnitCurrencyListRequest): [optional]
+            post_basic_value_unit_currency_list_request (PostBasicValueUnitCurrencyListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7824,7 +7824,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_currency_list_request (PostBasicValueUnitCurrencyListRequest): [optional]
+            post_basic_value_unit_currency_list_request (PostBasicValueUnitCurrencyListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7866,7 +7866,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_currency_main_list_request (PostBasicValueUnitCurrencyMainListRequest): [optional]
+            post_basic_value_unit_currency_main_list_request (PostBasicValueUnitCurrencyMainListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7908,7 +7908,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_currency_main_list_request (PostBasicValueUnitCurrencyMainListRequest): [optional]
+            post_basic_value_unit_currency_main_list_request (PostBasicValueUnitCurrencyMainListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7954,7 +7954,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_currency_main_list_request (PostBasicValueUnitCurrencyMainListRequest): [optional]
+            post_basic_value_unit_currency_main_list_request (PostBasicValueUnitCurrencyMainListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -7995,7 +7995,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_currency_main_list_request (PostBasicValueUnitCurrencyMainListRequest): [optional]
+            post_basic_value_unit_currency_main_list_request (PostBasicValueUnitCurrencyMainListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8037,7 +8037,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_list_request (PostBasicValueUnitListRequest): [optional]
+            post_basic_value_unit_list_request (PostBasicValueUnitListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8079,7 +8079,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_list_request (PostBasicValueUnitListRequest): [optional]
+            post_basic_value_unit_list_request (PostBasicValueUnitListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8125,7 +8125,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_list_request (PostBasicValueUnitListRequest): [optional]
+            post_basic_value_unit_list_request (PostBasicValueUnitListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8166,7 +8166,7 @@ class BasicApi(object):
 
 
         Keyword Args:
-            post_basic_value_unit_list_request (PostBasicValueUnitListRequest): [optional]
+            post_basic_value_unit_list_request (PostBasicValueUnitListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.

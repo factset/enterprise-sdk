@@ -120,21 +120,21 @@ class CreateNoteDto(ModelNormal):
 
 
     attribute_map = {
-        'author': 'Author',  # noqa: E501
-        'date': 'Date',  # noqa: E501
-        'title': 'Title',  # noqa: E501
-        'identifier': 'Identifier',  # noqa: E501
-        'subject_id': 'SubjectId',  # noqa: E501
-        'recommendation_id': 'RecommendationId',  # noqa: E501
-        'sentiment_id': 'SentimentId',  # noqa: E501
-        'body': 'Body',  # noqa: E501
-        'source': 'Source',  # noqa: E501
-        'link': 'Link',  # noqa: E501
-        'related_symbols': 'RelatedSymbols',  # noqa: E501
-        'related_contacts': 'RelatedContacts',  # noqa: E501
-        'related_records': 'RelatedRecords',  # noqa: E501
-        'custom_field_values': 'CustomFieldValues',  # noqa: E501
-        'is_personal': 'IsPersonal',  # noqa: E501
+        'author': 'author',  # noqa: E501
+        'date': 'date',  # noqa: E501
+        'title': 'title',  # noqa: E501
+        'identifier': 'identifier',  # noqa: E501
+        'subject_id': 'subjectId',  # noqa: E501
+        'recommendation_id': 'recommendationId',  # noqa: E501
+        'sentiment_id': 'sentimentId',  # noqa: E501
+        'body': 'body',  # noqa: E501
+        'source': 'source',  # noqa: E501
+        'link': 'link',  # noqa: E501
+        'related_symbols': 'relatedSymbols',  # noqa: E501
+        'related_contacts': 'relatedContacts',  # noqa: E501
+        'related_records': 'relatedRecords',  # noqa: E501
+        'custom_field_values': 'customFieldValues',  # noqa: E501
+        'is_personal': 'isPersonal',  # noqa: E501
     }
 
     read_only_vars = {

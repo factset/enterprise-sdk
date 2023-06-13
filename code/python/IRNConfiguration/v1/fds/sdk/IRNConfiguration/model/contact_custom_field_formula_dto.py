@@ -89,9 +89,9 @@ class ContactCustomFieldFormulaDto(ModelNormal):
 
 
     attribute_map = {
-        'formula': 'Formula',  # noqa: E501
-        'is_screening': 'IsScreening',  # noqa: E501
-        'symbol': 'Symbol',  # noqa: E501
+        'formula': 'formula',  # noqa: E501
+        'is_screening': 'isScreening',  # noqa: E501
+        'symbol': 'symbol',  # noqa: E501
     }
 
     read_only_vars = {

@@ -12,11 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20074DataHigh from './InlineResponse20074DataHigh';
-import InlineResponse20074DataLow from './InlineResponse20074DataLow';
-import InlineResponse20074DataPerformance from './InlineResponse20074DataPerformance';
-import InlineResponse20075Status from './InlineResponse20075Status';
-import InlineResponse20076DataTradingVolume from './InlineResponse20076DataTradingVolume';
+import InlineResponse20075DataHigh from './InlineResponse20075DataHigh';
+import InlineResponse20075DataLow from './InlineResponse20075DataLow';
+import InlineResponse20075DataPerformance from './InlineResponse20075DataPerformance';
+import InlineResponse20077DataTradingVolume from './InlineResponse20077DataTradingVolume';
 
 /**
  * The InlineResponse20077Data model module.
@@ -25,6 +24,7 @@ import InlineResponse20076DataTradingVolume from './InlineResponse20076DataTradi
 class InlineResponse20077Data {
     /**
      * Constructs a new <code>InlineResponse20077Data</code>.
+     * EOD key figures.
      * @alias module:model/InlineResponse20077Data
      */
     constructor() { 
@@ -61,28 +61,25 @@ class InlineResponse20077Data {
                 obj['referenceDate'] = ApiClient.convertToType(data['referenceDate'], 'Date');
             }
             if (data.hasOwnProperty('performance')) {
-                obj['performance'] = InlineResponse20074DataPerformance.constructFromObject(data['performance']);
+                obj['performance'] = InlineResponse20075DataPerformance.constructFromObject(data['performance']);
             }
             if (data.hasOwnProperty('high')) {
-                obj['high'] = InlineResponse20074DataHigh.constructFromObject(data['high']);
+                obj['high'] = InlineResponse20075DataHigh.constructFromObject(data['high']);
             }
             if (data.hasOwnProperty('low')) {
-                obj['low'] = InlineResponse20074DataLow.constructFromObject(data['low']);
+                obj['low'] = InlineResponse20075DataLow.constructFromObject(data['low']);
             }
             if (data.hasOwnProperty('averagePrice')) {
                 obj['averagePrice'] = ApiClient.convertToType(data['averagePrice'], 'Number');
             }
             if (data.hasOwnProperty('tradingVolume')) {
-                obj['tradingVolume'] = InlineResponse20076DataTradingVolume.constructFromObject(data['tradingVolume']);
+                obj['tradingVolume'] = InlineResponse20077DataTradingVolume.constructFromObject(data['tradingVolume']);
             }
             if (data.hasOwnProperty('tradingValue')) {
                 obj['tradingValue'] = ApiClient.convertToType(data['tradingValue'], 'Number');
             }
             if (data.hasOwnProperty('volatility')) {
                 obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
-            }
-            if (data.hasOwnProperty('status')) {
-                obj['status'] = InlineResponse20075Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -110,17 +107,17 @@ InlineResponse20077Data.prototype['sourceIdentifier'] = undefined;
 InlineResponse20077Data.prototype['referenceDate'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20074DataPerformance} performance
+ * @member {module:model/InlineResponse20075DataPerformance} performance
  */
 InlineResponse20077Data.prototype['performance'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20074DataHigh} high
+ * @member {module:model/InlineResponse20075DataHigh} high
  */
 InlineResponse20077Data.prototype['high'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20074DataLow} low
+ * @member {module:model/InlineResponse20075DataLow} low
  */
 InlineResponse20077Data.prototype['low'] = undefined;
 
@@ -131,7 +128,7 @@ InlineResponse20077Data.prototype['low'] = undefined;
 InlineResponse20077Data.prototype['averagePrice'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20076DataTradingVolume} tradingVolume
+ * @member {module:model/InlineResponse20077DataTradingVolume} tradingVolume
  */
 InlineResponse20077Data.prototype['tradingVolume'] = undefined;
 
@@ -146,11 +143,6 @@ InlineResponse20077Data.prototype['tradingValue'] = undefined;
  * @member {Number} volatility
  */
 InlineResponse20077Data.prototype['volatility'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20075Status} status
- */
-InlineResponse20077Data.prototype['status'] = undefined;
 
 
 

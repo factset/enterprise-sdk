@@ -22,6 +22,7 @@ import PostInstrumentBenchmarkListRequestData from './PostInstrumentBenchmarkLis
 class PostInstrumentBenchmarkListRequest {
     /**
      * Constructs a new <code>PostInstrumentBenchmarkListRequest</code>.
+     * Request Body
      * @alias module:model/PostInstrumentBenchmarkListRequest
      */
     constructor() { 

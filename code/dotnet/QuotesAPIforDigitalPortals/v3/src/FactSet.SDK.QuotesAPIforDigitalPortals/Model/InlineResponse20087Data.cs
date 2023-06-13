@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// Orderbook.
+    /// InlineResponse20087Data
     /// </summary>
     [DataContract(Name = "inline_response_200_87_data")]
     public partial class InlineResponse20087Data : IEquatable<InlineResponse20087Data>, IValidatableObject
@@ -48,7 +48,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             /// Enum DLY for value: DLY
             /// </summary>
             [EnumMember(Value = "DLY")]
-            DLY = 2
+            DLY = 2,
+
+            /// <summary>
+            /// Enum EOD for value: EOD
+            /// </summary>
+            [EnumMember(Value = "EOD")]
+            EOD = 3
 
         }
 
@@ -64,16 +70,24 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="idNotation">MDG identifier of the listing..</param>
         /// <param name="sourceIdentifier">Identifier used in the request..</param>
+        /// <param name="valueUnit">valueUnit.</param>
+        /// <param name="currency">currency.</param>
+        /// <param name="market">market.</param>
         /// <param name="quality">Quality of the price..</param>
-        /// <param name="asks">Ask entries of the full orderbook..</param>
-        /// <param name="bids">Bid entries of the full orderbook..</param>
-        public InlineResponse20087Data(string idNotation = default(string), string sourceIdentifier = default(string), QualityEnum? quality = default(QualityEnum?), List<InlineResponse20087DataAsks> asks = default(List<InlineResponse20087DataAsks>), List<InlineResponse20087DataAsks> bids = default(List<InlineResponse20087DataAsks>))
+        /// <param name="bid">bid.</param>
+        /// <param name="ask">ask.</param>
+        /// <param name="status">status.</param>
+        public InlineResponse20087Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20084DataValueUnit valueUnit = default(InlineResponse20084DataValueUnit), InlineResponse20084DataCurrency currency = default(InlineResponse20084DataCurrency), InlineResponse20085Market market = default(InlineResponse20085Market), QualityEnum? quality = default(QualityEnum?), InlineResponse20087Bid bid = default(InlineResponse20087Bid), InlineResponse20087Ask ask = default(InlineResponse20087Ask), InlineResponse20085Status status = default(InlineResponse20085Status))
         {
             this.IdNotation = idNotation;
             this.SourceIdentifier = sourceIdentifier;
+            this.ValueUnit = valueUnit;
+            this.Currency = currency;
+            this.Market = market;
             this.Quality = quality;
-            this.Asks = asks;
-            this.Bids = bids;
+            this.Bid = bid;
+            this.Ask = ask;
+            this.Status = status;
         }
 
         /// <summary>
@@ -91,18 +105,40 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public string SourceIdentifier { get; set; }
 
         /// <summary>
-        /// Ask entries of the full orderbook.
+        /// Gets or Sets ValueUnit
         /// </summary>
-        /// <value>Ask entries of the full orderbook.</value>
-        [DataMember(Name = "asks", EmitDefaultValue = false)]
-        public List<InlineResponse20087DataAsks> Asks { get; set; }
+        [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
+        public InlineResponse20084DataValueUnit ValueUnit { get; set; }
 
         /// <summary>
-        /// Bid entries of the full orderbook.
+        /// Gets or Sets Currency
         /// </summary>
-        /// <value>Bid entries of the full orderbook.</value>
-        [DataMember(Name = "bids", EmitDefaultValue = false)]
-        public List<InlineResponse20087DataAsks> Bids { get; set; }
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        public InlineResponse20084DataCurrency Currency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Market
+        /// </summary>
+        [DataMember(Name = "market", EmitDefaultValue = false)]
+        public InlineResponse20085Market Market { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bid
+        /// </summary>
+        [DataMember(Name = "bid", EmitDefaultValue = false)]
+        public InlineResponse20087Bid Bid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Ask
+        /// </summary>
+        [DataMember(Name = "ask", EmitDefaultValue = false)]
+        public InlineResponse20087Ask Ask { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public InlineResponse20085Status Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -114,9 +150,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             sb.Append("class InlineResponse20087Data {\n");
             sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
             sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
+            sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  Quality: ").Append(Quality).Append("\n");
-            sb.Append("  Asks: ").Append(Asks).Append("\n");
-            sb.Append("  Bids: ").Append(Bids).Append("\n");
+            sb.Append("  Bid: ").Append(Bid).Append("\n");
+            sb.Append("  Ask: ").Append(Ask).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,20 +203,38 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.SourceIdentifier.Equals(input.SourceIdentifier))
                 ) && 
                 (
+                    this.ValueUnit == input.ValueUnit ||
+                    (this.ValueUnit != null &&
+                    this.ValueUnit.Equals(input.ValueUnit))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.Market == input.Market ||
+                    (this.Market != null &&
+                    this.Market.Equals(input.Market))
+                ) && 
+                (
                     this.Quality == input.Quality ||
                     this.Quality.Equals(input.Quality)
                 ) && 
                 (
-                    this.Asks == input.Asks ||
-                    this.Asks != null &&
-                    input.Asks != null &&
-                    this.Asks.SequenceEqual(input.Asks)
+                    this.Bid == input.Bid ||
+                    (this.Bid != null &&
+                    this.Bid.Equals(input.Bid))
                 ) && 
                 (
-                    this.Bids == input.Bids ||
-                    this.Bids != null &&
-                    input.Bids != null &&
-                    this.Bids.SequenceEqual(input.Bids)
+                    this.Ask == input.Ask ||
+                    (this.Ask != null &&
+                    this.Ask.Equals(input.Ask))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -197,14 +255,30 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
-                if (this.Asks != null)
+                if (this.ValueUnit != null)
                 {
-                    hashCode = (hashCode * 59) + this.Asks.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
                 }
-                if (this.Bids != null)
+                if (this.Currency != null)
                 {
-                    hashCode = (hashCode * 59) + this.Bids.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.Market != null)
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
+                if (this.Bid != null)
+                {
+                    hashCode = (hashCode * 59) + this.Bid.GetHashCode();
+                }
+                if (this.Ask != null)
+                {
+                    hashCode = (hashCode * 59) + this.Ask.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 return hashCode;
             }

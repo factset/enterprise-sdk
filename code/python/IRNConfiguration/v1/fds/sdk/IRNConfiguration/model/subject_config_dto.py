@@ -108,20 +108,20 @@ class SubjectConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'name': 'Name',  # noqa: E501
-        'code': 'Code',  # noqa: E501
-        'is_hidden': 'IsHidden',  # noqa: E501
-        'identifier_type': 'IdentifierType',  # noqa: E501
-        'identifier_types': 'IdentifierTypes',  # noqa: E501
-        'type': 'Type',  # noqa: E501
-        'custom_field_ids': 'CustomFieldIds',  # noqa: E501
-        'approval_process_config': 'ApprovalProcessConfig',  # noqa: E501
-        'commentary_config': 'CommentaryConfig',  # noqa: E501
-        'news_headline_format': 'NewsHeadlineFormat',  # noqa: E501
-        'email_headline_format': 'EmailHeadlineFormat',  # noqa: E501
-        'rating_config': 'RatingConfig',  # noqa: E501
-        'note_length_limit': 'NoteLengthLimit',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'code': 'code',  # noqa: E501
+        'is_hidden': 'isHidden',  # noqa: E501
+        'identifier_type': 'identifierType',  # noqa: E501
+        'identifier_types': 'identifierTypes',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'custom_field_ids': 'customFieldIds',  # noqa: E501
+        'approval_process_config': 'approvalProcessConfig',  # noqa: E501
+        'commentary_config': 'commentaryConfig',  # noqa: E501
+        'news_headline_format': 'newsHeadlineFormat',  # noqa: E501
+        'email_headline_format': 'emailHeadlineFormat',  # noqa: E501
+        'rating_config': 'ratingConfig',  # noqa: E501
+        'note_length_limit': 'noteLengthLimit',  # noqa: E501
     }
 
     read_only_vars = {

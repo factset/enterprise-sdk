@@ -46,26 +46,26 @@ class SymbolsRelationshipDto {
         if (data) {
             obj = obj || new SymbolsRelationshipDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('RelationshipCode')) {
-                obj['RelationshipCode'] = ApiClient.convertToType(data['RelationshipCode'], 'String');
+            if (data.hasOwnProperty('relationshipCode')) {
+                obj['relationshipCode'] = ApiClient.convertToType(data['relationshipCode'], 'String');
             }
-            if (data.hasOwnProperty('ParentToChildName')) {
-                obj['ParentToChildName'] = ApiClient.convertToType(data['ParentToChildName'], 'String');
+            if (data.hasOwnProperty('parentToChildName')) {
+                obj['parentToChildName'] = ApiClient.convertToType(data['parentToChildName'], 'String');
             }
-            if (data.hasOwnProperty('ChildToParentName')) {
-                obj['ChildToParentName'] = ApiClient.convertToType(data['ChildToParentName'], 'String');
+            if (data.hasOwnProperty('childToParentName')) {
+                obj['childToParentName'] = ApiClient.convertToType(data['childToParentName'], 'String');
             }
-            if (data.hasOwnProperty('PeerName')) {
-                obj['PeerName'] = ApiClient.convertToType(data['PeerName'], 'String');
+            if (data.hasOwnProperty('peerName')) {
+                obj['peerName'] = ApiClient.convertToType(data['peerName'], 'String');
             }
-            if (data.hasOwnProperty('HideDates')) {
-                obj['HideDates'] = ApiClient.convertToType(data['HideDates'], 'Boolean');
+            if (data.hasOwnProperty('hideDates')) {
+                obj['hideDates'] = ApiClient.convertToType(data['hideDates'], 'Boolean');
             }
-            if (data.hasOwnProperty('HideComment')) {
-                obj['HideComment'] = ApiClient.convertToType(data['HideComment'], 'Boolean');
+            if (data.hasOwnProperty('hideComment')) {
+                obj['hideComment'] = ApiClient.convertToType(data['hideComment'], 'Boolean');
             }
         }
         return obj;
@@ -75,39 +75,39 @@ class SymbolsRelationshipDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-SymbolsRelationshipDto.prototype['Id'] = undefined;
+SymbolsRelationshipDto.prototype['id'] = undefined;
 
 /**
- * @member {String} RelationshipCode
+ * @member {String} relationshipCode
  */
-SymbolsRelationshipDto.prototype['RelationshipCode'] = undefined;
+SymbolsRelationshipDto.prototype['relationshipCode'] = undefined;
 
 /**
- * @member {String} ParentToChildName
+ * @member {String} parentToChildName
  */
-SymbolsRelationshipDto.prototype['ParentToChildName'] = undefined;
+SymbolsRelationshipDto.prototype['parentToChildName'] = undefined;
 
 /**
- * @member {String} ChildToParentName
+ * @member {String} childToParentName
  */
-SymbolsRelationshipDto.prototype['ChildToParentName'] = undefined;
+SymbolsRelationshipDto.prototype['childToParentName'] = undefined;
 
 /**
- * @member {String} PeerName
+ * @member {String} peerName
  */
-SymbolsRelationshipDto.prototype['PeerName'] = undefined;
+SymbolsRelationshipDto.prototype['peerName'] = undefined;
 
 /**
- * @member {Boolean} HideDates
+ * @member {Boolean} hideDates
  */
-SymbolsRelationshipDto.prototype['HideDates'] = undefined;
+SymbolsRelationshipDto.prototype['hideDates'] = undefined;
 
 /**
- * @member {Boolean} HideComment
+ * @member {Boolean} hideComment
  */
-SymbolsRelationshipDto.prototype['HideComment'] = undefined;
+SymbolsRelationshipDto.prototype['hideComment'] = undefined;
 
 
 

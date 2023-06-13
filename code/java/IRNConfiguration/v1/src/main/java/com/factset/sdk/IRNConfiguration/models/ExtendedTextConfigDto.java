@@ -39,7 +39,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ExtendedTextConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_MAX_CHARS = "MaxChars";
+  public static final String JSON_PROPERTY_MAX_CHARS = "maxChars";
   private Integer maxChars;
 
   public ExtendedTextConfigDto() { 

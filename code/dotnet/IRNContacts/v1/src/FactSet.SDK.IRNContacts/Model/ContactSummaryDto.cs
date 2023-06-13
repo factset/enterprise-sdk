@@ -73,97 +73,97 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets PrimaryEmailAddress
         /// </summary>
-        [DataMember(Name = "PrimaryEmailAddress", EmitDefaultValue = true)]
+        [DataMember(Name = "primaryEmailAddress", EmitDefaultValue = true)]
         public string PrimaryEmailAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets Identifier
         /// </summary>
-        [DataMember(Name = "Identifier", EmitDefaultValue = true)]
+        [DataMember(Name = "identifier", EmitDefaultValue = true)]
         public string Identifier { get; set; }
 
         /// <summary>
         /// Gets or Sets FullName
         /// </summary>
-        [DataMember(Name = "FullName", EmitDefaultValue = true)]
+        [DataMember(Name = "fullName", EmitDefaultValue = true)]
         public string FullName { get; set; }
 
         /// <summary>
         /// Gets or Sets EmployerName
         /// </summary>
-        [DataMember(Name = "EmployerName", EmitDefaultValue = true)]
+        [DataMember(Name = "employerName", EmitDefaultValue = true)]
         public string EmployerName { get; set; }
 
         /// <summary>
         /// Gets or Sets EmployerIdentifier
         /// </summary>
-        [DataMember(Name = "EmployerIdentifier", EmitDefaultValue = true)]
+        [DataMember(Name = "employerIdentifier", EmitDefaultValue = true)]
         public string EmployerIdentifier { get; set; }
 
         /// <summary>
         /// Gets or Sets City
         /// </summary>
-        [DataMember(Name = "City", EmitDefaultValue = true)]
+        [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
         /// Gets or Sets StateProvince
         /// </summary>
-        [DataMember(Name = "StateProvince", EmitDefaultValue = true)]
+        [DataMember(Name = "stateProvince", EmitDefaultValue = true)]
         public string StateProvince { get; set; }
 
         /// <summary>
         /// Gets or Sets PostalCode
         /// </summary>
-        [DataMember(Name = "PostalCode", EmitDefaultValue = true)]
+        [DataMember(Name = "postalCode", EmitDefaultValue = true)]
         public string PostalCode { get; set; }
 
         /// <summary>
         /// Gets or Sets Country
         /// </summary>
-        [DataMember(Name = "Country", EmitDefaultValue = true)]
+        [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
         /// Gets or Sets Role
         /// </summary>
-        [DataMember(Name = "Role", EmitDefaultValue = false)]
+        [DataMember(Name = "role", EmitDefaultValue = false)]
         public ContactRoleDto Role { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = false)]
         public ContactTypeDto Type { get; set; }
 
         /// <summary>
         /// Gets or Sets IsDeleted
         /// </summary>
-        [DataMember(Name = "IsDeleted", EmitDefaultValue = true)]
+        [DataMember(Name = "isDeleted", EmitDefaultValue = true)]
         public bool IsDeleted { get; set; }
 
         /// <summary>
         /// Gets or Sets LastMeeting
         /// </summary>
-        [DataMember(Name = "LastMeeting", EmitDefaultValue = true)]
+        [DataMember(Name = "lastMeeting", EmitDefaultValue = true)]
         public string LastMeeting { get; set; }
 
         /// <summary>
         /// Gets or Sets AlternativeEmailAddresses
         /// </summary>
-        [DataMember(Name = "AlternativeEmailAddresses", EmitDefaultValue = true)]
+        [DataMember(Name = "alternativeEmailAddresses", EmitDefaultValue = true)]
         public List<AlternativeEmailAddressDto> AlternativeEmailAddresses { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFieldValues
         /// </summary>
-        [DataMember(Name = "CustomFieldValues", EmitDefaultValue = true)]
+        [DataMember(Name = "customFieldValues", EmitDefaultValue = true)]
         public List<ContactCustomFieldValueDto> CustomFieldValues { get; set; }
 
         /// <summary>

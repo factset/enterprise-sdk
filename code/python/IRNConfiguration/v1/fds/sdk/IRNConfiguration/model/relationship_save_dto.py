@@ -107,14 +107,14 @@ class RelationshipSaveDto(ModelNormal):
 
 
     attribute_map = {
-        'relationship_category_id': 'RelationshipCategoryId',  # noqa: E501
-        'hide_dates': 'HideDates',  # noqa: E501
-        'hide_comment': 'HideComment',  # noqa: E501
-        'hide_company': 'HideCompany',  # noqa: E501
-        'relationship_code': 'RelationshipCode',  # noqa: E501
-        'bidirectional_name': 'BidirectionalName',  # noqa: E501
-        'left_to_right_name': 'LeftToRightName',  # noqa: E501
-        'right_to_left_name': 'RightToLeftName',  # noqa: E501
+        'relationship_category_id': 'relationshipCategoryId',  # noqa: E501
+        'hide_dates': 'hideDates',  # noqa: E501
+        'hide_comment': 'hideComment',  # noqa: E501
+        'hide_company': 'hideCompany',  # noqa: E501
+        'relationship_code': 'relationshipCode',  # noqa: E501
+        'bidirectional_name': 'bidirectionalName',  # noqa: E501
+        'left_to_right_name': 'leftToRightName',  # noqa: E501
+        'right_to_left_name': 'rightToLeftName',  # noqa: E501
     }
 
     read_only_vars = {

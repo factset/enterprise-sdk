@@ -47,19 +47,19 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets MultiSelectEnabled
         /// </summary>
-        [DataMember(Name = "MultiSelectEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "multiSelectEnabled", EmitDefaultValue = true)]
         public bool MultiSelectEnabled { get; set; }
 
         /// <summary>
         /// Gets or Sets OnTheFlyEnabled
         /// </summary>
-        [DataMember(Name = "OnTheFlyEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "onTheFlyEnabled", EmitDefaultValue = true)]
         public bool OnTheFlyEnabled { get; set; }
 
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
-        [DataMember(Name = "Options", EmitDefaultValue = true)]
+        [DataMember(Name = "options", EmitDefaultValue = true)]
         public List<string> Options { get; set; }
 
         /// <summary>

@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20036Fsym from './InlineResponse20036Fsym';
 import InlineResponse20055DataValidity from './InlineResponse20055DataValidity';
 
 /**
@@ -51,9 +50,6 @@ class InlineResponse20058Data {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('fsym')) {
-                obj['fsym'] = InlineResponse20036Fsym.constructFromObject(data['fsym']);
-            }
             if (data.hasOwnProperty('validity')) {
                 obj['validity'] = InlineResponse20055DataValidity.constructFromObject(data['validity']);
             }
@@ -69,11 +65,6 @@ class InlineResponse20058Data {
  * @member {String} id
  */
 InlineResponse20058Data.prototype['id'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20036Fsym} fsym
- */
-InlineResponse20058Data.prototype['fsym'] = undefined;
 
 /**
  * @member {module:model/InlineResponse20055DataValidity} validity

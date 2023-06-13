@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | **String** |  |  [optional]
+**tdentifier** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
 **type** | **SymbolType** |  |  [optional]
 

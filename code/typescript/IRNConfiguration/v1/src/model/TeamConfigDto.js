@@ -46,20 +46,20 @@ class TeamConfigDto {
         if (data) {
             obj = obj || new TeamConfigDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('DefaultSubjectId')) {
-                obj['DefaultSubjectId'] = ApiClient.convertToType(data['DefaultSubjectId'], 'String');
+            if (data.hasOwnProperty('defaultSubjectId')) {
+                obj['defaultSubjectId'] = ApiClient.convertToType(data['defaultSubjectId'], 'String');
             }
-            if (data.hasOwnProperty('UserIds')) {
-                obj['UserIds'] = ApiClient.convertToType(data['UserIds'], ['String']);
+            if (data.hasOwnProperty('userIds')) {
+                obj['userIds'] = ApiClient.convertToType(data['userIds'], ['String']);
             }
         }
         return obj;
@@ -69,29 +69,29 @@ class TeamConfigDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-TeamConfigDto.prototype['Id'] = undefined;
+TeamConfigDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-TeamConfigDto.prototype['Name'] = undefined;
+TeamConfigDto.prototype['name'] = undefined;
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-TeamConfigDto.prototype['Code'] = undefined;
+TeamConfigDto.prototype['code'] = undefined;
 
 /**
- * @member {String} DefaultSubjectId
+ * @member {String} defaultSubjectId
  */
-TeamConfigDto.prototype['DefaultSubjectId'] = undefined;
+TeamConfigDto.prototype['defaultSubjectId'] = undefined;
 
 /**
- * @member {Array.<String>} UserIds
+ * @member {Array.<String>} userIds
  */
-TeamConfigDto.prototype['UserIds'] = undefined;
+TeamConfigDto.prototype['userIds'] = undefined;
 
 
 

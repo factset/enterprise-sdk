@@ -45,13 +45,13 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets AllowEdit
         /// </summary>
-        [DataMember(Name = "AllowEdit", EmitDefaultValue = true)]
+        [DataMember(Name = "allowEdit", EmitDefaultValue = true)]
         public bool AllowEdit { get; set; }
 
         /// <summary>
         /// Gets or Sets IsLocked
         /// </summary>
-        [DataMember(Name = "IsLocked", EmitDefaultValue = true)]
+        [DataMember(Name = "isLocked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
 
         /// <summary>

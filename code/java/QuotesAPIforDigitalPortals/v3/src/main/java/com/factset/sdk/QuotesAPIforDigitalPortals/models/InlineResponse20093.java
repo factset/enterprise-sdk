@@ -65,11 +65,11 @@ public class InlineResponse20093 implements Serializable {
   }
 
    /**
-   * Set of basic data for a list of matching notations.
+   * List of notations.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set of basic data for a list of matching notations.")
+  @ApiModelProperty(value = "List of notations.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

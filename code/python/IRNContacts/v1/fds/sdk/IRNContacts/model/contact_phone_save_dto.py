@@ -91,10 +91,10 @@ class ContactPhoneSaveDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'number': 'Number',  # noqa: E501
-        'type_id': 'TypeId',  # noqa: E501
-        'is_primary': 'IsPrimary',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'number': 'number',  # noqa: E501
+        'type_id': 'typeId',  # noqa: E501
+        'is_primary': 'isPrimary',  # noqa: E501
     }
 
     read_only_vars = {

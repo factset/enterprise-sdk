@@ -6,29 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **idNotation** | **String** | MDG identifier of the listing. | [optional] 
 **sourceIdentifier** | **String** | Identifier used in the request. | [optional] 
-**valueUnit** | [**InlineResponse20082DataValueUnit**](InlineResponse20082DataValueUnit.md) |  | [optional] 
-**currency** | [**InlineResponse20082DataCurrency**](InlineResponse20082DataCurrency.md) |  | [optional] 
-**market** | [**InlineResponse20083Market**](InlineResponse20083Market.md) |  | [optional] 
-**quality** | **String** | Quality of the price. | [optional] 
-**latest** | [**InlineResponse20083Latest**](InlineResponse20083Latest.md) |  | [optional] 
-**first** | [**InlineResponse20083First**](InlineResponse20083First.md) |  | [optional] 
-**low** | [**InlineResponse20083Low**](InlineResponse20083Low.md) |  | [optional] 
-**high** | [**InlineResponse20083High**](InlineResponse20083High.md) |  | [optional] 
-**previousClose** | [**InlineResponse20083PreviousClose**](InlineResponse20083PreviousClose.md) |  | [optional] 
-**accumulated** | [**InlineResponse20083Accumulated**](InlineResponse20083Accumulated.md) |  | [optional] 
-**status** | [**InlineResponse20083Status**](InlineResponse20083Status.md) |  | [optional] 
-
-
-
-## Enum: QualityEnum
-
-
-* `RLT` (value: `"RLT"`)
-
-* `DLY` (value: `"DLY"`)
-
-* `EOD` (value: `"EOD"`)
-
-
+**suspended** | **Boolean** | Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;. | [optional] 
+**tradingStatus** | **String** | Market-specific code of the trading status and/or the suspension of the notation. | [optional] 
+**priceDelay** | **Number** | Exchange-imposed delay in seconds for delayed-quality tick data. | [optional] 
+**tickSize** | **Number** | The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint &#x60;/notation/get&#x60; for the value unit of the &#x60;tickSize&#x60; for this notation. | [optional] 
+**lotSize** | **Number** | he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value. | [optional] 
+**market** | [**InlineResponse20083DataMarket**](InlineResponse20083DataMarket.md) |  | [optional] 
+**regional** | [**InlineResponse20083DataRegional**](InlineResponse20083DataRegional.md) |  | [optional] 
 
 

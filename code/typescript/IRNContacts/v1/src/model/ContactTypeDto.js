@@ -35,8 +35,8 @@ class ContactTypeDto {
      * Only for internal use.
      */
     static initialize(obj, id, name) { 
-        obj['Id'] = id;
-        obj['Name'] = name;
+        obj['id'] = id;
+        obj['name'] = name;
     }
 
     /**
@@ -50,11 +50,11 @@ class ContactTypeDto {
         if (data) {
             obj = obj || new ContactTypeDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
@@ -64,14 +64,14 @@ class ContactTypeDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactTypeDto.prototype['Id'] = undefined;
+ContactTypeDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-ContactTypeDto.prototype['Name'] = undefined;
+ContactTypeDto.prototype['name'] = undefined;
 
 
 

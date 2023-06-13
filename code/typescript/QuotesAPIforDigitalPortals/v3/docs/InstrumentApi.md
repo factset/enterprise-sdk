@@ -1440,7 +1440,7 @@ Name | Type | Description  | Notes
 
 ## getInstrumentSearchBasic
 
-> InlineResponse20090 getInstrumentSearchBasic(searchValue, opts)
+> InlineResponse20092 getInstrumentSearchBasic(searchValue, opts)
 
 Basic search for instruments.
 
@@ -1514,7 +1514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20090**](InlineResponse20090.md)
+[**InlineResponse20092**](InlineResponse20092.md)
 
 ### Authorization
 
@@ -1561,7 +1561,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new InstrumentApi();
 const opts = {
-  'postInstrumentBackgroundTextTypeListRequest': new quotesapifordigitalportals.PostInstrumentBackgroundTextTypeListRequest() // PostInstrumentBackgroundTextTypeListRequest | 
+  'postInstrumentBackgroundTextTypeListRequest': new quotesapifordigitalportals.PostInstrumentBackgroundTextTypeListRequest() // PostInstrumentBackgroundTextTypeListRequest | Request Body
 };
 
 // Call api endpoint
@@ -1584,7 +1584,7 @@ apiInstance.postInstrumentBackgroundTextTypeList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentBackgroundTextTypeListRequest** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)|  | [optional] 
+ **postInstrumentBackgroundTextTypeListRequest** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -1635,7 +1635,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new InstrumentApi();
 const opts = {
-  'postInstrumentBenchmarkListRequest': new quotesapifordigitalportals.PostInstrumentBenchmarkListRequest() // PostInstrumentBenchmarkListRequest | 
+  'postInstrumentBenchmarkListRequest': new quotesapifordigitalportals.PostInstrumentBenchmarkListRequest() // PostInstrumentBenchmarkListRequest | Request Body
 };
 
 // Call api endpoint
@@ -1658,7 +1658,7 @@ apiInstance.postInstrumentBenchmarkList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentBenchmarkListRequest** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)|  | [optional] 
+ **postInstrumentBenchmarkListRequest** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -1709,7 +1709,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new InstrumentApi();
 const opts = {
-  'postInstrumentCategoryListRequest': new quotesapifordigitalportals.PostInstrumentCategoryListRequest() // PostInstrumentCategoryListRequest | 
+  'postInstrumentCategoryListRequest': new quotesapifordigitalportals.PostInstrumentCategoryListRequest() // PostInstrumentCategoryListRequest | Request Body
 };
 
 // Call api endpoint
@@ -1732,7 +1732,7 @@ apiInstance.postInstrumentCategoryList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCategoryListRequest** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)|  | [optional] 
+ **postInstrumentCategoryListRequest** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -1783,7 +1783,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new InstrumentApi();
 const opts = {
-  'postInstrumentCompliancePropertyListRequest': new quotesapifordigitalportals.PostInstrumentCompliancePropertyListRequest() // PostInstrumentCompliancePropertyListRequest | 
+  'postInstrumentCompliancePropertyListRequest': new quotesapifordigitalportals.PostInstrumentCompliancePropertyListRequest() // PostInstrumentCompliancePropertyListRequest | Request Body
 };
 
 // Call api endpoint
@@ -1806,7 +1806,7 @@ apiInstance.postInstrumentCompliancePropertyList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCompliancePropertyListRequest** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)|  | [optional] 
+ **postInstrumentCompliancePropertyListRequest** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -1824,7 +1824,7 @@ Name | Type | Description  | Notes
 
 ## postInstrumentCrossReferenceListByISIN
 
-> InlineResponse20056 postInstrumentCrossReferenceListByISIN(opts)
+> InlineResponse20056 postInstrumentCrossReferenceListByISIN(postInstrumentCrossReferenceListByISINRequest)
 
 Translate a list of ISINs to instruments.
 
@@ -1856,12 +1856,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new InstrumentApi();
-const opts = {
-  'postInstrumentCrossReferenceListByISINRequest': new quotesapifordigitalportals.PostInstrumentCrossReferenceListByISINRequest() // PostInstrumentCrossReferenceListByISINRequest | 
-};
+const postInstrumentCrossReferenceListByISINRequest = new quotesapifordigitalportals.PostInstrumentCrossReferenceListByISINRequest(); // PostInstrumentCrossReferenceListByISINRequest | Request Body
 
 // Call api endpoint
-apiInstance.postInstrumentCrossReferenceListByISIN(opts).then(
+apiInstance.postInstrumentCrossReferenceListByISIN(postInstrumentCrossReferenceListByISINRequest).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1880,7 +1878,7 @@ apiInstance.postInstrumentCrossReferenceListByISIN(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCrossReferenceListByISINRequest** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)|  | [optional] 
+ **postInstrumentCrossReferenceListByISINRequest** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)| Request Body | 
 
 ### Return type
 
@@ -1898,7 +1896,7 @@ Name | Type | Description  | Notes
 
 ## postInstrumentCrossReferenceListByWKN
 
-> InlineResponse20057 postInstrumentCrossReferenceListByWKN(opts)
+> InlineResponse20057 postInstrumentCrossReferenceListByWKN(postInstrumentCrossReferenceListByWKNRequest)
 
 Translate a list of WKNs to instruments.
 
@@ -1930,12 +1928,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new InstrumentApi();
-const opts = {
-  'postInstrumentCrossReferenceListByWKNRequest': new quotesapifordigitalportals.PostInstrumentCrossReferenceListByWKNRequest() // PostInstrumentCrossReferenceListByWKNRequest | 
-};
+const postInstrumentCrossReferenceListByWKNRequest = new quotesapifordigitalportals.PostInstrumentCrossReferenceListByWKNRequest(); // PostInstrumentCrossReferenceListByWKNRequest | Request Body
 
 // Call api endpoint
-apiInstance.postInstrumentCrossReferenceListByWKN(opts).then(
+apiInstance.postInstrumentCrossReferenceListByWKN(postInstrumentCrossReferenceListByWKNRequest).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1954,7 +1950,7 @@ apiInstance.postInstrumentCrossReferenceListByWKN(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCrossReferenceListByWKNRequest** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)|  | [optional] 
+ **postInstrumentCrossReferenceListByWKNRequest** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)| Request Body | 
 
 ### Return type
 
@@ -2005,7 +2001,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new InstrumentApi();
 const opts = {
-  'postInstrumentNotationListRequest': new quotesapifordigitalportals.PostInstrumentNotationListRequest() // PostInstrumentNotationListRequest | 
+  'postInstrumentNotationListRequest': new quotesapifordigitalportals.PostInstrumentNotationListRequest() // PostInstrumentNotationListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2028,7 +2024,7 @@ apiInstance.postInstrumentNotationList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentNotationListRequest** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)|  | [optional] 
+ **postInstrumentNotationListRequest** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -2079,7 +2075,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new InstrumentApi();
 const opts = {
-  'postInstrumentRatingGradeListRequest': new quotesapifordigitalportals.PostInstrumentRatingGradeListRequest() // PostInstrumentRatingGradeListRequest | 
+  'postInstrumentRatingGradeListRequest': new quotesapifordigitalportals.PostInstrumentRatingGradeListRequest() // PostInstrumentRatingGradeListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2102,7 +2098,7 @@ apiInstance.postInstrumentRatingGradeList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentRatingGradeListRequest** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)|  | [optional] 
+ **postInstrumentRatingGradeListRequest** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)| Request Body | [optional] 
 
 ### Return type
 

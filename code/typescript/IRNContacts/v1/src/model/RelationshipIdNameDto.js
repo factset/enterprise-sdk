@@ -46,11 +46,11 @@ class RelationshipIdNameDto {
         if (data) {
             obj = obj || new RelationshipIdNameDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class RelationshipIdNameDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-RelationshipIdNameDto.prototype['Id'] = undefined;
+RelationshipIdNameDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-RelationshipIdNameDto.prototype['Name'] = undefined;
+RelationshipIdNameDto.prototype['name'] = undefined;
 
 
 

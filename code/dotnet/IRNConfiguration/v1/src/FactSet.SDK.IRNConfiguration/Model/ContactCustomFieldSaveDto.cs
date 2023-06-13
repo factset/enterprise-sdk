@@ -35,7 +35,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public ContactCustomFieldType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactCustomFieldSaveDto" /> class.
@@ -74,37 +74,37 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "Code", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets IsHidden
         /// </summary>
-        [DataMember(Name = "IsHidden", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isHidden", IsRequired = true, EmitDefaultValue = true)]
         public bool IsHidden { get; set; }
 
         /// <summary>
         /// Gets or Sets IsMandatory
         /// </summary>
-        [DataMember(Name = "IsMandatory", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isMandatory", IsRequired = true, EmitDefaultValue = true)]
         public bool IsMandatory { get; set; }
 
         /// <summary>
         /// Gets or Sets FieldFormula
         /// </summary>
-        [DataMember(Name = "FieldFormula", EmitDefaultValue = false)]
+        [DataMember(Name = "fieldFormula", EmitDefaultValue = false)]
         public ContactCustomFieldFormulaDto FieldFormula { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactCustomFieldOptions
         /// </summary>
-        [DataMember(Name = "ContactCustomFieldOptions", EmitDefaultValue = true)]
+        [DataMember(Name = "contactCustomFieldOptions", EmitDefaultValue = true)]
         public List<ContactCustomFieldOptionSaveDto> ContactCustomFieldOptions { get; set; }
 
         /// <summary>

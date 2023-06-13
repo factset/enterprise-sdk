@@ -12,10 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20074DataHigh from './InlineResponse20074DataHigh';
-import InlineResponse20074DataLow from './InlineResponse20074DataLow';
-import InlineResponse20074DataPerformance from './InlineResponse20074DataPerformance';
-import InlineResponse20076DataTradingVolume from './InlineResponse20076DataTradingVolume';
+import InlineResponse20075DataHigh from './InlineResponse20075DataHigh';
+import InlineResponse20075DataLow from './InlineResponse20075DataLow';
+import InlineResponse20075DataPerformance from './InlineResponse20075DataPerformance';
+import InlineResponse20076Status from './InlineResponse20076Status';
 
 /**
  * The InlineResponse20076Data model module.
@@ -24,7 +24,6 @@ import InlineResponse20076DataTradingVolume from './InlineResponse20076DataTradi
 class InlineResponse20076Data {
     /**
      * Constructs a new <code>InlineResponse20076Data</code>.
-     * EOD key figures.
      * @alias module:model/InlineResponse20076Data
      */
     constructor() { 
@@ -61,25 +60,22 @@ class InlineResponse20076Data {
                 obj['referenceDate'] = ApiClient.convertToType(data['referenceDate'], 'Date');
             }
             if (data.hasOwnProperty('performance')) {
-                obj['performance'] = InlineResponse20074DataPerformance.constructFromObject(data['performance']);
+                obj['performance'] = InlineResponse20075DataPerformance.constructFromObject(data['performance']);
             }
             if (data.hasOwnProperty('high')) {
-                obj['high'] = InlineResponse20074DataHigh.constructFromObject(data['high']);
+                obj['high'] = InlineResponse20075DataHigh.constructFromObject(data['high']);
             }
             if (data.hasOwnProperty('low')) {
-                obj['low'] = InlineResponse20074DataLow.constructFromObject(data['low']);
-            }
-            if (data.hasOwnProperty('averagePrice')) {
-                obj['averagePrice'] = ApiClient.convertToType(data['averagePrice'], 'Number');
+                obj['low'] = InlineResponse20075DataLow.constructFromObject(data['low']);
             }
             if (data.hasOwnProperty('tradingVolume')) {
-                obj['tradingVolume'] = InlineResponse20076DataTradingVolume.constructFromObject(data['tradingVolume']);
-            }
-            if (data.hasOwnProperty('tradingValue')) {
-                obj['tradingValue'] = ApiClient.convertToType(data['tradingValue'], 'Number');
+                obj['tradingVolume'] = ApiClient.convertToType(data['tradingVolume'], 'Number');
             }
             if (data.hasOwnProperty('volatility')) {
                 obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
+            }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = InlineResponse20076Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -107,42 +103,36 @@ InlineResponse20076Data.prototype['sourceIdentifier'] = undefined;
 InlineResponse20076Data.prototype['referenceDate'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20074DataPerformance} performance
+ * @member {module:model/InlineResponse20075DataPerformance} performance
  */
 InlineResponse20076Data.prototype['performance'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20074DataHigh} high
+ * @member {module:model/InlineResponse20075DataHigh} high
  */
 InlineResponse20076Data.prototype['high'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20074DataLow} low
+ * @member {module:model/InlineResponse20075DataLow} low
  */
 InlineResponse20076Data.prototype['low'] = undefined;
 
 /**
- * Arithmetic mean of the notation's EOD closing prices for the given time range.
- * @member {Number} averagePrice
- */
-InlineResponse20076Data.prototype['averagePrice'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20076DataTradingVolume} tradingVolume
+ * Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive).
+ * @member {Number} tradingVolume
  */
 InlineResponse20076Data.prototype['tradingVolume'] = undefined;
-
-/**
- * Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.
- * @member {Number} tradingValue
- */
-InlineResponse20076Data.prototype['tradingValue'] = undefined;
 
 /**
  * Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
  * @member {Number} volatility
  */
 InlineResponse20076Data.prototype['volatility'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20076Status} status
+ */
+InlineResponse20076Data.prototype['status'] = undefined;
 
 
 

@@ -46,20 +46,20 @@ class SentimentConfigDto {
         if (data) {
             obj = obj || new SentimentConfigDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'Number');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
-            if (data.hasOwnProperty('Color')) {
-                obj['Color'] = ApiClient.convertToType(data['Color'], 'String');
+            if (data.hasOwnProperty('color')) {
+                obj['color'] = ApiClient.convertToType(data['color'], 'String');
             }
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
         }
         return obj;
@@ -69,29 +69,29 @@ class SentimentConfigDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-SentimentConfigDto.prototype['Id'] = undefined;
+SentimentConfigDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-SentimentConfigDto.prototype['Name'] = undefined;
+SentimentConfigDto.prototype['name'] = undefined;
 
 /**
- * @member {Number} Code
+ * @member {Number} code
  */
-SentimentConfigDto.prototype['Code'] = undefined;
+SentimentConfigDto.prototype['code'] = undefined;
 
 /**
- * @member {String} Color
+ * @member {String} color
  */
-SentimentConfigDto.prototype['Color'] = undefined;
+SentimentConfigDto.prototype['color'] = undefined;
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-SentimentConfigDto.prototype['IsHidden'] = undefined;
+SentimentConfigDto.prototype['isHidden'] = undefined;
 
 
 

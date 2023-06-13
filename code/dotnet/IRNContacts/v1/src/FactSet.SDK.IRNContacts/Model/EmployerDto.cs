@@ -52,19 +52,19 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets FactsetIdentifier
         /// </summary>
-        [DataMember(Name = "FactsetIdentifier", EmitDefaultValue = true)]
+        [DataMember(Name = "factsetIdentifier", EmitDefaultValue = true)]
         public string FactsetIdentifier { get; set; }
 
         /// <summary>

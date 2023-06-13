@@ -2097,7 +2097,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = new PostBasicBackgroundTextTypeListRequest(); // PostBasicBackgroundTextTypeListRequest | 
+        PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = new PostBasicBackgroundTextTypeListRequest(); // PostBasicBackgroundTextTypeListRequest | Request Body
         try {
             InlineResponse2001 result = apiInstance.postBasicBackgroundTextTypeList(postBasicBackgroundTextTypeListRequest);
             System.out.println(result);
@@ -2118,7 +2118,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)|  | [optional]
+ **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2181,7 +2181,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicDeliveryListRequest postBasicDeliveryListRequest = new PostBasicDeliveryListRequest(); // PostBasicDeliveryListRequest | 
+        PostBasicDeliveryListRequest postBasicDeliveryListRequest = new PostBasicDeliveryListRequest(); // PostBasicDeliveryListRequest | Request Body
         try {
             InlineResponse2003 result = apiInstance.postBasicDeliveryList(postBasicDeliveryListRequest);
             System.out.println(result);
@@ -2202,7 +2202,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)|  | [optional]
+ **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2265,7 +2265,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicMarketListRequest postBasicMarketListRequest = new PostBasicMarketListRequest(); // PostBasicMarketListRequest | 
+        PostBasicMarketListRequest postBasicMarketListRequest = new PostBasicMarketListRequest(); // PostBasicMarketListRequest | Request Body
         try {
             InlineResponse2009 result = apiInstance.postBasicMarketList(postBasicMarketListRequest);
             System.out.println(result);
@@ -2286,7 +2286,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)|  | [optional]
+ **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2349,7 +2349,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = new PostBasicMediaTypeListRequest(); // PostBasicMediaTypeListRequest | 
+        PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = new PostBasicMediaTypeListRequest(); // PostBasicMediaTypeListRequest | Request Body
         try {
             InlineResponse20013 result = apiInstance.postBasicMediaTypeList(postBasicMediaTypeListRequest);
             System.out.println(result);
@@ -2370,7 +2370,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)|  | [optional]
+ **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2433,7 +2433,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = new PostBasicMicOperatingListRequest(); // PostBasicMicOperatingListRequest | 
+        PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = new PostBasicMicOperatingListRequest(); // PostBasicMicOperatingListRequest | Request Body
         try {
             InlineResponse20014 result = apiInstance.postBasicMicOperatingList(postBasicMicOperatingListRequest);
             System.out.println(result);
@@ -2454,7 +2454,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)|  | [optional]
+ **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2517,7 +2517,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicTimezoneListRequest postBasicTimezoneListRequest = new PostBasicTimezoneListRequest(); // PostBasicTimezoneListRequest | 
+        PostBasicTimezoneListRequest postBasicTimezoneListRequest = new PostBasicTimezoneListRequest(); // PostBasicTimezoneListRequest | Request Body
         try {
             InlineResponse20023 result = apiInstance.postBasicTimezoneList(postBasicTimezoneListRequest);
             System.out.println(result);
@@ -2538,7 +2538,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)|  | [optional]
+ **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2601,7 +2601,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = new PostBasicValueUnitCurrencyListRequest(); // PostBasicValueUnitCurrencyListRequest | 
+        PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = new PostBasicValueUnitCurrencyListRequest(); // PostBasicValueUnitCurrencyListRequest | Request Body
         try {
             InlineResponse20027 result = apiInstance.postBasicValueUnitCurrencyList(postBasicValueUnitCurrencyListRequest);
             System.out.println(result);
@@ -2622,7 +2622,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)|  | [optional]
+ **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2685,7 +2685,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = new PostBasicValueUnitCurrencyMainListRequest(); // PostBasicValueUnitCurrencyMainListRequest | 
+        PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = new PostBasicValueUnitCurrencyMainListRequest(); // PostBasicValueUnitCurrencyMainListRequest | Request Body
         try {
             InlineResponse20030 result = apiInstance.postBasicValueUnitCurrencyMainList(postBasicValueUnitCurrencyMainListRequest);
             System.out.println(result);
@@ -2706,7 +2706,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)|  | [optional]
+ **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2769,7 +2769,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
-        PostBasicValueUnitListRequest postBasicValueUnitListRequest = new PostBasicValueUnitListRequest(); // PostBasicValueUnitListRequest | 
+        PostBasicValueUnitListRequest postBasicValueUnitListRequest = new PostBasicValueUnitListRequest(); // PostBasicValueUnitListRequest | Request Body
         try {
             InlineResponse20025 result = apiInstance.postBasicValueUnitList(postBasicValueUnitListRequest);
             System.out.println(result);
@@ -2790,7 +2790,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)|  | [optional]
+ **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)| Request Body | [optional]
 
 ### Return type
 

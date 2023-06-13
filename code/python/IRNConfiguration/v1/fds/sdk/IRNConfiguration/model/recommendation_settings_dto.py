@@ -87,10 +87,10 @@ class RecommendationSettingsDto(ModelNormal):
 
 
     attribute_map = {
-        'is_hidden': 'IsHidden',  # noqa: E501
-        'is_mandatory': 'IsMandatory',  # noqa: E501
-        'use_previous': 'UsePrevious',  # noqa: E501
-        'default_id': 'DefaultId',  # noqa: E501
+        'is_hidden': 'isHidden',  # noqa: E501
+        'is_mandatory': 'isMandatory',  # noqa: E501
+        'use_previous': 'usePrevious',  # noqa: E501
+        'default_id': 'defaultId',  # noqa: E501
     }
 
     read_only_vars = {

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// PostBasicTimezoneListRequest
+    /// Request Body
     /// </summary>
     [DataContract(Name = "PostBasicTimezoneListRequest")]
     public partial class PostBasicTimezoneListRequest : IEquatable<PostBasicTimezoneListRequest>, IValidatableObject

@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FI API
-  version: 3.9.0
+  version: 3.11.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/fixed-income-calculation-api
@@ -2414,6 +2414,12 @@ components:
         id:
           nullable: true
           type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
         detail:
           nullable: true
           type: string
@@ -2661,13 +2667,51 @@ components:
         balloonExtension:
           $ref: '#/components/schemas/FIBalloonExtension'
       type: object
+    FIAttributionForSecurities:
+      example:
+        startPrice: 4.145608029883936
+        pricingMethod: Inputted Price
+        startSpread: 1.2315135367772556
+        endPrice: 7.386281948385884
+        endSpread: 1.0246457001441578
+      properties:
+        startPrice:
+          description: Start Price
+          format: double
+          nullable: true
+          type: number
+        endPrice:
+          description: End Price
+          format: double
+          nullable: true
+          type: number
+        startSpread:
+          description: Start Spread
+          format: double
+          nullable: true
+          type: number
+        endSpread:
+          description: End Spread
+          format: double
+          nullable: true
+          type: number
+        pricingMethod:
+          description: Pricing Method
+          enum:
+          - Inputted Price
+          - Pricing Matrix
+          - Actual Spread
+          - OAS
+          nullable: true
+          type: string
+      type: object
     FISecurity:
       example:
         callMethod: No Call
         symbol: symbol
         matrixMultiplier: 1.4658129805029452
         discountCurve: discountCurve
-        calcFromValue: 4.145608029883936
+        calcFromValue: 1.4894159098541704
         bankLoans:
           ignoreSinkingFund: true
         faceType: Current
@@ -2706,10 +2750,16 @@ components:
             optionalRedemptionCallWhenUnits: Manual
             optionalRedemptionCallWhen: 2
             recoveryLag: 7
-        face: 7.386281948385884
+        face: 6.84685269835264
         municipalBonds:
           useAnticipatedSinkSchedule: true
           ignoreSinkingFund: true
+        attribution:
+          startPrice: 4.145608029883936
+          pricingMethod: Inputted Price
+          startSpread: 1.2315135367772556
+          endPrice: 7.386281948385884
+          endSpread: 1.0246457001441578
         matrixSpreadAdjustment: 6.027456183070403
       properties:
         settlement:
@@ -2747,6 +2797,8 @@ components:
           type: number
         structuredProducts:
           $ref: '#/components/schemas/FIStructuredProductsForSecurities'
+        attribution:
+          $ref: '#/components/schemas/FIAttributionForSecurities'
         calcFromMethod:
           description: "Calculation Method.\r\nMethods : Active Spread, Actual Spread,\
             \ Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act\
@@ -2872,6 +2924,20 @@ components:
         balloonExtension:
           $ref: '#/components/schemas/FIBalloonExtension'
       type: object
+    FIAttributionForJobSettings:
+      example:
+        endDate: endDate
+        startDate: startDate
+      properties:
+        startDate:
+          description: Start Date
+          nullable: true
+          type: string
+        endDate:
+          description: End Date
+          nullable: true
+          type: string
+      type: object
     FIJobSettings:
       example:
         callMethod: No Call
@@ -2899,14 +2965,17 @@ components:
           useAnticipatedSinkSchedule: true
           ignoreSinkingFund: true
           allowSinkForInstallmentPayment: true
+        attribution:
+          endDate: endDate
+          startDate: startDate
         marketEnvironment:
           ratePath: FLAT & FORWARD
         asOfDate: asOfDate
         bankLoans:
           ignoreSinkingFund: true
         partialDurationMonths:
-        - 1
-        - 1
+        - 7
+        - 7
         settlement: settlement
       properties:
         asOfDate:
@@ -2948,6 +3017,8 @@ components:
           $ref: '#/components/schemas/FIMarketEnvironment'
         structuredProducts:
           $ref: '#/components/schemas/FIStructuredProductsForJobSettings'
+        attribution:
+          $ref: '#/components/schemas/FIAttributionForJobSettings'
       required:
       - asOfDate
       type: object
@@ -2979,14 +3050,17 @@ components:
             useAnticipatedSinkSchedule: true
             ignoreSinkingFund: true
             allowSinkForInstallmentPayment: true
+          attribution:
+            endDate: endDate
+            startDate: startDate
           marketEnvironment:
             ratePath: FLAT & FORWARD
           asOfDate: asOfDate
           bankLoans:
             ignoreSinkingFund: true
           partialDurationMonths:
-          - 1
-          - 1
+          - 7
+          - 7
           settlement: settlement
         calculations:
         - calculations
@@ -2996,7 +3070,7 @@ components:
           symbol: symbol
           matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 4.145608029883936
+          calcFromValue: 1.4894159098541704
           bankLoans:
             ignoreSinkingFund: true
           faceType: Current
@@ -3035,16 +3109,22 @@ components:
               optionalRedemptionCallWhenUnits: Manual
               optionalRedemptionCallWhen: 2
               recoveryLag: 7
-          face: 7.386281948385884
+          face: 6.84685269835264
           municipalBonds:
             useAnticipatedSinkSchedule: true
             ignoreSinkingFund: true
+          attribution:
+            startPrice: 4.145608029883936
+            pricingMethod: Inputted Price
+            startSpread: 1.2315135367772556
+            endPrice: 7.386281948385884
+            endSpread: 1.0246457001441578
           matrixSpreadAdjustment: 6.027456183070403
         - callMethod: No Call
           symbol: symbol
           matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 4.145608029883936
+          calcFromValue: 1.4894159098541704
           bankLoans:
             ignoreSinkingFund: true
           faceType: Current
@@ -3083,10 +3163,16 @@ components:
               optionalRedemptionCallWhenUnits: Manual
               optionalRedemptionCallWhen: 2
               recoveryLag: 7
-          face: 7.386281948385884
+          face: 6.84685269835264
           municipalBonds:
             useAnticipatedSinkSchedule: true
             ignoreSinkingFund: true
+          attribution:
+            startPrice: 4.145608029883936
+            pricingMethod: Inputted Price
+            startSpread: 1.2315135367772556
+            endPrice: 7.386281948385884
+            endSpread: 1.0246457001441578
           matrixSpreadAdjustment: 6.027456183070403
       properties:
         securities:
@@ -3180,14 +3266,17 @@ components:
               useAnticipatedSinkSchedule: true
               ignoreSinkingFund: true
               allowSinkForInstallmentPayment: true
+            attribution:
+              endDate: endDate
+              startDate: startDate
             marketEnvironment:
               ratePath: FLAT & FORWARD
             asOfDate: asOfDate
             bankLoans:
               ignoreSinkingFund: true
             partialDurationMonths:
-            - 1
-            - 1
+            - 7
+            - 7
             settlement: settlement
           calculations:
           - calculations
@@ -3197,7 +3286,7 @@ components:
             symbol: symbol
             matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 4.145608029883936
+            calcFromValue: 1.4894159098541704
             bankLoans:
               ignoreSinkingFund: true
             faceType: Current
@@ -3236,16 +3325,22 @@ components:
                 optionalRedemptionCallWhenUnits: Manual
                 optionalRedemptionCallWhen: 2
                 recoveryLag: 7
-            face: 7.386281948385884
+            face: 6.84685269835264
             municipalBonds:
               useAnticipatedSinkSchedule: true
               ignoreSinkingFund: true
+            attribution:
+              startPrice: 4.145608029883936
+              pricingMethod: Inputted Price
+              startSpread: 1.2315135367772556
+              endPrice: 7.386281948385884
+              endSpread: 1.0246457001441578
             matrixSpreadAdjustment: 6.027456183070403
           - callMethod: No Call
             symbol: symbol
             matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 4.145608029883936
+            calcFromValue: 1.4894159098541704
             bankLoans:
               ignoreSinkingFund: true
             faceType: Current
@@ -3284,10 +3379,16 @@ components:
                 optionalRedemptionCallWhenUnits: Manual
                 optionalRedemptionCallWhen: 2
                 recoveryLag: 7
-            face: 7.386281948385884
+            face: 6.84685269835264
             municipalBonds:
               useAnticipatedSinkSchedule: true
               ignoreSinkingFund: true
+            attribution:
+              startPrice: 4.145608029883936
+              pricingMethod: Inputted Price
+              startSpread: 1.2315135367772556
+              endPrice: 7.386281948385884
+              endSpread: 1.0246457001441578
             matrixSpreadAdjustment: 6.027456183070403
         meta:
           contentorganization: SimplifiedRow
@@ -3313,20 +3414,17 @@ components:
           $ref: '#/components/schemas/CalculationInfo'
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object
     ObjectRoot:
       example:
-        data: '{}'
-        meta: '{}'
+        data: ""
+        meta: ""
       properties:
-        data:
-          type: object
+        data: {}
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object

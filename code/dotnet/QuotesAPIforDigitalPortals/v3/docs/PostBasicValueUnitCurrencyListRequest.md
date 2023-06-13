@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostBasicValueUnitCurrencyListRequest
+Request Body
 
 ## Properties
 

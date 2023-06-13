@@ -2,20 +2,16 @@
 
 # InlineResponse20074Data
 
-EOD key figures.
+Instrument data with a list of regional-level data and assigned listing-level data.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idNotation** | **String** | MDG identifier of the listing. |  [optional]
+**idInstrument** | **String** | MDG identifier of the instrument. |  [optional]
 **sourceIdentifier** | **String** | Identifier used in the request. |  [optional]
-**referenceDate** | **LocalDate** | Reference date of the time range. |  [optional]
-**performance** | [**InlineResponse20074DataPerformance**](InlineResponse20074DataPerformance.md) |  |  [optional]
-**high** | [**InlineResponse20074DataHigh**](InlineResponse20074DataHigh.md) |  |  [optional]
-**low** | [**InlineResponse20074DataLow**](InlineResponse20074DataLow.md) |  |  [optional]
-**tradingVolume** | **BigDecimal** | Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive). |  [optional]
-**volatility** | **BigDecimal** | Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year. |  [optional]
+**permanentIdentifier** | **String** | FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S). |  [optional]
+**regional** | [**java.util.List&lt;InlineResponse20073DataRegional&gt;**](InlineResponse20073DataRegional.md) | Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array. |  [optional]
 
 
 ## Implemented Interfaces

@@ -17,9 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091Instrument;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091Nsin;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091Price;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -37,181 +35,128 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * The data member contains a list of the matching notations.
+ * InlineResponse20091Data
  */
-@ApiModel(description = "The data member contains a list of the matching notations.")
 @JsonPropertyOrder({
   InlineResponse20091Data.JSON_PROPERTY_ID,
-  InlineResponse20091Data.JSON_PROPERTY_SYMBOL,
-  InlineResponse20091Data.JSON_PROPERTY_NSIN,
-  InlineResponse20091Data.JSON_PROPERTY_PRICE,
-  InlineResponse20091Data.JSON_PROPERTY_INSTRUMENT
+  InlineResponse20091Data.JSON_PROPERTY_CODE,
+  InlineResponse20091Data.JSON_PROPERTY_DESCRIPTION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20091Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<String> id = JsonNullable.<String>undefined();
+  private JsonNullable<BigDecimal> id = JsonNullable.<BigDecimal>undefined();
 
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
-  private JsonNullable<String> symbol = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_CODE = "code";
+  private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NSIN = "nsin";
-  private InlineResponse20091Nsin nsin;
-
-  public static final String JSON_PROPERTY_PRICE = "price";
-  private InlineResponse20091Price price;
-
-  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse20091Instrument instrument;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public InlineResponse20091Data() { 
   }
 
-  public InlineResponse20091Data id(String id) {
-    this.id = JsonNullable.<String>of(id);
+  public InlineResponse20091Data id(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
     return this;
   }
 
    /**
-   * Identifier of the notation.
+   * Identifier of the type.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the notation.")
+  @ApiModelProperty(value = "Identifier of the type.")
   @JsonIgnore
 
-  public String getId() {
+  public BigDecimal getId() {
         return id.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getId_JsonNullable() {
+  public JsonNullable<BigDecimal> getId_JsonNullable() {
     return id;
   }
   
   @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<String> id) {
+  public void setId_JsonNullable(JsonNullable<BigDecimal> id) {
     this.id = id;
   }
 
-  public void setId(String id) {
-    this.id = JsonNullable.<String>of(id);
+  public void setId(BigDecimal id) {
+    this.id = JsonNullable.<BigDecimal>of(id);
   }
 
 
-  public InlineResponse20091Data symbol(String symbol) {
-    this.symbol = JsonNullable.<String>of(symbol);
+  public InlineResponse20091Data code(String code) {
+    this.code = JsonNullable.<String>of(code);
     return this;
   }
 
    /**
-   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
-   * @return symbol
+   * Code of the type.
+   * @return code
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
+  @ApiModelProperty(value = "Code of the type.")
   @JsonIgnore
 
-  public String getSymbol() {
-        return symbol.orElse(null);
+  public String getCode() {
+        return code.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
+  @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getSymbol_JsonNullable() {
-    return symbol;
+  public JsonNullable<String> getCode_JsonNullable() {
+    return code;
   }
   
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
-  public void setSymbol_JsonNullable(JsonNullable<String> symbol) {
-    this.symbol = symbol;
+  @JsonProperty(JSON_PROPERTY_CODE)
+  public void setCode_JsonNullable(JsonNullable<String> code) {
+    this.code = code;
   }
 
-  public void setSymbol(String symbol) {
-    this.symbol = JsonNullable.<String>of(symbol);
+  public void setCode(String code) {
+    this.code = JsonNullable.<String>of(code);
   }
 
 
-  public InlineResponse20091Data nsin(InlineResponse20091Nsin nsin) {
-    this.nsin = nsin;
+  public InlineResponse20091Data description(String description) {
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
    /**
-   * Get nsin
-   * @return nsin
+   * Description of the type in english language.
+   * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NSIN)
+  @ApiModelProperty(value = "Description of the type in english language.")
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20091Nsin getNsin() {
-    return nsin;
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
   }
 
-
-  @JsonProperty(JSON_PROPERTY_NSIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNsin(InlineResponse20091Nsin nsin) {
-    this.nsin = nsin;
-  }
-
-
-  public InlineResponse20091Data price(InlineResponse20091Price price) {
-    this.price = price;
-    return this;
-  }
-
-   /**
-   * Get price
-   * @return price
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20091Price getPrice() {
-    return price;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrice(InlineResponse20091Price price) {
-    this.price = price;
-  }
-
-
-  public InlineResponse20091Data instrument(InlineResponse20091Instrument instrument) {
-    this.instrument = instrument;
-    return this;
-  }
-
-   /**
-   * Get instrument
-   * @return instrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20091Instrument getInstrument() {
-    return instrument;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse20091Instrument instrument) {
-    this.instrument = instrument;
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
 
@@ -228,10 +173,8 @@ public class InlineResponse20091Data implements Serializable {
     }
     InlineResponse20091Data inlineResponse20091Data = (InlineResponse20091Data) o;
     return equalsNullable(this.id, inlineResponse20091Data.id) &&
-        equalsNullable(this.symbol, inlineResponse20091Data.symbol) &&
-        Objects.equals(this.nsin, inlineResponse20091Data.nsin) &&
-        Objects.equals(this.price, inlineResponse20091Data.price) &&
-        Objects.equals(this.instrument, inlineResponse20091Data.instrument);
+        equalsNullable(this.code, inlineResponse20091Data.code) &&
+        equalsNullable(this.description, inlineResponse20091Data.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -240,7 +183,7 @@ public class InlineResponse20091Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(symbol), nsin, price, instrument);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(code), hashCodeNullable(description));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -255,10 +198,8 @@ public class InlineResponse20091Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20091Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
-    sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
-    sb.append("    price: ").append(toIndentedString(price)).append("\n");
-    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

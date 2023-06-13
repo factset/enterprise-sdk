@@ -12,7 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20068DataNotations from './InlineResponse20068DataNotations';
+import InlineResponse20068DataInstrument from './InlineResponse20068DataInstrument';
+import InlineResponse20068DataMarket from './InlineResponse20068DataMarket';
+import InlineResponse20068DataValueUnit from './InlineResponse20068DataValueUnit';
 
 /**
  * The InlineResponse20068Data model module.
@@ -21,7 +23,7 @@ import InlineResponse20068DataNotations from './InlineResponse20068DataNotations
 class InlineResponse20068Data {
     /**
      * Constructs a new <code>InlineResponse20068Data</code>.
-     * List of notations.
+     * Notation identified by the FactSet market symbol.
      * @alias module:model/InlineResponse20068Data
      */
     constructor() { 
@@ -48,14 +50,17 @@ class InlineResponse20068Data {
         if (data) {
             obj = obj || new InlineResponse20068Data();
 
-            if (data.hasOwnProperty('idInstrument')) {
-                obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
-                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse20068DataMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('notations')) {
-                obj['notations'] = ApiClient.convertToType(data['notations'], [InlineResponse20068DataNotations]);
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = InlineResponse20068DataValueUnit.constructFromObject(data['valueUnit']);
+            }
+            if (data.hasOwnProperty('instrument')) {
+                obj['instrument'] = InlineResponse20068DataInstrument.constructFromObject(data['instrument']);
             }
         }
         return obj;
@@ -65,22 +70,25 @@ class InlineResponse20068Data {
 }
 
 /**
- * MDG identifier of the instrument.
- * @member {String} idInstrument
+ * Identifier of the notation.
+ * @member {String} id
  */
-InlineResponse20068Data.prototype['idInstrument'] = undefined;
+InlineResponse20068Data.prototype['id'] = undefined;
 
 /**
- * Identifier used in the request.
- * @member {String} sourceIdentifier
+ * @member {module:model/InlineResponse20068DataMarket} market
  */
-InlineResponse20068Data.prototype['sourceIdentifier'] = undefined;
+InlineResponse20068Data.prototype['market'] = undefined;
 
 /**
- * List of notations.
- * @member {Array.<module:model/InlineResponse20068DataNotations>} notations
+ * @member {module:model/InlineResponse20068DataValueUnit} valueUnit
  */
-InlineResponse20068Data.prototype['notations'] = undefined;
+InlineResponse20068Data.prototype['valueUnit'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20068DataInstrument} instrument
+ */
+InlineResponse20068Data.prototype['instrument'] = undefined;
 
 
 

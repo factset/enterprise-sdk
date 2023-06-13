@@ -47,19 +47,19 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Formula
         /// </summary>
-        [DataMember(Name = "Formula", EmitDefaultValue = true)]
+        [DataMember(Name = "formula", EmitDefaultValue = true)]
         public string Formula { get; set; }
 
         /// <summary>
         /// Gets or Sets IsScreening
         /// </summary>
-        [DataMember(Name = "IsScreening", EmitDefaultValue = true)]
+        [DataMember(Name = "isScreening", EmitDefaultValue = true)]
         public bool IsScreening { get; set; }
 
         /// <summary>
         /// Gets or Sets Symbol
         /// </summary>
-        [DataMember(Name = "Symbol", EmitDefaultValue = true)]
+        [DataMember(Name = "symbol", EmitDefaultValue = true)]
         public string Symbol { get; set; }
 
         /// <summary>

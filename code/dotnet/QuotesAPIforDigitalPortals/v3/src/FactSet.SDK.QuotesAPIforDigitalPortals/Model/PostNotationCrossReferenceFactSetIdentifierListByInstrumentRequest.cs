@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest
+    /// Request Body
     /// </summary>
     [DataContract(Name = "PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest")]
     public partial class PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest : IEquatable<PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest>, IValidatableObject

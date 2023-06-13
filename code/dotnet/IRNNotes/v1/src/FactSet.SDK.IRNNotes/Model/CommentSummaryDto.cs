@@ -49,25 +49,25 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets UserId
         /// </summary>
-        [DataMember(Name = "UserId", EmitDefaultValue = false)]
+        [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Subcomments
         /// </summary>
-        [DataMember(Name = "Subcomments", EmitDefaultValue = true)]
+        [DataMember(Name = "subcomments", EmitDefaultValue = true)]
         public List<SubcommentSummaryDto> Subcomments { get; set; }
 
         /// <summary>

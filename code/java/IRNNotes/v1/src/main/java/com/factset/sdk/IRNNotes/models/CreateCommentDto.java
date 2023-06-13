@@ -45,13 +45,13 @@ import com.factset.sdk.IRNNotes.JSON;
 public class CreateCommentDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_AUTHOR_ID = "AuthorId";
+  public static final String JSON_PROPERTY_AUTHOR_ID = "authorId";
   private java.util.UUID authorId;
 
-  public static final String JSON_PROPERTY_PARENT_COMMENT_ID = "ParentCommentId";
+  public static final String JSON_PROPERTY_PARENT_COMMENT_ID = "parentCommentId";
   private JsonNullable<java.util.UUID> parentCommentId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_BODY = "Body";
+  public static final String JSON_PROPERTY_BODY = "body";
   private JsonNullable<String> body = JsonNullable.<String>undefined();
 
   public CreateCommentDto() { 

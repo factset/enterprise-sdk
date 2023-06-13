@@ -2,6 +2,7 @@
 
 # PostBasicMarketListRequest
 
+Request Body
 
 ## Properties
 

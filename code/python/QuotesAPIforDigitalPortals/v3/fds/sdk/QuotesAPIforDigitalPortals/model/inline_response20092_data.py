@@ -30,18 +30,12 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20046_notation_fsym import InlineResponse20046NotationFsym
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067_data_market import InlineResponse20067DataMarket
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20091_nsin import InlineResponse20091Nsin
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20092_instrument import InlineResponse20092Instrument
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20092_trading_value import InlineResponse20092TradingValue
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20092_value_unit import InlineResponse20092ValueUnit
-    globals()['InlineResponse20046NotationFsym'] = InlineResponse20046NotationFsym
-    globals()['InlineResponse20067DataMarket'] = InlineResponse20067DataMarket
-    globals()['InlineResponse20091Nsin'] = InlineResponse20091Nsin
-    globals()['InlineResponse20092Instrument'] = InlineResponse20092Instrument
-    globals()['InlineResponse20092TradingValue'] = InlineResponse20092TradingValue
-    globals()['InlineResponse20092ValueUnit'] = InlineResponse20092ValueUnit
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20036_fsym import InlineResponse20036Fsym
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20038_data_categories import InlineResponse20038DataCategories
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20042_data_nsin import InlineResponse20042DataNsin
+    globals()['InlineResponse20036Fsym'] = InlineResponse20036Fsym
+    globals()['InlineResponse20038DataCategories'] = InlineResponse20038DataCategories
+    globals()['InlineResponse20042DataNsin'] = InlineResponse20042DataNsin
 
 
 class InlineResponse20092Data(ModelNormal):
@@ -98,13 +92,12 @@ class InlineResponse20092Data(ModelNormal):
         lazy_import()
         return {
             'id': (str, none_type,),  # noqa: E501
-            'value_unit': (InlineResponse20092ValueUnit,),  # noqa: E501
-            'market': (InlineResponse20067DataMarket,),  # noqa: E501
-            'symbol': (str, none_type,),  # noqa: E501
-            'nsin': (InlineResponse20091Nsin,),  # noqa: E501
-            'fsym': (InlineResponse20046NotationFsym,),  # noqa: E501
-            'instrument': (InlineResponse20092Instrument,),  # noqa: E501
-            'trading_value': (InlineResponse20092TradingValue,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'isin': (str, none_type,),  # noqa: E501
+            'nsin': (InlineResponse20042DataNsin,),  # noqa: E501
+            'fsym': (InlineResponse20036Fsym,),  # noqa: E501
+            'asset_class': (str, none_type,),  # noqa: E501
+            'type': ([InlineResponse20038DataCategories],),  # noqa: E501
         }
 
     @cached_property
@@ -114,13 +107,12 @@ class InlineResponse20092Data(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'value_unit': 'valueUnit',  # noqa: E501
-        'market': 'market',  # noqa: E501
-        'symbol': 'symbol',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'isin': 'isin',  # noqa: E501
         'nsin': 'nsin',  # noqa: E501
         'fsym': 'fsym',  # noqa: E501
-        'instrument': 'instrument',  # noqa: E501
-        'trading_value': 'tradingValue',  # noqa: E501
+        'asset_class': 'assetClass',  # noqa: E501
+        'type': 'type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -164,14 +156,13 @@ class InlineResponse20092Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of a notation.. [optional]  # noqa: E501
-            value_unit (InlineResponse20092ValueUnit): [optional]  # noqa: E501
-            market (InlineResponse20067DataMarket): [optional]  # noqa: E501
-            symbol (str, none_type): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
-            nsin (InlineResponse20091Nsin): [optional]  # noqa: E501
-            fsym (InlineResponse20046NotationFsym): [optional]  # noqa: E501
-            instrument (InlineResponse20092Instrument): [optional]  # noqa: E501
-            trading_value (InlineResponse20092TradingValue): [optional]  # noqa: E501
+            id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
+            name (str, none_type): Asset class-unspecific name in English.. [optional]  # noqa: E501
+            isin (str, none_type): The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.. [optional]  # noqa: E501
+            nsin (InlineResponse20042DataNsin): [optional]  # noqa: E501
+            fsym (InlineResponse20036Fsym): [optional]  # noqa: E501
+            asset_class (str, none_type): Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.. [optional]  # noqa: E501
+            type ([InlineResponse20038DataCategories]): Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,14 +244,13 @@ class InlineResponse20092Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of a notation.. [optional]  # noqa: E501
-            value_unit (InlineResponse20092ValueUnit): [optional]  # noqa: E501
-            market (InlineResponse20067DataMarket): [optional]  # noqa: E501
-            symbol (str, none_type): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
-            nsin (InlineResponse20091Nsin): [optional]  # noqa: E501
-            fsym (InlineResponse20046NotationFsym): [optional]  # noqa: E501
-            instrument (InlineResponse20092Instrument): [optional]  # noqa: E501
-            trading_value (InlineResponse20092TradingValue): [optional]  # noqa: E501
+            id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
+            name (str, none_type): Asset class-unspecific name in English.. [optional]  # noqa: E501
+            isin (str, none_type): The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.. [optional]  # noqa: E501
+            nsin (InlineResponse20042DataNsin): [optional]  # noqa: E501
+            fsym (InlineResponse20036Fsym): [optional]  # noqa: E501
+            asset_class (str, none_type): Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.. [optional]  # noqa: E501
+            type ([InlineResponse20038DataCategories]): Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

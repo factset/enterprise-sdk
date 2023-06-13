@@ -46,11 +46,11 @@ class NumericConfigDto {
         if (data) {
             obj = obj || new NumericConfigDto();
 
-            if (data.hasOwnProperty('Decimals')) {
-                obj['Decimals'] = ApiClient.convertToType(data['Decimals'], 'Number');
+            if (data.hasOwnProperty('decimals')) {
+                obj['decimals'] = ApiClient.convertToType(data['decimals'], 'Number');
             }
-            if (data.hasOwnProperty('SplitType')) {
-                obj['SplitType'] = ApiClient.convertToType(data['SplitType'], 'String');
+            if (data.hasOwnProperty('splitType')) {
+                obj['splitType'] = ApiClient.convertToType(data['splitType'], 'String');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class NumericConfigDto {
 }
 
 /**
- * @member {Number} Decimals
+ * @member {Number} decimals
  */
-NumericConfigDto.prototype['Decimals'] = undefined;
+NumericConfigDto.prototype['decimals'] = undefined;
 
 /**
- * @member {String} SplitType
+ * @member {String} splitType
  */
-NumericConfigDto.prototype['SplitType'] = undefined;
+NumericConfigDto.prototype['splitType'] = undefined;
 
 
 

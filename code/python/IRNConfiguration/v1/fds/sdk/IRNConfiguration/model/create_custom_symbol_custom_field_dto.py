@@ -103,15 +103,15 @@ class CreateCustomSymbolCustomFieldDto(ModelNormal):
 
 
     attribute_map = {
-        'code': 'Code',  # noqa: E501
-        'name': 'Name',  # noqa: E501
-        'type': 'Type',  # noqa: E501
-        'is_hidden': 'IsHidden',  # noqa: E501
-        'is_mandatory': 'IsMandatory',  # noqa: E501
-        'is_shown_in_infobox': 'IsShownInInfobox',  # noqa: E501
-        'custom_symbol_types': 'CustomSymbolTypes',  # noqa: E501
-        'formula_config': 'FormulaConfig',  # noqa: E501
-        'options_config': 'OptionsConfig',  # noqa: E501
+        'code': 'code',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'is_hidden': 'isHidden',  # noqa: E501
+        'is_mandatory': 'isMandatory',  # noqa: E501
+        'is_shown_in_infobox': 'isShownInInfobox',  # noqa: E501
+        'custom_symbol_types': 'customSymbolTypes',  # noqa: E501
+        'formula_config': 'formulaConfig',  # noqa: E501
+        'options_config': 'optionsConfig',  # noqa: E501
     }
 
     read_only_vars = {

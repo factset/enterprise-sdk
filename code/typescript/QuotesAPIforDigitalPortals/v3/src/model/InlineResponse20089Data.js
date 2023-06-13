@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20089DataAsks from './InlineResponse20089DataAsks';
 
 /**
  * The InlineResponse20089Data model module.
@@ -20,6 +21,7 @@ import ApiClient from '../ApiClient';
 class InlineResponse20089Data {
     /**
      * Constructs a new <code>InlineResponse20089Data</code>.
+     * Orderbook.
      * @alias module:model/InlineResponse20089Data
      */
     constructor() { 
@@ -46,14 +48,20 @@ class InlineResponse20089Data {
         if (data) {
             obj = obj || new InlineResponse20089Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            if (data.hasOwnProperty('quality')) {
+                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
+            }
+            if (data.hasOwnProperty('asks')) {
+                obj['asks'] = ApiClient.convertToType(data['asks'], [InlineResponse20089DataAsks]);
+            }
+            if (data.hasOwnProperty('bids')) {
+                obj['bids'] = ApiClient.convertToType(data['bids'], [InlineResponse20089DataAsks]);
             }
         }
         return obj;
@@ -63,25 +71,58 @@ class InlineResponse20089Data {
 }
 
 /**
- * Identifier of the type.
- * @member {Number} id
+ * MDG identifier of the listing.
+ * @member {String} idNotation
  */
-InlineResponse20089Data.prototype['id'] = undefined;
+InlineResponse20089Data.prototype['idNotation'] = undefined;
 
 /**
- * Code of the type.
- * @member {String} code
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse20089Data.prototype['code'] = undefined;
+InlineResponse20089Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * Description of the type in english language.
- * @member {String} description
+ * Quality of the price.
+ * @member {module:model/InlineResponse20089Data.QualityEnum} quality
  */
-InlineResponse20089Data.prototype['description'] = undefined;
+InlineResponse20089Data.prototype['quality'] = undefined;
+
+/**
+ * Ask entries of the full orderbook.
+ * @member {Array.<module:model/InlineResponse20089DataAsks>} asks
+ */
+InlineResponse20089Data.prototype['asks'] = undefined;
+
+/**
+ * Bid entries of the full orderbook.
+ * @member {Array.<module:model/InlineResponse20089DataAsks>} bids
+ */
+InlineResponse20089Data.prototype['bids'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>quality</code> property.
+ * @enum {String}
+ * @readonly
+ */
+InlineResponse20089Data['QualityEnum'] = {
+
+    /**
+     * value: "RLT"
+     * @const
+     */
+    "RLT": "RLT",
+
+    /**
+     * value: "DLY"
+     * @const
+     */
+    "DLY": "DLY"
+};
 
 
 

@@ -53,37 +53,37 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets IsStandard
         /// </summary>
-        [DataMember(Name = "IsStandard", EmitDefaultValue = true)]
+        [DataMember(Name = "isStandard", EmitDefaultValue = true)]
         public bool IsStandard { get; set; }
 
         /// <summary>
         /// Gets or Sets IsContactToContact
         /// </summary>
-        [DataMember(Name = "IsContactToContact", EmitDefaultValue = true)]
+        [DataMember(Name = "isContactToContact", EmitDefaultValue = true)]
         public bool IsContactToContact { get; set; }
 
         /// <summary>
         /// Gets or Sets IsContactToSymbol
         /// </summary>
-        [DataMember(Name = "IsContactToSymbol", EmitDefaultValue = true)]
+        [DataMember(Name = "isContactToSymbol", EmitDefaultValue = true)]
         public bool IsContactToSymbol { get; set; }
 
         /// <summary>
         /// Gets or Sets Relationships
         /// </summary>
-        [DataMember(Name = "Relationships", EmitDefaultValue = true)]
+        [DataMember(Name = "relationships", EmitDefaultValue = true)]
         public List<RelationshipDto> Relationships { get; set; }
 
         /// <summary>

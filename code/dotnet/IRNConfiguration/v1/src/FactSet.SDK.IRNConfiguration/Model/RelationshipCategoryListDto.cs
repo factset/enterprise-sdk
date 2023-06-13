@@ -52,7 +52,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Ids
         /// </summary>
-        [DataMember(Name = "Ids", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
         public List<Guid> Ids { get; set; }
 
         /// <summary>

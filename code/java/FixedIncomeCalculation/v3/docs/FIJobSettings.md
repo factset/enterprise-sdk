@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **municipalBonds** | [**FIMunicipalBondsForJobSettings**](FIMunicipalBondsForJobSettings.md) |  |  [optional]
 **marketEnvironment** | [**FIMarketEnvironment**](FIMarketEnvironment.md) |  |  [optional]
 **structuredProducts** | [**FIStructuredProductsForJobSettings**](FIStructuredProductsForJobSettings.md) |  |  [optional]
+**attribution** | [**FIAttributionForJobSettings**](FIAttributionForJobSettings.md) |  |  [optional]
 
 
 

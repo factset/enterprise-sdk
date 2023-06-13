@@ -30,14 +30,12 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074_data_high import InlineResponse20074DataHigh
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074_data_low import InlineResponse20074DataLow
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074_data_performance import InlineResponse20074DataPerformance
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075_status import InlineResponse20075Status
-    globals()['InlineResponse20074DataHigh'] = InlineResponse20074DataHigh
-    globals()['InlineResponse20074DataLow'] = InlineResponse20074DataLow
-    globals()['InlineResponse20074DataPerformance'] = InlineResponse20074DataPerformance
-    globals()['InlineResponse20075Status'] = InlineResponse20075Status
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075_data_high import InlineResponse20075DataHigh
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075_data_low import InlineResponse20075DataLow
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075_data_performance import InlineResponse20075DataPerformance
+    globals()['InlineResponse20075DataHigh'] = InlineResponse20075DataHigh
+    globals()['InlineResponse20075DataLow'] = InlineResponse20075DataLow
+    globals()['InlineResponse20075DataPerformance'] = InlineResponse20075DataPerformance
 
 
 class InlineResponse20075Data(ModelNormal):
@@ -96,12 +94,11 @@ class InlineResponse20075Data(ModelNormal):
             'id_notation': (str, none_type,),  # noqa: E501
             'source_identifier': (str, none_type,),  # noqa: E501
             'reference_date': (date, none_type,),  # noqa: E501
-            'performance': (InlineResponse20074DataPerformance,),  # noqa: E501
-            'high': (InlineResponse20074DataHigh,),  # noqa: E501
-            'low': (InlineResponse20074DataLow,),  # noqa: E501
+            'performance': (InlineResponse20075DataPerformance,),  # noqa: E501
+            'high': (InlineResponse20075DataHigh,),  # noqa: E501
+            'low': (InlineResponse20075DataLow,),  # noqa: E501
             'trading_volume': (float, none_type,),  # noqa: E501
             'volatility': (float, none_type,),  # noqa: E501
-            'status': (InlineResponse20075Status,),  # noqa: E501
         }
 
     @cached_property
@@ -118,7 +115,6 @@ class InlineResponse20075Data(ModelNormal):
         'low': 'low',  # noqa: E501
         'trading_volume': 'tradingVolume',  # noqa: E501
         'volatility': 'volatility',  # noqa: E501
-        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -165,12 +161,11 @@ class InlineResponse20075Data(ModelNormal):
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
             reference_date (date, none_type): Reference date of the time range.. [optional]  # noqa: E501
-            performance (InlineResponse20074DataPerformance): [optional]  # noqa: E501
-            high (InlineResponse20074DataHigh): [optional]  # noqa: E501
-            low (InlineResponse20074DataLow): [optional]  # noqa: E501
+            performance (InlineResponse20075DataPerformance): [optional]  # noqa: E501
+            high (InlineResponse20075DataHigh): [optional]  # noqa: E501
+            low (InlineResponse20075DataLow): [optional]  # noqa: E501
             trading_volume (float, none_type): Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive).. [optional]  # noqa: E501
             volatility (float, none_type): Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.. [optional]  # noqa: E501
-            status (InlineResponse20075Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,12 +250,11 @@ class InlineResponse20075Data(ModelNormal):
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
             reference_date (date, none_type): Reference date of the time range.. [optional]  # noqa: E501
-            performance (InlineResponse20074DataPerformance): [optional]  # noqa: E501
-            high (InlineResponse20074DataHigh): [optional]  # noqa: E501
-            low (InlineResponse20074DataLow): [optional]  # noqa: E501
+            performance (InlineResponse20075DataPerformance): [optional]  # noqa: E501
+            high (InlineResponse20075DataHigh): [optional]  # noqa: E501
+            low (InlineResponse20075DataLow): [optional]  # noqa: E501
             trading_volume (float, none_type): Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive).. [optional]  # noqa: E501
             volatility (float, none_type): Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.. [optional]  # noqa: E501
-            status (InlineResponse20075Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

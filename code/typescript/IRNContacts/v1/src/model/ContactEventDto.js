@@ -47,17 +47,17 @@ class ContactEventDto {
         if (data) {
             obj = obj || new ContactEventDto();
 
-            if (data.hasOwnProperty('EventType')) {
-                obj['EventType'] = ApiClient.convertToType(data['EventType'], 'String');
+            if (data.hasOwnProperty('eventType')) {
+                obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
             }
-            if (data.hasOwnProperty('Date')) {
-                obj['Date'] = ApiClient.convertToType(data['Date'], 'Date');
+            if (data.hasOwnProperty('date')) {
+                obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('FullName')) {
-                obj['FullName'] = ApiClient.convertToType(data['FullName'], 'String');
+            if (data.hasOwnProperty('fullName')) {
+                obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
             }
-            if (data.hasOwnProperty('Details')) {
-                obj['Details'] = ApiClient.convertToType(data['Details'], [ContactEventUpdateDto]);
+            if (data.hasOwnProperty('details')) {
+                obj['details'] = ApiClient.convertToType(data['details'], [ContactEventUpdateDto]);
             }
         }
         return obj;
@@ -67,24 +67,24 @@ class ContactEventDto {
 }
 
 /**
- * @member {String} EventType
+ * @member {String} eventType
  */
-ContactEventDto.prototype['EventType'] = undefined;
+ContactEventDto.prototype['eventType'] = undefined;
 
 /**
- * @member {Date} Date
+ * @member {Date} date
  */
-ContactEventDto.prototype['Date'] = undefined;
+ContactEventDto.prototype['date'] = undefined;
 
 /**
- * @member {String} FullName
+ * @member {String} fullName
  */
-ContactEventDto.prototype['FullName'] = undefined;
+ContactEventDto.prototype['fullName'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactEventUpdateDto>} Details
+ * @member {Array.<module:model/ContactEventUpdateDto>} details
  */
-ContactEventDto.prototype['Details'] = undefined;
+ContactEventDto.prototype['details'] = undefined;
 
 
 

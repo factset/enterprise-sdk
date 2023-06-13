@@ -46,17 +46,17 @@ class RecommendationConfigDto {
         if (data) {
             obj = obj || new RecommendationConfigDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'Number');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
         }
         return obj;
@@ -66,24 +66,24 @@ class RecommendationConfigDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-RecommendationConfigDto.prototype['Id'] = undefined;
+RecommendationConfigDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-RecommendationConfigDto.prototype['Name'] = undefined;
+RecommendationConfigDto.prototype['name'] = undefined;
 
 /**
- * @member {Number} Code
+ * @member {Number} code
  */
-RecommendationConfigDto.prototype['Code'] = undefined;
+RecommendationConfigDto.prototype['code'] = undefined;
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-RecommendationConfigDto.prototype['IsHidden'] = undefined;
+RecommendationConfigDto.prototype['isHidden'] = undefined;
 
 
 

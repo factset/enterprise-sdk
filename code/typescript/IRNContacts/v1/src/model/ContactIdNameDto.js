@@ -46,11 +46,11 @@ class ContactIdNameDto {
         if (data) {
             obj = obj || new ContactIdNameDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class ContactIdNameDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactIdNameDto.prototype['Id'] = undefined;
+ContactIdNameDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-ContactIdNameDto.prototype['Name'] = undefined;
+ContactIdNameDto.prototype['name'] = undefined;
 
 
 

@@ -84,7 +84,7 @@ class IntegerConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'split_type': 'SplitType',  # noqa: E501
+        'split_type': 'splitType',  # noqa: E501
     }
 
     read_only_vars = {

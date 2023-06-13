@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**InlineResponse20067Data**](InlineResponse20067Data.md) |  |  [optional]
+**data** | [**java.util.List&lt;InlineResponse20067Data&gt;**](InlineResponse20067Data.md) | List of datasets with their categories as assigned to the notation. |  [optional]
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 

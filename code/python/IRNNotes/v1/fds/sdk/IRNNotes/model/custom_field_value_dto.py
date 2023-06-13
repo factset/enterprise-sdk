@@ -87,10 +87,10 @@ class CustomFieldValueDto(ModelNormal):
 
 
     attribute_map = {
-        'code': 'Code',  # noqa: E501
-        'value': 'Value',  # noqa: E501
-        'options': 'Options',  # noqa: E501
-        'contact_values': 'ContactValues',  # noqa: E501
+        'code': 'code',  # noqa: E501
+        'value': 'value',  # noqa: E501
+        'options': 'options',  # noqa: E501
+        'contact_values': 'contactValues',  # noqa: E501
     }
 
     read_only_vars = {

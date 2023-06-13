@@ -40,10 +40,10 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class DateSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ALLOW_EDIT = "AllowEdit";
+  public static final String JSON_PROPERTY_ALLOW_EDIT = "allowEdit";
   private Boolean allowEdit;
 
-  public static final String JSON_PROPERTY_IS_LOCKED = "IsLocked";
+  public static final String JSON_PROPERTY_IS_LOCKED = "isLocked";
   private Boolean isLocked;
 
   public DateSettingsDto() { 

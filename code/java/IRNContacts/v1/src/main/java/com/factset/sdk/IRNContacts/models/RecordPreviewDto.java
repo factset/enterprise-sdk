@@ -47,16 +47,16 @@ import com.factset.sdk.IRNContacts.JSON;
 public class RecordPreviewDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NOTE_GUID = "NoteGuid";
+  public static final String JSON_PROPERTY_NOTE_GUID = "noteGuid";
   private JsonNullable<java.util.UUID> noteGuid = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_MEETING_GUID = "MeetingGuid";
+  public static final String JSON_PROPERTY_MEETING_GUID = "meetingGuid";
   private JsonNullable<java.util.UUID> meetingGuid = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_TITLE = "Title";
+  public static final String JSON_PROPERTY_TITLE = "title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DATE = "Date";
+  public static final String JSON_PROPERTY_DATE = "date";
   private OffsetDateTime date;
 
   public RecordPreviewDto() { 

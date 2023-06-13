@@ -46,11 +46,11 @@ class CustomSymbolSubTypeDto {
         if (data) {
             obj = obj || new CustomSymbolSubTypeDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class CustomSymbolSubTypeDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-CustomSymbolSubTypeDto.prototype['Id'] = undefined;
+CustomSymbolSubTypeDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-CustomSymbolSubTypeDto.prototype['Name'] = undefined;
+CustomSymbolSubTypeDto.prototype['name'] = undefined;
 
 
 

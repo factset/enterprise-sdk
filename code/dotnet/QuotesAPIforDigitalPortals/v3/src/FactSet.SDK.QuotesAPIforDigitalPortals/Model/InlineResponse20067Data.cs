@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// Notation identified by the FactSet market symbol.
+    /// InlineResponse20067Data
     /// </summary>
     [DataContract(Name = "inline_response_200_67_data")]
     public partial class InlineResponse20067Data : IEquatable<InlineResponse20067Data>, IValidatableObject
@@ -34,42 +34,26 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20067Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of the notation..</param>
-        /// <param name="market">market.</param>
-        /// <param name="valueUnit">valueUnit.</param>
-        /// <param name="instrument">instrument.</param>
-        public InlineResponse20067Data(string id = default(string), InlineResponse20067DataMarket market = default(InlineResponse20067DataMarket), InlineResponse20067DataValueUnit valueUnit = default(InlineResponse20067DataValueUnit), InlineResponse20067DataInstrument instrument = default(InlineResponse20067DataInstrument))
+        /// <param name="dataset">dataset.</param>
+        /// <param name="categories">List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed..</param>
+        public InlineResponse20067Data(InlineResponse20067Dataset dataset = default(InlineResponse20067Dataset), List<InlineResponse20038DataCategories> categories = default(List<InlineResponse20038DataCategories>))
         {
-            this.Id = id;
-            this.Market = market;
-            this.ValueUnit = valueUnit;
-            this.Instrument = instrument;
+            this.Dataset = dataset;
+            this.Categories = categories;
         }
 
         /// <summary>
-        /// Identifier of the notation.
+        /// Gets or Sets Dataset
         /// </summary>
-        /// <value>Identifier of the notation.</value>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; set; }
+        [DataMember(Name = "dataset", EmitDefaultValue = false)]
+        public InlineResponse20067Dataset Dataset { get; set; }
 
         /// <summary>
-        /// Gets or Sets Market
+        /// List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.
         /// </summary>
-        [DataMember(Name = "market", EmitDefaultValue = false)]
-        public InlineResponse20067DataMarket Market { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ValueUnit
-        /// </summary>
-        [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
-        public InlineResponse20067DataValueUnit ValueUnit { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Instrument
-        /// </summary>
-        [DataMember(Name = "instrument", EmitDefaultValue = false)]
-        public InlineResponse20067DataInstrument Instrument { get; set; }
+        /// <value>List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.</value>
+        [DataMember(Name = "categories", EmitDefaultValue = false)]
+        public List<InlineResponse20038DataCategories> Categories { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,10 +63,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20067Data {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Market: ").Append(Market).Append("\n");
-            sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
-            sb.Append("  Instrument: ").Append(Instrument).Append("\n");
+            sb.Append("  Dataset: ").Append(Dataset).Append("\n");
+            sb.Append("  Categories: ").Append(Categories).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,24 +101,15 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Dataset == input.Dataset ||
+                    (this.Dataset != null &&
+                    this.Dataset.Equals(input.Dataset))
                 ) && 
                 (
-                    this.Market == input.Market ||
-                    (this.Market != null &&
-                    this.Market.Equals(input.Market))
-                ) && 
-                (
-                    this.ValueUnit == input.ValueUnit ||
-                    (this.ValueUnit != null &&
-                    this.ValueUnit.Equals(input.ValueUnit))
-                ) && 
-                (
-                    this.Instrument == input.Instrument ||
-                    (this.Instrument != null &&
-                    this.Instrument.Equals(input.Instrument))
+                    this.Categories == input.Categories ||
+                    this.Categories != null &&
+                    input.Categories != null &&
+                    this.Categories.SequenceEqual(input.Categories)
                 );
         }
 
@@ -149,21 +122,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
+                if (this.Dataset != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Dataset.GetHashCode();
                 }
-                if (this.Market != null)
+                if (this.Categories != null)
                 {
-                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
-                }
-                if (this.ValueUnit != null)
-                {
-                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
-                }
-                if (this.Instrument != null)
-                {
-                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Categories.GetHashCode();
                 }
                 return hashCode;
             }

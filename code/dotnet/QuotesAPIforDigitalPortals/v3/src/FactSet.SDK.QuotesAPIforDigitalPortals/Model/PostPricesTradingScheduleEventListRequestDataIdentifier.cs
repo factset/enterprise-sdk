@@ -198,7 +198,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
 
             // Value (string) pattern
-            Regex regexValue = new Regex(@"^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$", RegexOptions.CultureInvariant);
+            Regex regexValue = new Regex(@"^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$", RegexOptions.CultureInvariant);
             if (false == regexValue.Match(this.Value).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, must match a pattern of " + regexValue, new [] { "Value" });

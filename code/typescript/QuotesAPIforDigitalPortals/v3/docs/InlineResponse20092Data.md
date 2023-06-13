@@ -4,13 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Identifier of a notation. | [optional] 
-**valueUnit** | [**InlineResponse20092ValueUnit**](InlineResponse20092ValueUnit.md) |  | [optional] 
-**market** | [**InlineResponse20067DataMarket**](InlineResponse20067DataMarket.md) |  | [optional] 
-**symbol** | **String** | The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market. | [optional] 
-**nsin** | [**InlineResponse20091Nsin**](InlineResponse20091Nsin.md) |  | [optional] 
-**fsym** | [**InlineResponse20046NotationFsym**](InlineResponse20046NotationFsym.md) |  | [optional] 
-**instrument** | [**InlineResponse20092Instrument**](InlineResponse20092Instrument.md) |  | [optional] 
-**tradingValue** | [**InlineResponse20092TradingValue**](InlineResponse20092TradingValue.md) |  | [optional] 
+**id** | **String** | Identifier of the instrument. | [optional] 
+**name** | **String** | Asset class-unspecific name in English. | [optional] 
+**isin** | **String** | The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument. | [optional] 
+**nsin** | [**InlineResponse20042DataNsin**](InlineResponse20042DataNsin.md) |  | [optional] 
+**fsym** | [**InlineResponse20036Fsym**](InlineResponse20036Fsym.md) |  | [optional] 
+**assetClass** | **String** | Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description. | [optional] 
+**type** | [**[InlineResponse20038DataCategories]**](InlineResponse20038DataCategories.md) | Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18). | [optional] 
 
 

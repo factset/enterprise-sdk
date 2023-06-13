@@ -84,7 +84,7 @@ class CreateBodyDto(ModelNormal):
 
 
     attribute_map = {
-        'content': 'Content',  # noqa: E501
+        'content': 'content',  # noqa: E501
     }
 
     read_only_vars = {

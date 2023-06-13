@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20068DataNotations from './InlineResponse20068DataNotations';
+import InlineResponse20069Data from './InlineResponse20069Data';
 import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
@@ -49,7 +49,7 @@ class InlineResponse20069 {
             obj = obj || new InlineResponse20069();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20068DataNotations]);
+                obj['data'] = InlineResponse20069Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -62,8 +62,7 @@ class InlineResponse20069 {
 }
 
 /**
- * List of notations.
- * @member {Array.<module:model/InlineResponse20068DataNotations>} data
+ * @member {module:model/InlineResponse20069Data} data
  */
 InlineResponse20069.prototype['data'] = undefined;
 

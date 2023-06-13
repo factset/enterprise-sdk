@@ -62,7 +62,7 @@ class PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestD
             'max_length': 50,
             'min_length': 4,
             'regex': {
-                'pattern': r'^(([0-9A-Z]{6}-[SLR])|([0-9A-Z]{1,47}-[A-Z]{2,4}))$',  # noqa: E501
+                'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[SLR]$|[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$',  # noqa: E501
             },
         },
     }

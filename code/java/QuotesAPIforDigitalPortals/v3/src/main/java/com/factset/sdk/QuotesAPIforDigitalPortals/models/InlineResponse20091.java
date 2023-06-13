@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20036Meta;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091Data;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,7 +46,7 @@ public class InlineResponse20091 implements Serializable {
   private java.util.List<InlineResponse20091Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse20036Meta meta;
+  private InlineResponse200Meta meta;
 
   public InlineResponse20091() { 
   }
@@ -65,11 +65,11 @@ public class InlineResponse20091 implements Serializable {
   }
 
    /**
-   * List of notations.
+   * List of trading schedule event types.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of notations.")
+  @ApiModelProperty(value = "List of trading schedule event types.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,7 +85,7 @@ public class InlineResponse20091 implements Serializable {
   }
 
 
-  public InlineResponse20091 meta(InlineResponse20036Meta meta) {
+  public InlineResponse20091 meta(InlineResponse200Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -99,14 +99,14 @@ public class InlineResponse20091 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20036Meta getMeta() {
+  public InlineResponse200Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse20036Meta meta) {
+  public void setMeta(InlineResponse200Meta meta) {
     this.meta = meta;
   }
 

@@ -17,7 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataRegional;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20073DataInstrument;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20073DataRegional;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,8 +40,7 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
  */
 @ApiModel(description = "Instrument data with a list of regional-level data and assigned listing-level data.")
 @JsonPropertyOrder({
-  InlineResponse20073Data.JSON_PROPERTY_ID_INSTRUMENT,
-  InlineResponse20073Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20073Data.JSON_PROPERTY_INSTRUMENT,
   InlineResponse20073Data.JSON_PROPERTY_PERMANENT_IDENTIFIER,
   InlineResponse20073Data.JSON_PROPERTY_REGIONAL
 })
@@ -48,86 +48,41 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 public class InlineResponse20073Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID_INSTRUMENT = "idInstrument";
-  private JsonNullable<String> idInstrument = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
-  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
+  private InlineResponse20073DataInstrument instrument;
 
   public static final String JSON_PROPERTY_PERMANENT_IDENTIFIER = "permanentIdentifier";
   private JsonNullable<String> permanentIdentifier = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REGIONAL = "regional";
-  private java.util.List<InlineResponse20072DataRegional> regional = null;
+  private java.util.List<InlineResponse20073DataRegional> regional = null;
 
   public InlineResponse20073Data() { 
   }
 
-  public InlineResponse20073Data idInstrument(String idInstrument) {
-    this.idInstrument = JsonNullable.<String>of(idInstrument);
+  public InlineResponse20073Data instrument(InlineResponse20073DataInstrument instrument) {
+    this.instrument = instrument;
     return this;
   }
 
    /**
-   * MDG identifier of the instrument.
-   * @return idInstrument
+   * Get instrument
+   * @return instrument
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "MDG identifier of the instrument.")
-  @JsonIgnore
-
-  public String getIdInstrument() {
-        return idInstrument.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getIdInstrument_JsonNullable() {
-    return idInstrument;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
-  public void setIdInstrument_JsonNullable(JsonNullable<String> idInstrument) {
-    this.idInstrument = idInstrument;
-  }
-
-  public void setIdInstrument(String idInstrument) {
-    this.idInstrument = JsonNullable.<String>of(idInstrument);
+  public InlineResponse20073DataInstrument getInstrument() {
+    return instrument;
   }
 
 
-  public InlineResponse20073Data sourceIdentifier(String sourceIdentifier) {
-    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
-    return this;
-  }
-
-   /**
-   * Identifier used in the request.
-   * @return sourceIdentifier
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier used in the request.")
-  @JsonIgnore
-
-  public String getSourceIdentifier() {
-        return sourceIdentifier.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
-    return sourceIdentifier;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
-  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
-    this.sourceIdentifier = sourceIdentifier;
-  }
-
-  public void setSourceIdentifier(String sourceIdentifier) {
-    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+  public void setInstrument(InlineResponse20073DataInstrument instrument) {
+    this.instrument = instrument;
   }
 
 
@@ -165,12 +120,12 @@ public class InlineResponse20073Data implements Serializable {
   }
 
 
-  public InlineResponse20073Data regional(java.util.List<InlineResponse20072DataRegional> regional) {
+  public InlineResponse20073Data regional(java.util.List<InlineResponse20073DataRegional> regional) {
     this.regional = regional;
     return this;
   }
 
-  public InlineResponse20073Data addRegionalItem(InlineResponse20072DataRegional regionalItem) {
+  public InlineResponse20073Data addRegionalItem(InlineResponse20073DataRegional regionalItem) {
     if (this.regional == null) {
       this.regional = new java.util.ArrayList<>();
     }
@@ -187,14 +142,14 @@ public class InlineResponse20073Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_REGIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20072DataRegional> getRegional() {
+  public java.util.List<InlineResponse20073DataRegional> getRegional() {
     return regional;
   }
 
 
   @JsonProperty(JSON_PROPERTY_REGIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegional(java.util.List<InlineResponse20072DataRegional> regional) {
+  public void setRegional(java.util.List<InlineResponse20073DataRegional> regional) {
     this.regional = regional;
   }
 
@@ -211,8 +166,7 @@ public class InlineResponse20073Data implements Serializable {
       return false;
     }
     InlineResponse20073Data inlineResponse20073Data = (InlineResponse20073Data) o;
-    return equalsNullable(this.idInstrument, inlineResponse20073Data.idInstrument) &&
-        equalsNullable(this.sourceIdentifier, inlineResponse20073Data.sourceIdentifier) &&
+    return Objects.equals(this.instrument, inlineResponse20073Data.instrument) &&
         equalsNullable(this.permanentIdentifier, inlineResponse20073Data.permanentIdentifier) &&
         Objects.equals(this.regional, inlineResponse20073Data.regional);
   }
@@ -223,7 +177,7 @@ public class InlineResponse20073Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(idInstrument), hashCodeNullable(sourceIdentifier), hashCodeNullable(permanentIdentifier), regional);
+    return Objects.hash(instrument, hashCodeNullable(permanentIdentifier), regional);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -237,8 +191,7 @@ public class InlineResponse20073Data implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20073Data {\n");
-    sb.append("    idInstrument: ").append(toIndentedString(idInstrument)).append("\n");
-    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
     sb.append("    permanentIdentifier: ").append(toIndentedString(permanentIdentifier)).append("\n");
     sb.append("    regional: ").append(toIndentedString(regional)).append("\n");
     sb.append("}");

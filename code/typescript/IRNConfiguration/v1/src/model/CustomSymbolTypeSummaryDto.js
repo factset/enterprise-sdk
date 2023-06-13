@@ -46,11 +46,11 @@ class CustomSymbolTypeSummaryDto {
         if (data) {
             obj = obj || new CustomSymbolTypeSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class CustomSymbolTypeSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-CustomSymbolTypeSummaryDto.prototype['Id'] = undefined;
+CustomSymbolTypeSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-CustomSymbolTypeSummaryDto.prototype['Name'] = undefined;
+CustomSymbolTypeSummaryDto.prototype['name'] = undefined;
 
 
 

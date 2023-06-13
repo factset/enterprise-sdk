@@ -41,13 +41,13 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class CommentaryConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_AUTHOR = "ShouldSendEmailAlertsToAuthor";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_AUTHOR = "shouldSendEmailAlertsToAuthor";
   private Boolean shouldSendEmailAlertsToAuthor;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_COMMENTERS = "ShouldSendEmailAlertsToCommenters";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_COMMENTERS = "shouldSendEmailAlertsToCommenters";
   private Boolean shouldSendEmailAlertsToCommenters;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_ALL = "ShouldSendEmailAlertsToAll";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_ALL = "shouldSendEmailAlertsToAll";
   private Boolean shouldSendEmailAlertsToAll;
 
   public CommentaryConfigDto() { 

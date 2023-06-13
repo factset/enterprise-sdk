@@ -24,14 +24,14 @@ from fds.sdk.QuotesAPIforDigitalPortals.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiException
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082 import InlineResponse20082
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083 import InlineResponse20083
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084 import InlineResponse20084
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085 import InlineResponse20085
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20086 import InlineResponse20086
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20087 import InlineResponse20087
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20088 import InlineResponse20088
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20089 import InlineResponse20089
+from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20090 import InlineResponse20090
+from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20091 import InlineResponse20091
 from fds.sdk.QuotesAPIforDigitalPortals.model.post_prices_trading_schedule_event_list_request import PostPricesTradingScheduleEventListRequest
 
 
@@ -53,7 +53,7 @@ class PricesApi(object):
         self.get_prices_bid_ask_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20084,),  },
+                  { 200: (InlineResponse20086,),  },
                   None
                 ),
                 'auth': [
@@ -95,7 +95,7 @@ class PricesApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -171,7 +171,7 @@ class PricesApi(object):
         self.get_prices_bid_ask_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20085,),  },
+                  { 200: (InlineResponse20087,),  },
                   None
                 ),
                 'auth': [
@@ -278,7 +278,7 @@ class PricesApi(object):
         self.get_prices_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20082,),  },
+                  { 200: (InlineResponse20084,),  },
                   None
                 ),
                 'auth': [
@@ -320,7 +320,7 @@ class PricesApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -396,7 +396,7 @@ class PricesApi(object):
         self.get_prices_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20083,),  },
+                  { 200: (InlineResponse20085,),  },
                   None
                 ),
                 'auth': [
@@ -503,7 +503,7 @@ class PricesApi(object):
         self.get_prices_orderbook_aggregated_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20086,),  },
+                  { 200: (InlineResponse20088,),  },
                   None
                 ),
                 'auth': [
@@ -546,7 +546,7 @@ class PricesApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -626,7 +626,7 @@ class PricesApi(object):
         self.get_prices_orderbook_full_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20087,),  },
+                  { 200: (InlineResponse20089,),  },
                   None
                 ),
                 'auth': [
@@ -669,7 +669,7 @@ class PricesApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -749,7 +749,7 @@ class PricesApi(object):
         self.get_prices_trading_schedule_event_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20089,),  },
+                  { 200: (InlineResponse20091,),  },
                   None
                 ),
                 'auth': [
@@ -809,7 +809,7 @@ class PricesApi(object):
         self.post_prices_trading_schedule_event_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20088,),  },
+                  { 200: (InlineResponse20090,),  },
                   None
                 ),
                 'auth': [
@@ -825,7 +825,9 @@ class PricesApi(object):
                 'all': [
                     'post_prices_trading_schedule_event_list_request',
                 ],
-                'required': [],
+                'required': [
+                    'post_prices_trading_schedule_event_list_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -880,7 +882,7 @@ class PricesApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> InlineResponse20084:
+    ) -> InlineResponse20086:
         """Most recent bid and ask prices (best bid / offer) for a notation.  # noqa: E501
 
         Most recent bid and ask prices (best bid / offer) for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
@@ -918,7 +920,7 @@ class PricesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20084
+            InlineResponse20086
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -933,7 +935,7 @@ class PricesApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20084, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20086, int, typing.MutableMapping]:
         """Most recent bid and ask prices (best bid / offer) for a notation.  # noqa: E501
 
         Most recent bid and ask prices (best bid / offer) for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
@@ -971,7 +973,7 @@ class PricesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20084
+            InlineResponse20086
                 Response Object
             int
                 Http Status Code
@@ -990,7 +992,7 @@ class PricesApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20084]":
+    ) -> "ApplyResult[InlineResponse20086]":
         """Most recent bid and ask prices (best bid / offer) for a notation.  # noqa: E501
 
         Most recent bid and ask prices (best bid / offer) for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
@@ -1028,7 +1030,7 @@ class PricesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20084]
+            ApplyResult[InlineResponse20086]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['identifier'] = \
@@ -1042,7 +1044,7 @@ class PricesApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20084, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20086, int, typing.MutableMapping]]":
         """Most recent bid and ask prices (best bid / offer) for a notation.  # noqa: E501
 
         Most recent bid and ask prices (best bid / offer) for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
@@ -1080,7 +1082,7 @@ class PricesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20084, int, typing.Dict)]
+            ApplyResult[(InlineResponse20086, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['identifier'] = \
@@ -1095,10 +1097,440 @@ class PricesApi(object):
         identifiers,
         identifier_type,
         **kwargs
-    ) -> InlineResponse20085:
+    ) -> InlineResponse20087:
         """Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
 
         Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "DLY"
+            same_quality (bool): [optional] if omitted the server will use the default value of True
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20087
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_bid_ask_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20087, int, typing.MutableMapping]:
+        """Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+
+        Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "DLY"
+            same_quality (bool): [optional] if omitted the server will use the default value of True
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20087
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_bid_ask_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20087]":
+        """Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+
+        Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "DLY"
+            same_quality (bool): [optional] if omitted the server will use the default value of True
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20087]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_bid_ask_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20087, int, typing.MutableMapping]]":
+        """Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+
+        Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "DLY"
+            same_quality (bool): [optional] if omitted the server will use the default value of True
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20087, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_prices_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20084:
+        """Overview of trading on the most recent trading day, including the latest price, for a notation.  # noqa: E501
+
+        Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "DLY"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Minimum number of milliseconds at which updates are sent.. [optional] if omitted the server will use the default value of 5000
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20084
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20084, int, typing.MutableMapping]:
+        """Overview of trading on the most recent trading day, including the latest price, for a notation.  # noqa: E501
+
+        Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "DLY"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Minimum number of milliseconds at which updates are sent.. [optional] if omitted the server will use the default value of 5000
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20084
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20084]":
+        """Overview of trading on the most recent trading day, including the latest price, for a notation.  # noqa: E501
+
+        Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "DLY"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Minimum number of milliseconds at which updates are sent.. [optional] if omitted the server will use the default value of 5000
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20084]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20084, int, typing.MutableMapping]]":
+        """Overview of trading on the most recent trading day, including the latest price, for a notation.  # noqa: E501
+
+        Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "DLY"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Minimum number of milliseconds at which updates are sent.. [optional] if omitted the server will use the default value of 5000
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20084, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_prices_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20085:
+        """Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
+
+        Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -1141,17 +1573,17 @@ class PricesApi(object):
             identifiers
         kwargs['identifier_type'] = \
             identifier_type
-        return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
+        return self.get_prices_list_endpoint.call_with_http_info(**kwargs)
 
-    def get_prices_bid_ask_list_with_http_info(
+    def get_prices_list_with_http_info(
         self,
         identifiers,
         identifier_type,
         **kwargs
     ) -> typing.Tuple[InlineResponse20085, int, typing.MutableMapping]:
-        """Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        """Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
 
-        Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -1198,17 +1630,17 @@ class PricesApi(object):
             identifiers
         kwargs['identifier_type'] = \
             identifier_type
-        return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
+        return self.get_prices_list_endpoint.call_with_http_info(**kwargs)
 
-    def get_prices_bid_ask_list_async(
+    def get_prices_list_async(
         self,
         identifiers,
         identifier_type,
         **kwargs
     ) -> "ApplyResult[InlineResponse20085]":
-        """Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        """Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
 
-        Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -1250,17 +1682,17 @@ class PricesApi(object):
             identifiers
         kwargs['identifier_type'] = \
             identifier_type
-        return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
+        return self.get_prices_list_endpoint.call_with_http_info(**kwargs)
 
-    def get_prices_bid_ask_list_with_http_info_async(
+    def get_prices_list_with_http_info_async(
         self,
         identifiers,
         identifier_type,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse20085, int, typing.MutableMapping]]":
-        """Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        """Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
 
-        Most recent bid and ask prices (best bid / offer) for a list of notations.  # noqa: E501
+        Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -1302,436 +1734,6 @@ class PricesApi(object):
             identifiers
         kwargs['identifier_type'] = \
             identifier_type
-        return self.get_prices_bid_ask_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_prices_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20082:
-        """Overview of trading on the most recent trading day, including the latest price, for a notation.  # noqa: E501
-
-        Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "DLY"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Minimum number of milliseconds at which updates are sent.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20082
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20082, int, typing.MutableMapping]:
-        """Overview of trading on the most recent trading day, including the latest price, for a notation.  # noqa: E501
-
-        Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "DLY"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Minimum number of milliseconds at which updates are sent.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20082
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20082]":
-        """Overview of trading on the most recent trading day, including the latest price, for a notation.  # noqa: E501
-
-        Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "DLY"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Minimum number of milliseconds at which updates are sent.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20082]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20082, int, typing.MutableMapping]]":
-        """Overview of trading on the most recent trading day, including the latest price, for a notation.  # noqa: E501
-
-        Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "DLY"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Minimum number of milliseconds at which updates are sent.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20082, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_prices_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20083:
-        """Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
-
-        Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "DLY"
-            same_quality (bool): [optional] if omitted the server will use the default value of True
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20083
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20083, int, typing.MutableMapping]:
-        """Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
-
-        Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "DLY"
-            same_quality (bool): [optional] if omitted the server will use the default value of True
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20083
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20083]":
-        """Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
-
-        Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "DLY"
-            same_quality (bool): [optional] if omitted the server will use the default value of True
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20083]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20083, int, typing.MutableMapping]]":
-        """Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
-
-        Overview of trading on the most recent trading day, including the latest price, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "DLY"
-            same_quality (bool): [optional] if omitted the server will use the default value of True
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20083, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
         return self.get_prices_list_endpoint.call_with_http_info(**kwargs)
 
 
@@ -1740,7 +1742,7 @@ class PricesApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> InlineResponse20086:
+    ) -> InlineResponse20088:
         """Orderbook aggregated by price.  # noqa: E501
 
         Orderbook aggregated by price.  # noqa: E501
@@ -1778,7 +1780,7 @@ class PricesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20086
+            InlineResponse20088
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1793,7 +1795,7 @@ class PricesApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20086, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20088, int, typing.MutableMapping]:
         """Orderbook aggregated by price.  # noqa: E501
 
         Orderbook aggregated by price.  # noqa: E501
@@ -1831,7 +1833,7 @@ class PricesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20086
+            InlineResponse20088
                 Response Object
             int
                 Http Status Code
@@ -1850,592 +1852,20 @@ class PricesApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20086]":
-        """Orderbook aggregated by price.  # noqa: E501
-
-        Orderbook aggregated by price.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "RLT"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20086]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_orderbook_aggregated_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_orderbook_aggregated_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20086, int, typing.MutableMapping]]":
-        """Orderbook aggregated by price.  # noqa: E501
-
-        Orderbook aggregated by price.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "RLT"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20086, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_orderbook_aggregated_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_prices_orderbook_full_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20087:
-        """Full orderbook  # noqa: E501
-
-        Full orderbook  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "RLT"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20087
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_orderbook_full_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20087, int, typing.MutableMapping]:
-        """Full orderbook  # noqa: E501
-
-        Full orderbook  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "RLT"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20087
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_orderbook_full_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20087]":
-        """Full orderbook  # noqa: E501
-
-        Full orderbook  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "RLT"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20087]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_orderbook_full_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20087, int, typing.MutableMapping]]":
-        """Full orderbook  # noqa: E501
-
-        Full orderbook  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            quality (str): [optional] if omitted the server will use the default value of "RLT"
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20087, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_prices_trading_schedule_event_type_list(
-        self,
-        **kwargs
-    ) -> InlineResponse20089:
-        """Trading schedule event types.  # noqa: E501
-
-        Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20089
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_trading_schedule_event_type_list_with_http_info(
-        self,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20089, int, typing.MutableMapping]:
-        """Trading schedule event types.  # noqa: E501
-
-        Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20089
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_trading_schedule_event_type_list_async(
-        self,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20089]":
-        """Trading schedule event types.  # noqa: E501
-
-        Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20089]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_prices_trading_schedule_event_type_list_with_http_info_async(
-        self,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20089, int, typing.MutableMapping]]":
-        """Trading schedule event types.  # noqa: E501
-
-        Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20089, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def post_prices_trading_schedule_event_list(
-        self,
-        **kwargs
-    ) -> InlineResponse20088:
-        """Sequence of market-related events.  # noqa: E501
-
-        Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-
-        Keyword Args:
-            post_prices_trading_schedule_event_list_request (PostPricesTradingScheduleEventListRequest): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20088
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        return self.post_prices_trading_schedule_event_list_endpoint.call_with_http_info(**kwargs)
-
-    def post_prices_trading_schedule_event_list_with_http_info(
-        self,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20088, int, typing.MutableMapping]:
-        """Sequence of market-related events.  # noqa: E501
-
-        Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-
-        Keyword Args:
-            post_prices_trading_schedule_event_list_request (PostPricesTradingScheduleEventListRequest): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20088
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        return self.post_prices_trading_schedule_event_list_endpoint.call_with_http_info(**kwargs)
-
-    def post_prices_trading_schedule_event_list_async(
-        self,
-        **kwargs
     ) -> "ApplyResult[InlineResponse20088]":
-        """Sequence of market-related events.  # noqa: E501
+        """Orderbook aggregated by price.  # noqa: E501
 
-        Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.  # noqa: E501
+        Orderbook aggregated by price.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
+        Args:
+            identifier (str):
+            identifier_type (str):
 
         Keyword Args:
-            post_prices_trading_schedule_event_list_request (PostPricesTradingScheduleEventListRequest): [optional]
+            quality (str): [optional] if omitted the server will use the default value of "RLT"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2463,20 +1893,31 @@ class PricesApi(object):
             ApplyResult[InlineResponse20088]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.post_prices_trading_schedule_event_list_endpoint.call_with_http_info(**kwargs)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_orderbook_aggregated_get_endpoint.call_with_http_info(**kwargs)
 
-    def post_prices_trading_schedule_event_list_with_http_info_async(
+    def get_prices_orderbook_aggregated_get_with_http_info_async(
         self,
+        identifier,
+        identifier_type,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse20088, int, typing.MutableMapping]]":
-        """Sequence of market-related events.  # noqa: E501
+        """Orderbook aggregated by price.  # noqa: E501
 
-        Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.  # noqa: E501
+        Orderbook aggregated by price.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
+        Args:
+            identifier (str):
+            identifier_type (str):
 
         Keyword Args:
-            post_prices_trading_schedule_event_list_request (PostPricesTradingScheduleEventListRequest): [optional]
+            quality (str): [optional] if omitted the server will use the default value of "RLT"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2504,6 +1945,583 @@ class PricesApi(object):
             ApplyResult[(InlineResponse20088, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_orderbook_aggregated_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_prices_orderbook_full_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20089:
+        """Full orderbook  # noqa: E501
+
+        Full orderbook  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "RLT"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20089
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_orderbook_full_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20089, int, typing.MutableMapping]:
+        """Full orderbook  # noqa: E501
+
+        Full orderbook  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "RLT"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20089
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_orderbook_full_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20089]":
+        """Full orderbook  # noqa: E501
+
+        Full orderbook  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "RLT"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20089]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_orderbook_full_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20089, int, typing.MutableMapping]]":
+        """Full orderbook  # noqa: E501
+
+        Full orderbook  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            quality (str): [optional] if omitted the server will use the default value of "RLT"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            subscription_minimum_interval (float): Non-negative number of milliseconds to throttle the update rate.. [optional] if omitted the server will use the default value of 5000
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20089, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_prices_orderbook_full_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_prices_trading_schedule_event_type_list(
+        self,
+        **kwargs
+    ) -> InlineResponse20091:
+        """Trading schedule event types.  # noqa: E501
+
+        Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20091
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_trading_schedule_event_type_list_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20091, int, typing.MutableMapping]:
+        """Trading schedule event types.  # noqa: E501
+
+        Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20091
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_trading_schedule_event_type_list_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20091]":
+        """Trading schedule event types.  # noqa: E501
+
+        Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20091]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_prices_trading_schedule_event_type_list_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20091, int, typing.MutableMapping]]":
+        """Trading schedule event types.  # noqa: E501
+
+        Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20091, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.get_prices_trading_schedule_event_type_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def post_prices_trading_schedule_event_list(
+        self,
+        post_prices_trading_schedule_event_list_request,
+        **kwargs
+    ) -> InlineResponse20090:
+        """Sequence of market-related events.  # noqa: E501
+
+        Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            post_prices_trading_schedule_event_list_request (PostPricesTradingScheduleEventListRequest): Request Body
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20090
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['post_prices_trading_schedule_event_list_request'] = \
+            post_prices_trading_schedule_event_list_request
+        return self.post_prices_trading_schedule_event_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_prices_trading_schedule_event_list_with_http_info(
+        self,
+        post_prices_trading_schedule_event_list_request,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20090, int, typing.MutableMapping]:
+        """Sequence of market-related events.  # noqa: E501
+
+        Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            post_prices_trading_schedule_event_list_request (PostPricesTradingScheduleEventListRequest): Request Body
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20090
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['post_prices_trading_schedule_event_list_request'] = \
+            post_prices_trading_schedule_event_list_request
+        return self.post_prices_trading_schedule_event_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_prices_trading_schedule_event_list_async(
+        self,
+        post_prices_trading_schedule_event_list_request,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20090]":
+        """Sequence of market-related events.  # noqa: E501
+
+        Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            post_prices_trading_schedule_event_list_request (PostPricesTradingScheduleEventListRequest): Request Body
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20090]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['post_prices_trading_schedule_event_list_request'] = \
+            post_prices_trading_schedule_event_list_request
+        return self.post_prices_trading_schedule_event_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_prices_trading_schedule_event_list_with_http_info_async(
+        self,
+        post_prices_trading_schedule_event_list_request,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20090, int, typing.MutableMapping]]":
+        """Sequence of market-related events.  # noqa: E501
+
+        Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            post_prices_trading_schedule_event_list_request (PostPricesTradingScheduleEventListRequest): Request Body
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20090, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['post_prices_trading_schedule_event_list_request'] = \
+            post_prices_trading_schedule_event_list_request
         return self.post_prices_trading_schedule_event_list_endpoint.call_with_http_info(**kwargs)
 
 

@@ -48,22 +48,22 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class SymbolsRelationShipSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP_CODE = "RelationshipCode";
+  public static final String JSON_PROPERTY_RELATIONSHIP_CODE = "relationshipCode";
   private JsonNullable<String> relationshipCode = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_PARENT_TO_CHILD_NAME = "ParentToChildName";
+  public static final String JSON_PROPERTY_PARENT_TO_CHILD_NAME = "parentToChildName";
   private JsonNullable<String> parentToChildName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CHILD_TO_PARENT_NAME = "ChildToParentName";
+  public static final String JSON_PROPERTY_CHILD_TO_PARENT_NAME = "childToParentName";
   private JsonNullable<String> childToParentName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_PEER_NAME = "PeerName";
+  public static final String JSON_PROPERTY_PEER_NAME = "peerName";
   private JsonNullable<String> peerName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_HIDE_DATES = "HideDates";
+  public static final String JSON_PROPERTY_HIDE_DATES = "hideDates";
   private Boolean hideDates = true;
 
-  public static final String JSON_PROPERTY_HIDE_COMMENT = "HideComment";
+  public static final String JSON_PROPERTY_HIDE_COMMENT = "hideComment";
   private Boolean hideComment = true;
 
   public SymbolsRelationShipSaveDto() { 

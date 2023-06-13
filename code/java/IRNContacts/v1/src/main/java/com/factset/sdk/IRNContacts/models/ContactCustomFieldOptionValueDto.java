@@ -44,10 +44,10 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactCustomFieldOptionValueDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_OPTION_ID = "OptionId";
+  public static final String JSON_PROPERTY_OPTION_ID = "optionId";
   private java.util.UUID optionId;
 
-  public static final String JSON_PROPERTY_OPTION_NAME = "OptionName";
+  public static final String JSON_PROPERTY_OPTION_NAME = "optionName";
   private JsonNullable<String> optionName = JsonNullable.<String>undefined();
 
   public ContactCustomFieldOptionValueDto() { 

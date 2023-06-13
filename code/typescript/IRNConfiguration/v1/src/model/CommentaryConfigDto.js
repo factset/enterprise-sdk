@@ -46,14 +46,14 @@ class CommentaryConfigDto {
         if (data) {
             obj = obj || new CommentaryConfigDto();
 
-            if (data.hasOwnProperty('ShouldSendEmailAlertsToAuthor')) {
-                obj['ShouldSendEmailAlertsToAuthor'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToAuthor'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsToAuthor')) {
+                obj['shouldSendEmailAlertsToAuthor'] = ApiClient.convertToType(data['shouldSendEmailAlertsToAuthor'], 'Boolean');
             }
-            if (data.hasOwnProperty('ShouldSendEmailAlertsToCommenters')) {
-                obj['ShouldSendEmailAlertsToCommenters'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToCommenters'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsToCommenters')) {
+                obj['shouldSendEmailAlertsToCommenters'] = ApiClient.convertToType(data['shouldSendEmailAlertsToCommenters'], 'Boolean');
             }
-            if (data.hasOwnProperty('ShouldSendEmailAlertsToAll')) {
-                obj['ShouldSendEmailAlertsToAll'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToAll'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsToAll')) {
+                obj['shouldSendEmailAlertsToAll'] = ApiClient.convertToType(data['shouldSendEmailAlertsToAll'], 'Boolean');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class CommentaryConfigDto {
 }
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsToAuthor
+ * @member {Boolean} shouldSendEmailAlertsToAuthor
  */
-CommentaryConfigDto.prototype['ShouldSendEmailAlertsToAuthor'] = undefined;
+CommentaryConfigDto.prototype['shouldSendEmailAlertsToAuthor'] = undefined;
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsToCommenters
+ * @member {Boolean} shouldSendEmailAlertsToCommenters
  */
-CommentaryConfigDto.prototype['ShouldSendEmailAlertsToCommenters'] = undefined;
+CommentaryConfigDto.prototype['shouldSendEmailAlertsToCommenters'] = undefined;
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsToAll
+ * @member {Boolean} shouldSendEmailAlertsToAll
  */
-CommentaryConfigDto.prototype['ShouldSendEmailAlertsToAll'] = undefined;
+CommentaryConfigDto.prototype['shouldSendEmailAlertsToAll'] = undefined;
 
 
 

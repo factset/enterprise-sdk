@@ -46,11 +46,11 @@ class DateSettingsDto {
         if (data) {
             obj = obj || new DateSettingsDto();
 
-            if (data.hasOwnProperty('AllowEdit')) {
-                obj['AllowEdit'] = ApiClient.convertToType(data['AllowEdit'], 'Boolean');
+            if (data.hasOwnProperty('allowEdit')) {
+                obj['allowEdit'] = ApiClient.convertToType(data['allowEdit'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsLocked')) {
-                obj['IsLocked'] = ApiClient.convertToType(data['IsLocked'], 'Boolean');
+            if (data.hasOwnProperty('isLocked')) {
+                obj['isLocked'] = ApiClient.convertToType(data['isLocked'], 'Boolean');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class DateSettingsDto {
 }
 
 /**
- * @member {Boolean} AllowEdit
+ * @member {Boolean} allowEdit
  */
-DateSettingsDto.prototype['AllowEdit'] = undefined;
+DateSettingsDto.prototype['allowEdit'] = undefined;
 
 /**
- * @member {Boolean} IsLocked
+ * @member {Boolean} isLocked
  */
-DateSettingsDto.prototype['IsLocked'] = undefined;
+DateSettingsDto.prototype['isLocked'] = undefined;
 
 
 

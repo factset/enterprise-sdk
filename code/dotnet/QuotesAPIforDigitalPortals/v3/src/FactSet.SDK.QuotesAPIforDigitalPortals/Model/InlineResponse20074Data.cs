@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// EOD key figures.
+    /// Instrument data with a list of regional-level data and assigned listing-level data.
     /// </summary>
     [DataContract(Name = "inline_response_200_74_data")]
     public partial class InlineResponse20074Data : IEquatable<InlineResponse20074Data>, IValidatableObject
@@ -34,32 +34,24 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20074Data" /> class.
         /// </summary>
-        /// <param name="idNotation">MDG identifier of the listing..</param>
+        /// <param name="idInstrument">MDG identifier of the instrument..</param>
         /// <param name="sourceIdentifier">Identifier used in the request..</param>
-        /// <param name="referenceDate">Reference date of the time range..</param>
-        /// <param name="performance">performance.</param>
-        /// <param name="high">high.</param>
-        /// <param name="low">low.</param>
-        /// <param name="tradingVolume">Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive)..</param>
-        /// <param name="volatility">Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year..</param>
-        public InlineResponse20074Data(string idNotation = default(string), string sourceIdentifier = default(string), DateTime? referenceDate = default(DateTime?), InlineResponse20074DataPerformance performance = default(InlineResponse20074DataPerformance), InlineResponse20074DataHigh high = default(InlineResponse20074DataHigh), InlineResponse20074DataLow low = default(InlineResponse20074DataLow), decimal? tradingVolume = default(decimal?), decimal? volatility = default(decimal?))
+        /// <param name="permanentIdentifier">FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S)..</param>
+        /// <param name="regional">Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array..</param>
+        public InlineResponse20074Data(string idInstrument = default(string), string sourceIdentifier = default(string), string permanentIdentifier = default(string), List<InlineResponse20073DataRegional> regional = default(List<InlineResponse20073DataRegional>))
         {
-            this.IdNotation = idNotation;
+            this.IdInstrument = idInstrument;
             this.SourceIdentifier = sourceIdentifier;
-            this.ReferenceDate = referenceDate;
-            this.Performance = performance;
-            this.High = high;
-            this.Low = low;
-            this.TradingVolume = tradingVolume;
-            this.Volatility = volatility;
+            this.PermanentIdentifier = permanentIdentifier;
+            this.Regional = regional;
         }
 
         /// <summary>
-        /// MDG identifier of the listing.
+        /// MDG identifier of the instrument.
         /// </summary>
-        /// <value>MDG identifier of the listing.</value>
-        [DataMember(Name = "idNotation", EmitDefaultValue = true)]
-        public string IdNotation { get; set; }
+        /// <value>MDG identifier of the instrument.</value>
+        [DataMember(Name = "idInstrument", EmitDefaultValue = true)]
+        public string IdInstrument { get; set; }
 
         /// <summary>
         /// Identifier used in the request.
@@ -69,44 +61,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public string SourceIdentifier { get; set; }
 
         /// <summary>
-        /// Reference date of the time range.
+        /// FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
         /// </summary>
-        /// <value>Reference date of the time range.</value>
-        [DataMember(Name = "referenceDate", EmitDefaultValue = true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime? ReferenceDate { get; set; }
+        /// <value>FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).</value>
+        [DataMember(Name = "permanentIdentifier", EmitDefaultValue = true)]
+        public string PermanentIdentifier { get; set; }
 
         /// <summary>
-        /// Gets or Sets Performance
+        /// Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.
         /// </summary>
-        [DataMember(Name = "performance", EmitDefaultValue = false)]
-        public InlineResponse20074DataPerformance Performance { get; set; }
-
-        /// <summary>
-        /// Gets or Sets High
-        /// </summary>
-        [DataMember(Name = "high", EmitDefaultValue = false)]
-        public InlineResponse20074DataHigh High { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Low
-        /// </summary>
-        [DataMember(Name = "low", EmitDefaultValue = false)]
-        public InlineResponse20074DataLow Low { get; set; }
-
-        /// <summary>
-        /// Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive).
-        /// </summary>
-        /// <value>Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive).</value>
-        [DataMember(Name = "tradingVolume", EmitDefaultValue = true)]
-        public decimal? TradingVolume { get; set; }
-
-        /// <summary>
-        /// Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
-        /// </summary>
-        /// <value>Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.</value>
-        [DataMember(Name = "volatility", EmitDefaultValue = true)]
-        public decimal? Volatility { get; set; }
+        /// <value>Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.</value>
+        [DataMember(Name = "regional", EmitDefaultValue = false)]
+        public List<InlineResponse20073DataRegional> Regional { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -116,14 +82,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20074Data {\n");
-            sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
+            sb.Append("  IdInstrument: ").Append(IdInstrument).Append("\n");
             sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
-            sb.Append("  ReferenceDate: ").Append(ReferenceDate).Append("\n");
-            sb.Append("  Performance: ").Append(Performance).Append("\n");
-            sb.Append("  High: ").Append(High).Append("\n");
-            sb.Append("  Low: ").Append(Low).Append("\n");
-            sb.Append("  TradingVolume: ").Append(TradingVolume).Append("\n");
-            sb.Append("  Volatility: ").Append(Volatility).Append("\n");
+            sb.Append("  PermanentIdentifier: ").Append(PermanentIdentifier).Append("\n");
+            sb.Append("  Regional: ").Append(Regional).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,9 +122,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.IdNotation == input.IdNotation ||
-                    (this.IdNotation != null &&
-                    this.IdNotation.Equals(input.IdNotation))
+                    this.IdInstrument == input.IdInstrument ||
+                    (this.IdInstrument != null &&
+                    this.IdInstrument.Equals(input.IdInstrument))
                 ) && 
                 (
                     this.SourceIdentifier == input.SourceIdentifier ||
@@ -170,34 +132,15 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.SourceIdentifier.Equals(input.SourceIdentifier))
                 ) && 
                 (
-                    this.ReferenceDate == input.ReferenceDate ||
-                    (this.ReferenceDate != null &&
-                    this.ReferenceDate.Equals(input.ReferenceDate))
+                    this.PermanentIdentifier == input.PermanentIdentifier ||
+                    (this.PermanentIdentifier != null &&
+                    this.PermanentIdentifier.Equals(input.PermanentIdentifier))
                 ) && 
                 (
-                    this.Performance == input.Performance ||
-                    (this.Performance != null &&
-                    this.Performance.Equals(input.Performance))
-                ) && 
-                (
-                    this.High == input.High ||
-                    (this.High != null &&
-                    this.High.Equals(input.High))
-                ) && 
-                (
-                    this.Low == input.Low ||
-                    (this.Low != null &&
-                    this.Low.Equals(input.Low))
-                ) && 
-                (
-                    this.TradingVolume == input.TradingVolume ||
-                    (this.TradingVolume != null &&
-                    this.TradingVolume.Equals(input.TradingVolume))
-                ) && 
-                (
-                    this.Volatility == input.Volatility ||
-                    (this.Volatility != null &&
-                    this.Volatility.Equals(input.Volatility))
+                    this.Regional == input.Regional ||
+                    this.Regional != null &&
+                    input.Regional != null &&
+                    this.Regional.SequenceEqual(input.Regional)
                 );
         }
 
@@ -210,37 +153,21 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdNotation != null)
+                if (this.IdInstrument != null)
                 {
-                    hashCode = (hashCode * 59) + this.IdNotation.GetHashCode();
+                    hashCode = (hashCode * 59) + this.IdInstrument.GetHashCode();
                 }
                 if (this.SourceIdentifier != null)
                 {
                     hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
                 }
-                if (this.ReferenceDate != null)
+                if (this.PermanentIdentifier != null)
                 {
-                    hashCode = (hashCode * 59) + this.ReferenceDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PermanentIdentifier.GetHashCode();
                 }
-                if (this.Performance != null)
+                if (this.Regional != null)
                 {
-                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
-                }
-                if (this.High != null)
-                {
-                    hashCode = (hashCode * 59) + this.High.GetHashCode();
-                }
-                if (this.Low != null)
-                {
-                    hashCode = (hashCode * 59) + this.Low.GetHashCode();
-                }
-                if (this.TradingVolume != null)
-                {
-                    hashCode = (hashCode * 59) + this.TradingVolume.GetHashCode();
-                }
-                if (this.Volatility != null)
-                {
-                    hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Regional.GetHashCode();
                 }
                 return hashCode;
             }

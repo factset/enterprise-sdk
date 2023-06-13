@@ -47,19 +47,19 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets FieldCode
         /// </summary>
-        [DataMember(Name = "FieldCode", EmitDefaultValue = true)]
+        [DataMember(Name = "fieldCode", EmitDefaultValue = true)]
         public string FieldCode { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "Value", EmitDefaultValue = true)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionValues
         /// </summary>
-        [DataMember(Name = "OptionValues", EmitDefaultValue = true)]
+        [DataMember(Name = "optionValues", EmitDefaultValue = true)]
         public List<ContactCustomFieldOptionValueDto> OptionValues { get; set; }
 
         /// <summary>

@@ -87,10 +87,10 @@ class RecordPreviewDto(ModelNormal):
 
 
     attribute_map = {
-        'note_guid': 'NoteGuid',  # noqa: E501
-        'meeting_guid': 'MeetingGuid',  # noqa: E501
-        'title': 'Title',  # noqa: E501
-        'date': 'Date',  # noqa: E501
+        'note_guid': 'noteGuid',  # noqa: E501
+        'meeting_guid': 'meetingGuid',  # noqa: E501
+        'title': 'title',  # noqa: E501
+        'date': 'date',  # noqa: E501
     }
 
     read_only_vars = {

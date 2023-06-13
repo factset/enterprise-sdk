@@ -93,11 +93,11 @@ class NoteEventDto(ModelNormal):
 
 
     attribute_map = {
-        'created_at': 'CreatedAt',  # noqa: E501
-        'type': 'Type',  # noqa: E501
-        'user': 'User',  # noqa: E501
-        'comment': 'Comment',  # noqa: E501
-        'change_list': 'ChangeList',  # noqa: E501
+        'created_at': 'createdAt',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'user': 'user',  # noqa: E501
+        'comment': 'comment',  # noqa: E501
+        'change_list': 'changeList',  # noqa: E501
     }
 
     read_only_vars = {

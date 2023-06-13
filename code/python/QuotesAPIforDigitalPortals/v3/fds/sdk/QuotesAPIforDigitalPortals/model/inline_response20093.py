@@ -144,7 +144,7 @@ class InlineResponse20093(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20093Data]): Set of basic data for a list of matching notations.. [optional]  # noqa: E501
+            data ([InlineResponse20093Data]): List of notations.. [optional]  # noqa: E501
             meta (InlineResponse20036Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse20093(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20093Data]): Set of basic data for a list of matching notations.. [optional]  # noqa: E501
+            data ([InlineResponse20093Data]): List of notations.. [optional]  # noqa: E501
             meta (InlineResponse20036Meta): [optional]  # noqa: E501
         """
 

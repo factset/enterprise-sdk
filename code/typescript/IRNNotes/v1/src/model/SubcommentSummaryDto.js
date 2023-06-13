@@ -46,14 +46,14 @@ class SubcommentSummaryDto {
         if (data) {
             obj = obj || new SubcommentSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('UserId')) {
-                obj['UserId'] = ApiClient.convertToType(data['UserId'], 'String');
+            if (data.hasOwnProperty('userId')) {
+                obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
             }
-            if (data.hasOwnProperty('CreatedAt')) {
-                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'String');
+            if (data.hasOwnProperty('createdAt')) {
+                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class SubcommentSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-SubcommentSummaryDto.prototype['Id'] = undefined;
+SubcommentSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} UserId
+ * @member {String} userId
  */
-SubcommentSummaryDto.prototype['UserId'] = undefined;
+SubcommentSummaryDto.prototype['userId'] = undefined;
 
 /**
- * @member {String} CreatedAt
+ * @member {String} createdAt
  */
-SubcommentSummaryDto.prototype['CreatedAt'] = undefined;
+SubcommentSummaryDto.prototype['createdAt'] = undefined;
 
 
 

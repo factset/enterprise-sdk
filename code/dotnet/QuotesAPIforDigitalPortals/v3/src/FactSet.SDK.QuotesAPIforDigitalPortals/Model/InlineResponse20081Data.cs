@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// InlineResponse20081Data
+    /// Average end-of-day (EOD) key figures for various time ranges.
     /// </summary>
     [DataContract(Name = "inline_response_200_81_data")]
     public partial class InlineResponse20081Data : IEquatable<InlineResponse20081Data>, IValidatableObject
@@ -36,22 +36,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="idNotation">MDG identifier of the listing..</param>
         /// <param name="sourceIdentifier">Identifier used in the request..</param>
-        /// <param name="suspended">Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;..</param>
-        /// <param name="tradingStatus">Market-specific code of the trading status and/or the suspension of the notation..</param>
-        /// <param name="priceDelay">Exchange-imposed delay in seconds for delayed-quality tick data..</param>
-        /// <param name="tickSize">The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint &#x60;/notation/get&#x60; for the value unit of the &#x60;tickSize&#x60; for this notation..</param>
-        /// <param name="lotSize">he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value..</param>
-        /// <param name="market">market.</param>
-        public InlineResponse20081Data(string idNotation = default(string), string sourceIdentifier = default(string), bool? suspended = default(bool?), string tradingStatus = default(string), decimal? priceDelay = default(decimal?), decimal? tickSize = default(decimal?), decimal? lotSize = default(decimal?), InlineResponse20081DataMarket market = default(InlineResponse20081DataMarket))
+        /// <param name="price">price.</param>
+        /// <param name="volume">volume.</param>
+        /// <param name="value">value.</param>
+        public InlineResponse20081Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20081DataPrice price = default(InlineResponse20081DataPrice), InlineResponse20081DataVolume volume = default(InlineResponse20081DataVolume), InlineResponse20081DataValue value = default(InlineResponse20081DataValue))
         {
             this.IdNotation = idNotation;
             this.SourceIdentifier = sourceIdentifier;
-            this.Suspended = suspended;
-            this.TradingStatus = tradingStatus;
-            this.PriceDelay = priceDelay;
-            this.TickSize = tickSize;
-            this.LotSize = lotSize;
-            this.Market = market;
+            this.Price = price;
+            this.Volume = volume;
+            this.Value = value;
         }
 
         /// <summary>
@@ -69,45 +63,22 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public string SourceIdentifier { get; set; }
 
         /// <summary>
-        /// Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;.
+        /// Gets or Sets Price
         /// </summary>
-        /// <value>Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute &#x60;market.isOpen&#x60;.</value>
-        [DataMember(Name = "suspended", EmitDefaultValue = true)]
-        public bool? Suspended { get; set; }
+        [DataMember(Name = "price", EmitDefaultValue = false)]
+        public InlineResponse20081DataPrice Price { get; set; }
 
         /// <summary>
-        /// Market-specific code of the trading status and/or the suspension of the notation.
+        /// Gets or Sets Volume
         /// </summary>
-        /// <value>Market-specific code of the trading status and/or the suspension of the notation.</value>
-        [DataMember(Name = "tradingStatus", EmitDefaultValue = true)]
-        public string TradingStatus { get; set; }
+        [DataMember(Name = "volume", EmitDefaultValue = false)]
+        public InlineResponse20081DataVolume Volume { get; set; }
 
         /// <summary>
-        /// Exchange-imposed delay in seconds for delayed-quality tick data.
+        /// Gets or Sets Value
         /// </summary>
-        /// <value>Exchange-imposed delay in seconds for delayed-quality tick data.</value>
-        [DataMember(Name = "priceDelay", EmitDefaultValue = true)]
-        public decimal? PriceDelay { get; set; }
-
-        /// <summary>
-        /// The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint &#x60;/notation/get&#x60; for the value unit of the &#x60;tickSize&#x60; for this notation.
-        /// </summary>
-        /// <value>The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint &#x60;/notation/get&#x60; for the value unit of the &#x60;tickSize&#x60; for this notation.</value>
-        [DataMember(Name = "tickSize", EmitDefaultValue = true)]
-        public decimal? TickSize { get; set; }
-
-        /// <summary>
-        /// he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.
-        /// </summary>
-        /// <value>he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.</value>
-        [DataMember(Name = "lotSize", EmitDefaultValue = true)]
-        public decimal? LotSize { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Market
-        /// </summary>
-        [DataMember(Name = "market", EmitDefaultValue = false)]
-        public InlineResponse20081DataMarket Market { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = false)]
+        public InlineResponse20081DataValue Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,12 +90,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             sb.Append("class InlineResponse20081Data {\n");
             sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
             sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
-            sb.Append("  Suspended: ").Append(Suspended).Append("\n");
-            sb.Append("  TradingStatus: ").Append(TradingStatus).Append("\n");
-            sb.Append("  PriceDelay: ").Append(PriceDelay).Append("\n");
-            sb.Append("  TickSize: ").Append(TickSize).Append("\n");
-            sb.Append("  LotSize: ").Append(LotSize).Append("\n");
-            sb.Append("  Market: ").Append(Market).Append("\n");
+            sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  Volume: ").Append(Volume).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -171,34 +139,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.SourceIdentifier.Equals(input.SourceIdentifier))
                 ) && 
                 (
-                    this.Suspended == input.Suspended ||
-                    (this.Suspended != null &&
-                    this.Suspended.Equals(input.Suspended))
+                    this.Price == input.Price ||
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 ) && 
                 (
-                    this.TradingStatus == input.TradingStatus ||
-                    (this.TradingStatus != null &&
-                    this.TradingStatus.Equals(input.TradingStatus))
+                    this.Volume == input.Volume ||
+                    (this.Volume != null &&
+                    this.Volume.Equals(input.Volume))
                 ) && 
                 (
-                    this.PriceDelay == input.PriceDelay ||
-                    (this.PriceDelay != null &&
-                    this.PriceDelay.Equals(input.PriceDelay))
-                ) && 
-                (
-                    this.TickSize == input.TickSize ||
-                    (this.TickSize != null &&
-                    this.TickSize.Equals(input.TickSize))
-                ) && 
-                (
-                    this.LotSize == input.LotSize ||
-                    (this.LotSize != null &&
-                    this.LotSize.Equals(input.LotSize))
-                ) && 
-                (
-                    this.Market == input.Market ||
-                    (this.Market != null &&
-                    this.Market.Equals(input.Market))
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -219,29 +172,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
                 }
-                if (this.Suspended != null)
+                if (this.Price != null)
                 {
-                    hashCode = (hashCode * 59) + this.Suspended.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
                 }
-                if (this.TradingStatus != null)
+                if (this.Volume != null)
                 {
-                    hashCode = (hashCode * 59) + this.TradingStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Volume.GetHashCode();
                 }
-                if (this.PriceDelay != null)
+                if (this.Value != null)
                 {
-                    hashCode = (hashCode * 59) + this.PriceDelay.GetHashCode();
-                }
-                if (this.TickSize != null)
-                {
-                    hashCode = (hashCode * 59) + this.TickSize.GetHashCode();
-                }
-                if (this.LotSize != null)
-                {
-                    hashCode = (hashCode * 59) + this.LotSize.GetHashCode();
-                }
-                if (this.Market != null)
-                {
-                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
                 return hashCode;
             }

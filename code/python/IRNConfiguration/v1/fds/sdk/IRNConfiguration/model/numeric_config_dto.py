@@ -85,8 +85,8 @@ class NumericConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'decimals': 'Decimals',  # noqa: E501
-        'split_type': 'SplitType',  # noqa: E501
+        'decimals': 'decimals',  # noqa: E501
+        'split_type': 'splitType',  # noqa: E501
     }
 
     read_only_vars = {

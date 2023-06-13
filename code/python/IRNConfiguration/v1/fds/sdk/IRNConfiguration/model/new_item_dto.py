@@ -84,7 +84,7 @@ class NewItemDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
+        'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {

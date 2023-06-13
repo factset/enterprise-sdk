@@ -50,38 +50,38 @@ class ContactRelationshipTwoSidedDto {
         if (data) {
             obj = obj || new ContactRelationshipTwoSidedDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('RelationshipCategory')) {
-                obj['RelationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['RelationshipCategory']);
+            if (data.hasOwnProperty('relationshipCategory')) {
+                obj['relationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['relationshipCategory']);
             }
-            if (data.hasOwnProperty('Relationship')) {
-                obj['Relationship'] = RelationshipIdNameDto.constructFromObject(data['Relationship']);
+            if (data.hasOwnProperty('relationship')) {
+                obj['relationship'] = RelationshipIdNameDto.constructFromObject(data['relationship']);
             }
-            if (data.hasOwnProperty('LeftContact')) {
-                obj['LeftContact'] = ContactIdNameDto.constructFromObject(data['LeftContact']);
+            if (data.hasOwnProperty('leftContact')) {
+                obj['leftContact'] = ContactIdNameDto.constructFromObject(data['leftContact']);
             }
-            if (data.hasOwnProperty('RightContact')) {
-                obj['RightContact'] = ContactIdNameDto.constructFromObject(data['RightContact']);
+            if (data.hasOwnProperty('rightContact')) {
+                obj['rightContact'] = ContactIdNameDto.constructFromObject(data['rightContact']);
             }
-            if (data.hasOwnProperty('Symbol')) {
-                obj['Symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['Symbol']);
+            if (data.hasOwnProperty('symbol')) {
+                obj['symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['symbol']);
             }
-            if (data.hasOwnProperty('IsCurrent')) {
-                obj['IsCurrent'] = ApiClient.convertToType(data['IsCurrent'], 'Boolean');
+            if (data.hasOwnProperty('isCurrent')) {
+                obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('Start')) {
-                obj['Start'] = ApiClient.convertToType(data['Start'], 'Date');
+            if (data.hasOwnProperty('start')) {
+                obj['start'] = ApiClient.convertToType(data['start'], 'Date');
             }
-            if (data.hasOwnProperty('End')) {
-                obj['End'] = ApiClient.convertToType(data['End'], 'Date');
+            if (data.hasOwnProperty('end')) {
+                obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
-            if (data.hasOwnProperty('Title')) {
-                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('Comment')) {
-                obj['Comment'] = ApiClient.convertToType(data['Comment'], 'String');
+            if (data.hasOwnProperty('comment')) {
+                obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
         }
         return obj;
@@ -91,59 +91,59 @@ class ContactRelationshipTwoSidedDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactRelationshipTwoSidedDto.prototype['Id'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['id'] = undefined;
 
 /**
- * @member {module:model/RelationshipCategoryIdNameDto} RelationshipCategory
+ * @member {module:model/RelationshipCategoryIdNameDto} relationshipCategory
  */
-ContactRelationshipTwoSidedDto.prototype['RelationshipCategory'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['relationshipCategory'] = undefined;
 
 /**
- * @member {module:model/RelationshipIdNameDto} Relationship
+ * @member {module:model/RelationshipIdNameDto} relationship
  */
-ContactRelationshipTwoSidedDto.prototype['Relationship'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['relationship'] = undefined;
 
 /**
- * @member {module:model/ContactIdNameDto} LeftContact
+ * @member {module:model/ContactIdNameDto} leftContact
  */
-ContactRelationshipTwoSidedDto.prototype['LeftContact'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['leftContact'] = undefined;
 
 /**
- * @member {module:model/ContactIdNameDto} RightContact
+ * @member {module:model/ContactIdNameDto} rightContact
  */
-ContactRelationshipTwoSidedDto.prototype['RightContact'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['rightContact'] = undefined;
 
 /**
- * @member {module:model/RelationshipSymbolSummaryDto} Symbol
+ * @member {module:model/RelationshipSymbolSummaryDto} symbol
  */
-ContactRelationshipTwoSidedDto.prototype['Symbol'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['symbol'] = undefined;
 
 /**
- * @member {Boolean} IsCurrent
+ * @member {Boolean} isCurrent
  */
-ContactRelationshipTwoSidedDto.prototype['IsCurrent'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['isCurrent'] = undefined;
 
 /**
- * @member {Date} Start
+ * @member {Date} start
  */
-ContactRelationshipTwoSidedDto.prototype['Start'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['start'] = undefined;
 
 /**
- * @member {Date} End
+ * @member {Date} end
  */
-ContactRelationshipTwoSidedDto.prototype['End'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['end'] = undefined;
 
 /**
- * @member {String} Title
+ * @member {String} title
  */
-ContactRelationshipTwoSidedDto.prototype['Title'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['title'] = undefined;
 
 /**
- * @member {String} Comment
+ * @member {String} comment
  */
-ContactRelationshipTwoSidedDto.prototype['Comment'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['comment'] = undefined;
 
 
 

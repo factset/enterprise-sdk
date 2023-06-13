@@ -34,7 +34,7 @@ class ContactCustomFieldOptionSaveDto {
      * Only for internal use.
      */
     static initialize(obj, name) { 
-        obj['Name'] = name;
+        obj['name'] = name;
     }
 
     /**
@@ -48,8 +48,8 @@ class ContactCustomFieldOptionSaveDto {
         if (data) {
             obj = obj || new ContactCustomFieldOptionSaveDto();
 
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
@@ -59,9 +59,9 @@ class ContactCustomFieldOptionSaveDto {
 }
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-ContactCustomFieldOptionSaveDto.prototype['Name'] = undefined;
+ContactCustomFieldOptionSaveDto.prototype['name'] = undefined;
 
 
 

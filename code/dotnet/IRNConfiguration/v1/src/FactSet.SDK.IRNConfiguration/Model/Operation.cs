@@ -35,7 +35,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets OperationType
         /// </summary>
-        [DataMember(Name = "OperationType", EmitDefaultValue = false)]
+        [DataMember(Name = "operationType", EmitDefaultValue = false)]
         public OperationType? OperationType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Operation" /> class.

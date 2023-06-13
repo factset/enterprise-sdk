@@ -46,8 +46,8 @@ class TitleSettingsDto {
         if (data) {
             obj = obj || new TitleSettingsDto();
 
-            if (data.hasOwnProperty('UsePrevious')) {
-                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            if (data.hasOwnProperty('usePrevious')) {
+                obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class TitleSettingsDto {
 }
 
 /**
- * @member {Boolean} UsePrevious
+ * @member {Boolean} usePrevious
  */
-TitleSettingsDto.prototype['UsePrevious'] = undefined;
+TitleSettingsDto.prototype['usePrevious'] = undefined;
 
 
 

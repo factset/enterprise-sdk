@@ -12,16 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20082DataCurrency from './InlineResponse20082DataCurrency';
-import InlineResponse20082DataValueUnit from './InlineResponse20082DataValueUnit';
-import InlineResponse20083Accumulated from './InlineResponse20083Accumulated';
-import InlineResponse20083First from './InlineResponse20083First';
-import InlineResponse20083High from './InlineResponse20083High';
-import InlineResponse20083Latest from './InlineResponse20083Latest';
-import InlineResponse20083Low from './InlineResponse20083Low';
-import InlineResponse20083Market from './InlineResponse20083Market';
-import InlineResponse20083PreviousClose from './InlineResponse20083PreviousClose';
-import InlineResponse20083Status from './InlineResponse20083Status';
+import InlineResponse20083DataMarket from './InlineResponse20083DataMarket';
+import InlineResponse20083DataRegional from './InlineResponse20083DataRegional';
 
 /**
  * The InlineResponse20083Data model module.
@@ -62,38 +54,26 @@ class InlineResponse20083Data {
             if (data.hasOwnProperty('sourceIdentifier')) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = InlineResponse20082DataValueUnit.constructFromObject(data['valueUnit']);
+            if (data.hasOwnProperty('suspended')) {
+                obj['suspended'] = ApiClient.convertToType(data['suspended'], 'Boolean');
             }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = InlineResponse20082DataCurrency.constructFromObject(data['currency']);
+            if (data.hasOwnProperty('tradingStatus')) {
+                obj['tradingStatus'] = ApiClient.convertToType(data['tradingStatus'], 'String');
+            }
+            if (data.hasOwnProperty('priceDelay')) {
+                obj['priceDelay'] = ApiClient.convertToType(data['priceDelay'], 'Number');
+            }
+            if (data.hasOwnProperty('tickSize')) {
+                obj['tickSize'] = ApiClient.convertToType(data['tickSize'], 'Number');
+            }
+            if (data.hasOwnProperty('lotSize')) {
+                obj['lotSize'] = ApiClient.convertToType(data['lotSize'], 'Number');
             }
             if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse20083Market.constructFromObject(data['market']);
+                obj['market'] = InlineResponse20083DataMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('quality')) {
-                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
-            }
-            if (data.hasOwnProperty('latest')) {
-                obj['latest'] = InlineResponse20083Latest.constructFromObject(data['latest']);
-            }
-            if (data.hasOwnProperty('first')) {
-                obj['first'] = InlineResponse20083First.constructFromObject(data['first']);
-            }
-            if (data.hasOwnProperty('low')) {
-                obj['low'] = InlineResponse20083Low.constructFromObject(data['low']);
-            }
-            if (data.hasOwnProperty('high')) {
-                obj['high'] = InlineResponse20083High.constructFromObject(data['high']);
-            }
-            if (data.hasOwnProperty('previousClose')) {
-                obj['previousClose'] = InlineResponse20083PreviousClose.constructFromObject(data['previousClose']);
-            }
-            if (data.hasOwnProperty('accumulated')) {
-                obj['accumulated'] = InlineResponse20083Accumulated.constructFromObject(data['accumulated']);
-            }
-            if (data.hasOwnProperty('status')) {
-                obj['status'] = InlineResponse20083Status.constructFromObject(data['status']);
+            if (data.hasOwnProperty('regional')) {
+                obj['regional'] = InlineResponse20083DataRegional.constructFromObject(data['regional']);
             }
         }
         return obj;
@@ -115,90 +95,47 @@ InlineResponse20083Data.prototype['idNotation'] = undefined;
 InlineResponse20083Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataValueUnit} valueUnit
+ * Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.
+ * @member {Boolean} suspended
  */
-InlineResponse20083Data.prototype['valueUnit'] = undefined;
+InlineResponse20083Data.prototype['suspended'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataCurrency} currency
+ * Market-specific code of the trading status and/or the suspension of the notation.
+ * @member {String} tradingStatus
  */
-InlineResponse20083Data.prototype['currency'] = undefined;
+InlineResponse20083Data.prototype['tradingStatus'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20083Market} market
+ * Exchange-imposed delay in seconds for delayed-quality tick data.
+ * @member {Number} priceDelay
+ */
+InlineResponse20083Data.prototype['priceDelay'] = undefined;
+
+/**
+ * The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.
+ * @member {Number} tickSize
+ */
+InlineResponse20083Data.prototype['tickSize'] = undefined;
+
+/**
+ * he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.
+ * @member {Number} lotSize
+ */
+InlineResponse20083Data.prototype['lotSize'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20083DataMarket} market
  */
 InlineResponse20083Data.prototype['market'] = undefined;
 
 /**
- * Quality of the price.
- * @member {module:model/InlineResponse20083Data.QualityEnum} quality
+ * @member {module:model/InlineResponse20083DataRegional} regional
  */
-InlineResponse20083Data.prototype['quality'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20083Latest} latest
- */
-InlineResponse20083Data.prototype['latest'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20083First} first
- */
-InlineResponse20083Data.prototype['first'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20083Low} low
- */
-InlineResponse20083Data.prototype['low'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20083High} high
- */
-InlineResponse20083Data.prototype['high'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20083PreviousClose} previousClose
- */
-InlineResponse20083Data.prototype['previousClose'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20083Accumulated} accumulated
- */
-InlineResponse20083Data.prototype['accumulated'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20083Status} status
- */
-InlineResponse20083Data.prototype['status'] = undefined;
+InlineResponse20083Data.prototype['regional'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>quality</code> property.
- * @enum {String}
- * @readonly
- */
-InlineResponse20083Data['QualityEnum'] = {
-
-    /**
-     * value: "RLT"
-     * @const
-     */
-    "RLT": "RLT",
-
-    /**
-     * value: "DLY"
-     * @const
-     */
-    "DLY": "DLY",
-
-    /**
-     * value: "EOD"
-     * @const
-     */
-    "EOD": "EOD"
-};
 
 
 

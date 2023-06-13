@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20038DataCategories;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091InstrumentNsin;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20093InstrumentNsin;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -61,7 +61,7 @@ public class InlineResponse20093Instrument implements Serializable {
   private JsonNullable<String> isin = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NSIN = "nsin";
-  private InlineResponse20091InstrumentNsin nsin;
+  private InlineResponse20093InstrumentNsin nsin;
 
   public static final String JSON_PROPERTY_ASSET_CLASS = "assetClass";
   private JsonNullable<String> assetClass = JsonNullable.<String>undefined();
@@ -78,11 +78,11 @@ public class InlineResponse20093Instrument implements Serializable {
   }
 
    /**
-   * Identifier of the instrument.
+   * Identifier of the instrument of the notation.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the instrument.")
+  @ApiModelProperty(value = "Identifier of the instrument of the notation.")
   @JsonIgnore
 
   public String getId() {
@@ -112,11 +112,11 @@ public class InlineResponse20093Instrument implements Serializable {
   }
 
    /**
-   * Name of the instrument.
+   * Asset class-unspecific name in English.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the instrument.")
+  @ApiModelProperty(value = "Asset class-unspecific name in English.")
   @JsonIgnore
 
   public String getName() {
@@ -146,11 +146,11 @@ public class InlineResponse20093Instrument implements Serializable {
   }
 
    /**
-   * International Securities Identification Number of the instrument.
+   * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
    * @return isin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "International Securities Identification Number of the instrument.")
+  @ApiModelProperty(value = "The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.")
   @JsonIgnore
 
   public String getIsin() {
@@ -174,7 +174,7 @@ public class InlineResponse20093Instrument implements Serializable {
   }
 
 
-  public InlineResponse20093Instrument nsin(InlineResponse20091InstrumentNsin nsin) {
+  public InlineResponse20093Instrument nsin(InlineResponse20093InstrumentNsin nsin) {
     this.nsin = nsin;
     return this;
   }
@@ -188,14 +188,14 @@ public class InlineResponse20093Instrument implements Serializable {
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20091InstrumentNsin getNsin() {
+  public InlineResponse20093InstrumentNsin getNsin() {
     return nsin;
   }
 
 
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNsin(InlineResponse20091InstrumentNsin nsin) {
+  public void setNsin(InlineResponse20093InstrumentNsin nsin) {
     this.nsin = nsin;
   }
 

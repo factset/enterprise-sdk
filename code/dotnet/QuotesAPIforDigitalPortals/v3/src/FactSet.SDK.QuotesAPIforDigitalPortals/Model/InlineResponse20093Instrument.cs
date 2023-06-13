@@ -34,13 +34,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20093Instrument" /> class.
         /// </summary>
-        /// <param name="id">Identifier of the instrument..</param>
-        /// <param name="name">Name of the instrument..</param>
-        /// <param name="isin">International Securities Identification Number of the instrument..</param>
+        /// <param name="id">Identifier of the instrument of the notation..</param>
+        /// <param name="name">Asset class-unspecific name in English..</param>
+        /// <param name="isin">The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument..</param>
         /// <param name="nsin">nsin.</param>
         /// <param name="assetClass">Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description..</param>
         /// <param name="type">Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18)..</param>
-        public InlineResponse20093Instrument(string id = default(string), string name = default(string), string isin = default(string), InlineResponse20091InstrumentNsin nsin = default(InlineResponse20091InstrumentNsin), string assetClass = default(string), List<InlineResponse20038DataCategories> type = default(List<InlineResponse20038DataCategories>))
+        public InlineResponse20093Instrument(string id = default(string), string name = default(string), string isin = default(string), InlineResponse20093InstrumentNsin nsin = default(InlineResponse20093InstrumentNsin), string assetClass = default(string), List<InlineResponse20038DataCategories> type = default(List<InlineResponse20038DataCategories>))
         {
             this.Id = id;
             this.Name = name;
@@ -51,23 +51,23 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         }
 
         /// <summary>
-        /// Identifier of the instrument.
+        /// Identifier of the instrument of the notation.
         /// </summary>
-        /// <value>Identifier of the instrument.</value>
+        /// <value>Identifier of the instrument of the notation.</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Name of the instrument.
+        /// Asset class-unspecific name in English.
         /// </summary>
-        /// <value>Name of the instrument.</value>
+        /// <value>Asset class-unspecific name in English.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// International Securities Identification Number of the instrument.
+        /// The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
         /// </summary>
-        /// <value>International Securities Identification Number of the instrument.</value>
+        /// <value>The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.</value>
         [DataMember(Name = "isin", EmitDefaultValue = true)]
         public string Isin { get; set; }
 
@@ -75,7 +75,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets Nsin
         /// </summary>
         [DataMember(Name = "nsin", EmitDefaultValue = false)]
-        public InlineResponse20091InstrumentNsin Nsin { get; set; }
+        public InlineResponse20093InstrumentNsin Nsin { get; set; }
 
         /// <summary>
         /// Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.

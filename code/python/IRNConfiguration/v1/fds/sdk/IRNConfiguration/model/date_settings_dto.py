@@ -85,8 +85,8 @@ class DateSettingsDto(ModelNormal):
 
 
     attribute_map = {
-        'allow_edit': 'AllowEdit',  # noqa: E501
-        'is_locked': 'IsLocked',  # noqa: E501
+        'allow_edit': 'allowEdit',  # noqa: E501
+        'is_locked': 'isLocked',  # noqa: E501
     }
 
     read_only_vars = {

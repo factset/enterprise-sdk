@@ -84,7 +84,7 @@ class ReorderCustomSymbolTypeDto(ModelNormal):
 
 
     attribute_map = {
-        'ids': 'Ids',  # noqa: E501
+        'ids': 'ids',  # noqa: E501
     }
 
     read_only_vars = {

@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20068DataNotations;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20069Data;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,7 +43,7 @@ public class InlineResponse20069 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<InlineResponse20068DataNotations> data = null;
+  private InlineResponse20069Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse200Meta meta;
@@ -51,36 +51,28 @@ public class InlineResponse20069 implements Serializable {
   public InlineResponse20069() { 
   }
 
-  public InlineResponse20069 data(java.util.List<InlineResponse20068DataNotations> data) {
+  public InlineResponse20069 data(InlineResponse20069Data data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse20069 addDataItem(InlineResponse20068DataNotations dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.ArrayList<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * List of notations.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of notations.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20068DataNotations> getData() {
+  public InlineResponse20069Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<InlineResponse20068DataNotations> data) {
+  public void setData(InlineResponse20069Data data) {
     this.data = data;
   }
 

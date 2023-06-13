@@ -35,8 +35,8 @@ class ContactRoleDto {
      * Only for internal use.
      */
     static initialize(obj, id, name) { 
-        obj['Id'] = id;
-        obj['Name'] = name;
+        obj['id'] = id;
+        obj['name'] = name;
     }
 
     /**
@@ -50,11 +50,11 @@ class ContactRoleDto {
         if (data) {
             obj = obj || new ContactRoleDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
@@ -64,14 +64,14 @@ class ContactRoleDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactRoleDto.prototype['Id'] = undefined;
+ContactRoleDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-ContactRoleDto.prototype['Name'] = undefined;
+ContactRoleDto.prototype['name'] = undefined;
 
 
 

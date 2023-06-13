@@ -144,7 +144,7 @@ class InlineResponse20085(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20085Data]): Set of bid and ask prices for a list of notations.. [optional]  # noqa: E501
+            data ([InlineResponse20085Data]): Set of price related data for a list of notations.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse20085(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20085Data]): Set of bid and ask prices for a list of notations.. [optional]  # noqa: E501
+            data ([InlineResponse20085Data]): Set of price related data for a list of notations.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

@@ -45,13 +45,13 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets OptionId
         /// </summary>
-        [DataMember(Name = "OptionId", EmitDefaultValue = false)]
+        [DataMember(Name = "optionId", EmitDefaultValue = false)]
         public Guid OptionId { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionName
         /// </summary>
-        [DataMember(Name = "OptionName", EmitDefaultValue = true)]
+        [DataMember(Name = "optionName", EmitDefaultValue = true)]
         public string OptionName { get; set; }
 
         /// <summary>

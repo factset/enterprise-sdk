@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**List&lt;InlineResponse20083Data&gt;**](InlineResponse20083Data.md) | Set of price related data for a list of notations. | [optional] 
+**Data** | [**InlineResponse20083Data**](InlineResponse20083Data.md) |  | [optional] 
 **Meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

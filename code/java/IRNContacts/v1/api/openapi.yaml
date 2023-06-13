@@ -662,52 +662,52 @@ components:
     AlternativeEmailAddressDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        EmailAddress: EmailAddress
+        emailAddress: emailAddress
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        EmailAddress:
+        emailAddress:
           nullable: true
           type: string
       type: object
     ContactAddressDto:
       additionalProperties: false
       example:
-        GoogleMapsPlaceId: GoogleMapsPlaceId
-        StateProvince: StateProvince
-        FormattedAddress: FormattedAddress
-        PostalCode: PostalCode
-        Country: Country
-        City: City
+        country: country
+        formattedAddress: formattedAddress
+        city: city
+        postalCode: postalCode
+        stateProvince: stateProvince
+        googleMapsPlaceId: googleMapsPlaceId
       properties:
-        GoogleMapsPlaceId:
+        googleMapsPlaceId:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        FormattedAddress:
+        formattedAddress:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        City:
+        city:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        StateProvince:
+        stateProvince:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        PostalCode:
+        postalCode:
           maxLength: 10
           minLength: 0
           nullable: true
           type: string
-        Country:
+        country:
           maxLength: 50
           minLength: 0
           nullable: true
@@ -716,34 +716,34 @@ components:
     ContactCustomFieldOptionValueDto:
       additionalProperties: false
       example:
-        OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        OptionName: OptionName
+        optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        optionName: optionName
       properties:
-        OptionId:
+        optionId:
           format: uuid
           type: string
-        OptionName:
+        optionName:
           nullable: true
           type: string
       type: object
     ContactCustomFieldValueDto:
       additionalProperties: false
       example:
-        FieldCode: FieldCode
-        OptionValues:
-        - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          OptionName: OptionName
-        - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          OptionName: OptionName
-        Value: Value
+        fieldCode: fieldCode
+        value: value
+        optionValues:
+        - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          optionName: optionName
+        - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          optionName: optionName
       properties:
-        FieldCode:
+        fieldCode:
           nullable: true
           type: string
-        Value:
+        value:
           nullable: true
           type: string
-        OptionValues:
+        optionValues:
           items:
             $ref: '#/components/schemas/ContactCustomFieldOptionValueDto'
           nullable: true
@@ -752,128 +752,128 @@ components:
     ContactCustomFieldValueSaveDto:
       additionalProperties: false
       example:
-        OptionValues:
+        evaluateFormula: false
+        code: code
+        value: value
+        optionValues:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Value: Value
-        Code: Code
-        EvaluateFormula: false
       properties:
-        Code:
+        code:
           type: string
-        Value:
+        value:
           nullable: true
           type: string
-        OptionValues:
+        optionValues:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        EvaluateFormula:
+        evaluateFormula:
           default: false
           type: boolean
       required:
-      - Code
+      - code
       type: object
     ContactDto:
       additionalProperties: false
       example:
-        PhoneNumbers:
-        - Type:
-            IsStandard: true
-            Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            Name: Name
-          Number: Number
-          IsPrimary: true
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - Type:
-            IsStandard: true
-            Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            Name: Name
-          Number: Number
-          IsPrimary: true
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        IsDeleted: true
-        Address:
-          GoogleMapsPlaceId: GoogleMapsPlaceId
-          StateProvince: StateProvince
-          FormattedAddress: FormattedAddress
-          PostalCode: PostalCode
-          Country: Country
-          City: City
-        Employer:
-          FactsetIdentifier: FactsetIdentifier
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Role:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        PrimaryEmailAddress: PrimaryEmailAddress
-        Type:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        CustomFields:
-        - FieldCode: FieldCode
-          OptionValues:
-          - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            OptionName: OptionName
-          - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            OptionName: OptionName
-          Value: Value
-        - FieldCode: FieldCode
-          OptionValues:
-          - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            OptionName: OptionName
-          - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            OptionName: OptionName
-          Value: Value
-        Identifier: Identifier
-        LinkedInProfile: LinkedInProfile
-        FullName: FullName
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        AlternativeEmailAddresses:
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          EmailAddress: EmailAddress
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          EmailAddress: EmailAddress
+        identifier: identifier
+        address:
+          country: country
+          formattedAddress: formattedAddress
+          city: city
+          postalCode: postalCode
+          stateProvince: stateProvince
+          googleMapsPlaceId: googleMapsPlaceId
+        role:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        customFields:
+        - fieldCode: fieldCode
+          value: value
+          optionValues:
+          - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            optionName: optionName
+          - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            optionName: optionName
+        - fieldCode: fieldCode
+          value: value
+          optionValues:
+          - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            optionName: optionName
+          - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            optionName: optionName
+        linkedInProfile: linkedInProfile
+        fullName: fullName
+        alternativeEmailAddresses:
+        - emailAddress: emailAddress
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - emailAddress: emailAddress
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        primaryEmailAddress: primaryEmailAddress
+        phoneNumbers:
+        - number: number
+          isPrimary: true
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type:
+            isStandard: true
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - number: number
+          isPrimary: true
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type:
+            isStandard: true
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isDeleted: true
+        employer:
+          factsetIdentifier: factsetIdentifier
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        PrimaryEmailAddress:
+        primaryEmailAddress:
           nullable: true
           type: string
-        Identifier:
+        identifier:
           nullable: true
           type: string
-        FullName:
+        fullName:
           nullable: true
           type: string
-        Address:
+        address:
           $ref: '#/components/schemas/ContactAddressDto'
-        LinkedInProfile:
+        linkedInProfile:
           nullable: true
           type: string
-        IsDeleted:
+        isDeleted:
           type: boolean
-        Employer:
+        employer:
           $ref: '#/components/schemas/EmployerDto'
-        Role:
+        role:
           $ref: '#/components/schemas/ContactRoleDto'
-        Type:
+        type:
           $ref: '#/components/schemas/ContactTypeDto'
-        PhoneNumbers:
+        phoneNumbers:
           items:
             $ref: '#/components/schemas/ContactPhoneDto'
           nullable: true
           type: array
-        AlternativeEmailAddresses:
+        alternativeEmailAddresses:
           items:
             $ref: '#/components/schemas/AlternativeEmailAddressDto'
           nullable: true
           type: array
-        CustomFields:
+        customFields:
           items:
             $ref: '#/components/schemas/ContactCustomFieldValueDto'
           nullable: true
@@ -882,27 +882,27 @@ components:
     ContactEventDto:
       additionalProperties: false
       example:
-        Details:
-        - OldValue: OldValue
-          NewValue: NewValue
-          FieldName: FieldName
-        - OldValue: OldValue
-          NewValue: NewValue
-          FieldName: FieldName
-        EventType: EventType
-        FullName: FullName
-        Date: 2000-01-23T04:56:07.000+00:00
+        date: 2000-01-23T04:56:07.000+00:00
+        fullName: fullName
+        details:
+        - newValue: newValue
+          fieldName: fieldName
+          oldValue: oldValue
+        - newValue: newValue
+          fieldName: fieldName
+          oldValue: oldValue
+        eventType: eventType
       properties:
-        EventType:
+        eventType:
           nullable: true
           type: string
-        Date:
+        date:
           format: date-time
           type: string
-        FullName:
+        fullName:
           nullable: true
           type: string
-        Details:
+        details:
           items:
             $ref: '#/components/schemas/ContactEventUpdateDto'
           nullable: true
@@ -911,421 +911,421 @@ components:
     ContactEventUpdateDto:
       additionalProperties: false
       example:
-        OldValue: OldValue
-        NewValue: NewValue
-        FieldName: FieldName
+        newValue: newValue
+        fieldName: fieldName
+        oldValue: oldValue
       properties:
-        FieldName:
+        fieldName:
           nullable: true
           type: string
-        OldValue:
+        oldValue:
           nullable: true
           type: string
-        NewValue:
+        newValue:
           nullable: true
           type: string
       type: object
     ContactIdNameDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           nullable: true
           type: string
-        Name:
+        name:
           nullable: true
           type: string
       type: object
     ContactPhoneDto:
       additionalProperties: false
       example:
-        Type:
-          IsStandard: true
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Number: Number
-        IsPrimary: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        number: number
+        isPrimary: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type:
+          isStandard: true
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Number:
+        number:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        Type:
+        type:
           $ref: '#/components/schemas/PhoneNumberTypeDto'
-        IsPrimary:
+        isPrimary:
           type: boolean
       type: object
     ContactPhoneSaveDto:
       additionalProperties: false
       example:
-        TypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Number: Number
-        IsPrimary: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        number: number
+        isPrimary: true
+        typeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Number:
+        number:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        TypeId:
+        typeId:
           format: uuid
           type: string
-        IsPrimary:
+        isPrimary:
           type: boolean
       type: object
     ContactRelationshipDto:
       additionalProperties: false
       example:
-        IsCurrent: true
-        Comment: Comment
-        Start: 2000-01-23T04:56:07.000+00:00
-        Symbol:
-          Identifier: Identifier
-          Name: Name
-        Relationship:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Title: Title
-        End: 2000-01-23T04:56:07.000+00:00
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        RelationshipCategory:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Contact:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
+        symbol:
+          name: name
+          tdentifier: tdentifier
+        isCurrent: true
+        relationshipCategory:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        contact:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        start: 2000-01-23T04:56:07.000+00:00
+        end: 2000-01-23T04:56:07.000+00:00
+        comment: comment
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relationship:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        RelationshipCategory:
+        relationshipCategory:
           $ref: '#/components/schemas/RelationshipCategoryIdNameDto'
-        Relationship:
+        relationship:
           $ref: '#/components/schemas/RelationshipIdNameDto'
-        Contact:
+        contact:
           $ref: '#/components/schemas/ContactIdNameDto'
-        Symbol:
+        symbol:
           $ref: '#/components/schemas/RelationshipSymbolSummaryDto'
-        IsCurrent:
+        isCurrent:
           type: boolean
-        Start:
+        start:
           format: date-time
           nullable: true
           type: string
-        End:
+        end:
           format: date-time
           nullable: true
           type: string
-        Title:
+        title:
           nullable: true
           type: string
-        Comment:
+        comment:
           nullable: true
           type: string
       type: object
     ContactRelationshipSaveDto:
       additionalProperties: false
       example:
-        IsCurrent: true
-        Comment: Comment
-        RelationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Start: 2000-01-23T04:56:07.000+00:00
-        Symbol: Symbol
-        Title: Title
-        End: 2000-01-23T04:56:07.000+00:00
-        ContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        symbol: symbol
+        isCurrent: true
+        contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        start: 2000-01-23T04:56:07.000+00:00
+        end: 2000-01-23T04:56:07.000+00:00
+        comment: comment
+        relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
       properties:
-        RelationshipId:
+        relationshipId:
           format: uuid
           type: string
-        ContactId:
+        contactId:
           format: uuid
           nullable: true
           type: string
-        Start:
+        start:
           format: date-time
           nullable: true
           type: string
-        End:
+        end:
           format: date-time
           nullable: true
           type: string
-        Comment:
+        comment:
           nullable: true
           type: string
-        IsCurrent:
+        isCurrent:
           type: boolean
-        Symbol:
+        symbol:
           nullable: true
           type: string
-        Title:
+        title:
           nullable: true
           type: string
       type: object
     ContactRelationshipTwoSidedDto:
       additionalProperties: false
       example:
-        IsCurrent: true
-        RightContact:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Comment: Comment
-        LeftContact:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Start: 2000-01-23T04:56:07.000+00:00
-        Symbol:
-          Identifier: Identifier
-          Name: Name
-        Relationship:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Title: Title
-        End: 2000-01-23T04:56:07.000+00:00
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        RelationshipCategory:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
+        symbol:
+          name: name
+          tdentifier: tdentifier
+        isCurrent: true
+        relationshipCategory:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        leftContact:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        start: 2000-01-23T04:56:07.000+00:00
+        end: 2000-01-23T04:56:07.000+00:00
+        comment: comment
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relationship:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        rightContact:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        RelationshipCategory:
+        relationshipCategory:
           $ref: '#/components/schemas/RelationshipCategoryIdNameDto'
-        Relationship:
+        relationship:
           $ref: '#/components/schemas/RelationshipIdNameDto'
-        LeftContact:
+        leftContact:
           $ref: '#/components/schemas/ContactIdNameDto'
-        RightContact:
+        rightContact:
           $ref: '#/components/schemas/ContactIdNameDto'
-        Symbol:
+        symbol:
           $ref: '#/components/schemas/RelationshipSymbolSummaryDto'
-        IsCurrent:
+        isCurrent:
           type: boolean
-        Start:
+        start:
           format: date-time
           nullable: true
           type: string
-        End:
+        end:
           format: date-time
           nullable: true
           type: string
-        Title:
+        title:
           nullable: true
           type: string
-        Comment:
+        comment:
           nullable: true
           type: string
       type: object
     ContactRelationshipTwoSidedSaveDto:
       additionalProperties: false
       example:
-        IsCurrent: true
-        Comment: Comment
-        RelationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Start: 2000-01-23T04:56:07.000+00:00
-        Symbol: Symbol
-        LeftContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Title: Title
-        End: 2000-01-23T04:56:07.000+00:00
-        RightContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        SymbolId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        leftContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        symbolId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        symbol: symbol
+        isCurrent: true
+        rightContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        start: 2000-01-23T04:56:07.000+00:00
+        end: 2000-01-23T04:56:07.000+00:00
+        comment: comment
+        relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
       properties:
-        RelationshipId:
+        relationshipId:
           format: uuid
           type: string
-        LeftContactId:
+        leftContactId:
           format: uuid
           type: string
-        RightContactId:
+        rightContactId:
           format: uuid
           nullable: true
           type: string
-        Start:
+        start:
           format: date-time
           nullable: true
           type: string
-        End:
+        end:
           format: date-time
           nullable: true
           type: string
-        Comment:
+        comment:
           nullable: true
           type: string
-        IsCurrent:
+        isCurrent:
           type: boolean
-        SymbolId:
+        symbolId:
           format: uuid
           nullable: true
           type: string
-        Symbol:
+        symbol:
           nullable: true
           type: string
-        Title:
+        title:
           nullable: true
           type: string
       type: object
     ContactRoleDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           maxLength: 50
           minLength: 0
           type: string
       required:
-      - Id
-      - Name
+      - id
+      - name
       type: object
     ContactSaveDto:
       additionalProperties: false
       example:
-        TypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        PhoneNumbers:
-        - TypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Number: Number
-          IsPrimary: true
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - TypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Number: Number
-          IsPrimary: true
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Address:
-          GoogleMapsPlaceId: GoogleMapsPlaceId
-          StateProvince: StateProvince
-          FormattedAddress: FormattedAddress
-          PostalCode: PostalCode
-          Country: Country
-          City: City
-        RoleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        PrimaryEmailAddress: PrimaryEmailAddress
-        CustomFields:
-        - OptionValues:
+        rightRelationships:
+        - symbol: symbol
+          isCurrent: true
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          start: 2000-01-23T04:56:07.000+00:00
+          end: 2000-01-23T04:56:07.000+00:00
+          comment: comment
+          relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        - symbol: symbol
+          isCurrent: true
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          start: 2000-01-23T04:56:07.000+00:00
+          end: 2000-01-23T04:56:07.000+00:00
+          comment: comment
+          relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        notes: notes
+        address:
+          country: country
+          formattedAddress: formattedAddress
+          city: city
+          postalCode: postalCode
+          stateProvince: stateProvince
+          googleMapsPlaceId: googleMapsPlaceId
+        roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        customFields:
+        - evaluateFormula: false
+          code: code
+          value: value
+          optionValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Value: Value
-          Code: Code
-          EvaluateFormula: false
-        - OptionValues:
+        - evaluateFormula: false
+          code: code
+          value: value
+          optionValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Value: Value
-          Code: Code
-          EvaluateFormula: false
-        PersonSymbol: PersonSymbol
-        LinkedInProfile: https://openapi-generator.tech
-        FullName: FullName
-        LeftRelationships:
-        - IsCurrent: true
-          Comment: Comment
-          RelationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Start: 2000-01-23T04:56:07.000+00:00
-          Symbol: Symbol
-          Title: Title
-          End: 2000-01-23T04:56:07.000+00:00
-          ContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - IsCurrent: true
-          Comment: Comment
-          RelationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Start: 2000-01-23T04:56:07.000+00:00
-          Symbol: Symbol
-          Title: Title
-          End: 2000-01-23T04:56:07.000+00:00
-          ContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        RightRelationships:
-        - IsCurrent: true
-          Comment: Comment
-          RelationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Start: 2000-01-23T04:56:07.000+00:00
-          Symbol: Symbol
-          Title: Title
-          End: 2000-01-23T04:56:07.000+00:00
-          ContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - IsCurrent: true
-          Comment: Comment
-          RelationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Start: 2000-01-23T04:56:07.000+00:00
-          Symbol: Symbol
-          Title: Title
-          End: 2000-01-23T04:56:07.000+00:00
-          ContactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        AlternativeEmailAddresses:
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          EmailAddress: EmailAddress
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          EmailAddress: EmailAddress
-        Notes: Notes
+        linkedInProfile: https://openapi-generator.tech
+        fullName: fullName
+        alternativeEmailAddresses:
+        - emailAddress: emailAddress
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - emailAddress: emailAddress
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        primaryEmailAddress: primaryEmailAddress
+        phoneNumbers:
+        - number: number
+          isPrimary: true
+          typeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - number: number
+          isPrimary: true
+          typeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        typeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        personSymbol: personSymbol
+        leftRelationships:
+        - symbol: symbol
+          isCurrent: true
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          start: 2000-01-23T04:56:07.000+00:00
+          end: 2000-01-23T04:56:07.000+00:00
+          comment: comment
+          relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        - symbol: symbol
+          isCurrent: true
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          start: 2000-01-23T04:56:07.000+00:00
+          end: 2000-01-23T04:56:07.000+00:00
+          comment: comment
+          relationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
       properties:
-        PrimaryEmailAddress:
+        primaryEmailAddress:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        FullName:
+        fullName:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        Notes:
+        notes:
           nullable: true
           type: string
-        LinkedInProfile:
+        linkedInProfile:
           format: uri
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        PersonSymbol:
+        personSymbol:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        RoleId:
+        roleId:
           format: uuid
           type: string
-        TypeId:
+        typeId:
           format: uuid
           type: string
-        Address:
+        address:
           $ref: '#/components/schemas/ContactAddressDto'
-        PhoneNumbers:
+        phoneNumbers:
           items:
             $ref: '#/components/schemas/ContactPhoneSaveDto'
           nullable: true
           type: array
-        LeftRelationships:
+        leftRelationships:
           items:
             $ref: '#/components/schemas/ContactRelationshipSaveDto'
           nullable: true
           type: array
-        RightRelationships:
+        rightRelationships:
           items:
             $ref: '#/components/schemas/ContactRelationshipSaveDto'
           nullable: true
           type: array
-        AlternativeEmailAddresses:
+        alternativeEmailAddresses:
           items:
             $ref: '#/components/schemas/AlternativeEmailAddressDto'
           nullable: true
           type: array
-        CustomFields:
+        customFields:
           items:
             $ref: '#/components/schemas/ContactCustomFieldValueSaveDto'
           nullable: true
@@ -1334,90 +1334,90 @@ components:
     ContactSummaryDto:
       additionalProperties: false
       example:
-        IsDeleted: true
-        StateProvince: StateProvince
-        CustomFieldValues:
-        - FieldCode: FieldCode
-          OptionValues:
-          - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            OptionName: OptionName
-          - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            OptionName: OptionName
-          Value: Value
-        - FieldCode: FieldCode
-          OptionValues:
-          - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            OptionName: OptionName
-          - OptionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            OptionName: OptionName
-          Value: Value
-        PostalCode: PostalCode
-        City: City
-        EmployerIdentifier: EmployerIdentifier
-        Role:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        PrimaryEmailAddress: PrimaryEmailAddress
-        Type:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Identifier: Identifier
-        FullName: FullName
-        Country: Country
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        LastMeeting: LastMeeting
-        EmployerName: EmployerName
-        AlternativeEmailAddresses:
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          EmailAddress: EmailAddress
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          EmailAddress: EmailAddress
+        employerIdentifier: employerIdentifier
+        identifier: identifier
+        country: country
+        role:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        city: city
+        postalCode: postalCode
+        fullName: fullName
+        employerName: employerName
+        stateProvince: stateProvince
+        alternativeEmailAddresses:
+        - emailAddress: emailAddress
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - emailAddress: emailAddress
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        primaryEmailAddress: primaryEmailAddress
+        lastMeeting: lastMeeting
+        isDeleted: true
+        customFieldValues:
+        - fieldCode: fieldCode
+          value: value
+          optionValues:
+          - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            optionName: optionName
+          - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            optionName: optionName
+        - fieldCode: fieldCode
+          value: value
+          optionValues:
+          - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            optionName: optionName
+          - optionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            optionName: optionName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        PrimaryEmailAddress:
+        primaryEmailAddress:
           nullable: true
           type: string
-        Identifier:
+        identifier:
           nullable: true
           type: string
-        FullName:
+        fullName:
           nullable: true
           type: string
-        EmployerName:
+        employerName:
           nullable: true
           type: string
-        EmployerIdentifier:
+        employerIdentifier:
           nullable: true
           type: string
-        City:
+        city:
           nullable: true
           type: string
-        StateProvince:
+        stateProvince:
           nullable: true
           type: string
-        PostalCode:
+        postalCode:
           nullable: true
           type: string
-        Country:
+        country:
           nullable: true
           type: string
-        Role:
+        role:
           $ref: '#/components/schemas/ContactRoleDto'
-        Type:
+        type:
           $ref: '#/components/schemas/ContactTypeDto'
-        IsDeleted:
+        isDeleted:
           type: boolean
-        LastMeeting:
+        lastMeeting:
           nullable: true
           type: string
-        AlternativeEmailAddresses:
+        alternativeEmailAddresses:
           items:
             $ref: '#/components/schemas/AlternativeEmailAddressDto'
           nullable: true
           type: array
-        CustomFieldValues:
+        customFieldValues:
           items:
             $ref: '#/components/schemas/ContactCustomFieldValueDto'
           nullable: true
@@ -1426,49 +1426,49 @@ components:
     ContactTypeDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           maxLength: 50
           minLength: 0
           type: string
       required:
-      - Id
-      - Name
+      - id
+      - name
       type: object
     EmployerDto:
       additionalProperties: false
       example:
-        FactsetIdentifier: FactsetIdentifier
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        factsetIdentifier: factsetIdentifier
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        FactsetIdentifier:
+        factsetIdentifier:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
       required:
-      - Id
+      - id
       type: object
     NewItemDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
       type: object
@@ -1480,7 +1480,7 @@ components:
         from: from
         value: ""
       properties:
-        OperationType:
+        operationType:
           $ref: '#/components/schemas/OperationType'
         path:
           nullable: true
@@ -1508,19 +1508,19 @@ components:
     PhoneNumberTypeDto:
       additionalProperties: false
       example:
-        IsStandard: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        isStandard: true
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        IsStandard:
+        isStandard:
           type: boolean
       type: object
     ProblemDetails:
@@ -1546,65 +1546,65 @@ components:
     RecordPreviewDto:
       additionalProperties: false
       example:
-        MeetingGuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        NoteGuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Title: Title
-        Date: 2000-01-23T04:56:07.000+00:00
+        date: 2000-01-23T04:56:07.000+00:00
+        noteGuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        meetingGuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
       properties:
-        NoteGuid:
+        noteGuid:
           format: uuid
           nullable: true
           type: string
-        MeetingGuid:
+        meetingGuid:
           format: uuid
           nullable: true
           type: string
-        Title:
+        title:
           nullable: true
           type: string
-        Date:
+        date:
           format: date-time
           type: string
       type: object
     RelationshipCategoryIdNameDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
       type: object
     RelationshipIdNameDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
       type: object
     RelationshipSymbolSummaryDto:
       additionalProperties: false
       example:
-        Identifier: Identifier
-        Name: Name
+        name: name
+        tdentifier: tdentifier
       properties:
-        Identifier:
+        tdentifier:
           nullable: true
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Type:
+        type:
           $ref: '#/components/schemas/SymbolType'
       type: object
     SymbolType:

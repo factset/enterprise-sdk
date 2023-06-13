@@ -12,7 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20087DataAsks from './InlineResponse20087DataAsks';
+import InlineResponse20084DataCurrency from './InlineResponse20084DataCurrency';
+import InlineResponse20084DataValueUnit from './InlineResponse20084DataValueUnit';
+import InlineResponse20085Market from './InlineResponse20085Market';
+import InlineResponse20085Status from './InlineResponse20085Status';
+import InlineResponse20087Ask from './InlineResponse20087Ask';
+import InlineResponse20087Bid from './InlineResponse20087Bid';
 
 /**
  * The InlineResponse20087Data model module.
@@ -21,7 +26,6 @@ import InlineResponse20087DataAsks from './InlineResponse20087DataAsks';
 class InlineResponse20087Data {
     /**
      * Constructs a new <code>InlineResponse20087Data</code>.
-     * Orderbook.
      * @alias module:model/InlineResponse20087Data
      */
     constructor() { 
@@ -54,14 +58,26 @@ class InlineResponse20087Data {
             if (data.hasOwnProperty('sourceIdentifier')) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = InlineResponse20084DataValueUnit.constructFromObject(data['valueUnit']);
+            }
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = InlineResponse20084DataCurrency.constructFromObject(data['currency']);
+            }
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse20085Market.constructFromObject(data['market']);
+            }
             if (data.hasOwnProperty('quality')) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('asks')) {
-                obj['asks'] = ApiClient.convertToType(data['asks'], [InlineResponse20087DataAsks]);
+            if (data.hasOwnProperty('bid')) {
+                obj['bid'] = InlineResponse20087Bid.constructFromObject(data['bid']);
             }
-            if (data.hasOwnProperty('bids')) {
-                obj['bids'] = ApiClient.convertToType(data['bids'], [InlineResponse20087DataAsks]);
+            if (data.hasOwnProperty('ask')) {
+                obj['ask'] = InlineResponse20087Ask.constructFromObject(data['ask']);
+            }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = InlineResponse20085Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -83,22 +99,40 @@ InlineResponse20087Data.prototype['idNotation'] = undefined;
 InlineResponse20087Data.prototype['sourceIdentifier'] = undefined;
 
 /**
+ * @member {module:model/InlineResponse20084DataValueUnit} valueUnit
+ */
+InlineResponse20087Data.prototype['valueUnit'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20084DataCurrency} currency
+ */
+InlineResponse20087Data.prototype['currency'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085Market} market
+ */
+InlineResponse20087Data.prototype['market'] = undefined;
+
+/**
  * Quality of the price.
  * @member {module:model/InlineResponse20087Data.QualityEnum} quality
  */
 InlineResponse20087Data.prototype['quality'] = undefined;
 
 /**
- * Ask entries of the full orderbook.
- * @member {Array.<module:model/InlineResponse20087DataAsks>} asks
+ * @member {module:model/InlineResponse20087Bid} bid
  */
-InlineResponse20087Data.prototype['asks'] = undefined;
+InlineResponse20087Data.prototype['bid'] = undefined;
 
 /**
- * Bid entries of the full orderbook.
- * @member {Array.<module:model/InlineResponse20087DataAsks>} bids
+ * @member {module:model/InlineResponse20087Ask} ask
  */
-InlineResponse20087Data.prototype['bids'] = undefined;
+InlineResponse20087Data.prototype['ask'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085Status} status
+ */
+InlineResponse20087Data.prototype['status'] = undefined;
 
 
 
@@ -121,7 +155,13 @@ InlineResponse20087Data['QualityEnum'] = {
      * value: "DLY"
      * @const
      */
-    "DLY": "DLY"
+    "DLY": "DLY",
+
+    /**
+     * value: "EOD"
+     * @const
+     */
+    "EOD": "EOD"
 };
 
 

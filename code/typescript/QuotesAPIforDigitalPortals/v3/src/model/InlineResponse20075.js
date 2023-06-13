@@ -49,7 +49,7 @@ class InlineResponse20075 {
             obj = obj || new InlineResponse20075();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20075Data]);
+                obj['data'] = InlineResponse20075Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -62,8 +62,7 @@ class InlineResponse20075 {
 }
 
 /**
- * EOD key figures for a list of notations.
- * @member {Array.<module:model/InlineResponse20075Data>} data
+ * @member {module:model/InlineResponse20075Data} data
  */
 InlineResponse20075.prototype['data'] = undefined;
 

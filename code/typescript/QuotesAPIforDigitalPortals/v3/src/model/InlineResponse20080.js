@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse20080Data from './InlineResponse20080Data';
-import InlineResponse2009Meta from './InlineResponse2009Meta';
+import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse20080 model module.
@@ -52,7 +52,7 @@ class InlineResponse20080 {
                 obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20080Data]);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse2009Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,13 +62,13 @@ class InlineResponse20080 {
 }
 
 /**
- * List of entitled markets.
+ * EOD key figures for a list of notations.
  * @member {Array.<module:model/InlineResponse20080Data>} data
  */
 InlineResponse20080.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2009Meta} meta
+ * @member {module:model/InlineResponse200Meta} meta
  */
 InlineResponse20080.prototype['meta'] = undefined;
 

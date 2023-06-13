@@ -2229,7 +2229,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicBackgroundTextTypeListRequest = new PostBasicBackgroundTextTypeListRequest(); // PostBasicBackgroundTextTypeListRequest |  (optional) 
+            var postBasicBackgroundTextTypeListRequest = new PostBasicBackgroundTextTypeListRequest(); // PostBasicBackgroundTextTypeListRequest | Request Body (optional) 
 
             try
             {
@@ -2252,7 +2252,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)|  | [optional] 
+ **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -2319,7 +2319,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicDeliveryListRequest = new PostBasicDeliveryListRequest(); // PostBasicDeliveryListRequest |  (optional) 
+            var postBasicDeliveryListRequest = new PostBasicDeliveryListRequest(); // PostBasicDeliveryListRequest | Request Body (optional) 
 
             try
             {
@@ -2342,7 +2342,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)|  | [optional] 
+ **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)
@@ -2409,7 +2409,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicMarketListRequest = new PostBasicMarketListRequest(); // PostBasicMarketListRequest |  (optional) 
+            var postBasicMarketListRequest = new PostBasicMarketListRequest(); // PostBasicMarketListRequest | Request Body (optional) 
 
             try
             {
@@ -2432,7 +2432,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)|  | [optional] 
+ **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse2009**](InlineResponse2009.md)
@@ -2499,7 +2499,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicMediaTypeListRequest = new PostBasicMediaTypeListRequest(); // PostBasicMediaTypeListRequest |  (optional) 
+            var postBasicMediaTypeListRequest = new PostBasicMediaTypeListRequest(); // PostBasicMediaTypeListRequest | Request Body (optional) 
 
             try
             {
@@ -2522,7 +2522,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)|  | [optional] 
+ **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20013**](InlineResponse20013.md)
@@ -2589,7 +2589,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicMicOperatingListRequest = new PostBasicMicOperatingListRequest(); // PostBasicMicOperatingListRequest |  (optional) 
+            var postBasicMicOperatingListRequest = new PostBasicMicOperatingListRequest(); // PostBasicMicOperatingListRequest | Request Body (optional) 
 
             try
             {
@@ -2612,7 +2612,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)|  | [optional] 
+ **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20014**](InlineResponse20014.md)
@@ -2679,7 +2679,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicTimezoneListRequest = new PostBasicTimezoneListRequest(); // PostBasicTimezoneListRequest |  (optional) 
+            var postBasicTimezoneListRequest = new PostBasicTimezoneListRequest(); // PostBasicTimezoneListRequest | Request Body (optional) 
 
             try
             {
@@ -2702,7 +2702,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)|  | [optional] 
+ **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20023**](InlineResponse20023.md)
@@ -2769,7 +2769,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicValueUnitCurrencyListRequest = new PostBasicValueUnitCurrencyListRequest(); // PostBasicValueUnitCurrencyListRequest |  (optional) 
+            var postBasicValueUnitCurrencyListRequest = new PostBasicValueUnitCurrencyListRequest(); // PostBasicValueUnitCurrencyListRequest | Request Body (optional) 
 
             try
             {
@@ -2792,7 +2792,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)|  | [optional] 
+ **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20027**](InlineResponse20027.md)
@@ -2859,7 +2859,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicValueUnitCurrencyMainListRequest = new PostBasicValueUnitCurrencyMainListRequest(); // PostBasicValueUnitCurrencyMainListRequest |  (optional) 
+            var postBasicValueUnitCurrencyMainListRequest = new PostBasicValueUnitCurrencyMainListRequest(); // PostBasicValueUnitCurrencyMainListRequest | Request Body (optional) 
 
             try
             {
@@ -2882,7 +2882,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)|  | [optional] 
+ **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20030**](InlineResponse20030.md)
@@ -2949,7 +2949,7 @@ namespace Example
 
             var apiInstance = new BasicApi(config);
 
-            var postBasicValueUnitListRequest = new PostBasicValueUnitListRequest(); // PostBasicValueUnitListRequest |  (optional) 
+            var postBasicValueUnitListRequest = new PostBasicValueUnitListRequest(); // PostBasicValueUnitListRequest | Request Body (optional) 
 
             try
             {
@@ -2972,7 +2972,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)|  | [optional] 
+ **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20025**](InlineResponse20025.md)

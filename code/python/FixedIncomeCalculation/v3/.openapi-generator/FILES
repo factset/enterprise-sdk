@@ -11,6 +11,8 @@ docs/ClientErrorResponse.md
 docs/DiscountCurvesApi.md
 docs/Error.md
 docs/ErrorSource.md
+docs/FIAttributionForJobSettings.md
+docs/FIAttributionForSecurities.md
 docs/FIBalloonExtension.md
 docs/FIBankLoans.md
 docs/FICalculationParameters.md
@@ -50,6 +52,8 @@ fds/sdk/FixedIncomeCalculation/model/calculation_meta.py
 fds/sdk/FixedIncomeCalculation/model/client_error_response.py
 fds/sdk/FixedIncomeCalculation/model/error.py
 fds/sdk/FixedIncomeCalculation/model/error_source.py
+fds/sdk/FixedIncomeCalculation/model/fi_attribution_for_job_settings.py
+fds/sdk/FixedIncomeCalculation/model/fi_attribution_for_securities.py
 fds/sdk/FixedIncomeCalculation/model/fi_balloon_extension.py
 fds/sdk/FixedIncomeCalculation/model/fi_bank_loans.py
 fds/sdk/FixedIncomeCalculation/model/fi_calculation_parameters.py

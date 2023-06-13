@@ -104,16 +104,16 @@ class ContactRelationshipDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'relationship_category': 'RelationshipCategory',  # noqa: E501
-        'relationship': 'Relationship',  # noqa: E501
-        'contact': 'Contact',  # noqa: E501
-        'symbol': 'Symbol',  # noqa: E501
-        'is_current': 'IsCurrent',  # noqa: E501
-        'start': 'Start',  # noqa: E501
-        'end': 'End',  # noqa: E501
-        'title': 'Title',  # noqa: E501
-        'comment': 'Comment',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'relationship_category': 'relationshipCategory',  # noqa: E501
+        'relationship': 'relationship',  # noqa: E501
+        'contact': 'contact',  # noqa: E501
+        'symbol': 'symbol',  # noqa: E501
+        'is_current': 'isCurrent',  # noqa: E501
+        'start': 'start',  # noqa: E501
+        'end': 'end',  # noqa: E501
+        'title': 'title',  # noqa: E501
+        'comment': 'comment',  # noqa: E501
     }
 
     read_only_vars = {

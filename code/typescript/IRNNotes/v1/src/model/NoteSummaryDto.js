@@ -47,53 +47,53 @@ class NoteSummaryDto {
         if (data) {
             obj = obj || new NoteSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Date')) {
-                obj['Date'] = ApiClient.convertToType(data['Date'], 'String');
+            if (data.hasOwnProperty('date')) {
+                obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('CreatedAt')) {
-                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'String');
+            if (data.hasOwnProperty('createdAt')) {
+                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
-            if (data.hasOwnProperty('AuthorId')) {
-                obj['AuthorId'] = ApiClient.convertToType(data['AuthorId'], 'String');
+            if (data.hasOwnProperty('authorId')) {
+                obj['authorId'] = ApiClient.convertToType(data['authorId'], 'String');
             }
-            if (data.hasOwnProperty('ContributorId')) {
-                obj['ContributorId'] = ApiClient.convertToType(data['ContributorId'], 'String');
+            if (data.hasOwnProperty('contributorId')) {
+                obj['contributorId'] = ApiClient.convertToType(data['contributorId'], 'String');
             }
-            if (data.hasOwnProperty('Title')) {
-                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('Identifier')) {
-                obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
+            if (data.hasOwnProperty('identifier')) {
+                obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('SubjectId')) {
-                obj['SubjectId'] = ApiClient.convertToType(data['SubjectId'], 'String');
+            if (data.hasOwnProperty('subjectId')) {
+                obj['subjectId'] = ApiClient.convertToType(data['subjectId'], 'String');
             }
-            if (data.hasOwnProperty('IsPersonal')) {
-                obj['IsPersonal'] = ApiClient.convertToType(data['IsPersonal'], 'Boolean');
+            if (data.hasOwnProperty('isPersonal')) {
+                obj['isPersonal'] = ApiClient.convertToType(data['isPersonal'], 'Boolean');
             }
-            if (data.hasOwnProperty('State')) {
-                obj['State'] = ApiClient.convertToType(data['State'], 'String');
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
-            if (data.hasOwnProperty('ApprovalStatus')) {
-                obj['ApprovalStatus'] = ApiClient.convertToType(data['ApprovalStatus'], 'String');
+            if (data.hasOwnProperty('approvalStatus')) {
+                obj['approvalStatus'] = ApiClient.convertToType(data['approvalStatus'], 'String');
             }
-            if (data.hasOwnProperty('AttachmentIds')) {
-                obj['AttachmentIds'] = ApiClient.convertToType(data['AttachmentIds'], ['String']);
+            if (data.hasOwnProperty('attachmentIds')) {
+                obj['attachmentIds'] = ApiClient.convertToType(data['attachmentIds'], ['String']);
             }
-            if (data.hasOwnProperty('RelatedSymbols')) {
-                obj['RelatedSymbols'] = ApiClient.convertToType(data['RelatedSymbols'], ['String']);
+            if (data.hasOwnProperty('relatedSymbols')) {
+                obj['relatedSymbols'] = ApiClient.convertToType(data['relatedSymbols'], ['String']);
             }
-            if (data.hasOwnProperty('RecommendationId')) {
-                obj['RecommendationId'] = ApiClient.convertToType(data['RecommendationId'], 'String');
+            if (data.hasOwnProperty('recommendationId')) {
+                obj['recommendationId'] = ApiClient.convertToType(data['recommendationId'], 'String');
             }
-            if (data.hasOwnProperty('SentimentId')) {
-                obj['SentimentId'] = ApiClient.convertToType(data['SentimentId'], 'String');
+            if (data.hasOwnProperty('sentimentId')) {
+                obj['sentimentId'] = ApiClient.convertToType(data['sentimentId'], 'String');
             }
-            if (data.hasOwnProperty('CustomFields')) {
-                obj['CustomFields'] = ApiClient.convertToType(data['CustomFields'], [CustomFieldValueDto]);
+            if (data.hasOwnProperty('customFields')) {
+                obj['customFields'] = ApiClient.convertToType(data['customFields'], [CustomFieldValueDto]);
             }
         }
         return obj;
@@ -103,84 +103,84 @@ class NoteSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-NoteSummaryDto.prototype['Id'] = undefined;
+NoteSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Date
+ * @member {String} date
  */
-NoteSummaryDto.prototype['Date'] = undefined;
+NoteSummaryDto.prototype['date'] = undefined;
 
 /**
- * @member {String} CreatedAt
+ * @member {String} createdAt
  */
-NoteSummaryDto.prototype['CreatedAt'] = undefined;
+NoteSummaryDto.prototype['createdAt'] = undefined;
 
 /**
- * @member {String} AuthorId
+ * @member {String} authorId
  */
-NoteSummaryDto.prototype['AuthorId'] = undefined;
+NoteSummaryDto.prototype['authorId'] = undefined;
 
 /**
- * @member {String} ContributorId
+ * @member {String} contributorId
  */
-NoteSummaryDto.prototype['ContributorId'] = undefined;
+NoteSummaryDto.prototype['contributorId'] = undefined;
 
 /**
- * @member {String} Title
+ * @member {String} title
  */
-NoteSummaryDto.prototype['Title'] = undefined;
+NoteSummaryDto.prototype['title'] = undefined;
 
 /**
- * @member {String} Identifier
+ * @member {String} identifier
  */
-NoteSummaryDto.prototype['Identifier'] = undefined;
+NoteSummaryDto.prototype['identifier'] = undefined;
 
 /**
- * @member {String} SubjectId
+ * @member {String} subjectId
  */
-NoteSummaryDto.prototype['SubjectId'] = undefined;
+NoteSummaryDto.prototype['subjectId'] = undefined;
 
 /**
- * @member {Boolean} IsPersonal
+ * @member {Boolean} isPersonal
  */
-NoteSummaryDto.prototype['IsPersonal'] = undefined;
+NoteSummaryDto.prototype['isPersonal'] = undefined;
 
 /**
- * @member {String} State
+ * @member {String} state
  */
-NoteSummaryDto.prototype['State'] = undefined;
+NoteSummaryDto.prototype['state'] = undefined;
 
 /**
- * @member {String} ApprovalStatus
+ * @member {String} approvalStatus
  */
-NoteSummaryDto.prototype['ApprovalStatus'] = undefined;
+NoteSummaryDto.prototype['approvalStatus'] = undefined;
 
 /**
- * @member {Array.<String>} AttachmentIds
+ * @member {Array.<String>} attachmentIds
  */
-NoteSummaryDto.prototype['AttachmentIds'] = undefined;
+NoteSummaryDto.prototype['attachmentIds'] = undefined;
 
 /**
- * @member {Array.<String>} RelatedSymbols
+ * @member {Array.<String>} relatedSymbols
  */
-NoteSummaryDto.prototype['RelatedSymbols'] = undefined;
+NoteSummaryDto.prototype['relatedSymbols'] = undefined;
 
 /**
- * @member {String} RecommendationId
+ * @member {String} recommendationId
  */
-NoteSummaryDto.prototype['RecommendationId'] = undefined;
+NoteSummaryDto.prototype['recommendationId'] = undefined;
 
 /**
- * @member {String} SentimentId
+ * @member {String} sentimentId
  */
-NoteSummaryDto.prototype['SentimentId'] = undefined;
+NoteSummaryDto.prototype['sentimentId'] = undefined;
 
 /**
- * @member {Array.<module:model/CustomFieldValueDto>} CustomFields
+ * @member {Array.<module:model/CustomFieldValueDto>} customFields
  */
-NoteSummaryDto.prototype['CustomFields'] = undefined;
+NoteSummaryDto.prototype['customFields'] = undefined;
 
 
 

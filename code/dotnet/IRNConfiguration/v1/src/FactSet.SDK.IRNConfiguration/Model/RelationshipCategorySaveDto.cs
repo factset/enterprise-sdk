@@ -56,19 +56,19 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets CategoryName
         /// </summary>
-        [DataMember(Name = "CategoryName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "categoryName", IsRequired = true, EmitDefaultValue = false)]
         public string CategoryName { get; set; }
 
         /// <summary>
         /// Gets or Sets IsContactToContact
         /// </summary>
-        [DataMember(Name = "IsContactToContact", EmitDefaultValue = true)]
+        [DataMember(Name = "isContactToContact", EmitDefaultValue = true)]
         public bool IsContactToContact { get; set; }
 
         /// <summary>
         /// Gets or Sets IsContactToSymbol
         /// </summary>
-        [DataMember(Name = "IsContactToSymbol", EmitDefaultValue = true)]
+        [DataMember(Name = "isContactToSymbol", EmitDefaultValue = true)]
         public bool IsContactToSymbol { get; set; }
 
         /// <summary>

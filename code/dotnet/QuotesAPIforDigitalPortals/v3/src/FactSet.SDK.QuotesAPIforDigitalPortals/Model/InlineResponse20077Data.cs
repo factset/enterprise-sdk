@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// InlineResponse20077Data
+    /// EOD key figures.
     /// </summary>
     [DataContract(Name = "inline_response_200_77_data")]
     public partial class InlineResponse20077Data : IEquatable<InlineResponse20077Data>, IValidatableObject
@@ -44,8 +44,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <param name="tradingVolume">tradingVolume.</param>
         /// <param name="tradingValue">Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price..</param>
         /// <param name="volatility">Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year..</param>
-        /// <param name="status">status.</param>
-        public InlineResponse20077Data(string idNotation = default(string), string sourceIdentifier = default(string), DateTime? referenceDate = default(DateTime?), InlineResponse20074DataPerformance performance = default(InlineResponse20074DataPerformance), InlineResponse20074DataHigh high = default(InlineResponse20074DataHigh), InlineResponse20074DataLow low = default(InlineResponse20074DataLow), decimal? averagePrice = default(decimal?), InlineResponse20076DataTradingVolume tradingVolume = default(InlineResponse20076DataTradingVolume), decimal? tradingValue = default(decimal?), decimal? volatility = default(decimal?), InlineResponse20075Status status = default(InlineResponse20075Status))
+        public InlineResponse20077Data(string idNotation = default(string), string sourceIdentifier = default(string), DateTime? referenceDate = default(DateTime?), InlineResponse20075DataPerformance performance = default(InlineResponse20075DataPerformance), InlineResponse20075DataHigh high = default(InlineResponse20075DataHigh), InlineResponse20075DataLow low = default(InlineResponse20075DataLow), decimal? averagePrice = default(decimal?), InlineResponse20077DataTradingVolume tradingVolume = default(InlineResponse20077DataTradingVolume), decimal? tradingValue = default(decimal?), decimal? volatility = default(decimal?))
         {
             this.IdNotation = idNotation;
             this.SourceIdentifier = sourceIdentifier;
@@ -57,7 +56,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             this.TradingVolume = tradingVolume;
             this.TradingValue = tradingValue;
             this.Volatility = volatility;
-            this.Status = status;
         }
 
         /// <summary>
@@ -86,19 +84,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets Performance
         /// </summary>
         [DataMember(Name = "performance", EmitDefaultValue = false)]
-        public InlineResponse20074DataPerformance Performance { get; set; }
+        public InlineResponse20075DataPerformance Performance { get; set; }
 
         /// <summary>
         /// Gets or Sets High
         /// </summary>
         [DataMember(Name = "high", EmitDefaultValue = false)]
-        public InlineResponse20074DataHigh High { get; set; }
+        public InlineResponse20075DataHigh High { get; set; }
 
         /// <summary>
         /// Gets or Sets Low
         /// </summary>
         [DataMember(Name = "low", EmitDefaultValue = false)]
-        public InlineResponse20074DataLow Low { get; set; }
+        public InlineResponse20075DataLow Low { get; set; }
 
         /// <summary>
         /// Arithmetic mean of the notation&#39;s EOD closing prices for the given time range.
@@ -111,7 +109,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets TradingVolume
         /// </summary>
         [DataMember(Name = "tradingVolume", EmitDefaultValue = false)]
-        public InlineResponse20076DataTradingVolume TradingVolume { get; set; }
+        public InlineResponse20077DataTradingVolume TradingVolume { get; set; }
 
         /// <summary>
         /// Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.
@@ -126,12 +124,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <value>Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.</value>
         [DataMember(Name = "volatility", EmitDefaultValue = true)]
         public decimal? Volatility { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public InlineResponse20075Status Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -151,7 +143,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             sb.Append("  TradingVolume: ").Append(TradingVolume).Append("\n");
             sb.Append("  TradingValue: ").Append(TradingValue).Append("\n");
             sb.Append("  Volatility: ").Append(Volatility).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -236,11 +227,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Volatility == input.Volatility ||
                     (this.Volatility != null &&
                     this.Volatility.Equals(input.Volatility))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -292,10 +278,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 if (this.Volatility != null)
                 {
                     hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 return hashCode;
             }

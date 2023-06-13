@@ -48,19 +48,19 @@ import com.factset.sdk.IRNNotes.JSON;
 public class NoteEventDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CREATED_AT = "CreatedAt";
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private JsonNullable<String> createdAt = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_USER = "User";
+  public static final String JSON_PROPERTY_USER = "user";
   private JsonNullable<String> user = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_COMMENT = "Comment";
+  public static final String JSON_PROPERTY_COMMENT = "comment";
   private JsonNullable<String> comment = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CHANGE_LIST = "ChangeList";
+  public static final String JSON_PROPERTY_CHANGE_LIST = "changeList";
   private JsonNullable<java.util.List<RecordChangeDto>> changeList = JsonNullable.<java.util.List<RecordChangeDto>>undefined();
 
   public NoteEventDto() { 

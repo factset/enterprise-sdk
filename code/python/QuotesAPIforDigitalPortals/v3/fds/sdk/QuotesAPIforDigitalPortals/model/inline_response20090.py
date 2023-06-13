@@ -30,10 +30,10 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20036_meta import InlineResponse20036Meta
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20090_data import InlineResponse20090Data
-    globals()['InlineResponse20036Meta'] = InlineResponse20036Meta
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20090_meta import InlineResponse20090Meta
     globals()['InlineResponse20090Data'] = InlineResponse20090Data
+    globals()['InlineResponse20090Meta'] = InlineResponse20090Meta
 
 
 class InlineResponse20090(ModelNormal):
@@ -89,8 +89,8 @@ class InlineResponse20090(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse20090Data],),  # noqa: E501
-            'meta': (InlineResponse20036Meta,),  # noqa: E501
+            'data': (InlineResponse20090Data,),  # noqa: E501
+            'meta': (InlineResponse20090Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class InlineResponse20090(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20090Data]): List of instruments.. [optional]  # noqa: E501
-            meta (InlineResponse20036Meta): [optional]  # noqa: E501
+            data (InlineResponse20090Data): [optional]  # noqa: E501
+            meta (InlineResponse20090Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,8 @@ class InlineResponse20090(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20090Data]): List of instruments.. [optional]  # noqa: E501
-            meta (InlineResponse20036Meta): [optional]  # noqa: E501
+            data (InlineResponse20090Data): [optional]  # noqa: E501
+            meta (InlineResponse20090Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

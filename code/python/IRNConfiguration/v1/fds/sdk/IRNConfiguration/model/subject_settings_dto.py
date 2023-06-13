@@ -84,7 +84,7 @@ class SubjectSettingsDto(ModelNormal):
 
 
     attribute_map = {
-        'default_id': 'DefaultId',  # noqa: E501
+        'default_id': 'defaultId',  # noqa: E501
     }
 
     read_only_vars = {

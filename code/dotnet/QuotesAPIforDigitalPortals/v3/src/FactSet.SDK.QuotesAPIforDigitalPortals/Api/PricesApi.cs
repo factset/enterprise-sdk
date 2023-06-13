@@ -39,8 +39,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000M)</param>
-        /// <returns>InlineResponse20084</returns>
-        InlineResponse20084 GetPricesBidAskGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
+        /// <returns>InlineResponse20086</returns>
+        InlineResponse20086 GetPricesBidAskGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
 
         /// <summary>
         /// Most recent bid and ask prices (best bid / offer) for a notation.
@@ -54,13 +54,71 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000M)</param>
-        /// <returns>ApiResponse of InlineResponse20084</returns>
-        ApiResponse<InlineResponse20084> GetPricesBidAskGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
+        /// <returns>ApiResponse of InlineResponse20086</returns>
+        ApiResponse<InlineResponse20086> GetPricesBidAskGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
         /// <summary>
         /// Most recent bid and ask prices (best bid / offer) for a list of notations.
         /// </summary>
         /// <remarks>
         /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to DLY)</param>
+        /// <param name="sameQuality"> (optional, default to true)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20087</returns>
+        InlineResponse20087 GetPricesBidAskList(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to DLY)</param>
+        /// <param name="sameQuality"> (optional, default to true)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20087</returns>
+        ApiResponse<InlineResponse20087> GetPricesBidAskListWithHttpInfo(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Overview of trading on the most recent trading day, including the latest price, for a notation.
+        /// </summary>
+        /// <remarks>
+        /// Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to DLY)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
+        /// <returns>InlineResponse20084</returns>
+        InlineResponse20084 GetPricesGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
+
+        /// <summary>
+        /// Overview of trading on the most recent trading day, including the latest price, for a notation.
+        /// </summary>
+        /// <remarks>
+        /// Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to DLY)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
+        /// <returns>ApiResponse of InlineResponse20084</returns>
+        ApiResponse<InlineResponse20084> GetPricesGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
+        /// <summary>
+        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers"></param>
@@ -69,13 +127,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse20085</returns>
-        InlineResponse20085 GetPricesBidAskList(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>));
+        InlineResponse20085 GetPricesList(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>));
 
         /// <summary>
-        /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
         /// </summary>
         /// <remarks>
-        /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers"></param>
@@ -84,65 +142,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20085</returns>
-        ApiResponse<InlineResponse20085> GetPricesBidAskListWithHttpInfo(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>));
-        /// <summary>
-        /// Overview of trading on the most recent trading day, including the latest price, for a notation.
-        /// </summary>
-        /// <remarks>
-        /// Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to DLY)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
-        /// <returns>InlineResponse20082</returns>
-        InlineResponse20082 GetPricesGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
-
-        /// <summary>
-        /// Overview of trading on the most recent trading day, including the latest price, for a notation.
-        /// </summary>
-        /// <remarks>
-        /// Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to DLY)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
-        /// <returns>ApiResponse of InlineResponse20082</returns>
-        ApiResponse<InlineResponse20082> GetPricesGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
-        /// <summary>
-        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to DLY)</param>
-        /// <param name="sameQuality"> (optional, default to true)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20083</returns>
-        InlineResponse20083 GetPricesList(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to DLY)</param>
-        /// <param name="sameQuality"> (optional, default to true)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20083</returns>
-        ApiResponse<InlineResponse20083> GetPricesListWithHttpInfo(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>));
+        ApiResponse<InlineResponse20085> GetPricesListWithHttpInfo(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>));
         /// <summary>
         /// Orderbook aggregated by price.
         /// </summary>
@@ -155,83 +155,83 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to RLT)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <returns>InlineResponse20086</returns>
-        InlineResponse20086 GetPricesOrderbookAggregatedGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
-
-        /// <summary>
-        /// Orderbook aggregated by price.
-        /// </summary>
-        /// <remarks>
-        /// Orderbook aggregated by price.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to RLT)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <returns>ApiResponse of InlineResponse20086</returns>
-        ApiResponse<InlineResponse20086> GetPricesOrderbookAggregatedGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
-        /// <summary>
-        /// Full orderbook
-        /// </summary>
-        /// <remarks>
-        /// Full orderbook
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to RLT)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <returns>InlineResponse20087</returns>
-        InlineResponse20087 GetPricesOrderbookFullGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
-
-        /// <summary>
-        /// Full orderbook
-        /// </summary>
-        /// <remarks>
-        /// Full orderbook
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to RLT)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <returns>ApiResponse of InlineResponse20087</returns>
-        ApiResponse<InlineResponse20087> GetPricesOrderbookFullGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
-        /// <summary>
-        /// Trading schedule event types.
-        /// </summary>
-        /// <remarks>
-        /// Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20089</returns>
-        InlineResponse20089 GetPricesTradingScheduleEventTypeList(List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// Trading schedule event types.
-        /// </summary>
-        /// <remarks>
-        /// Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20089</returns>
-        ApiResponse<InlineResponse20089> GetPricesTradingScheduleEventTypeListWithHttpInfo(List<string> attributes = default(List<string>));
-        /// <summary>
-        /// Sequence of market-related events.
-        /// </summary>
-        /// <remarks>
-        /// Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postPricesTradingScheduleEventListRequest"> (optional)</param>
         /// <returns>InlineResponse20088</returns>
-        InlineResponse20088 PostPricesTradingScheduleEventList(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = default(PostPricesTradingScheduleEventListRequest));
+        InlineResponse20088 GetPricesOrderbookAggregatedGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
+
+        /// <summary>
+        /// Orderbook aggregated by price.
+        /// </summary>
+        /// <remarks>
+        /// Orderbook aggregated by price.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to RLT)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
+        /// <returns>ApiResponse of InlineResponse20088</returns>
+        ApiResponse<InlineResponse20088> GetPricesOrderbookAggregatedGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
+        /// <summary>
+        /// Full orderbook
+        /// </summary>
+        /// <remarks>
+        /// Full orderbook
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to RLT)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
+        /// <returns>InlineResponse20089</returns>
+        InlineResponse20089 GetPricesOrderbookFullGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
+
+        /// <summary>
+        /// Full orderbook
+        /// </summary>
+        /// <remarks>
+        /// Full orderbook
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to RLT)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
+        /// <returns>ApiResponse of InlineResponse20089</returns>
+        ApiResponse<InlineResponse20089> GetPricesOrderbookFullGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?));
+        /// <summary>
+        /// Trading schedule event types.
+        /// </summary>
+        /// <remarks>
+        /// Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20091</returns>
+        InlineResponse20091 GetPricesTradingScheduleEventTypeList(List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// Trading schedule event types.
+        /// </summary>
+        /// <remarks>
+        /// Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20091</returns>
+        ApiResponse<InlineResponse20091> GetPricesTradingScheduleEventTypeListWithHttpInfo(List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Sequence of market-related events.
+        /// </summary>
+        /// <remarks>
+        /// Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postPricesTradingScheduleEventListRequest">Request Body</param>
+        /// <returns>InlineResponse20090</returns>
+        InlineResponse20090 PostPricesTradingScheduleEventList(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest);
 
         /// <summary>
         /// Sequence of market-related events.
@@ -240,9 +240,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postPricesTradingScheduleEventListRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20088</returns>
-        ApiResponse<InlineResponse20088> PostPricesTradingScheduleEventListWithHttpInfo(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = default(PostPricesTradingScheduleEventListRequest));
+        /// <param name="postPricesTradingScheduleEventListRequest">Request Body</param>
+        /// <returns>ApiResponse of InlineResponse20090</returns>
+        ApiResponse<InlineResponse20090> PostPricesTradingScheduleEventListWithHttpInfo(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest);
         #endregion Synchronous Operations
     }
 
@@ -265,8 +265,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20084</returns>
-        System.Threading.Tasks.Task<InlineResponse20084> GetPricesBidAskGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20086</returns>
+        System.Threading.Tasks.Task<InlineResponse20086> GetPricesBidAskGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Most recent bid and ask prices (best bid / offer) for a notation.
@@ -281,13 +281,75 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20084)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20084>> GetPricesBidAskGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20086)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20086>> GetPricesBidAskGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Most recent bid and ask prices (best bid / offer) for a list of notations.
         /// </summary>
         /// <remarks>
         /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to DLY)</param>
+        /// <param name="sameQuality"> (optional, default to true)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20087</returns>
+        System.Threading.Tasks.Task<InlineResponse20087> GetPricesBidAskListAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to DLY)</param>
+        /// <param name="sameQuality"> (optional, default to true)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20087)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20087>> GetPricesBidAskListWithHttpInfoAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Overview of trading on the most recent trading day, including the latest price, for a notation.
+        /// </summary>
+        /// <remarks>
+        /// Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to DLY)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20084</returns>
+        System.Threading.Tasks.Task<InlineResponse20084> GetPricesGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Overview of trading on the most recent trading day, including the latest price, for a notation.
+        /// </summary>
+        /// <remarks>
+        /// Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to DLY)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20084)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20084>> GetPricesGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers"></param>
@@ -297,13 +359,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20085</returns>
-        System.Threading.Tasks.Task<InlineResponse20085> GetPricesBidAskListAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20085> GetPricesListAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
         /// </summary>
         /// <remarks>
-        /// Most recent bid and ask prices (best bid / offer) for a list of notations.
+        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers"></param>
@@ -313,69 +375,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20085)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20085>> GetPricesBidAskListWithHttpInfoAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Overview of trading on the most recent trading day, including the latest price, for a notation.
-        /// </summary>
-        /// <remarks>
-        /// Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to DLY)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20082</returns>
-        System.Threading.Tasks.Task<InlineResponse20082> GetPricesGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Overview of trading on the most recent trading day, including the latest price, for a notation.
-        /// </summary>
-        /// <remarks>
-        /// Overview of trading on the most recent trading day, including the latest price, for a notation.  The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to DLY)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20082)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20082>> GetPricesGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to DLY)</param>
-        /// <param name="sameQuality"> (optional, default to true)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20083</returns>
-        System.Threading.Tasks.Task<InlineResponse20083> GetPricesListAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to DLY)</param>
-        /// <param name="sameQuality"> (optional, default to true)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20083)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20083>> GetPricesListWithHttpInfoAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20085>> GetPricesListWithHttpInfoAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Orderbook aggregated by price.
         /// </summary>
@@ -388,90 +388,90 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to RLT)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20086</returns>
-        System.Threading.Tasks.Task<InlineResponse20086> GetPricesOrderbookAggregatedGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Orderbook aggregated by price.
-        /// </summary>
-        /// <remarks>
-        /// Orderbook aggregated by price.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to RLT)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20086)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20086>> GetPricesOrderbookAggregatedGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Full orderbook
-        /// </summary>
-        /// <remarks>
-        /// Full orderbook
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to RLT)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20087</returns>
-        System.Threading.Tasks.Task<InlineResponse20087> GetPricesOrderbookFullGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Full orderbook
-        /// </summary>
-        /// <remarks>
-        /// Full orderbook
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="quality"> (optional, default to RLT)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20087)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20087>> GetPricesOrderbookFullGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Trading schedule event types.
-        /// </summary>
-        /// <remarks>
-        /// Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20089</returns>
-        System.Threading.Tasks.Task<InlineResponse20089> GetPricesTradingScheduleEventTypeListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Trading schedule event types.
-        /// </summary>
-        /// <remarks>
-        /// Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20089)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20089>> GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Sequence of market-related events.
-        /// </summary>
-        /// <remarks>
-        /// Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postPricesTradingScheduleEventListRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20088</returns>
-        System.Threading.Tasks.Task<InlineResponse20088> PostPricesTradingScheduleEventListAsync(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = default(PostPricesTradingScheduleEventListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20088> GetPricesOrderbookAggregatedGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Orderbook aggregated by price.
+        /// </summary>
+        /// <remarks>
+        /// Orderbook aggregated by price.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to RLT)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20088)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20088>> GetPricesOrderbookAggregatedGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Full orderbook
+        /// </summary>
+        /// <remarks>
+        /// Full orderbook
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to RLT)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20089</returns>
+        System.Threading.Tasks.Task<InlineResponse20089> GetPricesOrderbookFullGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Full orderbook
+        /// </summary>
+        /// <remarks>
+        /// Full orderbook
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="quality"> (optional, default to RLT)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20089)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20089>> GetPricesOrderbookFullGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trading schedule event types.
+        /// </summary>
+        /// <remarks>
+        /// Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20091</returns>
+        System.Threading.Tasks.Task<InlineResponse20091> GetPricesTradingScheduleEventTypeListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trading schedule event types.
+        /// </summary>
+        /// <remarks>
+        /// Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20091)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20091>> GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Sequence of market-related events.
+        /// </summary>
+        /// <remarks>
+        /// Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postPricesTradingScheduleEventListRequest">Request Body</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20090</returns>
+        System.Threading.Tasks.Task<InlineResponse20090> PostPricesTradingScheduleEventListAsync(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Sequence of market-related events.
@@ -480,10 +480,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postPricesTradingScheduleEventListRequest"> (optional)</param>
+        /// <param name="postPricesTradingScheduleEventListRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20088)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20088>> PostPricesTradingScheduleEventListWithHttpInfoAsync(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = default(PostPricesTradingScheduleEventListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20090)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20090>> PostPricesTradingScheduleEventListWithHttpInfoAsync(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -506,42 +506,42 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesBidAskGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20084) },
+            { (HttpStatusCode)200, typeof(InlineResponse20086) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesBidAskListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20085) },
+            { (HttpStatusCode)200, typeof(InlineResponse20087) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20082) },
+            { (HttpStatusCode)200, typeof(InlineResponse20084) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20083) },
+            { (HttpStatusCode)200, typeof(InlineResponse20085) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesOrderbookAggregatedGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20086) },
+            { (HttpStatusCode)200, typeof(InlineResponse20088) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesOrderbookFullGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20087) },
+            { (HttpStatusCode)200, typeof(InlineResponse20089) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesTradingScheduleEventTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20089) },
+            { (HttpStatusCode)200, typeof(InlineResponse20091) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostPricesTradingScheduleEventListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20088) },
+            { (HttpStatusCode)200, typeof(InlineResponse20090) },
         };
 
         # endregion Response Type Disctionaries
@@ -662,8 +662,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000M)</param>
-        /// <returns>InlineResponse20084</returns>
-        public InlineResponse20084 GetPricesBidAskGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        /// <returns>InlineResponse20086</returns>
+        public InlineResponse20086 GetPricesBidAskGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             var localVarResponse = GetPricesBidAskGetWithHttpInfo(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
             return localVarResponse.Data;
@@ -678,8 +678,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000M)</param>
-        /// <returns>ApiResponse of InlineResponse20084</returns>
-        public ApiResponse<InlineResponse20084> GetPricesBidAskGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20086</returns>
+        public ApiResponse<InlineResponse20086> GetPricesBidAskGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -754,7 +754,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20084>("/prices/bidAsk/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20086>("/prices/bidAsk/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesBidAskGet", localVarResponse);
@@ -776,8 +776,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20084</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20084>GetPricesBidAskGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20086</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20086>GetPricesBidAskGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetPricesBidAskGetWithHttpInfoAsync(identifier, identifierType, quality, attributes, subscriptionMinimumInterval, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -793,9 +793,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20084)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20086)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20084>> GetPricesBidAskGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20086>> GetPricesBidAskGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -870,7 +870,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetPricesBidAskGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20084>("/prices/bidAsk/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20086>("/prices/bidAsk/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -893,8 +893,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20085</returns>
-        public InlineResponse20085 GetPricesBidAskList(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20087</returns>
+        public InlineResponse20087 GetPricesBidAskList(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetPricesBidAskListWithHttpInfo(identifiers, identifierType, quality, sameQuality, attributes);
             return localVarResponse.Data;
@@ -909,8 +909,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20085</returns>
-        public ApiResponse<InlineResponse20085> GetPricesBidAskListWithHttpInfo(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20087</returns>
+        public ApiResponse<InlineResponse20087> GetPricesBidAskListWithHttpInfo(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -985,7 +985,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20085>("/prices/bidAsk/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20087>("/prices/bidAsk/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesBidAskList", localVarResponse);
@@ -1007,8 +1007,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20085</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20085>GetPricesBidAskListAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20087</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20087>GetPricesBidAskListAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetPricesBidAskListWithHttpInfoAsync(identifiers, identifierType, quality, sameQuality, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1024,9 +1024,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20085)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20087)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20085>> GetPricesBidAskListWithHttpInfoAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20087>> GetPricesBidAskListWithHttpInfoAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -1101,7 +1101,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetPricesBidAskListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20085>("/prices/bidAsk/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20087>("/prices/bidAsk/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1124,8 +1124,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
-        /// <returns>InlineResponse20082</returns>
-        public InlineResponse20082 GetPricesGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        /// <returns>InlineResponse20084</returns>
+        public InlineResponse20084 GetPricesGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             var localVarResponse = GetPricesGetWithHttpInfo(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
             return localVarResponse.Data;
@@ -1140,8 +1140,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
-        /// <returns>ApiResponse of InlineResponse20082</returns>
-        public ApiResponse<InlineResponse20082> GetPricesGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20084</returns>
+        public ApiResponse<InlineResponse20084> GetPricesGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -1216,7 +1216,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20082>("/prices/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20084>("/prices/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesGet", localVarResponse);
@@ -1238,8 +1238,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20082</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20082>GetPricesGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20084</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20084>GetPricesGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetPricesGetWithHttpInfoAsync(identifier, identifierType, quality, attributes, subscriptionMinimumInterval, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1255,9 +1255,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are sent. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20082)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20084)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20082>> GetPricesGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20084>> GetPricesGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -1332,7 +1332,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetPricesGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20082>("/prices/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20084>("/prices/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1355,8 +1355,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20083</returns>
-        public InlineResponse20083 GetPricesList(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20085</returns>
+        public InlineResponse20085 GetPricesList(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetPricesListWithHttpInfo(identifiers, identifierType, quality, sameQuality, attributes);
             return localVarResponse.Data;
@@ -1371,8 +1371,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20083</returns>
-        public ApiResponse<InlineResponse20083> GetPricesListWithHttpInfo(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20085</returns>
+        public ApiResponse<InlineResponse20085> GetPricesListWithHttpInfo(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -1447,7 +1447,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20083>("/prices/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20085>("/prices/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesList", localVarResponse);
@@ -1469,8 +1469,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20083</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20083>GetPricesListAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20085</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20085>GetPricesListAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetPricesListWithHttpInfoAsync(identifiers, identifierType, quality, sameQuality, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1486,9 +1486,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="sameQuality"> (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20083)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20085)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20083>> GetPricesListWithHttpInfoAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20085>> GetPricesListWithHttpInfoAsync(List<string> identifiers, string identifierType, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -1563,7 +1563,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetPricesListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20083>("/prices/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20085>("/prices/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1586,8 +1586,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to RLT)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <returns>InlineResponse20086</returns>
-        public InlineResponse20086 GetPricesOrderbookAggregatedGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        /// <returns>InlineResponse20088</returns>
+        public InlineResponse20088 GetPricesOrderbookAggregatedGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             var localVarResponse = GetPricesOrderbookAggregatedGetWithHttpInfo(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
             return localVarResponse.Data;
@@ -1602,8 +1602,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to RLT)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <returns>ApiResponse of InlineResponse20086</returns>
-        public ApiResponse<InlineResponse20086> GetPricesOrderbookAggregatedGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20088</returns>
+        public ApiResponse<InlineResponse20088> GetPricesOrderbookAggregatedGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -1678,7 +1678,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20086>("/prices/orderbook/aggregated/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20088>("/prices/orderbook/aggregated/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesOrderbookAggregatedGet", localVarResponse);
@@ -1700,8 +1700,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20086</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20086>GetPricesOrderbookAggregatedGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20088</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20088>GetPricesOrderbookAggregatedGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetPricesOrderbookAggregatedGetWithHttpInfoAsync(identifier, identifierType, quality, attributes, subscriptionMinimumInterval, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1717,9 +1717,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20086)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20088)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20086>> GetPricesOrderbookAggregatedGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20088>> GetPricesOrderbookAggregatedGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -1794,7 +1794,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetPricesOrderbookAggregatedGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20086>("/prices/orderbook/aggregated/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20088>("/prices/orderbook/aggregated/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1817,8 +1817,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to RLT)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <returns>InlineResponse20087</returns>
-        public InlineResponse20087 GetPricesOrderbookFullGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        /// <returns>InlineResponse20089</returns>
+        public InlineResponse20089 GetPricesOrderbookFullGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             var localVarResponse = GetPricesOrderbookFullGetWithHttpInfo(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
             return localVarResponse.Data;
@@ -1833,8 +1833,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to RLT)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
-        /// <returns>ApiResponse of InlineResponse20087</returns>
-        public ApiResponse<InlineResponse20087> GetPricesOrderbookFullGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20089</returns>
+        public ApiResponse<InlineResponse20089> GetPricesOrderbookFullGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -1909,7 +1909,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20087>("/prices/orderbook/full/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20089>("/prices/orderbook/full/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesOrderbookFullGet", localVarResponse);
@@ -1931,8 +1931,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20087</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20087>GetPricesOrderbookFullGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20089</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20089>GetPricesOrderbookFullGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetPricesOrderbookFullGetWithHttpInfoAsync(identifier, identifierType, quality, attributes, subscriptionMinimumInterval, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1948,9 +1948,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20087)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20089)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20087>> GetPricesOrderbookFullGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20089>> GetPricesOrderbookFullGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2025,7 +2025,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetPricesOrderbookFullGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20087>("/prices/orderbook/full/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20089>("/prices/orderbook/full/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2044,8 +2044,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20089</returns>
-        public InlineResponse20089 GetPricesTradingScheduleEventTypeList(List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20091</returns>
+        public InlineResponse20091 GetPricesTradingScheduleEventTypeList(List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetPricesTradingScheduleEventTypeListWithHttpInfo(attributes);
             return localVarResponse.Data;
@@ -2056,8 +2056,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20089</returns>
-        public ApiResponse<InlineResponse20089> GetPricesTradingScheduleEventTypeListWithHttpInfo(List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20091</returns>
+        public ApiResponse<InlineResponse20091> GetPricesTradingScheduleEventTypeListWithHttpInfo(List<string> attributes = default(List<string>))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2110,7 +2110,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20089>("/prices/tradingSchedule/event/type/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20091>("/prices/tradingSchedule/event/type/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesTradingScheduleEventTypeList", localVarResponse);
@@ -2128,8 +2128,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20089</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20089>GetPricesTradingScheduleEventTypeListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20091</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20091>GetPricesTradingScheduleEventTypeListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2141,9 +2141,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20089)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20091)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20089>> GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20091>> GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -2196,7 +2196,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetPricesTradingScheduleEventTypeListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20089>("/prices/tradingSchedule/event/type/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20091>("/prices/tradingSchedule/event/type/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2214,9 +2214,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Sequence of market-related events. Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postPricesTradingScheduleEventListRequest"> (optional)</param>
-        /// <returns>InlineResponse20088</returns>
-        public InlineResponse20088 PostPricesTradingScheduleEventList(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = default(PostPricesTradingScheduleEventListRequest))
+        /// <param name="postPricesTradingScheduleEventListRequest">Request Body</param>
+        /// <returns>InlineResponse20090</returns>
+        public InlineResponse20090 PostPricesTradingScheduleEventList(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest)
         {
             var localVarResponse = PostPricesTradingScheduleEventListWithHttpInfo(postPricesTradingScheduleEventListRequest);
             return localVarResponse.Data;
@@ -2226,10 +2226,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Sequence of market-related events. Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postPricesTradingScheduleEventListRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20088</returns>
-        public ApiResponse<InlineResponse20088> PostPricesTradingScheduleEventListWithHttpInfo(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = default(PostPricesTradingScheduleEventListRequest))
+        /// <param name="postPricesTradingScheduleEventListRequest">Request Body</param>
+        /// <returns>ApiResponse of InlineResponse20090</returns>
+        public ApiResponse<InlineResponse20090> PostPricesTradingScheduleEventListWithHttpInfo(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest)
         {
+            // verify the required parameter 'postPricesTradingScheduleEventListRequest' is set
+            if (postPricesTradingScheduleEventListRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postPricesTradingScheduleEventListRequest' when calling PricesApi->PostPricesTradingScheduleEventList");
+            }
+
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2279,7 +2285,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20088>("/prices/tradingSchedule/event/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20090>("/prices/tradingSchedule/event/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTradingScheduleEventList", localVarResponse);
@@ -2295,10 +2301,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Sequence of market-related events. Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postPricesTradingScheduleEventListRequest"> (optional)</param>
+        /// <param name="postPricesTradingScheduleEventListRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20088</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20088>PostPricesTradingScheduleEventListAsync(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = default(PostPricesTradingScheduleEventListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20090</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20090>PostPricesTradingScheduleEventListAsync(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostPricesTradingScheduleEventListWithHttpInfoAsync(postPricesTradingScheduleEventListRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2308,12 +2314,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Sequence of market-related events. Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postPricesTradingScheduleEventListRequest"> (optional)</param>
+        /// <param name="postPricesTradingScheduleEventListRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20088)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20090)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20088>> PostPricesTradingScheduleEventListWithHttpInfoAsync(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = default(PostPricesTradingScheduleEventListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20090>> PostPricesTradingScheduleEventListWithHttpInfoAsync(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'postPricesTradingScheduleEventListRequest' is set
+            if (postPricesTradingScheduleEventListRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postPricesTradingScheduleEventListRequest' when calling PricesApi->PostPricesTradingScheduleEventList");
+            }
+
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2363,7 +2375,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostPricesTradingScheduleEventListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20088>("/prices/tradingSchedule/event/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20090>("/prices/tradingSchedule/event/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

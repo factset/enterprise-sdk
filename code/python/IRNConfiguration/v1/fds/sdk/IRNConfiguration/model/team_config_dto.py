@@ -88,11 +88,11 @@ class TeamConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'name': 'Name',  # noqa: E501
-        'code': 'Code',  # noqa: E501
-        'default_subject_id': 'DefaultSubjectId',  # noqa: E501
-        'user_ids': 'UserIds',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'code': 'code',  # noqa: E501
+        'default_subject_id': 'defaultSubjectId',  # noqa: E501
+        'user_ids': 'userIds',  # noqa: E501
     }
 
     read_only_vars = {

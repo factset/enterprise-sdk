@@ -46,14 +46,14 @@ class RelatedResearchSettingsDto {
         if (data) {
             obj = obj || new RelatedResearchSettingsDto();
 
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('UsePrevious')) {
-                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            if (data.hasOwnProperty('usePrevious')) {
+                obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class RelatedResearchSettingsDto {
 }
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-RelatedResearchSettingsDto.prototype['IsHidden'] = undefined;
+RelatedResearchSettingsDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  */
-RelatedResearchSettingsDto.prototype['IsMandatory'] = undefined;
+RelatedResearchSettingsDto.prototype['isMandatory'] = undefined;
 
 /**
- * @member {Boolean} UsePrevious
+ * @member {Boolean} usePrevious
  */
-RelatedResearchSettingsDto.prototype['UsePrevious'] = undefined;
+RelatedResearchSettingsDto.prototype['usePrevious'] = undefined;
 
 
 

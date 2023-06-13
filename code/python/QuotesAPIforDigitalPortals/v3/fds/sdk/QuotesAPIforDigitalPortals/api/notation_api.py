@@ -41,9 +41,12 @@ from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20078 import Inline
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20079 import InlineResponse20079
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20080 import InlineResponse20080
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20081 import InlineResponse20081
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20091 import InlineResponse20091
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20092 import InlineResponse20092
+from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082 import InlineResponse20082
+from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083 import InlineResponse20083
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20093 import InlineResponse20093
+from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20094 import InlineResponse20094
+from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20095 import InlineResponse20095
+from fds.sdk.QuotesAPIforDigitalPortals.model.post_notation_category_list_request import PostNotationCategoryListRequest
 from fds.sdk.QuotesAPIforDigitalPortals.model.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request import PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest
 from fds.sdk.QuotesAPIforDigitalPortals.model.post_notation_cross_reference_fact_set_identifier_list_by_instrument_request import PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest
 from fds.sdk.QuotesAPIforDigitalPortals.model.post_notation_cross_reference_list_by_isin_request import PostNotationCrossReferenceListByISINRequest
@@ -71,7 +74,7 @@ class NotationApi(object):
         self.get_notation_cross_reference_fact_set_identifier_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20071,),  },
+                  { 200: (InlineResponse20072,),  },
                   None
                 ),
                 'auth': [
@@ -109,7 +112,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -161,7 +164,7 @@ class NotationApi(object):
         self.get_notation_cross_reference_get_by_fact_set_market_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20067,),  },
+                  { 200: (InlineResponse20068,),  },
                   None
                 ),
                 'auth': [
@@ -283,7 +286,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -343,7 +346,7 @@ class NotationApi(object):
         self.get_notation_key_figures_month_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20076,),  },
+                  { 200: (InlineResponse20077,),  },
                   None
                 ),
                 'auth': [
@@ -381,7 +384,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -433,7 +436,7 @@ class NotationApi(object):
         self.get_notation_key_figures_month_1_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20077,),  },
+                  { 200: (InlineResponse20078,),  },
                   None
                 ),
                 'auth': [
@@ -522,7 +525,7 @@ class NotationApi(object):
         self.get_notation_key_figures_month_3_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20074,),  },
+                  { 200: (InlineResponse20075,),  },
                   None
                 ),
                 'auth': [
@@ -560,7 +563,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -612,7 +615,7 @@ class NotationApi(object):
         self.get_notation_key_figures_month_3_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20075,),  },
+                  { 200: (InlineResponse20076,),  },
                   None
                 ),
                 'auth': [
@@ -701,7 +704,7 @@ class NotationApi(object):
         self.get_notation_key_figures_month_6_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20074,),  },
+                  { 200: (InlineResponse20075,),  },
                   None
                 ),
                 'auth': [
@@ -739,7 +742,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -791,7 +794,7 @@ class NotationApi(object):
         self.get_notation_key_figures_month_6_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20075,),  },
+                  { 200: (InlineResponse20076,),  },
                   None
                 ),
                 'auth': [
@@ -877,10 +880,100 @@ class NotationApi(object):
             api_client=api_client
         )
 
+        self.get_notation_key_figures_trading_day_average_get_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20081,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/notation/keyFigures/tradingDay/average/get',
+                'operation_id': 'get_notation_key_figures_trading_day_average_get',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'identifier',
+                    'identifier_type',
+                    'attributes',
+                ],
+                'required': [
+                    'identifier',
+                    'identifier_type',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'identifier_type',
+                ],
+                'validation': [
+                    'identifier',
+                    'attributes',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('identifier',): {
+                        'max_length': 50,
+                        'min_length': 3,
+                        'regex': {
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
+                        },
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                },
+                'allowed_values': {
+                    ('identifier_type',): {
+
+                        "IDNOTATION": "idNotation",
+                        "TICKEREXCHANGE": "tickerExchange",
+                        "TICKERREGION": "tickerRegion",
+                        "FDSPERMANENTIDENTIFIERLISTING": "fdsPermanentIdentifierListing",
+                        "FDSPERMANENTIDENTIFIERREGIONAL": "fdsPermanentIdentifierRegional"
+                    },
+                },
+                'openapi_types': {
+                    'identifier':
+                        (str,),
+                    'identifier_type':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'identifier': 'identifier',
+                    'identifier_type': 'identifierType',
+                    'attributes': '_attributes',
+                },
+                'location_map': {
+                    'identifier': 'query',
+                    'identifier_type': 'query',
+                    'attributes': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
         self.get_notation_key_figures_week_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20076,),  },
+                  { 200: (InlineResponse20077,),  },
                   None
                 ),
                 'auth': [
@@ -918,7 +1011,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -970,7 +1063,7 @@ class NotationApi(object):
         self.get_notation_key_figures_week_1_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20077,),  },
+                  { 200: (InlineResponse20078,),  },
                   None
                 ),
                 'auth': [
@@ -1059,7 +1152,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_10_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20074,),  },
+                  { 200: (InlineResponse20075,),  },
                   None
                 ),
                 'auth': [
@@ -1097,7 +1190,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -1149,7 +1242,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_10_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20075,),  },
+                  { 200: (InlineResponse20076,),  },
                   None
                 ),
                 'auth': [
@@ -1238,7 +1331,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20076,),  },
+                  { 200: (InlineResponse20077,),  },
                   None
                 ),
                 'auth': [
@@ -1276,7 +1369,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -1328,7 +1421,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_1_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20077,),  },
+                  { 200: (InlineResponse20078,),  },
                   None
                 ),
                 'auth': [
@@ -1417,7 +1510,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_3_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20074,),  },
+                  { 200: (InlineResponse20075,),  },
                   None
                 ),
                 'auth': [
@@ -1455,7 +1548,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -1507,7 +1600,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_3_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20075,),  },
+                  { 200: (InlineResponse20076,),  },
                   None
                 ),
                 'auth': [
@@ -1596,7 +1689,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_5_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20074,),  },
+                  { 200: (InlineResponse20075,),  },
                   None
                 ),
                 'auth': [
@@ -1634,7 +1727,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -1686,7 +1779,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_5_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20075,),  },
+                  { 200: (InlineResponse20076,),  },
                   None
                 ),
                 'auth': [
@@ -1775,7 +1868,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_7_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20074,),  },
+                  { 200: (InlineResponse20075,),  },
                   None
                 ),
                 'auth': [
@@ -1813,7 +1906,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -1865,7 +1958,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_7_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20075,),  },
+                  { 200: (InlineResponse20076,),  },
                   None
                 ),
                 'auth': [
@@ -1954,7 +2047,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_to_date_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20078,),  },
+                  { 200: (InlineResponse20079,),  },
                   None
                 ),
                 'auth': [
@@ -1992,7 +2085,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -2044,7 +2137,7 @@ class NotationApi(object):
         self.get_notation_key_figures_year_to_date_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20079,),  },
+                  { 200: (InlineResponse20080,),  },
                   None
                 ),
                 'auth': [
@@ -2232,7 +2325,7 @@ class NotationApi(object):
         self.get_notation_search_basic_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20091,),  },
+                  { 200: (InlineResponse20093,),  },
                   None
                 ),
                 'auth': [
@@ -2388,7 +2481,7 @@ class NotationApi(object):
         self.get_notation_search_by_text_ranked_by_volume_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20093,),  },
+                  { 200: (InlineResponse20095,),  },
                   None
                 ),
                 'auth': [
@@ -2551,7 +2644,7 @@ class NotationApi(object):
         self.get_notation_status_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20081,),  },
+                  { 200: (InlineResponse20083,),  },
                   None
                 ),
                 'auth': [
@@ -2591,7 +2684,7 @@ class NotationApi(object):
                         'max_length': 50,
                         'min_length': 3,
                         'regex': {
-                            'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                            'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
                         },
                     },
                     ('attributes',): {
@@ -2650,10 +2743,65 @@ class NotationApi(object):
             api_client=api_client
         )
 
+        self.post_notation_category_list_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20067,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/notation/category/list',
+                'operation_id': 'post_notation_category_list',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'post_notation_category_list_request',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'post_notation_category_list_request':
+                        (PostNotationCategoryListRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'post_notation_category_list_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+
         self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20072,),  },
+                  { 200: (InlineResponse20073,),  },
                   None
                 ),
                 'auth': [
@@ -2669,7 +2817,9 @@ class NotationApi(object):
                 'all': [
                     'post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request',
                 ],
-                'required': [],
+                'required': [
+                    'post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -2708,7 +2858,7 @@ class NotationApi(object):
         self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20073,),  },
+                  { 200: (InlineResponse20074,),  },
                   None
                 ),
                 'auth': [
@@ -2724,7 +2874,9 @@ class NotationApi(object):
                 'all': [
                     'post_notation_cross_reference_fact_set_identifier_list_by_instrument_request',
                 ],
-                'required': [],
+                'required': [
+                    'post_notation_cross_reference_fact_set_identifier_list_by_instrument_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -2763,7 +2915,7 @@ class NotationApi(object):
         self.post_notation_cross_reference_list_by_instrument_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20068,),  },
+                  { 200: (InlineResponse20069,),  },
                   None
                 ),
                 'auth': [
@@ -2818,7 +2970,7 @@ class NotationApi(object):
         self.post_notation_cross_reference_list_by_isin_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20069,),  },
+                  { 200: (InlineResponse20070,),  },
                   None
                 ),
                 'auth': [
@@ -2873,7 +3025,7 @@ class NotationApi(object):
         self.post_notation_cross_reference_list_by_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20070,),  },
+                  { 200: (InlineResponse20071,),  },
                   None
                 ),
                 'auth': [
@@ -2928,7 +3080,7 @@ class NotationApi(object):
         self.post_notation_market_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20080,),  },
+                  { 200: (InlineResponse20082,),  },
                   None
                 ),
                 'auth': [
@@ -2983,7 +3135,7 @@ class NotationApi(object):
         self.post_notation_search_by_text_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20092,),  },
+                  { 200: (InlineResponse20094,),  },
                   None
                 ),
                 'auth': [
@@ -2999,7 +3151,9 @@ class NotationApi(object):
                 'all': [
                     'post_notation_search_by_text_request',
                 ],
-                'required': [],
+                'required': [
+                    'post_notation_search_by_text_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -3054,7 +3208,7 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> InlineResponse20071:
+    ) -> InlineResponse20072:
         """Retrieve FactSet identifiers for a given notation.  # noqa: E501
 
         <p>Retrieve FactSet identifiers for a given notation. Security and listing-level identifiers are always included, regional level identifiers are included, if available.  # noqa: E501
@@ -3090,7 +3244,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20071
+            InlineResponse20072
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -3105,7 +3259,7 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20071, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20072, int, typing.MutableMapping]:
         """Retrieve FactSet identifiers for a given notation.  # noqa: E501
 
         <p>Retrieve FactSet identifiers for a given notation. Security and listing-level identifiers are always included, regional level identifiers are included, if available.  # noqa: E501
@@ -3141,7 +3295,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20071
+            InlineResponse20072
                 Response Object
             int
                 Http Status Code
@@ -3160,7 +3314,7 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20071]":
+    ) -> "ApplyResult[InlineResponse20072]":
         """Retrieve FactSet identifiers for a given notation.  # noqa: E501
 
         <p>Retrieve FactSet identifiers for a given notation. Security and listing-level identifiers are always included, regional level identifiers are included, if available.  # noqa: E501
@@ -3196,7 +3350,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20071]
+            ApplyResult[InlineResponse20072]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['identifier'] = \
@@ -3210,7 +3364,7 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20071, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20072, int, typing.MutableMapping]]":
         """Retrieve FactSet identifiers for a given notation.  # noqa: E501
 
         <p>Retrieve FactSet identifiers for a given notation. Security and listing-level identifiers are always included, regional level identifiers are included, if available.  # noqa: E501
@@ -3246,7 +3400,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20071, int, typing.Dict)]
+            ApplyResult[(InlineResponse20072, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['identifier'] = \
@@ -3260,7 +3414,7 @@ class NotationApi(object):
         self,
         fact_set_market_symbol,
         **kwargs
-    ) -> InlineResponse20067:
+    ) -> InlineResponse20068:
         """Translate a FactSet market symbol to a notation.  # noqa: E501
 
         Translate a FactSet market symbol to a notation. This symbol is also known as TICKER_EXCHANGE.  # noqa: E501
@@ -3296,7 +3450,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20067
+            InlineResponse20068
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -3308,7 +3462,7 @@ class NotationApi(object):
         self,
         fact_set_market_symbol,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20067, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20068, int, typing.MutableMapping]:
         """Translate a FactSet market symbol to a notation.  # noqa: E501
 
         Translate a FactSet market symbol to a notation. This symbol is also known as TICKER_EXCHANGE.  # noqa: E501
@@ -3344,7 +3498,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20067
+            InlineResponse20068
                 Response Object
             int
                 Http Status Code
@@ -3360,7 +3514,7 @@ class NotationApi(object):
         self,
         fact_set_market_symbol,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20067]":
+    ) -> "ApplyResult[InlineResponse20068]":
         """Translate a FactSet market symbol to a notation.  # noqa: E501
 
         Translate a FactSet market symbol to a notation. This symbol is also known as TICKER_EXCHANGE.  # noqa: E501
@@ -3396,7 +3550,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20067]
+            ApplyResult[InlineResponse20068]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['fact_set_market_symbol'] = \
@@ -3407,7 +3561,7 @@ class NotationApi(object):
         self,
         fact_set_market_symbol,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20067, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20068, int, typing.MutableMapping]]":
         """Translate a FactSet market symbol to a notation.  # noqa: E501
 
         Translate a FactSet market symbol to a notation. This symbol is also known as TICKER_EXCHANGE.  # noqa: E501
@@ -3443,7 +3597,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20067, int, typing.Dict)]
+            ApplyResult[(InlineResponse20068, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['fact_set_market_symbol'] = \
@@ -3667,7 +3821,7 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> InlineResponse20076:
+    ) -> InlineResponse20077:
         """End-of-day (EOD) key figures for the time range of one month.  # noqa: E501
 
         End-of-day (EOD) key figures for the time range of one month.  # noqa: E501
@@ -3703,7 +3857,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20076
+            InlineResponse20077
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -3718,7 +3872,7 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20077, int, typing.MutableMapping]:
         """End-of-day (EOD) key figures for the time range of one month.  # noqa: E501
 
         End-of-day (EOD) key figures for the time range of one month.  # noqa: E501
@@ -3754,7 +3908,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20076
+            InlineResponse20077
                 Response Object
             int
                 Http Status Code
@@ -3773,7 +3927,7 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20076]":
+    ) -> "ApplyResult[InlineResponse20077]":
         """End-of-day (EOD) key figures for the time range of one month.  # noqa: E501
 
         End-of-day (EOD) key figures for the time range of one month.  # noqa: E501
@@ -3809,7 +3963,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20076]
+            ApplyResult[InlineResponse20077]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['identifier'] = \
@@ -3823,7 +3977,7 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20077, int, typing.MutableMapping]]":
         """End-of-day (EOD) key figures for the time range of one month.  # noqa: E501
 
         End-of-day (EOD) key figures for the time range of one month.  # noqa: E501
@@ -3859,7 +4013,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20076, int, typing.Dict)]
+            ApplyResult[(InlineResponse20077, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['identifier'] = \
@@ -3874,7 +4028,7 @@ class NotationApi(object):
         identifiers,
         identifier_type,
         **kwargs
-    ) -> InlineResponse20077:
+    ) -> InlineResponse20078:
         """End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
 
         End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
@@ -3910,7 +4064,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20077
+            InlineResponse20078
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -3925,7 +4079,7 @@ class NotationApi(object):
         identifiers,
         identifier_type,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20077, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20078, int, typing.MutableMapping]:
         """End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
 
         End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
@@ -3961,7 +4115,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20077
+            InlineResponse20078
                 Response Object
             int
                 Http Status Code
@@ -3980,3533 +4134,14 @@ class NotationApi(object):
         identifiers,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20077]":
-        """End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20077]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_1_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_1_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20077, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20077, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_1_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_month_3_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20074:
-        """End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_3_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20074, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_3_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20074]":
-        """End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20074]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_3_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20074, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20074, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_month_3_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20075:
-        """End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_3_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_3_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20075]":
-        """End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20075]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_3_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20075, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_month_6_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20074:
-        """End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_6_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20074, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_6_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20074]":
-        """End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20074]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_6_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20074, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20074, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_month_6_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20075:
-        """End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_6_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_6_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20075]":
-        """End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20075]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_month_6_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20075, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_week_1_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20076:
-        """End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20076
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_week_1_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20076
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_week_1_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20076]":
-        """End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20076]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_week_1_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20076, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_week_1_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20077:
-        """End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20077
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_week_1_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20077, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20077
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_week_1_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20077]":
-        """End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20077]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_week_1_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20077, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20077, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_10_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20074:
-        """End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_10_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20074, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_10_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20074]":
-        """End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20074]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_10_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20074, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20074, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_10_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20075:
-        """End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_10_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_10_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20075]":
-        """End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20075]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_10_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20075, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_1_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20076:
-        """End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20076
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_1_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20076
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_1_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20076]":
-        """End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20076]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_1_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20076, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_1_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20077:
-        """End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20077
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_1_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20077, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20077
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_1_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20077]":
-        """End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20077]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_1_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20077, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20077, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_3_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20074:
-        """End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_3_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20074, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_3_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20074]":
-        """End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20074]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_3_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20074, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20074, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_3_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20075:
-        """End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_3_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_3_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20075]":
-        """End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20075]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_3_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20075, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_5_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20074:
-        """End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_5_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20074, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_5_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20074]":
-        """End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20074]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_5_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20074, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20074, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_5_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20075:
-        """End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_5_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_5_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20075]":
-        """End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20075]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_5_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20075, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_7_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20074:
-        """End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_7_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20074, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20074
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_7_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20074]":
-        """End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20074]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_7_get_with_http_info_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20074, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20074, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_7_list(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20075:
-        """End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_7_list_with_http_info(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20075
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_7_list_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20075]":
-        """End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20075]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_7_list_with_http_info_async(
-        self,
-        identifiers,
-        identifier_type,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            identifiers ([str]):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20075, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['identifiers'] = \
-            identifiers
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_key_figures_year_to_date_get(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> InlineResponse20078:
-        """End-of-day (EOD) key figures for the time range year-to-date (YTD)..  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20078
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_to_date_get_with_http_info(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20078, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range year-to-date (YTD)..  # noqa: E501
-
-        End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            identifier (str):
-            identifier_type (str):
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20078
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['identifier'] = \
-            identifier
-        kwargs['identifier_type'] = \
-            identifier_type
-        return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_key_figures_year_to_date_get_async(
-        self,
-        identifier,
-        identifier_type,
-        **kwargs
     ) -> "ApplyResult[InlineResponse20078]":
-        """End-of-day (EOD) key figures for the time range year-to-date (YTD)..  # noqa: E501
+        """End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
 
-        End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..  # noqa: E501
+        End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            identifier (str):
+            identifiers ([str]):
             identifier_type (str):
 
         Keyword Args:
@@ -7538,21 +4173,228 @@ class NotationApi(object):
             ApplyResult[InlineResponse20078]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['identifier'] = \
-            identifier
+        kwargs['identifiers'] = \
+            identifiers
         kwargs['identifier_type'] = \
             identifier_type
-        return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_notation_key_figures_month_1_list_endpoint.call_with_http_info(**kwargs)
 
-    def get_notation_key_figures_year_to_date_get_with_http_info_async(
+    def get_notation_key_figures_month_1_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20078, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one month, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20078, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_1_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_month_3_get(
         self,
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20078, int, typing.MutableMapping]]":
-        """End-of-day (EOD) key figures for the time range year-to-date (YTD)..  # noqa: E501
+    ) -> InlineResponse20075:
+        """End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
 
-        End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..  # noqa: E501
+        End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_3_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_3_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20075]":
+        """End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20075]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_3_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three months.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -7585,25 +4427,25 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20078, int, typing.Dict)]
+            ApplyResult[(InlineResponse20075, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['identifier'] = \
             identifier
         kwargs['identifier_type'] = \
             identifier_type
-        return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_notation_key_figures_month_3_get_endpoint.call_with_http_info(**kwargs)
 
 
-    def get_notation_key_figures_year_to_date_list(
+    def get_notation_key_figures_month_3_list(
         self,
         identifiers,
         identifier_type,
         **kwargs
-    ) -> InlineResponse20079:
-        """End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..  # noqa: E501
+    ) -> InlineResponse20076:
+        """End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
 
-        End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..  # noqa: E501
+        End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -7636,7 +4478,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20079
+            InlineResponse20076
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -7644,21 +4486,3333 @@ class NotationApi(object):
             identifiers
         kwargs['identifier_type'] = \
             identifier_type
-        return self.get_notation_key_figures_year_to_date_list_endpoint.call_with_http_info(**kwargs)
+        return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
 
-    def get_notation_key_figures_year_to_date_list_with_http_info(
+    def get_notation_key_figures_month_3_list_with_http_info(
         self,
         identifiers,
         identifier_type,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20079, int, typing.MutableMapping]:
-        """End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..  # noqa: E501
+    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
 
-        End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..  # noqa: E501
+        End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
             identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_3_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20076]":
+        """End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20076]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_3_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three months, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20076, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_3_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_month_6_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20075:
+        """End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_6_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_6_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20075]":
+        """End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20075]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_6_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of six months.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20075, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_6_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_month_6_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20076:
+        """End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_6_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_6_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20076]":
+        """End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20076]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_month_6_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of six months, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20076, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_month_6_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_trading_day_average_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20081:
+        """Average end-of-day (EOD) key figures for different trading days periods.  # noqa: E501
+
+        Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20081
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_trading_day_average_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_trading_day_average_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20081, int, typing.MutableMapping]:
+        """Average end-of-day (EOD) key figures for different trading days periods.  # noqa: E501
+
+        Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20081
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_trading_day_average_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_trading_day_average_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20081]":
+        """Average end-of-day (EOD) key figures for different trading days periods.  # noqa: E501
+
+        Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20081]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_trading_day_average_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_trading_day_average_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20081, int, typing.MutableMapping]]":
+        """Average end-of-day (EOD) key figures for different trading days periods.  # noqa: E501
+
+        Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20081, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_trading_day_average_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_week_1_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20077:
+        """End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20077
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_week_1_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20077, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20077
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_week_1_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20077]":
+        """End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20077]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_week_1_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20077, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one week.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20077, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_week_1_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_week_1_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20078:
+        """End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20078
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_week_1_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20078, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20078
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_week_1_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20078]":
+        """End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20078]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_week_1_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20078, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one week, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20078, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_week_1_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_10_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20075:
+        """End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_10_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_10_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20075]":
+        """End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20075]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_10_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of ten years.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20075, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_10_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_10_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20076:
+        """End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_10_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_10_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20076]":
+        """End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20076]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_10_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of ten years, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20076, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_10_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_1_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20077:
+        """End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20077
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_1_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20077, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20077
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_1_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20077]":
+        """End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20077]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_1_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20077, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one year.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20077, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_1_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_1_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20078:
+        """End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20078
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_1_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20078, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20078
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_1_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20078]":
+        """End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20078]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_1_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20078, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of one year, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20078, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_1_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_3_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20075:
+        """End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_3_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_3_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20075]":
+        """End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20075]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_3_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three years.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20075, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_3_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_3_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20076:
+        """End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_3_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_3_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20076]":
+        """End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20076]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_3_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of three years, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20076, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_3_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_5_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20075:
+        """End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_5_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_5_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20075]":
+        """End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20075]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_5_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of five years.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20075, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_5_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_5_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20076:
+        """End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_5_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_5_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20076]":
+        """End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20076]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_5_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of five years, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20076, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_5_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_7_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20075:
+        """End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_7_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20075, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20075
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_7_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20075]":
+        """End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20075]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_7_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20075, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of seven years.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20075, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_7_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_7_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20076:
+        """End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_7_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20076, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20076
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_7_list_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20076]":
+        """End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20076]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_7_list_with_http_info_async(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20076, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range of seven years, for a list of notations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20076, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_7_list_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_to_date_get(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20079:
+        """End-of-day (EOD) key figures for the time range year-to-date (YTD)..  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20079
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_to_date_get_with_http_info(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20079, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range year-to-date (YTD)..  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifier (str):
             identifier_type (str):
 
         Keyword Args:
@@ -7695,6 +7849,213 @@ class NotationApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_to_date_get_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20079]":
+        """End-of-day (EOD) key figures for the time range year-to-date (YTD)..  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20079]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_to_date_get_with_http_info_async(
+        self,
+        identifier,
+        identifier_type,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20079, int, typing.MutableMapping]]":
+        """End-of-day (EOD) key figures for the time range year-to-date (YTD)..  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            identifier (str):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20079, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['identifier'] = \
+            identifier
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_to_date_get_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_key_figures_year_to_date_list(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> InlineResponse20080:
+        """End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20080
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['identifiers'] = \
+            identifiers
+        kwargs['identifier_type'] = \
+            identifier_type
+        return self.get_notation_key_figures_year_to_date_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_key_figures_year_to_date_list_with_http_info(
+        self,
+        identifiers,
+        identifier_type,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20080, int, typing.MutableMapping]:
+        """End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..  # noqa: E501
+
+        End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            identifiers ([str]):
+            identifier_type (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20080
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
         kwargs['identifiers'] = \
             identifiers
         kwargs['identifier_type'] = \
@@ -7706,7 +8067,7 @@ class NotationApi(object):
         identifiers,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20079]":
+    ) -> "ApplyResult[InlineResponse20080]":
         """End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..  # noqa: E501
 
         End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..  # noqa: E501
@@ -7742,7 +8103,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20079]
+            ApplyResult[InlineResponse20080]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['identifiers'] = \
@@ -7756,7 +8117,7 @@ class NotationApi(object):
         identifiers,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20079, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20080, int, typing.MutableMapping]]":
         """End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..  # noqa: E501
 
         End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations. The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent tradingday of the current calendar year for which EOD prices are available..  # noqa: E501
@@ -7792,7 +8153,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20079, int, typing.Dict)]
+            ApplyResult[(InlineResponse20080, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['identifiers'] = \
@@ -8017,7 +8378,7 @@ class NotationApi(object):
         self,
         search_value,
         **kwargs
-    ) -> InlineResponse20091:
+    ) -> InlineResponse20093:
         """Basic search for notations.  # noqa: E501
 
         Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.  # noqa: E501
@@ -8059,7 +8420,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20091
+            InlineResponse20093
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -8071,7 +8432,7 @@ class NotationApi(object):
         self,
         search_value,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20091, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20093, int, typing.MutableMapping]:
         """Basic search for notations.  # noqa: E501
 
         Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.  # noqa: E501
@@ -8113,7 +8474,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20091
+            InlineResponse20093
                 Response Object
             int
                 Http Status Code
@@ -8129,239 +8490,20 @@ class NotationApi(object):
         self,
         search_value,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20091]":
-        """Basic search for notations.  # noqa: E501
-
-        Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            search_value (str):
-
-        Keyword Args:
-            nsins ([str]): [optional]
-            asset_class (str): [optional]
-            only_active (bool): [optional] if omitted the server will use the default value of True
-            popularity (bool): [optional] if omitted the server will use the default value of False
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): [optional]
-            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
-            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20091]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['search_value'] = \
-            search_value
-        return self.get_notation_search_basic_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_search_basic_with_http_info_async(
-        self,
-        search_value,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20091, int, typing.MutableMapping]]":
-        """Basic search for notations.  # noqa: E501
-
-        Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            search_value (str):
-
-        Keyword Args:
-            nsins ([str]): [optional]
-            asset_class (str): [optional]
-            only_active (bool): [optional] if omitted the server will use the default value of True
-            popularity (bool): [optional] if omitted the server will use the default value of False
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): [optional]
-            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
-            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20091, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['search_value'] = \
-            search_value
-        return self.get_notation_search_basic_endpoint.call_with_http_info(**kwargs)
-
-
-    def get_notation_search_by_text_ranked_by_volume(
-        self,
-        search_value,
-        **kwargs
-    ) -> InlineResponse20093:
-        """Basic search for notations.  # noqa: E501
-
-        Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            search_value (str):
-
-        Keyword Args:
-            id_markets ([float]): [optional]
-            nsins ([str]): [optional]
-            asset_class ([str]): [optional]
-            only_active (bool): [optional] if omitted the server will use the default value of True
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): [optional]
-            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
-            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20093
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['search_value'] = \
-            search_value
-        return self.get_notation_search_by_text_ranked_by_volume_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_search_by_text_ranked_by_volume_with_http_info(
-        self,
-        search_value,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20093, int, typing.MutableMapping]:
-        """Basic search for notations.  # noqa: E501
-
-        Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            search_value (str):
-
-        Keyword Args:
-            id_markets ([float]): [optional]
-            nsins ([str]): [optional]
-            asset_class ([str]): [optional]
-            only_active (bool): [optional] if omitted the server will use the default value of True
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): [optional]
-            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
-            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20093
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['search_value'] = \
-            search_value
-        return self.get_notation_search_by_text_ranked_by_volume_endpoint.call_with_http_info(**kwargs)
-
-    def get_notation_search_by_text_ranked_by_volume_async(
-        self,
-        search_value,
-        **kwargs
     ) -> "ApplyResult[InlineResponse20093]":
         """Basic search for notations.  # noqa: E501
 
-        Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.  # noqa: E501
+        Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
             search_value (str):
 
         Keyword Args:
-            id_markets ([float]): [optional]
             nsins ([str]): [optional]
-            asset_class ([str]): [optional]
+            asset_class (str): [optional]
             only_active (bool): [optional] if omitted the server will use the default value of True
+            popularity (bool): [optional] if omitted the server will use the default value of False
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             language (str): [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
@@ -8395,13 +8537,232 @@ class NotationApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['search_value'] = \
             search_value
+        return self.get_notation_search_basic_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_search_basic_with_http_info_async(
+        self,
+        search_value,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20093, int, typing.MutableMapping]]":
+        """Basic search for notations.  # noqa: E501
+
+        Search for a notation whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered. Better matching results appear in the response before less relevant matches. If the parameter popularity is set to true, the popularity of the notation is the primary sort criterion. Popularity is affected mostly by the request frequency of the notation.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            search_value (str):
+
+        Keyword Args:
+            nsins ([str]): [optional]
+            asset_class (str): [optional]
+            only_active (bool): [optional] if omitted the server will use the default value of True
+            popularity (bool): [optional] if omitted the server will use the default value of False
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20093, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['search_value'] = \
+            search_value
+        return self.get_notation_search_basic_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_notation_search_by_text_ranked_by_volume(
+        self,
+        search_value,
+        **kwargs
+    ) -> InlineResponse20095:
+        """Basic search for notations.  # noqa: E501
+
+        Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            search_value (str):
+
+        Keyword Args:
+            id_markets ([float]): [optional]
+            nsins ([str]): [optional]
+            asset_class ([str]): [optional]
+            only_active (bool): [optional] if omitted the server will use the default value of True
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20095
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['search_value'] = \
+            search_value
+        return self.get_notation_search_by_text_ranked_by_volume_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_search_by_text_ranked_by_volume_with_http_info(
+        self,
+        search_value,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20095, int, typing.MutableMapping]:
+        """Basic search for notations.  # noqa: E501
+
+        Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            search_value (str):
+
+        Keyword Args:
+            id_markets ([float]): [optional]
+            nsins ([str]): [optional]
+            asset_class ([str]): [optional]
+            only_active (bool): [optional] if omitted the server will use the default value of True
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20095
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['search_value'] = \
+            search_value
+        return self.get_notation_search_by_text_ranked_by_volume_endpoint.call_with_http_info(**kwargs)
+
+    def get_notation_search_by_text_ranked_by_volume_async(
+        self,
+        search_value,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20095]":
+        """Basic search for notations.  # noqa: E501
+
+        Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            search_value (str):
+
+        Keyword Args:
+            id_markets ([float]): [optional]
+            nsins ([str]): [optional]
+            asset_class ([str]): [optional]
+            only_active (bool): [optional] if omitted the server will use the default value of True
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20095]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['search_value'] = \
+            search_value
         return self.get_notation_search_by_text_ranked_by_volume_endpoint.call_with_http_info(**kwargs)
 
     def get_notation_search_by_text_ranked_by_volume_with_http_info_async(
         self,
         search_value,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20093, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20095, int, typing.MutableMapping]]":
         """Basic search for notations.  # noqa: E501
 
         Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.  # noqa: E501
@@ -8443,7 +8804,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20093, int, typing.Dict)]
+            ApplyResult[(InlineResponse20095, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['search_value'] = \
@@ -8456,10 +8817,10 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> InlineResponse20081:
+    ) -> InlineResponse20083:
         """Intraday trading status of a notation.  # noqa: E501
 
-        Intraday trading status of a notation.  # noqa: E501
+        Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -8493,7 +8854,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20081
+            InlineResponse20083
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -8508,10 +8869,10 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20081, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20083, int, typing.MutableMapping]:
         """Intraday trading status of a notation.  # noqa: E501
 
-        Intraday trading status of a notation.  # noqa: E501
+        Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -8545,7 +8906,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20081
+            InlineResponse20083
                 Response Object
             int
                 Http Status Code
@@ -8564,10 +8925,10 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20081]":
+    ) -> "ApplyResult[InlineResponse20083]":
         """Intraday trading status of a notation.  # noqa: E501
 
-        Intraday trading status of a notation.  # noqa: E501
+        Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -8601,7 +8962,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20081]
+            ApplyResult[InlineResponse20083]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['identifier'] = \
@@ -8615,10 +8976,10 @@ class NotationApi(object):
         identifier,
         identifier_type,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20081, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20083, int, typing.MutableMapping]]":
         """Intraday trading status of a notation.  # noqa: E501
 
-        Intraday trading status of a notation.  # noqa: E501
+        Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -8652,7 +9013,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20081, int, typing.Dict)]
+            ApplyResult[(InlineResponse20083, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['identifier'] = \
@@ -8662,18 +9023,18 @@ class NotationApi(object):
         return self.get_notation_status_get_endpoint.call_with_http_info(**kwargs)
 
 
-    def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(
+    def post_notation_category_list(
         self,
         **kwargs
-    ) -> InlineResponse20072:
-        """Retrieve a list of notations for a given FactSet identifier.  # noqa: E501
+    ) -> InlineResponse20067:
+        """List of categories assigned to a specific notation the application is entitled to see.  # noqa: E501
 
-        <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
-            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest): [optional]
+            post_notation_category_list_request (PostNotationCategoryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8698,24 +9059,24 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20072
+            InlineResponse20067
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_category_list_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_with_http_info(
+    def post_notation_category_list_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20072, int, typing.MutableMapping]:
-        """Retrieve a list of notations for a given FactSet identifier.  # noqa: E501
+    ) -> typing.Tuple[InlineResponse20067, int, typing.MutableMapping]:
+        """List of categories assigned to a specific notation the application is entitled to see.  # noqa: E501
 
-        <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
 
         Keyword Args:
-            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest): [optional]
+            post_notation_category_list_request (PostNotationCategoryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8740,7 +9101,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20072
+            InlineResponse20067
                 Response Object
             int
                 Http Status Code
@@ -8748,20 +9109,20 @@ class NotationApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_category_list_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_async(
+    def post_notation_category_list_async(
         self,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20072]":
-        """Retrieve a list of notations for a given FactSet identifier.  # noqa: E501
+    ) -> "ApplyResult[InlineResponse20067]":
+        """List of categories assigned to a specific notation the application is entitled to see.  # noqa: E501
 
-        <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
 
         Keyword Args:
-            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest): [optional]
+            post_notation_category_list_request (PostNotationCategoryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8786,23 +9147,23 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20072]
+            ApplyResult[InlineResponse20067]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_category_list_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_with_http_info_async(
+    def post_notation_category_list_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20072, int, typing.MutableMapping]]":
-        """Retrieve a list of notations for a given FactSet identifier.  # noqa: E501
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20067, int, typing.MutableMapping]]":
+        """List of categories assigned to a specific notation the application is entitled to see.  # noqa: E501
 
-        <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
 
         Keyword Args:
-            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest): [optional]
+            post_notation_category_list_request (PostNotationCategoryListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8827,24 +9188,26 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20072, int, typing.Dict)]
+            ApplyResult[(InlineResponse20067, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_category_list_endpoint.call_with_http_info(**kwargs)
 
 
-    def post_notation_cross_reference_fact_set_identifier_list_by_instrument(
+    def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(
         self,
+        post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request,
         **kwargs
     ) -> InlineResponse20073:
-        """Retrieve a list of FactSet identifiers for a given instrument.  # noqa: E501
+        """Retrieve a list of notations for a given FactSet identifier.  # noqa: E501
 
-        <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
+        Args:
+            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest): Request Body
 
         Keyword Args:
-            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8873,20 +9236,24 @@ class NotationApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+        kwargs['post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request'] = \
+            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request
+        return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_fact_set_identifier_list_by_instrument_with_http_info(
+    def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_with_http_info(
         self,
+        post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request,
         **kwargs
     ) -> typing.Tuple[InlineResponse20073, int, typing.MutableMapping]:
-        """Retrieve a list of FactSet identifiers for a given instrument.  # noqa: E501
+        """Retrieve a list of notations for a given FactSet identifier.  # noqa: E501
 
-        <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
+        Args:
+            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest): Request Body
 
         Keyword Args:
-            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8919,20 +9286,24 @@ class NotationApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+        kwargs['post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request'] = \
+            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request
+        return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_fact_set_identifier_list_by_instrument_async(
+    def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_async(
         self,
+        post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request,
         **kwargs
     ) -> "ApplyResult[InlineResponse20073]":
-        """Retrieve a list of FactSet identifiers for a given instrument.  # noqa: E501
+        """Retrieve a list of notations for a given FactSet identifier.  # noqa: E501
 
-        <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
+        Args:
+            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest): Request Body
 
         Keyword Args:
-            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -8960,20 +9331,24 @@ class NotationApi(object):
             ApplyResult[InlineResponse20073]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+        kwargs['post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request'] = \
+            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request
+        return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_fact_set_identifier_list_by_instrument_with_http_info_async(
+    def post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_with_http_info_async(
         self,
+        post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse20073, int, typing.MutableMapping]]":
-        """Retrieve a list of FactSet identifiers for a given instrument.  # noqa: E501
+        """Retrieve a list of notations for a given FactSet identifier.  # noqa: E501
 
-        <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
+        Args:
+            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest): Request Body
 
         Keyword Args:
-            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9001,21 +9376,25 @@ class NotationApi(object):
             ApplyResult[(InlineResponse20073, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+        kwargs['post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request'] = \
+            post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request
+        return self.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_endpoint.call_with_http_info(**kwargs)
 
 
-    def post_notation_cross_reference_list_by_instrument(
+    def post_notation_cross_reference_fact_set_identifier_list_by_instrument(
         self,
+        post_notation_cross_reference_fact_set_identifier_list_by_instrument_request,
         **kwargs
-    ) -> InlineResponse20068:
-        """List of entitled notations.  # noqa: E501
+    ) -> InlineResponse20074:
+        """Retrieve a list of FactSet identifiers for a given instrument.  # noqa: E501
 
-        List of entitled notations.  # noqa: E501
+        <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
+        Args:
+            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest): Request Body
 
         Keyword Args:
-            post_notation_cross_reference_list_by_instrument_request (PostNotationCrossReferenceListByInstrumentRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9040,7 +9419,192 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20068
+            InlineResponse20074
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['post_notation_cross_reference_fact_set_identifier_list_by_instrument_request'] = \
+            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request
+        return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
+    def post_notation_cross_reference_fact_set_identifier_list_by_instrument_with_http_info(
+        self,
+        post_notation_cross_reference_fact_set_identifier_list_by_instrument_request,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20074, int, typing.MutableMapping]:
+        """Retrieve a list of FactSet identifiers for a given instrument.  # noqa: E501
+
+        <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest): Request Body
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20074
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['post_notation_cross_reference_fact_set_identifier_list_by_instrument_request'] = \
+            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request
+        return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
+    def post_notation_cross_reference_fact_set_identifier_list_by_instrument_async(
+        self,
+        post_notation_cross_reference_fact_set_identifier_list_by_instrument_request,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20074]":
+        """Retrieve a list of FactSet identifiers for a given instrument.  # noqa: E501
+
+        <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest): Request Body
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20074]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['post_notation_cross_reference_fact_set_identifier_list_by_instrument_request'] = \
+            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request
+        return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
+    def post_notation_cross_reference_fact_set_identifier_list_by_instrument_with_http_info_async(
+        self,
+        post_notation_cross_reference_fact_set_identifier_list_by_instrument_request,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20074, int, typing.MutableMapping]]":
+        """Retrieve a list of FactSet identifiers for a given instrument.  # noqa: E501
+
+        <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest): Request Body
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20074, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['post_notation_cross_reference_fact_set_identifier_list_by_instrument_request'] = \
+            post_notation_cross_reference_fact_set_identifier_list_by_instrument_request
+        return self.post_notation_cross_reference_fact_set_identifier_list_by_instrument_endpoint.call_with_http_info(**kwargs)
+
+
+    def post_notation_cross_reference_list_by_instrument(
+        self,
+        **kwargs
+    ) -> InlineResponse20069:
+        """List of entitled notations.  # noqa: E501
+
+        List of entitled notations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+
+        Keyword Args:
+            post_notation_cross_reference_list_by_instrument_request (PostNotationCrossReferenceListByInstrumentRequest): Request Body. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20069
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -9049,7 +9613,7 @@ class NotationApi(object):
     def post_notation_cross_reference_list_by_instrument_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20068, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20069, int, typing.MutableMapping]:
         """List of entitled notations.  # noqa: E501
 
         List of entitled notations.  # noqa: E501
@@ -9057,7 +9621,7 @@ class NotationApi(object):
 
 
         Keyword Args:
-            post_notation_cross_reference_list_by_instrument_request (PostNotationCrossReferenceListByInstrumentRequest): [optional]
+            post_notation_cross_reference_list_by_instrument_request (PostNotationCrossReferenceListByInstrumentRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9082,7 +9646,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20068
+            InlineResponse20069
                 Response Object
             int
                 Http Status Code
@@ -9095,177 +9659,6 @@ class NotationApi(object):
     def post_notation_cross_reference_list_by_instrument_async(
         self,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20068]":
-        """List of entitled notations.  # noqa: E501
-
-        List of entitled notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-
-        Keyword Args:
-            post_notation_cross_reference_list_by_instrument_request (PostNotationCrossReferenceListByInstrumentRequest): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20068]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.post_notation_cross_reference_list_by_instrument_endpoint.call_with_http_info(**kwargs)
-
-    def post_notation_cross_reference_list_by_instrument_with_http_info_async(
-        self,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20068, int, typing.MutableMapping]]":
-        """List of entitled notations.  # noqa: E501
-
-        List of entitled notations.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-
-        Keyword Args:
-            post_notation_cross_reference_list_by_instrument_request (PostNotationCrossReferenceListByInstrumentRequest): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20068, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        return self.post_notation_cross_reference_list_by_instrument_endpoint.call_with_http_info(**kwargs)
-
-
-    def post_notation_cross_reference_list_by_isin(
-        self,
-        **kwargs
-    ) -> InlineResponse20069:
-        """List of entitled notations.  # noqa: E501
-
-        List of entitled notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-
-        Keyword Args:
-            post_notation_cross_reference_list_by_isin_request (PostNotationCrossReferenceListByISINRequest): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20069
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
-
-    def post_notation_cross_reference_list_by_isin_with_http_info(
-        self,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20069, int, typing.MutableMapping]:
-        """List of entitled notations.  # noqa: E501
-
-        List of entitled notations.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-
-        Keyword Args:
-            post_notation_cross_reference_list_by_isin_request (PostNotationCrossReferenceListByISINRequest): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20069
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
-
-    def post_notation_cross_reference_list_by_isin_async(
-        self,
-        **kwargs
     ) -> "ApplyResult[InlineResponse20069]":
         """List of entitled notations.  # noqa: E501
 
@@ -9274,7 +9667,7 @@ class NotationApi(object):
 
 
         Keyword Args:
-            post_notation_cross_reference_list_by_isin_request (PostNotationCrossReferenceListByISINRequest): [optional]
+            post_notation_cross_reference_list_by_instrument_request (PostNotationCrossReferenceListByInstrumentRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9302,9 +9695,9 @@ class NotationApi(object):
             ApplyResult[InlineResponse20069]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_cross_reference_list_by_instrument_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_list_by_isin_with_http_info_async(
+    def post_notation_cross_reference_list_by_instrument_with_http_info_async(
         self,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse20069, int, typing.MutableMapping]]":
@@ -9315,7 +9708,7 @@ class NotationApi(object):
 
 
         Keyword Args:
-            post_notation_cross_reference_list_by_isin_request (PostNotationCrossReferenceListByISINRequest): [optional]
+            post_notation_cross_reference_list_by_instrument_request (PostNotationCrossReferenceListByInstrumentRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9343,21 +9736,21 @@ class NotationApi(object):
             ApplyResult[(InlineResponse20069, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_cross_reference_list_by_instrument_endpoint.call_with_http_info(**kwargs)
 
 
-    def post_notation_cross_reference_list_by_symbol(
+    def post_notation_cross_reference_list_by_isin(
         self,
         **kwargs
     ) -> InlineResponse20070:
         """List of entitled notations.  # noqa: E501
 
-        List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.  # noqa: E501
+        List of entitled notations.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
-            post_notation_cross_reference_list_by_symbol_request (PostNotationCrossReferenceListBySymbolRequest): [optional]
+            post_notation_cross_reference_list_by_isin_request (PostNotationCrossReferenceListByISINRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9386,20 +9779,20 @@ class NotationApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_list_by_symbol_with_http_info(
+    def post_notation_cross_reference_list_by_isin_with_http_info(
         self,
         **kwargs
     ) -> typing.Tuple[InlineResponse20070, int, typing.MutableMapping]:
         """List of entitled notations.  # noqa: E501
 
-        List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.  # noqa: E501
+        List of entitled notations.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
 
         Keyword Args:
-            post_notation_cross_reference_list_by_symbol_request (PostNotationCrossReferenceListBySymbolRequest): [optional]
+            post_notation_cross_reference_list_by_isin_request (PostNotationCrossReferenceListByISINRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9432,20 +9825,20 @@ class NotationApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_list_by_symbol_async(
+    def post_notation_cross_reference_list_by_isin_async(
         self,
         **kwargs
     ) -> "ApplyResult[InlineResponse20070]":
         """List of entitled notations.  # noqa: E501
 
-        List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.  # noqa: E501
+        List of entitled notations.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
 
         Keyword Args:
-            post_notation_cross_reference_list_by_symbol_request (PostNotationCrossReferenceListBySymbolRequest): [optional]
+            post_notation_cross_reference_list_by_isin_request (PostNotationCrossReferenceListByISINRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9473,20 +9866,20 @@ class NotationApi(object):
             ApplyResult[InlineResponse20070]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
-    def post_notation_cross_reference_list_by_symbol_with_http_info_async(
+    def post_notation_cross_reference_list_by_isin_with_http_info_async(
         self,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse20070, int, typing.MutableMapping]]":
         """List of entitled notations.  # noqa: E501
 
-        List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.  # noqa: E501
+        List of entitled notations.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
 
         Keyword Args:
-            post_notation_cross_reference_list_by_symbol_request (PostNotationCrossReferenceListBySymbolRequest): [optional]
+            post_notation_cross_reference_list_by_isin_request (PostNotationCrossReferenceListByISINRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9514,21 +9907,21 @@ class NotationApi(object):
             ApplyResult[(InlineResponse20070, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+        return self.post_notation_cross_reference_list_by_isin_endpoint.call_with_http_info(**kwargs)
 
 
-    def post_notation_market_list(
+    def post_notation_cross_reference_list_by_symbol(
         self,
         **kwargs
-    ) -> InlineResponse20080:
-        """List of markets with entitled notations.  # noqa: E501
+    ) -> InlineResponse20071:
+        """List of entitled notations.  # noqa: E501
 
-        List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
+        List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
-            post_notation_market_list_request (PostNotationMarketListRequest): [optional]
+            post_notation_cross_reference_list_by_symbol_request (PostNotationCrossReferenceListBySymbolRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9553,7 +9946,178 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20080
+            InlineResponse20071
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def post_notation_cross_reference_list_by_symbol_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20071, int, typing.MutableMapping]:
+        """List of entitled notations.  # noqa: E501
+
+        List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            post_notation_cross_reference_list_by_symbol_request (PostNotationCrossReferenceListBySymbolRequest): Request Body. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20071
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def post_notation_cross_reference_list_by_symbol_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20071]":
+        """List of entitled notations.  # noqa: E501
+
+        List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            post_notation_cross_reference_list_by_symbol_request (PostNotationCrossReferenceListBySymbolRequest): Request Body. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20071]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def post_notation_cross_reference_list_by_symbol_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20071, int, typing.MutableMapping]]":
+        """List of entitled notations.  # noqa: E501
+
+        List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            post_notation_cross_reference_list_by_symbol_request (PostNotationCrossReferenceListBySymbolRequest): Request Body. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20071, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.post_notation_cross_reference_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+
+    def post_notation_market_list(
+        self,
+        **kwargs
+    ) -> InlineResponse20082:
+        """List of markets with entitled notations.  # noqa: E501
+
+        List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+
+        Keyword Args:
+            post_notation_market_list_request (PostNotationMarketListRequest): Request Body. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20082
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -9562,7 +10126,7 @@ class NotationApi(object):
     def post_notation_market_list_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20080, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20082, int, typing.MutableMapping]:
         """List of markets with entitled notations.  # noqa: E501
 
         List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
@@ -9570,7 +10134,7 @@ class NotationApi(object):
 
 
         Keyword Args:
-            post_notation_market_list_request (PostNotationMarketListRequest): [optional]
+            post_notation_market_list_request (PostNotationMarketListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9595,7 +10159,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20080
+            InlineResponse20082
                 Response Object
             int
                 Http Status Code
@@ -9608,7 +10172,7 @@ class NotationApi(object):
     def post_notation_market_list_async(
         self,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20080]":
+    ) -> "ApplyResult[InlineResponse20082]":
         """List of markets with entitled notations.  # noqa: E501
 
         List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
@@ -9616,7 +10180,7 @@ class NotationApi(object):
 
 
         Keyword Args:
-            post_notation_market_list_request (PostNotationMarketListRequest): [optional]
+            post_notation_market_list_request (PostNotationMarketListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9641,7 +10205,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20080]
+            ApplyResult[InlineResponse20082]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.post_notation_market_list_endpoint.call_with_http_info(**kwargs)
@@ -9649,7 +10213,7 @@ class NotationApi(object):
     def post_notation_market_list_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20080, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20082, int, typing.MutableMapping]]":
         """List of markets with entitled notations.  # noqa: E501
 
         List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
@@ -9657,7 +10221,7 @@ class NotationApi(object):
 
 
         Keyword Args:
-            post_notation_market_list_request (PostNotationMarketListRequest): [optional]
+            post_notation_market_list_request (PostNotationMarketListRequest): Request Body. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9682,7 +10246,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20080, int, typing.Dict)]
+            ApplyResult[(InlineResponse20082, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_notation_market_list_endpoint.call_with_http_info(**kwargs)
@@ -9690,16 +10254,18 @@ class NotationApi(object):
 
     def post_notation_search_by_text(
         self,
+        post_notation_search_by_text_request,
         **kwargs
-    ) -> InlineResponse20092:
+    ) -> InlineResponse20094:
         """Text-based search for notations.  # noqa: E501
 
         Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
+        Args:
+            post_notation_search_by_text_request (PostNotationSearchByTextRequest): Request Body
 
         Keyword Args:
-            post_notation_search_by_text_request (PostNotationSearchByTextRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9724,24 +10290,28 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20092
+            InlineResponse20094
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['post_notation_search_by_text_request'] = \
+            post_notation_search_by_text_request
         return self.post_notation_search_by_text_endpoint.call_with_http_info(**kwargs)
 
     def post_notation_search_by_text_with_http_info(
         self,
+        post_notation_search_by_text_request,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20092, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse20094, int, typing.MutableMapping]:
         """Text-based search for notations.  # noqa: E501
 
         Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
+        Args:
+            post_notation_search_by_text_request (PostNotationSearchByTextRequest): Request Body
 
         Keyword Args:
-            post_notation_search_by_text_request (PostNotationSearchByTextRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9766,7 +10336,7 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20092
+            InlineResponse20094
                 Response Object
             int
                 Http Status Code
@@ -9774,20 +10344,24 @@ class NotationApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['post_notation_search_by_text_request'] = \
+            post_notation_search_by_text_request
         return self.post_notation_search_by_text_endpoint.call_with_http_info(**kwargs)
 
     def post_notation_search_by_text_async(
         self,
+        post_notation_search_by_text_request,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20092]":
+    ) -> "ApplyResult[InlineResponse20094]":
         """Text-based search for notations.  # noqa: E501
 
         Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
+        Args:
+            post_notation_search_by_text_request (PostNotationSearchByTextRequest): Request Body
 
         Keyword Args:
-            post_notation_search_by_text_request (PostNotationSearchByTextRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9812,23 +10386,27 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20092]
+            ApplyResult[InlineResponse20094]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['post_notation_search_by_text_request'] = \
+            post_notation_search_by_text_request
         return self.post_notation_search_by_text_endpoint.call_with_http_info(**kwargs)
 
     def post_notation_search_by_text_with_http_info_async(
         self,
+        post_notation_search_by_text_request,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20092, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20094, int, typing.MutableMapping]]":
         """Text-based search for notations.  # noqa: E501
 
         Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
+        Args:
+            post_notation_search_by_text_request (PostNotationSearchByTextRequest): Request Body
 
         Keyword Args:
-            post_notation_search_by_text_request (PostNotationSearchByTextRequest): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -9853,9 +10431,11 @@ class NotationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20092, int, typing.Dict)]
+            ApplyResult[(InlineResponse20094, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['post_notation_search_by_text_request'] = \
+            post_notation_search_by_text_request
         return self.post_notation_search_by_text_endpoint.call_with_http_info(**kwargs)
 
 

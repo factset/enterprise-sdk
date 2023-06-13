@@ -22,6 +22,7 @@ import PostInstrumentBackgroundTextTypeListRequestMeta from './PostInstrumentBac
 class PostInstrumentBackgroundTextTypeListRequest {
     /**
      * Constructs a new <code>PostInstrumentBackgroundTextTypeListRequest</code>.
+     * Request Body
      * @alias module:model/PostInstrumentBackgroundTextTypeListRequest
      */
     constructor() { 

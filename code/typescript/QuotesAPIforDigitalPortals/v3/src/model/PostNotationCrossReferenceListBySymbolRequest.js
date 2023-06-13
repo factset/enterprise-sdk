@@ -22,6 +22,7 @@ import PostNotationCrossReferenceListBySymbolRequestData from './PostNotationCro
 class PostNotationCrossReferenceListBySymbolRequest {
     /**
      * Constructs a new <code>PostNotationCrossReferenceListBySymbolRequest</code>.
+     * Request Body
      * @alias module:model/PostNotationCrossReferenceListBySymbolRequest
      */
     constructor() { 

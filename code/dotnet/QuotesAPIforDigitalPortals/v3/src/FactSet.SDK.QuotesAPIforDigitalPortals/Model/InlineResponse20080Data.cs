@@ -34,77 +34,78 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20080Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of a market..</param>
-        /// <param name="name">Name of the market..</param>
-        /// <param name="shortName">Short name of the market..</param>
-        /// <param name="country">country.</param>
-        /// <param name="type">type.</param>
-        /// <param name="group">group.</param>
-        /// <param name="timezone">timezone.</param>
-        /// <param name="count">Number of entitled notations..</param>
-        public InlineResponse20080Data(decimal? id = default(decimal?), string name = default(string), string shortName = default(string), InlineResponse20080Country country = default(InlineResponse20080Country), InlineResponse20080Type type = default(InlineResponse20080Type), InlineResponse20080Group group = default(InlineResponse20080Group), InlineResponse20080Timezone timezone = default(InlineResponse20080Timezone), decimal? count = default(decimal?))
+        /// <param name="idNotation">MDG identifier of the listing..</param>
+        /// <param name="sourceIdentifier">Identifier used in the request..</param>
+        /// <param name="referenceDate">Reference date of the time range..</param>
+        /// <param name="performance">performance.</param>
+        /// <param name="high">high.</param>
+        /// <param name="low">low.</param>
+        /// <param name="volatility">Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year..</param>
+        /// <param name="status">status.</param>
+        public InlineResponse20080Data(string idNotation = default(string), string sourceIdentifier = default(string), DateTime? referenceDate = default(DateTime?), InlineResponse20075DataPerformance performance = default(InlineResponse20075DataPerformance), InlineResponse20075DataHigh high = default(InlineResponse20075DataHigh), InlineResponse20075DataLow low = default(InlineResponse20075DataLow), decimal? volatility = default(decimal?), InlineResponse20076Status status = default(InlineResponse20076Status))
         {
-            this.Id = id;
-            this.Name = name;
-            this.ShortName = shortName;
-            this.Country = country;
-            this.Type = type;
-            this.Group = group;
-            this.Timezone = timezone;
-            this.Count = count;
+            this.IdNotation = idNotation;
+            this.SourceIdentifier = sourceIdentifier;
+            this.ReferenceDate = referenceDate;
+            this.Performance = performance;
+            this.High = high;
+            this.Low = low;
+            this.Volatility = volatility;
+            this.Status = status;
         }
 
         /// <summary>
-        /// Identifier of a market.
+        /// MDG identifier of the listing.
         /// </summary>
-        /// <value>Identifier of a market.</value>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public decimal? Id { get; set; }
+        /// <value>MDG identifier of the listing.</value>
+        [DataMember(Name = "idNotation", EmitDefaultValue = true)]
+        public string IdNotation { get; set; }
 
         /// <summary>
-        /// Name of the market.
+        /// Identifier used in the request.
         /// </summary>
-        /// <value>Name of the market.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
+        /// <value>Identifier used in the request.</value>
+        [DataMember(Name = "sourceIdentifier", EmitDefaultValue = true)]
+        public string SourceIdentifier { get; set; }
 
         /// <summary>
-        /// Short name of the market.
+        /// Reference date of the time range.
         /// </summary>
-        /// <value>Short name of the market.</value>
-        [DataMember(Name = "shortName", EmitDefaultValue = true)]
-        public string ShortName { get; set; }
+        /// <value>Reference date of the time range.</value>
+        [DataMember(Name = "referenceDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? ReferenceDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Country
+        /// Gets or Sets Performance
         /// </summary>
-        [DataMember(Name = "country", EmitDefaultValue = false)]
-        public InlineResponse20080Country Country { get; set; }
+        [DataMember(Name = "performance", EmitDefaultValue = false)]
+        public InlineResponse20075DataPerformance Performance { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets High
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public InlineResponse20080Type Type { get; set; }
+        [DataMember(Name = "high", EmitDefaultValue = false)]
+        public InlineResponse20075DataHigh High { get; set; }
 
         /// <summary>
-        /// Gets or Sets Group
+        /// Gets or Sets Low
         /// </summary>
-        [DataMember(Name = "group", EmitDefaultValue = false)]
-        public InlineResponse20080Group Group { get; set; }
+        [DataMember(Name = "low", EmitDefaultValue = false)]
+        public InlineResponse20075DataLow Low { get; set; }
 
         /// <summary>
-        /// Gets or Sets Timezone
+        /// Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
         /// </summary>
-        [DataMember(Name = "timezone", EmitDefaultValue = false)]
-        public InlineResponse20080Timezone Timezone { get; set; }
+        /// <value>Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.</value>
+        [DataMember(Name = "volatility", EmitDefaultValue = true)]
+        public decimal? Volatility { get; set; }
 
         /// <summary>
-        /// Number of entitled notations.
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>Number of entitled notations.</value>
-        [DataMember(Name = "count", EmitDefaultValue = true)]
-        public decimal? Count { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public InlineResponse20076Status Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -114,14 +115,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20080Data {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ShortName: ").Append(ShortName).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Group: ").Append(Group).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
+            sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
+            sb.Append("  ReferenceDate: ").Append(ReferenceDate).Append("\n");
+            sb.Append("  Performance: ").Append(Performance).Append("\n");
+            sb.Append("  High: ").Append(High).Append("\n");
+            sb.Append("  Low: ").Append(Low).Append("\n");
+            sb.Append("  Volatility: ").Append(Volatility).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,44 +159,44 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.IdNotation == input.IdNotation ||
+                    (this.IdNotation != null &&
+                    this.IdNotation.Equals(input.IdNotation))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.SourceIdentifier == input.SourceIdentifier ||
+                    (this.SourceIdentifier != null &&
+                    this.SourceIdentifier.Equals(input.SourceIdentifier))
                 ) && 
                 (
-                    this.ShortName == input.ShortName ||
-                    (this.ShortName != null &&
-                    this.ShortName.Equals(input.ShortName))
+                    this.ReferenceDate == input.ReferenceDate ||
+                    (this.ReferenceDate != null &&
+                    this.ReferenceDate.Equals(input.ReferenceDate))
                 ) && 
                 (
-                    this.Country == input.Country ||
-                    (this.Country != null &&
-                    this.Country.Equals(input.Country))
+                    this.Performance == input.Performance ||
+                    (this.Performance != null &&
+                    this.Performance.Equals(input.Performance))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.High == input.High ||
+                    (this.High != null &&
+                    this.High.Equals(input.High))
                 ) && 
                 (
-                    this.Group == input.Group ||
-                    (this.Group != null &&
-                    this.Group.Equals(input.Group))
+                    this.Low == input.Low ||
+                    (this.Low != null &&
+                    this.Low.Equals(input.Low))
                 ) && 
                 (
-                    this.Timezone == input.Timezone ||
-                    (this.Timezone != null &&
-                    this.Timezone.Equals(input.Timezone))
+                    this.Volatility == input.Volatility ||
+                    (this.Volatility != null &&
+                    this.Volatility.Equals(input.Volatility))
                 ) && 
                 (
-                    this.Count == input.Count ||
-                    (this.Count != null &&
-                    this.Count.Equals(input.Count))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -208,37 +209,37 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
+                if (this.IdNotation != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.IdNotation.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.SourceIdentifier != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
                 }
-                if (this.ShortName != null)
+                if (this.ReferenceDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ReferenceDate.GetHashCode();
                 }
-                if (this.Country != null)
+                if (this.Performance != null)
                 {
-                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
                 }
-                if (this.Type != null)
+                if (this.High != null)
                 {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                    hashCode = (hashCode * 59) + this.High.GetHashCode();
                 }
-                if (this.Group != null)
+                if (this.Low != null)
                 {
-                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Low.GetHashCode();
                 }
-                if (this.Timezone != null)
+                if (this.Volatility != null)
                 {
-                    hashCode = (hashCode * 59) + this.Timezone.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
                 }
-                if (this.Count != null)
+                if (this.Status != null)
                 {
-                    hashCode = (hashCode * 59) + this.Count.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 return hashCode;
             }

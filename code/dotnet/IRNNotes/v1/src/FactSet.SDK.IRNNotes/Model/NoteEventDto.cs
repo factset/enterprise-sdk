@@ -51,31 +51,31 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "User", EmitDefaultValue = true)]
+        [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
 
         /// <summary>
         /// Gets or Sets Comment
         /// </summary>
-        [DataMember(Name = "Comment", EmitDefaultValue = true)]
+        [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
         /// Gets or Sets ChangeList
         /// </summary>
-        [DataMember(Name = "ChangeList", EmitDefaultValue = true)]
+        [DataMember(Name = "changeList", EmitDefaultValue = true)]
         public List<RecordChangeDto> ChangeList { get; set; }
 
         /// <summary>

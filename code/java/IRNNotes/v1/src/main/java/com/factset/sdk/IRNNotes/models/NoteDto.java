@@ -65,67 +65,67 @@ import com.factset.sdk.IRNNotes.JSON;
 public class NoteDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_DATE = "Date";
+  public static final String JSON_PROPERTY_DATE = "date";
   private JsonNullable<String> date = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CREATED_AT = "CreatedAt";
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private JsonNullable<String> createdAt = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_AUTHOR_ID = "AuthorId";
+  public static final String JSON_PROPERTY_AUTHOR_ID = "authorId";
   private java.util.UUID authorId;
 
-  public static final String JSON_PROPERTY_CONTRIBUTOR_ID = "ContributorId";
+  public static final String JSON_PROPERTY_CONTRIBUTOR_ID = "contributorId";
   private java.util.UUID contributorId;
 
-  public static final String JSON_PROPERTY_TITLE = "Title";
+  public static final String JSON_PROPERTY_TITLE = "title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
+  public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   private JsonNullable<String> identifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "RelatedSymbols";
+  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "relatedSymbols";
   private JsonNullable<java.util.List<String>> relatedSymbols = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_SUBJECT_ID = "SubjectId";
+  public static final String JSON_PROPERTY_SUBJECT_ID = "subjectId";
   private java.util.UUID subjectId;
 
-  public static final String JSON_PROPERTY_RECOMMENDATION_ID = "RecommendationId";
+  public static final String JSON_PROPERTY_RECOMMENDATION_ID = "recommendationId";
   private JsonNullable<java.util.UUID> recommendationId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_SENTIMENT_ID = "SentimentId";
+  public static final String JSON_PROPERTY_SENTIMENT_ID = "sentimentId";
   private JsonNullable<java.util.UUID> sentimentId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_SOURCE = "Source";
+  public static final String JSON_PROPERTY_SOURCE = "source";
   private JsonNullable<String> source = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_LINK = "Link";
+  public static final String JSON_PROPERTY_LINK = "link";
   private JsonNullable<String> link = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_BODY = "Body";
+  public static final String JSON_PROPERTY_BODY = "body";
   private JsonNullable<String> body = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_PERSONAL = "IsPersonal";
+  public static final String JSON_PROPERTY_IS_PERSONAL = "isPersonal";
   private Boolean isPersonal;
 
-  public static final String JSON_PROPERTY_STATE = "State";
+  public static final String JSON_PROPERTY_STATE = "state";
   private JsonNullable<String> state = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_APPROVAL_STATUS = "ApprovalStatus";
+  public static final String JSON_PROPERTY_APPROVAL_STATUS = "approvalStatus";
   private JsonNullable<String> approvalStatus = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_AVERAGE_RATING = "AverageRating";
+  public static final String JSON_PROPERTY_AVERAGE_RATING = "averageRating";
   private JsonNullable<Integer> averageRating = JsonNullable.<Integer>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_RECORDS = "RelatedRecords";
+  public static final String JSON_PROPERTY_RELATED_RECORDS = "relatedRecords";
   private RelatedRecordsDto relatedRecords;
 
-  public static final String JSON_PROPERTY_RELATED_CONTACTS = "RelatedContacts";
+  public static final String JSON_PROPERTY_RELATED_CONTACTS = "relatedContacts";
   private JsonNullable<java.util.List<java.util.UUID>> relatedContacts = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "CustomFields";
+  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "customFields";
   private JsonNullable<java.util.List<CustomFieldValueDto>> customFields = JsonNullable.<java.util.List<CustomFieldValueDto>>undefined();
 
   public NoteDto() { 

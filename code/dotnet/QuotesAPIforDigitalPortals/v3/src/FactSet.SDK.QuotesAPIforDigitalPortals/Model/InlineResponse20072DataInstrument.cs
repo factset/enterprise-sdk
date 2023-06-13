@@ -35,13 +35,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="InlineResponse20072DataInstrument" /> class.
         /// </summary>
         /// <param name="id">Identifier of the instrument..</param>
-        /// <param name="name">Name of the instrument..</param>
-        /// <param name="shortName">Short name of the instrument..</param>
-        public InlineResponse20072DataInstrument(string id = default(string), string name = default(string), string shortName = default(string))
+        public InlineResponse20072DataInstrument(string id = default(string))
         {
             this.Id = id;
-            this.Name = name;
-            this.ShortName = shortName;
         }
 
         /// <summary>
@@ -52,20 +48,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Name of the instrument.
-        /// </summary>
-        /// <value>Name of the instrument.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Short name of the instrument.
-        /// </summary>
-        /// <value>Short name of the instrument.</value>
-        [DataMember(Name = "shortName", EmitDefaultValue = true)]
-        public string ShortName { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,8 +56,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20072DataInstrument {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ShortName: ").Append(ShortName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,16 +95,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.ShortName == input.ShortName ||
-                    (this.ShortName != null &&
-                    this.ShortName.Equals(input.ShortName))
                 );
         }
 
@@ -140,14 +110,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.ShortName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
                 }
                 return hashCode;
             }

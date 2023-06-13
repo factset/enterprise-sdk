@@ -89,9 +89,11 @@ class InlineResponse20072Data(ModelNormal):
         """
         lazy_import()
         return {
+            'id_notation': (str, none_type,),  # noqa: E501
+            'source_identifier': (str, none_type,),  # noqa: E501
             'instrument': (InlineResponse20072DataInstrument,),  # noqa: E501
             'permanent_identifier': (str, none_type,),  # noqa: E501
-            'regional': ([InlineResponse20072DataRegional],),  # noqa: E501
+            'regional': (InlineResponse20072DataRegional,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +102,8 @@ class InlineResponse20072Data(ModelNormal):
 
 
     attribute_map = {
+        'id_notation': 'idNotation',  # noqa: E501
+        'source_identifier': 'sourceIdentifier',  # noqa: E501
         'instrument': 'instrument',  # noqa: E501
         'permanent_identifier': 'permanentIdentifier',  # noqa: E501
         'regional': 'regional',  # noqa: E501
@@ -146,9 +150,11 @@ class InlineResponse20072Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
+            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
             instrument (InlineResponse20072DataInstrument): [optional]  # noqa: E501
             permanent_identifier (str, none_type): FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).. [optional]  # noqa: E501
-            regional ([InlineResponse20072DataRegional]): Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.. [optional]  # noqa: E501
+            regional (InlineResponse20072DataRegional): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,9 +236,11 @@ class InlineResponse20072Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
+            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
             instrument (InlineResponse20072DataInstrument): [optional]  # noqa: E501
             permanent_identifier (str, none_type): FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).. [optional]  # noqa: E501
-            regional ([InlineResponse20072DataRegional]): Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.. [optional]  # noqa: E501
+            regional (InlineResponse20072DataRegional): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

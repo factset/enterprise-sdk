@@ -61,61 +61,61 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets RelationshipCategoryId
         /// </summary>
-        [DataMember(Name = "RelationshipCategoryId", EmitDefaultValue = false)]
+        [DataMember(Name = "relationshipCategoryId", EmitDefaultValue = false)]
         public Guid RelationshipCategoryId { get; set; }
 
         /// <summary>
         /// Gets or Sets RelationshipCode
         /// </summary>
-        [DataMember(Name = "RelationshipCode", EmitDefaultValue = true)]
+        [DataMember(Name = "relationshipCode", EmitDefaultValue = true)]
         public string RelationshipCode { get; set; }
 
         /// <summary>
         /// Gets or Sets BidirectionalName
         /// </summary>
-        [DataMember(Name = "BidirectionalName", EmitDefaultValue = true)]
+        [DataMember(Name = "bidirectionalName", EmitDefaultValue = true)]
         public string BidirectionalName { get; set; }
 
         /// <summary>
         /// Gets or Sets LeftToRightName
         /// </summary>
-        [DataMember(Name = "LeftToRightName", EmitDefaultValue = true)]
+        [DataMember(Name = "leftToRightName", EmitDefaultValue = true)]
         public string LeftToRightName { get; set; }
 
         /// <summary>
         /// Gets or Sets RightToLeftName
         /// </summary>
-        [DataMember(Name = "RightToLeftName", EmitDefaultValue = true)]
+        [DataMember(Name = "rightToLeftName", EmitDefaultValue = true)]
         public string RightToLeftName { get; set; }
 
         /// <summary>
         /// Gets or Sets HideDates
         /// </summary>
-        [DataMember(Name = "HideDates", EmitDefaultValue = true)]
+        [DataMember(Name = "hideDates", EmitDefaultValue = true)]
         public bool HideDates { get; set; }
 
         /// <summary>
         /// Gets or Sets HideComment
         /// </summary>
-        [DataMember(Name = "HideComment", EmitDefaultValue = true)]
+        [DataMember(Name = "hideComment", EmitDefaultValue = true)]
         public bool HideComment { get; set; }
 
         /// <summary>
         /// Gets or Sets HideCompany
         /// </summary>
-        [DataMember(Name = "HideCompany", EmitDefaultValue = true)]
+        [DataMember(Name = "hideCompany", EmitDefaultValue = true)]
         public bool HideCompany { get; set; }
 
         /// <summary>
         /// Gets or Sets IsCustomisable
         /// </summary>
-        [DataMember(Name = "IsCustomisable", EmitDefaultValue = true)]
+        [DataMember(Name = "isCustomisable", EmitDefaultValue = true)]
         public bool IsCustomisable { get; set; }
 
         /// <summary>

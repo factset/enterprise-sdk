@@ -53,37 +53,37 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets GoogleMapsPlaceId
         /// </summary>
-        [DataMember(Name = "GoogleMapsPlaceId", EmitDefaultValue = true)]
+        [DataMember(Name = "googleMapsPlaceId", EmitDefaultValue = true)]
         public string GoogleMapsPlaceId { get; set; }
 
         /// <summary>
         /// Gets or Sets FormattedAddress
         /// </summary>
-        [DataMember(Name = "FormattedAddress", EmitDefaultValue = true)]
+        [DataMember(Name = "formattedAddress", EmitDefaultValue = true)]
         public string FormattedAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets City
         /// </summary>
-        [DataMember(Name = "City", EmitDefaultValue = true)]
+        [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
         /// Gets or Sets StateProvince
         /// </summary>
-        [DataMember(Name = "StateProvince", EmitDefaultValue = true)]
+        [DataMember(Name = "stateProvince", EmitDefaultValue = true)]
         public string StateProvince { get; set; }
 
         /// <summary>
         /// Gets or Sets PostalCode
         /// </summary>
-        [DataMember(Name = "PostalCode", EmitDefaultValue = true)]
+        [DataMember(Name = "postalCode", EmitDefaultValue = true)]
         public string PostalCode { get; set; }
 
         /// <summary>
         /// Gets or Sets Country
         /// </summary>
-        [DataMember(Name = "Country", EmitDefaultValue = true)]
+        [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>

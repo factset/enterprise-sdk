@@ -38,9 +38,7 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
  */
 @ApiModel(description = "Instrument data.")
 @JsonPropertyOrder({
-  InlineResponse20072DataInstrument.JSON_PROPERTY_ID,
-  InlineResponse20072DataInstrument.JSON_PROPERTY_NAME,
-  InlineResponse20072DataInstrument.JSON_PROPERTY_SHORT_NAME
+  InlineResponse20072DataInstrument.JSON_PROPERTY_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20072DataInstrument implements Serializable {
@@ -48,12 +46,6 @@ public class InlineResponse20072DataInstrument implements Serializable {
 
   public static final String JSON_PROPERTY_ID = "id";
   private JsonNullable<String> id = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_SHORT_NAME = "shortName";
-  private JsonNullable<String> shortName = JsonNullable.<String>undefined();
 
   public InlineResponse20072DataInstrument() { 
   }
@@ -92,74 +84,6 @@ public class InlineResponse20072DataInstrument implements Serializable {
   }
 
 
-  public InlineResponse20072DataInstrument name(String name) {
-    this.name = JsonNullable.<String>of(name);
-    return this;
-  }
-
-   /**
-   * Name of the instrument.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the instrument.")
-  @JsonIgnore
-
-  public String getName() {
-        return name.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getName_JsonNullable() {
-    return name;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
-
-  public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
-  }
-
-
-  public InlineResponse20072DataInstrument shortName(String shortName) {
-    this.shortName = JsonNullable.<String>of(shortName);
-    return this;
-  }
-
-   /**
-   * Short name of the instrument.
-   * @return shortName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Short name of the instrument.")
-  @JsonIgnore
-
-  public String getShortName() {
-        return shortName.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getShortName_JsonNullable() {
-    return shortName;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
-  public void setShortName_JsonNullable(JsonNullable<String> shortName) {
-    this.shortName = shortName;
-  }
-
-  public void setShortName(String shortName) {
-    this.shortName = JsonNullable.<String>of(shortName);
-  }
-
-
   /**
    * Return true if this inline_response_200_72_data_instrument object is equal to o.
    */
@@ -172,9 +96,7 @@ public class InlineResponse20072DataInstrument implements Serializable {
       return false;
     }
     InlineResponse20072DataInstrument inlineResponse20072DataInstrument = (InlineResponse20072DataInstrument) o;
-    return equalsNullable(this.id, inlineResponse20072DataInstrument.id) &&
-        equalsNullable(this.name, inlineResponse20072DataInstrument.name) &&
-        equalsNullable(this.shortName, inlineResponse20072DataInstrument.shortName);
+    return equalsNullable(this.id, inlineResponse20072DataInstrument.id);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -183,7 +105,7 @@ public class InlineResponse20072DataInstrument implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(shortName));
+    return Objects.hash(hashCodeNullable(id));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -198,8 +120,6 @@ public class InlineResponse20072DataInstrument implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20072DataInstrument {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

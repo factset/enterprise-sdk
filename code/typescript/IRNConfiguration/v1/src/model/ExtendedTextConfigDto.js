@@ -46,8 +46,8 @@ class ExtendedTextConfigDto {
         if (data) {
             obj = obj || new ExtendedTextConfigDto();
 
-            if (data.hasOwnProperty('MaxChars')) {
-                obj['MaxChars'] = ApiClient.convertToType(data['MaxChars'], 'Number');
+            if (data.hasOwnProperty('maxChars')) {
+                obj['maxChars'] = ApiClient.convertToType(data['maxChars'], 'Number');
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class ExtendedTextConfigDto {
 }
 
 /**
- * @member {Number} MaxChars
+ * @member {Number} maxChars
  */
-ExtendedTextConfigDto.prototype['MaxChars'] = undefined;
+ExtendedTextConfigDto.prototype['maxChars'] = undefined;
 
 
 

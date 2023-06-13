@@ -30,12 +30,12 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067_data_market import InlineResponse20067DataMarket
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20091_nsin import InlineResponse20091Nsin
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20093_instrument import InlineResponse20093Instrument
-    globals()['InlineResponse20067DataMarket'] = InlineResponse20067DataMarket
-    globals()['InlineResponse20091Nsin'] = InlineResponse20091Nsin
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20093_nsin import InlineResponse20093Nsin
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20093_price import InlineResponse20093Price
     globals()['InlineResponse20093Instrument'] = InlineResponse20093Instrument
+    globals()['InlineResponse20093Nsin'] = InlineResponse20093Nsin
+    globals()['InlineResponse20093Price'] = InlineResponse20093Price
 
 
 class InlineResponse20093Data(ModelNormal):
@@ -92,9 +92,9 @@ class InlineResponse20093Data(ModelNormal):
         lazy_import()
         return {
             'id': (str, none_type,),  # noqa: E501
-            'market': (InlineResponse20067DataMarket,),  # noqa: E501
             'symbol': (str, none_type,),  # noqa: E501
-            'nsin': (InlineResponse20091Nsin,),  # noqa: E501
+            'nsin': (InlineResponse20093Nsin,),  # noqa: E501
+            'price': (InlineResponse20093Price,),  # noqa: E501
             'instrument': (InlineResponse20093Instrument,),  # noqa: E501
         }
 
@@ -105,9 +105,9 @@ class InlineResponse20093Data(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'market': 'market',  # noqa: E501
         'symbol': 'symbol',  # noqa: E501
         'nsin': 'nsin',  # noqa: E501
+        'price': 'price',  # noqa: E501
         'instrument': 'instrument',  # noqa: E501
     }
 
@@ -152,10 +152,10 @@ class InlineResponse20093Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of a notation.. [optional]  # noqa: E501
-            market (InlineResponse20067DataMarket): [optional]  # noqa: E501
+            id (str, none_type): Identifier of the notation.. [optional]  # noqa: E501
             symbol (str, none_type): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
-            nsin (InlineResponse20091Nsin): [optional]  # noqa: E501
+            nsin (InlineResponse20093Nsin): [optional]  # noqa: E501
+            price (InlineResponse20093Price): [optional]  # noqa: E501
             instrument (InlineResponse20093Instrument): [optional]  # noqa: E501
         """
 
@@ -238,10 +238,10 @@ class InlineResponse20093Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of a notation.. [optional]  # noqa: E501
-            market (InlineResponse20067DataMarket): [optional]  # noqa: E501
+            id (str, none_type): Identifier of the notation.. [optional]  # noqa: E501
             symbol (str, none_type): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
-            nsin (InlineResponse20091Nsin): [optional]  # noqa: E501
+            nsin (InlineResponse20093Nsin): [optional]  # noqa: E501
+            price (InlineResponse20093Price): [optional]  # noqa: E501
             instrument (InlineResponse20093Instrument): [optional]  # noqa: E501
         """
 

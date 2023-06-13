@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **get_prices_bid_ask_get**
-> InlineResponse20084 get_prices_bid_ask_get(identifier, identifier_type)
+> InlineResponse20086 get_prices_bid_ask_get(identifier, identifier_type)
 
 Most recent bid and ask prices (best bid / offer) for a notation.
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20084**](InlineResponse20084.md)
+[**InlineResponse20086**](InlineResponse20086.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_prices_bid_ask_list**
-> InlineResponse20085 get_prices_bid_ask_list(identifiers, identifier_type)
+> InlineResponse20087 get_prices_bid_ask_list(identifiers, identifier_type)
 
 Most recent bid and ask prices (best bid / offer) for a list of notations.
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20085**](InlineResponse20085.md)
+[**InlineResponse20087**](InlineResponse20087.md)
 
 ### Authorization
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_prices_get**
-> InlineResponse20082 get_prices_get(identifier, identifier_type)
+> InlineResponse20084 get_prices_get(identifier, identifier_type)
 
 Overview of trading on the most recent trading day, including the latest price, for a notation.
 
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20082**](InlineResponse20082.md)
+[**InlineResponse20084**](InlineResponse20084.md)
 
 ### Authorization
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_prices_list**
-> InlineResponse20083 get_prices_list(identifiers, identifier_type)
+> InlineResponse20085 get_prices_list(identifiers, identifier_type)
 
 Overview of trading on the most recent trading day, including the latest price, for a list of notations.
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20083**](InlineResponse20083.md)
+[**InlineResponse20085**](InlineResponse20085.md)
 
 ### Authorization
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_prices_orderbook_aggregated_get**
-> InlineResponse20086 get_prices_orderbook_aggregated_get(identifier, identifier_type)
+> InlineResponse20088 get_prices_orderbook_aggregated_get(identifier, identifier_type)
 
 Orderbook aggregated by price.
 
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20086**](InlineResponse20086.md)
+[**InlineResponse20088**](InlineResponse20088.md)
 
 ### Authorization
 
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_prices_orderbook_full_get**
-> InlineResponse20087 get_prices_orderbook_full_get(identifier, identifier_type)
+> InlineResponse20089 get_prices_orderbook_full_get(identifier, identifier_type)
 
 Full orderbook
 
@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20087**](InlineResponse20087.md)
+[**InlineResponse20089**](InlineResponse20089.md)
 
 ### Authorization
 
@@ -650,7 +650,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_prices_trading_schedule_event_type_list**
-> InlineResponse20089 get_prices_trading_schedule_event_type_list()
+> InlineResponse20091 get_prices_trading_schedule_event_type_list()
 
 Trading schedule event types.
 
@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20089**](InlineResponse20089.md)
+[**InlineResponse20091**](InlineResponse20091.md)
 
 ### Authorization
 
@@ -743,7 +743,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_prices_trading_schedule_event_list**
-> InlineResponse20088 post_prices_trading_schedule_event_list()
+> InlineResponse20090 post_prices_trading_schedule_event_list(post_prices_trading_schedule_event_list_request)
 
 Sequence of market-related events.
 
@@ -815,13 +815,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 limit=20,
             ),
         ),
-    ) # PostPricesTradingScheduleEventListRequest |  (optional)
+    ) # PostPricesTradingScheduleEventListRequest | Request Body
 
     try:
         # Sequence of market-related events.
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.post_prices_trading_schedule_event_list(post_prices_trading_schedule_event_list_request=post_prices_trading_schedule_event_list_request)
+        api_response = api_instance.post_prices_trading_schedule_event_list(post_prices_trading_schedule_event_list_request)
 
         pprint(api_response)
 
@@ -834,11 +833,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_prices_trading_schedule_event_list_request** | [**PostPricesTradingScheduleEventListRequest**](PostPricesTradingScheduleEventListRequest.md)|  | [optional]
+ **post_prices_trading_schedule_event_list_request** | [**PostPricesTradingScheduleEventListRequest**](PostPricesTradingScheduleEventListRequest.md)| Request Body |
 
 ### Return type
 
-[**InlineResponse20088**](InlineResponse20088.md)
+[**InlineResponse20090**](InlineResponse20090.md)
 
 ### Authorization
 

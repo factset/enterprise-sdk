@@ -2,14 +2,26 @@
 
 # InlineResponse20089Data
 
+Orderbook.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **BigDecimal** | Identifier of the type. |  [optional]
-**code** | **String** | Code of the type. |  [optional]
-**description** | **String** | Description of the type in english language. |  [optional]
+**idNotation** | **String** | MDG identifier of the listing. |  [optional]
+**sourceIdentifier** | **String** | Identifier used in the request. |  [optional]
+**quality** | [**QualityEnum**](#QualityEnum) | Quality of the price. |  [optional]
+**asks** | [**java.util.List&lt;InlineResponse20089DataAsks&gt;**](InlineResponse20089DataAsks.md) | Ask entries of the full orderbook. |  [optional]
+**bids** | [**java.util.List&lt;InlineResponse20089DataAsks&gt;**](InlineResponse20089DataAsks.md) | Bid entries of the full orderbook. |  [optional]
+
+
+
+## Enum: QualityEnum
+
+Name | Value
+---- | -----
+RLT | &quot;RLT&quot;
+DLY | &quot;DLY&quot;
 
 
 ## Implemented Interfaces

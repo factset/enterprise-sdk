@@ -30,9 +30,9 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068_data_notations import InlineResponse20068DataNotations
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20069_data import InlineResponse20069Data
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response200_meta import InlineResponse200Meta
-    globals()['InlineResponse20068DataNotations'] = InlineResponse20068DataNotations
+    globals()['InlineResponse20069Data'] = InlineResponse20069Data
     globals()['InlineResponse200Meta'] = InlineResponse200Meta
 
 
@@ -89,7 +89,7 @@ class InlineResponse20069(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse20068DataNotations],),  # noqa: E501
+            'data': (InlineResponse20069Data,),  # noqa: E501
             'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
@@ -144,7 +144,7 @@ class InlineResponse20069(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20068DataNotations]): List of notations.. [optional]  # noqa: E501
+            data (InlineResponse20069Data): [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse20069(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20068DataNotations]): List of notations.. [optional]  # noqa: E501
+            data (InlineResponse20069Data): [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

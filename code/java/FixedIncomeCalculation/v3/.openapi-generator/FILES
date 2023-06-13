@@ -13,6 +13,8 @@ docs/ClientErrorResponse.md
 docs/DiscountCurvesApi.md
 docs/Error.md
 docs/ErrorSource.md
+docs/FIAttributionForJobSettings.md
+docs/FIAttributionForSecurities.md
 docs/FIBalloonExtension.md
 docs/FIBankLoans.md
 docs/FICalculationParameters.md
@@ -72,6 +74,8 @@ src/main/java/com/factset/sdk/FixedIncomeCalculation/models/CalculationMeta.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/ClientErrorResponse.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/Error.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/ErrorSource.java
+src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIAttributionForJobSettings.java
+src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIAttributionForSecurities.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIBalloonExtension.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FIBankLoans.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/models/FICalculationParameters.java

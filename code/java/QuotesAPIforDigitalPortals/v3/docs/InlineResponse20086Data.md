@@ -2,7 +2,7 @@
 
 # InlineResponse20086Data
 
-Orderbook.
+Bid and ask prices for the notation.
 
 ## Properties
 
@@ -10,9 +10,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **idNotation** | **String** | MDG identifier of the listing. |  [optional]
 **sourceIdentifier** | **String** | Identifier used in the request. |  [optional]
+**valueUnit** | [**InlineResponse20084DataValueUnit**](InlineResponse20084DataValueUnit.md) |  |  [optional]
+**currency** | [**InlineResponse20084DataCurrency**](InlineResponse20084DataCurrency.md) |  |  [optional]
+**market** | [**InlineResponse20085Market**](InlineResponse20085Market.md) |  |  [optional]
 **quality** | [**QualityEnum**](#QualityEnum) | Quality of the price. |  [optional]
-**asks** | [**java.util.List&lt;InlineResponse20086DataAsks&gt;**](InlineResponse20086DataAsks.md) | List of sell orders aggregated by price. |  [optional]
-**bids** | [**java.util.List&lt;InlineResponse20086DataAsks&gt;**](InlineResponse20086DataAsks.md) | List of buy orders aggregated by price. |  [optional]
+**bid** | [**InlineResponse20086DataBid**](InlineResponse20086DataBid.md) |  |  [optional]
+**ask** | [**InlineResponse20086DataAsk**](InlineResponse20086DataAsk.md) |  |  [optional]
 
 
 
@@ -22,6 +25,7 @@ Name | Value
 ---- | -----
 RLT | &quot;RLT&quot;
 DLY | &quot;DLY&quot;
+EOD | &quot;EOD&quot;
 
 
 ## Implemented Interfaces

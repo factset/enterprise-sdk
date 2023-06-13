@@ -17,9 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20067DataInstrument;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20067DataMarket;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20067DataValueUnit;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20038DataCategories;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20067Dataset;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,153 +26,88 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * Notation identified by the FactSet market symbol.
+ * InlineResponse20067Data
  */
-@ApiModel(description = "Notation identified by the FactSet market symbol.")
 @JsonPropertyOrder({
-  InlineResponse20067Data.JSON_PROPERTY_ID,
-  InlineResponse20067Data.JSON_PROPERTY_MARKET,
-  InlineResponse20067Data.JSON_PROPERTY_VALUE_UNIT,
-  InlineResponse20067Data.JSON_PROPERTY_INSTRUMENT
+  InlineResponse20067Data.JSON_PROPERTY_DATASET,
+  InlineResponse20067Data.JSON_PROPERTY_CATEGORIES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20067Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<String> id = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_DATASET = "dataset";
+  private InlineResponse20067Dataset dataset;
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20067DataMarket market;
-
-  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
-  private InlineResponse20067DataValueUnit valueUnit;
-
-  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse20067DataInstrument instrument;
+  public static final String JSON_PROPERTY_CATEGORIES = "categories";
+  private java.util.List<InlineResponse20038DataCategories> categories = null;
 
   public InlineResponse20067Data() { 
   }
 
-  public InlineResponse20067Data id(String id) {
-    this.id = JsonNullable.<String>of(id);
+  public InlineResponse20067Data dataset(InlineResponse20067Dataset dataset) {
+    this.dataset = dataset;
     return this;
   }
 
    /**
-   * Identifier of the notation.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the notation.")
-  @JsonIgnore
-
-  public String getId() {
-        return id.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getId_JsonNullable() {
-    return id;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<String> id) {
-    this.id = id;
-  }
-
-  public void setId(String id) {
-    this.id = JsonNullable.<String>of(id);
-  }
-
-
-  public InlineResponse20067Data market(InlineResponse20067DataMarket market) {
-    this.market = market;
-    return this;
-  }
-
-   /**
-   * Get market
-   * @return market
+   * Get dataset
+   * @return dataset
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonProperty(JSON_PROPERTY_DATASET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20067DataMarket getMarket() {
-    return market;
+  public InlineResponse20067Dataset getDataset() {
+    return dataset;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonProperty(JSON_PROPERTY_DATASET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20067DataMarket market) {
-    this.market = market;
+  public void setDataset(InlineResponse20067Dataset dataset) {
+    this.dataset = dataset;
   }
 
 
-  public InlineResponse20067Data valueUnit(InlineResponse20067DataValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
+  public InlineResponse20067Data categories(java.util.List<InlineResponse20038DataCategories> categories) {
+    this.categories = categories;
+    return this;
+  }
+
+  public InlineResponse20067Data addCategoriesItem(InlineResponse20038DataCategories categoriesItem) {
+    if (this.categories == null) {
+      this.categories = new java.util.ArrayList<>();
+    }
+    this.categories.add(categoriesItem);
     return this;
   }
 
    /**
-   * Get valueUnit
-   * @return valueUnit
+   * List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.
+   * @return categories
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @ApiModelProperty(value = "List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.")
+  @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20067DataValueUnit getValueUnit() {
-    return valueUnit;
+  public java.util.List<InlineResponse20038DataCategories> getCategories() {
+    return categories;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueUnit(InlineResponse20067DataValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
-  }
-
-
-  public InlineResponse20067Data instrument(InlineResponse20067DataInstrument instrument) {
-    this.instrument = instrument;
-    return this;
-  }
-
-   /**
-   * Get instrument
-   * @return instrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20067DataInstrument getInstrument() {
-    return instrument;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse20067DataInstrument instrument) {
-    this.instrument = instrument;
+  public void setCategories(java.util.List<InlineResponse20038DataCategories> categories) {
+    this.categories = categories;
   }
 
 
@@ -189,36 +123,21 @@ public class InlineResponse20067Data implements Serializable {
       return false;
     }
     InlineResponse20067Data inlineResponse20067Data = (InlineResponse20067Data) o;
-    return equalsNullable(this.id, inlineResponse20067Data.id) &&
-        Objects.equals(this.market, inlineResponse20067Data.market) &&
-        Objects.equals(this.valueUnit, inlineResponse20067Data.valueUnit) &&
-        Objects.equals(this.instrument, inlineResponse20067Data.instrument);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.dataset, inlineResponse20067Data.dataset) &&
+        Objects.equals(this.categories, inlineResponse20067Data.categories);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), market, valueUnit, instrument);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(dataset, categories);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20067Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
-    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
-    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
+    sb.append("    dataset: ").append(toIndentedString(dataset)).append("\n");
+    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("}");
     return sb.toString();
   }

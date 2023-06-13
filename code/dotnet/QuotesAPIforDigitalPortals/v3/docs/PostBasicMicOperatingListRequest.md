@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostBasicMicOperatingListRequest
+Request Body
 
 ## Properties
 

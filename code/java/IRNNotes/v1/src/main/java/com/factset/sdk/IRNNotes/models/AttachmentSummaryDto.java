@@ -46,16 +46,16 @@ import com.factset.sdk.IRNNotes.JSON;
 public class AttachmentSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_FILE_NAME = "FileName";
+  public static final String JSON_PROPERTY_FILE_NAME = "fileName";
   private JsonNullable<String> fileName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MIME_TYPE = "MimeType";
+  public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
   private JsonNullable<String> mimeType = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SIZE = "Size";
+  public static final String JSON_PROPERTY_SIZE = "size";
   private JsonNullable<Long> size = JsonNullable.<Long>undefined();
 
   public AttachmentSummaryDto() { 

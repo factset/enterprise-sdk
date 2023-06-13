@@ -1852,7 +1852,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicBackgroundTextTypeListRequest': new quotesapifordigitalportals.PostBasicBackgroundTextTypeListRequest() // PostBasicBackgroundTextTypeListRequest | 
+  'postBasicBackgroundTextTypeListRequest': new quotesapifordigitalportals.PostBasicBackgroundTextTypeListRequest() // PostBasicBackgroundTextTypeListRequest | Request Body
 };
 
 // Call api endpoint
@@ -1875,7 +1875,7 @@ apiInstance.postBasicBackgroundTextTypeList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)|  | [optional] 
+ **postBasicBackgroundTextTypeListRequest** | [**PostBasicBackgroundTextTypeListRequest**](PostBasicBackgroundTextTypeListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -1926,7 +1926,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicDeliveryListRequest': new quotesapifordigitalportals.PostBasicDeliveryListRequest() // PostBasicDeliveryListRequest | 
+  'postBasicDeliveryListRequest': new quotesapifordigitalportals.PostBasicDeliveryListRequest() // PostBasicDeliveryListRequest | Request Body
 };
 
 // Call api endpoint
@@ -1949,7 +1949,7 @@ apiInstance.postBasicDeliveryList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)|  | [optional] 
+ **postBasicDeliveryListRequest** | [**PostBasicDeliveryListRequest**](PostBasicDeliveryListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -2000,7 +2000,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicMarketListRequest': new quotesapifordigitalportals.PostBasicMarketListRequest() // PostBasicMarketListRequest | 
+  'postBasicMarketListRequest': new quotesapifordigitalportals.PostBasicMarketListRequest() // PostBasicMarketListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2023,7 +2023,7 @@ apiInstance.postBasicMarketList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)|  | [optional] 
+ **postBasicMarketListRequest** | [**PostBasicMarketListRequest**](PostBasicMarketListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -2074,7 +2074,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicMediaTypeListRequest': new quotesapifordigitalportals.PostBasicMediaTypeListRequest() // PostBasicMediaTypeListRequest | 
+  'postBasicMediaTypeListRequest': new quotesapifordigitalportals.PostBasicMediaTypeListRequest() // PostBasicMediaTypeListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2097,7 +2097,7 @@ apiInstance.postBasicMediaTypeList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)|  | [optional] 
+ **postBasicMediaTypeListRequest** | [**PostBasicMediaTypeListRequest**](PostBasicMediaTypeListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -2148,7 +2148,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicMicOperatingListRequest': new quotesapifordigitalportals.PostBasicMicOperatingListRequest() // PostBasicMicOperatingListRequest | 
+  'postBasicMicOperatingListRequest': new quotesapifordigitalportals.PostBasicMicOperatingListRequest() // PostBasicMicOperatingListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2171,7 +2171,7 @@ apiInstance.postBasicMicOperatingList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)|  | [optional] 
+ **postBasicMicOperatingListRequest** | [**PostBasicMicOperatingListRequest**](PostBasicMicOperatingListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -2222,7 +2222,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicTimezoneListRequest': new quotesapifordigitalportals.PostBasicTimezoneListRequest() // PostBasicTimezoneListRequest | 
+  'postBasicTimezoneListRequest': new quotesapifordigitalportals.PostBasicTimezoneListRequest() // PostBasicTimezoneListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2245,7 +2245,7 @@ apiInstance.postBasicTimezoneList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)|  | [optional] 
+ **postBasicTimezoneListRequest** | [**PostBasicTimezoneListRequest**](PostBasicTimezoneListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -2296,7 +2296,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicValueUnitCurrencyListRequest': new quotesapifordigitalportals.PostBasicValueUnitCurrencyListRequest() // PostBasicValueUnitCurrencyListRequest | 
+  'postBasicValueUnitCurrencyListRequest': new quotesapifordigitalportals.PostBasicValueUnitCurrencyListRequest() // PostBasicValueUnitCurrencyListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2319,7 +2319,7 @@ apiInstance.postBasicValueUnitCurrencyList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)|  | [optional] 
+ **postBasicValueUnitCurrencyListRequest** | [**PostBasicValueUnitCurrencyListRequest**](PostBasicValueUnitCurrencyListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -2370,7 +2370,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicValueUnitCurrencyMainListRequest': new quotesapifordigitalportals.PostBasicValueUnitCurrencyMainListRequest() // PostBasicValueUnitCurrencyMainListRequest | 
+  'postBasicValueUnitCurrencyMainListRequest': new quotesapifordigitalportals.PostBasicValueUnitCurrencyMainListRequest() // PostBasicValueUnitCurrencyMainListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2393,7 +2393,7 @@ apiInstance.postBasicValueUnitCurrencyMainList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)|  | [optional] 
+ **postBasicValueUnitCurrencyMainListRequest** | [**PostBasicValueUnitCurrencyMainListRequest**](PostBasicValueUnitCurrencyMainListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
@@ -2444,7 +2444,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new BasicApi();
 const opts = {
-  'postBasicValueUnitListRequest': new quotesapifordigitalportals.PostBasicValueUnitListRequest() // PostBasicValueUnitListRequest | 
+  'postBasicValueUnitListRequest': new quotesapifordigitalportals.PostBasicValueUnitListRequest() // PostBasicValueUnitListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2467,7 +2467,7 @@ apiInstance.postBasicValueUnitList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)|  | [optional] 
+ **postBasicValueUnitListRequest** | [**PostBasicValueUnitListRequest**](PostBasicValueUnitListRequest.md)| Request Body | [optional] 
 
 ### Return type
 

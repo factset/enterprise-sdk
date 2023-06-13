@@ -26,24 +26,54 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// List of trading schedule events for a notation.
+    /// Orderbook.
     /// </summary>
     [DataContract(Name = "inline_response_200_88_data")]
     public partial class InlineResponse20088Data : IEquatable<InlineResponse20088Data>, IValidatableObject
     {
         /// <summary>
+        /// Quality of the price.
+        /// </summary>
+        /// <value>Quality of the price.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum QualityEnum
+        {
+            /// <summary>
+            /// Enum RLT for value: RLT
+            /// </summary>
+            [EnumMember(Value = "RLT")]
+            RLT = 1,
+
+            /// <summary>
+            /// Enum DLY for value: DLY
+            /// </summary>
+            [EnumMember(Value = "DLY")]
+            DLY = 2
+
+        }
+
+
+        /// <summary>
+        /// Quality of the price.
+        /// </summary>
+        /// <value>Quality of the price.</value>
+        [DataMember(Name = "quality", EmitDefaultValue = true)]
+        public QualityEnum? Quality { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20088Data" /> class.
         /// </summary>
         /// <param name="idNotation">MDG identifier of the listing..</param>
         /// <param name="sourceIdentifier">Identifier used in the request..</param>
-        /// <param name="range">range.</param>
-        /// <param name="events">List of trading schedule events..</param>
-        public InlineResponse20088Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20088DataRange range = default(InlineResponse20088DataRange), List<InlineResponse20088DataEvents> events = default(List<InlineResponse20088DataEvents>))
+        /// <param name="quality">Quality of the price..</param>
+        /// <param name="asks">List of sell orders aggregated by price..</param>
+        /// <param name="bids">List of buy orders aggregated by price..</param>
+        public InlineResponse20088Data(string idNotation = default(string), string sourceIdentifier = default(string), QualityEnum? quality = default(QualityEnum?), List<InlineResponse20088DataAsks> asks = default(List<InlineResponse20088DataAsks>), List<InlineResponse20088DataAsks> bids = default(List<InlineResponse20088DataAsks>))
         {
             this.IdNotation = idNotation;
             this.SourceIdentifier = sourceIdentifier;
-            this.Range = range;
-            this.Events = events;
+            this.Quality = quality;
+            this.Asks = asks;
+            this.Bids = bids;
         }
 
         /// <summary>
@@ -61,17 +91,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public string SourceIdentifier { get; set; }
 
         /// <summary>
-        /// Gets or Sets Range
+        /// List of sell orders aggregated by price.
         /// </summary>
-        [DataMember(Name = "range", EmitDefaultValue = true)]
-        public InlineResponse20088DataRange Range { get; set; }
+        /// <value>List of sell orders aggregated by price.</value>
+        [DataMember(Name = "asks", EmitDefaultValue = false)]
+        public List<InlineResponse20088DataAsks> Asks { get; set; }
 
         /// <summary>
-        /// List of trading schedule events.
+        /// List of buy orders aggregated by price.
         /// </summary>
-        /// <value>List of trading schedule events.</value>
-        [DataMember(Name = "events", EmitDefaultValue = false)]
-        public List<InlineResponse20088DataEvents> Events { get; set; }
+        /// <value>List of buy orders aggregated by price.</value>
+        [DataMember(Name = "bids", EmitDefaultValue = false)]
+        public List<InlineResponse20088DataAsks> Bids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,8 +114,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             sb.Append("class InlineResponse20088Data {\n");
             sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
             sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
-            sb.Append("  Range: ").Append(Range).Append("\n");
-            sb.Append("  Events: ").Append(Events).Append("\n");
+            sb.Append("  Quality: ").Append(Quality).Append("\n");
+            sb.Append("  Asks: ").Append(Asks).Append("\n");
+            sb.Append("  Bids: ").Append(Bids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,15 +163,20 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.SourceIdentifier.Equals(input.SourceIdentifier))
                 ) && 
                 (
-                    this.Range == input.Range ||
-                    (this.Range != null &&
-                    this.Range.Equals(input.Range))
+                    this.Quality == input.Quality ||
+                    this.Quality.Equals(input.Quality)
                 ) && 
                 (
-                    this.Events == input.Events ||
-                    this.Events != null &&
-                    input.Events != null &&
-                    this.Events.SequenceEqual(input.Events)
+                    this.Asks == input.Asks ||
+                    this.Asks != null &&
+                    input.Asks != null &&
+                    this.Asks.SequenceEqual(input.Asks)
+                ) && 
+                (
+                    this.Bids == input.Bids ||
+                    this.Bids != null &&
+                    input.Bids != null &&
+                    this.Bids.SequenceEqual(input.Bids)
                 );
         }
 
@@ -160,13 +197,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
                 }
-                if (this.Range != null)
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
+                if (this.Asks != null)
                 {
-                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Asks.GetHashCode();
                 }
-                if (this.Events != null)
+                if (this.Bids != null)
                 {
-                    hashCode = (hashCode * 59) + this.Events.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Bids.GetHashCode();
                 }
                 return hashCode;
             }

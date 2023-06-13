@@ -5,10 +5,9 @@ Instrument data with a list of regional-level data and assigned listing-level da
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdInstrument** | **string** | MDG identifier of the instrument. | [optional] 
-**SourceIdentifier** | **string** | Identifier used in the request. | [optional] 
+**Instrument** | [**InlineResponse20073DataInstrument**](InlineResponse20073DataInstrument.md) |  | [optional] 
 **PermanentIdentifier** | **string** | FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S). | [optional] 
-**Regional** | [**List&lt;InlineResponse20072DataRegional&gt;**](InlineResponse20072DataRegional.md) | Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array. | [optional] 
+**Regional** | [**List&lt;InlineResponse20073DataRegional&gt;**](InlineResponse20073DataRegional.md) | Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

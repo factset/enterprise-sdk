@@ -43,7 +43,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets UsePrevious
         /// </summary>
-        [DataMember(Name = "UsePrevious", EmitDefaultValue = true)]
+        [DataMember(Name = "usePrevious", EmitDefaultValue = true)]
         public bool UsePrevious { get; set; }
 
         /// <summary>

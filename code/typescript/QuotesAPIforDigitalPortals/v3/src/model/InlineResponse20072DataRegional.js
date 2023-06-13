@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20072DataListing from './InlineResponse20072DataListing';
+import InlineResponse20072DataRegionalListing from './InlineResponse20072DataRegionalListing';
 
 /**
  * The InlineResponse20072DataRegional model module.
@@ -21,6 +21,7 @@ import InlineResponse20072DataListing from './InlineResponse20072DataListing';
 class InlineResponse20072DataRegional {
     /**
      * Constructs a new <code>InlineResponse20072DataRegional</code>.
+     * Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.
      * @alias module:model/InlineResponse20072DataRegional
      */
     constructor() { 
@@ -57,7 +58,7 @@ class InlineResponse20072DataRegional {
                 obj['tickerRegion'] = ApiClient.convertToType(data['tickerRegion'], 'String');
             }
             if (data.hasOwnProperty('listing')) {
-                obj['listing'] = ApiClient.convertToType(data['listing'], [InlineResponse20072DataListing]);
+                obj['listing'] = InlineResponse20072DataRegionalListing.constructFromObject(data['listing']);
             }
         }
         return obj;
@@ -85,8 +86,7 @@ InlineResponse20072DataRegional.prototype['permanentIdentifier'] = undefined;
 InlineResponse20072DataRegional.prototype['tickerRegion'] = undefined;
 
 /**
- * Listing-level data with a list of notations. If the set of listing identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.
- * @member {Array.<module:model/InlineResponse20072DataListing>} listing
+ * @member {module:model/InlineResponse20072DataRegionalListing} listing
  */
 InlineResponse20072DataRegional.prototype['listing'] = undefined;
 

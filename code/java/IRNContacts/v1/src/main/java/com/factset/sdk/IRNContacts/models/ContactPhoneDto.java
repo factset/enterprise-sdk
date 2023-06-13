@@ -47,16 +47,16 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactPhoneDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_NUMBER = "Number";
+  public static final String JSON_PROPERTY_NUMBER = "number";
   private JsonNullable<String> number = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private PhoneNumberTypeDto type;
 
-  public static final String JSON_PROPERTY_IS_PRIMARY = "IsPrimary";
+  public static final String JSON_PROPERTY_IS_PRIMARY = "isPrimary";
   private Boolean isPrimary;
 
   public ContactPhoneDto() { 

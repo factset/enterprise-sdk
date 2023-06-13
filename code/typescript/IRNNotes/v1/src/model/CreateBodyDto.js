@@ -46,8 +46,8 @@ class CreateBodyDto {
         if (data) {
             obj = obj || new CreateBodyDto();
 
-            if (data.hasOwnProperty('Content')) {
-                obj['Content'] = ApiClient.convertToType(data['Content'], 'String');
+            if (data.hasOwnProperty('content')) {
+                obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class CreateBodyDto {
 }
 
 /**
- * @member {String} Content
+ * @member {String} content
  */
-CreateBodyDto.prototype['Content'] = undefined;
+CreateBodyDto.prototype['content'] = undefined;
 
 
 

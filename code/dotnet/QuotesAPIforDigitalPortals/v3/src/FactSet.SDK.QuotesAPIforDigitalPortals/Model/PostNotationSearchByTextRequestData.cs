@@ -34,13 +34,22 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostNotationSearchByTextRequestData" /> class.
         /// </summary>
-        /// <param name="text">text.</param>
+        [JsonConstructorAttribute]
+        protected PostNotationSearchByTextRequestData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PostNotationSearchByTextRequestData" /> class.
+        /// </summary>
+        /// <param name="text">text (required).</param>
         /// <param name="validation">validation.</param>
         /// <param name="assetClasses">assetClasses.</param>
         /// <param name="market">market.</param>
         /// <param name="tradingValue">tradingValue.</param>
-        public PostNotationSearchByTextRequestData(PostNotationSearchByTextRequestDataText text = default(PostNotationSearchByTextRequestDataText), PostNotationSearchByTextRequestDataValidation validation = default(PostNotationSearchByTextRequestDataValidation), PostNotationSearchByTextRequestDataAssetClasses assetClasses = default(PostNotationSearchByTextRequestDataAssetClasses), PostNotationSearchByTextRequestDataMarket market = default(PostNotationSearchByTextRequestDataMarket), PostNotationSearchByTextRequestDataTradingValue tradingValue = default(PostNotationSearchByTextRequestDataTradingValue))
+        public PostNotationSearchByTextRequestData(PostNotationSearchByTextRequestDataText text,PostNotationSearchByTextRequestDataValidation validation = default(PostNotationSearchByTextRequestDataValidation), PostNotationSearchByTextRequestDataAssetClasses assetClasses = default(PostNotationSearchByTextRequestDataAssetClasses), PostNotationSearchByTextRequestDataMarket market = default(PostNotationSearchByTextRequestDataMarket), PostNotationSearchByTextRequestDataTradingValue tradingValue = default(PostNotationSearchByTextRequestDataTradingValue))
         {
+            // to ensure "text" is required (not null)
+            if (text == null) {
+                throw new ArgumentNullException("text is a required property for PostNotationSearchByTextRequestData and cannot be null");
+            }
             this.Text = text;
             this.Validation = validation;
             this.AssetClasses = assetClasses;
@@ -51,7 +60,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Gets or Sets Text
         /// </summary>
-        [DataMember(Name = "text", EmitDefaultValue = false)]
+        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = false)]
         public PostNotationSearchByTextRequestDataText Text { get; set; }
 
         /// <summary>

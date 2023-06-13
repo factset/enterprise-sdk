@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**getNotationKeyFiguresMonth3List**](NotationApi.md#getNotationKeyFiguresMonth3List) | **GET** /notation/keyFigures/month/3/list | End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 [**getNotationKeyFiguresMonth6Get**](NotationApi.md#getNotationKeyFiguresMonth6Get) | **GET** /notation/keyFigures/month/6/get | End-of-day (EOD) key figures for the time range of six months.
 [**getNotationKeyFiguresMonth6List**](NotationApi.md#getNotationKeyFiguresMonth6List) | **GET** /notation/keyFigures/month/6/list | End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+[**getNotationKeyFiguresTradingDayAverageGet**](NotationApi.md#getNotationKeyFiguresTradingDayAverageGet) | **GET** /notation/keyFigures/tradingDay/average/get | Average end-of-day (EOD) key figures for different trading days periods.
 [**getNotationKeyFiguresWeek1Get**](NotationApi.md#getNotationKeyFiguresWeek1Get) | **GET** /notation/keyFigures/week/1/get | End-of-day (EOD) key figures for the time range of one week.
 [**getNotationKeyFiguresWeek1List**](NotationApi.md#getNotationKeyFiguresWeek1List) | **GET** /notation/keyFigures/week/1/list | End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 [**getNotationKeyFiguresYear10Get**](NotationApi.md#getNotationKeyFiguresYear10Get) | **GET** /notation/keyFigures/year/10/get | End-of-day (EOD) key figures for the time range of ten years.
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**getNotationSearchBasic**](NotationApi.md#getNotationSearchBasic) | **GET** /notation/search/basic | Basic search for notations.
 [**getNotationSearchByTextRankedByVolume**](NotationApi.md#getNotationSearchByTextRankedByVolume) | **GET** /notation/searchByTextRankedByVolume | Basic search for notations.
 [**getNotationStatusGet**](NotationApi.md#getNotationStatusGet) | **GET** /notation/status/get | Intraday trading status of a notation.
+[**postNotationCategoryList**](NotationApi.md#postNotationCategoryList) | **POST** /notation/category/list | List of categories assigned to a specific notation the application is entitled to see.
 [**postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier**](NotationApi.md#postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier) | **POST** /notation/crossReference/factSetIdentifier/listByFactSetIdentifier | Retrieve a list of notations for a given FactSet identifier.
 [**postNotationCrossReferenceFactSetIdentifierListByInstrument**](NotationApi.md#postNotationCrossReferenceFactSetIdentifierListByInstrument) | **POST** /notation/crossReference/factSetIdentifier/listByInstrument | Retrieve a list of FactSet identifiers for a given instrument.
 [**postNotationCrossReferenceListByISIN**](NotationApi.md#postNotationCrossReferenceListByISIN) | **POST** /notation/crossReference/listByISIN | List of entitled notations.
@@ -43,7 +45,7 @@ Method | HTTP request | Description
 
 ## getNotationCrossReferenceFactSetIdentifierGet
 
-> InlineResponse20071 getNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, opts)
+> InlineResponse20072 getNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, opts)
 
 Retrieve FactSet identifiers for a given notation.
 
@@ -107,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20071**](InlineResponse20071.md)
+[**InlineResponse20072**](InlineResponse20072.md)
 
 ### Authorization
 
@@ -121,7 +123,7 @@ Name | Type | Description  | Notes
 
 ## getNotationCrossReferenceGetByFactSetMarketSymbol
 
-> InlineResponse20067 getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, opts)
+> InlineResponse20068 getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, opts)
 
 Translate a FactSet market symbol to a notation.
 
@@ -185,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20068**](InlineResponse20068.md)
 
 ### Authorization
 
@@ -279,7 +281,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth1Get
 
-> InlineResponse20076 getNotationKeyFiguresMonth1Get(identifier, identifierType, opts)
+> InlineResponse20077 getNotationKeyFiguresMonth1Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one month.
 
@@ -343,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -357,7 +359,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth1List
 
-> InlineResponse20077 getNotationKeyFiguresMonth1List(identifiers, identifierType, opts)
+> InlineResponse20078 getNotationKeyFiguresMonth1List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one month, for a list of notations.
 
@@ -421,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -435,7 +437,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth3Get
 
-> InlineResponse20074 getNotationKeyFiguresMonth3Get(identifier, identifierType, opts)
+> InlineResponse20075 getNotationKeyFiguresMonth3Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of three months.
 
@@ -499,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -513,7 +515,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth3List
 
-> InlineResponse20075 getNotationKeyFiguresMonth3List(identifiers, identifierType, opts)
+> InlineResponse20076 getNotationKeyFiguresMonth3List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 
@@ -577,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -591,7 +593,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth6Get
 
-> InlineResponse20074 getNotationKeyFiguresMonth6Get(identifier, identifierType, opts)
+> InlineResponse20075 getNotationKeyFiguresMonth6Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of six months.
 
@@ -655,7 +657,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -669,7 +671,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresMonth6List
 
-> InlineResponse20075 getNotationKeyFiguresMonth6List(identifiers, identifierType, opts)
+> InlineResponse20076 getNotationKeyFiguresMonth6List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 
@@ -733,7 +735,85 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getNotationKeyFiguresTradingDayAverageGet
+
+> InlineResponse20081 getNotationKeyFiguresTradingDayAverageGet(identifier, identifierType, opts)
+
+Average end-of-day (EOD) key figures for different trading days periods.
+
+Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+
+### Example
+
+```javascript
+const { ApiClient, NotationApi } = require('@factset/sdk-quotesapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new NotationApi();
+const identifier = "identifier_example"; // String | 
+const identifierType = "identifierType_example"; // String | 
+const opts = {
+  'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
+};
+
+// Call api endpoint
+apiInstance.getNotationKeyFiguresTradingDayAverageGet(identifier, identifierType, opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**|  | 
+ **identifierType** | **String**|  | 
+ **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+
+### Return type
+
+[**InlineResponse20081**](InlineResponse20081.md)
 
 ### Authorization
 
@@ -747,7 +827,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresWeek1Get
 
-> InlineResponse20076 getNotationKeyFiguresWeek1Get(identifier, identifierType, opts)
+> InlineResponse20077 getNotationKeyFiguresWeek1Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one week.
 
@@ -811,7 +891,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -825,7 +905,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresWeek1List
 
-> InlineResponse20077 getNotationKeyFiguresWeek1List(identifiers, identifierType, opts)
+> InlineResponse20078 getNotationKeyFiguresWeek1List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 
@@ -889,7 +969,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -903,7 +983,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear10Get
 
-> InlineResponse20074 getNotationKeyFiguresYear10Get(identifier, identifierType, opts)
+> InlineResponse20075 getNotationKeyFiguresYear10Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of ten years.
 
@@ -967,7 +1047,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -981,7 +1061,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear10List
 
-> InlineResponse20075 getNotationKeyFiguresYear10List(identifiers, identifierType, opts)
+> InlineResponse20076 getNotationKeyFiguresYear10List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
 
@@ -1045,7 +1125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1059,7 +1139,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear1Get
 
-> InlineResponse20076 getNotationKeyFiguresYear1Get(identifier, identifierType, opts)
+> InlineResponse20077 getNotationKeyFiguresYear1Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one year.
 
@@ -1123,7 +1203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -1137,7 +1217,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear1List
 
-> InlineResponse20077 getNotationKeyFiguresYear1List(identifiers, identifierType, opts)
+> InlineResponse20078 getNotationKeyFiguresYear1List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 
@@ -1201,7 +1281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -1215,7 +1295,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear3Get
 
-> InlineResponse20074 getNotationKeyFiguresYear3Get(identifier, identifierType, opts)
+> InlineResponse20075 getNotationKeyFiguresYear3Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of three years.
 
@@ -1279,7 +1359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1293,7 +1373,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear3List
 
-> InlineResponse20075 getNotationKeyFiguresYear3List(identifiers, identifierType, opts)
+> InlineResponse20076 getNotationKeyFiguresYear3List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 
@@ -1357,7 +1437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1371,7 +1451,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear5Get
 
-> InlineResponse20074 getNotationKeyFiguresYear5Get(identifier, identifierType, opts)
+> InlineResponse20075 getNotationKeyFiguresYear5Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of five years.
 
@@ -1435,7 +1515,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1449,7 +1529,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear5List
 
-> InlineResponse20075 getNotationKeyFiguresYear5List(identifiers, identifierType, opts)
+> InlineResponse20076 getNotationKeyFiguresYear5List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of five years, for a list of notations.
 
@@ -1513,7 +1593,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1527,7 +1607,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear7Get
 
-> InlineResponse20074 getNotationKeyFiguresYear7Get(identifier, identifierType, opts)
+> InlineResponse20075 getNotationKeyFiguresYear7Get(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of seven years.
 
@@ -1591,7 +1671,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1605,7 +1685,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYear7List
 
-> InlineResponse20075 getNotationKeyFiguresYear7List(identifiers, identifierType, opts)
+> InlineResponse20076 getNotationKeyFiguresYear7List(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
 
@@ -1669,7 +1749,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1683,7 +1763,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYearToDateGet
 
-> InlineResponse20078 getNotationKeyFiguresYearToDateGet(identifier, identifierType, opts)
+> InlineResponse20079 getNotationKeyFiguresYearToDateGet(identifier, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 
@@ -1747,7 +1827,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20078**](InlineResponse20078.md)
+[**InlineResponse20079**](InlineResponse20079.md)
 
 ### Authorization
 
@@ -1761,7 +1841,7 @@ Name | Type | Description  | Notes
 
 ## getNotationKeyFiguresYearToDateList
 
-> InlineResponse20079 getNotationKeyFiguresYearToDateList(identifiers, identifierType, opts)
+> InlineResponse20080 getNotationKeyFiguresYearToDateList(identifiers, identifierType, opts)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 
@@ -1825,7 +1905,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20079**](InlineResponse20079.md)
+[**InlineResponse20080**](InlineResponse20080.md)
 
 ### Authorization
 
@@ -1919,7 +1999,7 @@ Name | Type | Description  | Notes
 
 ## getNotationSearchBasic
 
-> InlineResponse20091 getNotationSearchBasic(searchValue, opts)
+> InlineResponse20093 getNotationSearchBasic(searchValue, opts)
 
 Basic search for notations.
 
@@ -1995,7 +2075,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20091**](InlineResponse20091.md)
+[**InlineResponse20093**](InlineResponse20093.md)
 
 ### Authorization
 
@@ -2009,7 +2089,7 @@ Name | Type | Description  | Notes
 
 ## getNotationSearchByTextRankedByVolume
 
-> InlineResponse20093 getNotationSearchByTextRankedByVolume(searchValue, opts)
+> InlineResponse20095 getNotationSearchByTextRankedByVolume(searchValue, opts)
 
 Basic search for notations.
 
@@ -2085,7 +2165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20093**](InlineResponse20093.md)
+[**InlineResponse20095**](InlineResponse20095.md)
 
 ### Authorization
 
@@ -2099,11 +2179,11 @@ Name | Type | Description  | Notes
 
 ## getNotationStatusGet
 
-> InlineResponse20081 getNotationStatusGet(identifier, identifierType, opts)
+> InlineResponse20083 getNotationStatusGet(identifier, identifierType, opts)
 
 Intraday trading status of a notation.
 
-Intraday trading status of a notation.
+Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
 
 ### Example
 
@@ -2165,7 +2245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20081**](InlineResponse20081.md)
+[**InlineResponse20083**](InlineResponse20083.md)
 
 ### Authorization
 
@@ -2177,9 +2257,83 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## postNotationCategoryList
+
+> InlineResponse20067 postNotationCategoryList(opts)
+
+List of categories assigned to a specific notation the application is entitled to see.
+
+List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+
+### Example
+
+```javascript
+const { ApiClient, NotationApi } = require('@factset/sdk-quotesapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new NotationApi();
+const opts = {
+  'postNotationCategoryListRequest': new quotesapifordigitalportals.PostNotationCategoryListRequest() // PostNotationCategoryListRequest | Request Body
+};
+
+// Call api endpoint
+apiInstance.postNotationCategoryList(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postNotationCategoryListRequest** | [**PostNotationCategoryListRequest**](PostNotationCategoryListRequest.md)| Request Body | [optional] 
+
+### Return type
+
+[**InlineResponse20067**](InlineResponse20067.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier
 
-> InlineResponse20072 postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(opts)
+> InlineResponse20073 postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest)
 
 Retrieve a list of notations for a given FactSet identifier.
 
@@ -2211,12 +2365,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const opts = {
-  'postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest': new quotesapifordigitalportals.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest() // PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest | 
-};
+const postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = new quotesapifordigitalportals.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest(); // PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest | Request Body
 
 // Call api endpoint
-apiInstance.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(opts).then(
+apiInstance.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -2235,11 +2387,11 @@ apiInstance.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(o
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)|  | [optional] 
+ **postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)| Request Body | 
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20073**](InlineResponse20073.md)
 
 ### Authorization
 
@@ -2253,7 +2405,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceFactSetIdentifierListByInstrument
 
-> InlineResponse20073 postNotationCrossReferenceFactSetIdentifierListByInstrument(opts)
+> InlineResponse20074 postNotationCrossReferenceFactSetIdentifierListByInstrument(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest)
 
 Retrieve a list of FactSet identifiers for a given instrument.
 
@@ -2285,12 +2437,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const opts = {
-  'postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest': new quotesapifordigitalportals.PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest() // PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest | 
-};
+const postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = new quotesapifordigitalportals.PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest(); // PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest | Request Body
 
 // Call api endpoint
-apiInstance.postNotationCrossReferenceFactSetIdentifierListByInstrument(opts).then(
+apiInstance.postNotationCrossReferenceFactSetIdentifierListByInstrument(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -2309,11 +2459,11 @@ apiInstance.postNotationCrossReferenceFactSetIdentifierListByInstrument(opts).th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)|  | [optional] 
+ **postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)| Request Body | 
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20074**](InlineResponse20074.md)
 
 ### Authorization
 
@@ -2327,7 +2477,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListByISIN
 
-> InlineResponse20069 postNotationCrossReferenceListByISIN(opts)
+> InlineResponse20070 postNotationCrossReferenceListByISIN(opts)
 
 List of entitled notations.
 
@@ -2360,7 +2510,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotationApi();
 const opts = {
-  'postNotationCrossReferenceListByISINRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListByISINRequest() // PostNotationCrossReferenceListByISINRequest | 
+  'postNotationCrossReferenceListByISINRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListByISINRequest() // PostNotationCrossReferenceListByISINRequest | Request Body
 };
 
 // Call api endpoint
@@ -2383,11 +2533,11 @@ apiInstance.postNotationCrossReferenceListByISIN(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceListByISINRequest** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)|  | [optional] 
+ **postNotationCrossReferenceListByISINRequest** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)| Request Body | [optional] 
 
 ### Return type
 
-[**InlineResponse20069**](InlineResponse20069.md)
+[**InlineResponse20070**](InlineResponse20070.md)
 
 ### Authorization
 
@@ -2401,7 +2551,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListByInstrument
 
-> InlineResponse20068 postNotationCrossReferenceListByInstrument(opts)
+> InlineResponse20069 postNotationCrossReferenceListByInstrument(opts)
 
 List of entitled notations.
 
@@ -2434,7 +2584,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotationApi();
 const opts = {
-  'postNotationCrossReferenceListByInstrumentRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListByInstrumentRequest() // PostNotationCrossReferenceListByInstrumentRequest | 
+  'postNotationCrossReferenceListByInstrumentRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListByInstrumentRequest() // PostNotationCrossReferenceListByInstrumentRequest | Request Body
 };
 
 // Call api endpoint
@@ -2457,11 +2607,11 @@ apiInstance.postNotationCrossReferenceListByInstrument(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceListByInstrumentRequest** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)|  | [optional] 
+ **postNotationCrossReferenceListByInstrumentRequest** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)| Request Body | [optional] 
 
 ### Return type
 
-[**InlineResponse20068**](InlineResponse20068.md)
+[**InlineResponse20069**](InlineResponse20069.md)
 
 ### Authorization
 
@@ -2475,7 +2625,7 @@ Name | Type | Description  | Notes
 
 ## postNotationCrossReferenceListBySymbol
 
-> InlineResponse20070 postNotationCrossReferenceListBySymbol(opts)
+> InlineResponse20071 postNotationCrossReferenceListBySymbol(opts)
 
 List of entitled notations.
 
@@ -2508,7 +2658,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotationApi();
 const opts = {
-  'postNotationCrossReferenceListBySymbolRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListBySymbolRequest() // PostNotationCrossReferenceListBySymbolRequest | 
+  'postNotationCrossReferenceListBySymbolRequest': new quotesapifordigitalportals.PostNotationCrossReferenceListBySymbolRequest() // PostNotationCrossReferenceListBySymbolRequest | Request Body
 };
 
 // Call api endpoint
@@ -2531,11 +2681,11 @@ apiInstance.postNotationCrossReferenceListBySymbol(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceListBySymbolRequest** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)|  | [optional] 
+ **postNotationCrossReferenceListBySymbolRequest** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)| Request Body | [optional] 
 
 ### Return type
 
-[**InlineResponse20070**](InlineResponse20070.md)
+[**InlineResponse20071**](InlineResponse20071.md)
 
 ### Authorization
 
@@ -2549,7 +2699,7 @@ Name | Type | Description  | Notes
 
 ## postNotationMarketList
 
-> InlineResponse20080 postNotationMarketList(opts)
+> InlineResponse20082 postNotationMarketList(opts)
 
 List of markets with entitled notations.
 
@@ -2582,7 +2732,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NotationApi();
 const opts = {
-  'postNotationMarketListRequest': new quotesapifordigitalportals.PostNotationMarketListRequest() // PostNotationMarketListRequest | 
+  'postNotationMarketListRequest': new quotesapifordigitalportals.PostNotationMarketListRequest() // PostNotationMarketListRequest | Request Body
 };
 
 // Call api endpoint
@@ -2605,11 +2755,11 @@ apiInstance.postNotationMarketList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationMarketListRequest** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)|  | [optional] 
+ **postNotationMarketListRequest** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)| Request Body | [optional] 
 
 ### Return type
 
-[**InlineResponse20080**](InlineResponse20080.md)
+[**InlineResponse20082**](InlineResponse20082.md)
 
 ### Authorization
 
@@ -2623,7 +2773,7 @@ Name | Type | Description  | Notes
 
 ## postNotationSearchByText
 
-> InlineResponse20092 postNotationSearchByText(opts)
+> InlineResponse20094 postNotationSearchByText(postNotationSearchByTextRequest)
 
 Text-based search for notations.
 
@@ -2655,12 +2805,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotationApi();
-const opts = {
-  'postNotationSearchByTextRequest': new quotesapifordigitalportals.PostNotationSearchByTextRequest() // PostNotationSearchByTextRequest | 
-};
+const postNotationSearchByTextRequest = new quotesapifordigitalportals.PostNotationSearchByTextRequest(); // PostNotationSearchByTextRequest | Request Body
 
 // Call api endpoint
-apiInstance.postNotationSearchByText(opts).then(
+apiInstance.postNotationSearchByText(postNotationSearchByTextRequest).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -2679,11 +2827,11 @@ apiInstance.postNotationSearchByText(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationSearchByTextRequest** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)|  | [optional] 
+ **postNotationSearchByTextRequest** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)| Request Body | 
 
 ### Return type
 
-[**InlineResponse20092**](InlineResponse20092.md)
+[**InlineResponse20094**](InlineResponse20094.md)
 
 ### Authorization
 

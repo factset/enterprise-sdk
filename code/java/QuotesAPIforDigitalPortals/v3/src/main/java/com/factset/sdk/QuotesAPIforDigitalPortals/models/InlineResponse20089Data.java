@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20089DataAsks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -35,128 +35,240 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse20089Data
+ * Orderbook.
  */
+@ApiModel(description = "Orderbook.")
 @JsonPropertyOrder({
-  InlineResponse20089Data.JSON_PROPERTY_ID,
-  InlineResponse20089Data.JSON_PROPERTY_CODE,
-  InlineResponse20089Data.JSON_PROPERTY_DESCRIPTION
+  InlineResponse20089Data.JSON_PROPERTY_ID_NOTATION,
+  InlineResponse20089Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20089Data.JSON_PROPERTY_QUALITY,
+  InlineResponse20089Data.JSON_PROPERTY_ASKS,
+  InlineResponse20089Data.JSON_PROPERTY_BIDS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20089Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<BigDecimal> id = JsonNullable.<BigDecimal>undefined();
+  public static final String JSON_PROPERTY_ID_NOTATION = "idNotation";
+  private JsonNullable<String> idNotation = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CODE = "code";
-  private JsonNullable<String> code = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  /**
+   * Quality of the price.
+   */
+  public enum QualityEnum {
+    RLT("RLT"),
+    
+    DLY("DLY");
+
+    private String value;
+
+    QualityEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static QualityEnum fromValue(String value) {
+      for (QualityEnum b : QualityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_QUALITY = "quality";
+  private JsonNullable<QualityEnum> quality = JsonNullable.<QualityEnum>undefined();
+
+  public static final String JSON_PROPERTY_ASKS = "asks";
+  private java.util.List<InlineResponse20089DataAsks> asks = null;
+
+  public static final String JSON_PROPERTY_BIDS = "bids";
+  private java.util.List<InlineResponse20089DataAsks> bids = null;
 
   public InlineResponse20089Data() { 
   }
 
-  public InlineResponse20089Data id(BigDecimal id) {
-    this.id = JsonNullable.<BigDecimal>of(id);
+  public InlineResponse20089Data idNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
     return this;
   }
 
    /**
-   * Identifier of the type.
-   * @return id
+   * MDG identifier of the listing.
+   * @return idNotation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the type.")
+  @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
-  public BigDecimal getId() {
-        return id.orElse(null);
+  public String getIdNotation() {
+        return idNotation.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<BigDecimal> getId_JsonNullable() {
-    return id;
+  public JsonNullable<String> getIdNotation_JsonNullable() {
+    return idNotation;
   }
   
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<BigDecimal> id) {
-    this.id = id;
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  public void setIdNotation_JsonNullable(JsonNullable<String> idNotation) {
+    this.idNotation = idNotation;
   }
 
-  public void setId(BigDecimal id) {
-    this.id = JsonNullable.<BigDecimal>of(id);
+  public void setIdNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
   }
 
 
-  public InlineResponse20089Data code(String code) {
-    this.code = JsonNullable.<String>of(code);
+  public InlineResponse20089Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
     return this;
   }
 
    /**
-   * Code of the type.
-   * @return code
+   * Identifier used in the request.
+   * @return sourceIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Code of the type.")
+  @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
-  public String getCode() {
-        return code.orElse(null);
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getCode_JsonNullable() {
-    return code;
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
   }
   
-  @JsonProperty(JSON_PROPERTY_CODE)
-  public void setCode_JsonNullable(JsonNullable<String> code) {
-    this.code = code;
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
   }
 
-  public void setCode(String code) {
-    this.code = JsonNullable.<String>of(code);
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
   }
 
 
-  public InlineResponse20089Data description(String description) {
-    this.description = JsonNullable.<String>of(description);
+  public InlineResponse20089Data quality(QualityEnum quality) {
+    this.quality = JsonNullable.<QualityEnum>of(quality);
     return this;
   }
 
    /**
-   * Description of the type in english language.
-   * @return description
+   * Quality of the price.
+   * @return quality
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the type in english language.")
+  @ApiModelProperty(value = "Quality of the price.")
   @JsonIgnore
 
-  public String getDescription() {
-        return description.orElse(null);
+  public QualityEnum getQuality() {
+        return quality.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(JSON_PROPERTY_QUALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getDescription_JsonNullable() {
-    return description;
+  public JsonNullable<QualityEnum> getQuality_JsonNullable() {
+    return quality;
   }
   
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
+  @JsonProperty(JSON_PROPERTY_QUALITY)
+  public void setQuality_JsonNullable(JsonNullable<QualityEnum> quality) {
+    this.quality = quality;
   }
 
-  public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
+  public void setQuality(QualityEnum quality) {
+    this.quality = JsonNullable.<QualityEnum>of(quality);
+  }
+
+
+  public InlineResponse20089Data asks(java.util.List<InlineResponse20089DataAsks> asks) {
+    this.asks = asks;
+    return this;
+  }
+
+  public InlineResponse20089Data addAsksItem(InlineResponse20089DataAsks asksItem) {
+    if (this.asks == null) {
+      this.asks = new java.util.ArrayList<>();
+    }
+    this.asks.add(asksItem);
+    return this;
+  }
+
+   /**
+   * Ask entries of the full orderbook.
+   * @return asks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Ask entries of the full orderbook.")
+  @JsonProperty(JSON_PROPERTY_ASKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<InlineResponse20089DataAsks> getAsks() {
+    return asks;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ASKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAsks(java.util.List<InlineResponse20089DataAsks> asks) {
+    this.asks = asks;
+  }
+
+
+  public InlineResponse20089Data bids(java.util.List<InlineResponse20089DataAsks> bids) {
+    this.bids = bids;
+    return this;
+  }
+
+  public InlineResponse20089Data addBidsItem(InlineResponse20089DataAsks bidsItem) {
+    if (this.bids == null) {
+      this.bids = new java.util.ArrayList<>();
+    }
+    this.bids.add(bidsItem);
+    return this;
+  }
+
+   /**
+   * Bid entries of the full orderbook.
+   * @return bids
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Bid entries of the full orderbook.")
+  @JsonProperty(JSON_PROPERTY_BIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<InlineResponse20089DataAsks> getBids() {
+    return bids;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBids(java.util.List<InlineResponse20089DataAsks> bids) {
+    this.bids = bids;
   }
 
 
@@ -172,9 +284,11 @@ public class InlineResponse20089Data implements Serializable {
       return false;
     }
     InlineResponse20089Data inlineResponse20089Data = (InlineResponse20089Data) o;
-    return equalsNullable(this.id, inlineResponse20089Data.id) &&
-        equalsNullable(this.code, inlineResponse20089Data.code) &&
-        equalsNullable(this.description, inlineResponse20089Data.description);
+    return equalsNullable(this.idNotation, inlineResponse20089Data.idNotation) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse20089Data.sourceIdentifier) &&
+        equalsNullable(this.quality, inlineResponse20089Data.quality) &&
+        Objects.equals(this.asks, inlineResponse20089Data.asks) &&
+        Objects.equals(this.bids, inlineResponse20089Data.bids);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -183,7 +297,7 @@ public class InlineResponse20089Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(code), hashCodeNullable(description));
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(quality), asks, bids);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -197,9 +311,11 @@ public class InlineResponse20089Data implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20089Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
+    sb.append("    asks: ").append(toIndentedString(asks)).append("\n");
+    sb.append("    bids: ").append(toIndentedString(bids)).append("\n");
     sb.append("}");
     return sb.toString();
   }

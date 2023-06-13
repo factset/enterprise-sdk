@@ -34,18 +34,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20080" /> class.
         /// </summary>
-        /// <param name="data">List of entitled markets..</param>
+        /// <param name="data">EOD key figures for a list of notations..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20080(List<InlineResponse20080Data> data = default(List<InlineResponse20080Data>), InlineResponse2009Meta meta = default(InlineResponse2009Meta))
+        public InlineResponse20080(List<InlineResponse20080Data> data = default(List<InlineResponse20080Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// List of entitled markets.
+        /// EOD key figures for a list of notations.
         /// </summary>
-        /// <value>List of entitled markets.</value>
+        /// <value>EOD key figures for a list of notations.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse20080Data> Data { get; set; }
 
@@ -53,7 +53,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public InlineResponse2009Meta Meta { get; set; }
+        public InlineResponse200Meta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

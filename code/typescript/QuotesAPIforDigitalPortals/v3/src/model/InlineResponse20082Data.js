@@ -12,15 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20082DataAccumulated from './InlineResponse20082DataAccumulated';
-import InlineResponse20082DataCurrency from './InlineResponse20082DataCurrency';
-import InlineResponse20082DataFirst from './InlineResponse20082DataFirst';
-import InlineResponse20082DataHigh from './InlineResponse20082DataHigh';
-import InlineResponse20082DataLatest from './InlineResponse20082DataLatest';
-import InlineResponse20082DataLow from './InlineResponse20082DataLow';
-import InlineResponse20082DataMarket from './InlineResponse20082DataMarket';
-import InlineResponse20082DataPreviousClose from './InlineResponse20082DataPreviousClose';
-import InlineResponse20082DataValueUnit from './InlineResponse20082DataValueUnit';
+import InlineResponse20082Country from './InlineResponse20082Country';
+import InlineResponse20082Group from './InlineResponse20082Group';
+import InlineResponse20082Timezone from './InlineResponse20082Timezone';
+import InlineResponse20082Type from './InlineResponse20082Type';
 
 /**
  * The InlineResponse20082Data model module.
@@ -29,7 +24,6 @@ import InlineResponse20082DataValueUnit from './InlineResponse20082DataValueUnit
 class InlineResponse20082Data {
     /**
      * Constructs a new <code>InlineResponse20082Data</code>.
-     * Set of price related data for the notation.
      * @alias module:model/InlineResponse20082Data
      */
     constructor() { 
@@ -56,41 +50,29 @@ class InlineResponse20082Data {
         if (data) {
             obj = obj || new InlineResponse20082Data();
 
-            if (data.hasOwnProperty('idNotation')) {
-                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
-                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = InlineResponse20082DataValueUnit.constructFromObject(data['valueUnit']);
+            if (data.hasOwnProperty('shortName')) {
+                obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = InlineResponse20082DataCurrency.constructFromObject(data['currency']);
+            if (data.hasOwnProperty('country')) {
+                obj['country'] = InlineResponse20082Country.constructFromObject(data['country']);
             }
-            if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse20082DataMarket.constructFromObject(data['market']);
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = InlineResponse20082Type.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('quality')) {
-                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
+            if (data.hasOwnProperty('group')) {
+                obj['group'] = InlineResponse20082Group.constructFromObject(data['group']);
             }
-            if (data.hasOwnProperty('latest')) {
-                obj['latest'] = InlineResponse20082DataLatest.constructFromObject(data['latest']);
+            if (data.hasOwnProperty('timezone')) {
+                obj['timezone'] = InlineResponse20082Timezone.constructFromObject(data['timezone']);
             }
-            if (data.hasOwnProperty('first')) {
-                obj['first'] = InlineResponse20082DataFirst.constructFromObject(data['first']);
-            }
-            if (data.hasOwnProperty('low')) {
-                obj['low'] = InlineResponse20082DataLow.constructFromObject(data['low']);
-            }
-            if (data.hasOwnProperty('high')) {
-                obj['high'] = InlineResponse20082DataHigh.constructFromObject(data['high']);
-            }
-            if (data.hasOwnProperty('previousClose')) {
-                obj['previousClose'] = InlineResponse20082DataPreviousClose.constructFromObject(data['previousClose']);
-            }
-            if (data.hasOwnProperty('accumulated')) {
-                obj['accumulated'] = InlineResponse20082DataAccumulated.constructFromObject(data['accumulated']);
+            if (data.hasOwnProperty('count')) {
+                obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
         }
         return obj;
@@ -100,97 +82,51 @@ class InlineResponse20082Data {
 }
 
 /**
- * MDG identifier of the listing.
- * @member {String} idNotation
+ * Identifier of a market.
+ * @member {Number} id
  */
-InlineResponse20082Data.prototype['idNotation'] = undefined;
+InlineResponse20082Data.prototype['id'] = undefined;
 
 /**
- * Identifier used in the request.
- * @member {String} sourceIdentifier
+ * Name of the market.
+ * @member {String} name
  */
-InlineResponse20082Data.prototype['sourceIdentifier'] = undefined;
+InlineResponse20082Data.prototype['name'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataValueUnit} valueUnit
+ * Short name of the market.
+ * @member {String} shortName
  */
-InlineResponse20082Data.prototype['valueUnit'] = undefined;
+InlineResponse20082Data.prototype['shortName'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataCurrency} currency
+ * @member {module:model/InlineResponse20082Country} country
  */
-InlineResponse20082Data.prototype['currency'] = undefined;
+InlineResponse20082Data.prototype['country'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataMarket} market
+ * @member {module:model/InlineResponse20082Type} type
  */
-InlineResponse20082Data.prototype['market'] = undefined;
+InlineResponse20082Data.prototype['type'] = undefined;
 
 /**
- * Quality of the price.
- * @member {module:model/InlineResponse20082Data.QualityEnum} quality
+ * @member {module:model/InlineResponse20082Group} group
  */
-InlineResponse20082Data.prototype['quality'] = undefined;
+InlineResponse20082Data.prototype['group'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataLatest} latest
+ * @member {module:model/InlineResponse20082Timezone} timezone
  */
-InlineResponse20082Data.prototype['latest'] = undefined;
+InlineResponse20082Data.prototype['timezone'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20082DataFirst} first
+ * Number of entitled notations.
+ * @member {Number} count
  */
-InlineResponse20082Data.prototype['first'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20082DataLow} low
- */
-InlineResponse20082Data.prototype['low'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20082DataHigh} high
- */
-InlineResponse20082Data.prototype['high'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20082DataPreviousClose} previousClose
- */
-InlineResponse20082Data.prototype['previousClose'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20082DataAccumulated} accumulated
- */
-InlineResponse20082Data.prototype['accumulated'] = undefined;
+InlineResponse20082Data.prototype['count'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>quality</code> property.
- * @enum {String}
- * @readonly
- */
-InlineResponse20082Data['QualityEnum'] = {
-
-    /**
-     * value: "RLT"
-     * @const
-     */
-    "RLT": "RLT",
-
-    /**
-     * value: "DLY"
-     * @const
-     */
-    "DLY": "DLY",
-
-    /**
-     * value: "EOD"
-     * @const
-     */
-    "EOD": "EOD"
-};
 
 
 

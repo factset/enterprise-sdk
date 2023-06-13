@@ -31,9 +31,9 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20038_data_categories import InlineResponse20038DataCategories
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20091_instrument_nsin import InlineResponse20091InstrumentNsin
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20093_instrument_nsin import InlineResponse20093InstrumentNsin
     globals()['InlineResponse20038DataCategories'] = InlineResponse20038DataCategories
-    globals()['InlineResponse20091InstrumentNsin'] = InlineResponse20091InstrumentNsin
+    globals()['InlineResponse20093InstrumentNsin'] = InlineResponse20093InstrumentNsin
 
 
 class InlineResponse20093Instrument(ModelNormal):
@@ -92,7 +92,7 @@ class InlineResponse20093Instrument(ModelNormal):
             'id': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'isin': (str, none_type,),  # noqa: E501
-            'nsin': (InlineResponse20091InstrumentNsin,),  # noqa: E501
+            'nsin': (InlineResponse20093InstrumentNsin,),  # noqa: E501
             'asset_class': (str, none_type,),  # noqa: E501
             'type': ([InlineResponse20038DataCategories],),  # noqa: E501
         }
@@ -152,10 +152,10 @@ class InlineResponse20093Instrument(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
-            name (str, none_type): Name of the instrument.. [optional]  # noqa: E501
-            isin (str, none_type): International Securities Identification Number of the instrument.. [optional]  # noqa: E501
-            nsin (InlineResponse20091InstrumentNsin): [optional]  # noqa: E501
+            id (str, none_type): Identifier of the instrument of the notation.. [optional]  # noqa: E501
+            name (str, none_type): Asset class-unspecific name in English.. [optional]  # noqa: E501
+            isin (str, none_type): The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.. [optional]  # noqa: E501
+            nsin (InlineResponse20093InstrumentNsin): [optional]  # noqa: E501
             asset_class (str, none_type): Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.. [optional]  # noqa: E501
             type ([InlineResponse20038DataCategories]): Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).. [optional]  # noqa: E501
         """
@@ -239,10 +239,10 @@ class InlineResponse20093Instrument(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
-            name (str, none_type): Name of the instrument.. [optional]  # noqa: E501
-            isin (str, none_type): International Securities Identification Number of the instrument.. [optional]  # noqa: E501
-            nsin (InlineResponse20091InstrumentNsin): [optional]  # noqa: E501
+            id (str, none_type): Identifier of the instrument of the notation.. [optional]  # noqa: E501
+            name (str, none_type): Asset class-unspecific name in English.. [optional]  # noqa: E501
+            isin (str, none_type): The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.. [optional]  # noqa: E501
+            nsin (InlineResponse20093InstrumentNsin): [optional]  # noqa: E501
             asset_class (str, none_type): Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.. [optional]  # noqa: E501
             type ([InlineResponse20038DataCategories]): Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).. [optional]  # noqa: E501
         """

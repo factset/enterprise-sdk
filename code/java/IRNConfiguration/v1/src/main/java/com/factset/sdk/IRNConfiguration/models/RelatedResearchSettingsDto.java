@@ -41,13 +41,13 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class RelatedResearchSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
   private Boolean isHidden;
 
-  public static final String JSON_PROPERTY_IS_MANDATORY = "IsMandatory";
+  public static final String JSON_PROPERTY_IS_MANDATORY = "isMandatory";
   private Boolean isMandatory;
 
-  public static final String JSON_PROPERTY_USE_PREVIOUS = "UsePrevious";
+  public static final String JSON_PROPERTY_USE_PREVIOUS = "usePrevious";
   private Boolean usePrevious;
 
   public RelatedResearchSettingsDto() { 

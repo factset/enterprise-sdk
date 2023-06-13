@@ -22,6 +22,7 @@ import PostInstrumentCategoryListRequestMeta from './PostInstrumentCategoryListR
 class PostInstrumentCategoryListRequest {
     /**
      * Constructs a new <code>PostInstrumentCategoryListRequest</code>.
+     * Request Body
      * @alias module:model/PostInstrumentCategoryListRequest
      */
     constructor() { 

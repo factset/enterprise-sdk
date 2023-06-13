@@ -49,25 +49,25 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets NoteGuid
         /// </summary>
-        [DataMember(Name = "NoteGuid", EmitDefaultValue = true)]
+        [DataMember(Name = "noteGuid", EmitDefaultValue = true)]
         public Guid? NoteGuid { get; set; }
 
         /// <summary>
         /// Gets or Sets MeetingGuid
         /// </summary>
-        [DataMember(Name = "MeetingGuid", EmitDefaultValue = true)]
+        [DataMember(Name = "meetingGuid", EmitDefaultValue = true)]
         public Guid? MeetingGuid { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "Title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name = "Date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateTime Date { get; set; }
 
         /// <summary>

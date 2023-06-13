@@ -37,10 +37,10 @@ class RelationshipSaveDto {
      * Only for internal use.
      */
     static initialize(obj, relationshipCategoryId, hideDates, hideComment, hideCompany) { 
-        obj['RelationshipCategoryId'] = relationshipCategoryId;
-        obj['HideDates'] = hideDates || false;
-        obj['HideComment'] = hideComment || false;
-        obj['HideCompany'] = hideCompany || false;
+        obj['relationshipCategoryId'] = relationshipCategoryId;
+        obj['hideDates'] = hideDates || false;
+        obj['hideComment'] = hideComment || false;
+        obj['hideCompany'] = hideCompany || false;
     }
 
     /**
@@ -54,29 +54,29 @@ class RelationshipSaveDto {
         if (data) {
             obj = obj || new RelationshipSaveDto();
 
-            if (data.hasOwnProperty('RelationshipCategoryId')) {
-                obj['RelationshipCategoryId'] = ApiClient.convertToType(data['RelationshipCategoryId'], 'String');
+            if (data.hasOwnProperty('relationshipCategoryId')) {
+                obj['relationshipCategoryId'] = ApiClient.convertToType(data['relationshipCategoryId'], 'String');
             }
-            if (data.hasOwnProperty('RelationshipCode')) {
-                obj['RelationshipCode'] = ApiClient.convertToType(data['RelationshipCode'], 'String');
+            if (data.hasOwnProperty('relationshipCode')) {
+                obj['relationshipCode'] = ApiClient.convertToType(data['relationshipCode'], 'String');
             }
-            if (data.hasOwnProperty('BidirectionalName')) {
-                obj['BidirectionalName'] = ApiClient.convertToType(data['BidirectionalName'], 'String');
+            if (data.hasOwnProperty('bidirectionalName')) {
+                obj['bidirectionalName'] = ApiClient.convertToType(data['bidirectionalName'], 'String');
             }
-            if (data.hasOwnProperty('LeftToRightName')) {
-                obj['LeftToRightName'] = ApiClient.convertToType(data['LeftToRightName'], 'String');
+            if (data.hasOwnProperty('leftToRightName')) {
+                obj['leftToRightName'] = ApiClient.convertToType(data['leftToRightName'], 'String');
             }
-            if (data.hasOwnProperty('RightToLeftName')) {
-                obj['RightToLeftName'] = ApiClient.convertToType(data['RightToLeftName'], 'String');
+            if (data.hasOwnProperty('rightToLeftName')) {
+                obj['rightToLeftName'] = ApiClient.convertToType(data['rightToLeftName'], 'String');
             }
-            if (data.hasOwnProperty('HideDates')) {
-                obj['HideDates'] = ApiClient.convertToType(data['HideDates'], 'Boolean');
+            if (data.hasOwnProperty('hideDates')) {
+                obj['hideDates'] = ApiClient.convertToType(data['hideDates'], 'Boolean');
             }
-            if (data.hasOwnProperty('HideComment')) {
-                obj['HideComment'] = ApiClient.convertToType(data['HideComment'], 'Boolean');
+            if (data.hasOwnProperty('hideComment')) {
+                obj['hideComment'] = ApiClient.convertToType(data['hideComment'], 'Boolean');
             }
-            if (data.hasOwnProperty('HideCompany')) {
-                obj['HideCompany'] = ApiClient.convertToType(data['HideCompany'], 'Boolean');
+            if (data.hasOwnProperty('hideCompany')) {
+                obj['hideCompany'] = ApiClient.convertToType(data['hideCompany'], 'Boolean');
             }
         }
         return obj;
@@ -86,47 +86,47 @@ class RelationshipSaveDto {
 }
 
 /**
- * @member {String} RelationshipCategoryId
+ * @member {String} relationshipCategoryId
  */
-RelationshipSaveDto.prototype['RelationshipCategoryId'] = undefined;
+RelationshipSaveDto.prototype['relationshipCategoryId'] = undefined;
 
 /**
- * @member {String} RelationshipCode
+ * @member {String} relationshipCode
  */
-RelationshipSaveDto.prototype['RelationshipCode'] = undefined;
+RelationshipSaveDto.prototype['relationshipCode'] = undefined;
 
 /**
- * @member {String} BidirectionalName
+ * @member {String} bidirectionalName
  */
-RelationshipSaveDto.prototype['BidirectionalName'] = undefined;
+RelationshipSaveDto.prototype['bidirectionalName'] = undefined;
 
 /**
- * @member {String} LeftToRightName
+ * @member {String} leftToRightName
  */
-RelationshipSaveDto.prototype['LeftToRightName'] = undefined;
+RelationshipSaveDto.prototype['leftToRightName'] = undefined;
 
 /**
- * @member {String} RightToLeftName
+ * @member {String} rightToLeftName
  */
-RelationshipSaveDto.prototype['RightToLeftName'] = undefined;
+RelationshipSaveDto.prototype['rightToLeftName'] = undefined;
 
 /**
- * @member {Boolean} HideDates
+ * @member {Boolean} hideDates
  * @default false
  */
-RelationshipSaveDto.prototype['HideDates'] = false;
+RelationshipSaveDto.prototype['hideDates'] = false;
 
 /**
- * @member {Boolean} HideComment
+ * @member {Boolean} hideComment
  * @default false
  */
-RelationshipSaveDto.prototype['HideComment'] = false;
+RelationshipSaveDto.prototype['hideComment'] = false;
 
 /**
- * @member {Boolean} HideCompany
+ * @member {Boolean} hideCompany
  * @default false
  */
-RelationshipSaveDto.prototype['HideCompany'] = false;
+RelationshipSaveDto.prototype['hideCompany'] = false;
 
 
 

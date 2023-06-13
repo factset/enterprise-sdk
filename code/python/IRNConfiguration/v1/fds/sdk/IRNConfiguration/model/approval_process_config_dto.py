@@ -98,16 +98,16 @@ class ApprovalProcessConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'approval_levels': 'ApprovalLevels',  # noqa: E501
-        'viewer_ids': 'ViewerIds',  # noqa: E501
-        'should_send_email_alerts_when_submitted_for_approval': 'ShouldSendEmailAlertsWhenSubmittedForApproval',  # noqa: E501
-        'should_send_email_alerts_when_approved': 'ShouldSendEmailAlertsWhenApproved',  # noqa: E501
-        'should_send_email_alerts_when_denied': 'ShouldSendEmailAlertsWhenDenied',  # noqa: E501
-        'should_send_email_alerts_to_author': 'ShouldSendEmailAlertsToAuthor',  # noqa: E501
-        'should_send_email_alerts_to_approvers': 'ShouldSendEmailAlertsToApprovers',  # noqa: E501
-        'should_send_email_alerts_to_viewers': 'ShouldSendEmailAlertsToViewers',  # noqa: E501
-        'can_author_self_approve': 'CanAuthorSelfApprove',  # noqa: E501
-        'can_author_edit_pending': 'CanAuthorEditPending',  # noqa: E501
+        'approval_levels': 'approvalLevels',  # noqa: E501
+        'viewer_ids': 'viewerIds',  # noqa: E501
+        'should_send_email_alerts_when_submitted_for_approval': 'shouldSendEmailAlertsWhenSubmittedForApproval',  # noqa: E501
+        'should_send_email_alerts_when_approved': 'shouldSendEmailAlertsWhenApproved',  # noqa: E501
+        'should_send_email_alerts_when_denied': 'shouldSendEmailAlertsWhenDenied',  # noqa: E501
+        'should_send_email_alerts_to_author': 'shouldSendEmailAlertsToAuthor',  # noqa: E501
+        'should_send_email_alerts_to_approvers': 'shouldSendEmailAlertsToApprovers',  # noqa: E501
+        'should_send_email_alerts_to_viewers': 'shouldSendEmailAlertsToViewers',  # noqa: E501
+        'can_author_self_approve': 'canAuthorSelfApprove',  # noqa: E501
+        'can_author_edit_pending': 'canAuthorEditPending',  # noqa: E501
     }
 
     read_only_vars = {

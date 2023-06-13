@@ -27,10 +27,11 @@ class PostNotationSearchByTextRequestData {
      * Constructs a new <code>PostNotationSearchByTextRequestData</code>.
      * The data member contains the request&#39;s primary data.
      * @alias module:model/PostNotationSearchByTextRequestData
+     * @param text {module:model/PostNotationSearchByTextRequestDataText} 
      */
-    constructor() { 
+    constructor(text) { 
         
-        PostNotationSearchByTextRequestData.initialize(this);
+        PostNotationSearchByTextRequestData.initialize(this, text);
     }
 
     /**
@@ -38,7 +39,8 @@ class PostNotationSearchByTextRequestData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, text) { 
+        obj['text'] = text;
     }
 
     /**

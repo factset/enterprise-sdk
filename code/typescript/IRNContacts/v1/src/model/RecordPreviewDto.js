@@ -46,17 +46,17 @@ class RecordPreviewDto {
         if (data) {
             obj = obj || new RecordPreviewDto();
 
-            if (data.hasOwnProperty('NoteGuid')) {
-                obj['NoteGuid'] = ApiClient.convertToType(data['NoteGuid'], 'String');
+            if (data.hasOwnProperty('noteGuid')) {
+                obj['noteGuid'] = ApiClient.convertToType(data['noteGuid'], 'String');
             }
-            if (data.hasOwnProperty('MeetingGuid')) {
-                obj['MeetingGuid'] = ApiClient.convertToType(data['MeetingGuid'], 'String');
+            if (data.hasOwnProperty('meetingGuid')) {
+                obj['meetingGuid'] = ApiClient.convertToType(data['meetingGuid'], 'String');
             }
-            if (data.hasOwnProperty('Title')) {
-                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('Date')) {
-                obj['Date'] = ApiClient.convertToType(data['Date'], 'Date');
+            if (data.hasOwnProperty('date')) {
+                obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
         }
         return obj;
@@ -66,24 +66,24 @@ class RecordPreviewDto {
 }
 
 /**
- * @member {String} NoteGuid
+ * @member {String} noteGuid
  */
-RecordPreviewDto.prototype['NoteGuid'] = undefined;
+RecordPreviewDto.prototype['noteGuid'] = undefined;
 
 /**
- * @member {String} MeetingGuid
+ * @member {String} meetingGuid
  */
-RecordPreviewDto.prototype['MeetingGuid'] = undefined;
+RecordPreviewDto.prototype['meetingGuid'] = undefined;
 
 /**
- * @member {String} Title
+ * @member {String} title
  */
-RecordPreviewDto.prototype['Title'] = undefined;
+RecordPreviewDto.prototype['title'] = undefined;
 
 /**
- * @member {Date} Date
+ * @member {Date} date
  */
-RecordPreviewDto.prototype['Date'] = undefined;
+RecordPreviewDto.prototype['date'] = undefined;
 
 
 

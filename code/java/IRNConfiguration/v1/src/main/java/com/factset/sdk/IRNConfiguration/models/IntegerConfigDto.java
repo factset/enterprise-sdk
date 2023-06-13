@@ -43,7 +43,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class IntegerConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_SPLIT_TYPE = "SplitType";
+  public static final String JSON_PROPERTY_SPLIT_TYPE = "splitType";
   private JsonNullable<String> splitType = JsonNullable.<String>undefined();
 
   public IntegerConfigDto() { 

@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataListing;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20072DataRegionalListing;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,8 +35,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse20072DataRegional
+ * Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.
  */
+@ApiModel(description = "Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.")
 @JsonPropertyOrder({
   InlineResponse20072DataRegional.JSON_PROPERTY_IS_PRIMARY,
   InlineResponse20072DataRegional.JSON_PROPERTY_PERMANENT_IDENTIFIER,
@@ -57,7 +58,7 @@ public class InlineResponse20072DataRegional implements Serializable {
   private JsonNullable<String> tickerRegion = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LISTING = "listing";
-  private java.util.List<InlineResponse20072DataListing> listing = null;
+  private InlineResponse20072DataRegionalListing listing;
 
   public InlineResponse20072DataRegional() { 
   }
@@ -164,36 +165,28 @@ public class InlineResponse20072DataRegional implements Serializable {
   }
 
 
-  public InlineResponse20072DataRegional listing(java.util.List<InlineResponse20072DataListing> listing) {
+  public InlineResponse20072DataRegional listing(InlineResponse20072DataRegionalListing listing) {
     this.listing = listing;
     return this;
   }
 
-  public InlineResponse20072DataRegional addListingItem(InlineResponse20072DataListing listingItem) {
-    if (this.listing == null) {
-      this.listing = new java.util.ArrayList<>();
-    }
-    this.listing.add(listingItem);
-    return this;
-  }
-
    /**
-   * Listing-level data with a list of notations. If the set of listing identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.
+   * Get listing
    * @return listing
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Listing-level data with a list of notations. If the set of listing identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LISTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20072DataListing> getListing() {
+  public InlineResponse20072DataRegionalListing getListing() {
     return listing;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LISTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setListing(java.util.List<InlineResponse20072DataListing> listing) {
+  public void setListing(InlineResponse20072DataRegionalListing listing) {
     this.listing = listing;
   }
 

@@ -34,7 +34,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20092" /> class.
         /// </summary>
-        /// <param name="data">List of matching and selected notations..</param>
+        /// <param name="data">List of instruments..</param>
         /// <param name="meta">meta.</param>
         public InlineResponse20092(List<InlineResponse20092Data> data = default(List<InlineResponse20092Data>), InlineResponse20036Meta meta = default(InlineResponse20036Meta))
         {
@@ -43,9 +43,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         }
 
         /// <summary>
-        /// List of matching and selected notations.
+        /// List of instruments.
         /// </summary>
-        /// <value>List of matching and selected notations.</value>
+        /// <value>List of instruments.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse20092Data> Data { get; set; }
 

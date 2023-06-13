@@ -49,25 +49,25 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets EventType
         /// </summary>
-        [DataMember(Name = "EventType", EmitDefaultValue = true)]
+        [DataMember(Name = "eventType", EmitDefaultValue = true)]
         public string EventType { get; set; }
 
         /// <summary>
         /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name = "Date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateTime Date { get; set; }
 
         /// <summary>
         /// Gets or Sets FullName
         /// </summary>
-        [DataMember(Name = "FullName", EmitDefaultValue = true)]
+        [DataMember(Name = "fullName", EmitDefaultValue = true)]
         public string FullName { get; set; }
 
         /// <summary>
         /// Gets or Sets Details
         /// </summary>
-        [DataMember(Name = "Details", EmitDefaultValue = true)]
+        [DataMember(Name = "details", EmitDefaultValue = true)]
         public List<ContactEventUpdateDto> Details { get; set; }
 
         /// <summary>

@@ -2,6 +2,7 @@
 
 # PostInstrumentCategoryListRequest
 
+Request Body
 
 ## Properties
 

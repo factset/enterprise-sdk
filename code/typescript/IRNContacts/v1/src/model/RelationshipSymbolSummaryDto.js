@@ -47,14 +47,14 @@ class RelationshipSymbolSummaryDto {
         if (data) {
             obj = obj || new RelationshipSymbolSummaryDto();
 
-            if (data.hasOwnProperty('Identifier')) {
-                obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
+            if (data.hasOwnProperty('tdentifier')) {
+                obj['tdentifier'] = ApiClient.convertToType(data['tdentifier'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = SymbolType.constructFromObject(data['Type']);
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = SymbolType.constructFromObject(data['type']);
             }
         }
         return obj;
@@ -64,19 +64,19 @@ class RelationshipSymbolSummaryDto {
 }
 
 /**
- * @member {String} Identifier
+ * @member {String} tdentifier
  */
-RelationshipSymbolSummaryDto.prototype['Identifier'] = undefined;
+RelationshipSymbolSummaryDto.prototype['tdentifier'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-RelationshipSymbolSummaryDto.prototype['Name'] = undefined;
+RelationshipSymbolSummaryDto.prototype['name'] = undefined;
 
 /**
- * @member {module:model/SymbolType} Type
+ * @member {module:model/SymbolType} type
  */
-RelationshipSymbolSummaryDto.prototype['Type'] = undefined;
+RelationshipSymbolSummaryDto.prototype['type'] = undefined;
 
 
 

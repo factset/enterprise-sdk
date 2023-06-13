@@ -34,7 +34,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20085" /> class.
         /// </summary>
-        /// <param name="data">Set of bid and ask prices for a list of notations..</param>
+        /// <param name="data">Set of price related data for a list of notations..</param>
         /// <param name="meta">meta.</param>
         public InlineResponse20085(List<InlineResponse20085Data> data = default(List<InlineResponse20085Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
@@ -43,9 +43,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         }
 
         /// <summary>
-        /// Set of bid and ask prices for a list of notations.
+        /// Set of price related data for a list of notations.
         /// </summary>
-        /// <value>Set of bid and ask prices for a list of notations.</value>
+        /// <value>Set of price related data for a list of notations.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse20085Data> Data { get; set; }
 

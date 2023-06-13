@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// ErrorMetaObject
+    /// The meta member contains the meta information of the response.
     /// </summary>
     [DataContract(Name = "ErrorMetaObject")]
     public partial class ErrorMetaObject : IEquatable<ErrorMetaObject>, IValidatableObject

@@ -85,8 +85,8 @@ class ContactCustomFieldOptionValueDto(ModelNormal):
 
 
     attribute_map = {
-        'option_id': 'OptionId',  # noqa: E501
-        'option_name': 'OptionName',  # noqa: E501
+        'option_id': 'optionId',  # noqa: E501
+        'option_name': 'optionName',  # noqa: E501
     }
 
     read_only_vars = {

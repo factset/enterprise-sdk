@@ -52,31 +52,31 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class CreateCustomSymbolCustomFieldDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CODE = "Code";
+  public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
   private Boolean isHidden = false;
 
-  public static final String JSON_PROPERTY_IS_MANDATORY = "IsMandatory";
+  public static final String JSON_PROPERTY_IS_MANDATORY = "isMandatory";
   private Boolean isMandatory = false;
 
-  public static final String JSON_PROPERTY_IS_SHOWN_IN_INFOBOX = "IsShownInInfobox";
+  public static final String JSON_PROPERTY_IS_SHOWN_IN_INFOBOX = "isShownInInfobox";
   private Boolean isShownInInfobox = true;
 
-  public static final String JSON_PROPERTY_FORMULA_CONFIG = "FormulaConfig";
+  public static final String JSON_PROPERTY_FORMULA_CONFIG = "formulaConfig";
   private CustomSymbolCustomFieldFormulaConfigDto formulaConfig;
 
-  public static final String JSON_PROPERTY_OPTIONS_CONFIG = "OptionsConfig";
+  public static final String JSON_PROPERTY_OPTIONS_CONFIG = "optionsConfig";
   private JsonNullable<java.util.List<String>> optionsConfig = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_SYMBOL_TYPES = "CustomSymbolTypes";
+  public static final String JSON_PROPERTY_CUSTOM_SYMBOL_TYPES = "customSymbolTypes";
   private java.util.List<java.util.UUID> customSymbolTypes = new java.util.ArrayList<>();
 
   public CreateCustomSymbolCustomFieldDto() { 

@@ -17,7 +17,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20087DataAsks;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20084DataCurrency;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20084DataValueUnit;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Market;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Status;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20087Ask;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20087Bid;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,15 +40,18 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * Orderbook.
+ * InlineResponse20087Data
  */
-@ApiModel(description = "Orderbook.")
 @JsonPropertyOrder({
   InlineResponse20087Data.JSON_PROPERTY_ID_NOTATION,
   InlineResponse20087Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20087Data.JSON_PROPERTY_VALUE_UNIT,
+  InlineResponse20087Data.JSON_PROPERTY_CURRENCY,
+  InlineResponse20087Data.JSON_PROPERTY_MARKET,
   InlineResponse20087Data.JSON_PROPERTY_QUALITY,
-  InlineResponse20087Data.JSON_PROPERTY_ASKS,
-  InlineResponse20087Data.JSON_PROPERTY_BIDS
+  InlineResponse20087Data.JSON_PROPERTY_BID,
+  InlineResponse20087Data.JSON_PROPERTY_ASK,
+  InlineResponse20087Data.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20087Data implements Serializable {
@@ -55,13 +63,24 @@ public class InlineResponse20087Data implements Serializable {
   public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
   private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
+  private InlineResponse20084DataValueUnit valueUnit;
+
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private InlineResponse20084DataCurrency currency;
+
+  public static final String JSON_PROPERTY_MARKET = "market";
+  private InlineResponse20085Market market;
+
   /**
    * Quality of the price.
    */
   public enum QualityEnum {
     RLT("RLT"),
     
-    DLY("DLY");
+    DLY("DLY"),
+    
+    EOD("EOD");
 
     private String value;
 
@@ -93,11 +112,14 @@ public class InlineResponse20087Data implements Serializable {
   public static final String JSON_PROPERTY_QUALITY = "quality";
   private JsonNullable<QualityEnum> quality = JsonNullable.<QualityEnum>undefined();
 
-  public static final String JSON_PROPERTY_ASKS = "asks";
-  private java.util.List<InlineResponse20087DataAsks> asks = null;
+  public static final String JSON_PROPERTY_BID = "bid";
+  private InlineResponse20087Bid bid;
 
-  public static final String JSON_PROPERTY_BIDS = "bids";
-  private java.util.List<InlineResponse20087DataAsks> bids = null;
+  public static final String JSON_PROPERTY_ASK = "ask";
+  private InlineResponse20087Ask ask;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private InlineResponse20085Status status;
 
   public InlineResponse20087Data() { 
   }
@@ -170,6 +192,84 @@ public class InlineResponse20087Data implements Serializable {
   }
 
 
+  public InlineResponse20087Data valueUnit(InlineResponse20084DataValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
+    return this;
+  }
+
+   /**
+   * Get valueUnit
+   * @return valueUnit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20084DataValueUnit getValueUnit() {
+    return valueUnit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValueUnit(InlineResponse20084DataValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
+  }
+
+
+  public InlineResponse20087Data currency(InlineResponse20084DataCurrency currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20084DataCurrency getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(InlineResponse20084DataCurrency currency) {
+    this.currency = currency;
+  }
+
+
+  public InlineResponse20087Data market(InlineResponse20085Market market) {
+    this.market = market;
+    return this;
+  }
+
+   /**
+   * Get market
+   * @return market
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20085Market getMarket() {
+    return market;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMarket(InlineResponse20085Market market) {
+    this.market = market;
+  }
+
+
   public InlineResponse20087Data quality(QualityEnum quality) {
     this.quality = JsonNullable.<QualityEnum>of(quality);
     return this;
@@ -204,71 +304,81 @@ public class InlineResponse20087Data implements Serializable {
   }
 
 
-  public InlineResponse20087Data asks(java.util.List<InlineResponse20087DataAsks> asks) {
-    this.asks = asks;
-    return this;
-  }
-
-  public InlineResponse20087Data addAsksItem(InlineResponse20087DataAsks asksItem) {
-    if (this.asks == null) {
-      this.asks = new java.util.ArrayList<>();
-    }
-    this.asks.add(asksItem);
+  public InlineResponse20087Data bid(InlineResponse20087Bid bid) {
+    this.bid = bid;
     return this;
   }
 
    /**
-   * Ask entries of the full orderbook.
-   * @return asks
+   * Get bid
+   * @return bid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ask entries of the full orderbook.")
-  @JsonProperty(JSON_PROPERTY_ASKS)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20087DataAsks> getAsks() {
-    return asks;
+  public InlineResponse20087Bid getBid() {
+    return bid;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ASKS)
+  @JsonProperty(JSON_PROPERTY_BID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAsks(java.util.List<InlineResponse20087DataAsks> asks) {
-    this.asks = asks;
+  public void setBid(InlineResponse20087Bid bid) {
+    this.bid = bid;
   }
 
 
-  public InlineResponse20087Data bids(java.util.List<InlineResponse20087DataAsks> bids) {
-    this.bids = bids;
-    return this;
-  }
-
-  public InlineResponse20087Data addBidsItem(InlineResponse20087DataAsks bidsItem) {
-    if (this.bids == null) {
-      this.bids = new java.util.ArrayList<>();
-    }
-    this.bids.add(bidsItem);
+  public InlineResponse20087Data ask(InlineResponse20087Ask ask) {
+    this.ask = ask;
     return this;
   }
 
    /**
-   * Bid entries of the full orderbook.
-   * @return bids
+   * Get ask
+   * @return ask
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Bid entries of the full orderbook.")
-  @JsonProperty(JSON_PROPERTY_BIDS)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ASK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20087DataAsks> getBids() {
-    return bids;
+  public InlineResponse20087Ask getAsk() {
+    return ask;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BIDS)
+  @JsonProperty(JSON_PROPERTY_ASK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBids(java.util.List<InlineResponse20087DataAsks> bids) {
-    this.bids = bids;
+  public void setAsk(InlineResponse20087Ask ask) {
+    this.ask = ask;
+  }
+
+
+  public InlineResponse20087Data status(InlineResponse20085Status status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20085Status getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(InlineResponse20085Status status) {
+    this.status = status;
   }
 
 
@@ -286,9 +396,13 @@ public class InlineResponse20087Data implements Serializable {
     InlineResponse20087Data inlineResponse20087Data = (InlineResponse20087Data) o;
     return equalsNullable(this.idNotation, inlineResponse20087Data.idNotation) &&
         equalsNullable(this.sourceIdentifier, inlineResponse20087Data.sourceIdentifier) &&
+        Objects.equals(this.valueUnit, inlineResponse20087Data.valueUnit) &&
+        Objects.equals(this.currency, inlineResponse20087Data.currency) &&
+        Objects.equals(this.market, inlineResponse20087Data.market) &&
         equalsNullable(this.quality, inlineResponse20087Data.quality) &&
-        Objects.equals(this.asks, inlineResponse20087Data.asks) &&
-        Objects.equals(this.bids, inlineResponse20087Data.bids);
+        Objects.equals(this.bid, inlineResponse20087Data.bid) &&
+        Objects.equals(this.ask, inlineResponse20087Data.ask) &&
+        Objects.equals(this.status, inlineResponse20087Data.status);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -297,7 +411,7 @@ public class InlineResponse20087Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(quality), asks, bids);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), valueUnit, currency, market, hashCodeNullable(quality), bid, ask, status);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -313,9 +427,13 @@ public class InlineResponse20087Data implements Serializable {
     sb.append("class InlineResponse20087Data {\n");
     sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
     sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    market: ").append(toIndentedString(market)).append("\n");
     sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
-    sb.append("    asks: ").append(toIndentedString(asks)).append("\n");
-    sb.append("    bids: ").append(toIndentedString(bids)).append("\n");
+    sb.append("    bid: ").append(toIndentedString(bid)).append("\n");
+    sb.append("    ask: ").append(toIndentedString(ask)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

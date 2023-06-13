@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse20068DataNotations&gt;**](InlineResponse20068DataNotations.md) | List of notations. |  [optional]
+**data** | [**InlineResponse20069Data**](InlineResponse20069Data.md) |  |  [optional]
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 

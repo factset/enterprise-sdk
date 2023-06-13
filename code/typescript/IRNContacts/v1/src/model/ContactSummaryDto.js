@@ -50,53 +50,53 @@ class ContactSummaryDto {
         if (data) {
             obj = obj || new ContactSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('PrimaryEmailAddress')) {
-                obj['PrimaryEmailAddress'] = ApiClient.convertToType(data['PrimaryEmailAddress'], 'String');
+            if (data.hasOwnProperty('primaryEmailAddress')) {
+                obj['primaryEmailAddress'] = ApiClient.convertToType(data['primaryEmailAddress'], 'String');
             }
-            if (data.hasOwnProperty('Identifier')) {
-                obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
+            if (data.hasOwnProperty('identifier')) {
+                obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('FullName')) {
-                obj['FullName'] = ApiClient.convertToType(data['FullName'], 'String');
+            if (data.hasOwnProperty('fullName')) {
+                obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
             }
-            if (data.hasOwnProperty('EmployerName')) {
-                obj['EmployerName'] = ApiClient.convertToType(data['EmployerName'], 'String');
+            if (data.hasOwnProperty('employerName')) {
+                obj['employerName'] = ApiClient.convertToType(data['employerName'], 'String');
             }
-            if (data.hasOwnProperty('EmployerIdentifier')) {
-                obj['EmployerIdentifier'] = ApiClient.convertToType(data['EmployerIdentifier'], 'String');
+            if (data.hasOwnProperty('employerIdentifier')) {
+                obj['employerIdentifier'] = ApiClient.convertToType(data['employerIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('City')) {
-                obj['City'] = ApiClient.convertToType(data['City'], 'String');
+            if (data.hasOwnProperty('city')) {
+                obj['city'] = ApiClient.convertToType(data['city'], 'String');
             }
-            if (data.hasOwnProperty('StateProvince')) {
-                obj['StateProvince'] = ApiClient.convertToType(data['StateProvince'], 'String');
+            if (data.hasOwnProperty('stateProvince')) {
+                obj['stateProvince'] = ApiClient.convertToType(data['stateProvince'], 'String');
             }
-            if (data.hasOwnProperty('PostalCode')) {
-                obj['PostalCode'] = ApiClient.convertToType(data['PostalCode'], 'String');
+            if (data.hasOwnProperty('postalCode')) {
+                obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
             }
-            if (data.hasOwnProperty('Country')) {
-                obj['Country'] = ApiClient.convertToType(data['Country'], 'String');
+            if (data.hasOwnProperty('country')) {
+                obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('Role')) {
-                obj['Role'] = ContactRoleDto.constructFromObject(data['Role']);
+            if (data.hasOwnProperty('role')) {
+                obj['role'] = ContactRoleDto.constructFromObject(data['role']);
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ContactTypeDto.constructFromObject(data['Type']);
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ContactTypeDto.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('IsDeleted')) {
-                obj['IsDeleted'] = ApiClient.convertToType(data['IsDeleted'], 'Boolean');
+            if (data.hasOwnProperty('isDeleted')) {
+                obj['isDeleted'] = ApiClient.convertToType(data['isDeleted'], 'Boolean');
             }
-            if (data.hasOwnProperty('LastMeeting')) {
-                obj['LastMeeting'] = ApiClient.convertToType(data['LastMeeting'], 'String');
+            if (data.hasOwnProperty('lastMeeting')) {
+                obj['lastMeeting'] = ApiClient.convertToType(data['lastMeeting'], 'String');
             }
-            if (data.hasOwnProperty('AlternativeEmailAddresses')) {
-                obj['AlternativeEmailAddresses'] = ApiClient.convertToType(data['AlternativeEmailAddresses'], [AlternativeEmailAddressDto]);
+            if (data.hasOwnProperty('alternativeEmailAddresses')) {
+                obj['alternativeEmailAddresses'] = ApiClient.convertToType(data['alternativeEmailAddresses'], [AlternativeEmailAddressDto]);
             }
-            if (data.hasOwnProperty('CustomFieldValues')) {
-                obj['CustomFieldValues'] = ApiClient.convertToType(data['CustomFieldValues'], [ContactCustomFieldValueDto]);
+            if (data.hasOwnProperty('customFieldValues')) {
+                obj['customFieldValues'] = ApiClient.convertToType(data['customFieldValues'], [ContactCustomFieldValueDto]);
             }
         }
         return obj;
@@ -106,84 +106,84 @@ class ContactSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactSummaryDto.prototype['Id'] = undefined;
+ContactSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} PrimaryEmailAddress
+ * @member {String} primaryEmailAddress
  */
-ContactSummaryDto.prototype['PrimaryEmailAddress'] = undefined;
+ContactSummaryDto.prototype['primaryEmailAddress'] = undefined;
 
 /**
- * @member {String} Identifier
+ * @member {String} identifier
  */
-ContactSummaryDto.prototype['Identifier'] = undefined;
+ContactSummaryDto.prototype['identifier'] = undefined;
 
 /**
- * @member {String} FullName
+ * @member {String} fullName
  */
-ContactSummaryDto.prototype['FullName'] = undefined;
+ContactSummaryDto.prototype['fullName'] = undefined;
 
 /**
- * @member {String} EmployerName
+ * @member {String} employerName
  */
-ContactSummaryDto.prototype['EmployerName'] = undefined;
+ContactSummaryDto.prototype['employerName'] = undefined;
 
 /**
- * @member {String} EmployerIdentifier
+ * @member {String} employerIdentifier
  */
-ContactSummaryDto.prototype['EmployerIdentifier'] = undefined;
+ContactSummaryDto.prototype['employerIdentifier'] = undefined;
 
 /**
- * @member {String} City
+ * @member {String} city
  */
-ContactSummaryDto.prototype['City'] = undefined;
+ContactSummaryDto.prototype['city'] = undefined;
 
 /**
- * @member {String} StateProvince
+ * @member {String} stateProvince
  */
-ContactSummaryDto.prototype['StateProvince'] = undefined;
+ContactSummaryDto.prototype['stateProvince'] = undefined;
 
 /**
- * @member {String} PostalCode
+ * @member {String} postalCode
  */
-ContactSummaryDto.prototype['PostalCode'] = undefined;
+ContactSummaryDto.prototype['postalCode'] = undefined;
 
 /**
- * @member {String} Country
+ * @member {String} country
  */
-ContactSummaryDto.prototype['Country'] = undefined;
+ContactSummaryDto.prototype['country'] = undefined;
 
 /**
- * @member {module:model/ContactRoleDto} Role
+ * @member {module:model/ContactRoleDto} role
  */
-ContactSummaryDto.prototype['Role'] = undefined;
+ContactSummaryDto.prototype['role'] = undefined;
 
 /**
- * @member {module:model/ContactTypeDto} Type
+ * @member {module:model/ContactTypeDto} type
  */
-ContactSummaryDto.prototype['Type'] = undefined;
+ContactSummaryDto.prototype['type'] = undefined;
 
 /**
- * @member {Boolean} IsDeleted
+ * @member {Boolean} isDeleted
  */
-ContactSummaryDto.prototype['IsDeleted'] = undefined;
+ContactSummaryDto.prototype['isDeleted'] = undefined;
 
 /**
- * @member {String} LastMeeting
+ * @member {String} lastMeeting
  */
-ContactSummaryDto.prototype['LastMeeting'] = undefined;
+ContactSummaryDto.prototype['lastMeeting'] = undefined;
 
 /**
- * @member {Array.<module:model/AlternativeEmailAddressDto>} AlternativeEmailAddresses
+ * @member {Array.<module:model/AlternativeEmailAddressDto>} alternativeEmailAddresses
  */
-ContactSummaryDto.prototype['AlternativeEmailAddresses'] = undefined;
+ContactSummaryDto.prototype['alternativeEmailAddresses'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactCustomFieldValueDto>} CustomFieldValues
+ * @member {Array.<module:model/ContactCustomFieldValueDto>} customFieldValues
  */
-ContactSummaryDto.prototype['CustomFieldValues'] = undefined;
+ContactSummaryDto.prototype['customFieldValues'] = undefined;
 
 
 

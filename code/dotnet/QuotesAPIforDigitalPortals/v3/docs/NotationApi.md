@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**GetNotationKeyFiguresMonth3List**](NotationApi.md#getnotationkeyfiguresmonth3list) | **GET** /notation/keyFigures/month/3/list | End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 [**GetNotationKeyFiguresMonth6Get**](NotationApi.md#getnotationkeyfiguresmonth6get) | **GET** /notation/keyFigures/month/6/get | End-of-day (EOD) key figures for the time range of six months.
 [**GetNotationKeyFiguresMonth6List**](NotationApi.md#getnotationkeyfiguresmonth6list) | **GET** /notation/keyFigures/month/6/list | End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+[**GetNotationKeyFiguresTradingDayAverageGet**](NotationApi.md#getnotationkeyfigurestradingdayaverageget) | **GET** /notation/keyFigures/tradingDay/average/get | Average end-of-day (EOD) key figures for different trading days periods.
 [**GetNotationKeyFiguresWeek1Get**](NotationApi.md#getnotationkeyfiguresweek1get) | **GET** /notation/keyFigures/week/1/get | End-of-day (EOD) key figures for the time range of one week.
 [**GetNotationKeyFiguresWeek1List**](NotationApi.md#getnotationkeyfiguresweek1list) | **GET** /notation/keyFigures/week/1/list | End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 [**GetNotationKeyFiguresYear10Get**](NotationApi.md#getnotationkeyfiguresyear10get) | **GET** /notation/keyFigures/year/10/get | End-of-day (EOD) key figures for the time range of ten years.
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**GetNotationSearchBasic**](NotationApi.md#getnotationsearchbasic) | **GET** /notation/search/basic | Basic search for notations.
 [**GetNotationSearchByTextRankedByVolume**](NotationApi.md#getnotationsearchbytextrankedbyvolume) | **GET** /notation/searchByTextRankedByVolume | Basic search for notations.
 [**GetNotationStatusGet**](NotationApi.md#getnotationstatusget) | **GET** /notation/status/get | Intraday trading status of a notation.
+[**PostNotationCategoryList**](NotationApi.md#postnotationcategorylist) | **POST** /notation/category/list | List of categories assigned to a specific notation the application is entitled to see.
 [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier**](NotationApi.md#postnotationcrossreferencefactsetidentifierlistbyfactsetidentifier) | **POST** /notation/crossReference/factSetIdentifier/listByFactSetIdentifier | Retrieve a list of notations for a given FactSet identifier.
 [**PostNotationCrossReferenceFactSetIdentifierListByInstrument**](NotationApi.md#postnotationcrossreferencefactsetidentifierlistbyinstrument) | **POST** /notation/crossReference/factSetIdentifier/listByInstrument | Retrieve a list of FactSet identifiers for a given instrument.
 [**PostNotationCrossReferenceListByISIN**](NotationApi.md#postnotationcrossreferencelistbyisin) | **POST** /notation/crossReference/listByISIN | List of entitled notations.
@@ -43,7 +45,7 @@ Method | HTTP request | Description
 
 <a name="getnotationcrossreferencefactsetidentifierget"></a>
 # **GetNotationCrossReferenceFactSetIdentifierGet**
-> InlineResponse20071 GetNotationCrossReferenceFactSetIdentifierGet (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20072 GetNotationCrossReferenceFactSetIdentifierGet (string identifier, string identifierType, List<string> attributes = null)
 
 Retrieve FactSet identifiers for a given notation.
 
@@ -92,7 +94,7 @@ namespace Example
             try
             {
                 // Retrieve FactSet identifiers for a given notation.
-                InlineResponse20071 result = apiInstance.GetNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, attributes);
+                InlineResponse20072 result = apiInstance.GetNotationCrossReferenceFactSetIdentifierGet(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -115,7 +117,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20071**](InlineResponse20071.md)
+[**InlineResponse20072**](InlineResponse20072.md)
 
 ### Authorization
 
@@ -137,7 +139,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationcrossreferencegetbyfactsetmarketsymbol"></a>
 # **GetNotationCrossReferenceGetByFactSetMarketSymbol**
-> InlineResponse20067 GetNotationCrossReferenceGetByFactSetMarketSymbol (string factSetMarketSymbol, List<string> attributes = null, string language = null)
+> InlineResponse20068 GetNotationCrossReferenceGetByFactSetMarketSymbol (string factSetMarketSymbol, List<string> attributes = null, string language = null)
 
 Translate a FactSet market symbol to a notation.
 
@@ -186,7 +188,7 @@ namespace Example
             try
             {
                 // Translate a FactSet market symbol to a notation.
-                InlineResponse20067 result = apiInstance.GetNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, attributes, language);
+                InlineResponse20068 result = apiInstance.GetNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -209,7 +211,7 @@ Name | Type | Description  | Notes
  **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20068**](InlineResponse20068.md)
 
 ### Authorization
 
@@ -327,7 +329,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresmonth1get"></a>
 # **GetNotationKeyFiguresMonth1Get**
-> InlineResponse20076 GetNotationKeyFiguresMonth1Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20077 GetNotationKeyFiguresMonth1Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of one month.
 
@@ -376,7 +378,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of one month.
-                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresMonth1Get(identifier, identifierType, attributes);
+                InlineResponse20077 result = apiInstance.GetNotationKeyFiguresMonth1Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -399,7 +401,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -421,7 +423,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresmonth1list"></a>
 # **GetNotationKeyFiguresMonth1List**
-> InlineResponse20077 GetNotationKeyFiguresMonth1List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20078 GetNotationKeyFiguresMonth1List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of one month, for a list of notations.
 
@@ -470,7 +472,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-                InlineResponse20077 result = apiInstance.GetNotationKeyFiguresMonth1List(identifiers, identifierType, attributes);
+                InlineResponse20078 result = apiInstance.GetNotationKeyFiguresMonth1List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -493,7 +495,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -515,7 +517,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresmonth3get"></a>
 # **GetNotationKeyFiguresMonth3Get**
-> InlineResponse20074 GetNotationKeyFiguresMonth3Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20075 GetNotationKeyFiguresMonth3Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of three months.
 
@@ -564,7 +566,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of three months.
-                InlineResponse20074 result = apiInstance.GetNotationKeyFiguresMonth3Get(identifier, identifierType, attributes);
+                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresMonth3Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -587,7 +589,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -609,7 +611,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresmonth3list"></a>
 # **GetNotationKeyFiguresMonth3List**
-> InlineResponse20075 GetNotationKeyFiguresMonth3List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20076 GetNotationKeyFiguresMonth3List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 
@@ -658,7 +660,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresMonth3List(identifiers, identifierType, attributes);
+                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresMonth3List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -681,7 +683,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -703,7 +705,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresmonth6get"></a>
 # **GetNotationKeyFiguresMonth6Get**
-> InlineResponse20074 GetNotationKeyFiguresMonth6Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20075 GetNotationKeyFiguresMonth6Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of six months.
 
@@ -752,7 +754,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of six months.
-                InlineResponse20074 result = apiInstance.GetNotationKeyFiguresMonth6Get(identifier, identifierType, attributes);
+                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresMonth6Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -775,7 +777,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -797,7 +799,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresmonth6list"></a>
 # **GetNotationKeyFiguresMonth6List**
-> InlineResponse20075 GetNotationKeyFiguresMonth6List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20076 GetNotationKeyFiguresMonth6List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 
@@ -846,7 +848,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresMonth6List(identifiers, identifierType, attributes);
+                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresMonth6List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -869,7 +871,101 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="getnotationkeyfigurestradingdayaverageget"></a>
+# **GetNotationKeyFiguresTradingDayAverageGet**
+> InlineResponse20081 GetNotationKeyFiguresTradingDayAverageGet (string identifier, string identifierType, List<string> attributes = null)
+
+Average end-of-day (EOD) key figures for different trading days periods.
+
+Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
+
+namespace Example
+{
+    public class GetNotationKeyFiguresTradingDayAverageGetExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new NotationApi(config);
+
+            var identifier = "identifier_example";  // string | 
+            var identifierType = "idNotation";  // string | 
+            var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
+
+            try
+            {
+                // Average end-of-day (EOD) key figures for different trading days periods.
+                InlineResponse20081 result = apiInstance.GetNotationKeyFiguresTradingDayAverageGet(identifier, identifierType, attributes);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresTradingDayAverageGet: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **string**|  | 
+ **identifierType** | **string**|  | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+
+### Return type
+[**InlineResponse20081**](InlineResponse20081.md)
 
 ### Authorization
 
@@ -891,7 +987,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresweek1get"></a>
 # **GetNotationKeyFiguresWeek1Get**
-> InlineResponse20076 GetNotationKeyFiguresWeek1Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20077 GetNotationKeyFiguresWeek1Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of one week.
 
@@ -940,7 +1036,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of one week.
-                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresWeek1Get(identifier, identifierType, attributes);
+                InlineResponse20077 result = apiInstance.GetNotationKeyFiguresWeek1Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -963,7 +1059,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -985,7 +1081,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresweek1list"></a>
 # **GetNotationKeyFiguresWeek1List**
-> InlineResponse20077 GetNotationKeyFiguresWeek1List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20078 GetNotationKeyFiguresWeek1List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 
@@ -1034,7 +1130,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-                InlineResponse20077 result = apiInstance.GetNotationKeyFiguresWeek1List(identifiers, identifierType, attributes);
+                InlineResponse20078 result = apiInstance.GetNotationKeyFiguresWeek1List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1057,7 +1153,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -1079,7 +1175,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear10get"></a>
 # **GetNotationKeyFiguresYear10Get**
-> InlineResponse20074 GetNotationKeyFiguresYear10Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20075 GetNotationKeyFiguresYear10Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of ten years.
 
@@ -1128,7 +1224,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of ten years.
-                InlineResponse20074 result = apiInstance.GetNotationKeyFiguresYear10Get(identifier, identifierType, attributes);
+                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear10Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1151,7 +1247,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1173,7 +1269,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear10list"></a>
 # **GetNotationKeyFiguresYear10List**
-> InlineResponse20075 GetNotationKeyFiguresYear10List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20076 GetNotationKeyFiguresYear10List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
 
@@ -1222,7 +1318,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear10List(identifiers, identifierType, attributes);
+                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresYear10List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1245,7 +1341,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1267,7 +1363,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear1get"></a>
 # **GetNotationKeyFiguresYear1Get**
-> InlineResponse20076 GetNotationKeyFiguresYear1Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20077 GetNotationKeyFiguresYear1Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of one year.
 
@@ -1316,7 +1412,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of one year.
-                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresYear1Get(identifier, identifierType, attributes);
+                InlineResponse20077 result = apiInstance.GetNotationKeyFiguresYear1Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1339,7 +1435,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -1361,7 +1457,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear1list"></a>
 # **GetNotationKeyFiguresYear1List**
-> InlineResponse20077 GetNotationKeyFiguresYear1List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20078 GetNotationKeyFiguresYear1List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 
@@ -1410,7 +1506,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-                InlineResponse20077 result = apiInstance.GetNotationKeyFiguresYear1List(identifiers, identifierType, attributes);
+                InlineResponse20078 result = apiInstance.GetNotationKeyFiguresYear1List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1433,7 +1529,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -1455,7 +1551,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear3get"></a>
 # **GetNotationKeyFiguresYear3Get**
-> InlineResponse20074 GetNotationKeyFiguresYear3Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20075 GetNotationKeyFiguresYear3Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of three years.
 
@@ -1504,7 +1600,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of three years.
-                InlineResponse20074 result = apiInstance.GetNotationKeyFiguresYear3Get(identifier, identifierType, attributes);
+                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear3Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1527,7 +1623,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1549,7 +1645,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear3list"></a>
 # **GetNotationKeyFiguresYear3List**
-> InlineResponse20075 GetNotationKeyFiguresYear3List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20076 GetNotationKeyFiguresYear3List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 
@@ -1598,7 +1694,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear3List(identifiers, identifierType, attributes);
+                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresYear3List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1621,7 +1717,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1643,7 +1739,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear5get"></a>
 # **GetNotationKeyFiguresYear5Get**
-> InlineResponse20074 GetNotationKeyFiguresYear5Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20075 GetNotationKeyFiguresYear5Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of five years.
 
@@ -1692,7 +1788,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of five years.
-                InlineResponse20074 result = apiInstance.GetNotationKeyFiguresYear5Get(identifier, identifierType, attributes);
+                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear5Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1715,7 +1811,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1737,7 +1833,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear5list"></a>
 # **GetNotationKeyFiguresYear5List**
-> InlineResponse20075 GetNotationKeyFiguresYear5List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20076 GetNotationKeyFiguresYear5List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of five years, for a list of notations.
 
@@ -1786,7 +1882,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear5List(identifiers, identifierType, attributes);
+                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresYear5List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1809,7 +1905,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1831,7 +1927,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear7get"></a>
 # **GetNotationKeyFiguresYear7Get**
-> InlineResponse20074 GetNotationKeyFiguresYear7Get (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20075 GetNotationKeyFiguresYear7Get (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of seven years.
 
@@ -1880,7 +1976,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of seven years.
-                InlineResponse20074 result = apiInstance.GetNotationKeyFiguresYear7Get(identifier, identifierType, attributes);
+                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear7Get(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1903,7 +1999,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1925,7 +2021,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyear7list"></a>
 # **GetNotationKeyFiguresYear7List**
-> InlineResponse20075 GetNotationKeyFiguresYear7List (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20076 GetNotationKeyFiguresYear7List (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
 
@@ -1974,7 +2070,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-                InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear7List(identifiers, identifierType, attributes);
+                InlineResponse20076 result = apiInstance.GetNotationKeyFiguresYear7List(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1997,7 +2093,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -2019,7 +2115,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyeartodateget"></a>
 # **GetNotationKeyFiguresYearToDateGet**
-> InlineResponse20078 GetNotationKeyFiguresYearToDateGet (string identifier, string identifierType, List<string> attributes = null)
+> InlineResponse20079 GetNotationKeyFiguresYearToDateGet (string identifier, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 
@@ -2068,7 +2164,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range year-to-date (YTD)..
-                InlineResponse20078 result = apiInstance.GetNotationKeyFiguresYearToDateGet(identifier, identifierType, attributes);
+                InlineResponse20079 result = apiInstance.GetNotationKeyFiguresYearToDateGet(identifier, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2091,7 +2187,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20078**](InlineResponse20078.md)
+[**InlineResponse20079**](InlineResponse20079.md)
 
 ### Authorization
 
@@ -2113,7 +2209,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationkeyfiguresyeartodatelist"></a>
 # **GetNotationKeyFiguresYearToDateList**
-> InlineResponse20079 GetNotationKeyFiguresYearToDateList (List<string> identifiers, string identifierType, List<string> attributes = null)
+> InlineResponse20080 GetNotationKeyFiguresYearToDateList (List<string> identifiers, string identifierType, List<string> attributes = null)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 
@@ -2162,7 +2258,7 @@ namespace Example
             try
             {
                 // End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
-                InlineResponse20079 result = apiInstance.GetNotationKeyFiguresYearToDateList(identifiers, identifierType, attributes);
+                InlineResponse20080 result = apiInstance.GetNotationKeyFiguresYearToDateList(identifiers, identifierType, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2185,7 +2281,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20079**](InlineResponse20079.md)
+[**InlineResponse20080**](InlineResponse20080.md)
 
 ### Authorization
 
@@ -2303,7 +2399,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationsearchbasic"></a>
 # **GetNotationSearchBasic**
-> InlineResponse20091 GetNotationSearchBasic (string searchValue, List<string> nsins = null, string assetClass = null, bool? onlyActive = null, bool? popularity = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
+> InlineResponse20093 GetNotationSearchBasic (string searchValue, List<string> nsins = null, string assetClass = null, bool? onlyActive = null, bool? popularity = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
 
 Basic search for notations.
 
@@ -2358,7 +2454,7 @@ namespace Example
             try
             {
                 // Basic search for notations.
-                InlineResponse20091 result = apiInstance.GetNotationSearchBasic(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit);
+                InlineResponse20093 result = apiInstance.GetNotationSearchBasic(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2387,7 +2483,7 @@ Name | Type | Description  | Notes
  **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
-[**InlineResponse20091**](InlineResponse20091.md)
+[**InlineResponse20093**](InlineResponse20093.md)
 
 ### Authorization
 
@@ -2409,7 +2505,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotationsearchbytextrankedbyvolume"></a>
 # **GetNotationSearchByTextRankedByVolume**
-> InlineResponse20093 GetNotationSearchByTextRankedByVolume (string searchValue, List<decimal> idMarkets = null, List<string> nsins = null, List<string> assetClass = null, bool? onlyActive = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
+> InlineResponse20095 GetNotationSearchByTextRankedByVolume (string searchValue, List<decimal> idMarkets = null, List<string> nsins = null, List<string> assetClass = null, bool? onlyActive = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
 
 Basic search for notations.
 
@@ -2464,7 +2560,7 @@ namespace Example
             try
             {
                 // Basic search for notations.
-                InlineResponse20093 result = apiInstance.GetNotationSearchByTextRankedByVolume(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
+                InlineResponse20095 result = apiInstance.GetNotationSearchByTextRankedByVolume(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2493,7 +2589,7 @@ Name | Type | Description  | Notes
  **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
-[**InlineResponse20093**](InlineResponse20093.md)
+[**InlineResponse20095**](InlineResponse20095.md)
 
 ### Authorization
 
@@ -2515,11 +2611,11 @@ Name | Type | Description  | Notes
 
 <a name="getnotationstatusget"></a>
 # **GetNotationStatusGet**
-> InlineResponse20081 GetNotationStatusGet (string identifier, string identifierType, string quality = null, List<string> attributes = null)
+> InlineResponse20083 GetNotationStatusGet (string identifier, string identifierType, string quality = null, List<string> attributes = null)
 
 Intraday trading status of a notation.
 
-Intraday trading status of a notation.
+Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.
 
 ### Example
 ```csharp
@@ -2565,7 +2661,7 @@ namespace Example
             try
             {
                 // Intraday trading status of a notation.
-                InlineResponse20081 result = apiInstance.GetNotationStatusGet(identifier, identifierType, quality, attributes);
+                InlineResponse20083 result = apiInstance.GetNotationStatusGet(identifier, identifierType, quality, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2589,7 +2685,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20081**](InlineResponse20081.md)
+[**InlineResponse20083**](InlineResponse20083.md)
 
 ### Authorization
 
@@ -2609,9 +2705,99 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+<a name="postnotationcategorylist"></a>
+# **PostNotationCategoryList**
+> InlineResponse20067 PostNotationCategoryList (PostNotationCategoryListRequest postNotationCategoryListRequest = null)
+
+List of categories assigned to a specific notation the application is entitled to see.
+
+List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
+using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
+
+namespace Example
+{
+    public class PostNotationCategoryListExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new NotationApi(config);
+
+            var postNotationCategoryListRequest = new PostNotationCategoryListRequest(); // PostNotationCategoryListRequest | Request Body (optional) 
+
+            try
+            {
+                // List of categories assigned to a specific notation the application is entitled to see.
+                InlineResponse20067 result = apiInstance.PostNotationCategoryList(postNotationCategoryListRequest);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling NotationApi.PostNotationCategoryList: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postNotationCategoryListRequest** | [**PostNotationCategoryListRequest**](PostNotationCategoryListRequest.md)| Request Body | [optional] 
+
+### Return type
+[**InlineResponse20067**](InlineResponse20067.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 <a name="postnotationcrossreferencefactsetidentifierlistbyfactsetidentifier"></a>
 # **PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier**
-> InlineResponse20072 PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = null)
+> InlineResponse20073 PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier (PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest)
 
 Retrieve a list of notations for a given FactSet identifier.
 
@@ -2653,12 +2839,12 @@ namespace Example
 
             var apiInstance = new NotationApi(config);
 
-            var postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = new PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest(); // PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest |  (optional) 
+            var postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = new PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest(); // PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest | Request Body
 
             try
             {
                 // Retrieve a list of notations for a given FactSet identifier.
-                InlineResponse20072 result = apiInstance.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest);
+                InlineResponse20073 result = apiInstance.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2676,10 +2862,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)|  | [optional] 
+ **postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)| Request Body | 
 
 ### Return type
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20073**](InlineResponse20073.md)
 
 ### Authorization
 
@@ -2701,7 +2887,7 @@ Name | Type | Description  | Notes
 
 <a name="postnotationcrossreferencefactsetidentifierlistbyinstrument"></a>
 # **PostNotationCrossReferenceFactSetIdentifierListByInstrument**
-> InlineResponse20073 PostNotationCrossReferenceFactSetIdentifierListByInstrument (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = null)
+> InlineResponse20074 PostNotationCrossReferenceFactSetIdentifierListByInstrument (PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest)
 
 Retrieve a list of FactSet identifiers for a given instrument.
 
@@ -2743,12 +2929,12 @@ namespace Example
 
             var apiInstance = new NotationApi(config);
 
-            var postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = new PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest(); // PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest |  (optional) 
+            var postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = new PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest(); // PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest | Request Body
 
             try
             {
                 // Retrieve a list of FactSet identifiers for a given instrument.
-                InlineResponse20073 result = apiInstance.PostNotationCrossReferenceFactSetIdentifierListByInstrument(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest);
+                InlineResponse20074 result = apiInstance.PostNotationCrossReferenceFactSetIdentifierListByInstrument(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2766,10 +2952,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)|  | [optional] 
+ **postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)| Request Body | 
 
 ### Return type
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20074**](InlineResponse20074.md)
 
 ### Authorization
 
@@ -2791,7 +2977,7 @@ Name | Type | Description  | Notes
 
 <a name="postnotationcrossreferencelistbyisin"></a>
 # **PostNotationCrossReferenceListByISIN**
-> InlineResponse20069 PostNotationCrossReferenceListByISIN (PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = null)
+> InlineResponse20070 PostNotationCrossReferenceListByISIN (PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = null)
 
 List of entitled notations.
 
@@ -2833,12 +3019,12 @@ namespace Example
 
             var apiInstance = new NotationApi(config);
 
-            var postNotationCrossReferenceListByISINRequest = new PostNotationCrossReferenceListByISINRequest(); // PostNotationCrossReferenceListByISINRequest |  (optional) 
+            var postNotationCrossReferenceListByISINRequest = new PostNotationCrossReferenceListByISINRequest(); // PostNotationCrossReferenceListByISINRequest | Request Body (optional) 
 
             try
             {
                 // List of entitled notations.
-                InlineResponse20069 result = apiInstance.PostNotationCrossReferenceListByISIN(postNotationCrossReferenceListByISINRequest);
+                InlineResponse20070 result = apiInstance.PostNotationCrossReferenceListByISIN(postNotationCrossReferenceListByISINRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2856,10 +3042,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceListByISINRequest** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)|  | [optional] 
+ **postNotationCrossReferenceListByISINRequest** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)| Request Body | [optional] 
 
 ### Return type
-[**InlineResponse20069**](InlineResponse20069.md)
+[**InlineResponse20070**](InlineResponse20070.md)
 
 ### Authorization
 
@@ -2881,7 +3067,7 @@ Name | Type | Description  | Notes
 
 <a name="postnotationcrossreferencelistbyinstrument"></a>
 # **PostNotationCrossReferenceListByInstrument**
-> InlineResponse20068 PostNotationCrossReferenceListByInstrument (PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = null)
+> InlineResponse20069 PostNotationCrossReferenceListByInstrument (PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = null)
 
 List of entitled notations.
 
@@ -2923,12 +3109,12 @@ namespace Example
 
             var apiInstance = new NotationApi(config);
 
-            var postNotationCrossReferenceListByInstrumentRequest = new PostNotationCrossReferenceListByInstrumentRequest(); // PostNotationCrossReferenceListByInstrumentRequest |  (optional) 
+            var postNotationCrossReferenceListByInstrumentRequest = new PostNotationCrossReferenceListByInstrumentRequest(); // PostNotationCrossReferenceListByInstrumentRequest | Request Body (optional) 
 
             try
             {
                 // List of entitled notations.
-                InlineResponse20068 result = apiInstance.PostNotationCrossReferenceListByInstrument(postNotationCrossReferenceListByInstrumentRequest);
+                InlineResponse20069 result = apiInstance.PostNotationCrossReferenceListByInstrument(postNotationCrossReferenceListByInstrumentRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -2946,10 +3132,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceListByInstrumentRequest** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)|  | [optional] 
+ **postNotationCrossReferenceListByInstrumentRequest** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)| Request Body | [optional] 
 
 ### Return type
-[**InlineResponse20068**](InlineResponse20068.md)
+[**InlineResponse20069**](InlineResponse20069.md)
 
 ### Authorization
 
@@ -2971,7 +3157,7 @@ Name | Type | Description  | Notes
 
 <a name="postnotationcrossreferencelistbysymbol"></a>
 # **PostNotationCrossReferenceListBySymbol**
-> InlineResponse20070 PostNotationCrossReferenceListBySymbol (PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = null)
+> InlineResponse20071 PostNotationCrossReferenceListBySymbol (PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = null)
 
 List of entitled notations.
 
@@ -3013,12 +3199,12 @@ namespace Example
 
             var apiInstance = new NotationApi(config);
 
-            var postNotationCrossReferenceListBySymbolRequest = new PostNotationCrossReferenceListBySymbolRequest(); // PostNotationCrossReferenceListBySymbolRequest |  (optional) 
+            var postNotationCrossReferenceListBySymbolRequest = new PostNotationCrossReferenceListBySymbolRequest(); // PostNotationCrossReferenceListBySymbolRequest | Request Body (optional) 
 
             try
             {
                 // List of entitled notations.
-                InlineResponse20070 result = apiInstance.PostNotationCrossReferenceListBySymbol(postNotationCrossReferenceListBySymbolRequest);
+                InlineResponse20071 result = apiInstance.PostNotationCrossReferenceListBySymbol(postNotationCrossReferenceListBySymbolRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -3036,10 +3222,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationCrossReferenceListBySymbolRequest** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)|  | [optional] 
+ **postNotationCrossReferenceListBySymbolRequest** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)| Request Body | [optional] 
 
 ### Return type
-[**InlineResponse20070**](InlineResponse20070.md)
+[**InlineResponse20071**](InlineResponse20071.md)
 
 ### Authorization
 
@@ -3061,7 +3247,7 @@ Name | Type | Description  | Notes
 
 <a name="postnotationmarketlist"></a>
 # **PostNotationMarketList**
-> InlineResponse20080 PostNotationMarketList (PostNotationMarketListRequest postNotationMarketListRequest = null)
+> InlineResponse20082 PostNotationMarketList (PostNotationMarketListRequest postNotationMarketListRequest = null)
 
 List of markets with entitled notations.
 
@@ -3103,12 +3289,12 @@ namespace Example
 
             var apiInstance = new NotationApi(config);
 
-            var postNotationMarketListRequest = new PostNotationMarketListRequest(); // PostNotationMarketListRequest |  (optional) 
+            var postNotationMarketListRequest = new PostNotationMarketListRequest(); // PostNotationMarketListRequest | Request Body (optional) 
 
             try
             {
                 // List of markets with entitled notations.
-                InlineResponse20080 result = apiInstance.PostNotationMarketList(postNotationMarketListRequest);
+                InlineResponse20082 result = apiInstance.PostNotationMarketList(postNotationMarketListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -3126,10 +3312,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationMarketListRequest** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)|  | [optional] 
+ **postNotationMarketListRequest** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)| Request Body | [optional] 
 
 ### Return type
-[**InlineResponse20080**](InlineResponse20080.md)
+[**InlineResponse20082**](InlineResponse20082.md)
 
 ### Authorization
 
@@ -3151,7 +3337,7 @@ Name | Type | Description  | Notes
 
 <a name="postnotationsearchbytext"></a>
 # **PostNotationSearchByText**
-> InlineResponse20092 PostNotationSearchByText (PostNotationSearchByTextRequest postNotationSearchByTextRequest = null)
+> InlineResponse20094 PostNotationSearchByText (PostNotationSearchByTextRequest postNotationSearchByTextRequest)
 
 Text-based search for notations.
 
@@ -3193,12 +3379,12 @@ namespace Example
 
             var apiInstance = new NotationApi(config);
 
-            var postNotationSearchByTextRequest = new PostNotationSearchByTextRequest(); // PostNotationSearchByTextRequest |  (optional) 
+            var postNotationSearchByTextRequest = new PostNotationSearchByTextRequest(); // PostNotationSearchByTextRequest | Request Body
 
             try
             {
                 // Text-based search for notations.
-                InlineResponse20092 result = apiInstance.PostNotationSearchByText(postNotationSearchByTextRequest);
+                InlineResponse20094 result = apiInstance.PostNotationSearchByText(postNotationSearchByTextRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -3216,10 +3402,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postNotationSearchByTextRequest** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)|  | [optional] 
+ **postNotationSearchByTextRequest** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)| Request Body | 
 
 ### Return type
-[**InlineResponse20092**](InlineResponse20092.md)
+[**InlineResponse20094**](InlineResponse20094.md)
 
 ### Authorization
 

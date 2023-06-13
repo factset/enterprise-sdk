@@ -46,14 +46,14 @@ class OptionsConfigDto {
         if (data) {
             obj = obj || new OptionsConfigDto();
 
-            if (data.hasOwnProperty('MultiSelectEnabled')) {
-                obj['MultiSelectEnabled'] = ApiClient.convertToType(data['MultiSelectEnabled'], 'Boolean');
+            if (data.hasOwnProperty('multiSelectEnabled')) {
+                obj['multiSelectEnabled'] = ApiClient.convertToType(data['multiSelectEnabled'], 'Boolean');
             }
-            if (data.hasOwnProperty('OnTheFlyEnabled')) {
-                obj['OnTheFlyEnabled'] = ApiClient.convertToType(data['OnTheFlyEnabled'], 'Boolean');
+            if (data.hasOwnProperty('onTheFlyEnabled')) {
+                obj['onTheFlyEnabled'] = ApiClient.convertToType(data['onTheFlyEnabled'], 'Boolean');
             }
-            if (data.hasOwnProperty('Options')) {
-                obj['Options'] = ApiClient.convertToType(data['Options'], ['String']);
+            if (data.hasOwnProperty('options')) {
+                obj['options'] = ApiClient.convertToType(data['options'], ['String']);
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class OptionsConfigDto {
 }
 
 /**
- * @member {Boolean} MultiSelectEnabled
+ * @member {Boolean} multiSelectEnabled
  */
-OptionsConfigDto.prototype['MultiSelectEnabled'] = undefined;
+OptionsConfigDto.prototype['multiSelectEnabled'] = undefined;
 
 /**
- * @member {Boolean} OnTheFlyEnabled
+ * @member {Boolean} onTheFlyEnabled
  */
-OptionsConfigDto.prototype['OnTheFlyEnabled'] = undefined;
+OptionsConfigDto.prototype['onTheFlyEnabled'] = undefined;
 
 /**
- * @member {Array.<String>} Options
+ * @member {Array.<String>} options
  */
-OptionsConfigDto.prototype['Options'] = undefined;
+OptionsConfigDto.prototype['options'] = undefined;
 
 
 

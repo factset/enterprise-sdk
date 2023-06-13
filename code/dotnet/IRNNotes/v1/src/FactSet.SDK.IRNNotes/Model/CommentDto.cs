@@ -55,43 +55,43 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorId
         /// </summary>
-        [DataMember(Name = "AuthorId", EmitDefaultValue = false)]
+        [DataMember(Name = "authorId", EmitDefaultValue = false)]
         public Guid AuthorId { get; set; }
 
         /// <summary>
         /// Gets or Sets ParentCommentId
         /// </summary>
-        [DataMember(Name = "ParentCommentId", EmitDefaultValue = true)]
+        [DataMember(Name = "parentCommentId", EmitDefaultValue = true)]
         public Guid? ParentCommentId { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
-        [DataMember(Name = "Body", EmitDefaultValue = true)]
+        [DataMember(Name = "body", EmitDefaultValue = true)]
         public string Body { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Attachments
         /// </summary>
-        [DataMember(Name = "Attachments", EmitDefaultValue = true)]
+        [DataMember(Name = "attachments", EmitDefaultValue = true)]
         public List<AttachmentSummaryDto> Attachments { get; set; }
 
         /// <summary>
         /// Gets or Sets Subcomments
         /// </summary>
-        [DataMember(Name = "Subcomments", EmitDefaultValue = true)]
+        [DataMember(Name = "subcomments", EmitDefaultValue = true)]
         public List<SubcommentSummaryDto> Subcomments { get; set; }
 
         /// <summary>

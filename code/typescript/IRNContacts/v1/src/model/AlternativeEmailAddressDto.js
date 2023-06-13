@@ -46,11 +46,11 @@ class AlternativeEmailAddressDto {
         if (data) {
             obj = obj || new AlternativeEmailAddressDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('EmailAddress')) {
-                obj['EmailAddress'] = ApiClient.convertToType(data['EmailAddress'], 'String');
+            if (data.hasOwnProperty('emailAddress')) {
+                obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class AlternativeEmailAddressDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-AlternativeEmailAddressDto.prototype['Id'] = undefined;
+AlternativeEmailAddressDto.prototype['id'] = undefined;
 
 /**
- * @member {String} EmailAddress
+ * @member {String} emailAddress
  */
-AlternativeEmailAddressDto.prototype['EmailAddress'] = undefined;
+AlternativeEmailAddressDto.prototype['emailAddress'] = undefined;
 
 
 

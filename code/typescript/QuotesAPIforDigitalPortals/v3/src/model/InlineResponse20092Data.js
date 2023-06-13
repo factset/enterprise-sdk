@@ -12,12 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20046NotationFsym from './InlineResponse20046NotationFsym';
-import InlineResponse20067DataMarket from './InlineResponse20067DataMarket';
-import InlineResponse20091Nsin from './InlineResponse20091Nsin';
-import InlineResponse20092Instrument from './InlineResponse20092Instrument';
-import InlineResponse20092TradingValue from './InlineResponse20092TradingValue';
-import InlineResponse20092ValueUnit from './InlineResponse20092ValueUnit';
+import InlineResponse20036Fsym from './InlineResponse20036Fsym';
+import InlineResponse20038DataCategories from './InlineResponse20038DataCategories';
+import InlineResponse20042DataNsin from './InlineResponse20042DataNsin';
 
 /**
  * The InlineResponse20092Data model module.
@@ -26,6 +23,7 @@ import InlineResponse20092ValueUnit from './InlineResponse20092ValueUnit';
 class InlineResponse20092Data {
     /**
      * Constructs a new <code>InlineResponse20092Data</code>.
+     * The data member contains a list of the matching instruments
      * @alias module:model/InlineResponse20092Data
      */
     constructor() { 
@@ -55,26 +53,23 @@ class InlineResponse20092Data {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = InlineResponse20092ValueUnit.constructFromObject(data['valueUnit']);
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse20067DataMarket.constructFromObject(data['market']);
-            }
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
+            if (data.hasOwnProperty('isin')) {
+                obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
             if (data.hasOwnProperty('nsin')) {
-                obj['nsin'] = InlineResponse20091Nsin.constructFromObject(data['nsin']);
+                obj['nsin'] = InlineResponse20042DataNsin.constructFromObject(data['nsin']);
             }
             if (data.hasOwnProperty('fsym')) {
-                obj['fsym'] = InlineResponse20046NotationFsym.constructFromObject(data['fsym']);
+                obj['fsym'] = InlineResponse20036Fsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('instrument')) {
-                obj['instrument'] = InlineResponse20092Instrument.constructFromObject(data['instrument']);
+            if (data.hasOwnProperty('assetClass')) {
+                obj['assetClass'] = ApiClient.convertToType(data['assetClass'], 'String');
             }
-            if (data.hasOwnProperty('tradingValue')) {
-                obj['tradingValue'] = InlineResponse20092TradingValue.constructFromObject(data['tradingValue']);
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], [InlineResponse20038DataCategories]);
             }
         }
         return obj;
@@ -84,46 +79,44 @@ class InlineResponse20092Data {
 }
 
 /**
- * Identifier of a notation.
+ * Identifier of the instrument.
  * @member {String} id
  */
 InlineResponse20092Data.prototype['id'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20092ValueUnit} valueUnit
+ * Asset class-unspecific name in English.
+ * @member {String} name
  */
-InlineResponse20092Data.prototype['valueUnit'] = undefined;
+InlineResponse20092Data.prototype['name'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20067DataMarket} market
+ * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
+ * @member {String} isin
  */
-InlineResponse20092Data.prototype['market'] = undefined;
+InlineResponse20092Data.prototype['isin'] = undefined;
 
 /**
- * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
- * @member {String} symbol
- */
-InlineResponse20092Data.prototype['symbol'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20091Nsin} nsin
+ * @member {module:model/InlineResponse20042DataNsin} nsin
  */
 InlineResponse20092Data.prototype['nsin'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20046NotationFsym} fsym
+ * @member {module:model/InlineResponse20036Fsym} fsym
  */
 InlineResponse20092Data.prototype['fsym'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20092Instrument} instrument
+ * Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.
+ * @member {String} assetClass
  */
-InlineResponse20092Data.prototype['instrument'] = undefined;
+InlineResponse20092Data.prototype['assetClass'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20092TradingValue} tradingValue
+ * Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
+ * @member {Array.<module:model/InlineResponse20038DataCategories>} type
  */
-InlineResponse20092Data.prototype['tradingValue'] = undefined;
+InlineResponse20092Data.prototype['type'] = undefined;
 
 
 

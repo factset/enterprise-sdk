@@ -49,25 +49,25 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "Code", EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "Value", EmitDefaultValue = true)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
-        [DataMember(Name = "Options", EmitDefaultValue = true)]
+        [DataMember(Name = "options", EmitDefaultValue = true)]
         public List<string> Options { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactValues
         /// </summary>
-        [DataMember(Name = "ContactValues", EmitDefaultValue = true)]
+        [DataMember(Name = "contactValues", EmitDefaultValue = true)]
         public List<Guid> ContactValues { get; set; }
 
         /// <summary>

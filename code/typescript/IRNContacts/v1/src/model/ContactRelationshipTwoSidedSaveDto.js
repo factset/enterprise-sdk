@@ -46,35 +46,35 @@ class ContactRelationshipTwoSidedSaveDto {
         if (data) {
             obj = obj || new ContactRelationshipTwoSidedSaveDto();
 
-            if (data.hasOwnProperty('RelationshipId')) {
-                obj['RelationshipId'] = ApiClient.convertToType(data['RelationshipId'], 'String');
+            if (data.hasOwnProperty('relationshipId')) {
+                obj['relationshipId'] = ApiClient.convertToType(data['relationshipId'], 'String');
             }
-            if (data.hasOwnProperty('LeftContactId')) {
-                obj['LeftContactId'] = ApiClient.convertToType(data['LeftContactId'], 'String');
+            if (data.hasOwnProperty('leftContactId')) {
+                obj['leftContactId'] = ApiClient.convertToType(data['leftContactId'], 'String');
             }
-            if (data.hasOwnProperty('RightContactId')) {
-                obj['RightContactId'] = ApiClient.convertToType(data['RightContactId'], 'String');
+            if (data.hasOwnProperty('rightContactId')) {
+                obj['rightContactId'] = ApiClient.convertToType(data['rightContactId'], 'String');
             }
-            if (data.hasOwnProperty('Start')) {
-                obj['Start'] = ApiClient.convertToType(data['Start'], 'Date');
+            if (data.hasOwnProperty('start')) {
+                obj['start'] = ApiClient.convertToType(data['start'], 'Date');
             }
-            if (data.hasOwnProperty('End')) {
-                obj['End'] = ApiClient.convertToType(data['End'], 'Date');
+            if (data.hasOwnProperty('end')) {
+                obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
-            if (data.hasOwnProperty('Comment')) {
-                obj['Comment'] = ApiClient.convertToType(data['Comment'], 'String');
+            if (data.hasOwnProperty('comment')) {
+                obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
-            if (data.hasOwnProperty('IsCurrent')) {
-                obj['IsCurrent'] = ApiClient.convertToType(data['IsCurrent'], 'Boolean');
+            if (data.hasOwnProperty('isCurrent')) {
+                obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('SymbolId')) {
-                obj['SymbolId'] = ApiClient.convertToType(data['SymbolId'], 'String');
+            if (data.hasOwnProperty('symbolId')) {
+                obj['symbolId'] = ApiClient.convertToType(data['symbolId'], 'String');
             }
-            if (data.hasOwnProperty('Symbol')) {
-                obj['Symbol'] = ApiClient.convertToType(data['Symbol'], 'String');
+            if (data.hasOwnProperty('symbol')) {
+                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('Title')) {
-                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
         }
         return obj;
@@ -84,54 +84,54 @@ class ContactRelationshipTwoSidedSaveDto {
 }
 
 /**
- * @member {String} RelationshipId
+ * @member {String} relationshipId
  */
-ContactRelationshipTwoSidedSaveDto.prototype['RelationshipId'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['relationshipId'] = undefined;
 
 /**
- * @member {String} LeftContactId
+ * @member {String} leftContactId
  */
-ContactRelationshipTwoSidedSaveDto.prototype['LeftContactId'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['leftContactId'] = undefined;
 
 /**
- * @member {String} RightContactId
+ * @member {String} rightContactId
  */
-ContactRelationshipTwoSidedSaveDto.prototype['RightContactId'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['rightContactId'] = undefined;
 
 /**
- * @member {Date} Start
+ * @member {Date} start
  */
-ContactRelationshipTwoSidedSaveDto.prototype['Start'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['start'] = undefined;
 
 /**
- * @member {Date} End
+ * @member {Date} end
  */
-ContactRelationshipTwoSidedSaveDto.prototype['End'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['end'] = undefined;
 
 /**
- * @member {String} Comment
+ * @member {String} comment
  */
-ContactRelationshipTwoSidedSaveDto.prototype['Comment'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['comment'] = undefined;
 
 /**
- * @member {Boolean} IsCurrent
+ * @member {Boolean} isCurrent
  */
-ContactRelationshipTwoSidedSaveDto.prototype['IsCurrent'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['isCurrent'] = undefined;
 
 /**
- * @member {String} SymbolId
+ * @member {String} symbolId
  */
-ContactRelationshipTwoSidedSaveDto.prototype['SymbolId'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['symbolId'] = undefined;
 
 /**
- * @member {String} Symbol
+ * @member {String} symbol
  */
-ContactRelationshipTwoSidedSaveDto.prototype['Symbol'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['symbol'] = undefined;
 
 /**
- * @member {String} Title
+ * @member {String} title
  */
-ContactRelationshipTwoSidedSaveDto.prototype['Title'] = undefined;
+ContactRelationshipTwoSidedSaveDto.prototype['title'] = undefined;
 
 
 

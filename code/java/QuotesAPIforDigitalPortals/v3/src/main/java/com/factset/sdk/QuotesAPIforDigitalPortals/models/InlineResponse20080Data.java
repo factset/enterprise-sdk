@@ -17,10 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20080Country;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20080Group;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20080Timezone;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20080Type;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20075DataHigh;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20075DataLow;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20075DataPerformance;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20076Status;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -42,283 +43,283 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
  * InlineResponse20080Data
  */
 @JsonPropertyOrder({
-  InlineResponse20080Data.JSON_PROPERTY_ID,
-  InlineResponse20080Data.JSON_PROPERTY_NAME,
-  InlineResponse20080Data.JSON_PROPERTY_SHORT_NAME,
-  InlineResponse20080Data.JSON_PROPERTY_COUNTRY,
-  InlineResponse20080Data.JSON_PROPERTY_TYPE,
-  InlineResponse20080Data.JSON_PROPERTY_GROUP,
-  InlineResponse20080Data.JSON_PROPERTY_TIMEZONE,
-  InlineResponse20080Data.JSON_PROPERTY_COUNT
+  InlineResponse20080Data.JSON_PROPERTY_ID_NOTATION,
+  InlineResponse20080Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20080Data.JSON_PROPERTY_REFERENCE_DATE,
+  InlineResponse20080Data.JSON_PROPERTY_PERFORMANCE,
+  InlineResponse20080Data.JSON_PROPERTY_HIGH,
+  InlineResponse20080Data.JSON_PROPERTY_LOW,
+  InlineResponse20080Data.JSON_PROPERTY_VOLATILITY,
+  InlineResponse20080Data.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20080Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<BigDecimal> id = JsonNullable.<BigDecimal>undefined();
+  public static final String JSON_PROPERTY_ID_NOTATION = "idNotation";
+  private JsonNullable<String> idNotation = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SHORT_NAME = "shortName";
-  private JsonNullable<String> shortName = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_REFERENCE_DATE = "referenceDate";
+  private JsonNullable<LocalDate> referenceDate = JsonNullable.<LocalDate>undefined();
 
-  public static final String JSON_PROPERTY_COUNTRY = "country";
-  private InlineResponse20080Country country;
+  public static final String JSON_PROPERTY_PERFORMANCE = "performance";
+  private InlineResponse20075DataPerformance performance;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private InlineResponse20080Type type;
+  public static final String JSON_PROPERTY_HIGH = "high";
+  private InlineResponse20075DataHigh high;
 
-  public static final String JSON_PROPERTY_GROUP = "group";
-  private InlineResponse20080Group group;
+  public static final String JSON_PROPERTY_LOW = "low";
+  private InlineResponse20075DataLow low;
 
-  public static final String JSON_PROPERTY_TIMEZONE = "timezone";
-  private InlineResponse20080Timezone timezone;
+  public static final String JSON_PROPERTY_VOLATILITY = "volatility";
+  private JsonNullable<BigDecimal> volatility = JsonNullable.<BigDecimal>undefined();
 
-  public static final String JSON_PROPERTY_COUNT = "count";
-  private JsonNullable<BigDecimal> count = JsonNullable.<BigDecimal>undefined();
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private InlineResponse20076Status status;
 
   public InlineResponse20080Data() { 
   }
 
-  public InlineResponse20080Data id(BigDecimal id) {
-    this.id = JsonNullable.<BigDecimal>of(id);
+  public InlineResponse20080Data idNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
     return this;
   }
 
    /**
-   * Identifier of a market.
-   * @return id
+   * MDG identifier of the listing.
+   * @return idNotation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a market.")
+  @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
-  public BigDecimal getId() {
-        return id.orElse(null);
+  public String getIdNotation() {
+        return idNotation.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<BigDecimal> getId_JsonNullable() {
-    return id;
+  public JsonNullable<String> getIdNotation_JsonNullable() {
+    return idNotation;
   }
   
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<BigDecimal> id) {
-    this.id = id;
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  public void setIdNotation_JsonNullable(JsonNullable<String> idNotation) {
+    this.idNotation = idNotation;
   }
 
-  public void setId(BigDecimal id) {
-    this.id = JsonNullable.<BigDecimal>of(id);
+  public void setIdNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
   }
 
 
-  public InlineResponse20080Data name(String name) {
-    this.name = JsonNullable.<String>of(name);
+  public InlineResponse20080Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
     return this;
   }
 
    /**
-   * Name of the market.
-   * @return name
+   * Identifier used in the request.
+   * @return sourceIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the market.")
+  @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
-  public String getName() {
-        return name.orElse(null);
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getName_JsonNullable() {
-    return name;
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
   }
   
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
   }
 
-  public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
   }
 
 
-  public InlineResponse20080Data shortName(String shortName) {
-    this.shortName = JsonNullable.<String>of(shortName);
+  public InlineResponse20080Data referenceDate(LocalDate referenceDate) {
+    this.referenceDate = JsonNullable.<LocalDate>of(referenceDate);
     return this;
   }
 
    /**
-   * Short name of the market.
-   * @return shortName
+   * Reference date of the time range.
+   * @return referenceDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Short name of the market.")
+  @ApiModelProperty(value = "Reference date of the time range.")
   @JsonIgnore
 
-  public String getShortName() {
-        return shortName.orElse(null);
+  public LocalDate getReferenceDate() {
+        return referenceDate.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getShortName_JsonNullable() {
-    return shortName;
+  public JsonNullable<LocalDate> getReferenceDate_JsonNullable() {
+    return referenceDate;
   }
   
-  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
-  public void setShortName_JsonNullable(JsonNullable<String> shortName) {
-    this.shortName = shortName;
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATE)
+  public void setReferenceDate_JsonNullable(JsonNullable<LocalDate> referenceDate) {
+    this.referenceDate = referenceDate;
   }
 
-  public void setShortName(String shortName) {
-    this.shortName = JsonNullable.<String>of(shortName);
+  public void setReferenceDate(LocalDate referenceDate) {
+    this.referenceDate = JsonNullable.<LocalDate>of(referenceDate);
   }
 
 
-  public InlineResponse20080Data country(InlineResponse20080Country country) {
-    this.country = country;
+  public InlineResponse20080Data performance(InlineResponse20075DataPerformance performance) {
+    this.performance = performance;
     return this;
   }
 
    /**
-   * Get country
-   * @return country
+   * Get performance
+   * @return performance
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20080Country getCountry() {
-    return country;
+  public InlineResponse20075DataPerformance getPerformance() {
+    return performance;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCountry(InlineResponse20080Country country) {
-    this.country = country;
+  public void setPerformance(InlineResponse20075DataPerformance performance) {
+    this.performance = performance;
   }
 
 
-  public InlineResponse20080Data type(InlineResponse20080Type type) {
-    this.type = type;
+  public InlineResponse20080Data high(InlineResponse20075DataHigh high) {
+    this.high = high;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get high
+   * @return high
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20080Type getType() {
-    return type;
+  public InlineResponse20075DataHigh getHigh() {
+    return high;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(InlineResponse20080Type type) {
-    this.type = type;
+  public void setHigh(InlineResponse20075DataHigh high) {
+    this.high = high;
   }
 
 
-  public InlineResponse20080Data group(InlineResponse20080Group group) {
-    this.group = group;
+  public InlineResponse20080Data low(InlineResponse20075DataLow low) {
+    this.low = low;
     return this;
   }
 
    /**
-   * Get group
-   * @return group
+   * Get low
+   * @return low
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(JSON_PROPERTY_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20080Group getGroup() {
-    return group;
+  public InlineResponse20075DataLow getLow() {
+    return low;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(JSON_PROPERTY_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(InlineResponse20080Group group) {
-    this.group = group;
+  public void setLow(InlineResponse20075DataLow low) {
+    this.low = low;
   }
 
 
-  public InlineResponse20080Data timezone(InlineResponse20080Timezone timezone) {
-    this.timezone = timezone;
+  public InlineResponse20080Data volatility(BigDecimal volatility) {
+    this.volatility = JsonNullable.<BigDecimal>of(volatility);
     return this;
   }
 
    /**
-   * Get timezone
-   * @return timezone
+   * Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
+   * @return volatility
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TIMEZONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20080Timezone getTimezone() {
-    return timezone;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TIMEZONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimezone(InlineResponse20080Timezone timezone) {
-    this.timezone = timezone;
-  }
-
-
-  public InlineResponse20080Data count(BigDecimal count) {
-    this.count = JsonNullable.<BigDecimal>of(count);
-    return this;
-  }
-
-   /**
-   * Number of entitled notations.
-   * @return count
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of entitled notations.")
+  @ApiModelProperty(value = "Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.")
   @JsonIgnore
 
-  public BigDecimal getCount() {
-        return count.orElse(null);
+  public BigDecimal getVolatility() {
+        return volatility.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonProperty(JSON_PROPERTY_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<BigDecimal> getCount_JsonNullable() {
-    return count;
+  public JsonNullable<BigDecimal> getVolatility_JsonNullable() {
+    return volatility;
   }
   
-  @JsonProperty(JSON_PROPERTY_COUNT)
-  public void setCount_JsonNullable(JsonNullable<BigDecimal> count) {
-    this.count = count;
+  @JsonProperty(JSON_PROPERTY_VOLATILITY)
+  public void setVolatility_JsonNullable(JsonNullable<BigDecimal> volatility) {
+    this.volatility = volatility;
   }
 
-  public void setCount(BigDecimal count) {
-    this.count = JsonNullable.<BigDecimal>of(count);
+  public void setVolatility(BigDecimal volatility) {
+    this.volatility = JsonNullable.<BigDecimal>of(volatility);
+  }
+
+
+  public InlineResponse20080Data status(InlineResponse20076Status status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20076Status getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(InlineResponse20076Status status) {
+    this.status = status;
   }
 
 
@@ -334,14 +335,14 @@ public class InlineResponse20080Data implements Serializable {
       return false;
     }
     InlineResponse20080Data inlineResponse20080Data = (InlineResponse20080Data) o;
-    return equalsNullable(this.id, inlineResponse20080Data.id) &&
-        equalsNullable(this.name, inlineResponse20080Data.name) &&
-        equalsNullable(this.shortName, inlineResponse20080Data.shortName) &&
-        Objects.equals(this.country, inlineResponse20080Data.country) &&
-        Objects.equals(this.type, inlineResponse20080Data.type) &&
-        Objects.equals(this.group, inlineResponse20080Data.group) &&
-        Objects.equals(this.timezone, inlineResponse20080Data.timezone) &&
-        equalsNullable(this.count, inlineResponse20080Data.count);
+    return equalsNullable(this.idNotation, inlineResponse20080Data.idNotation) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse20080Data.sourceIdentifier) &&
+        equalsNullable(this.referenceDate, inlineResponse20080Data.referenceDate) &&
+        Objects.equals(this.performance, inlineResponse20080Data.performance) &&
+        Objects.equals(this.high, inlineResponse20080Data.high) &&
+        Objects.equals(this.low, inlineResponse20080Data.low) &&
+        equalsNullable(this.volatility, inlineResponse20080Data.volatility) &&
+        Objects.equals(this.status, inlineResponse20080Data.status);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -350,7 +351,7 @@ public class InlineResponse20080Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(shortName), country, type, group, timezone, hashCodeNullable(count));
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(referenceDate), performance, high, low, hashCodeNullable(volatility), status);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -364,14 +365,14 @@ public class InlineResponse20080Data implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20080Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    group: ").append(toIndentedString(group)).append("\n");
-    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    referenceDate: ").append(toIndentedString(referenceDate)).append("\n");
+    sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
+    sb.append("    high: ").append(toIndentedString(high)).append("\n");
+    sb.append("    low: ").append(toIndentedString(low)).append("\n");
+    sb.append("    volatility: ").append(toIndentedString(volatility)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

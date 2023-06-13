@@ -39,7 +39,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class IdentifierSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ALLOW_EDIT = "AllowEdit";
+  public static final String JSON_PROPERTY_ALLOW_EDIT = "allowEdit";
   private Boolean allowEdit;
 
   public IdentifierSettingsDto() { 

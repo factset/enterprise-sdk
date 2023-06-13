@@ -128,20 +128,20 @@ class GroupFieldsDto(ModelNormal):
 
 
     attribute_map = {
-        'title': 'Title',  # noqa: E501
-        'date': 'Date',  # noqa: E501
-        'identifier': 'Identifier',  # noqa: E501
-        'subject': 'Subject',  # noqa: E501
-        'recommendation': 'Recommendation',  # noqa: E501
-        'sentiment': 'Sentiment',  # noqa: E501
-        'link': 'Link',  # noqa: E501
-        'note': 'Note',  # noqa: E501
-        'source': 'Source',  # noqa: E501
-        'related_symbols': 'RelatedSymbols',  # noqa: E501
-        'related_research': 'RelatedResearch',  # noqa: E501
-        'related_contacts': 'RelatedContacts',  # noqa: E501
-        'team': 'Team',  # noqa: E501
-        'organizer': 'Organizer',  # noqa: E501
+        'title': 'title',  # noqa: E501
+        'date': 'date',  # noqa: E501
+        'identifier': 'identifier',  # noqa: E501
+        'subject': 'subject',  # noqa: E501
+        'recommendation': 'recommendation',  # noqa: E501
+        'sentiment': 'sentiment',  # noqa: E501
+        'link': 'link',  # noqa: E501
+        'note': 'note',  # noqa: E501
+        'source': 'source',  # noqa: E501
+        'related_symbols': 'relatedSymbols',  # noqa: E501
+        'related_research': 'relatedResearch',  # noqa: E501
+        'related_contacts': 'relatedContacts',  # noqa: E501
+        'team': 'team',  # noqa: E501
+        'organizer': 'organizer',  # noqa: E501
     }
 
     read_only_vars = {

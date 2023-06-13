@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// InlineResponse20072DataRegional
+    /// Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.
     /// </summary>
     [DataContract(Name = "inline_response_200_72_data_regional")]
     public partial class InlineResponse20072DataRegional : IEquatable<InlineResponse20072DataRegional>, IValidatableObject
@@ -37,8 +37,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <param name="isPrimary">Indicates whether the regional identifier is the primary regional identifier of the security (&#x60;true&#x60;) or not (&#x60;false&#x60;)..</param>
         /// <param name="permanentIdentifier">FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R)..</param>
         /// <param name="tickerRegion">FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: FDS-US)..</param>
-        /// <param name="listing">Listing-level data with a list of notations. If the set of listing identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array..</param>
-        public InlineResponse20072DataRegional(bool? isPrimary = default(bool?), string permanentIdentifier = default(string), string tickerRegion = default(string), List<InlineResponse20072DataListing> listing = default(List<InlineResponse20072DataListing>))
+        /// <param name="listing">listing.</param>
+        public InlineResponse20072DataRegional(bool? isPrimary = default(bool?), string permanentIdentifier = default(string), string tickerRegion = default(string), InlineResponse20072DataRegionalListing listing = default(InlineResponse20072DataRegionalListing))
         {
             this.IsPrimary = isPrimary;
             this.PermanentIdentifier = permanentIdentifier;
@@ -68,11 +68,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public string TickerRegion { get; set; }
 
         /// <summary>
-        /// Listing-level data with a list of notations. If the set of listing identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.
+        /// Gets or Sets Listing
         /// </summary>
-        /// <value>Listing-level data with a list of notations. If the set of listing identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.</value>
         [DataMember(Name = "listing", EmitDefaultValue = false)]
-        public List<InlineResponse20072DataListing> Listing { get; set; }
+        public InlineResponse20072DataRegionalListing Listing { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -138,9 +137,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 ) && 
                 (
                     this.Listing == input.Listing ||
-                    this.Listing != null &&
-                    input.Listing != null &&
-                    this.Listing.SequenceEqual(input.Listing)
+                    (this.Listing != null &&
+                    this.Listing.Equals(input.Listing))
                 );
         }
 

@@ -1385,7 +1385,7 @@ export default class BasicApi {
      * List of background text types.
      * List of background text types.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicBackgroundTextTypeListRequest} opts.postBasicBackgroundTextTypeListRequest 
+     * @param {module:model/PostBasicBackgroundTextTypeListRequest} opts.postBasicBackgroundTextTypeListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
     postBasicBackgroundTextTypeListWithHttpInfo(opts) {
@@ -1419,7 +1419,7 @@ export default class BasicApi {
      * List of background text types.
      * List of background text types.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicBackgroundTextTypeListRequest} opts.postBasicBackgroundTextTypeListRequest 
+     * @param {module:model/PostBasicBackgroundTextTypeListRequest} opts.postBasicBackgroundTextTypeListRequest Request Body
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     postBasicBackgroundTextTypeList(opts) {
@@ -1434,7 +1434,7 @@ export default class BasicApi {
      * List of deliveries.
      * List of deliveries.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicDeliveryListRequest} opts.postBasicDeliveryListRequest 
+     * @param {module:model/PostBasicDeliveryListRequest} opts.postBasicDeliveryListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
     postBasicDeliveryListWithHttpInfo(opts) {
@@ -1468,7 +1468,7 @@ export default class BasicApi {
      * List of deliveries.
      * List of deliveries.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicDeliveryListRequest} opts.postBasicDeliveryListRequest 
+     * @param {module:model/PostBasicDeliveryListRequest} opts.postBasicDeliveryListRequest Request Body
      * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     postBasicDeliveryList(opts) {
@@ -1483,7 +1483,7 @@ export default class BasicApi {
      * List of markets.
      * List of markets.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicMarketListRequest} opts.postBasicMarketListRequest 
+     * @param {module:model/PostBasicMarketListRequest} opts.postBasicMarketListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
      */
     postBasicMarketListWithHttpInfo(opts) {
@@ -1517,7 +1517,7 @@ export default class BasicApi {
      * List of markets.
      * List of markets.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicMarketListRequest} opts.postBasicMarketListRequest 
+     * @param {module:model/PostBasicMarketListRequest} opts.postBasicMarketListRequest Request Body
      * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
      */
     postBasicMarketList(opts) {
@@ -1532,7 +1532,7 @@ export default class BasicApi {
      * List of Internet media types.
      * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicMediaTypeListRequest} opts.postBasicMediaTypeListRequest 
+     * @param {module:model/PostBasicMediaTypeListRequest} opts.postBasicMediaTypeListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20013} and HTTP response
      */
     postBasicMediaTypeListWithHttpInfo(opts) {
@@ -1566,7 +1566,7 @@ export default class BasicApi {
      * List of Internet media types.
      * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicMediaTypeListRequest} opts.postBasicMediaTypeListRequest 
+     * @param {module:model/PostBasicMediaTypeListRequest} opts.postBasicMediaTypeListRequest Request Body
      * @return { Promise.< module:model/InlineResponse20013 > } a Promise, with data of type {@link module:model/InlineResponse20013 }
      */
     postBasicMediaTypeList(opts) {
@@ -1581,7 +1581,7 @@ export default class BasicApi {
      * List of operating market identifier codes (MIC).
      * List of operating market identifier codes (MIC).
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicMicOperatingListRequest} opts.postBasicMicOperatingListRequest 
+     * @param {module:model/PostBasicMicOperatingListRequest} opts.postBasicMicOperatingListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20014} and HTTP response
      */
     postBasicMicOperatingListWithHttpInfo(opts) {
@@ -1615,7 +1615,7 @@ export default class BasicApi {
      * List of operating market identifier codes (MIC).
      * List of operating market identifier codes (MIC).
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicMicOperatingListRequest} opts.postBasicMicOperatingListRequest 
+     * @param {module:model/PostBasicMicOperatingListRequest} opts.postBasicMicOperatingListRequest Request Body
      * @return { Promise.< module:model/InlineResponse20014 > } a Promise, with data of type {@link module:model/InlineResponse20014 }
      */
     postBasicMicOperatingList(opts) {
@@ -1630,7 +1630,7 @@ export default class BasicApi {
      * List of timezones.
      * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicTimezoneListRequest} opts.postBasicTimezoneListRequest 
+     * @param {module:model/PostBasicTimezoneListRequest} opts.postBasicTimezoneListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20023} and HTTP response
      */
     postBasicTimezoneListWithHttpInfo(opts) {
@@ -1664,7 +1664,7 @@ export default class BasicApi {
      * List of timezones.
      * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicTimezoneListRequest} opts.postBasicTimezoneListRequest 
+     * @param {module:model/PostBasicTimezoneListRequest} opts.postBasicTimezoneListRequest Request Body
      * @return { Promise.< module:model/InlineResponse20023 > } a Promise, with data of type {@link module:model/InlineResponse20023 }
      */
     postBasicTimezoneList(opts) {
@@ -1679,7 +1679,7 @@ export default class BasicApi {
      * List of currencies.
      * List of currencies.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicValueUnitCurrencyListRequest} opts.postBasicValueUnitCurrencyListRequest 
+     * @param {module:model/PostBasicValueUnitCurrencyListRequest} opts.postBasicValueUnitCurrencyListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20027} and HTTP response
      */
     postBasicValueUnitCurrencyListWithHttpInfo(opts) {
@@ -1713,7 +1713,7 @@ export default class BasicApi {
      * List of currencies.
      * List of currencies.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicValueUnitCurrencyListRequest} opts.postBasicValueUnitCurrencyListRequest 
+     * @param {module:model/PostBasicValueUnitCurrencyListRequest} opts.postBasicValueUnitCurrencyListRequest Request Body
      * @return { Promise.< module:model/InlineResponse20027 > } a Promise, with data of type {@link module:model/InlineResponse20027 }
      */
     postBasicValueUnitCurrencyList(opts) {
@@ -1728,7 +1728,7 @@ export default class BasicApi {
      * List of main currencies.
      * List of main currencies.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicValueUnitCurrencyMainListRequest} opts.postBasicValueUnitCurrencyMainListRequest 
+     * @param {module:model/PostBasicValueUnitCurrencyMainListRequest} opts.postBasicValueUnitCurrencyMainListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20030} and HTTP response
      */
     postBasicValueUnitCurrencyMainListWithHttpInfo(opts) {
@@ -1762,7 +1762,7 @@ export default class BasicApi {
      * List of main currencies.
      * List of main currencies.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicValueUnitCurrencyMainListRequest} opts.postBasicValueUnitCurrencyMainListRequest 
+     * @param {module:model/PostBasicValueUnitCurrencyMainListRequest} opts.postBasicValueUnitCurrencyMainListRequest Request Body
      * @return { Promise.< module:model/InlineResponse20030 > } a Promise, with data of type {@link module:model/InlineResponse20030 }
      */
     postBasicValueUnitCurrencyMainList(opts) {
@@ -1777,7 +1777,7 @@ export default class BasicApi {
      * List of value units.
      * List of value units.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicValueUnitListRequest} opts.postBasicValueUnitListRequest 
+     * @param {module:model/PostBasicValueUnitListRequest} opts.postBasicValueUnitListRequest Request Body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20025} and HTTP response
      */
     postBasicValueUnitListWithHttpInfo(opts) {
@@ -1811,7 +1811,7 @@ export default class BasicApi {
      * List of value units.
      * List of value units.
      * @param {Object} opts Optional parameters
-     * @param {module:model/PostBasicValueUnitListRequest} opts.postBasicValueUnitListRequest 
+     * @param {module:model/PostBasicValueUnitListRequest} opts.postBasicValueUnitListRequest Request Body
      * @return { Promise.< module:model/InlineResponse20025 > } a Promise, with data of type {@link module:model/InlineResponse20025 }
      */
     postBasicValueUnitList(opts) {

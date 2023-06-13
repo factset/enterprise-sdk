@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20036Meta from './InlineResponse20036Meta';
 import InlineResponse20091Data from './InlineResponse20091Data';
+import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse20091 model module.
@@ -52,7 +52,7 @@ class InlineResponse20091 {
                 obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20091Data]);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse20036Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,13 +62,13 @@ class InlineResponse20091 {
 }
 
 /**
- * List of notations.
+ * List of trading schedule event types.
  * @member {Array.<module:model/InlineResponse20091Data>} data
  */
 InlineResponse20091.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20036Meta} meta
+ * @member {module:model/InlineResponse200Meta} meta
  */
 InlineResponse20091.prototype['meta'] = undefined;
 

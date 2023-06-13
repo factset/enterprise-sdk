@@ -30,16 +30,24 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_currency import InlineResponse20082DataCurrency
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_value_unit import InlineResponse20082DataValueUnit
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_market import InlineResponse20083Market
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_ask import InlineResponse20084DataAsk
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_bid import InlineResponse20084DataBid
-    globals()['InlineResponse20082DataCurrency'] = InlineResponse20082DataCurrency
-    globals()['InlineResponse20082DataValueUnit'] = InlineResponse20082DataValueUnit
-    globals()['InlineResponse20083Market'] = InlineResponse20083Market
-    globals()['InlineResponse20084DataAsk'] = InlineResponse20084DataAsk
-    globals()['InlineResponse20084DataBid'] = InlineResponse20084DataBid
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_accumulated import InlineResponse20084DataAccumulated
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_currency import InlineResponse20084DataCurrency
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_first import InlineResponse20084DataFirst
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_high import InlineResponse20084DataHigh
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_latest import InlineResponse20084DataLatest
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_low import InlineResponse20084DataLow
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_market import InlineResponse20084DataMarket
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_previous_close import InlineResponse20084DataPreviousClose
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_value_unit import InlineResponse20084DataValueUnit
+    globals()['InlineResponse20084DataAccumulated'] = InlineResponse20084DataAccumulated
+    globals()['InlineResponse20084DataCurrency'] = InlineResponse20084DataCurrency
+    globals()['InlineResponse20084DataFirst'] = InlineResponse20084DataFirst
+    globals()['InlineResponse20084DataHigh'] = InlineResponse20084DataHigh
+    globals()['InlineResponse20084DataLatest'] = InlineResponse20084DataLatest
+    globals()['InlineResponse20084DataLow'] = InlineResponse20084DataLow
+    globals()['InlineResponse20084DataMarket'] = InlineResponse20084DataMarket
+    globals()['InlineResponse20084DataPreviousClose'] = InlineResponse20084DataPreviousClose
+    globals()['InlineResponse20084DataValueUnit'] = InlineResponse20084DataValueUnit
 
 
 class InlineResponse20084Data(ModelNormal):
@@ -103,12 +111,16 @@ class InlineResponse20084Data(ModelNormal):
         return {
             'id_notation': (str, none_type,),  # noqa: E501
             'source_identifier': (str, none_type,),  # noqa: E501
-            'value_unit': (InlineResponse20082DataValueUnit,),  # noqa: E501
-            'currency': (InlineResponse20082DataCurrency,),  # noqa: E501
-            'market': (InlineResponse20083Market,),  # noqa: E501
+            'value_unit': (InlineResponse20084DataValueUnit,),  # noqa: E501
+            'currency': (InlineResponse20084DataCurrency,),  # noqa: E501
+            'market': (InlineResponse20084DataMarket,),  # noqa: E501
             'quality': (str, none_type,),  # noqa: E501
-            'bid': (InlineResponse20084DataBid,),  # noqa: E501
-            'ask': (InlineResponse20084DataAsk,),  # noqa: E501
+            'latest': (InlineResponse20084DataLatest,),  # noqa: E501
+            'first': (InlineResponse20084DataFirst,),  # noqa: E501
+            'low': (InlineResponse20084DataLow,),  # noqa: E501
+            'high': (InlineResponse20084DataHigh,),  # noqa: E501
+            'previous_close': (InlineResponse20084DataPreviousClose,),  # noqa: E501
+            'accumulated': (InlineResponse20084DataAccumulated,),  # noqa: E501
         }
 
     @cached_property
@@ -123,8 +135,12 @@ class InlineResponse20084Data(ModelNormal):
         'currency': 'currency',  # noqa: E501
         'market': 'market',  # noqa: E501
         'quality': 'quality',  # noqa: E501
-        'bid': 'bid',  # noqa: E501
-        'ask': 'ask',  # noqa: E501
+        'latest': 'latest',  # noqa: E501
+        'first': 'first',  # noqa: E501
+        'low': 'low',  # noqa: E501
+        'high': 'high',  # noqa: E501
+        'previous_close': 'previousClose',  # noqa: E501
+        'accumulated': 'accumulated',  # noqa: E501
     }
 
     read_only_vars = {
@@ -170,12 +186,16 @@ class InlineResponse20084Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            value_unit (InlineResponse20082DataValueUnit): [optional]  # noqa: E501
-            currency (InlineResponse20082DataCurrency): [optional]  # noqa: E501
-            market (InlineResponse20083Market): [optional]  # noqa: E501
+            value_unit (InlineResponse20084DataValueUnit): [optional]  # noqa: E501
+            currency (InlineResponse20084DataCurrency): [optional]  # noqa: E501
+            market (InlineResponse20084DataMarket): [optional]  # noqa: E501
             quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            bid (InlineResponse20084DataBid): [optional]  # noqa: E501
-            ask (InlineResponse20084DataAsk): [optional]  # noqa: E501
+            latest (InlineResponse20084DataLatest): [optional]  # noqa: E501
+            first (InlineResponse20084DataFirst): [optional]  # noqa: E501
+            low (InlineResponse20084DataLow): [optional]  # noqa: E501
+            high (InlineResponse20084DataHigh): [optional]  # noqa: E501
+            previous_close (InlineResponse20084DataPreviousClose): [optional]  # noqa: E501
+            accumulated (InlineResponse20084DataAccumulated): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,12 +279,16 @@ class InlineResponse20084Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            value_unit (InlineResponse20082DataValueUnit): [optional]  # noqa: E501
-            currency (InlineResponse20082DataCurrency): [optional]  # noqa: E501
-            market (InlineResponse20083Market): [optional]  # noqa: E501
+            value_unit (InlineResponse20084DataValueUnit): [optional]  # noqa: E501
+            currency (InlineResponse20084DataCurrency): [optional]  # noqa: E501
+            market (InlineResponse20084DataMarket): [optional]  # noqa: E501
             quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            bid (InlineResponse20084DataBid): [optional]  # noqa: E501
-            ask (InlineResponse20084DataAsk): [optional]  # noqa: E501
+            latest (InlineResponse20084DataLatest): [optional]  # noqa: E501
+            first (InlineResponse20084DataFirst): [optional]  # noqa: E501
+            low (InlineResponse20084DataLow): [optional]  # noqa: E501
+            high (InlineResponse20084DataHigh): [optional]  # noqa: E501
+            previous_close (InlineResponse20084DataPreviousClose): [optional]  # noqa: E501
+            accumulated (InlineResponse20084DataAccumulated): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

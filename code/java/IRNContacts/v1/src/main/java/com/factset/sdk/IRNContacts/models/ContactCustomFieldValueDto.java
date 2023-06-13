@@ -46,13 +46,13 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactCustomFieldValueDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FIELD_CODE = "FieldCode";
+  public static final String JSON_PROPERTY_FIELD_CODE = "fieldCode";
   private JsonNullable<String> fieldCode = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_VALUE = "Value";
+  public static final String JSON_PROPERTY_VALUE = "value";
   private JsonNullable<String> value = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OPTION_VALUES = "OptionValues";
+  public static final String JSON_PROPERTY_OPTION_VALUES = "optionValues";
   private JsonNullable<java.util.List<ContactCustomFieldOptionValueDto>> optionValues = JsonNullable.<java.util.List<ContactCustomFieldOptionValueDto>>undefined();
 
   public ContactCustomFieldValueDto() { 

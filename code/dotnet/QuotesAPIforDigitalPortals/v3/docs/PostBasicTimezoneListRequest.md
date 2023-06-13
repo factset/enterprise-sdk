@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostBasicTimezoneListRequest
+Request Body
 
 ## Properties
 

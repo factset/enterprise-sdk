@@ -62,7 +62,7 @@ class InlineResponse20092 {
 }
 
 /**
- * List of matching and selected notations.
+ * List of instruments.
  * @member {Array.<module:model/InlineResponse20092Data>} data
  */
 InlineResponse20092.prototype['data'] = undefined;

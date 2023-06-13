@@ -12,7 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20086DataAsks from './InlineResponse20086DataAsks';
+import InlineResponse20084DataCurrency from './InlineResponse20084DataCurrency';
+import InlineResponse20084DataValueUnit from './InlineResponse20084DataValueUnit';
+import InlineResponse20085Market from './InlineResponse20085Market';
+import InlineResponse20086DataAsk from './InlineResponse20086DataAsk';
+import InlineResponse20086DataBid from './InlineResponse20086DataBid';
 
 /**
  * The InlineResponse20086Data model module.
@@ -21,7 +25,7 @@ import InlineResponse20086DataAsks from './InlineResponse20086DataAsks';
 class InlineResponse20086Data {
     /**
      * Constructs a new <code>InlineResponse20086Data</code>.
-     * Orderbook.
+     * Bid and ask prices for the notation.
      * @alias module:model/InlineResponse20086Data
      */
     constructor() { 
@@ -54,14 +58,23 @@ class InlineResponse20086Data {
             if (data.hasOwnProperty('sourceIdentifier')) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = InlineResponse20084DataValueUnit.constructFromObject(data['valueUnit']);
+            }
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = InlineResponse20084DataCurrency.constructFromObject(data['currency']);
+            }
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse20085Market.constructFromObject(data['market']);
+            }
             if (data.hasOwnProperty('quality')) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('asks')) {
-                obj['asks'] = ApiClient.convertToType(data['asks'], [InlineResponse20086DataAsks]);
+            if (data.hasOwnProperty('bid')) {
+                obj['bid'] = InlineResponse20086DataBid.constructFromObject(data['bid']);
             }
-            if (data.hasOwnProperty('bids')) {
-                obj['bids'] = ApiClient.convertToType(data['bids'], [InlineResponse20086DataAsks]);
+            if (data.hasOwnProperty('ask')) {
+                obj['ask'] = InlineResponse20086DataAsk.constructFromObject(data['ask']);
             }
         }
         return obj;
@@ -83,22 +96,35 @@ InlineResponse20086Data.prototype['idNotation'] = undefined;
 InlineResponse20086Data.prototype['sourceIdentifier'] = undefined;
 
 /**
+ * @member {module:model/InlineResponse20084DataValueUnit} valueUnit
+ */
+InlineResponse20086Data.prototype['valueUnit'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20084DataCurrency} currency
+ */
+InlineResponse20086Data.prototype['currency'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20085Market} market
+ */
+InlineResponse20086Data.prototype['market'] = undefined;
+
+/**
  * Quality of the price.
  * @member {module:model/InlineResponse20086Data.QualityEnum} quality
  */
 InlineResponse20086Data.prototype['quality'] = undefined;
 
 /**
- * List of sell orders aggregated by price.
- * @member {Array.<module:model/InlineResponse20086DataAsks>} asks
+ * @member {module:model/InlineResponse20086DataBid} bid
  */
-InlineResponse20086Data.prototype['asks'] = undefined;
+InlineResponse20086Data.prototype['bid'] = undefined;
 
 /**
- * List of buy orders aggregated by price.
- * @member {Array.<module:model/InlineResponse20086DataAsks>} bids
+ * @member {module:model/InlineResponse20086DataAsk} ask
  */
-InlineResponse20086Data.prototype['bids'] = undefined;
+InlineResponse20086Data.prototype['ask'] = undefined;
 
 
 
@@ -121,7 +147,13 @@ InlineResponse20086Data['QualityEnum'] = {
      * value: "DLY"
      * @const
      */
-    "DLY": "DLY"
+    "DLY": "DLY",
+
+    /**
+     * value: "EOD"
+     * @const
+     */
+    "EOD": "EOD"
 };
 
 

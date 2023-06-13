@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idInstrument** | **String** | MDG identifier of the instrument. | [optional] 
-**sourceIdentifier** | **String** | Identifier used in the request. | [optional] 
-**notations** | [**[InlineResponse20068DataNotations]**](InlineResponse20068DataNotations.md) | List of notations. | [optional] 
+**id** | **String** | Identifier of the notation. | [optional] 
+**market** | [**InlineResponse20068DataMarket**](InlineResponse20068DataMarket.md) |  | [optional] 
+**valueUnit** | [**InlineResponse20068DataValueUnit**](InlineResponse20068DataValueUnit.md) |  | [optional] 
+**instrument** | [**InlineResponse20068DataInstrument**](InlineResponse20068DataInstrument.md) |  | [optional] 
 
 

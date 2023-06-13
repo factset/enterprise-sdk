@@ -47,20 +47,20 @@ class NoteEventDto {
         if (data) {
             obj = obj || new NoteEventDto();
 
-            if (data.hasOwnProperty('CreatedAt')) {
-                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'String');
+            if (data.hasOwnProperty('createdAt')) {
+                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('User')) {
-                obj['User'] = ApiClient.convertToType(data['User'], 'String');
+            if (data.hasOwnProperty('user')) {
+                obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
-            if (data.hasOwnProperty('Comment')) {
-                obj['Comment'] = ApiClient.convertToType(data['Comment'], 'String');
+            if (data.hasOwnProperty('comment')) {
+                obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
-            if (data.hasOwnProperty('ChangeList')) {
-                obj['ChangeList'] = ApiClient.convertToType(data['ChangeList'], [RecordChangeDto]);
+            if (data.hasOwnProperty('changeList')) {
+                obj['changeList'] = ApiClient.convertToType(data['changeList'], [RecordChangeDto]);
             }
         }
         return obj;
@@ -70,29 +70,29 @@ class NoteEventDto {
 }
 
 /**
- * @member {String} CreatedAt
+ * @member {String} createdAt
  */
-NoteEventDto.prototype['CreatedAt'] = undefined;
+NoteEventDto.prototype['createdAt'] = undefined;
 
 /**
- * @member {String} Type
+ * @member {String} type
  */
-NoteEventDto.prototype['Type'] = undefined;
+NoteEventDto.prototype['type'] = undefined;
 
 /**
- * @member {String} User
+ * @member {String} user
  */
-NoteEventDto.prototype['User'] = undefined;
+NoteEventDto.prototype['user'] = undefined;
 
 /**
- * @member {String} Comment
+ * @member {String} comment
  */
-NoteEventDto.prototype['Comment'] = undefined;
+NoteEventDto.prototype['comment'] = undefined;
 
 /**
- * @member {Array.<module:model/RecordChangeDto>} ChangeList
+ * @member {Array.<module:model/RecordChangeDto>} changeList
  */
-NoteEventDto.prototype['ChangeList'] = undefined;
+NoteEventDto.prototype['changeList'] = undefined;
 
 
 

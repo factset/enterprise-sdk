@@ -74,10 +74,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <param name="currency">currency.</param>
         /// <param name="market">market.</param>
         /// <param name="quality">Quality of the price..</param>
-        /// <param name="bid">bid.</param>
-        /// <param name="ask">ask.</param>
+        /// <param name="latest">latest.</param>
+        /// <param name="first">first.</param>
+        /// <param name="low">low.</param>
+        /// <param name="high">high.</param>
+        /// <param name="previousClose">previousClose.</param>
+        /// <param name="accumulated">accumulated.</param>
         /// <param name="status">status.</param>
-        public InlineResponse20085Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20082DataValueUnit valueUnit = default(InlineResponse20082DataValueUnit), InlineResponse20082DataCurrency currency = default(InlineResponse20082DataCurrency), InlineResponse20083Market market = default(InlineResponse20083Market), QualityEnum? quality = default(QualityEnum?), InlineResponse20085Bid bid = default(InlineResponse20085Bid), InlineResponse20085Ask ask = default(InlineResponse20085Ask), InlineResponse20083Status status = default(InlineResponse20083Status))
+        public InlineResponse20085Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20084DataValueUnit valueUnit = default(InlineResponse20084DataValueUnit), InlineResponse20084DataCurrency currency = default(InlineResponse20084DataCurrency), InlineResponse20085Market market = default(InlineResponse20085Market), QualityEnum? quality = default(QualityEnum?), InlineResponse20085Latest latest = default(InlineResponse20085Latest), InlineResponse20085First first = default(InlineResponse20085First), InlineResponse20085Low low = default(InlineResponse20085Low), InlineResponse20085High high = default(InlineResponse20085High), InlineResponse20085PreviousClose previousClose = default(InlineResponse20085PreviousClose), InlineResponse20085Accumulated accumulated = default(InlineResponse20085Accumulated), InlineResponse20085Status status = default(InlineResponse20085Status))
         {
             this.IdNotation = idNotation;
             this.SourceIdentifier = sourceIdentifier;
@@ -85,8 +89,12 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             this.Currency = currency;
             this.Market = market;
             this.Quality = quality;
-            this.Bid = bid;
-            this.Ask = ask;
+            this.Latest = latest;
+            this.First = first;
+            this.Low = low;
+            this.High = high;
+            this.PreviousClose = previousClose;
+            this.Accumulated = accumulated;
             this.Status = status;
         }
 
@@ -108,37 +116,61 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets ValueUnit
         /// </summary>
         [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
-        public InlineResponse20082DataValueUnit ValueUnit { get; set; }
+        public InlineResponse20084DataValueUnit ValueUnit { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency
         /// </summary>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
-        public InlineResponse20082DataCurrency Currency { get; set; }
+        public InlineResponse20084DataCurrency Currency { get; set; }
 
         /// <summary>
         /// Gets or Sets Market
         /// </summary>
         [DataMember(Name = "market", EmitDefaultValue = false)]
-        public InlineResponse20083Market Market { get; set; }
+        public InlineResponse20085Market Market { get; set; }
 
         /// <summary>
-        /// Gets or Sets Bid
+        /// Gets or Sets Latest
         /// </summary>
-        [DataMember(Name = "bid", EmitDefaultValue = false)]
-        public InlineResponse20085Bid Bid { get; set; }
+        [DataMember(Name = "latest", EmitDefaultValue = false)]
+        public InlineResponse20085Latest Latest { get; set; }
 
         /// <summary>
-        /// Gets or Sets Ask
+        /// Gets or Sets First
         /// </summary>
-        [DataMember(Name = "ask", EmitDefaultValue = false)]
-        public InlineResponse20085Ask Ask { get; set; }
+        [DataMember(Name = "first", EmitDefaultValue = false)]
+        public InlineResponse20085First First { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Low
+        /// </summary>
+        [DataMember(Name = "low", EmitDefaultValue = false)]
+        public InlineResponse20085Low Low { get; set; }
+
+        /// <summary>
+        /// Gets or Sets High
+        /// </summary>
+        [DataMember(Name = "high", EmitDefaultValue = false)]
+        public InlineResponse20085High High { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreviousClose
+        /// </summary>
+        [DataMember(Name = "previousClose", EmitDefaultValue = false)]
+        public InlineResponse20085PreviousClose PreviousClose { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Accumulated
+        /// </summary>
+        [DataMember(Name = "accumulated", EmitDefaultValue = false)]
+        public InlineResponse20085Accumulated Accumulated { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public InlineResponse20083Status Status { get; set; }
+        public InlineResponse20085Status Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -154,8 +186,12 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  Quality: ").Append(Quality).Append("\n");
-            sb.Append("  Bid: ").Append(Bid).Append("\n");
-            sb.Append("  Ask: ").Append(Ask).Append("\n");
+            sb.Append("  Latest: ").Append(Latest).Append("\n");
+            sb.Append("  First: ").Append(First).Append("\n");
+            sb.Append("  Low: ").Append(Low).Append("\n");
+            sb.Append("  High: ").Append(High).Append("\n");
+            sb.Append("  PreviousClose: ").Append(PreviousClose).Append("\n");
+            sb.Append("  Accumulated: ").Append(Accumulated).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -222,14 +258,34 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Quality.Equals(input.Quality)
                 ) && 
                 (
-                    this.Bid == input.Bid ||
-                    (this.Bid != null &&
-                    this.Bid.Equals(input.Bid))
+                    this.Latest == input.Latest ||
+                    (this.Latest != null &&
+                    this.Latest.Equals(input.Latest))
                 ) && 
                 (
-                    this.Ask == input.Ask ||
-                    (this.Ask != null &&
-                    this.Ask.Equals(input.Ask))
+                    this.First == input.First ||
+                    (this.First != null &&
+                    this.First.Equals(input.First))
+                ) && 
+                (
+                    this.Low == input.Low ||
+                    (this.Low != null &&
+                    this.Low.Equals(input.Low))
+                ) && 
+                (
+                    this.High == input.High ||
+                    (this.High != null &&
+                    this.High.Equals(input.High))
+                ) && 
+                (
+                    this.PreviousClose == input.PreviousClose ||
+                    (this.PreviousClose != null &&
+                    this.PreviousClose.Equals(input.PreviousClose))
+                ) && 
+                (
+                    this.Accumulated == input.Accumulated ||
+                    (this.Accumulated != null &&
+                    this.Accumulated.Equals(input.Accumulated))
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -268,13 +324,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     hashCode = (hashCode * 59) + this.Market.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Quality.GetHashCode();
-                if (this.Bid != null)
+                if (this.Latest != null)
                 {
-                    hashCode = (hashCode * 59) + this.Bid.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Latest.GetHashCode();
                 }
-                if (this.Ask != null)
+                if (this.First != null)
                 {
-                    hashCode = (hashCode * 59) + this.Ask.GetHashCode();
+                    hashCode = (hashCode * 59) + this.First.GetHashCode();
+                }
+                if (this.Low != null)
+                {
+                    hashCode = (hashCode * 59) + this.Low.GetHashCode();
+                }
+                if (this.High != null)
+                {
+                    hashCode = (hashCode * 59) + this.High.GetHashCode();
+                }
+                if (this.PreviousClose != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviousClose.GetHashCode();
+                }
+                if (this.Accumulated != null)
+                {
+                    hashCode = (hashCode * 59) + this.Accumulated.GetHashCode();
                 }
                 if (this.Status != null)
                 {

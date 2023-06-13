@@ -30,8 +30,8 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072_data_listing import InlineResponse20072DataListing
-    globals()['InlineResponse20072DataListing'] = InlineResponse20072DataListing
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072_data_regional_listing import InlineResponse20072DataRegionalListing
+    globals()['InlineResponse20072DataRegionalListing'] = InlineResponse20072DataRegionalListing
 
 
 class InlineResponse20072DataRegional(ModelNormal):
@@ -90,7 +90,7 @@ class InlineResponse20072DataRegional(ModelNormal):
             'is_primary': (bool, none_type,),  # noqa: E501
             'permanent_identifier': (str, none_type,),  # noqa: E501
             'ticker_region': (str, none_type,),  # noqa: E501
-            'listing': ([InlineResponse20072DataListing],),  # noqa: E501
+            'listing': (InlineResponse20072DataRegionalListing,),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class InlineResponse20072DataRegional(ModelNormal):
             is_primary (bool, none_type): Indicates whether the regional identifier is the primary regional identifier of the security (`true`) or not (`false`).. [optional]  # noqa: E501
             permanent_identifier (str, none_type): FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R).. [optional]  # noqa: E501
             ticker_region (str, none_type): FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: FDS-US).. [optional]  # noqa: E501
-            listing ([InlineResponse20072DataListing]): Listing-level data with a list of notations. If the set of listing identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.. [optional]  # noqa: E501
+            listing (InlineResponse20072DataRegionalListing): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,7 +234,7 @@ class InlineResponse20072DataRegional(ModelNormal):
             is_primary (bool, none_type): Indicates whether the regional identifier is the primary regional identifier of the security (`true`) or not (`false`).. [optional]  # noqa: E501
             permanent_identifier (str, none_type): FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R).. [optional]  # noqa: E501
             ticker_region (str, none_type): FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: FDS-US).. [optional]  # noqa: E501
-            listing ([InlineResponse20072DataListing]): Listing-level data with a list of notations. If the set of listing identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.. [optional]  # noqa: E501
+            listing (InlineResponse20072DataRegionalListing): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

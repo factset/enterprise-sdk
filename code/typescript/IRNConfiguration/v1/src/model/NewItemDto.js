@@ -46,8 +46,8 @@ class NewItemDto {
         if (data) {
             obj = obj || new NewItemDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class NewItemDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-NewItemDto.prototype['Id'] = undefined;
+NewItemDto.prototype['id'] = undefined;
 
 
 

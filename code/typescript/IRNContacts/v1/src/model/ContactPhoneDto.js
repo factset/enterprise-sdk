@@ -47,17 +47,17 @@ class ContactPhoneDto {
         if (data) {
             obj = obj || new ContactPhoneDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Number')) {
-                obj['Number'] = ApiClient.convertToType(data['Number'], 'String');
+            if (data.hasOwnProperty('number')) {
+                obj['number'] = ApiClient.convertToType(data['number'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = PhoneNumberTypeDto.constructFromObject(data['Type']);
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = PhoneNumberTypeDto.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('IsPrimary')) {
-                obj['IsPrimary'] = ApiClient.convertToType(data['IsPrimary'], 'Boolean');
+            if (data.hasOwnProperty('isPrimary')) {
+                obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
             }
         }
         return obj;
@@ -67,24 +67,24 @@ class ContactPhoneDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactPhoneDto.prototype['Id'] = undefined;
+ContactPhoneDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Number
+ * @member {String} number
  */
-ContactPhoneDto.prototype['Number'] = undefined;
+ContactPhoneDto.prototype['number'] = undefined;
 
 /**
- * @member {module:model/PhoneNumberTypeDto} Type
+ * @member {module:model/PhoneNumberTypeDto} type
  */
-ContactPhoneDto.prototype['Type'] = undefined;
+ContactPhoneDto.prototype['type'] = undefined;
 
 /**
- * @member {Boolean} IsPrimary
+ * @member {Boolean} isPrimary
  */
-ContactPhoneDto.prototype['IsPrimary'] = undefined;
+ContactPhoneDto.prototype['isPrimary'] = undefined;
 
 
 

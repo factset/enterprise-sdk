@@ -30,8 +30,12 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068_data_notations import InlineResponse20068DataNotations
-    globals()['InlineResponse20068DataNotations'] = InlineResponse20068DataNotations
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068_data_instrument import InlineResponse20068DataInstrument
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068_data_market import InlineResponse20068DataMarket
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068_data_value_unit import InlineResponse20068DataValueUnit
+    globals()['InlineResponse20068DataInstrument'] = InlineResponse20068DataInstrument
+    globals()['InlineResponse20068DataMarket'] = InlineResponse20068DataMarket
+    globals()['InlineResponse20068DataValueUnit'] = InlineResponse20068DataValueUnit
 
 
 class InlineResponse20068Data(ModelNormal):
@@ -87,9 +91,10 @@ class InlineResponse20068Data(ModelNormal):
         """
         lazy_import()
         return {
-            'id_instrument': (str, none_type,),  # noqa: E501
-            'source_identifier': (str, none_type,),  # noqa: E501
-            'notations': ([InlineResponse20068DataNotations],),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
+            'market': (InlineResponse20068DataMarket,),  # noqa: E501
+            'value_unit': (InlineResponse20068DataValueUnit,),  # noqa: E501
+            'instrument': (InlineResponse20068DataInstrument,),  # noqa: E501
         }
 
     @cached_property
@@ -98,9 +103,10 @@ class InlineResponse20068Data(ModelNormal):
 
 
     attribute_map = {
-        'id_instrument': 'idInstrument',  # noqa: E501
-        'source_identifier': 'sourceIdentifier',  # noqa: E501
-        'notations': 'notations',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'market': 'market',  # noqa: E501
+        'value_unit': 'valueUnit',  # noqa: E501
+        'instrument': 'instrument',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,9 +150,10 @@ class InlineResponse20068Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_instrument (str, none_type): MDG identifier of the instrument.. [optional]  # noqa: E501
-            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            notations ([InlineResponse20068DataNotations]): List of notations.. [optional]  # noqa: E501
+            id (str, none_type): Identifier of the notation.. [optional]  # noqa: E501
+            market (InlineResponse20068DataMarket): [optional]  # noqa: E501
+            value_unit (InlineResponse20068DataValueUnit): [optional]  # noqa: E501
+            instrument (InlineResponse20068DataInstrument): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,9 +235,10 @@ class InlineResponse20068Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_instrument (str, none_type): MDG identifier of the instrument.. [optional]  # noqa: E501
-            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            notations ([InlineResponse20068DataNotations]): List of notations.. [optional]  # noqa: E501
+            id (str, none_type): Identifier of the notation.. [optional]  # noqa: E501
+            market (InlineResponse20068DataMarket): [optional]  # noqa: E501
+            value_unit (InlineResponse20068DataValueUnit): [optional]  # noqa: E501
+            instrument (InlineResponse20068DataInstrument): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

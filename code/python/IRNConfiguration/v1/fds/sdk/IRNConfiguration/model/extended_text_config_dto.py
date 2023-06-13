@@ -84,7 +84,7 @@ class ExtendedTextConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'max_chars': 'MaxChars',  # noqa: E501
+        'max_chars': 'maxChars',  # noqa: E501
     }
 
     read_only_vars = {

@@ -35,7 +35,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets DueDiligenceSymbolEntityType
         /// </summary>
-        [DataMember(Name = "DueDiligenceSymbolEntityType", EmitDefaultValue = false)]
+        [DataMember(Name = "dueDiligenceSymbolEntityType", EmitDefaultValue = false)]
         public EntityType? DueDiligenceSymbolEntityType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCustomSymbolTypeDto" /> class.
@@ -70,37 +70,37 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets HideAddressField
         /// </summary>
-        [DataMember(Name = "HideAddressField", EmitDefaultValue = true)]
+        [DataMember(Name = "hideAddressField", EmitDefaultValue = true)]
         public bool HideAddressField { get; set; }
 
         /// <summary>
         /// Gets or Sets HideSymbolSubtype
         /// </summary>
-        [DataMember(Name = "HideSymbolSubtype", EmitDefaultValue = true)]
+        [DataMember(Name = "hideSymbolSubtype", EmitDefaultValue = true)]
         public bool HideSymbolSubtype { get; set; }
 
         /// <summary>
         /// Gets or Sets IsDefault
         /// </summary>
-        [DataMember(Name = "IsDefault", EmitDefaultValue = true)]
+        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 
         /// <summary>
         /// Gets or Sets SubTypes
         /// </summary>
-        [DataMember(Name = "SubTypes", EmitDefaultValue = true)]
+        [DataMember(Name = "subTypes", EmitDefaultValue = true)]
         public List<CustomSymbolSubTypeDto> SubTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFieldIds
         /// </summary>
-        [DataMember(Name = "CustomFieldIds", EmitDefaultValue = true)]
+        [DataMember(Name = "customFieldIds", EmitDefaultValue = true)]
         public List<Guid> CustomFieldIds { get; set; }
 
         /// <summary>

@@ -46,14 +46,14 @@ class RelatedContactsSettingsDto {
         if (data) {
             obj = obj || new RelatedContactsSettingsDto();
 
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('UsePrevious')) {
-                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            if (data.hasOwnProperty('usePrevious')) {
+                obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class RelatedContactsSettingsDto {
 }
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-RelatedContactsSettingsDto.prototype['IsHidden'] = undefined;
+RelatedContactsSettingsDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  */
-RelatedContactsSettingsDto.prototype['IsMandatory'] = undefined;
+RelatedContactsSettingsDto.prototype['isMandatory'] = undefined;
 
 /**
- * @member {Boolean} UsePrevious
+ * @member {Boolean} usePrevious
  */
-RelatedContactsSettingsDto.prototype['UsePrevious'] = undefined;
+RelatedContactsSettingsDto.prototype['usePrevious'] = undefined;
 
 
 

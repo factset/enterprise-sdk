@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088Data;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088Meta;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,7 +46,7 @@ public class InlineResponse20088 implements Serializable {
   private InlineResponse20088Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse20088Meta meta;
+  private InlineResponse200Meta meta;
 
   public InlineResponse20088() { 
   }
@@ -77,7 +77,7 @@ public class InlineResponse20088 implements Serializable {
   }
 
 
-  public InlineResponse20088 meta(InlineResponse20088Meta meta) {
+  public InlineResponse20088 meta(InlineResponse200Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -91,14 +91,14 @@ public class InlineResponse20088 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20088Meta getMeta() {
+  public InlineResponse200Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse20088Meta meta) {
+  public void setMeta(InlineResponse200Meta meta) {
     this.meta = meta;
   }
 

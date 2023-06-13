@@ -58,13 +58,13 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Username
         /// </summary>
-        [DataMember(Name = "Username", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "username", IsRequired = true, EmitDefaultValue = false)]
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or Sets SerialNumber
         /// </summary>
-        [DataMember(Name = "SerialNumber", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "serialNumber", IsRequired = true, EmitDefaultValue = false)]
         public string SerialNumber { get; set; }
 
         /// <summary>

@@ -45,13 +45,13 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets EmailAddress
         /// </summary>
-        [DataMember(Name = "EmailAddress", EmitDefaultValue = true)]
+        [DataMember(Name = "emailAddress", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>

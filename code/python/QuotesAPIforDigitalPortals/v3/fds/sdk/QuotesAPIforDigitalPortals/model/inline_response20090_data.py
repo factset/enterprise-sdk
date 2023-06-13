@@ -30,12 +30,10 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20036_fsym import InlineResponse20036Fsym
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20038_data_categories import InlineResponse20038DataCategories
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20042_data_nsin import InlineResponse20042DataNsin
-    globals()['InlineResponse20036Fsym'] = InlineResponse20036Fsym
-    globals()['InlineResponse20038DataCategories'] = InlineResponse20038DataCategories
-    globals()['InlineResponse20042DataNsin'] = InlineResponse20042DataNsin
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20090_data_events import InlineResponse20090DataEvents
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20090_data_range import InlineResponse20090DataRange
+    globals()['InlineResponse20090DataEvents'] = InlineResponse20090DataEvents
+    globals()['InlineResponse20090DataRange'] = InlineResponse20090DataRange
 
 
 class InlineResponse20090Data(ModelNormal):
@@ -91,13 +89,10 @@ class InlineResponse20090Data(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'isin': (str, none_type,),  # noqa: E501
-            'nsin': (InlineResponse20042DataNsin,),  # noqa: E501
-            'fsym': (InlineResponse20036Fsym,),  # noqa: E501
-            'asset_class': (str, none_type,),  # noqa: E501
-            'type': ([InlineResponse20038DataCategories],),  # noqa: E501
+            'id_notation': (str, none_type,),  # noqa: E501
+            'source_identifier': (str, none_type,),  # noqa: E501
+            'range': (InlineResponse20090DataRange,),  # noqa: E501
+            'events': ([InlineResponse20090DataEvents],),  # noqa: E501
         }
 
     @cached_property
@@ -106,13 +101,10 @@ class InlineResponse20090Data(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'isin': 'isin',  # noqa: E501
-        'nsin': 'nsin',  # noqa: E501
-        'fsym': 'fsym',  # noqa: E501
-        'asset_class': 'assetClass',  # noqa: E501
-        'type': 'type',  # noqa: E501
+        'id_notation': 'idNotation',  # noqa: E501
+        'source_identifier': 'sourceIdentifier',  # noqa: E501
+        'range': 'range',  # noqa: E501
+        'events': 'events',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,13 +148,10 @@ class InlineResponse20090Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
-            name (str, none_type): Asset class-unspecific name in English.. [optional]  # noqa: E501
-            isin (str, none_type): The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.. [optional]  # noqa: E501
-            nsin (InlineResponse20042DataNsin): [optional]  # noqa: E501
-            fsym (InlineResponse20036Fsym): [optional]  # noqa: E501
-            asset_class (str, none_type): Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.. [optional]  # noqa: E501
-            type ([InlineResponse20038DataCategories]): Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).. [optional]  # noqa: E501
+            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
+            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
+            range (InlineResponse20090DataRange): [optional]  # noqa: E501
+            events ([InlineResponse20090DataEvents]): List of trading schedule events.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,13 +233,10 @@ class InlineResponse20090Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
-            name (str, none_type): Asset class-unspecific name in English.. [optional]  # noqa: E501
-            isin (str, none_type): The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.. [optional]  # noqa: E501
-            nsin (InlineResponse20042DataNsin): [optional]  # noqa: E501
-            fsym (InlineResponse20036Fsym): [optional]  # noqa: E501
-            asset_class (str, none_type): Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.. [optional]  # noqa: E501
-            type ([InlineResponse20038DataCategories]): Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).. [optional]  # noqa: E501
+            id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
+            source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
+            range (InlineResponse20090DataRange): [optional]  # noqa: E501
+            events ([InlineResponse20090DataEvents]): List of trading schedule events.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

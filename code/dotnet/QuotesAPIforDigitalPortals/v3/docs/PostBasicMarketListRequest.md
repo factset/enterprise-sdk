@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostBasicMarketListRequest
+Request Body
 
 ## Properties
 

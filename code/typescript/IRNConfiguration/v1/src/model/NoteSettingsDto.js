@@ -46,23 +46,23 @@ class NoteSettingsDto {
         if (data) {
             obj = obj || new NoteSettingsDto();
 
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('UsePrevious')) {
-                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            if (data.hasOwnProperty('usePrevious')) {
+                obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
-            if (data.hasOwnProperty('AllowPersonal')) {
-                obj['AllowPersonal'] = ApiClient.convertToType(data['AllowPersonal'], 'Boolean');
+            if (data.hasOwnProperty('allowPersonal')) {
+                obj['allowPersonal'] = ApiClient.convertToType(data['allowPersonal'], 'Boolean');
             }
-            if (data.hasOwnProperty('DefaultStatus')) {
-                obj['DefaultStatus'] = ApiClient.convertToType(data['DefaultStatus'], 'String');
+            if (data.hasOwnProperty('defaultStatus')) {
+                obj['defaultStatus'] = ApiClient.convertToType(data['defaultStatus'], 'String');
             }
-            if (data.hasOwnProperty('AlternativeCustomFieldId')) {
-                obj['AlternativeCustomFieldId'] = ApiClient.convertToType(data['AlternativeCustomFieldId'], 'String');
+            if (data.hasOwnProperty('alternativeCustomFieldId')) {
+                obj['alternativeCustomFieldId'] = ApiClient.convertToType(data['alternativeCustomFieldId'], 'String');
             }
         }
         return obj;
@@ -72,34 +72,34 @@ class NoteSettingsDto {
 }
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-NoteSettingsDto.prototype['IsHidden'] = undefined;
+NoteSettingsDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  */
-NoteSettingsDto.prototype['IsMandatory'] = undefined;
+NoteSettingsDto.prototype['isMandatory'] = undefined;
 
 /**
- * @member {Boolean} UsePrevious
+ * @member {Boolean} usePrevious
  */
-NoteSettingsDto.prototype['UsePrevious'] = undefined;
+NoteSettingsDto.prototype['usePrevious'] = undefined;
 
 /**
- * @member {Boolean} AllowPersonal
+ * @member {Boolean} allowPersonal
  */
-NoteSettingsDto.prototype['AllowPersonal'] = undefined;
+NoteSettingsDto.prototype['allowPersonal'] = undefined;
 
 /**
- * @member {String} DefaultStatus
+ * @member {String} defaultStatus
  */
-NoteSettingsDto.prototype['DefaultStatus'] = undefined;
+NoteSettingsDto.prototype['defaultStatus'] = undefined;
 
 /**
- * @member {String} AlternativeCustomFieldId
+ * @member {String} alternativeCustomFieldId
  */
-NoteSettingsDto.prototype['AlternativeCustomFieldId'] = undefined;
+NoteSettingsDto.prototype['alternativeCustomFieldId'] = undefined;
 
 
 

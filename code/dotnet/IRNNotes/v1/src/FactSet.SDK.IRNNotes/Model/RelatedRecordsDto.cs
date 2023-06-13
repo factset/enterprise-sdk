@@ -45,13 +45,13 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets NoteIds
         /// </summary>
-        [DataMember(Name = "NoteIds", EmitDefaultValue = true)]
+        [DataMember(Name = "noteIds", EmitDefaultValue = true)]
         public List<Guid> NoteIds { get; set; }
 
         /// <summary>
         /// Gets or Sets MeetingIds
         /// </summary>
-        [DataMember(Name = "MeetingIds", EmitDefaultValue = true)]
+        [DataMember(Name = "meetingIds", EmitDefaultValue = true)]
         public List<Guid> MeetingIds { get; set; }
 
         /// <summary>

@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostNotationCrossReferenceListByISINRequest
+Request Body
 
 ## Properties
 

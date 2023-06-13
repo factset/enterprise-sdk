@@ -30,18 +30,26 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_currency import InlineResponse20082DataCurrency
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_value_unit import InlineResponse20082DataValueUnit
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_market import InlineResponse20083Market
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_status import InlineResponse20083Status
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_ask import InlineResponse20085Ask
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_bid import InlineResponse20085Bid
-    globals()['InlineResponse20082DataCurrency'] = InlineResponse20082DataCurrency
-    globals()['InlineResponse20082DataValueUnit'] = InlineResponse20082DataValueUnit
-    globals()['InlineResponse20083Market'] = InlineResponse20083Market
-    globals()['InlineResponse20083Status'] = InlineResponse20083Status
-    globals()['InlineResponse20085Ask'] = InlineResponse20085Ask
-    globals()['InlineResponse20085Bid'] = InlineResponse20085Bid
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_currency import InlineResponse20084DataCurrency
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084_data_value_unit import InlineResponse20084DataValueUnit
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_accumulated import InlineResponse20085Accumulated
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_first import InlineResponse20085First
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_high import InlineResponse20085High
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_latest import InlineResponse20085Latest
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_low import InlineResponse20085Low
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_market import InlineResponse20085Market
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_previous_close import InlineResponse20085PreviousClose
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085_status import InlineResponse20085Status
+    globals()['InlineResponse20084DataCurrency'] = InlineResponse20084DataCurrency
+    globals()['InlineResponse20084DataValueUnit'] = InlineResponse20084DataValueUnit
+    globals()['InlineResponse20085Accumulated'] = InlineResponse20085Accumulated
+    globals()['InlineResponse20085First'] = InlineResponse20085First
+    globals()['InlineResponse20085High'] = InlineResponse20085High
+    globals()['InlineResponse20085Latest'] = InlineResponse20085Latest
+    globals()['InlineResponse20085Low'] = InlineResponse20085Low
+    globals()['InlineResponse20085Market'] = InlineResponse20085Market
+    globals()['InlineResponse20085PreviousClose'] = InlineResponse20085PreviousClose
+    globals()['InlineResponse20085Status'] = InlineResponse20085Status
 
 
 class InlineResponse20085Data(ModelNormal):
@@ -105,13 +113,17 @@ class InlineResponse20085Data(ModelNormal):
         return {
             'id_notation': (str, none_type,),  # noqa: E501
             'source_identifier': (str, none_type,),  # noqa: E501
-            'value_unit': (InlineResponse20082DataValueUnit,),  # noqa: E501
-            'currency': (InlineResponse20082DataCurrency,),  # noqa: E501
-            'market': (InlineResponse20083Market,),  # noqa: E501
+            'value_unit': (InlineResponse20084DataValueUnit,),  # noqa: E501
+            'currency': (InlineResponse20084DataCurrency,),  # noqa: E501
+            'market': (InlineResponse20085Market,),  # noqa: E501
             'quality': (str, none_type,),  # noqa: E501
-            'bid': (InlineResponse20085Bid,),  # noqa: E501
-            'ask': (InlineResponse20085Ask,),  # noqa: E501
-            'status': (InlineResponse20083Status,),  # noqa: E501
+            'latest': (InlineResponse20085Latest,),  # noqa: E501
+            'first': (InlineResponse20085First,),  # noqa: E501
+            'low': (InlineResponse20085Low,),  # noqa: E501
+            'high': (InlineResponse20085High,),  # noqa: E501
+            'previous_close': (InlineResponse20085PreviousClose,),  # noqa: E501
+            'accumulated': (InlineResponse20085Accumulated,),  # noqa: E501
+            'status': (InlineResponse20085Status,),  # noqa: E501
         }
 
     @cached_property
@@ -126,8 +138,12 @@ class InlineResponse20085Data(ModelNormal):
         'currency': 'currency',  # noqa: E501
         'market': 'market',  # noqa: E501
         'quality': 'quality',  # noqa: E501
-        'bid': 'bid',  # noqa: E501
-        'ask': 'ask',  # noqa: E501
+        'latest': 'latest',  # noqa: E501
+        'first': 'first',  # noqa: E501
+        'low': 'low',  # noqa: E501
+        'high': 'high',  # noqa: E501
+        'previous_close': 'previousClose',  # noqa: E501
+        'accumulated': 'accumulated',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
 
@@ -174,13 +190,17 @@ class InlineResponse20085Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            value_unit (InlineResponse20082DataValueUnit): [optional]  # noqa: E501
-            currency (InlineResponse20082DataCurrency): [optional]  # noqa: E501
-            market (InlineResponse20083Market): [optional]  # noqa: E501
+            value_unit (InlineResponse20084DataValueUnit): [optional]  # noqa: E501
+            currency (InlineResponse20084DataCurrency): [optional]  # noqa: E501
+            market (InlineResponse20085Market): [optional]  # noqa: E501
             quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            bid (InlineResponse20085Bid): [optional]  # noqa: E501
-            ask (InlineResponse20085Ask): [optional]  # noqa: E501
-            status (InlineResponse20083Status): [optional]  # noqa: E501
+            latest (InlineResponse20085Latest): [optional]  # noqa: E501
+            first (InlineResponse20085First): [optional]  # noqa: E501
+            low (InlineResponse20085Low): [optional]  # noqa: E501
+            high (InlineResponse20085High): [optional]  # noqa: E501
+            previous_close (InlineResponse20085PreviousClose): [optional]  # noqa: E501
+            accumulated (InlineResponse20085Accumulated): [optional]  # noqa: E501
+            status (InlineResponse20085Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,13 +284,17 @@ class InlineResponse20085Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            value_unit (InlineResponse20082DataValueUnit): [optional]  # noqa: E501
-            currency (InlineResponse20082DataCurrency): [optional]  # noqa: E501
-            market (InlineResponse20083Market): [optional]  # noqa: E501
+            value_unit (InlineResponse20084DataValueUnit): [optional]  # noqa: E501
+            currency (InlineResponse20084DataCurrency): [optional]  # noqa: E501
+            market (InlineResponse20085Market): [optional]  # noqa: E501
             quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            bid (InlineResponse20085Bid): [optional]  # noqa: E501
-            ask (InlineResponse20085Ask): [optional]  # noqa: E501
-            status (InlineResponse20083Status): [optional]  # noqa: E501
+            latest (InlineResponse20085Latest): [optional]  # noqa: E501
+            first (InlineResponse20085First): [optional]  # noqa: E501
+            low (InlineResponse20085Low): [optional]  # noqa: E501
+            high (InlineResponse20085High): [optional]  # noqa: E501
+            previous_close (InlineResponse20085PreviousClose): [optional]  # noqa: E501
+            accumulated (InlineResponse20085Accumulated): [optional]  # noqa: E501
+            status (InlineResponse20085Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

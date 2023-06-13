@@ -69,7 +69,7 @@ class PostPricesTradingScheduleEventListRequestDataIdentifier(ModelNormal):
             'max_length': 50,
             'min_length': 3,
             'regex': {
-                'pattern': r'^([B-DF-HJ-NP-TV-Z0-9]{6}-[LR])|([A-Z0-9.]{1,47}-[A-Z0-9]{2,4})|([0-9]{3,20})$',  # noqa: E501
+                'pattern': r'^[B-DF-HJ-NP-TV-Z0-9]{6}-[LR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$',  # noqa: E501
             },
         },
     }

@@ -2,6 +2,7 @@
 
 # PostBasicBackgroundTextTypeListRequest
 
+Request Body
 
 ## Properties
 

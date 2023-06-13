@@ -22,6 +22,7 @@ import PostInstrumentNotationListRequestMeta from './PostInstrumentNotationListR
 class PostInstrumentNotationListRequest {
     /**
      * Constructs a new <code>PostInstrumentNotationListRequest</code>.
+     * Request Body
      * @alias module:model/PostInstrumentNotationListRequest
      */
     constructor() { 

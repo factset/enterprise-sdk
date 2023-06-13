@@ -22,6 +22,7 @@ import PostPricesTradingScheduleEventListRequestMeta from './PostPricesTradingSc
 class PostPricesTradingScheduleEventListRequest {
     /**
      * Constructs a new <code>PostPricesTradingScheduleEventListRequest</code>.
+     * Request Body
      * @alias module:model/PostPricesTradingScheduleEventListRequest
      * @param data {module:model/PostPricesTradingScheduleEventListRequestData} 
      */

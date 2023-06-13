@@ -50,12 +50,6 @@ class InlineResponse20072DataInstrument {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('shortName')) {
-                obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
-            }
         }
         return obj;
     }
@@ -68,18 +62,6 @@ class InlineResponse20072DataInstrument {
  * @member {String} id
  */
 InlineResponse20072DataInstrument.prototype['id'] = undefined;
-
-/**
- * Name of the instrument.
- * @member {String} name
- */
-InlineResponse20072DataInstrument.prototype['name'] = undefined;
-
-/**
- * Short name of the instrument.
- * @member {String} shortName
- */
-InlineResponse20072DataInstrument.prototype['shortName'] = undefined;
 
 
 

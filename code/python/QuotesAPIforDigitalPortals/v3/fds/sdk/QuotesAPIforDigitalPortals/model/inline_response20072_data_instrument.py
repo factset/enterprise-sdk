@@ -82,8 +82,6 @@ class InlineResponse20072DataInstrument(ModelNormal):
         """
         return {
             'id': (str, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'short_name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,8 +91,6 @@ class InlineResponse20072DataInstrument(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'short_name': 'shortName',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,8 +135,6 @@ class InlineResponse20072DataInstrument(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
-            name (str, none_type): Name of the instrument.. [optional]  # noqa: E501
-            short_name (str, none_type): Short name of the instrument.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,8 +217,6 @@ class InlineResponse20072DataInstrument(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
-            name (str, none_type): Name of the instrument.. [optional]  # noqa: E501
-            short_name (str, none_type): Short name of the instrument.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

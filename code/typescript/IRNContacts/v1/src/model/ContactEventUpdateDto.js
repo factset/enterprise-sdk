@@ -46,14 +46,14 @@ class ContactEventUpdateDto {
         if (data) {
             obj = obj || new ContactEventUpdateDto();
 
-            if (data.hasOwnProperty('FieldName')) {
-                obj['FieldName'] = ApiClient.convertToType(data['FieldName'], 'String');
+            if (data.hasOwnProperty('fieldName')) {
+                obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
             }
-            if (data.hasOwnProperty('OldValue')) {
-                obj['OldValue'] = ApiClient.convertToType(data['OldValue'], 'String');
+            if (data.hasOwnProperty('oldValue')) {
+                obj['oldValue'] = ApiClient.convertToType(data['oldValue'], 'String');
             }
-            if (data.hasOwnProperty('NewValue')) {
-                obj['NewValue'] = ApiClient.convertToType(data['NewValue'], 'String');
+            if (data.hasOwnProperty('newValue')) {
+                obj['newValue'] = ApiClient.convertToType(data['newValue'], 'String');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class ContactEventUpdateDto {
 }
 
 /**
- * @member {String} FieldName
+ * @member {String} fieldName
  */
-ContactEventUpdateDto.prototype['FieldName'] = undefined;
+ContactEventUpdateDto.prototype['fieldName'] = undefined;
 
 /**
- * @member {String} OldValue
+ * @member {String} oldValue
  */
-ContactEventUpdateDto.prototype['OldValue'] = undefined;
+ContactEventUpdateDto.prototype['oldValue'] = undefined;
 
 /**
- * @member {String} NewValue
+ * @member {String} newValue
  */
-ContactEventUpdateDto.prototype['NewValue'] = undefined;
+ContactEventUpdateDto.prototype['newValue'] = undefined;
 
 
 

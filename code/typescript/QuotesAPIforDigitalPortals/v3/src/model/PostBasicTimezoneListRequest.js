@@ -22,6 +22,7 @@ import PostBasicTimezoneListRequestData from './PostBasicTimezoneListRequestData
 class PostBasicTimezoneListRequest {
     /**
      * Constructs a new <code>PostBasicTimezoneListRequest</code>.
+     * Request Body
      * @alias module:model/PostBasicTimezoneListRequest
      */
     constructor() { 

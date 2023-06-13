@@ -45,13 +45,13 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets IsHidden
         /// </summary>
-        [DataMember(Name = "IsHidden", EmitDefaultValue = true)]
+        [DataMember(Name = "isHidden", EmitDefaultValue = true)]
         public bool IsHidden { get; set; }
 
         /// <summary>
         /// Gets or Sets IsMandatory
         /// </summary>
-        [DataMember(Name = "IsMandatory", EmitDefaultValue = true)]
+        [DataMember(Name = "isMandatory", EmitDefaultValue = true)]
         public bool IsMandatory { get; set; }
 
         /// <summary>

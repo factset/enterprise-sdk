@@ -92,10 +92,10 @@ class ContactEventDto(ModelNormal):
 
 
     attribute_map = {
-        'event_type': 'EventType',  # noqa: E501
-        'date': 'Date',  # noqa: E501
-        'full_name': 'FullName',  # noqa: E501
-        'details': 'Details',  # noqa: E501
+        'event_type': 'eventType',  # noqa: E501
+        'date': 'date',  # noqa: E501
+        'full_name': 'fullName',  # noqa: E501
+        'details': 'details',  # noqa: E501
     }
 
     read_only_vars = {

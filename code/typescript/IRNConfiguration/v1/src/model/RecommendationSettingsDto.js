@@ -46,17 +46,17 @@ class RecommendationSettingsDto {
         if (data) {
             obj = obj || new RecommendationSettingsDto();
 
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('UsePrevious')) {
-                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            if (data.hasOwnProperty('usePrevious')) {
+                obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
-            if (data.hasOwnProperty('DefaultId')) {
-                obj['DefaultId'] = ApiClient.convertToType(data['DefaultId'], 'String');
+            if (data.hasOwnProperty('defaultId')) {
+                obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
             }
         }
         return obj;
@@ -66,24 +66,24 @@ class RecommendationSettingsDto {
 }
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-RecommendationSettingsDto.prototype['IsHidden'] = undefined;
+RecommendationSettingsDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  */
-RecommendationSettingsDto.prototype['IsMandatory'] = undefined;
+RecommendationSettingsDto.prototype['isMandatory'] = undefined;
 
 /**
- * @member {Boolean} UsePrevious
+ * @member {Boolean} usePrevious
  */
-RecommendationSettingsDto.prototype['UsePrevious'] = undefined;
+RecommendationSettingsDto.prototype['usePrevious'] = undefined;
 
 /**
- * @member {String} DefaultId
+ * @member {String} defaultId
  */
-RecommendationSettingsDto.prototype['DefaultId'] = undefined;
+RecommendationSettingsDto.prototype['defaultId'] = undefined;
 
 
 

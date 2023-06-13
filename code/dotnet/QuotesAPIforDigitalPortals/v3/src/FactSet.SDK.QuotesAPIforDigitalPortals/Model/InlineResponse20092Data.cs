@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// InlineResponse20092Data
+    /// The data member contains a list of the matching instruments
     /// </summary>
     [DataContract(Name = "inline_response_200_92_data")]
     public partial class InlineResponse20092Data : IEquatable<InlineResponse20092Data>, IValidatableObject
@@ -34,75 +34,70 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20092Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of a notation..</param>
-        /// <param name="valueUnit">valueUnit.</param>
-        /// <param name="market">market.</param>
-        /// <param name="symbol">The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market..</param>
+        /// <param name="id">Identifier of the instrument..</param>
+        /// <param name="name">Asset class-unspecific name in English..</param>
+        /// <param name="isin">The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument..</param>
         /// <param name="nsin">nsin.</param>
         /// <param name="fsym">fsym.</param>
-        /// <param name="instrument">instrument.</param>
-        /// <param name="tradingValue">tradingValue.</param>
-        public InlineResponse20092Data(string id = default(string), InlineResponse20092ValueUnit valueUnit = default(InlineResponse20092ValueUnit), InlineResponse20067DataMarket market = default(InlineResponse20067DataMarket), string symbol = default(string), InlineResponse20091Nsin nsin = default(InlineResponse20091Nsin), InlineResponse20046NotationFsym fsym = default(InlineResponse20046NotationFsym), InlineResponse20092Instrument instrument = default(InlineResponse20092Instrument), InlineResponse20092TradingValue tradingValue = default(InlineResponse20092TradingValue))
+        /// <param name="assetClass">Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description..</param>
+        /// <param name="type">Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18)..</param>
+        public InlineResponse20092Data(string id = default(string), string name = default(string), string isin = default(string), InlineResponse20042DataNsin nsin = default(InlineResponse20042DataNsin), InlineResponse20036Fsym fsym = default(InlineResponse20036Fsym), string assetClass = default(string), List<InlineResponse20038DataCategories> type = default(List<InlineResponse20038DataCategories>))
         {
             this.Id = id;
-            this.ValueUnit = valueUnit;
-            this.Market = market;
-            this.Symbol = symbol;
+            this.Name = name;
+            this.Isin = isin;
             this.Nsin = nsin;
             this.Fsym = fsym;
-            this.Instrument = instrument;
-            this.TradingValue = tradingValue;
+            this.AssetClass = assetClass;
+            this.Type = type;
         }
 
         /// <summary>
-        /// Identifier of a notation.
+        /// Identifier of the instrument.
         /// </summary>
-        /// <value>Identifier of a notation.</value>
+        /// <value>Identifier of the instrument.</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValueUnit
+        /// Asset class-unspecific name in English.
         /// </summary>
-        [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
-        public InlineResponse20092ValueUnit ValueUnit { get; set; }
+        /// <value>Asset class-unspecific name in English.</value>
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Market
+        /// The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
         /// </summary>
-        [DataMember(Name = "market", EmitDefaultValue = false)]
-        public InlineResponse20067DataMarket Market { get; set; }
-
-        /// <summary>
-        /// The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
-        /// </summary>
-        /// <value>The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.</value>
-        [DataMember(Name = "symbol", EmitDefaultValue = true)]
-        public string Symbol { get; set; }
+        /// <value>The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.</value>
+        [DataMember(Name = "isin", EmitDefaultValue = true)]
+        public string Isin { get; set; }
 
         /// <summary>
         /// Gets or Sets Nsin
         /// </summary>
         [DataMember(Name = "nsin", EmitDefaultValue = false)]
-        public InlineResponse20091Nsin Nsin { get; set; }
+        public InlineResponse20042DataNsin Nsin { get; set; }
 
         /// <summary>
         /// Gets or Sets Fsym
         /// </summary>
         [DataMember(Name = "fsym", EmitDefaultValue = false)]
-        public InlineResponse20046NotationFsym Fsym { get; set; }
+        public InlineResponse20036Fsym Fsym { get; set; }
 
         /// <summary>
-        /// Gets or Sets Instrument
+        /// Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.
         /// </summary>
-        [DataMember(Name = "instrument", EmitDefaultValue = false)]
-        public InlineResponse20092Instrument Instrument { get; set; }
+        /// <value>Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.</value>
+        [DataMember(Name = "assetClass", EmitDefaultValue = true)]
+        public string AssetClass { get; set; }
 
         /// <summary>
-        /// Gets or Sets TradingValue
+        /// Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
         /// </summary>
-        [DataMember(Name = "tradingValue", EmitDefaultValue = false)]
-        public InlineResponse20092TradingValue TradingValue { get; set; }
+        /// <value>Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).</value>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public List<InlineResponse20038DataCategories> Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -113,13 +108,12 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20092Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
-            sb.Append("  Market: ").Append(Market).Append("\n");
-            sb.Append("  Symbol: ").Append(Symbol).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Isin: ").Append(Isin).Append("\n");
             sb.Append("  Nsin: ").Append(Nsin).Append("\n");
             sb.Append("  Fsym: ").Append(Fsym).Append("\n");
-            sb.Append("  Instrument: ").Append(Instrument).Append("\n");
-            sb.Append("  TradingValue: ").Append(TradingValue).Append("\n");
+            sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,19 +155,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.ValueUnit == input.ValueUnit ||
-                    (this.ValueUnit != null &&
-                    this.ValueUnit.Equals(input.ValueUnit))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Market == input.Market ||
-                    (this.Market != null &&
-                    this.Market.Equals(input.Market))
-                ) && 
-                (
-                    this.Symbol == input.Symbol ||
-                    (this.Symbol != null &&
-                    this.Symbol.Equals(input.Symbol))
+                    this.Isin == input.Isin ||
+                    (this.Isin != null &&
+                    this.Isin.Equals(input.Isin))
                 ) && 
                 (
                     this.Nsin == input.Nsin ||
@@ -186,14 +175,15 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Fsym.Equals(input.Fsym))
                 ) && 
                 (
-                    this.Instrument == input.Instrument ||
-                    (this.Instrument != null &&
-                    this.Instrument.Equals(input.Instrument))
+                    this.AssetClass == input.AssetClass ||
+                    (this.AssetClass != null &&
+                    this.AssetClass.Equals(input.AssetClass))
                 ) && 
                 (
-                    this.TradingValue == input.TradingValue ||
-                    (this.TradingValue != null &&
-                    this.TradingValue.Equals(input.TradingValue))
+                    this.Type == input.Type ||
+                    this.Type != null &&
+                    input.Type != null &&
+                    this.Type.SequenceEqual(input.Type)
                 );
         }
 
@@ -210,17 +200,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.ValueUnit != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                if (this.Market != null)
+                if (this.Isin != null)
                 {
-                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
-                }
-                if (this.Symbol != null)
-                {
-                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
                 }
                 if (this.Nsin != null)
                 {
@@ -230,13 +216,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
                 }
-                if (this.Instrument != null)
+                if (this.AssetClass != null)
                 {
-                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AssetClass.GetHashCode();
                 }
-                if (this.TradingValue != null)
+                if (this.Type != null)
                 {
-                    hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 return hashCode;
             }

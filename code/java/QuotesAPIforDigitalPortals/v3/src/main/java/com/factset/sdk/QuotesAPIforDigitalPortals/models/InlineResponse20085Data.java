@@ -17,12 +17,16 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20082DataCurrency;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20082DataValueUnit;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Market;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083Status;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Ask;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Bid;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20084DataCurrency;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20084DataValueUnit;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Accumulated;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085First;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085High;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Latest;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Low;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Market;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085PreviousClose;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085Status;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -49,8 +53,12 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
   InlineResponse20085Data.JSON_PROPERTY_CURRENCY,
   InlineResponse20085Data.JSON_PROPERTY_MARKET,
   InlineResponse20085Data.JSON_PROPERTY_QUALITY,
-  InlineResponse20085Data.JSON_PROPERTY_BID,
-  InlineResponse20085Data.JSON_PROPERTY_ASK,
+  InlineResponse20085Data.JSON_PROPERTY_LATEST,
+  InlineResponse20085Data.JSON_PROPERTY_FIRST,
+  InlineResponse20085Data.JSON_PROPERTY_LOW,
+  InlineResponse20085Data.JSON_PROPERTY_HIGH,
+  InlineResponse20085Data.JSON_PROPERTY_PREVIOUS_CLOSE,
+  InlineResponse20085Data.JSON_PROPERTY_ACCUMULATED,
   InlineResponse20085Data.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -64,13 +72,13 @@ public class InlineResponse20085Data implements Serializable {
   private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
-  private InlineResponse20082DataValueUnit valueUnit;
+  private InlineResponse20084DataValueUnit valueUnit;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private InlineResponse20082DataCurrency currency;
+  private InlineResponse20084DataCurrency currency;
 
   public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20083Market market;
+  private InlineResponse20085Market market;
 
   /**
    * Quality of the price.
@@ -112,14 +120,26 @@ public class InlineResponse20085Data implements Serializable {
   public static final String JSON_PROPERTY_QUALITY = "quality";
   private JsonNullable<QualityEnum> quality = JsonNullable.<QualityEnum>undefined();
 
-  public static final String JSON_PROPERTY_BID = "bid";
-  private InlineResponse20085Bid bid;
+  public static final String JSON_PROPERTY_LATEST = "latest";
+  private InlineResponse20085Latest latest;
 
-  public static final String JSON_PROPERTY_ASK = "ask";
-  private InlineResponse20085Ask ask;
+  public static final String JSON_PROPERTY_FIRST = "first";
+  private InlineResponse20085First first;
+
+  public static final String JSON_PROPERTY_LOW = "low";
+  private InlineResponse20085Low low;
+
+  public static final String JSON_PROPERTY_HIGH = "high";
+  private InlineResponse20085High high;
+
+  public static final String JSON_PROPERTY_PREVIOUS_CLOSE = "previousClose";
+  private InlineResponse20085PreviousClose previousClose;
+
+  public static final String JSON_PROPERTY_ACCUMULATED = "accumulated";
+  private InlineResponse20085Accumulated accumulated;
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  private InlineResponse20083Status status;
+  private InlineResponse20085Status status;
 
   public InlineResponse20085Data() { 
   }
@@ -192,7 +212,7 @@ public class InlineResponse20085Data implements Serializable {
   }
 
 
-  public InlineResponse20085Data valueUnit(InlineResponse20082DataValueUnit valueUnit) {
+  public InlineResponse20085Data valueUnit(InlineResponse20084DataValueUnit valueUnit) {
     this.valueUnit = valueUnit;
     return this;
   }
@@ -206,19 +226,19 @@ public class InlineResponse20085Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20082DataValueUnit getValueUnit() {
+  public InlineResponse20084DataValueUnit getValueUnit() {
     return valueUnit;
   }
 
 
   @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueUnit(InlineResponse20082DataValueUnit valueUnit) {
+  public void setValueUnit(InlineResponse20084DataValueUnit valueUnit) {
     this.valueUnit = valueUnit;
   }
 
 
-  public InlineResponse20085Data currency(InlineResponse20082DataCurrency currency) {
+  public InlineResponse20085Data currency(InlineResponse20084DataCurrency currency) {
     this.currency = currency;
     return this;
   }
@@ -232,19 +252,19 @@ public class InlineResponse20085Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20082DataCurrency getCurrency() {
+  public InlineResponse20084DataCurrency getCurrency() {
     return currency;
   }
 
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(InlineResponse20082DataCurrency currency) {
+  public void setCurrency(InlineResponse20084DataCurrency currency) {
     this.currency = currency;
   }
 
 
-  public InlineResponse20085Data market(InlineResponse20083Market market) {
+  public InlineResponse20085Data market(InlineResponse20085Market market) {
     this.market = market;
     return this;
   }
@@ -258,14 +278,14 @@ public class InlineResponse20085Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20083Market getMarket() {
+  public InlineResponse20085Market getMarket() {
     return market;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20083Market market) {
+  public void setMarket(InlineResponse20085Market market) {
     this.market = market;
   }
 
@@ -304,59 +324,163 @@ public class InlineResponse20085Data implements Serializable {
   }
 
 
-  public InlineResponse20085Data bid(InlineResponse20085Bid bid) {
-    this.bid = bid;
+  public InlineResponse20085Data latest(InlineResponse20085Latest latest) {
+    this.latest = latest;
     return this;
   }
 
    /**
-   * Get bid
-   * @return bid
+   * Get latest
+   * @return latest
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BID)
+  @JsonProperty(JSON_PROPERTY_LATEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20085Bid getBid() {
-    return bid;
+  public InlineResponse20085Latest getLatest() {
+    return latest;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BID)
+  @JsonProperty(JSON_PROPERTY_LATEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBid(InlineResponse20085Bid bid) {
-    this.bid = bid;
+  public void setLatest(InlineResponse20085Latest latest) {
+    this.latest = latest;
   }
 
 
-  public InlineResponse20085Data ask(InlineResponse20085Ask ask) {
-    this.ask = ask;
+  public InlineResponse20085Data first(InlineResponse20085First first) {
+    this.first = first;
     return this;
   }
 
    /**
-   * Get ask
-   * @return ask
+   * Get first
+   * @return first
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ASK)
+  @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20085Ask getAsk() {
-    return ask;
+  public InlineResponse20085First getFirst() {
+    return first;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ASK)
+  @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAsk(InlineResponse20085Ask ask) {
-    this.ask = ask;
+  public void setFirst(InlineResponse20085First first) {
+    this.first = first;
   }
 
 
-  public InlineResponse20085Data status(InlineResponse20083Status status) {
+  public InlineResponse20085Data low(InlineResponse20085Low low) {
+    this.low = low;
+    return this;
+  }
+
+   /**
+   * Get low
+   * @return low
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20085Low getLow() {
+    return low;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLow(InlineResponse20085Low low) {
+    this.low = low;
+  }
+
+
+  public InlineResponse20085Data high(InlineResponse20085High high) {
+    this.high = high;
+    return this;
+  }
+
+   /**
+   * Get high
+   * @return high
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HIGH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20085High getHigh() {
+    return high;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HIGH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHigh(InlineResponse20085High high) {
+    this.high = high;
+  }
+
+
+  public InlineResponse20085Data previousClose(InlineResponse20085PreviousClose previousClose) {
+    this.previousClose = previousClose;
+    return this;
+  }
+
+   /**
+   * Get previousClose
+   * @return previousClose
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PREVIOUS_CLOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20085PreviousClose getPreviousClose() {
+    return previousClose;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PREVIOUS_CLOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPreviousClose(InlineResponse20085PreviousClose previousClose) {
+    this.previousClose = previousClose;
+  }
+
+
+  public InlineResponse20085Data accumulated(InlineResponse20085Accumulated accumulated) {
+    this.accumulated = accumulated;
+    return this;
+  }
+
+   /**
+   * Get accumulated
+   * @return accumulated
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20085Accumulated getAccumulated() {
+    return accumulated;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccumulated(InlineResponse20085Accumulated accumulated) {
+    this.accumulated = accumulated;
+  }
+
+
+  public InlineResponse20085Data status(InlineResponse20085Status status) {
     this.status = status;
     return this;
   }
@@ -370,14 +494,14 @@ public class InlineResponse20085Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20083Status getStatus() {
+  public InlineResponse20085Status getStatus() {
     return status;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(InlineResponse20083Status status) {
+  public void setStatus(InlineResponse20085Status status) {
     this.status = status;
   }
 
@@ -400,8 +524,12 @@ public class InlineResponse20085Data implements Serializable {
         Objects.equals(this.currency, inlineResponse20085Data.currency) &&
         Objects.equals(this.market, inlineResponse20085Data.market) &&
         equalsNullable(this.quality, inlineResponse20085Data.quality) &&
-        Objects.equals(this.bid, inlineResponse20085Data.bid) &&
-        Objects.equals(this.ask, inlineResponse20085Data.ask) &&
+        Objects.equals(this.latest, inlineResponse20085Data.latest) &&
+        Objects.equals(this.first, inlineResponse20085Data.first) &&
+        Objects.equals(this.low, inlineResponse20085Data.low) &&
+        Objects.equals(this.high, inlineResponse20085Data.high) &&
+        Objects.equals(this.previousClose, inlineResponse20085Data.previousClose) &&
+        Objects.equals(this.accumulated, inlineResponse20085Data.accumulated) &&
         Objects.equals(this.status, inlineResponse20085Data.status);
   }
 
@@ -411,7 +539,7 @@ public class InlineResponse20085Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), valueUnit, currency, market, hashCodeNullable(quality), bid, ask, status);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), valueUnit, currency, market, hashCodeNullable(quality), latest, first, low, high, previousClose, accumulated, status);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -431,8 +559,12 @@ public class InlineResponse20085Data implements Serializable {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    market: ").append(toIndentedString(market)).append("\n");
     sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
-    sb.append("    bid: ").append(toIndentedString(bid)).append("\n");
-    sb.append("    ask: ").append(toIndentedString(ask)).append("\n");
+    sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
+    sb.append("    first: ").append(toIndentedString(first)).append("\n");
+    sb.append("    low: ").append(toIndentedString(low)).append("\n");
+    sb.append("    high: ").append(toIndentedString(high)).append("\n");
+    sb.append("    previousClose: ").append(toIndentedString(previousClose)).append("\n");
+    sb.append("    accumulated: ").append(toIndentedString(accumulated)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

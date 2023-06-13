@@ -62,7 +62,7 @@ class InlineResponse20093 {
 }
 
 /**
- * Set of basic data for a list of matching notations.
+ * List of notations.
  * @member {Array.<module:model/InlineResponse20093Data>} data
  */
 InlineResponse20093.prototype['data'] = undefined;

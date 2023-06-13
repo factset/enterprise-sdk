@@ -2,6 +2,7 @@
 
 # PostPricesTradingScheduleEventListRequest
 
+Request Body
 
 ## Properties
 

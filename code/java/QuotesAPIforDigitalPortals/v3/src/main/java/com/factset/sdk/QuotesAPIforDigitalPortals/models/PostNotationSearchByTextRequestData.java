@@ -67,6 +67,14 @@ public class PostNotationSearchByTextRequestData implements Serializable {
   public PostNotationSearchByTextRequestData() { 
   }
 
+  @JsonCreator
+  public PostNotationSearchByTextRequestData(
+    @JsonProperty(value=JSON_PROPERTY_TEXT, required=true) PostNotationSearchByTextRequestDataText text
+  ) {
+    this();
+    this.text = text;
+  }
+
   public PostNotationSearchByTextRequestData text(PostNotationSearchByTextRequestDataText text) {
     this.text = text;
     return this;
@@ -76,10 +84,10 @@ public class PostNotationSearchByTextRequestData implements Serializable {
    * Get text
    * @return text
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public PostNotationSearchByTextRequestDataText getText() {
     return text;
@@ -87,7 +95,7 @@ public class PostNotationSearchByTextRequestData implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_TEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setText(PostNotationSearchByTextRequestDataText text) {
     this.text = text;
   }

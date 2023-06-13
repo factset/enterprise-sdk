@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **MunicipalBonds** | [**FIMunicipalBondsForJobSettings**](FIMunicipalBondsForJobSettings.md) |  | [optional] 
 **MarketEnvironment** | [**FIMarketEnvironment**](FIMarketEnvironment.md) |  | [optional] 
 **StructuredProducts** | [**FIStructuredProductsForJobSettings**](FIStructuredProductsForJobSettings.md) |  | [optional] 
+**Attribution** | [**FIAttributionForJobSettings**](FIAttributionForJobSettings.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

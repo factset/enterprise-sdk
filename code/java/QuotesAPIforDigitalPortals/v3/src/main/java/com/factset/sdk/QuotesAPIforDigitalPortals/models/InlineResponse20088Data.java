@@ -17,8 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088DataEvents;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088DataRange;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088DataAsks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,14 +35,15 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * List of trading schedule events for a notation.
+ * Orderbook.
  */
-@ApiModel(description = "List of trading schedule events for a notation.")
+@ApiModel(description = "Orderbook.")
 @JsonPropertyOrder({
   InlineResponse20088Data.JSON_PROPERTY_ID_NOTATION,
   InlineResponse20088Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
-  InlineResponse20088Data.JSON_PROPERTY_RANGE,
-  InlineResponse20088Data.JSON_PROPERTY_EVENTS
+  InlineResponse20088Data.JSON_PROPERTY_QUALITY,
+  InlineResponse20088Data.JSON_PROPERTY_ASKS,
+  InlineResponse20088Data.JSON_PROPERTY_BIDS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20088Data implements Serializable {
@@ -55,11 +55,49 @@ public class InlineResponse20088Data implements Serializable {
   public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
   private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_RANGE = "range";
-  private JsonNullable<InlineResponse20088DataRange> range = JsonNullable.<InlineResponse20088DataRange>undefined();
+  /**
+   * Quality of the price.
+   */
+  public enum QualityEnum {
+    RLT("RLT"),
+    
+    DLY("DLY");
 
-  public static final String JSON_PROPERTY_EVENTS = "events";
-  private java.util.List<InlineResponse20088DataEvents> events = null;
+    private String value;
+
+    QualityEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static QualityEnum fromValue(String value) {
+      for (QualityEnum b : QualityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_QUALITY = "quality";
+  private JsonNullable<QualityEnum> quality = JsonNullable.<QualityEnum>undefined();
+
+  public static final String JSON_PROPERTY_ASKS = "asks";
+  private java.util.List<InlineResponse20088DataAsks> asks = null;
+
+  public static final String JSON_PROPERTY_BIDS = "bids";
+  private java.util.List<InlineResponse20088DataAsks> bids = null;
 
   public InlineResponse20088Data() { 
   }
@@ -132,71 +170,105 @@ public class InlineResponse20088Data implements Serializable {
   }
 
 
-  public InlineResponse20088Data range(InlineResponse20088DataRange range) {
-    this.range = JsonNullable.<InlineResponse20088DataRange>of(range);
+  public InlineResponse20088Data quality(QualityEnum quality) {
+    this.quality = JsonNullable.<QualityEnum>of(quality);
     return this;
   }
 
    /**
-   * Get range
-   * @return range
+   * Quality of the price.
+   * @return quality
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Quality of the price.")
   @JsonIgnore
 
-  public InlineResponse20088DataRange getRange() {
-        return range.orElse(null);
+  public QualityEnum getQuality() {
+        return quality.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_RANGE)
+  @JsonProperty(JSON_PROPERTY_QUALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<InlineResponse20088DataRange> getRange_JsonNullable() {
-    return range;
+  public JsonNullable<QualityEnum> getQuality_JsonNullable() {
+    return quality;
   }
   
-  @JsonProperty(JSON_PROPERTY_RANGE)
-  public void setRange_JsonNullable(JsonNullable<InlineResponse20088DataRange> range) {
-    this.range = range;
+  @JsonProperty(JSON_PROPERTY_QUALITY)
+  public void setQuality_JsonNullable(JsonNullable<QualityEnum> quality) {
+    this.quality = quality;
   }
 
-  public void setRange(InlineResponse20088DataRange range) {
-    this.range = JsonNullable.<InlineResponse20088DataRange>of(range);
+  public void setQuality(QualityEnum quality) {
+    this.quality = JsonNullable.<QualityEnum>of(quality);
   }
 
 
-  public InlineResponse20088Data events(java.util.List<InlineResponse20088DataEvents> events) {
-    this.events = events;
+  public InlineResponse20088Data asks(java.util.List<InlineResponse20088DataAsks> asks) {
+    this.asks = asks;
     return this;
   }
 
-  public InlineResponse20088Data addEventsItem(InlineResponse20088DataEvents eventsItem) {
-    if (this.events == null) {
-      this.events = new java.util.ArrayList<>();
+  public InlineResponse20088Data addAsksItem(InlineResponse20088DataAsks asksItem) {
+    if (this.asks == null) {
+      this.asks = new java.util.ArrayList<>();
     }
-    this.events.add(eventsItem);
+    this.asks.add(asksItem);
     return this;
   }
 
    /**
-   * List of trading schedule events.
-   * @return events
+   * List of sell orders aggregated by price.
+   * @return asks
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of trading schedule events.")
-  @JsonProperty(JSON_PROPERTY_EVENTS)
+  @ApiModelProperty(value = "List of sell orders aggregated by price.")
+  @JsonProperty(JSON_PROPERTY_ASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20088DataEvents> getEvents() {
-    return events;
+  public java.util.List<InlineResponse20088DataAsks> getAsks() {
+    return asks;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EVENTS)
+  @JsonProperty(JSON_PROPERTY_ASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEvents(java.util.List<InlineResponse20088DataEvents> events) {
-    this.events = events;
+  public void setAsks(java.util.List<InlineResponse20088DataAsks> asks) {
+    this.asks = asks;
+  }
+
+
+  public InlineResponse20088Data bids(java.util.List<InlineResponse20088DataAsks> bids) {
+    this.bids = bids;
+    return this;
+  }
+
+  public InlineResponse20088Data addBidsItem(InlineResponse20088DataAsks bidsItem) {
+    if (this.bids == null) {
+      this.bids = new java.util.ArrayList<>();
+    }
+    this.bids.add(bidsItem);
+    return this;
+  }
+
+   /**
+   * List of buy orders aggregated by price.
+   * @return bids
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of buy orders aggregated by price.")
+  @JsonProperty(JSON_PROPERTY_BIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<InlineResponse20088DataAsks> getBids() {
+    return bids;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBids(java.util.List<InlineResponse20088DataAsks> bids) {
+    this.bids = bids;
   }
 
 
@@ -214,8 +286,9 @@ public class InlineResponse20088Data implements Serializable {
     InlineResponse20088Data inlineResponse20088Data = (InlineResponse20088Data) o;
     return equalsNullable(this.idNotation, inlineResponse20088Data.idNotation) &&
         equalsNullable(this.sourceIdentifier, inlineResponse20088Data.sourceIdentifier) &&
-        equalsNullable(this.range, inlineResponse20088Data.range) &&
-        Objects.equals(this.events, inlineResponse20088Data.events);
+        equalsNullable(this.quality, inlineResponse20088Data.quality) &&
+        Objects.equals(this.asks, inlineResponse20088Data.asks) &&
+        Objects.equals(this.bids, inlineResponse20088Data.bids);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -224,7 +297,7 @@ public class InlineResponse20088Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(range), events);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(quality), asks, bids);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -240,8 +313,9 @@ public class InlineResponse20088Data implements Serializable {
     sb.append("class InlineResponse20088Data {\n");
     sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
     sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
-    sb.append("    range: ").append(toIndentedString(range)).append("\n");
-    sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
+    sb.append("    asks: ").append(toIndentedString(asks)).append("\n");
+    sb.append("    bids: ").append(toIndentedString(bids)).append("\n");
     sb.append("}");
     return sb.toString();
   }

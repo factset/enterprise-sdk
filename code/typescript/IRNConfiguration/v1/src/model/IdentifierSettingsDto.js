@@ -46,8 +46,8 @@ class IdentifierSettingsDto {
         if (data) {
             obj = obj || new IdentifierSettingsDto();
 
-            if (data.hasOwnProperty('AllowEdit')) {
-                obj['AllowEdit'] = ApiClient.convertToType(data['AllowEdit'], 'Boolean');
+            if (data.hasOwnProperty('allowEdit')) {
+                obj['allowEdit'] = ApiClient.convertToType(data['allowEdit'], 'Boolean');
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class IdentifierSettingsDto {
 }
 
 /**
- * @member {Boolean} AllowEdit
+ * @member {Boolean} allowEdit
  */
-IdentifierSettingsDto.prototype['AllowEdit'] = undefined;
+IdentifierSettingsDto.prototype['allowEdit'] = undefined;
 
 
 

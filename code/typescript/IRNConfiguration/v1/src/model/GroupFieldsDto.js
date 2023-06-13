@@ -60,47 +60,47 @@ class GroupFieldsDto {
         if (data) {
             obj = obj || new GroupFieldsDto();
 
-            if (data.hasOwnProperty('Title')) {
-                obj['Title'] = TitleSettingsDto.constructFromObject(data['Title']);
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = TitleSettingsDto.constructFromObject(data['title']);
             }
-            if (data.hasOwnProperty('Date')) {
-                obj['Date'] = DateSettingsDto.constructFromObject(data['Date']);
+            if (data.hasOwnProperty('date')) {
+                obj['date'] = DateSettingsDto.constructFromObject(data['date']);
             }
-            if (data.hasOwnProperty('Identifier')) {
-                obj['Identifier'] = IdentifierSettingsDto.constructFromObject(data['Identifier']);
+            if (data.hasOwnProperty('identifier')) {
+                obj['identifier'] = IdentifierSettingsDto.constructFromObject(data['identifier']);
             }
-            if (data.hasOwnProperty('Subject')) {
-                obj['Subject'] = SubjectSettingsDto.constructFromObject(data['Subject']);
+            if (data.hasOwnProperty('subject')) {
+                obj['subject'] = SubjectSettingsDto.constructFromObject(data['subject']);
             }
-            if (data.hasOwnProperty('Recommendation')) {
-                obj['Recommendation'] = RecommendationSettingsDto.constructFromObject(data['Recommendation']);
+            if (data.hasOwnProperty('recommendation')) {
+                obj['recommendation'] = RecommendationSettingsDto.constructFromObject(data['recommendation']);
             }
-            if (data.hasOwnProperty('Sentiment')) {
-                obj['Sentiment'] = SentimentSettingsDto.constructFromObject(data['Sentiment']);
+            if (data.hasOwnProperty('sentiment')) {
+                obj['sentiment'] = SentimentSettingsDto.constructFromObject(data['sentiment']);
             }
-            if (data.hasOwnProperty('Link')) {
-                obj['Link'] = LinkSettingsDto.constructFromObject(data['Link']);
+            if (data.hasOwnProperty('link')) {
+                obj['link'] = LinkSettingsDto.constructFromObject(data['link']);
             }
-            if (data.hasOwnProperty('Note')) {
-                obj['Note'] = NoteSettingsDto.constructFromObject(data['Note']);
+            if (data.hasOwnProperty('note')) {
+                obj['note'] = NoteSettingsDto.constructFromObject(data['note']);
             }
-            if (data.hasOwnProperty('Source')) {
-                obj['Source'] = SourceSettingsDto.constructFromObject(data['Source']);
+            if (data.hasOwnProperty('source')) {
+                obj['source'] = SourceSettingsDto.constructFromObject(data['source']);
             }
-            if (data.hasOwnProperty('RelatedSymbols')) {
-                obj['RelatedSymbols'] = RelatedSymbolsSettingsDto.constructFromObject(data['RelatedSymbols']);
+            if (data.hasOwnProperty('relatedSymbols')) {
+                obj['relatedSymbols'] = RelatedSymbolsSettingsDto.constructFromObject(data['relatedSymbols']);
             }
-            if (data.hasOwnProperty('RelatedResearch')) {
-                obj['RelatedResearch'] = RelatedResearchSettingsDto.constructFromObject(data['RelatedResearch']);
+            if (data.hasOwnProperty('relatedResearch')) {
+                obj['relatedResearch'] = RelatedResearchSettingsDto.constructFromObject(data['relatedResearch']);
             }
-            if (data.hasOwnProperty('RelatedContacts')) {
-                obj['RelatedContacts'] = RelatedContactsSettingsDto.constructFromObject(data['RelatedContacts']);
+            if (data.hasOwnProperty('relatedContacts')) {
+                obj['relatedContacts'] = RelatedContactsSettingsDto.constructFromObject(data['relatedContacts']);
             }
-            if (data.hasOwnProperty('Team')) {
-                obj['Team'] = TeamSettingsDto.constructFromObject(data['Team']);
+            if (data.hasOwnProperty('team')) {
+                obj['team'] = TeamSettingsDto.constructFromObject(data['team']);
             }
-            if (data.hasOwnProperty('Organizer')) {
-                obj['Organizer'] = OrganizerSettingsDto.constructFromObject(data['Organizer']);
+            if (data.hasOwnProperty('organizer')) {
+                obj['organizer'] = OrganizerSettingsDto.constructFromObject(data['organizer']);
             }
         }
         return obj;
@@ -110,74 +110,74 @@ class GroupFieldsDto {
 }
 
 /**
- * @member {module:model/TitleSettingsDto} Title
+ * @member {module:model/TitleSettingsDto} title
  */
-GroupFieldsDto.prototype['Title'] = undefined;
+GroupFieldsDto.prototype['title'] = undefined;
 
 /**
- * @member {module:model/DateSettingsDto} Date
+ * @member {module:model/DateSettingsDto} date
  */
-GroupFieldsDto.prototype['Date'] = undefined;
+GroupFieldsDto.prototype['date'] = undefined;
 
 /**
- * @member {module:model/IdentifierSettingsDto} Identifier
+ * @member {module:model/IdentifierSettingsDto} identifier
  */
-GroupFieldsDto.prototype['Identifier'] = undefined;
+GroupFieldsDto.prototype['identifier'] = undefined;
 
 /**
- * @member {module:model/SubjectSettingsDto} Subject
+ * @member {module:model/SubjectSettingsDto} subject
  */
-GroupFieldsDto.prototype['Subject'] = undefined;
+GroupFieldsDto.prototype['subject'] = undefined;
 
 /**
- * @member {module:model/RecommendationSettingsDto} Recommendation
+ * @member {module:model/RecommendationSettingsDto} recommendation
  */
-GroupFieldsDto.prototype['Recommendation'] = undefined;
+GroupFieldsDto.prototype['recommendation'] = undefined;
 
 /**
- * @member {module:model/SentimentSettingsDto} Sentiment
+ * @member {module:model/SentimentSettingsDto} sentiment
  */
-GroupFieldsDto.prototype['Sentiment'] = undefined;
+GroupFieldsDto.prototype['sentiment'] = undefined;
 
 /**
- * @member {module:model/LinkSettingsDto} Link
+ * @member {module:model/LinkSettingsDto} link
  */
-GroupFieldsDto.prototype['Link'] = undefined;
+GroupFieldsDto.prototype['link'] = undefined;
 
 /**
- * @member {module:model/NoteSettingsDto} Note
+ * @member {module:model/NoteSettingsDto} note
  */
-GroupFieldsDto.prototype['Note'] = undefined;
+GroupFieldsDto.prototype['note'] = undefined;
 
 /**
- * @member {module:model/SourceSettingsDto} Source
+ * @member {module:model/SourceSettingsDto} source
  */
-GroupFieldsDto.prototype['Source'] = undefined;
+GroupFieldsDto.prototype['source'] = undefined;
 
 /**
- * @member {module:model/RelatedSymbolsSettingsDto} RelatedSymbols
+ * @member {module:model/RelatedSymbolsSettingsDto} relatedSymbols
  */
-GroupFieldsDto.prototype['RelatedSymbols'] = undefined;
+GroupFieldsDto.prototype['relatedSymbols'] = undefined;
 
 /**
- * @member {module:model/RelatedResearchSettingsDto} RelatedResearch
+ * @member {module:model/RelatedResearchSettingsDto} relatedResearch
  */
-GroupFieldsDto.prototype['RelatedResearch'] = undefined;
+GroupFieldsDto.prototype['relatedResearch'] = undefined;
 
 /**
- * @member {module:model/RelatedContactsSettingsDto} RelatedContacts
+ * @member {module:model/RelatedContactsSettingsDto} relatedContacts
  */
-GroupFieldsDto.prototype['RelatedContacts'] = undefined;
+GroupFieldsDto.prototype['relatedContacts'] = undefined;
 
 /**
- * @member {module:model/TeamSettingsDto} Team
+ * @member {module:model/TeamSettingsDto} team
  */
-GroupFieldsDto.prototype['Team'] = undefined;
+GroupFieldsDto.prototype['team'] = undefined;
 
 /**
- * @member {module:model/OrganizerSettingsDto} Organizer
+ * @member {module:model/OrganizerSettingsDto} organizer
  */
-GroupFieldsDto.prototype['Organizer'] = undefined;
+GroupFieldsDto.prototype['organizer'] = undefined;
 
 
 

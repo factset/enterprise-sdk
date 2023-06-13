@@ -492,8 +492,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>InlineResponse20090</returns>
-        InlineResponse20090 GetInstrumentSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>InlineResponse20092</returns>
+        InlineResponse20092 GetInstrumentSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// Basic search for instruments.
@@ -510,8 +510,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>ApiResponse of InlineResponse20090</returns>
-        ApiResponse<InlineResponse20090> GetInstrumentSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>ApiResponse of InlineResponse20092</returns>
+        ApiResponse<InlineResponse20092> GetInstrumentSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
         /// List of background text types for instruments.
         /// </summary>
@@ -519,7 +519,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types for instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postInstrumentBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20045</returns>
         InlineResponse20045 PostInstrumentBackgroundTextTypeList(PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = default(PostInstrumentBackgroundTextTypeListRequest));
 
@@ -530,7 +530,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types for instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postInstrumentBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20045</returns>
         ApiResponse<InlineResponse20045> PostInstrumentBackgroundTextTypeListWithHttpInfo(PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = default(PostInstrumentBackgroundTextTypeListRequest));
         /// <summary>
@@ -540,7 +540,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBenchmarkListRequest"> (optional)</param>
+        /// <param name="postInstrumentBenchmarkListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20046</returns>
         InlineResponse20046 PostInstrumentBenchmarkList(PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = default(PostInstrumentBenchmarkListRequest));
 
@@ -551,7 +551,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBenchmarkListRequest"> (optional)</param>
+        /// <param name="postInstrumentBenchmarkListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20046</returns>
         ApiResponse<InlineResponse20046> PostInstrumentBenchmarkListWithHttpInfo(PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = default(PostInstrumentBenchmarkListRequest));
         /// <summary>
@@ -561,7 +561,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCategoryListRequest"> (optional)</param>
+        /// <param name="postInstrumentCategoryListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20047</returns>
         InlineResponse20047 PostInstrumentCategoryList(PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = default(PostInstrumentCategoryListRequest));
 
@@ -572,7 +572,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCategoryListRequest"> (optional)</param>
+        /// <param name="postInstrumentCategoryListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20047</returns>
         ApiResponse<InlineResponse20047> PostInstrumentCategoryListWithHttpInfo(PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = default(PostInstrumentCategoryListRequest));
         /// <summary>
@@ -582,7 +582,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of compliance properties for instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCompliancePropertyListRequest"> (optional)</param>
+        /// <param name="postInstrumentCompliancePropertyListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20048</returns>
         InlineResponse20048 PostInstrumentCompliancePropertyList(PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = default(PostInstrumentCompliancePropertyListRequest));
 
@@ -593,7 +593,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of compliance properties for instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCompliancePropertyListRequest"> (optional)</param>
+        /// <param name="postInstrumentCompliancePropertyListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20048</returns>
         ApiResponse<InlineResponse20048> PostInstrumentCompliancePropertyListWithHttpInfo(PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = default(PostInstrumentCompliancePropertyListRequest));
         /// <summary>
@@ -603,9 +603,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByISINRequest">Request Body</param>
         /// <returns>InlineResponse20056</returns>
-        InlineResponse20056 PostInstrumentCrossReferenceListByISIN(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = default(PostInstrumentCrossReferenceListByISINRequest));
+        InlineResponse20056 PostInstrumentCrossReferenceListByISIN(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest);
 
         /// <summary>
         /// Translate a list of ISINs to instruments.
@@ -614,9 +614,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByISINRequest">Request Body</param>
         /// <returns>ApiResponse of InlineResponse20056</returns>
-        ApiResponse<InlineResponse20056> PostInstrumentCrossReferenceListByISINWithHttpInfo(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = default(PostInstrumentCrossReferenceListByISINRequest));
+        ApiResponse<InlineResponse20056> PostInstrumentCrossReferenceListByISINWithHttpInfo(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest);
         /// <summary>
         /// Translate a list of WKNs to instruments.
         /// </summary>
@@ -624,9 +624,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByWKNRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByWKNRequest">Request Body</param>
         /// <returns>InlineResponse20057</returns>
-        InlineResponse20057 PostInstrumentCrossReferenceListByWKN(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = default(PostInstrumentCrossReferenceListByWKNRequest));
+        InlineResponse20057 PostInstrumentCrossReferenceListByWKN(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest);
 
         /// <summary>
         /// Translate a list of WKNs to instruments.
@@ -635,9 +635,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByWKNRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByWKNRequest">Request Body</param>
         /// <returns>ApiResponse of InlineResponse20057</returns>
-        ApiResponse<InlineResponse20057> PostInstrumentCrossReferenceListByWKNWithHttpInfo(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = default(PostInstrumentCrossReferenceListByWKNRequest));
+        ApiResponse<InlineResponse20057> PostInstrumentCrossReferenceListByWKNWithHttpInfo(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest);
         /// <summary>
         /// List of active, entitled notations for a set of instruments.
         /// </summary>
@@ -645,7 +645,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentNotationListRequest"> (optional)</param>
+        /// <param name="postInstrumentNotationListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20063</returns>
         InlineResponse20063 PostInstrumentNotationList(PostInstrumentNotationListRequest postInstrumentNotationListRequest = default(PostInstrumentNotationListRequest));
 
@@ -656,7 +656,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentNotationListRequest"> (optional)</param>
+        /// <param name="postInstrumentNotationListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20063</returns>
         ApiResponse<InlineResponse20063> PostInstrumentNotationListWithHttpInfo(PostInstrumentNotationListRequest postInstrumentNotationListRequest = default(PostInstrumentNotationListRequest));
         /// <summary>
@@ -666,7 +666,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentRatingGradeListRequest"> (optional)</param>
+        /// <param name="postInstrumentRatingGradeListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20064</returns>
         InlineResponse20064 PostInstrumentRatingGradeList(PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = default(PostInstrumentRatingGradeListRequest));
 
@@ -677,7 +677,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentRatingGradeListRequest"> (optional)</param>
+        /// <param name="postInstrumentRatingGradeListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20064</returns>
         ApiResponse<InlineResponse20064> PostInstrumentRatingGradeListWithHttpInfo(PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = default(PostInstrumentRatingGradeListRequest));
         #endregion Synchronous Operations
@@ -1191,8 +1191,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20090</returns>
-        System.Threading.Tasks.Task<InlineResponse20090> GetInstrumentSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20092</returns>
+        System.Threading.Tasks.Task<InlineResponse20092> GetInstrumentSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Basic search for instruments.
@@ -1210,8 +1210,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20090)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20090>> GetInstrumentSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20092)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20092>> GetInstrumentSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List of background text types for instruments.
         /// </summary>
@@ -1219,7 +1219,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types for instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postInstrumentBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20045</returns>
         System.Threading.Tasks.Task<InlineResponse20045> PostInstrumentBackgroundTextTypeListAsync(PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = default(PostInstrumentBackgroundTextTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1231,7 +1231,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types for instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postInstrumentBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20045)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20045>> PostInstrumentBackgroundTextTypeListWithHttpInfoAsync(PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = default(PostInstrumentBackgroundTextTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1242,7 +1242,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBenchmarkListRequest"> (optional)</param>
+        /// <param name="postInstrumentBenchmarkListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20046</returns>
         System.Threading.Tasks.Task<InlineResponse20046> PostInstrumentBenchmarkListAsync(PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = default(PostInstrumentBenchmarkListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1254,7 +1254,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBenchmarkListRequest"> (optional)</param>
+        /// <param name="postInstrumentBenchmarkListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20046)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20046>> PostInstrumentBenchmarkListWithHttpInfoAsync(PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = default(PostInstrumentBenchmarkListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1265,7 +1265,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCategoryListRequest"> (optional)</param>
+        /// <param name="postInstrumentCategoryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20047</returns>
         System.Threading.Tasks.Task<InlineResponse20047> PostInstrumentCategoryListAsync(PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = default(PostInstrumentCategoryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1277,7 +1277,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCategoryListRequest"> (optional)</param>
+        /// <param name="postInstrumentCategoryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20047)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20047>> PostInstrumentCategoryListWithHttpInfoAsync(PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = default(PostInstrumentCategoryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1288,7 +1288,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of compliance properties for instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCompliancePropertyListRequest"> (optional)</param>
+        /// <param name="postInstrumentCompliancePropertyListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20048</returns>
         System.Threading.Tasks.Task<InlineResponse20048> PostInstrumentCompliancePropertyListAsync(PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = default(PostInstrumentCompliancePropertyListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1300,7 +1300,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of compliance properties for instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCompliancePropertyListRequest"> (optional)</param>
+        /// <param name="postInstrumentCompliancePropertyListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20048)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20048>> PostInstrumentCompliancePropertyListWithHttpInfoAsync(PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = default(PostInstrumentCompliancePropertyListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1311,10 +1311,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByISINRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20056</returns>
-        System.Threading.Tasks.Task<InlineResponse20056> PostInstrumentCrossReferenceListByISINAsync(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = default(PostInstrumentCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20056> PostInstrumentCrossReferenceListByISINAsync(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Translate a list of ISINs to instruments.
@@ -1323,10 +1323,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByISINRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20056)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20056>> PostInstrumentCrossReferenceListByISINWithHttpInfoAsync(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = default(PostInstrumentCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20056>> PostInstrumentCrossReferenceListByISINWithHttpInfoAsync(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Translate a list of WKNs to instruments.
         /// </summary>
@@ -1334,10 +1334,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByWKNRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByWKNRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20057</returns>
-        System.Threading.Tasks.Task<InlineResponse20057> PostInstrumentCrossReferenceListByWKNAsync(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = default(PostInstrumentCrossReferenceListByWKNRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20057> PostInstrumentCrossReferenceListByWKNAsync(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Translate a list of WKNs to instruments.
@@ -1346,10 +1346,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByWKNRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByWKNRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20057)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20057>> PostInstrumentCrossReferenceListByWKNWithHttpInfoAsync(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = default(PostInstrumentCrossReferenceListByWKNRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20057>> PostInstrumentCrossReferenceListByWKNWithHttpInfoAsync(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List of active, entitled notations for a set of instruments.
         /// </summary>
@@ -1357,7 +1357,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentNotationListRequest"> (optional)</param>
+        /// <param name="postInstrumentNotationListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20063</returns>
         System.Threading.Tasks.Task<InlineResponse20063> PostInstrumentNotationListAsync(PostInstrumentNotationListRequest postInstrumentNotationListRequest = default(PostInstrumentNotationListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1369,7 +1369,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentNotationListRequest"> (optional)</param>
+        /// <param name="postInstrumentNotationListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20063)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20063>> PostInstrumentNotationListWithHttpInfoAsync(PostInstrumentNotationListRequest postInstrumentNotationListRequest = default(PostInstrumentNotationListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1380,7 +1380,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentRatingGradeListRequest"> (optional)</param>
+        /// <param name="postInstrumentRatingGradeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20064</returns>
         System.Threading.Tasks.Task<InlineResponse20064> PostInstrumentRatingGradeListAsync(PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = default(PostInstrumentRatingGradeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1392,7 +1392,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentRatingGradeListRequest"> (optional)</param>
+        /// <param name="postInstrumentRatingGradeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20064)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20064>> PostInstrumentRatingGradeListWithHttpInfoAsync(PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = default(PostInstrumentRatingGradeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1508,7 +1508,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetInstrumentSearchBasicResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20090) },
+            { (HttpStatusCode)200, typeof(InlineResponse20092) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostInstrumentBackgroundTextTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -5266,8 +5266,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>InlineResponse20090</returns>
-        public InlineResponse20090 GetInstrumentSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>InlineResponse20092</returns>
+        public InlineResponse20092 GetInstrumentSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             var localVarResponse = GetInstrumentSearchBasicWithHttpInfo(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
             return localVarResponse.Data;
@@ -5285,8 +5285,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>ApiResponse of InlineResponse20090</returns>
-        public ApiResponse<InlineResponse20090> GetInstrumentSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20092</returns>
+        public ApiResponse<InlineResponse20092> GetInstrumentSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
@@ -5370,7 +5370,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20090>("/instrument/search/basic", localVarRequestOptions, this.Configuration);
+            InlineResponse20092>("/instrument/search/basic", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentSearchBasic", localVarResponse);
@@ -5395,8 +5395,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20090</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20090>GetInstrumentSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20092</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20092>GetInstrumentSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetInstrumentSearchBasicWithHttpInfoAsync(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5415,9 +5415,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20090)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20092)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20090>> GetInstrumentSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20092>> GetInstrumentSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
@@ -5501,7 +5501,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetInstrumentSearchBasicResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20090>("/instrument/search/basic", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20092>("/instrument/search/basic", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5519,7 +5519,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types for instruments. List of background text types for instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postInstrumentBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20045</returns>
         public InlineResponse20045 PostInstrumentBackgroundTextTypeList(PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = default(PostInstrumentBackgroundTextTypeListRequest))
         {
@@ -5531,7 +5531,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types for instruments. List of background text types for instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postInstrumentBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20045</returns>
         public ApiResponse<InlineResponse20045> PostInstrumentBackgroundTextTypeListWithHttpInfo(PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = default(PostInstrumentBackgroundTextTypeListRequest))
         {
@@ -5600,7 +5600,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types for instruments. List of background text types for instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postInstrumentBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20045</returns>
         public async System.Threading.Tasks.Task<InlineResponse20045>PostInstrumentBackgroundTextTypeListAsync(PostInstrumentBackgroundTextTypeListRequest postInstrumentBackgroundTextTypeListRequest = default(PostInstrumentBackgroundTextTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -5613,7 +5613,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types for instruments. List of background text types for instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postInstrumentBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20045)</returns>
 
@@ -5686,7 +5686,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of benchmarks of a financial instrument. Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBenchmarkListRequest"> (optional)</param>
+        /// <param name="postInstrumentBenchmarkListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20046</returns>
         public InlineResponse20046 PostInstrumentBenchmarkList(PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = default(PostInstrumentBenchmarkListRequest))
         {
@@ -5698,7 +5698,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of benchmarks of a financial instrument. Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBenchmarkListRequest"> (optional)</param>
+        /// <param name="postInstrumentBenchmarkListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20046</returns>
         public ApiResponse<InlineResponse20046> PostInstrumentBenchmarkListWithHttpInfo(PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = default(PostInstrumentBenchmarkListRequest))
         {
@@ -5767,7 +5767,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of benchmarks of a financial instrument. Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBenchmarkListRequest"> (optional)</param>
+        /// <param name="postInstrumentBenchmarkListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20046</returns>
         public async System.Threading.Tasks.Task<InlineResponse20046>PostInstrumentBenchmarkListAsync(PostInstrumentBenchmarkListRequest postInstrumentBenchmarkListRequest = default(PostInstrumentBenchmarkListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -5780,7 +5780,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of benchmarks of a financial instrument. Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentBenchmarkListRequest"> (optional)</param>
+        /// <param name="postInstrumentBenchmarkListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20046)</returns>
 
@@ -5853,7 +5853,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of categories assigned to a specific instrument the application is entitled to see. List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCategoryListRequest"> (optional)</param>
+        /// <param name="postInstrumentCategoryListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20047</returns>
         public InlineResponse20047 PostInstrumentCategoryList(PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = default(PostInstrumentCategoryListRequest))
         {
@@ -5865,7 +5865,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of categories assigned to a specific instrument the application is entitled to see. List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCategoryListRequest"> (optional)</param>
+        /// <param name="postInstrumentCategoryListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20047</returns>
         public ApiResponse<InlineResponse20047> PostInstrumentCategoryListWithHttpInfo(PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = default(PostInstrumentCategoryListRequest))
         {
@@ -5934,7 +5934,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of categories assigned to a specific instrument the application is entitled to see. List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCategoryListRequest"> (optional)</param>
+        /// <param name="postInstrumentCategoryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20047</returns>
         public async System.Threading.Tasks.Task<InlineResponse20047>PostInstrumentCategoryListAsync(PostInstrumentCategoryListRequest postInstrumentCategoryListRequest = default(PostInstrumentCategoryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -5947,7 +5947,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of categories assigned to a specific instrument the application is entitled to see. List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCategoryListRequest"> (optional)</param>
+        /// <param name="postInstrumentCategoryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20047)</returns>
 
@@ -6020,7 +6020,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of compliance properties for instruments. List of compliance properties for instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCompliancePropertyListRequest"> (optional)</param>
+        /// <param name="postInstrumentCompliancePropertyListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20048</returns>
         public InlineResponse20048 PostInstrumentCompliancePropertyList(PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = default(PostInstrumentCompliancePropertyListRequest))
         {
@@ -6032,7 +6032,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of compliance properties for instruments. List of compliance properties for instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCompliancePropertyListRequest"> (optional)</param>
+        /// <param name="postInstrumentCompliancePropertyListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20048</returns>
         public ApiResponse<InlineResponse20048> PostInstrumentCompliancePropertyListWithHttpInfo(PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = default(PostInstrumentCompliancePropertyListRequest))
         {
@@ -6101,7 +6101,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of compliance properties for instruments. List of compliance properties for instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCompliancePropertyListRequest"> (optional)</param>
+        /// <param name="postInstrumentCompliancePropertyListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20048</returns>
         public async System.Threading.Tasks.Task<InlineResponse20048>PostInstrumentCompliancePropertyListAsync(PostInstrumentCompliancePropertyListRequest postInstrumentCompliancePropertyListRequest = default(PostInstrumentCompliancePropertyListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -6114,7 +6114,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of compliance properties for instruments. List of compliance properties for instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCompliancePropertyListRequest"> (optional)</param>
+        /// <param name="postInstrumentCompliancePropertyListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20048)</returns>
 
@@ -6187,9 +6187,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a list of ISINs to instruments. Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByISINRequest">Request Body</param>
         /// <returns>InlineResponse20056</returns>
-        public InlineResponse20056 PostInstrumentCrossReferenceListByISIN(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = default(PostInstrumentCrossReferenceListByISINRequest))
+        public InlineResponse20056 PostInstrumentCrossReferenceListByISIN(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest)
         {
             var localVarResponse = PostInstrumentCrossReferenceListByISINWithHttpInfo(postInstrumentCrossReferenceListByISINRequest);
             return localVarResponse.Data;
@@ -6199,10 +6199,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a list of ISINs to instruments. Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByISINRequest">Request Body</param>
         /// <returns>ApiResponse of InlineResponse20056</returns>
-        public ApiResponse<InlineResponse20056> PostInstrumentCrossReferenceListByISINWithHttpInfo(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = default(PostInstrumentCrossReferenceListByISINRequest))
+        public ApiResponse<InlineResponse20056> PostInstrumentCrossReferenceListByISINWithHttpInfo(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest)
         {
+            // verify the required parameter 'postInstrumentCrossReferenceListByISINRequest' is set
+            if (postInstrumentCrossReferenceListByISINRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postInstrumentCrossReferenceListByISINRequest' when calling InstrumentApi->PostInstrumentCrossReferenceListByISIN");
+            }
+
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -6268,10 +6274,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a list of ISINs to instruments. Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByISINRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20056</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20056>PostInstrumentCrossReferenceListByISINAsync(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = default(PostInstrumentCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20056>PostInstrumentCrossReferenceListByISINAsync(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostInstrumentCrossReferenceListByISINWithHttpInfoAsync(postInstrumentCrossReferenceListByISINRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6281,12 +6287,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a list of ISINs to instruments. Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByISINRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20056)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20056>> PostInstrumentCrossReferenceListByISINWithHttpInfoAsync(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = default(PostInstrumentCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20056>> PostInstrumentCrossReferenceListByISINWithHttpInfoAsync(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'postInstrumentCrossReferenceListByISINRequest' is set
+            if (postInstrumentCrossReferenceListByISINRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postInstrumentCrossReferenceListByISINRequest' when calling InstrumentApi->PostInstrumentCrossReferenceListByISIN");
+            }
+
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -6354,9 +6366,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a list of WKNs to instruments. Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByWKNRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByWKNRequest">Request Body</param>
         /// <returns>InlineResponse20057</returns>
-        public InlineResponse20057 PostInstrumentCrossReferenceListByWKN(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = default(PostInstrumentCrossReferenceListByWKNRequest))
+        public InlineResponse20057 PostInstrumentCrossReferenceListByWKN(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest)
         {
             var localVarResponse = PostInstrumentCrossReferenceListByWKNWithHttpInfo(postInstrumentCrossReferenceListByWKNRequest);
             return localVarResponse.Data;
@@ -6366,10 +6378,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a list of WKNs to instruments. Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByWKNRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByWKNRequest">Request Body</param>
         /// <returns>ApiResponse of InlineResponse20057</returns>
-        public ApiResponse<InlineResponse20057> PostInstrumentCrossReferenceListByWKNWithHttpInfo(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = default(PostInstrumentCrossReferenceListByWKNRequest))
+        public ApiResponse<InlineResponse20057> PostInstrumentCrossReferenceListByWKNWithHttpInfo(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest)
         {
+            // verify the required parameter 'postInstrumentCrossReferenceListByWKNRequest' is set
+            if (postInstrumentCrossReferenceListByWKNRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postInstrumentCrossReferenceListByWKNRequest' when calling InstrumentApi->PostInstrumentCrossReferenceListByWKN");
+            }
+
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -6435,10 +6453,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a list of WKNs to instruments. Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByWKNRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByWKNRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20057</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20057>PostInstrumentCrossReferenceListByWKNAsync(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = default(PostInstrumentCrossReferenceListByWKNRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20057>PostInstrumentCrossReferenceListByWKNAsync(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostInstrumentCrossReferenceListByWKNWithHttpInfoAsync(postInstrumentCrossReferenceListByWKNRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6448,12 +6466,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Translate a list of WKNs to instruments. Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentCrossReferenceListByWKNRequest"> (optional)</param>
+        /// <param name="postInstrumentCrossReferenceListByWKNRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20057)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20057>> PostInstrumentCrossReferenceListByWKNWithHttpInfoAsync(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = default(PostInstrumentCrossReferenceListByWKNRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20057>> PostInstrumentCrossReferenceListByWKNWithHttpInfoAsync(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'postInstrumentCrossReferenceListByWKNRequest' is set
+            if (postInstrumentCrossReferenceListByWKNRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postInstrumentCrossReferenceListByWKNRequest' when calling InstrumentApi->PostInstrumentCrossReferenceListByWKN");
+            }
+
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -6521,7 +6545,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of active, entitled notations for a set of instruments. List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentNotationListRequest"> (optional)</param>
+        /// <param name="postInstrumentNotationListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20063</returns>
         public InlineResponse20063 PostInstrumentNotationList(PostInstrumentNotationListRequest postInstrumentNotationListRequest = default(PostInstrumentNotationListRequest))
         {
@@ -6533,7 +6557,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of active, entitled notations for a set of instruments. List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentNotationListRequest"> (optional)</param>
+        /// <param name="postInstrumentNotationListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20063</returns>
         public ApiResponse<InlineResponse20063> PostInstrumentNotationListWithHttpInfo(PostInstrumentNotationListRequest postInstrumentNotationListRequest = default(PostInstrumentNotationListRequest))
         {
@@ -6602,7 +6626,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of active, entitled notations for a set of instruments. List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentNotationListRequest"> (optional)</param>
+        /// <param name="postInstrumentNotationListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20063</returns>
         public async System.Threading.Tasks.Task<InlineResponse20063>PostInstrumentNotationListAsync(PostInstrumentNotationListRequest postInstrumentNotationListRequest = default(PostInstrumentNotationListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -6615,7 +6639,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of active, entitled notations for a set of instruments. List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentNotationListRequest"> (optional)</param>
+        /// <param name="postInstrumentNotationListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20063)</returns>
 
@@ -6688,7 +6712,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of rating grades for a list of instruments. List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentRatingGradeListRequest"> (optional)</param>
+        /// <param name="postInstrumentRatingGradeListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20064</returns>
         public InlineResponse20064 PostInstrumentRatingGradeList(PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = default(PostInstrumentRatingGradeListRequest))
         {
@@ -6700,7 +6724,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of rating grades for a list of instruments. List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentRatingGradeListRequest"> (optional)</param>
+        /// <param name="postInstrumentRatingGradeListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20064</returns>
         public ApiResponse<InlineResponse20064> PostInstrumentRatingGradeListWithHttpInfo(PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = default(PostInstrumentRatingGradeListRequest))
         {
@@ -6769,7 +6793,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of rating grades for a list of instruments. List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentRatingGradeListRequest"> (optional)</param>
+        /// <param name="postInstrumentRatingGradeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20064</returns>
         public async System.Threading.Tasks.Task<InlineResponse20064>PostInstrumentRatingGradeListAsync(PostInstrumentRatingGradeListRequest postInstrumentRatingGradeListRequest = default(PostInstrumentRatingGradeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -6782,7 +6806,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of rating grades for a list of instruments. List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentRatingGradeListRequest"> (optional)</param>
+        /// <param name="postInstrumentRatingGradeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20064)</returns>
 

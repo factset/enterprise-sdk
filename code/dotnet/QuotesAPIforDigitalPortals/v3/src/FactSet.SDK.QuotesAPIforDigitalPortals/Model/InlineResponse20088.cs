@@ -36,7 +36,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20088(InlineResponse20088Data data = default(InlineResponse20088Data), InlineResponse20088Meta meta = default(InlineResponse20088Meta))
+        public InlineResponse20088(InlineResponse20088Data data = default(InlineResponse20088Data), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -52,7 +52,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public InlineResponse20088Meta Meta { get; set; }
+        public InlineResponse200Meta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

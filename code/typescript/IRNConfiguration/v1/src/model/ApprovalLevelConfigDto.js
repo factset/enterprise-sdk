@@ -46,11 +46,11 @@ class ApprovalLevelConfigDto {
         if (data) {
             obj = obj || new ApprovalLevelConfigDto();
 
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('ApproverIds')) {
-                obj['ApproverIds'] = ApiClient.convertToType(data['ApproverIds'], ['String']);
+            if (data.hasOwnProperty('approverIds')) {
+                obj['approverIds'] = ApiClient.convertToType(data['approverIds'], ['String']);
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class ApprovalLevelConfigDto {
 }
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-ApprovalLevelConfigDto.prototype['Name'] = undefined;
+ApprovalLevelConfigDto.prototype['name'] = undefined;
 
 /**
- * @member {Array.<String>} ApproverIds
+ * @member {Array.<String>} approverIds
  */
-ApprovalLevelConfigDto.prototype['ApproverIds'] = undefined;
+ApprovalLevelConfigDto.prototype['approverIds'] = undefined;
 
 
 

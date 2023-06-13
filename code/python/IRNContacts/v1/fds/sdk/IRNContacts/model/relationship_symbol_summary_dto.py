@@ -80,7 +80,7 @@ class RelationshipSymbolSummaryDto(ModelNormal):
         """
         lazy_import()
         return {
-            'identifier': (str, none_type,),  # noqa: E501
+            'tdentifier': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'type': (SymbolType,),  # noqa: E501
         }
@@ -91,9 +91,9 @@ class RelationshipSymbolSummaryDto(ModelNormal):
 
 
     attribute_map = {
-        'identifier': 'Identifier',  # noqa: E501
-        'name': 'Name',  # noqa: E501
-        'type': 'Type',  # noqa: E501
+        'tdentifier': 'tdentifier',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'type': 'type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,7 +137,7 @@ class RelationshipSymbolSummaryDto(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            identifier (str, none_type): [optional]  # noqa: E501
+            tdentifier (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             type (SymbolType): [optional]  # noqa: E501
         """
@@ -221,7 +221,7 @@ class RelationshipSymbolSummaryDto(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            identifier (str, none_type): [optional]  # noqa: E501
+            tdentifier (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             type (SymbolType): [optional]  # noqa: E501
         """

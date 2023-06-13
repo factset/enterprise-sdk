@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## getPricesBidAskGet
 
-> InlineResponse20084 getPricesBidAskGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval)
+> InlineResponse20086 getPricesBidAskGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval)
 
 Most recent bid and ask prices (best bid / offer) for a notation.
 
@@ -66,7 +66,7 @@ public class Example {
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         BigDecimal subscriptionMinimumInterval = new BigDecimal("1000"); // BigDecimal | Minimum number of milliseconds at which updates are send.
         try {
-            InlineResponse20084 result = apiInstance.getPricesBidAskGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
+            InlineResponse20086 result = apiInstance.getPricesBidAskGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20084**](InlineResponse20084.md)
+[**InlineResponse20086**](InlineResponse20086.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ## getPricesBidAskList
 
-> InlineResponse20085 getPricesBidAskList(identifiers, identifierType, quality, sameQuality, attributes)
+> InlineResponse20087 getPricesBidAskList(identifiers, identifierType, quality, sameQuality, attributes)
 
 Most recent bid and ask prices (best bid / offer) for a list of notations.
 
@@ -158,7 +158,7 @@ public class Example {
         Boolean sameQuality = true; // Boolean | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20085 result = apiInstance.getPricesBidAskList(identifiers, identifierType, quality, sameQuality, attributes);
+            InlineResponse20087 result = apiInstance.getPricesBidAskList(identifiers, identifierType, quality, sameQuality, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20085**](InlineResponse20085.md)
+[**InlineResponse20087**](InlineResponse20087.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## getPricesGet
 
-> InlineResponse20082 getPricesGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval)
+> InlineResponse20084 getPricesGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval)
 
 Overview of trading on the most recent trading day, including the latest price, for a notation.
 
@@ -253,7 +253,7 @@ public class Example {
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         BigDecimal subscriptionMinimumInterval = new BigDecimal("1000"); // BigDecimal | Minimum number of milliseconds at which updates are sent.
         try {
-            InlineResponse20082 result = apiInstance.getPricesGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
+            InlineResponse20084 result = apiInstance.getPricesGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20082**](InlineResponse20082.md)
+[**InlineResponse20084**](InlineResponse20084.md)
 
 ### Authorization
 
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 ## getPricesList
 
-> InlineResponse20083 getPricesList(identifiers, identifierType, quality, sameQuality, attributes)
+> InlineResponse20085 getPricesList(identifiers, identifierType, quality, sameQuality, attributes)
 
 Overview of trading on the most recent trading day, including the latest price, for a list of notations.
 
@@ -345,7 +345,7 @@ public class Example {
         Boolean sameQuality = true; // Boolean | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20083 result = apiInstance.getPricesList(identifiers, identifierType, quality, sameQuality, attributes);
+            InlineResponse20085 result = apiInstance.getPricesList(identifiers, identifierType, quality, sameQuality, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20083**](InlineResponse20083.md)
+[**InlineResponse20085**](InlineResponse20085.md)
 
 ### Authorization
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ## getPricesOrderbookAggregatedGet
 
-> InlineResponse20086 getPricesOrderbookAggregatedGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval)
+> InlineResponse20088 getPricesOrderbookAggregatedGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval)
 
 Orderbook aggregated by price.
 
@@ -438,7 +438,7 @@ public class Example {
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         BigDecimal subscriptionMinimumInterval = new BigDecimal("1000"); // BigDecimal | Non-negative number of milliseconds to throttle the update rate.
         try {
-            InlineResponse20086 result = apiInstance.getPricesOrderbookAggregatedGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
+            InlineResponse20088 result = apiInstance.getPricesOrderbookAggregatedGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20086**](InlineResponse20086.md)
+[**InlineResponse20088**](InlineResponse20088.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ## getPricesOrderbookFullGet
 
-> InlineResponse20087 getPricesOrderbookFullGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval)
+> InlineResponse20089 getPricesOrderbookFullGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval)
 
 Full orderbook
 
@@ -531,7 +531,7 @@ public class Example {
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         BigDecimal subscriptionMinimumInterval = new BigDecimal("1000"); // BigDecimal | Non-negative number of milliseconds to throttle the update rate.
         try {
-            InlineResponse20087 result = apiInstance.getPricesOrderbookFullGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
+            InlineResponse20089 result = apiInstance.getPricesOrderbookFullGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -558,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20087**](InlineResponse20087.md)
+[**InlineResponse20089**](InlineResponse20089.md)
 
 ### Authorization
 
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 
 ## getPricesTradingScheduleEventTypeList
 
-> InlineResponse20089 getPricesTradingScheduleEventTypeList(attributes)
+> InlineResponse20091 getPricesTradingScheduleEventTypeList(attributes)
 
 Trading schedule event types.
 
@@ -619,7 +619,7 @@ public class Example {
         PricesApi apiInstance = new PricesApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse20089 result = apiInstance.getPricesTradingScheduleEventTypeList(attributes);
+            InlineResponse20091 result = apiInstance.getPricesTradingScheduleEventTypeList(attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20089**](InlineResponse20089.md)
+[**InlineResponse20091**](InlineResponse20091.md)
 
 ### Authorization
 
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTradingScheduleEventList
 
-> InlineResponse20088 postPricesTradingScheduleEventList(postPricesTradingScheduleEventListRequest)
+> InlineResponse20090 postPricesTradingScheduleEventList(postPricesTradingScheduleEventListRequest)
 
 Sequence of market-related events.
 
@@ -701,9 +701,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
-        PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = new PostPricesTradingScheduleEventListRequest(); // PostPricesTradingScheduleEventListRequest | 
+        PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = new PostPricesTradingScheduleEventListRequest(); // PostPricesTradingScheduleEventListRequest | Request Body
         try {
-            InlineResponse20088 result = apiInstance.postPricesTradingScheduleEventList(postPricesTradingScheduleEventListRequest);
+            InlineResponse20090 result = apiInstance.postPricesTradingScheduleEventList(postPricesTradingScheduleEventListRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -722,11 +722,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postPricesTradingScheduleEventListRequest** | [**PostPricesTradingScheduleEventListRequest**](PostPricesTradingScheduleEventListRequest.md)|  | [optional]
+ **postPricesTradingScheduleEventListRequest** | [**PostPricesTradingScheduleEventListRequest**](PostPricesTradingScheduleEventListRequest.md)| Request Body |
 
 ### Return type
 
-[**InlineResponse20088**](InlineResponse20088.md)
+[**InlineResponse20090**](InlineResponse20090.md)
 
 ### Authorization
 

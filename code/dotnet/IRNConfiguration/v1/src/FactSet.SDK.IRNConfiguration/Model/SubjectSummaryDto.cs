@@ -59,55 +59,55 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "Code", EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets IdentifierType
         /// </summary>
-        [DataMember(Name = "IdentifierType", EmitDefaultValue = true)]
+        [DataMember(Name = "identifierType", EmitDefaultValue = true)]
         public string IdentifierType { get; set; }
 
         /// <summary>
         /// Gets or Sets IdentifierTypes
         /// </summary>
-        [DataMember(Name = "IdentifierTypes", EmitDefaultValue = true)]
+        [DataMember(Name = "identifierTypes", EmitDefaultValue = true)]
         public List<string> IdentifierTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets IsHidden
         /// </summary>
-        [DataMember(Name = "IsHidden", EmitDefaultValue = true)]
+        [DataMember(Name = "isHidden", EmitDefaultValue = true)]
         public bool IsHidden { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFieldIds
         /// </summary>
-        [DataMember(Name = "CustomFieldIds", EmitDefaultValue = true)]
+        [DataMember(Name = "customFieldIds", EmitDefaultValue = true)]
         public List<Guid> CustomFieldIds { get; set; }
 
         /// <summary>
         /// Gets or Sets NoteLengthLimit
         /// </summary>
-        [DataMember(Name = "NoteLengthLimit", EmitDefaultValue = true)]
+        [DataMember(Name = "noteLengthLimit", EmitDefaultValue = true)]
         public int? NoteLengthLimit { get; set; }
 
         /// <summary>

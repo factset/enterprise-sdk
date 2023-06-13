@@ -60,46 +60,46 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class SubjectConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CODE = "Code";
+  public static final String JSON_PROPERTY_CODE = "code";
   private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
   private Boolean isHidden;
 
-  public static final String JSON_PROPERTY_IDENTIFIER_TYPE = "IdentifierType";
+  public static final String JSON_PROPERTY_IDENTIFIER_TYPE = "identifierType";
   private JsonNullable<String> identifierType = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IDENTIFIER_TYPES = "IdentifierTypes";
+  public static final String JSON_PROPERTY_IDENTIFIER_TYPES = "identifierTypes";
   private JsonNullable<java.util.List<String>> identifierTypes = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_IDS = "CustomFieldIds";
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_IDS = "customFieldIds";
   private JsonNullable<java.util.List<java.util.UUID>> customFieldIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_APPROVAL_PROCESS_CONFIG = "ApprovalProcessConfig";
+  public static final String JSON_PROPERTY_APPROVAL_PROCESS_CONFIG = "approvalProcessConfig";
   private ApprovalProcessConfigDto approvalProcessConfig;
 
-  public static final String JSON_PROPERTY_COMMENTARY_CONFIG = "CommentaryConfig";
+  public static final String JSON_PROPERTY_COMMENTARY_CONFIG = "commentaryConfig";
   private CommentaryConfigDto commentaryConfig;
 
-  public static final String JSON_PROPERTY_NEWS_HEADLINE_FORMAT = "NewsHeadlineFormat";
+  public static final String JSON_PROPERTY_NEWS_HEADLINE_FORMAT = "newsHeadlineFormat";
   private JsonNullable<java.util.List<HeadlineFormatConfigDto>> newsHeadlineFormat = JsonNullable.<java.util.List<HeadlineFormatConfigDto>>undefined();
 
-  public static final String JSON_PROPERTY_EMAIL_HEADLINE_FORMAT = "EmailHeadlineFormat";
+  public static final String JSON_PROPERTY_EMAIL_HEADLINE_FORMAT = "emailHeadlineFormat";
   private JsonNullable<java.util.List<HeadlineFormatConfigDto>> emailHeadlineFormat = JsonNullable.<java.util.List<HeadlineFormatConfigDto>>undefined();
 
-  public static final String JSON_PROPERTY_RATING_CONFIG = "RatingConfig";
+  public static final String JSON_PROPERTY_RATING_CONFIG = "ratingConfig";
   private RatingConfigDto ratingConfig;
 
-  public static final String JSON_PROPERTY_NOTE_LENGTH_LIMIT = "NoteLengthLimit";
+  public static final String JSON_PROPERTY_NOTE_LENGTH_LIMIT = "noteLengthLimit";
   private JsonNullable<Integer> noteLengthLimit = JsonNullable.<Integer>undefined();
 
   public SubjectConfigDto() { 

@@ -85,8 +85,8 @@ class RelatedRecordsDto(ModelNormal):
 
 
     attribute_map = {
-        'note_ids': 'NoteIds',  # noqa: E501
-        'meeting_ids': 'MeetingIds',  # noqa: E501
+        'note_ids': 'noteIds',  # noqa: E501
+        'meeting_ids': 'meetingIds',  # noqa: E501
     }
 
     read_only_vars = {

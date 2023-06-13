@@ -49,7 +49,7 @@ class InlineResponse20089 {
             obj = obj || new InlineResponse20089();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20089Data]);
+                obj['data'] = InlineResponse20089Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -62,8 +62,7 @@ class InlineResponse20089 {
 }
 
 /**
- * List of trading schedule event types.
- * @member {Array.<module:model/InlineResponse20089Data>} data
+ * @member {module:model/InlineResponse20089Data} data
  */
 InlineResponse20089.prototype['data'] = undefined;
 

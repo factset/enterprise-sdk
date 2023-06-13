@@ -58,25 +58,25 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "Code", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "Value", EmitDefaultValue = true)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionValues
         /// </summary>
-        [DataMember(Name = "OptionValues", EmitDefaultValue = true)]
+        [DataMember(Name = "optionValues", EmitDefaultValue = true)]
         public List<Guid> OptionValues { get; set; }
 
         /// <summary>
         /// Gets or Sets EvaluateFormula
         /// </summary>
-        [DataMember(Name = "EvaluateFormula", EmitDefaultValue = true)]
+        [DataMember(Name = "evaluateFormula", EmitDefaultValue = true)]
         public bool EvaluateFormula { get; set; }
 
         /// <summary>

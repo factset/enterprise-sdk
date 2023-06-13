@@ -22,6 +22,7 @@ import PostNotationMarketListRequestMeta from './PostNotationMarketListRequestMe
 class PostNotationMarketListRequest {
     /**
      * Constructs a new <code>PostNotationMarketListRequest</code>.
+     * Request Body
      * @alias module:model/PostNotationMarketListRequest
      */
     constructor() { 

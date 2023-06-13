@@ -1728,7 +1728,7 @@ Name | Type | Description  | Notes
 
 <a name="getinstrumentsearchbasic"></a>
 # **GetInstrumentSearchBasic**
-> InlineResponse20090 GetInstrumentSearchBasic (string searchValue, List<string> nsins = null, string assetClass = null, bool? onlyActive = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
+> InlineResponse20092 GetInstrumentSearchBasic (string searchValue, List<string> nsins = null, string assetClass = null, bool? onlyActive = null, List<string> attributes = null, string language = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
 
 Basic search for instruments.
 
@@ -1782,7 +1782,7 @@ namespace Example
             try
             {
                 // Basic search for instruments.
-                InlineResponse20090 result = apiInstance.GetInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
+                InlineResponse20092 result = apiInstance.GetInstrumentSearchBasic(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1810,7 +1810,7 @@ Name | Type | Description  | Notes
  **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
-[**InlineResponse20090**](InlineResponse20090.md)
+[**InlineResponse20092**](InlineResponse20092.md)
 
 ### Authorization
 
@@ -1874,7 +1874,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var postInstrumentBackgroundTextTypeListRequest = new PostInstrumentBackgroundTextTypeListRequest(); // PostInstrumentBackgroundTextTypeListRequest |  (optional) 
+            var postInstrumentBackgroundTextTypeListRequest = new PostInstrumentBackgroundTextTypeListRequest(); // PostInstrumentBackgroundTextTypeListRequest | Request Body (optional) 
 
             try
             {
@@ -1897,7 +1897,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentBackgroundTextTypeListRequest** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)|  | [optional] 
+ **postInstrumentBackgroundTextTypeListRequest** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20045**](InlineResponse20045.md)
@@ -1964,7 +1964,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var postInstrumentBenchmarkListRequest = new PostInstrumentBenchmarkListRequest(); // PostInstrumentBenchmarkListRequest |  (optional) 
+            var postInstrumentBenchmarkListRequest = new PostInstrumentBenchmarkListRequest(); // PostInstrumentBenchmarkListRequest | Request Body (optional) 
 
             try
             {
@@ -1987,7 +1987,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentBenchmarkListRequest** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)|  | [optional] 
+ **postInstrumentBenchmarkListRequest** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20046**](InlineResponse20046.md)
@@ -2054,7 +2054,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var postInstrumentCategoryListRequest = new PostInstrumentCategoryListRequest(); // PostInstrumentCategoryListRequest |  (optional) 
+            var postInstrumentCategoryListRequest = new PostInstrumentCategoryListRequest(); // PostInstrumentCategoryListRequest | Request Body (optional) 
 
             try
             {
@@ -2077,7 +2077,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCategoryListRequest** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)|  | [optional] 
+ **postInstrumentCategoryListRequest** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20047**](InlineResponse20047.md)
@@ -2144,7 +2144,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var postInstrumentCompliancePropertyListRequest = new PostInstrumentCompliancePropertyListRequest(); // PostInstrumentCompliancePropertyListRequest |  (optional) 
+            var postInstrumentCompliancePropertyListRequest = new PostInstrumentCompliancePropertyListRequest(); // PostInstrumentCompliancePropertyListRequest | Request Body (optional) 
 
             try
             {
@@ -2167,7 +2167,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCompliancePropertyListRequest** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)|  | [optional] 
+ **postInstrumentCompliancePropertyListRequest** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20048**](InlineResponse20048.md)
@@ -2192,7 +2192,7 @@ Name | Type | Description  | Notes
 
 <a name="postinstrumentcrossreferencelistbyisin"></a>
 # **PostInstrumentCrossReferenceListByISIN**
-> InlineResponse20056 PostInstrumentCrossReferenceListByISIN (PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest = null)
+> InlineResponse20056 PostInstrumentCrossReferenceListByISIN (PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest)
 
 Translate a list of ISINs to instruments.
 
@@ -2234,7 +2234,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var postInstrumentCrossReferenceListByISINRequest = new PostInstrumentCrossReferenceListByISINRequest(); // PostInstrumentCrossReferenceListByISINRequest |  (optional) 
+            var postInstrumentCrossReferenceListByISINRequest = new PostInstrumentCrossReferenceListByISINRequest(); // PostInstrumentCrossReferenceListByISINRequest | Request Body
 
             try
             {
@@ -2257,7 +2257,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCrossReferenceListByISINRequest** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)|  | [optional] 
+ **postInstrumentCrossReferenceListByISINRequest** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)| Request Body | 
 
 ### Return type
 [**InlineResponse20056**](InlineResponse20056.md)
@@ -2282,7 +2282,7 @@ Name | Type | Description  | Notes
 
 <a name="postinstrumentcrossreferencelistbywkn"></a>
 # **PostInstrumentCrossReferenceListByWKN**
-> InlineResponse20057 PostInstrumentCrossReferenceListByWKN (PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest = null)
+> InlineResponse20057 PostInstrumentCrossReferenceListByWKN (PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest)
 
 Translate a list of WKNs to instruments.
 
@@ -2324,7 +2324,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var postInstrumentCrossReferenceListByWKNRequest = new PostInstrumentCrossReferenceListByWKNRequest(); // PostInstrumentCrossReferenceListByWKNRequest |  (optional) 
+            var postInstrumentCrossReferenceListByWKNRequest = new PostInstrumentCrossReferenceListByWKNRequest(); // PostInstrumentCrossReferenceListByWKNRequest | Request Body
 
             try
             {
@@ -2347,7 +2347,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentCrossReferenceListByWKNRequest** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)|  | [optional] 
+ **postInstrumentCrossReferenceListByWKNRequest** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)| Request Body | 
 
 ### Return type
 [**InlineResponse20057**](InlineResponse20057.md)
@@ -2414,7 +2414,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var postInstrumentNotationListRequest = new PostInstrumentNotationListRequest(); // PostInstrumentNotationListRequest |  (optional) 
+            var postInstrumentNotationListRequest = new PostInstrumentNotationListRequest(); // PostInstrumentNotationListRequest | Request Body (optional) 
 
             try
             {
@@ -2437,7 +2437,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentNotationListRequest** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)|  | [optional] 
+ **postInstrumentNotationListRequest** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20063**](InlineResponse20063.md)
@@ -2504,7 +2504,7 @@ namespace Example
 
             var apiInstance = new InstrumentApi(config);
 
-            var postInstrumentRatingGradeListRequest = new PostInstrumentRatingGradeListRequest(); // PostInstrumentRatingGradeListRequest |  (optional) 
+            var postInstrumentRatingGradeListRequest = new PostInstrumentRatingGradeListRequest(); // PostInstrumentRatingGradeListRequest | Request Body (optional) 
 
             try
             {
@@ -2527,7 +2527,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentRatingGradeListRequest** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)|  | [optional] 
+ **postInstrumentRatingGradeListRequest** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)| Request Body | [optional] 
 
 ### Return type
 [**InlineResponse20064**](InlineResponse20064.md)

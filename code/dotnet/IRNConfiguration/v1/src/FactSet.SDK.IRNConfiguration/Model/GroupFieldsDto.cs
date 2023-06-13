@@ -69,85 +69,85 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "Title", EmitDefaultValue = false)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public TitleSettingsDto Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name = "Date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateSettingsDto Date { get; set; }
 
         /// <summary>
         /// Gets or Sets Identifier
         /// </summary>
-        [DataMember(Name = "Identifier", EmitDefaultValue = false)]
+        [DataMember(Name = "identifier", EmitDefaultValue = false)]
         public IdentifierSettingsDto Identifier { get; set; }
 
         /// <summary>
         /// Gets or Sets Subject
         /// </summary>
-        [DataMember(Name = "Subject", EmitDefaultValue = false)]
+        [DataMember(Name = "subject", EmitDefaultValue = false)]
         public SubjectSettingsDto Subject { get; set; }
 
         /// <summary>
         /// Gets or Sets Recommendation
         /// </summary>
-        [DataMember(Name = "Recommendation", EmitDefaultValue = false)]
+        [DataMember(Name = "recommendation", EmitDefaultValue = false)]
         public RecommendationSettingsDto Recommendation { get; set; }
 
         /// <summary>
         /// Gets or Sets Sentiment
         /// </summary>
-        [DataMember(Name = "Sentiment", EmitDefaultValue = false)]
+        [DataMember(Name = "sentiment", EmitDefaultValue = false)]
         public SentimentSettingsDto Sentiment { get; set; }
 
         /// <summary>
         /// Gets or Sets Link
         /// </summary>
-        [DataMember(Name = "Link", EmitDefaultValue = false)]
+        [DataMember(Name = "link", EmitDefaultValue = false)]
         public LinkSettingsDto Link { get; set; }
 
         /// <summary>
         /// Gets or Sets Note
         /// </summary>
-        [DataMember(Name = "Note", EmitDefaultValue = false)]
+        [DataMember(Name = "note", EmitDefaultValue = false)]
         public NoteSettingsDto Note { get; set; }
 
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "Source", EmitDefaultValue = false)]
+        [DataMember(Name = "source", EmitDefaultValue = false)]
         public SourceSettingsDto Source { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedSymbols
         /// </summary>
-        [DataMember(Name = "RelatedSymbols", EmitDefaultValue = false)]
+        [DataMember(Name = "relatedSymbols", EmitDefaultValue = false)]
         public RelatedSymbolsSettingsDto RelatedSymbols { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedResearch
         /// </summary>
-        [DataMember(Name = "RelatedResearch", EmitDefaultValue = false)]
+        [DataMember(Name = "relatedResearch", EmitDefaultValue = false)]
         public RelatedResearchSettingsDto RelatedResearch { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedContacts
         /// </summary>
-        [DataMember(Name = "RelatedContacts", EmitDefaultValue = false)]
+        [DataMember(Name = "relatedContacts", EmitDefaultValue = false)]
         public RelatedContactsSettingsDto RelatedContacts { get; set; }
 
         /// <summary>
         /// Gets or Sets Team
         /// </summary>
-        [DataMember(Name = "Team", EmitDefaultValue = false)]
+        [DataMember(Name = "team", EmitDefaultValue = false)]
         public TeamSettingsDto Team { get; set; }
 
         /// <summary>
         /// Gets or Sets Organizer
         /// </summary>
-        [DataMember(Name = "Organizer", EmitDefaultValue = false)]
+        [DataMember(Name = "organizer", EmitDefaultValue = false)]
         public OrganizerSettingsDto Organizer { get; set; }
 
         /// <summary>

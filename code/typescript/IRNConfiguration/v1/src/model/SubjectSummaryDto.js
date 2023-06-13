@@ -46,32 +46,32 @@ class SubjectSummaryDto {
         if (data) {
             obj = obj || new SubjectSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('IdentifierType')) {
-                obj['IdentifierType'] = ApiClient.convertToType(data['IdentifierType'], 'String');
+            if (data.hasOwnProperty('identifierType')) {
+                obj['identifierType'] = ApiClient.convertToType(data['identifierType'], 'String');
             }
-            if (data.hasOwnProperty('IdentifierTypes')) {
-                obj['IdentifierTypes'] = ApiClient.convertToType(data['IdentifierTypes'], ['String']);
+            if (data.hasOwnProperty('identifierTypes')) {
+                obj['identifierTypes'] = ApiClient.convertToType(data['identifierTypes'], ['String']);
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('CustomFieldIds')) {
-                obj['CustomFieldIds'] = ApiClient.convertToType(data['CustomFieldIds'], ['String']);
+            if (data.hasOwnProperty('customFieldIds')) {
+                obj['customFieldIds'] = ApiClient.convertToType(data['customFieldIds'], ['String']);
             }
-            if (data.hasOwnProperty('NoteLengthLimit')) {
-                obj['NoteLengthLimit'] = ApiClient.convertToType(data['NoteLengthLimit'], 'Number');
+            if (data.hasOwnProperty('noteLengthLimit')) {
+                obj['noteLengthLimit'] = ApiClient.convertToType(data['noteLengthLimit'], 'Number');
             }
         }
         return obj;
@@ -81,49 +81,49 @@ class SubjectSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-SubjectSummaryDto.prototype['Id'] = undefined;
+SubjectSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-SubjectSummaryDto.prototype['Name'] = undefined;
+SubjectSummaryDto.prototype['name'] = undefined;
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-SubjectSummaryDto.prototype['Code'] = undefined;
+SubjectSummaryDto.prototype['code'] = undefined;
 
 /**
- * @member {String} IdentifierType
+ * @member {String} identifierType
  */
-SubjectSummaryDto.prototype['IdentifierType'] = undefined;
+SubjectSummaryDto.prototype['identifierType'] = undefined;
 
 /**
- * @member {Array.<String>} IdentifierTypes
+ * @member {Array.<String>} identifierTypes
  */
-SubjectSummaryDto.prototype['IdentifierTypes'] = undefined;
+SubjectSummaryDto.prototype['identifierTypes'] = undefined;
 
 /**
- * @member {String} Type
+ * @member {String} type
  */
-SubjectSummaryDto.prototype['Type'] = undefined;
+SubjectSummaryDto.prototype['type'] = undefined;
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-SubjectSummaryDto.prototype['IsHidden'] = undefined;
+SubjectSummaryDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Array.<String>} CustomFieldIds
+ * @member {Array.<String>} customFieldIds
  */
-SubjectSummaryDto.prototype['CustomFieldIds'] = undefined;
+SubjectSummaryDto.prototype['customFieldIds'] = undefined;
 
 /**
- * @member {Number} NoteLengthLimit
+ * @member {Number} noteLengthLimit
  */
-SubjectSummaryDto.prototype['NoteLengthLimit'] = undefined;
+SubjectSummaryDto.prototype['noteLengthLimit'] = undefined;
 
 
 

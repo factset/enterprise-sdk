@@ -35,7 +35,7 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20061;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20062;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20063;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20064;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20090;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20092;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostInstrumentBackgroundTextTypeListRequest;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostInstrumentBenchmarkListRequest;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostInstrumentCategoryListRequest;
@@ -149,7 +149,7 @@ public class InstrumentApi {
 
   private static final Map<Integer, GenericType> getInstrumentSearchBasicResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getInstrumentSearchBasicResponseTypeMap.put(200, new GenericType<InlineResponse20090>(){});
+    getInstrumentSearchBasicResponseTypeMap.put(200, new GenericType<InlineResponse20092>(){});
   }
 
   private static final Map<Integer, GenericType> postInstrumentBackgroundTextTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -1664,7 +1664,7 @@ public class InstrumentApi {
    * @param language  (optional)
    * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
    * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
-   * @return InlineResponse20090
+   * @return InlineResponse20092
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1672,7 +1672,7 @@ public class InstrumentApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20090 getInstrumentSearchBasic(String searchValue, java.util.Set<String> nsins, String assetClass, Boolean onlyActive, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
+  public InlineResponse20092 getInstrumentSearchBasic(String searchValue, java.util.Set<String> nsins, String assetClass, Boolean onlyActive, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
     return getInstrumentSearchBasicWithHttpInfo(searchValue, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit).getData();
   }
 
@@ -1687,7 +1687,7 @@ public class InstrumentApi {
    * @param language  (optional)
    * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
    * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
-   * @return ApiResponse&lt;InlineResponse20090&gt;
+   * @return ApiResponse&lt;InlineResponse20092&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1695,7 +1695,7 @@ public class InstrumentApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20090> getInstrumentSearchBasicWithHttpInfo(String searchValue, java.util.Set<String> nsins, String assetClass, Boolean onlyActive, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
+  public ApiResponse<InlineResponse20092> getInstrumentSearchBasicWithHttpInfo(String searchValue, java.util.Set<String> nsins, String assetClass, Boolean onlyActive, java.util.Set<String> attributes, String language, BigDecimal paginationOffset, BigDecimal paginationLimit) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'searchValue' is set
@@ -1739,7 +1739,7 @@ public class InstrumentApi {
 
     ApiResponse<
         
-        InlineResponse20090
+        InlineResponse20092
       
     > apiResponse = apiClient.invokeAPI("InstrumentApi.getInstrumentSearchBasic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1751,7 +1751,7 @@ public class InstrumentApi {
   /**
    * List of background text types for instruments.
    * List of background text types for instruments.
-   * @param postInstrumentBackgroundTextTypeListRequest  (optional)
+   * @param postInstrumentBackgroundTextTypeListRequest Request Body (optional)
    * @return InlineResponse20045
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1767,7 +1767,7 @@ public class InstrumentApi {
   /**
    * List of background text types for instruments.
    * List of background text types for instruments.
-   * @param postInstrumentBackgroundTextTypeListRequest  (optional)
+   * @param postInstrumentBackgroundTextTypeListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20045&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1819,7 +1819,7 @@ public class InstrumentApi {
   /**
    * List of benchmarks of a financial instrument.
    * Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
-   * @param postInstrumentBenchmarkListRequest  (optional)
+   * @param postInstrumentBenchmarkListRequest Request Body (optional)
    * @return InlineResponse20046
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1835,7 +1835,7 @@ public class InstrumentApi {
   /**
    * List of benchmarks of a financial instrument.
    * Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
-   * @param postInstrumentBenchmarkListRequest  (optional)
+   * @param postInstrumentBenchmarkListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20046&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1887,7 +1887,7 @@ public class InstrumentApi {
   /**
    * List of categories assigned to a specific instrument the application is entitled to see.
    * List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
-   * @param postInstrumentCategoryListRequest  (optional)
+   * @param postInstrumentCategoryListRequest Request Body (optional)
    * @return InlineResponse20047
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1903,7 +1903,7 @@ public class InstrumentApi {
   /**
    * List of categories assigned to a specific instrument the application is entitled to see.
    * List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
-   * @param postInstrumentCategoryListRequest  (optional)
+   * @param postInstrumentCategoryListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20047&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1955,7 +1955,7 @@ public class InstrumentApi {
   /**
    * List of compliance properties for instruments.
    * List of compliance properties for instruments.
-   * @param postInstrumentCompliancePropertyListRequest  (optional)
+   * @param postInstrumentCompliancePropertyListRequest Request Body (optional)
    * @return InlineResponse20048
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1971,7 +1971,7 @@ public class InstrumentApi {
   /**
    * List of compliance properties for instruments.
    * List of compliance properties for instruments.
-   * @param postInstrumentCompliancePropertyListRequest  (optional)
+   * @param postInstrumentCompliancePropertyListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20048&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2023,7 +2023,7 @@ public class InstrumentApi {
   /**
    * Translate a list of ISINs to instruments.
    * Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
-   * @param postInstrumentCrossReferenceListByISINRequest  (optional)
+   * @param postInstrumentCrossReferenceListByISINRequest Request Body (required)
    * @return InlineResponse20056
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2039,7 +2039,7 @@ public class InstrumentApi {
   /**
    * Translate a list of ISINs to instruments.
    * Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
-   * @param postInstrumentCrossReferenceListByISINRequest  (optional)
+   * @param postInstrumentCrossReferenceListByISINRequest Request Body (required)
    * @return ApiResponse&lt;InlineResponse20056&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2050,6 +2050,11 @@ public class InstrumentApi {
    */
   public ApiResponse<InlineResponse20056> postInstrumentCrossReferenceListByISINWithHttpInfo(PostInstrumentCrossReferenceListByISINRequest postInstrumentCrossReferenceListByISINRequest) throws ApiException {
     Object localVarPostBody = postInstrumentCrossReferenceListByISINRequest;
+    
+    // verify the required parameter 'postInstrumentCrossReferenceListByISINRequest' is set
+    if (postInstrumentCrossReferenceListByISINRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'postInstrumentCrossReferenceListByISINRequest' when calling postInstrumentCrossReferenceListByISIN");
+    }
     
     // create path and map variables
     String localVarPath = "/instrument/crossReference/listByISIN";
@@ -2091,7 +2096,7 @@ public class InstrumentApi {
   /**
    * Translate a list of WKNs to instruments.
    * Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
-   * @param postInstrumentCrossReferenceListByWKNRequest  (optional)
+   * @param postInstrumentCrossReferenceListByWKNRequest Request Body (required)
    * @return InlineResponse20057
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2107,7 +2112,7 @@ public class InstrumentApi {
   /**
    * Translate a list of WKNs to instruments.
    * Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
-   * @param postInstrumentCrossReferenceListByWKNRequest  (optional)
+   * @param postInstrumentCrossReferenceListByWKNRequest Request Body (required)
    * @return ApiResponse&lt;InlineResponse20057&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2118,6 +2123,11 @@ public class InstrumentApi {
    */
   public ApiResponse<InlineResponse20057> postInstrumentCrossReferenceListByWKNWithHttpInfo(PostInstrumentCrossReferenceListByWKNRequest postInstrumentCrossReferenceListByWKNRequest) throws ApiException {
     Object localVarPostBody = postInstrumentCrossReferenceListByWKNRequest;
+    
+    // verify the required parameter 'postInstrumentCrossReferenceListByWKNRequest' is set
+    if (postInstrumentCrossReferenceListByWKNRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'postInstrumentCrossReferenceListByWKNRequest' when calling postInstrumentCrossReferenceListByWKN");
+    }
     
     // create path and map variables
     String localVarPath = "/instrument/crossReference/listByWKN";
@@ -2159,7 +2169,7 @@ public class InstrumentApi {
   /**
    * List of active, entitled notations for a set of instruments.
    * List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
-   * @param postInstrumentNotationListRequest  (optional)
+   * @param postInstrumentNotationListRequest Request Body (optional)
    * @return InlineResponse20063
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2175,7 +2185,7 @@ public class InstrumentApi {
   /**
    * List of active, entitled notations for a set of instruments.
    * List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
-   * @param postInstrumentNotationListRequest  (optional)
+   * @param postInstrumentNotationListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20063&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2227,7 +2237,7 @@ public class InstrumentApi {
   /**
    * List of rating grades for a list of instruments.
    * List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
-   * @param postInstrumentRatingGradeListRequest  (optional)
+   * @param postInstrumentRatingGradeListRequest Request Body (optional)
    * @return InlineResponse20064
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2243,7 +2253,7 @@ public class InstrumentApi {
   /**
    * List of rating grades for a list of instruments.
    * List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
-   * @param postInstrumentRatingGradeListRequest  (optional)
+   * @param postInstrumentRatingGradeListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20064&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

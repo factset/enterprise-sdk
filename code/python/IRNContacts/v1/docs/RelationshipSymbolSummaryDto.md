@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | **str, none_type** |  | [optional] 
+**tdentifier** | **str, none_type** |  | [optional] 
 **name** | **str, none_type** |  | [optional] 
 **type** | [**SymbolType**](SymbolType.md) |  | [optional] 
 

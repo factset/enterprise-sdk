@@ -93,16 +93,16 @@ class ContactRelationshipTwoSidedSaveDto(ModelNormal):
 
 
     attribute_map = {
-        'relationship_id': 'RelationshipId',  # noqa: E501
-        'left_contact_id': 'LeftContactId',  # noqa: E501
-        'right_contact_id': 'RightContactId',  # noqa: E501
-        'start': 'Start',  # noqa: E501
-        'end': 'End',  # noqa: E501
-        'comment': 'Comment',  # noqa: E501
-        'is_current': 'IsCurrent',  # noqa: E501
-        'symbol_id': 'SymbolId',  # noqa: E501
-        'symbol': 'Symbol',  # noqa: E501
-        'title': 'Title',  # noqa: E501
+        'relationship_id': 'relationshipId',  # noqa: E501
+        'left_contact_id': 'leftContactId',  # noqa: E501
+        'right_contact_id': 'rightContactId',  # noqa: E501
+        'start': 'start',  # noqa: E501
+        'end': 'end',  # noqa: E501
+        'comment': 'comment',  # noqa: E501
+        'is_current': 'isCurrent',  # noqa: E501
+        'symbol_id': 'symbolId',  # noqa: E501
+        'symbol': 'symbol',  # noqa: E501
+        'title': 'title',  # noqa: E501
     }
 
     read_only_vars = {

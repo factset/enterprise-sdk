@@ -43,7 +43,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class SubjectSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DEFAULT_ID = "DefaultId";
+  public static final String JSON_PROPERTY_DEFAULT_ID = "defaultId";
   private JsonNullable<java.util.UUID> defaultId = JsonNullable.<java.util.UUID>undefined();
 
   public SubjectSettingsDto() { 

@@ -89,7 +89,7 @@ class InlineResponse20078(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (InlineResponse20078Data,),  # noqa: E501
+            'data': ([InlineResponse20078Data],),  # noqa: E501
             'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
@@ -144,7 +144,7 @@ class InlineResponse20078(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InlineResponse20078Data): [optional]  # noqa: E501
+            data ([InlineResponse20078Data]): EOD key figures for a list of notations.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse20078(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InlineResponse20078Data): [optional]  # noqa: E501
+            data ([InlineResponse20078Data]): EOD key figures for a list of notations.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

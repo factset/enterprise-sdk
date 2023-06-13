@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostNotationSearchByTextRequest
+Request Body
 
 ## Properties
 

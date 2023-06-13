@@ -47,17 +47,17 @@ class CommentSummaryDto {
         if (data) {
             obj = obj || new CommentSummaryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('UserId')) {
-                obj['UserId'] = ApiClient.convertToType(data['UserId'], 'String');
+            if (data.hasOwnProperty('userId')) {
+                obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
             }
-            if (data.hasOwnProperty('CreatedAt')) {
-                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'String');
+            if (data.hasOwnProperty('createdAt')) {
+                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
-            if (data.hasOwnProperty('Subcomments')) {
-                obj['Subcomments'] = ApiClient.convertToType(data['Subcomments'], [SubcommentSummaryDto]);
+            if (data.hasOwnProperty('subcomments')) {
+                obj['subcomments'] = ApiClient.convertToType(data['subcomments'], [SubcommentSummaryDto]);
             }
         }
         return obj;
@@ -67,24 +67,24 @@ class CommentSummaryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-CommentSummaryDto.prototype['Id'] = undefined;
+CommentSummaryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} UserId
+ * @member {String} userId
  */
-CommentSummaryDto.prototype['UserId'] = undefined;
+CommentSummaryDto.prototype['userId'] = undefined;
 
 /**
- * @member {String} CreatedAt
+ * @member {String} createdAt
  */
-CommentSummaryDto.prototype['CreatedAt'] = undefined;
+CommentSummaryDto.prototype['createdAt'] = undefined;
 
 /**
- * @member {Array.<module:model/SubcommentSummaryDto>} Subcomments
+ * @member {Array.<module:model/SubcommentSummaryDto>} subcomments
  */
-CommentSummaryDto.prototype['Subcomments'] = undefined;
+CommentSummaryDto.prototype['subcomments'] = undefined;
 
 
 

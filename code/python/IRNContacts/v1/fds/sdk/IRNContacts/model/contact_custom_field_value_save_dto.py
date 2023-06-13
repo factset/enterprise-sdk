@@ -87,10 +87,10 @@ class ContactCustomFieldValueSaveDto(ModelNormal):
 
 
     attribute_map = {
-        'code': 'Code',  # noqa: E501
-        'value': 'Value',  # noqa: E501
-        'option_values': 'OptionValues',  # noqa: E501
-        'evaluate_formula': 'EvaluateFormula',  # noqa: E501
+        'code': 'code',  # noqa: E501
+        'value': 'value',  # noqa: E501
+        'option_values': 'optionValues',  # noqa: E501
+        'evaluate_formula': 'evaluateFormula',  # noqa: E501
     }
 
     read_only_vars = {

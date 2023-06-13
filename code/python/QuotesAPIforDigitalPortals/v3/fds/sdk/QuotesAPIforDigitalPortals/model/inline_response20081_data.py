@@ -30,8 +30,12 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20081_data_market import InlineResponse20081DataMarket
-    globals()['InlineResponse20081DataMarket'] = InlineResponse20081DataMarket
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20081_data_price import InlineResponse20081DataPrice
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20081_data_value import InlineResponse20081DataValue
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20081_data_volume import InlineResponse20081DataVolume
+    globals()['InlineResponse20081DataPrice'] = InlineResponse20081DataPrice
+    globals()['InlineResponse20081DataValue'] = InlineResponse20081DataValue
+    globals()['InlineResponse20081DataVolume'] = InlineResponse20081DataVolume
 
 
 class InlineResponse20081Data(ModelNormal):
@@ -89,12 +93,9 @@ class InlineResponse20081Data(ModelNormal):
         return {
             'id_notation': (str, none_type,),  # noqa: E501
             'source_identifier': (str, none_type,),  # noqa: E501
-            'suspended': (bool, none_type,),  # noqa: E501
-            'trading_status': (str, none_type,),  # noqa: E501
-            'price_delay': (float, none_type,),  # noqa: E501
-            'tick_size': (float, none_type,),  # noqa: E501
-            'lot_size': (float, none_type,),  # noqa: E501
-            'market': (InlineResponse20081DataMarket,),  # noqa: E501
+            'price': (InlineResponse20081DataPrice,),  # noqa: E501
+            'volume': (InlineResponse20081DataVolume,),  # noqa: E501
+            'value': (InlineResponse20081DataValue,),  # noqa: E501
         }
 
     @cached_property
@@ -105,12 +106,9 @@ class InlineResponse20081Data(ModelNormal):
     attribute_map = {
         'id_notation': 'idNotation',  # noqa: E501
         'source_identifier': 'sourceIdentifier',  # noqa: E501
-        'suspended': 'suspended',  # noqa: E501
-        'trading_status': 'tradingStatus',  # noqa: E501
-        'price_delay': 'priceDelay',  # noqa: E501
-        'tick_size': 'tickSize',  # noqa: E501
-        'lot_size': 'lotSize',  # noqa: E501
-        'market': 'market',  # noqa: E501
+        'price': 'price',  # noqa: E501
+        'volume': 'volume',  # noqa: E501
+        'value': 'value',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,12 +154,9 @@ class InlineResponse20081Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            suspended (bool, none_type): Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.. [optional]  # noqa: E501
-            trading_status (str, none_type): Market-specific code of the trading status and/or the suspension of the notation.. [optional]  # noqa: E501
-            price_delay (float, none_type): Exchange-imposed delay in seconds for delayed-quality tick data.. [optional]  # noqa: E501
-            tick_size (float, none_type): The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.. [optional]  # noqa: E501
-            lot_size (float, none_type): he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.. [optional]  # noqa: E501
-            market (InlineResponse20081DataMarket): [optional]  # noqa: E501
+            price (InlineResponse20081DataPrice): [optional]  # noqa: E501
+            volume (InlineResponse20081DataVolume): [optional]  # noqa: E501
+            value (InlineResponse20081DataValue): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,12 +240,9 @@ class InlineResponse20081Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            suspended (bool, none_type): Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.. [optional]  # noqa: E501
-            trading_status (str, none_type): Market-specific code of the trading status and/or the suspension of the notation.. [optional]  # noqa: E501
-            price_delay (float, none_type): Exchange-imposed delay in seconds for delayed-quality tick data.. [optional]  # noqa: E501
-            tick_size (float, none_type): The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.. [optional]  # noqa: E501
-            lot_size (float, none_type): he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.. [optional]  # noqa: E501
-            market (InlineResponse20081DataMarket): [optional]  # noqa: E501
+            price (InlineResponse20081DataPrice): [optional]  # noqa: E501
+            volume (InlineResponse20081DataVolume): [optional]  # noqa: E501
+            value (InlineResponse20081DataValue): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

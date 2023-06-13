@@ -67,79 +67,79 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets PrimaryEmailAddress
         /// </summary>
-        [DataMember(Name = "PrimaryEmailAddress", EmitDefaultValue = true)]
+        [DataMember(Name = "primaryEmailAddress", EmitDefaultValue = true)]
         public string PrimaryEmailAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets FullName
         /// </summary>
-        [DataMember(Name = "FullName", EmitDefaultValue = true)]
+        [DataMember(Name = "fullName", EmitDefaultValue = true)]
         public string FullName { get; set; }
 
         /// <summary>
         /// Gets or Sets Notes
         /// </summary>
-        [DataMember(Name = "Notes", EmitDefaultValue = true)]
+        [DataMember(Name = "notes", EmitDefaultValue = true)]
         public string Notes { get; set; }
 
         /// <summary>
         /// Gets or Sets LinkedInProfile
         /// </summary>
-        [DataMember(Name = "LinkedInProfile", EmitDefaultValue = true)]
+        [DataMember(Name = "linkedInProfile", EmitDefaultValue = true)]
         public string LinkedInProfile { get; set; }
 
         /// <summary>
         /// Gets or Sets PersonSymbol
         /// </summary>
-        [DataMember(Name = "PersonSymbol", EmitDefaultValue = true)]
+        [DataMember(Name = "personSymbol", EmitDefaultValue = true)]
         public string PersonSymbol { get; set; }
 
         /// <summary>
         /// Gets or Sets RoleId
         /// </summary>
-        [DataMember(Name = "RoleId", EmitDefaultValue = false)]
+        [DataMember(Name = "roleId", EmitDefaultValue = false)]
         public Guid RoleId { get; set; }
 
         /// <summary>
         /// Gets or Sets TypeId
         /// </summary>
-        [DataMember(Name = "TypeId", EmitDefaultValue = false)]
+        [DataMember(Name = "typeId", EmitDefaultValue = false)]
         public Guid TypeId { get; set; }
 
         /// <summary>
         /// Gets or Sets Address
         /// </summary>
-        [DataMember(Name = "Address", EmitDefaultValue = false)]
+        [DataMember(Name = "address", EmitDefaultValue = false)]
         public ContactAddressDto Address { get; set; }
 
         /// <summary>
         /// Gets or Sets PhoneNumbers
         /// </summary>
-        [DataMember(Name = "PhoneNumbers", EmitDefaultValue = true)]
+        [DataMember(Name = "phoneNumbers", EmitDefaultValue = true)]
         public List<ContactPhoneSaveDto> PhoneNumbers { get; set; }
 
         /// <summary>
         /// Gets or Sets LeftRelationships
         /// </summary>
-        [DataMember(Name = "LeftRelationships", EmitDefaultValue = true)]
+        [DataMember(Name = "leftRelationships", EmitDefaultValue = true)]
         public List<ContactRelationshipSaveDto> LeftRelationships { get; set; }
 
         /// <summary>
         /// Gets or Sets RightRelationships
         /// </summary>
-        [DataMember(Name = "RightRelationships", EmitDefaultValue = true)]
+        [DataMember(Name = "rightRelationships", EmitDefaultValue = true)]
         public List<ContactRelationshipSaveDto> RightRelationships { get; set; }
 
         /// <summary>
         /// Gets or Sets AlternativeEmailAddresses
         /// </summary>
-        [DataMember(Name = "AlternativeEmailAddresses", EmitDefaultValue = true)]
+        [DataMember(Name = "alternativeEmailAddresses", EmitDefaultValue = true)]
         public List<AlternativeEmailAddressDto> AlternativeEmailAddresses { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFields
         /// </summary>
-        [DataMember(Name = "CustomFields", EmitDefaultValue = true)]
+        [DataMember(Name = "customFields", EmitDefaultValue = true)]
         public List<ContactCustomFieldValueSaveDto> CustomFields { get; set; }
 
         /// <summary>

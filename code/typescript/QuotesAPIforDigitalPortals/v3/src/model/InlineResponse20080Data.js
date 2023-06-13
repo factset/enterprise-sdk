@@ -12,10 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20080Country from './InlineResponse20080Country';
-import InlineResponse20080Group from './InlineResponse20080Group';
-import InlineResponse20080Timezone from './InlineResponse20080Timezone';
-import InlineResponse20080Type from './InlineResponse20080Type';
+import InlineResponse20075DataHigh from './InlineResponse20075DataHigh';
+import InlineResponse20075DataLow from './InlineResponse20075DataLow';
+import InlineResponse20075DataPerformance from './InlineResponse20075DataPerformance';
+import InlineResponse20076Status from './InlineResponse20076Status';
 
 /**
  * The InlineResponse20080Data model module.
@@ -50,29 +50,29 @@ class InlineResponse20080Data {
         if (data) {
             obj = obj || new InlineResponse20080Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('shortName')) {
-                obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
+            if (data.hasOwnProperty('referenceDate')) {
+                obj['referenceDate'] = ApiClient.convertToType(data['referenceDate'], 'Date');
             }
-            if (data.hasOwnProperty('country')) {
-                obj['country'] = InlineResponse20080Country.constructFromObject(data['country']);
+            if (data.hasOwnProperty('performance')) {
+                obj['performance'] = InlineResponse20075DataPerformance.constructFromObject(data['performance']);
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = InlineResponse20080Type.constructFromObject(data['type']);
+            if (data.hasOwnProperty('high')) {
+                obj['high'] = InlineResponse20075DataHigh.constructFromObject(data['high']);
             }
-            if (data.hasOwnProperty('group')) {
-                obj['group'] = InlineResponse20080Group.constructFromObject(data['group']);
+            if (data.hasOwnProperty('low')) {
+                obj['low'] = InlineResponse20075DataLow.constructFromObject(data['low']);
             }
-            if (data.hasOwnProperty('timezone')) {
-                obj['timezone'] = InlineResponse20080Timezone.constructFromObject(data['timezone']);
+            if (data.hasOwnProperty('volatility')) {
+                obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
             }
-            if (data.hasOwnProperty('count')) {
-                obj['count'] = ApiClient.convertToType(data['count'], 'Number');
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = InlineResponse20076Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -82,48 +82,48 @@ class InlineResponse20080Data {
 }
 
 /**
- * Identifier of a market.
- * @member {Number} id
+ * MDG identifier of the listing.
+ * @member {String} idNotation
  */
-InlineResponse20080Data.prototype['id'] = undefined;
+InlineResponse20080Data.prototype['idNotation'] = undefined;
 
 /**
- * Name of the market.
- * @member {String} name
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse20080Data.prototype['name'] = undefined;
+InlineResponse20080Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * Short name of the market.
- * @member {String} shortName
+ * Reference date of the time range.
+ * @member {Date} referenceDate
  */
-InlineResponse20080Data.prototype['shortName'] = undefined;
+InlineResponse20080Data.prototype['referenceDate'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20080Country} country
+ * @member {module:model/InlineResponse20075DataPerformance} performance
  */
-InlineResponse20080Data.prototype['country'] = undefined;
+InlineResponse20080Data.prototype['performance'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20080Type} type
+ * @member {module:model/InlineResponse20075DataHigh} high
  */
-InlineResponse20080Data.prototype['type'] = undefined;
+InlineResponse20080Data.prototype['high'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20080Group} group
+ * @member {module:model/InlineResponse20075DataLow} low
  */
-InlineResponse20080Data.prototype['group'] = undefined;
+InlineResponse20080Data.prototype['low'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20080Timezone} timezone
+ * Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
+ * @member {Number} volatility
  */
-InlineResponse20080Data.prototype['timezone'] = undefined;
+InlineResponse20080Data.prototype['volatility'] = undefined;
 
 /**
- * Number of entitled notations.
- * @member {Number} count
+ * @member {module:model/InlineResponse20076Status} status
  */
-InlineResponse20080Data.prototype['count'] = undefined;
+InlineResponse20080Data.prototype['status'] = undefined;
 
 
 

@@ -51,31 +51,31 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets NoteId
         /// </summary>
-        [DataMember(Name = "NoteId", EmitDefaultValue = true)]
+        [DataMember(Name = "noteId", EmitDefaultValue = true)]
         public Guid? NoteId { get; set; }
 
         /// <summary>
         /// Gets or Sets MeetingId
         /// </summary>
-        [DataMember(Name = "MeetingId", EmitDefaultValue = true)]
+        [DataMember(Name = "meetingId", EmitDefaultValue = true)]
         public Guid? MeetingId { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "CreatedAt", EmitDefaultValue = false)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>

@@ -93,7 +93,7 @@ class Operation(ModelNormal):
 
 
     attribute_map = {
-        'operation_type': 'OperationType',  # noqa: E501
+        'operation_type': 'operationType',  # noqa: E501
         'path': 'path',  # noqa: E501
         'op': 'op',  # noqa: E501
         '_from': 'from',  # noqa: E501

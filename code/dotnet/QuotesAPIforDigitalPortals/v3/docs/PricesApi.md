@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="getpricesbidaskget"></a>
 # **GetPricesBidAskGet**
-> InlineResponse20084 GetPricesBidAskGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
+> InlineResponse20086 GetPricesBidAskGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
 
 Most recent bid and ask prices (best bid / offer) for a notation.
 
@@ -68,7 +68,7 @@ namespace Example
             try
             {
                 // Most recent bid and ask prices (best bid / offer) for a notation.
-                InlineResponse20084 result = apiInstance.GetPricesBidAskGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
+                InlineResponse20086 result = apiInstance.GetPricesBidAskGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
  **subscriptionMinimumInterval** | **decimal?**| Minimum number of milliseconds at which updates are send. | [optional] [default to 5000M]
 
 ### Return type
-[**InlineResponse20084**](InlineResponse20084.md)
+[**InlineResponse20086**](InlineResponse20086.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 <a name="getpricesbidasklist"></a>
 # **GetPricesBidAskList**
-> InlineResponse20085 GetPricesBidAskList (List<string> identifiers, string identifierType, string quality = null, bool? sameQuality = null, List<string> attributes = null)
+> InlineResponse20087 GetPricesBidAskList (List<string> identifiers, string identifierType, string quality = null, bool? sameQuality = null, List<string> attributes = null)
 
 Most recent bid and ask prices (best bid / offer) for a list of notations.
 
@@ -166,7 +166,7 @@ namespace Example
             try
             {
                 // Most recent bid and ask prices (best bid / offer) for a list of notations.
-                InlineResponse20085 result = apiInstance.GetPricesBidAskList(identifiers, identifierType, quality, sameQuality, attributes);
+                InlineResponse20087 result = apiInstance.GetPricesBidAskList(identifiers, identifierType, quality, sameQuality, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20085**](InlineResponse20085.md)
+[**InlineResponse20087**](InlineResponse20087.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 <a name="getpricesget"></a>
 # **GetPricesGet**
-> InlineResponse20082 GetPricesGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
+> InlineResponse20084 GetPricesGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
 
 Overview of trading on the most recent trading day, including the latest price, for a notation.
 
@@ -264,7 +264,7 @@ namespace Example
             try
             {
                 // Overview of trading on the most recent trading day, including the latest price, for a notation.
-                InlineResponse20082 result = apiInstance.GetPricesGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
+                InlineResponse20084 result = apiInstance.GetPricesGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
  **subscriptionMinimumInterval** | **decimal?**| Minimum number of milliseconds at which updates are sent. | [optional] [default to 5000M]
 
 ### Return type
-[**InlineResponse20082**](InlineResponse20082.md)
+[**InlineResponse20084**](InlineResponse20084.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 <a name="getpriceslist"></a>
 # **GetPricesList**
-> InlineResponse20083 GetPricesList (List<string> identifiers, string identifierType, string quality = null, bool? sameQuality = null, List<string> attributes = null)
+> InlineResponse20085 GetPricesList (List<string> identifiers, string identifierType, string quality = null, bool? sameQuality = null, List<string> attributes = null)
 
 Overview of trading on the most recent trading day, including the latest price, for a list of notations.
 
@@ -362,7 +362,7 @@ namespace Example
             try
             {
                 // Overview of trading on the most recent trading day, including the latest price, for a list of notations.
-                InlineResponse20083 result = apiInstance.GetPricesList(identifiers, identifierType, quality, sameQuality, attributes);
+                InlineResponse20085 result = apiInstance.GetPricesList(identifiers, identifierType, quality, sameQuality, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20083**](InlineResponse20083.md)
+[**InlineResponse20085**](InlineResponse20085.md)
 
 ### Authorization
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 <a name="getpricesorderbookaggregatedget"></a>
 # **GetPricesOrderbookAggregatedGet**
-> InlineResponse20086 GetPricesOrderbookAggregatedGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
+> InlineResponse20088 GetPricesOrderbookAggregatedGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
 
 Orderbook aggregated by price.
 
@@ -460,7 +460,7 @@ namespace Example
             try
             {
                 // Orderbook aggregated by price.
-                InlineResponse20086 result = apiInstance.GetPricesOrderbookAggregatedGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
+                InlineResponse20088 result = apiInstance.GetPricesOrderbookAggregatedGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
  **subscriptionMinimumInterval** | **decimal?**| Non-negative number of milliseconds to throttle the update rate. | [optional] [default to 5000M]
 
 ### Return type
-[**InlineResponse20086**](InlineResponse20086.md)
+[**InlineResponse20088**](InlineResponse20088.md)
 
 ### Authorization
 
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 <a name="getpricesorderbookfullget"></a>
 # **GetPricesOrderbookFullGet**
-> InlineResponse20087 GetPricesOrderbookFullGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
+> InlineResponse20089 GetPricesOrderbookFullGet (string identifier, string identifierType, string quality = null, List<string> attributes = null, decimal? subscriptionMinimumInterval = null)
 
 Full orderbook
 
@@ -558,7 +558,7 @@ namespace Example
             try
             {
                 // Full orderbook
-                InlineResponse20087 result = apiInstance.GetPricesOrderbookFullGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
+                InlineResponse20089 result = apiInstance.GetPricesOrderbookFullGet(identifier, identifierType, quality, attributes, subscriptionMinimumInterval);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
  **subscriptionMinimumInterval** | **decimal?**| Non-negative number of milliseconds to throttle the update rate. | [optional] [default to 5000M]
 
 ### Return type
-[**InlineResponse20087**](InlineResponse20087.md)
+[**InlineResponse20089**](InlineResponse20089.md)
 
 ### Authorization
 
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 
 <a name="getpricestradingscheduleeventtypelist"></a>
 # **GetPricesTradingScheduleEventTypeList**
-> InlineResponse20089 GetPricesTradingScheduleEventTypeList (List<string> attributes = null)
+> InlineResponse20091 GetPricesTradingScheduleEventTypeList (List<string> attributes = null)
 
 Trading schedule event types.
 
@@ -652,7 +652,7 @@ namespace Example
             try
             {
                 // Trading schedule event types.
-                InlineResponse20089 result = apiInstance.GetPricesTradingScheduleEventTypeList(attributes);
+                InlineResponse20091 result = apiInstance.GetPricesTradingScheduleEventTypeList(attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse20089**](InlineResponse20089.md)
+[**InlineResponse20091**](InlineResponse20091.md)
 
 ### Authorization
 
@@ -695,7 +695,7 @@ Name | Type | Description  | Notes
 
 <a name="postpricestradingscheduleeventlist"></a>
 # **PostPricesTradingScheduleEventList**
-> InlineResponse20088 PostPricesTradingScheduleEventList (PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest = null)
+> InlineResponse20090 PostPricesTradingScheduleEventList (PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest)
 
 Sequence of market-related events.
 
@@ -737,12 +737,12 @@ namespace Example
 
             var apiInstance = new PricesApi(config);
 
-            var postPricesTradingScheduleEventListRequest = new PostPricesTradingScheduleEventListRequest(); // PostPricesTradingScheduleEventListRequest |  (optional) 
+            var postPricesTradingScheduleEventListRequest = new PostPricesTradingScheduleEventListRequest(); // PostPricesTradingScheduleEventListRequest | Request Body
 
             try
             {
                 // Sequence of market-related events.
-                InlineResponse20088 result = apiInstance.PostPricesTradingScheduleEventList(postPricesTradingScheduleEventListRequest);
+                InlineResponse20090 result = apiInstance.PostPricesTradingScheduleEventList(postPricesTradingScheduleEventListRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -760,10 +760,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postPricesTradingScheduleEventListRequest** | [**PostPricesTradingScheduleEventListRequest**](PostPricesTradingScheduleEventListRequest.md)|  | [optional] 
+ **postPricesTradingScheduleEventListRequest** | [**PostPricesTradingScheduleEventListRequest**](PostPricesTradingScheduleEventListRequest.md)| Request Body | 
 
 ### Return type
-[**InlineResponse20088**](InlineResponse20088.md)
+[**InlineResponse20090**](InlineResponse20090.md)
 
 ### Authorization
 

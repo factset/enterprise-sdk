@@ -2,6 +2,7 @@
 
 # PostBasicDeliveryListRequest
 
+Request Body
 
 ## Properties
 

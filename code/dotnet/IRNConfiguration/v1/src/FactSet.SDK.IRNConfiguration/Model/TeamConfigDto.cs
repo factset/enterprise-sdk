@@ -51,31 +51,31 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "Code", EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultSubjectId
         /// </summary>
-        [DataMember(Name = "DefaultSubjectId", EmitDefaultValue = true)]
+        [DataMember(Name = "defaultSubjectId", EmitDefaultValue = true)]
         public Guid? DefaultSubjectId { get; set; }
 
         /// <summary>
         /// Gets or Sets UserIds
         /// </summary>
-        [DataMember(Name = "UserIds", EmitDefaultValue = true)]
+        [DataMember(Name = "userIds", EmitDefaultValue = true)]
         public List<Guid> UserIds { get; set; }
 
         /// <summary>

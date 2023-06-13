@@ -1,13 +1,14 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.InlineResponse20068Data
-List of notations.
+Notation identified by the FactSet market symbol.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdInstrument** | **string** | MDG identifier of the instrument. | [optional] 
-**SourceIdentifier** | **string** | Identifier used in the request. | [optional] 
-**Notations** | [**List&lt;InlineResponse20068DataNotations&gt;**](InlineResponse20068DataNotations.md) | List of notations. | [optional] 
+**Id** | **string** | Identifier of the notation. | [optional] 
+**Market** | [**InlineResponse20068DataMarket**](InlineResponse20068DataMarket.md) |  | [optional] 
+**ValueUnit** | [**InlineResponse20068DataValueUnit**](InlineResponse20068DataValueUnit.md) |  | [optional] 
+**Instrument** | [**InlineResponse20068DataInstrument**](InlineResponse20068DataInstrument.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

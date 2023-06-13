@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostBasicMediaTypeListRequest
+Request Body
 
 ## Properties
 

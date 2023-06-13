@@ -62,7 +62,7 @@ class InlineResponse20085 {
 }
 
 /**
- * Set of bid and ask prices for a list of notations.
+ * Set of price related data for a list of notations.
  * @member {Array.<module:model/InlineResponse20085Data>} data
  */
 InlineResponse20085.prototype['data'] = undefined;

@@ -86,9 +86,9 @@ class ContactEventUpdateDto(ModelNormal):
 
 
     attribute_map = {
-        'field_name': 'FieldName',  # noqa: E501
-        'old_value': 'OldValue',  # noqa: E501
-        'new_value': 'NewValue',  # noqa: E501
+        'field_name': 'fieldName',  # noqa: E501
+        'old_value': 'oldValue',  # noqa: E501
+        'new_value': 'newValue',  # noqa: E501
     }
 
     read_only_vars = {

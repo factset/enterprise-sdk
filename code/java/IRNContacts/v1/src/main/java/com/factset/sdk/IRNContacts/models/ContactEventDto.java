@@ -48,16 +48,16 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactEventDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_EVENT_TYPE = "EventType";
+  public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
   private JsonNullable<String> eventType = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DATE = "Date";
+  public static final String JSON_PROPERTY_DATE = "date";
   private OffsetDateTime date;
 
-  public static final String JSON_PROPERTY_FULL_NAME = "FullName";
+  public static final String JSON_PROPERTY_FULL_NAME = "fullName";
   private JsonNullable<String> fullName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DETAILS = "Details";
+  public static final String JSON_PROPERTY_DETAILS = "details";
   private JsonNullable<java.util.List<ContactEventUpdateDto>> details = JsonNullable.<java.util.List<ContactEventUpdateDto>>undefined();
 
   public ContactEventDto() { 

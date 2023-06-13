@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse20088Data from './InlineResponse20088Data';
-import InlineResponse20088Meta from './InlineResponse20088Meta';
+import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse20088 model module.
@@ -52,7 +52,7 @@ class InlineResponse20088 {
                 obj['data'] = InlineResponse20088Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse20088Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -67,7 +67,7 @@ class InlineResponse20088 {
 InlineResponse20088.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20088Meta} meta
+ * @member {module:model/InlineResponse200Meta} meta
  */
 InlineResponse20088.prototype['meta'] = undefined;
 

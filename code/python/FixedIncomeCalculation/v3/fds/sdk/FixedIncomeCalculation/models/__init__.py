@@ -15,6 +15,8 @@ from fds.sdk.FixedIncomeCalculation.model.calculation_meta import CalculationMet
 from fds.sdk.FixedIncomeCalculation.model.client_error_response import ClientErrorResponse
 from fds.sdk.FixedIncomeCalculation.model.error import Error
 from fds.sdk.FixedIncomeCalculation.model.error_source import ErrorSource
+from fds.sdk.FixedIncomeCalculation.model.fi_attribution_for_job_settings import FIAttributionForJobSettings
+from fds.sdk.FixedIncomeCalculation.model.fi_attribution_for_securities import FIAttributionForSecurities
 from fds.sdk.FixedIncomeCalculation.model.fi_balloon_extension import FIBalloonExtension
 from fds.sdk.FixedIncomeCalculation.model.fi_bank_loans import FIBankLoans
 from fds.sdk.FixedIncomeCalculation.model.fi_calculation_parameters import FICalculationParameters

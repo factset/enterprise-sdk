@@ -32,8 +32,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * PostPricesTradingScheduleEventListRequest
+ * Request Body
  */
+@ApiModel(description = "Request Body")
 @JsonPropertyOrder({
   PostPricesTradingScheduleEventListRequest.JSON_PROPERTY_DATA,
   PostPricesTradingScheduleEventListRequest.JSON_PROPERTY_META

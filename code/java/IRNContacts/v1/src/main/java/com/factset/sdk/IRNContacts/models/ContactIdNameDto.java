@@ -44,10 +44,10 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactIdNameDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private JsonNullable<java.util.UUID> id = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public ContactIdNameDto() { 

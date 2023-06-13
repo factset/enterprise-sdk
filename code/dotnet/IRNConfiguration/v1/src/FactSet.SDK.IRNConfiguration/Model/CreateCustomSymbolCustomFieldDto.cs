@@ -80,56 +80,56 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "Code", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Type can be one of Text, SingleOption, MultiOptions, Numeric, Date, ExtendedText, ContactLookup
         /// </summary>
         /// <value>Type can be one of Text, SingleOption, MultiOptions, Numeric, Date, ExtendedText, ContactLookup</value>
-        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets IsHidden
         /// </summary>
-        [DataMember(Name = "IsHidden", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isHidden", IsRequired = true, EmitDefaultValue = true)]
         public bool IsHidden { get; set; }
 
         /// <summary>
         /// Gets or Sets IsMandatory
         /// </summary>
-        [DataMember(Name = "IsMandatory", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isMandatory", IsRequired = true, EmitDefaultValue = true)]
         public bool IsMandatory { get; set; }
 
         /// <summary>
         /// Gets or Sets IsShownInInfobox
         /// </summary>
-        [DataMember(Name = "IsShownInInfobox", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isShownInInfobox", IsRequired = true, EmitDefaultValue = true)]
         public bool IsShownInInfobox { get; set; }
 
         /// <summary>
         /// Gets or Sets FormulaConfig
         /// </summary>
-        [DataMember(Name = "FormulaConfig", EmitDefaultValue = false)]
+        [DataMember(Name = "formulaConfig", EmitDefaultValue = false)]
         public CustomSymbolCustomFieldFormulaConfigDto FormulaConfig { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionsConfig
         /// </summary>
-        [DataMember(Name = "OptionsConfig", EmitDefaultValue = true)]
+        [DataMember(Name = "optionsConfig", EmitDefaultValue = true)]
         public List<string> OptionsConfig { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomSymbolTypes
         /// </summary>
-        [DataMember(Name = "CustomSymbolTypes", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "customSymbolTypes", IsRequired = true, EmitDefaultValue = false)]
         public List<Guid> CustomSymbolTypes { get; set; }
 
         /// <summary>

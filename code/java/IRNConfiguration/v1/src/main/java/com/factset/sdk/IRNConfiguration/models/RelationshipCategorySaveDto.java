@@ -41,13 +41,13 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class RelationshipCategorySaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CATEGORY_NAME = "CategoryName";
+  public static final String JSON_PROPERTY_CATEGORY_NAME = "categoryName";
   private String categoryName;
 
-  public static final String JSON_PROPERTY_IS_CONTACT_TO_CONTACT = "IsContactToContact";
+  public static final String JSON_PROPERTY_IS_CONTACT_TO_CONTACT = "isContactToContact";
   private Boolean isContactToContact = false;
 
-  public static final String JSON_PROPERTY_IS_CONTACT_TO_SYMBOL = "IsContactToSymbol";
+  public static final String JSON_PROPERTY_IS_CONTACT_TO_SYMBOL = "isContactToSymbol";
   private Boolean isContactToSymbol = false;
 
   public RelationshipCategorySaveDto() { 

@@ -46,23 +46,23 @@ class ContactAddressDto {
         if (data) {
             obj = obj || new ContactAddressDto();
 
-            if (data.hasOwnProperty('GoogleMapsPlaceId')) {
-                obj['GoogleMapsPlaceId'] = ApiClient.convertToType(data['GoogleMapsPlaceId'], 'String');
+            if (data.hasOwnProperty('googleMapsPlaceId')) {
+                obj['googleMapsPlaceId'] = ApiClient.convertToType(data['googleMapsPlaceId'], 'String');
             }
-            if (data.hasOwnProperty('FormattedAddress')) {
-                obj['FormattedAddress'] = ApiClient.convertToType(data['FormattedAddress'], 'String');
+            if (data.hasOwnProperty('formattedAddress')) {
+                obj['formattedAddress'] = ApiClient.convertToType(data['formattedAddress'], 'String');
             }
-            if (data.hasOwnProperty('City')) {
-                obj['City'] = ApiClient.convertToType(data['City'], 'String');
+            if (data.hasOwnProperty('city')) {
+                obj['city'] = ApiClient.convertToType(data['city'], 'String');
             }
-            if (data.hasOwnProperty('StateProvince')) {
-                obj['StateProvince'] = ApiClient.convertToType(data['StateProvince'], 'String');
+            if (data.hasOwnProperty('stateProvince')) {
+                obj['stateProvince'] = ApiClient.convertToType(data['stateProvince'], 'String');
             }
-            if (data.hasOwnProperty('PostalCode')) {
-                obj['PostalCode'] = ApiClient.convertToType(data['PostalCode'], 'String');
+            if (data.hasOwnProperty('postalCode')) {
+                obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
             }
-            if (data.hasOwnProperty('Country')) {
-                obj['Country'] = ApiClient.convertToType(data['Country'], 'String');
+            if (data.hasOwnProperty('country')) {
+                obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
         }
         return obj;
@@ -72,34 +72,34 @@ class ContactAddressDto {
 }
 
 /**
- * @member {String} GoogleMapsPlaceId
+ * @member {String} googleMapsPlaceId
  */
-ContactAddressDto.prototype['GoogleMapsPlaceId'] = undefined;
+ContactAddressDto.prototype['googleMapsPlaceId'] = undefined;
 
 /**
- * @member {String} FormattedAddress
+ * @member {String} formattedAddress
  */
-ContactAddressDto.prototype['FormattedAddress'] = undefined;
+ContactAddressDto.prototype['formattedAddress'] = undefined;
 
 /**
- * @member {String} City
+ * @member {String} city
  */
-ContactAddressDto.prototype['City'] = undefined;
+ContactAddressDto.prototype['city'] = undefined;
 
 /**
- * @member {String} StateProvince
+ * @member {String} stateProvince
  */
-ContactAddressDto.prototype['StateProvince'] = undefined;
+ContactAddressDto.prototype['stateProvince'] = undefined;
 
 /**
- * @member {String} PostalCode
+ * @member {String} postalCode
  */
-ContactAddressDto.prototype['PostalCode'] = undefined;
+ContactAddressDto.prototype['postalCode'] = undefined;
 
 /**
- * @member {String} Country
+ * @member {String} country
  */
-ContactAddressDto.prototype['Country'] = undefined;
+ContactAddressDto.prototype['country'] = undefined;
 
 
 

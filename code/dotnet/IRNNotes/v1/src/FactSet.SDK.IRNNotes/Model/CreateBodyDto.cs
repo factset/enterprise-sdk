@@ -43,7 +43,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Content
         /// </summary>
-        [DataMember(Name = "Content", EmitDefaultValue = true)]
+        [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
 
         /// <summary>

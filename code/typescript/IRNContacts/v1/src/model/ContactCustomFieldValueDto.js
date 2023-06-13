@@ -47,14 +47,14 @@ class ContactCustomFieldValueDto {
         if (data) {
             obj = obj || new ContactCustomFieldValueDto();
 
-            if (data.hasOwnProperty('FieldCode')) {
-                obj['FieldCode'] = ApiClient.convertToType(data['FieldCode'], 'String');
+            if (data.hasOwnProperty('fieldCode')) {
+                obj['fieldCode'] = ApiClient.convertToType(data['fieldCode'], 'String');
             }
-            if (data.hasOwnProperty('Value')) {
-                obj['Value'] = ApiClient.convertToType(data['Value'], 'String');
+            if (data.hasOwnProperty('value')) {
+                obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('OptionValues')) {
-                obj['OptionValues'] = ApiClient.convertToType(data['OptionValues'], [ContactCustomFieldOptionValueDto]);
+            if (data.hasOwnProperty('optionValues')) {
+                obj['optionValues'] = ApiClient.convertToType(data['optionValues'], [ContactCustomFieldOptionValueDto]);
             }
         }
         return obj;
@@ -64,19 +64,19 @@ class ContactCustomFieldValueDto {
 }
 
 /**
- * @member {String} FieldCode
+ * @member {String} fieldCode
  */
-ContactCustomFieldValueDto.prototype['FieldCode'] = undefined;
+ContactCustomFieldValueDto.prototype['fieldCode'] = undefined;
 
 /**
- * @member {String} Value
+ * @member {String} value
  */
-ContactCustomFieldValueDto.prototype['Value'] = undefined;
+ContactCustomFieldValueDto.prototype['value'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactCustomFieldOptionValueDto>} OptionValues
+ * @member {Array.<module:model/ContactCustomFieldOptionValueDto>} optionValues
  */
-ContactCustomFieldValueDto.prototype['OptionValues'] = undefined;
+ContactCustomFieldValueDto.prototype['optionValues'] = undefined;
 
 
 

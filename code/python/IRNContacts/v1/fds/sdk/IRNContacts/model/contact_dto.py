@@ -113,19 +113,19 @@ class ContactDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'primary_email_address': 'PrimaryEmailAddress',  # noqa: E501
-        'identifier': 'Identifier',  # noqa: E501
-        'full_name': 'FullName',  # noqa: E501
-        'address': 'Address',  # noqa: E501
-        'linked_in_profile': 'LinkedInProfile',  # noqa: E501
-        'is_deleted': 'IsDeleted',  # noqa: E501
-        'employer': 'Employer',  # noqa: E501
-        'role': 'Role',  # noqa: E501
-        'type': 'Type',  # noqa: E501
-        'phone_numbers': 'PhoneNumbers',  # noqa: E501
-        'alternative_email_addresses': 'AlternativeEmailAddresses',  # noqa: E501
-        'custom_fields': 'CustomFields',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'primary_email_address': 'primaryEmailAddress',  # noqa: E501
+        'identifier': 'identifier',  # noqa: E501
+        'full_name': 'fullName',  # noqa: E501
+        'address': 'address',  # noqa: E501
+        'linked_in_profile': 'linkedInProfile',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
+        'employer': 'employer',  # noqa: E501
+        'role': 'role',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'phone_numbers': 'phoneNumbers',  # noqa: E501
+        'alternative_email_addresses': 'alternativeEmailAddresses',  # noqa: E501
+        'custom_fields': 'customFields',  # noqa: E501
     }
 
     read_only_vars = {

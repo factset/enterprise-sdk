@@ -2,6 +2,7 @@
 
 # PostBasicValueUnitCurrencyMainListRequest
 
+Request Body
 
 ## Properties
 

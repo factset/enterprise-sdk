@@ -87,10 +87,10 @@ class AttachmentSummaryDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'file_name': 'FileName',  # noqa: E501
-        'mime_type': 'MimeType',  # noqa: E501
-        'size': 'Size',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'file_name': 'fileName',  # noqa: E501
+        'mime_type': 'mimeType',  # noqa: E501
+        'size': 'size',  # noqa: E501
     }
 
     read_only_vars = {

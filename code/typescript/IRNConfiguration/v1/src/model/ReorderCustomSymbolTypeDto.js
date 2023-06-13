@@ -46,8 +46,8 @@ class ReorderCustomSymbolTypeDto {
         if (data) {
             obj = obj || new ReorderCustomSymbolTypeDto();
 
-            if (data.hasOwnProperty('Ids')) {
-                obj['Ids'] = ApiClient.convertToType(data['Ids'], ['String']);
+            if (data.hasOwnProperty('ids')) {
+                obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class ReorderCustomSymbolTypeDto {
 }
 
 /**
- * @member {Array.<String>} Ids
+ * @member {Array.<String>} ids
  */
-ReorderCustomSymbolTypeDto.prototype['Ids'] = undefined;
+ReorderCustomSymbolTypeDto.prototype['ids'] = undefined;
 
 
 

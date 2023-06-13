@@ -5,7 +5,7 @@ The data member contains the request's primary data.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | [**PostNotationSearchByTextRequestDataText**](PostNotationSearchByTextRequestDataText.md) |  | [optional] 
+**text** | [**PostNotationSearchByTextRequestDataText**](PostNotationSearchByTextRequestDataText.md) |  | 
 **validation** | [**PostNotationSearchByTextRequestDataValidation**](PostNotationSearchByTextRequestDataValidation.md) |  | [optional] 
 **asset_classes** | [**PostNotationSearchByTextRequestDataAssetClasses**](PostNotationSearchByTextRequestDataAssetClasses.md) |  | [optional] 
 **market** | [**PostNotationSearchByTextRequestDataMarket**](PostNotationSearchByTextRequestDataMarket.md) |  | [optional] 

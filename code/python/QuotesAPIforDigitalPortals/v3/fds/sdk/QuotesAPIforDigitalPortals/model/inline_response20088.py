@@ -31,9 +31,9 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20088_data import InlineResponse20088Data
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20088_meta import InlineResponse20088Meta
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response200_meta import InlineResponse200Meta
     globals()['InlineResponse20088Data'] = InlineResponse20088Data
-    globals()['InlineResponse20088Meta'] = InlineResponse20088Meta
+    globals()['InlineResponse200Meta'] = InlineResponse200Meta
 
 
 class InlineResponse20088(ModelNormal):
@@ -90,7 +90,7 @@ class InlineResponse20088(ModelNormal):
         lazy_import()
         return {
             'data': (InlineResponse20088Data,),  # noqa: E501
-            'meta': (InlineResponse20088Meta,),  # noqa: E501
+            'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -145,7 +145,7 @@ class InlineResponse20088(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (InlineResponse20088Data): [optional]  # noqa: E501
-            meta (InlineResponse20088Meta): [optional]  # noqa: E501
+            meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class InlineResponse20088(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (InlineResponse20088Data): [optional]  # noqa: E501
-            meta (InlineResponse20088Meta): [optional]  # noqa: E501
+            meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

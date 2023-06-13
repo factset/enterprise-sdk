@@ -31,8 +31,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * ErrorMetaObject
+ * The meta member contains the meta information of the response.
  */
+@ApiModel(description = "The meta member contains the meta information of the response.")
 @JsonPropertyOrder({
   ErrorMetaObject.JSON_PROPERTY_STATUS
 })

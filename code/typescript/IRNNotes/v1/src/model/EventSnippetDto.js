@@ -46,20 +46,20 @@ class EventSnippetDto {
         if (data) {
             obj = obj || new EventSnippetDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('NoteId')) {
-                obj['NoteId'] = ApiClient.convertToType(data['NoteId'], 'String');
+            if (data.hasOwnProperty('noteId')) {
+                obj['noteId'] = ApiClient.convertToType(data['noteId'], 'String');
             }
-            if (data.hasOwnProperty('MeetingId')) {
-                obj['MeetingId'] = ApiClient.convertToType(data['MeetingId'], 'String');
+            if (data.hasOwnProperty('meetingId')) {
+                obj['meetingId'] = ApiClient.convertToType(data['meetingId'], 'String');
             }
-            if (data.hasOwnProperty('CreatedAt')) {
-                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'Date');
+            if (data.hasOwnProperty('createdAt')) {
+                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
             }
         }
         return obj;
@@ -69,29 +69,29 @@ class EventSnippetDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-EventSnippetDto.prototype['Id'] = undefined;
+EventSnippetDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Type
+ * @member {String} type
  */
-EventSnippetDto.prototype['Type'] = undefined;
+EventSnippetDto.prototype['type'] = undefined;
 
 /**
- * @member {String} NoteId
+ * @member {String} noteId
  */
-EventSnippetDto.prototype['NoteId'] = undefined;
+EventSnippetDto.prototype['noteId'] = undefined;
 
 /**
- * @member {String} MeetingId
+ * @member {String} meetingId
  */
-EventSnippetDto.prototype['MeetingId'] = undefined;
+EventSnippetDto.prototype['meetingId'] = undefined;
 
 /**
- * @member {Date} CreatedAt
+ * @member {Date} createdAt
  */
-EventSnippetDto.prototype['CreatedAt'] = undefined;
+EventSnippetDto.prototype['createdAt'] = undefined;
 
 
 

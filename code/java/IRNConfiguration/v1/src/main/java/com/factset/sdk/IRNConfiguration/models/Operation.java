@@ -48,7 +48,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class Operation implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_OPERATION_TYPE = "OperationType";
+  public static final String JSON_PROPERTY_OPERATION_TYPE = "operationType";
   private OperationType operationType;
 
   public static final String JSON_PROPERTY_PATH = "path";

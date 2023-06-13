@@ -17,9 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20036Fsym;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20038DataCategories;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20042DataNsin;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20090DataEvents;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20090DataRange;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,265 +36,167 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * The data member contains a list of the matching instruments
+ * List of trading schedule events for a notation.
  */
-@ApiModel(description = "The data member contains a list of the matching instruments")
+@ApiModel(description = "List of trading schedule events for a notation.")
 @JsonPropertyOrder({
-  InlineResponse20090Data.JSON_PROPERTY_ID,
-  InlineResponse20090Data.JSON_PROPERTY_NAME,
-  InlineResponse20090Data.JSON_PROPERTY_ISIN,
-  InlineResponse20090Data.JSON_PROPERTY_NSIN,
-  InlineResponse20090Data.JSON_PROPERTY_FSYM,
-  InlineResponse20090Data.JSON_PROPERTY_ASSET_CLASS,
-  InlineResponse20090Data.JSON_PROPERTY_TYPE
+  InlineResponse20090Data.JSON_PROPERTY_ID_NOTATION,
+  InlineResponse20090Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
+  InlineResponse20090Data.JSON_PROPERTY_RANGE,
+  InlineResponse20090Data.JSON_PROPERTY_EVENTS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20090Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<String> id = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_ID_NOTATION = "idNotation";
+  private JsonNullable<String> idNotation = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
+  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ISIN = "isin";
-  private JsonNullable<String> isin = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_RANGE = "range";
+  private JsonNullable<InlineResponse20090DataRange> range = JsonNullable.<InlineResponse20090DataRange>undefined();
 
-  public static final String JSON_PROPERTY_NSIN = "nsin";
-  private InlineResponse20042DataNsin nsin;
-
-  public static final String JSON_PROPERTY_FSYM = "fsym";
-  private InlineResponse20036Fsym fsym;
-
-  public static final String JSON_PROPERTY_ASSET_CLASS = "assetClass";
-  private JsonNullable<String> assetClass = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private java.util.List<InlineResponse20038DataCategories> type = null;
+  public static final String JSON_PROPERTY_EVENTS = "events";
+  private java.util.List<InlineResponse20090DataEvents> events = null;
 
   public InlineResponse20090Data() { 
   }
 
-  public InlineResponse20090Data id(String id) {
-    this.id = JsonNullable.<String>of(id);
+  public InlineResponse20090Data idNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
     return this;
   }
 
    /**
-   * Identifier of the instrument.
-   * @return id
+   * MDG identifier of the listing.
+   * @return idNotation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the instrument.")
+  @ApiModelProperty(value = "MDG identifier of the listing.")
   @JsonIgnore
 
-  public String getId() {
-        return id.orElse(null);
+  public String getIdNotation() {
+        return idNotation.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getId_JsonNullable() {
-    return id;
+  public JsonNullable<String> getIdNotation_JsonNullable() {
+    return idNotation;
   }
   
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<String> id) {
-    this.id = id;
+  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  public void setIdNotation_JsonNullable(JsonNullable<String> idNotation) {
+    this.idNotation = idNotation;
   }
 
-  public void setId(String id) {
-    this.id = JsonNullable.<String>of(id);
+  public void setIdNotation(String idNotation) {
+    this.idNotation = JsonNullable.<String>of(idNotation);
   }
 
 
-  public InlineResponse20090Data name(String name) {
-    this.name = JsonNullable.<String>of(name);
+  public InlineResponse20090Data sourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
     return this;
   }
 
    /**
-   * Asset class-unspecific name in English.
-   * @return name
+   * Identifier used in the request.
+   * @return sourceIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Asset class-unspecific name in English.")
+  @ApiModelProperty(value = "Identifier used in the request.")
   @JsonIgnore
 
-  public String getName() {
-        return name.orElse(null);
+  public String getSourceIdentifier() {
+        return sourceIdentifier.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getName_JsonNullable() {
-    return name;
+  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
+    return sourceIdentifier;
   }
   
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
+  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
   }
 
-  public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
   }
 
 
-  public InlineResponse20090Data isin(String isin) {
-    this.isin = JsonNullable.<String>of(isin);
+  public InlineResponse20090Data range(InlineResponse20090DataRange range) {
+    this.range = JsonNullable.<InlineResponse20090DataRange>of(range);
     return this;
   }
 
    /**
-   * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
-   * @return isin
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.")
-  @JsonIgnore
-
-  public String getIsin() {
-        return isin.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ISIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getIsin_JsonNullable() {
-    return isin;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ISIN)
-  public void setIsin_JsonNullable(JsonNullable<String> isin) {
-    this.isin = isin;
-  }
-
-  public void setIsin(String isin) {
-    this.isin = JsonNullable.<String>of(isin);
-  }
-
-
-  public InlineResponse20090Data nsin(InlineResponse20042DataNsin nsin) {
-    this.nsin = nsin;
-    return this;
-  }
-
-   /**
-   * Get nsin
-   * @return nsin
+   * Get range
+   * @return range
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NSIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20042DataNsin getNsin() {
-    return nsin;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NSIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNsin(InlineResponse20042DataNsin nsin) {
-    this.nsin = nsin;
-  }
-
-
-  public InlineResponse20090Data fsym(InlineResponse20036Fsym fsym) {
-    this.fsym = fsym;
-    return this;
-  }
-
-   /**
-   * Get fsym
-   * @return fsym
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20036Fsym getFsym() {
-    return fsym;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FSYM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsym(InlineResponse20036Fsym fsym) {
-    this.fsym = fsym;
-  }
-
-
-  public InlineResponse20090Data assetClass(String assetClass) {
-    this.assetClass = JsonNullable.<String>of(assetClass);
-    return this;
-  }
-
-   /**
-   * Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.
-   * @return assetClass
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.")
   @JsonIgnore
 
-  public String getAssetClass() {
-        return assetClass.orElse(null);
+  public InlineResponse20090DataRange getRange() {
+        return range.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
+  @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getAssetClass_JsonNullable() {
-    return assetClass;
+  public JsonNullable<InlineResponse20090DataRange> getRange_JsonNullable() {
+    return range;
   }
   
-  @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
-  public void setAssetClass_JsonNullable(JsonNullable<String> assetClass) {
-    this.assetClass = assetClass;
+  @JsonProperty(JSON_PROPERTY_RANGE)
+  public void setRange_JsonNullable(JsonNullable<InlineResponse20090DataRange> range) {
+    this.range = range;
   }
 
-  public void setAssetClass(String assetClass) {
-    this.assetClass = JsonNullable.<String>of(assetClass);
+  public void setRange(InlineResponse20090DataRange range) {
+    this.range = JsonNullable.<InlineResponse20090DataRange>of(range);
   }
 
 
-  public InlineResponse20090Data type(java.util.List<InlineResponse20038DataCategories> type) {
-    this.type = type;
+  public InlineResponse20090Data events(java.util.List<InlineResponse20090DataEvents> events) {
+    this.events = events;
     return this;
   }
 
-  public InlineResponse20090Data addTypeItem(InlineResponse20038DataCategories typeItem) {
-    if (this.type == null) {
-      this.type = new java.util.ArrayList<>();
+  public InlineResponse20090Data addEventsItem(InlineResponse20090DataEvents eventsItem) {
+    if (this.events == null) {
+      this.events = new java.util.ArrayList<>();
     }
-    this.type.add(typeItem);
+    this.events.add(eventsItem);
     return this;
   }
 
    /**
-   * Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
-   * @return type
+   * List of trading schedule events.
+   * @return events
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).")
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @ApiModelProperty(value = "List of trading schedule events.")
+  @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20038DataCategories> getType() {
-    return type;
+  public java.util.List<InlineResponse20090DataEvents> getEvents() {
+    return events;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(java.util.List<InlineResponse20038DataCategories> type) {
-    this.type = type;
+  public void setEvents(java.util.List<InlineResponse20090DataEvents> events) {
+    this.events = events;
   }
 
 
@@ -311,13 +212,10 @@ public class InlineResponse20090Data implements Serializable {
       return false;
     }
     InlineResponse20090Data inlineResponse20090Data = (InlineResponse20090Data) o;
-    return equalsNullable(this.id, inlineResponse20090Data.id) &&
-        equalsNullable(this.name, inlineResponse20090Data.name) &&
-        equalsNullable(this.isin, inlineResponse20090Data.isin) &&
-        Objects.equals(this.nsin, inlineResponse20090Data.nsin) &&
-        Objects.equals(this.fsym, inlineResponse20090Data.fsym) &&
-        equalsNullable(this.assetClass, inlineResponse20090Data.assetClass) &&
-        Objects.equals(this.type, inlineResponse20090Data.type);
+    return equalsNullable(this.idNotation, inlineResponse20090Data.idNotation) &&
+        equalsNullable(this.sourceIdentifier, inlineResponse20090Data.sourceIdentifier) &&
+        equalsNullable(this.range, inlineResponse20090Data.range) &&
+        Objects.equals(this.events, inlineResponse20090Data.events);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -326,7 +224,7 @@ public class InlineResponse20090Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(isin), nsin, fsym, hashCodeNullable(assetClass), type);
+    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), hashCodeNullable(range), events);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -340,13 +238,10 @@ public class InlineResponse20090Data implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20090Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    isin: ").append(toIndentedString(isin)).append("\n");
-    sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
-    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
-    sb.append("    assetClass: ").append(toIndentedString(assetClass)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
+    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    range: ").append(toIndentedString(range)).append("\n");
+    sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("}");
     return sb.toString();
   }

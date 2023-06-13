@@ -86,9 +86,9 @@ class OptionsConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'multi_select_enabled': 'MultiSelectEnabled',  # noqa: E501
-        'on_the_fly_enabled': 'OnTheFlyEnabled',  # noqa: E501
-        'options': 'Options',  # noqa: E501
+        'multi_select_enabled': 'multiSelectEnabled',  # noqa: E501
+        'on_the_fly_enabled': 'onTheFlyEnabled',  # noqa: E501
+        'options': 'options',  # noqa: E501
     }
 
     read_only_vars = {

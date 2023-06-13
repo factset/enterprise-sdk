@@ -22,6 +22,7 @@ import PostInstrumentCrossReferenceListByWKNRequestData from './PostInstrumentCr
 class PostInstrumentCrossReferenceListByWKNRequest {
     /**
      * Constructs a new <code>PostInstrumentCrossReferenceListByWKNRequest</code>.
+     * Request Body
      * @alias module:model/PostInstrumentCrossReferenceListByWKNRequest
      * @param data {module:model/PostInstrumentCrossReferenceListByWKNRequestData} 
      */

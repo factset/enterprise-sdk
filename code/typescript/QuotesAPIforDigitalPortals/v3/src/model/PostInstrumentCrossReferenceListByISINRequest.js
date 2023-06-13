@@ -22,6 +22,7 @@ import PostInstrumentCrossReferenceListByISINRequestData from './PostInstrumentC
 class PostInstrumentCrossReferenceListByISINRequest {
     /**
      * Constructs a new <code>PostInstrumentCrossReferenceListByISINRequest</code>.
+     * Request Body
      * @alias module:model/PostInstrumentCrossReferenceListByISINRequest
      * @param data {module:model/PostInstrumentCrossReferenceListByISINRequestData} 
      */

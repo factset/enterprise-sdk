@@ -35,7 +35,7 @@ class CreateCustomFieldValueDto {
      * Only for internal use.
      */
     static initialize(obj, code) { 
-        obj['Code'] = code;
+        obj['code'] = code;
     }
 
     /**
@@ -49,35 +49,35 @@ class CreateCustomFieldValueDto {
         if (data) {
             obj = obj || new CreateCustomFieldValueDto();
 
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('IntegerValue')) {
-                obj['IntegerValue'] = ApiClient.convertToType(data['IntegerValue'], 'Number');
+            if (data.hasOwnProperty('integerValue')) {
+                obj['integerValue'] = ApiClient.convertToType(data['integerValue'], 'Number');
             }
-            if (data.hasOwnProperty('TextValue')) {
-                obj['TextValue'] = ApiClient.convertToType(data['TextValue'], 'String');
+            if (data.hasOwnProperty('textValue')) {
+                obj['textValue'] = ApiClient.convertToType(data['textValue'], 'String');
             }
-            if (data.hasOwnProperty('FilePathValue')) {
-                obj['FilePathValue'] = ApiClient.convertToType(data['FilePathValue'], 'String');
+            if (data.hasOwnProperty('filePathValue')) {
+                obj['filePathValue'] = ApiClient.convertToType(data['filePathValue'], 'String');
             }
-            if (data.hasOwnProperty('NumericValue')) {
-                obj['NumericValue'] = ApiClient.convertToType(data['NumericValue'], 'Number');
+            if (data.hasOwnProperty('numericValue')) {
+                obj['numericValue'] = ApiClient.convertToType(data['numericValue'], 'Number');
             }
-            if (data.hasOwnProperty('DateValue')) {
-                obj['DateValue'] = ApiClient.convertToType(data['DateValue'], 'String');
+            if (data.hasOwnProperty('dateValue')) {
+                obj['dateValue'] = ApiClient.convertToType(data['dateValue'], 'String');
             }
-            if (data.hasOwnProperty('ExtendedTextValue')) {
-                obj['ExtendedTextValue'] = ApiClient.convertToType(data['ExtendedTextValue'], 'String');
+            if (data.hasOwnProperty('extendedTextValue')) {
+                obj['extendedTextValue'] = ApiClient.convertToType(data['extendedTextValue'], 'String');
             }
-            if (data.hasOwnProperty('ContactLookupValues')) {
-                obj['ContactLookupValues'] = ApiClient.convertToType(data['ContactLookupValues'], ['String']);
+            if (data.hasOwnProperty('contactLookupValues')) {
+                obj['contactLookupValues'] = ApiClient.convertToType(data['contactLookupValues'], ['String']);
             }
-            if (data.hasOwnProperty('OptionValue')) {
-                obj['OptionValue'] = ApiClient.convertToType(data['OptionValue'], 'String');
+            if (data.hasOwnProperty('optionValue')) {
+                obj['optionValue'] = ApiClient.convertToType(data['optionValue'], 'String');
             }
-            if (data.hasOwnProperty('OptionValues')) {
-                obj['OptionValues'] = ApiClient.convertToType(data['OptionValues'], ['String']);
+            if (data.hasOwnProperty('optionValues')) {
+                obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['String']);
             }
         }
         return obj;
@@ -87,54 +87,54 @@ class CreateCustomFieldValueDto {
 }
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-CreateCustomFieldValueDto.prototype['Code'] = undefined;
+CreateCustomFieldValueDto.prototype['code'] = undefined;
 
 /**
- * @member {Number} IntegerValue
+ * @member {Number} integerValue
  */
-CreateCustomFieldValueDto.prototype['IntegerValue'] = undefined;
+CreateCustomFieldValueDto.prototype['integerValue'] = undefined;
 
 /**
- * @member {String} TextValue
+ * @member {String} textValue
  */
-CreateCustomFieldValueDto.prototype['TextValue'] = undefined;
+CreateCustomFieldValueDto.prototype['textValue'] = undefined;
 
 /**
- * @member {String} FilePathValue
+ * @member {String} filePathValue
  */
-CreateCustomFieldValueDto.prototype['FilePathValue'] = undefined;
+CreateCustomFieldValueDto.prototype['filePathValue'] = undefined;
 
 /**
- * @member {Number} NumericValue
+ * @member {Number} numericValue
  */
-CreateCustomFieldValueDto.prototype['NumericValue'] = undefined;
+CreateCustomFieldValueDto.prototype['numericValue'] = undefined;
 
 /**
- * @member {String} DateValue
+ * @member {String} dateValue
  */
-CreateCustomFieldValueDto.prototype['DateValue'] = undefined;
+CreateCustomFieldValueDto.prototype['dateValue'] = undefined;
 
 /**
- * @member {String} ExtendedTextValue
+ * @member {String} extendedTextValue
  */
-CreateCustomFieldValueDto.prototype['ExtendedTextValue'] = undefined;
+CreateCustomFieldValueDto.prototype['extendedTextValue'] = undefined;
 
 /**
- * @member {Array.<String>} ContactLookupValues
+ * @member {Array.<String>} contactLookupValues
  */
-CreateCustomFieldValueDto.prototype['ContactLookupValues'] = undefined;
+CreateCustomFieldValueDto.prototype['contactLookupValues'] = undefined;
 
 /**
- * @member {String} OptionValue
+ * @member {String} optionValue
  */
-CreateCustomFieldValueDto.prototype['OptionValue'] = undefined;
+CreateCustomFieldValueDto.prototype['optionValue'] = undefined;
 
 /**
- * @member {Array.<String>} OptionValues
+ * @member {Array.<String>} optionValues
  */
-CreateCustomFieldValueDto.prototype['OptionValues'] = undefined;
+CreateCustomFieldValueDto.prototype['optionValues'] = undefined;
 
 
 

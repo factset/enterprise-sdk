@@ -22,6 +22,7 @@ import PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest
 class PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest {
     /**
      * Constructs a new <code>PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest</code>.
+     * Request Body
      * @alias module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest
      * @param data {module:model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData} 
      */

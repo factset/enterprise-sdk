@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// The data member contains a list of the matching notations.
+    /// InlineResponse20091Data
     /// </summary>
     [DataContract(Name = "inline_response_200_91_data")]
     public partial class InlineResponse20091Data : IEquatable<InlineResponse20091Data>, IValidatableObject
@@ -34,51 +34,36 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20091Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of the notation..</param>
-        /// <param name="symbol">The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market..</param>
-        /// <param name="nsin">nsin.</param>
-        /// <param name="price">price.</param>
-        /// <param name="instrument">instrument.</param>
-        public InlineResponse20091Data(string id = default(string), string symbol = default(string), InlineResponse20091Nsin nsin = default(InlineResponse20091Nsin), InlineResponse20091Price price = default(InlineResponse20091Price), InlineResponse20091Instrument instrument = default(InlineResponse20091Instrument))
+        /// <param name="id">Identifier of the type..</param>
+        /// <param name="code">Code of the type..</param>
+        /// <param name="description">Description of the type in english language..</param>
+        public InlineResponse20091Data(decimal? id = default(decimal?), string code = default(string), string description = default(string))
         {
             this.Id = id;
-            this.Symbol = symbol;
-            this.Nsin = nsin;
-            this.Price = price;
-            this.Instrument = instrument;
+            this.Code = code;
+            this.Description = description;
         }
 
         /// <summary>
-        /// Identifier of the notation.
+        /// Identifier of the type.
         /// </summary>
-        /// <value>Identifier of the notation.</value>
+        /// <value>Identifier of the type.</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; set; }
+        public decimal? Id { get; set; }
 
         /// <summary>
-        /// The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
+        /// Code of the type.
         /// </summary>
-        /// <value>The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.</value>
-        [DataMember(Name = "symbol", EmitDefaultValue = true)]
-        public string Symbol { get; set; }
+        /// <value>Code of the type.</value>
+        [DataMember(Name = "code", EmitDefaultValue = true)]
+        public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Nsin
+        /// Description of the type in english language.
         /// </summary>
-        [DataMember(Name = "nsin", EmitDefaultValue = false)]
-        public InlineResponse20091Nsin Nsin { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Price
-        /// </summary>
-        [DataMember(Name = "price", EmitDefaultValue = false)]
-        public InlineResponse20091Price Price { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Instrument
-        /// </summary>
-        [DataMember(Name = "instrument", EmitDefaultValue = false)]
-        public InlineResponse20091Instrument Instrument { get; set; }
+        /// <value>Description of the type in english language.</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,10 +74,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20091Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Symbol: ").Append(Symbol).Append("\n");
-            sb.Append("  Nsin: ").Append(Nsin).Append("\n");
-            sb.Append("  Price: ").Append(Price).Append("\n");
-            sb.Append("  Instrument: ").Append(Instrument).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,24 +117,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Symbol == input.Symbol ||
-                    (this.Symbol != null &&
-                    this.Symbol.Equals(input.Symbol))
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.Nsin == input.Nsin ||
-                    (this.Nsin != null &&
-                    this.Nsin.Equals(input.Nsin))
-                ) && 
-                (
-                    this.Price == input.Price ||
-                    (this.Price != null &&
-                    this.Price.Equals(input.Price))
-                ) && 
-                (
-                    this.Instrument == input.Instrument ||
-                    (this.Instrument != null &&
-                    this.Instrument.Equals(input.Instrument))
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -168,21 +141,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Symbol != null)
+                if (this.Code != null)
                 {
-                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
-                if (this.Nsin != null)
+                if (this.Description != null)
                 {
-                    hashCode = (hashCode * 59) + this.Nsin.GetHashCode();
-                }
-                if (this.Price != null)
-                {
-                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
-                }
-                if (this.Instrument != null)
-                {
-                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
                 return hashCode;
             }

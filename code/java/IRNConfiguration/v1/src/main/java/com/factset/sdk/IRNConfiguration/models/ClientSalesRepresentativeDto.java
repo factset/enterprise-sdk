@@ -44,10 +44,10 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ClientSalesRepresentativeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FULLNAME = "Fullname";
+  public static final String JSON_PROPERTY_FULLNAME = "fullname";
   private JsonNullable<String> fullname = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_EMAIL_ADDRESS = "EmailAddress";
+  public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
   private JsonNullable<String> emailAddress = JsonNullable.<String>undefined();
 
   public ClientSalesRepresentativeDto() { 

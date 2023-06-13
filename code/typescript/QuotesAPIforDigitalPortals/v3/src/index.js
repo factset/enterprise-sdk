@@ -274,44 +274,45 @@ import InlineResponse20066Data from './model/InlineResponse20066Data';
 import InlineResponse20066Status from './model/InlineResponse20066Status';
 import InlineResponse20067 from './model/InlineResponse20067';
 import InlineResponse20067Data from './model/InlineResponse20067Data';
-import InlineResponse20067DataInstrument from './model/InlineResponse20067DataInstrument';
-import InlineResponse20067DataMarket from './model/InlineResponse20067DataMarket';
-import InlineResponse20067DataValueUnit from './model/InlineResponse20067DataValueUnit';
+import InlineResponse20067Dataset from './model/InlineResponse20067Dataset';
 import InlineResponse20068 from './model/InlineResponse20068';
 import InlineResponse20068Data from './model/InlineResponse20068Data';
-import InlineResponse20068DataNotations from './model/InlineResponse20068DataNotations';
+import InlineResponse20068DataInstrument from './model/InlineResponse20068DataInstrument';
+import InlineResponse20068DataMarket from './model/InlineResponse20068DataMarket';
+import InlineResponse20068DataValueUnit from './model/InlineResponse20068DataValueUnit';
 import InlineResponse20069 from './model/InlineResponse20069';
+import InlineResponse20069Data from './model/InlineResponse20069Data';
+import InlineResponse20069DataNotations from './model/InlineResponse20069DataNotations';
 import InlineResponse2006Data from './model/InlineResponse2006Data';
 import InlineResponse2007 from './model/InlineResponse2007';
 import InlineResponse20070 from './model/InlineResponse20070';
-import InlineResponse20070Data from './model/InlineResponse20070Data';
-import InlineResponse20070Instrument from './model/InlineResponse20070Instrument';
 import InlineResponse20071 from './model/InlineResponse20071';
 import InlineResponse20071Data from './model/InlineResponse20071Data';
-import InlineResponse20071DataInstrument from './model/InlineResponse20071DataInstrument';
-import InlineResponse20071DataRegional from './model/InlineResponse20071DataRegional';
-import InlineResponse20071DataRegionalListing from './model/InlineResponse20071DataRegionalListing';
+import InlineResponse20071Instrument from './model/InlineResponse20071Instrument';
 import InlineResponse20072 from './model/InlineResponse20072';
 import InlineResponse20072Data from './model/InlineResponse20072Data';
 import InlineResponse20072DataInstrument from './model/InlineResponse20072DataInstrument';
-import InlineResponse20072DataListing from './model/InlineResponse20072DataListing';
-import InlineResponse20072DataNotation from './model/InlineResponse20072DataNotation';
 import InlineResponse20072DataRegional from './model/InlineResponse20072DataRegional';
+import InlineResponse20072DataRegionalListing from './model/InlineResponse20072DataRegionalListing';
 import InlineResponse20073 from './model/InlineResponse20073';
 import InlineResponse20073Data from './model/InlineResponse20073Data';
+import InlineResponse20073DataInstrument from './model/InlineResponse20073DataInstrument';
+import InlineResponse20073DataListing from './model/InlineResponse20073DataListing';
+import InlineResponse20073DataNotation from './model/InlineResponse20073DataNotation';
+import InlineResponse20073DataRegional from './model/InlineResponse20073DataRegional';
 import InlineResponse20074 from './model/InlineResponse20074';
 import InlineResponse20074Data from './model/InlineResponse20074Data';
-import InlineResponse20074DataHigh from './model/InlineResponse20074DataHigh';
-import InlineResponse20074DataLow from './model/InlineResponse20074DataLow';
-import InlineResponse20074DataPerformance from './model/InlineResponse20074DataPerformance';
 import InlineResponse20075 from './model/InlineResponse20075';
 import InlineResponse20075Data from './model/InlineResponse20075Data';
-import InlineResponse20075Status from './model/InlineResponse20075Status';
+import InlineResponse20075DataHigh from './model/InlineResponse20075DataHigh';
+import InlineResponse20075DataLow from './model/InlineResponse20075DataLow';
+import InlineResponse20075DataPerformance from './model/InlineResponse20075DataPerformance';
 import InlineResponse20076 from './model/InlineResponse20076';
 import InlineResponse20076Data from './model/InlineResponse20076Data';
-import InlineResponse20076DataTradingVolume from './model/InlineResponse20076DataTradingVolume';
+import InlineResponse20076Status from './model/InlineResponse20076Status';
 import InlineResponse20077 from './model/InlineResponse20077';
 import InlineResponse20077Data from './model/InlineResponse20077Data';
+import InlineResponse20077DataTradingVolume from './model/InlineResponse20077DataTradingVolume';
 import InlineResponse20078 from './model/InlineResponse20078';
 import InlineResponse20078Data from './model/InlineResponse20078Data';
 import InlineResponse20079 from './model/InlineResponse20079';
@@ -319,61 +320,62 @@ import InlineResponse20079Data from './model/InlineResponse20079Data';
 import InlineResponse2007Data from './model/InlineResponse2007Data';
 import InlineResponse2008 from './model/InlineResponse2008';
 import InlineResponse20080 from './model/InlineResponse20080';
-import InlineResponse20080Country from './model/InlineResponse20080Country';
 import InlineResponse20080Data from './model/InlineResponse20080Data';
-import InlineResponse20080Group from './model/InlineResponse20080Group';
-import InlineResponse20080Timezone from './model/InlineResponse20080Timezone';
-import InlineResponse20080Type from './model/InlineResponse20080Type';
 import InlineResponse20081 from './model/InlineResponse20081';
 import InlineResponse20081Data from './model/InlineResponse20081Data';
-import InlineResponse20081DataMarket from './model/InlineResponse20081DataMarket';
+import InlineResponse20081DataPrice from './model/InlineResponse20081DataPrice';
+import InlineResponse20081DataValue from './model/InlineResponse20081DataValue';
+import InlineResponse20081DataVolume from './model/InlineResponse20081DataVolume';
 import InlineResponse20082 from './model/InlineResponse20082';
+import InlineResponse20082Country from './model/InlineResponse20082Country';
 import InlineResponse20082Data from './model/InlineResponse20082Data';
-import InlineResponse20082DataAccumulated from './model/InlineResponse20082DataAccumulated';
-import InlineResponse20082DataCurrency from './model/InlineResponse20082DataCurrency';
-import InlineResponse20082DataFirst from './model/InlineResponse20082DataFirst';
-import InlineResponse20082DataHigh from './model/InlineResponse20082DataHigh';
-import InlineResponse20082DataLatest from './model/InlineResponse20082DataLatest';
-import InlineResponse20082DataLatestPerformance from './model/InlineResponse20082DataLatestPerformance';
-import InlineResponse20082DataLatestPerformanceIntraday from './model/InlineResponse20082DataLatestPerformanceIntraday';
-import InlineResponse20082DataLow from './model/InlineResponse20082DataLow';
-import InlineResponse20082DataMarket from './model/InlineResponse20082DataMarket';
-import InlineResponse20082DataPreviousClose from './model/InlineResponse20082DataPreviousClose';
-import InlineResponse20082DataValueUnit from './model/InlineResponse20082DataValueUnit';
+import InlineResponse20082Group from './model/InlineResponse20082Group';
+import InlineResponse20082Timezone from './model/InlineResponse20082Timezone';
+import InlineResponse20082Type from './model/InlineResponse20082Type';
 import InlineResponse20083 from './model/InlineResponse20083';
-import InlineResponse20083Accumulated from './model/InlineResponse20083Accumulated';
 import InlineResponse20083Data from './model/InlineResponse20083Data';
-import InlineResponse20083First from './model/InlineResponse20083First';
-import InlineResponse20083High from './model/InlineResponse20083High';
-import InlineResponse20083Latest from './model/InlineResponse20083Latest';
-import InlineResponse20083LatestPerformance from './model/InlineResponse20083LatestPerformance';
-import InlineResponse20083LatestPerformanceIntraday from './model/InlineResponse20083LatestPerformanceIntraday';
-import InlineResponse20083Low from './model/InlineResponse20083Low';
-import InlineResponse20083Market from './model/InlineResponse20083Market';
-import InlineResponse20083PreviousClose from './model/InlineResponse20083PreviousClose';
-import InlineResponse20083Status from './model/InlineResponse20083Status';
+import InlineResponse20083DataMarket from './model/InlineResponse20083DataMarket';
+import InlineResponse20083DataRegional from './model/InlineResponse20083DataRegional';
+import InlineResponse20083DataRegionalUs from './model/InlineResponse20083DataRegionalUs';
 import InlineResponse20084 from './model/InlineResponse20084';
 import InlineResponse20084Data from './model/InlineResponse20084Data';
-import InlineResponse20084DataAsk from './model/InlineResponse20084DataAsk';
-import InlineResponse20084DataBid from './model/InlineResponse20084DataBid';
+import InlineResponse20084DataAccumulated from './model/InlineResponse20084DataAccumulated';
+import InlineResponse20084DataCurrency from './model/InlineResponse20084DataCurrency';
+import InlineResponse20084DataFirst from './model/InlineResponse20084DataFirst';
+import InlineResponse20084DataHigh from './model/InlineResponse20084DataHigh';
+import InlineResponse20084DataLatest from './model/InlineResponse20084DataLatest';
+import InlineResponse20084DataLatestPerformance from './model/InlineResponse20084DataLatestPerformance';
+import InlineResponse20084DataLatestPerformanceIntraday from './model/InlineResponse20084DataLatestPerformanceIntraday';
+import InlineResponse20084DataLow from './model/InlineResponse20084DataLow';
+import InlineResponse20084DataMarket from './model/InlineResponse20084DataMarket';
+import InlineResponse20084DataPreviousClose from './model/InlineResponse20084DataPreviousClose';
+import InlineResponse20084DataValueUnit from './model/InlineResponse20084DataValueUnit';
 import InlineResponse20085 from './model/InlineResponse20085';
-import InlineResponse20085Ask from './model/InlineResponse20085Ask';
-import InlineResponse20085Bid from './model/InlineResponse20085Bid';
+import InlineResponse20085Accumulated from './model/InlineResponse20085Accumulated';
 import InlineResponse20085Data from './model/InlineResponse20085Data';
+import InlineResponse20085First from './model/InlineResponse20085First';
+import InlineResponse20085High from './model/InlineResponse20085High';
+import InlineResponse20085Latest from './model/InlineResponse20085Latest';
+import InlineResponse20085LatestPerformance from './model/InlineResponse20085LatestPerformance';
+import InlineResponse20085LatestPerformanceIntraday from './model/InlineResponse20085LatestPerformanceIntraday';
+import InlineResponse20085Low from './model/InlineResponse20085Low';
+import InlineResponse20085Market from './model/InlineResponse20085Market';
+import InlineResponse20085PreviousClose from './model/InlineResponse20085PreviousClose';
+import InlineResponse20085Status from './model/InlineResponse20085Status';
 import InlineResponse20086 from './model/InlineResponse20086';
 import InlineResponse20086Data from './model/InlineResponse20086Data';
-import InlineResponse20086DataAsks from './model/InlineResponse20086DataAsks';
+import InlineResponse20086DataAsk from './model/InlineResponse20086DataAsk';
+import InlineResponse20086DataBid from './model/InlineResponse20086DataBid';
 import InlineResponse20087 from './model/InlineResponse20087';
+import InlineResponse20087Ask from './model/InlineResponse20087Ask';
+import InlineResponse20087Bid from './model/InlineResponse20087Bid';
 import InlineResponse20087Data from './model/InlineResponse20087Data';
-import InlineResponse20087DataAsks from './model/InlineResponse20087DataAsks';
 import InlineResponse20088 from './model/InlineResponse20088';
 import InlineResponse20088Data from './model/InlineResponse20088Data';
-import InlineResponse20088DataEvents from './model/InlineResponse20088DataEvents';
-import InlineResponse20088DataRange from './model/InlineResponse20088DataRange';
-import InlineResponse20088DataType from './model/InlineResponse20088DataType';
-import InlineResponse20088Meta from './model/InlineResponse20088Meta';
+import InlineResponse20088DataAsks from './model/InlineResponse20088DataAsks';
 import InlineResponse20089 from './model/InlineResponse20089';
 import InlineResponse20089Data from './model/InlineResponse20089Data';
+import InlineResponse20089DataAsks from './model/InlineResponse20089DataAsks';
 import InlineResponse2008Data from './model/InlineResponse2008Data';
 import InlineResponse2008DataCountry from './model/InlineResponse2008DataCountry';
 import InlineResponse2008DataGroup from './model/InlineResponse2008DataGroup';
@@ -382,24 +384,32 @@ import InlineResponse2008DataType from './model/InlineResponse2008DataType';
 import InlineResponse2009 from './model/InlineResponse2009';
 import InlineResponse20090 from './model/InlineResponse20090';
 import InlineResponse20090Data from './model/InlineResponse20090Data';
+import InlineResponse20090DataEvents from './model/InlineResponse20090DataEvents';
+import InlineResponse20090DataRange from './model/InlineResponse20090DataRange';
+import InlineResponse20090DataType from './model/InlineResponse20090DataType';
+import InlineResponse20090Meta from './model/InlineResponse20090Meta';
 import InlineResponse20091 from './model/InlineResponse20091';
 import InlineResponse20091Data from './model/InlineResponse20091Data';
-import InlineResponse20091Instrument from './model/InlineResponse20091Instrument';
-import InlineResponse20091InstrumentNsin from './model/InlineResponse20091InstrumentNsin';
-import InlineResponse20091Nsin from './model/InlineResponse20091Nsin';
-import InlineResponse20091Price from './model/InlineResponse20091Price';
 import InlineResponse20092 from './model/InlineResponse20092';
 import InlineResponse20092Data from './model/InlineResponse20092Data';
-import InlineResponse20092Instrument from './model/InlineResponse20092Instrument';
-import InlineResponse20092InstrumentAssetClass from './model/InlineResponse20092InstrumentAssetClass';
-import InlineResponse20092InstrumentName from './model/InlineResponse20092InstrumentName';
-import InlineResponse20092InstrumentNameDefault from './model/InlineResponse20092InstrumentNameDefault';
-import InlineResponse20092TradingValue from './model/InlineResponse20092TradingValue';
-import InlineResponse20092TradingValueAverage from './model/InlineResponse20092TradingValueAverage';
-import InlineResponse20092ValueUnit from './model/InlineResponse20092ValueUnit';
 import InlineResponse20093 from './model/InlineResponse20093';
 import InlineResponse20093Data from './model/InlineResponse20093Data';
 import InlineResponse20093Instrument from './model/InlineResponse20093Instrument';
+import InlineResponse20093InstrumentNsin from './model/InlineResponse20093InstrumentNsin';
+import InlineResponse20093Nsin from './model/InlineResponse20093Nsin';
+import InlineResponse20093Price from './model/InlineResponse20093Price';
+import InlineResponse20094 from './model/InlineResponse20094';
+import InlineResponse20094Data from './model/InlineResponse20094Data';
+import InlineResponse20094Instrument from './model/InlineResponse20094Instrument';
+import InlineResponse20094InstrumentAssetClass from './model/InlineResponse20094InstrumentAssetClass';
+import InlineResponse20094InstrumentName from './model/InlineResponse20094InstrumentName';
+import InlineResponse20094InstrumentNameDefault from './model/InlineResponse20094InstrumentNameDefault';
+import InlineResponse20094TradingValue from './model/InlineResponse20094TradingValue';
+import InlineResponse20094TradingValueAverage from './model/InlineResponse20094TradingValueAverage';
+import InlineResponse20094ValueUnit from './model/InlineResponse20094ValueUnit';
+import InlineResponse20095 from './model/InlineResponse20095';
+import InlineResponse20095Data from './model/InlineResponse20095Data';
+import InlineResponse20095Instrument from './model/InlineResponse20095Instrument';
 import InlineResponse2009Country from './model/InlineResponse2009Country';
 import InlineResponse2009Data from './model/InlineResponse2009Data';
 import InlineResponse2009Group from './model/InlineResponse2009Group';
@@ -481,6 +491,10 @@ import PostInstrumentRatingGradeListRequest from './model/PostInstrumentRatingGr
 import PostInstrumentRatingGradeListRequestData from './model/PostInstrumentRatingGradeListRequestData';
 import PostInstrumentRatingGradeListRequestDataFilter from './model/PostInstrumentRatingGradeListRequestDataFilter';
 import PostInstrumentRatingGradeListRequestDataFilterRatingSystem from './model/PostInstrumentRatingGradeListRequestDataFilterRatingSystem';
+import PostNotationCategoryListRequest from './model/PostNotationCategoryListRequest';
+import PostNotationCategoryListRequestData from './model/PostNotationCategoryListRequestData';
+import PostNotationCategoryListRequestDataFilter from './model/PostNotationCategoryListRequestDataFilter';
+import PostNotationCategoryListRequestDataFilterDataset from './model/PostNotationCategoryListRequestDataFilterDataset';
 import PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest from './model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest';
 import PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData from './model/PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData';
 import PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest from './model/PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest';
@@ -2150,22 +2164,10 @@ export {
     InlineResponse20067Data,
 
     /**
-     * The InlineResponse20067DataInstrument model constructor.
-     * @property {module:model/InlineResponse20067DataInstrument}
+     * The InlineResponse20067Dataset model constructor.
+     * @property {module:model/InlineResponse20067Dataset}
      */
-    InlineResponse20067DataInstrument,
-
-    /**
-     * The InlineResponse20067DataMarket model constructor.
-     * @property {module:model/InlineResponse20067DataMarket}
-     */
-    InlineResponse20067DataMarket,
-
-    /**
-     * The InlineResponse20067DataValueUnit model constructor.
-     * @property {module:model/InlineResponse20067DataValueUnit}
-     */
-    InlineResponse20067DataValueUnit,
+    InlineResponse20067Dataset,
 
     /**
      * The InlineResponse20068 model constructor.
@@ -2180,16 +2182,40 @@ export {
     InlineResponse20068Data,
 
     /**
-     * The InlineResponse20068DataNotations model constructor.
-     * @property {module:model/InlineResponse20068DataNotations}
+     * The InlineResponse20068DataInstrument model constructor.
+     * @property {module:model/InlineResponse20068DataInstrument}
      */
-    InlineResponse20068DataNotations,
+    InlineResponse20068DataInstrument,
+
+    /**
+     * The InlineResponse20068DataMarket model constructor.
+     * @property {module:model/InlineResponse20068DataMarket}
+     */
+    InlineResponse20068DataMarket,
+
+    /**
+     * The InlineResponse20068DataValueUnit model constructor.
+     * @property {module:model/InlineResponse20068DataValueUnit}
+     */
+    InlineResponse20068DataValueUnit,
 
     /**
      * The InlineResponse20069 model constructor.
      * @property {module:model/InlineResponse20069}
      */
     InlineResponse20069,
+
+    /**
+     * The InlineResponse20069Data model constructor.
+     * @property {module:model/InlineResponse20069Data}
+     */
+    InlineResponse20069Data,
+
+    /**
+     * The InlineResponse20069DataNotations model constructor.
+     * @property {module:model/InlineResponse20069DataNotations}
+     */
+    InlineResponse20069DataNotations,
 
     /**
      * The InlineResponse2006Data model constructor.
@@ -2210,18 +2236,6 @@ export {
     InlineResponse20070,
 
     /**
-     * The InlineResponse20070Data model constructor.
-     * @property {module:model/InlineResponse20070Data}
-     */
-    InlineResponse20070Data,
-
-    /**
-     * The InlineResponse20070Instrument model constructor.
-     * @property {module:model/InlineResponse20070Instrument}
-     */
-    InlineResponse20070Instrument,
-
-    /**
      * The InlineResponse20071 model constructor.
      * @property {module:model/InlineResponse20071}
      */
@@ -2234,22 +2248,10 @@ export {
     InlineResponse20071Data,
 
     /**
-     * The InlineResponse20071DataInstrument model constructor.
-     * @property {module:model/InlineResponse20071DataInstrument}
+     * The InlineResponse20071Instrument model constructor.
+     * @property {module:model/InlineResponse20071Instrument}
      */
-    InlineResponse20071DataInstrument,
-
-    /**
-     * The InlineResponse20071DataRegional model constructor.
-     * @property {module:model/InlineResponse20071DataRegional}
-     */
-    InlineResponse20071DataRegional,
-
-    /**
-     * The InlineResponse20071DataRegionalListing model constructor.
-     * @property {module:model/InlineResponse20071DataRegionalListing}
-     */
-    InlineResponse20071DataRegionalListing,
+    InlineResponse20071Instrument,
 
     /**
      * The InlineResponse20072 model constructor.
@@ -2270,22 +2272,16 @@ export {
     InlineResponse20072DataInstrument,
 
     /**
-     * The InlineResponse20072DataListing model constructor.
-     * @property {module:model/InlineResponse20072DataListing}
-     */
-    InlineResponse20072DataListing,
-
-    /**
-     * The InlineResponse20072DataNotation model constructor.
-     * @property {module:model/InlineResponse20072DataNotation}
-     */
-    InlineResponse20072DataNotation,
-
-    /**
      * The InlineResponse20072DataRegional model constructor.
      * @property {module:model/InlineResponse20072DataRegional}
      */
     InlineResponse20072DataRegional,
+
+    /**
+     * The InlineResponse20072DataRegionalListing model constructor.
+     * @property {module:model/InlineResponse20072DataRegionalListing}
+     */
+    InlineResponse20072DataRegionalListing,
 
     /**
      * The InlineResponse20073 model constructor.
@@ -2300,6 +2296,30 @@ export {
     InlineResponse20073Data,
 
     /**
+     * The InlineResponse20073DataInstrument model constructor.
+     * @property {module:model/InlineResponse20073DataInstrument}
+     */
+    InlineResponse20073DataInstrument,
+
+    /**
+     * The InlineResponse20073DataListing model constructor.
+     * @property {module:model/InlineResponse20073DataListing}
+     */
+    InlineResponse20073DataListing,
+
+    /**
+     * The InlineResponse20073DataNotation model constructor.
+     * @property {module:model/InlineResponse20073DataNotation}
+     */
+    InlineResponse20073DataNotation,
+
+    /**
+     * The InlineResponse20073DataRegional model constructor.
+     * @property {module:model/InlineResponse20073DataRegional}
+     */
+    InlineResponse20073DataRegional,
+
+    /**
      * The InlineResponse20074 model constructor.
      * @property {module:model/InlineResponse20074}
      */
@@ -2310,24 +2330,6 @@ export {
      * @property {module:model/InlineResponse20074Data}
      */
     InlineResponse20074Data,
-
-    /**
-     * The InlineResponse20074DataHigh model constructor.
-     * @property {module:model/InlineResponse20074DataHigh}
-     */
-    InlineResponse20074DataHigh,
-
-    /**
-     * The InlineResponse20074DataLow model constructor.
-     * @property {module:model/InlineResponse20074DataLow}
-     */
-    InlineResponse20074DataLow,
-
-    /**
-     * The InlineResponse20074DataPerformance model constructor.
-     * @property {module:model/InlineResponse20074DataPerformance}
-     */
-    InlineResponse20074DataPerformance,
 
     /**
      * The InlineResponse20075 model constructor.
@@ -2342,10 +2344,22 @@ export {
     InlineResponse20075Data,
 
     /**
-     * The InlineResponse20075Status model constructor.
-     * @property {module:model/InlineResponse20075Status}
+     * The InlineResponse20075DataHigh model constructor.
+     * @property {module:model/InlineResponse20075DataHigh}
      */
-    InlineResponse20075Status,
+    InlineResponse20075DataHigh,
+
+    /**
+     * The InlineResponse20075DataLow model constructor.
+     * @property {module:model/InlineResponse20075DataLow}
+     */
+    InlineResponse20075DataLow,
+
+    /**
+     * The InlineResponse20075DataPerformance model constructor.
+     * @property {module:model/InlineResponse20075DataPerformance}
+     */
+    InlineResponse20075DataPerformance,
 
     /**
      * The InlineResponse20076 model constructor.
@@ -2360,10 +2374,10 @@ export {
     InlineResponse20076Data,
 
     /**
-     * The InlineResponse20076DataTradingVolume model constructor.
-     * @property {module:model/InlineResponse20076DataTradingVolume}
+     * The InlineResponse20076Status model constructor.
+     * @property {module:model/InlineResponse20076Status}
      */
-    InlineResponse20076DataTradingVolume,
+    InlineResponse20076Status,
 
     /**
      * The InlineResponse20077 model constructor.
@@ -2376,6 +2390,12 @@ export {
      * @property {module:model/InlineResponse20077Data}
      */
     InlineResponse20077Data,
+
+    /**
+     * The InlineResponse20077DataTradingVolume model constructor.
+     * @property {module:model/InlineResponse20077DataTradingVolume}
+     */
+    InlineResponse20077DataTradingVolume,
 
     /**
      * The InlineResponse20078 model constructor.
@@ -2420,34 +2440,10 @@ export {
     InlineResponse20080,
 
     /**
-     * The InlineResponse20080Country model constructor.
-     * @property {module:model/InlineResponse20080Country}
-     */
-    InlineResponse20080Country,
-
-    /**
      * The InlineResponse20080Data model constructor.
      * @property {module:model/InlineResponse20080Data}
      */
     InlineResponse20080Data,
-
-    /**
-     * The InlineResponse20080Group model constructor.
-     * @property {module:model/InlineResponse20080Group}
-     */
-    InlineResponse20080Group,
-
-    /**
-     * The InlineResponse20080Timezone model constructor.
-     * @property {module:model/InlineResponse20080Timezone}
-     */
-    InlineResponse20080Timezone,
-
-    /**
-     * The InlineResponse20080Type model constructor.
-     * @property {module:model/InlineResponse20080Type}
-     */
-    InlineResponse20080Type,
 
     /**
      * The InlineResponse20081 model constructor.
@@ -2462,10 +2458,22 @@ export {
     InlineResponse20081Data,
 
     /**
-     * The InlineResponse20081DataMarket model constructor.
-     * @property {module:model/InlineResponse20081DataMarket}
+     * The InlineResponse20081DataPrice model constructor.
+     * @property {module:model/InlineResponse20081DataPrice}
      */
-    InlineResponse20081DataMarket,
+    InlineResponse20081DataPrice,
+
+    /**
+     * The InlineResponse20081DataValue model constructor.
+     * @property {module:model/InlineResponse20081DataValue}
+     */
+    InlineResponse20081DataValue,
+
+    /**
+     * The InlineResponse20081DataVolume model constructor.
+     * @property {module:model/InlineResponse20081DataVolume}
+     */
+    InlineResponse20081DataVolume,
 
     /**
      * The InlineResponse20082 model constructor.
@@ -2474,76 +2482,34 @@ export {
     InlineResponse20082,
 
     /**
+     * The InlineResponse20082Country model constructor.
+     * @property {module:model/InlineResponse20082Country}
+     */
+    InlineResponse20082Country,
+
+    /**
      * The InlineResponse20082Data model constructor.
      * @property {module:model/InlineResponse20082Data}
      */
     InlineResponse20082Data,
 
     /**
-     * The InlineResponse20082DataAccumulated model constructor.
-     * @property {module:model/InlineResponse20082DataAccumulated}
+     * The InlineResponse20082Group model constructor.
+     * @property {module:model/InlineResponse20082Group}
      */
-    InlineResponse20082DataAccumulated,
+    InlineResponse20082Group,
 
     /**
-     * The InlineResponse20082DataCurrency model constructor.
-     * @property {module:model/InlineResponse20082DataCurrency}
+     * The InlineResponse20082Timezone model constructor.
+     * @property {module:model/InlineResponse20082Timezone}
      */
-    InlineResponse20082DataCurrency,
+    InlineResponse20082Timezone,
 
     /**
-     * The InlineResponse20082DataFirst model constructor.
-     * @property {module:model/InlineResponse20082DataFirst}
+     * The InlineResponse20082Type model constructor.
+     * @property {module:model/InlineResponse20082Type}
      */
-    InlineResponse20082DataFirst,
-
-    /**
-     * The InlineResponse20082DataHigh model constructor.
-     * @property {module:model/InlineResponse20082DataHigh}
-     */
-    InlineResponse20082DataHigh,
-
-    /**
-     * The InlineResponse20082DataLatest model constructor.
-     * @property {module:model/InlineResponse20082DataLatest}
-     */
-    InlineResponse20082DataLatest,
-
-    /**
-     * The InlineResponse20082DataLatestPerformance model constructor.
-     * @property {module:model/InlineResponse20082DataLatestPerformance}
-     */
-    InlineResponse20082DataLatestPerformance,
-
-    /**
-     * The InlineResponse20082DataLatestPerformanceIntraday model constructor.
-     * @property {module:model/InlineResponse20082DataLatestPerformanceIntraday}
-     */
-    InlineResponse20082DataLatestPerformanceIntraday,
-
-    /**
-     * The InlineResponse20082DataLow model constructor.
-     * @property {module:model/InlineResponse20082DataLow}
-     */
-    InlineResponse20082DataLow,
-
-    /**
-     * The InlineResponse20082DataMarket model constructor.
-     * @property {module:model/InlineResponse20082DataMarket}
-     */
-    InlineResponse20082DataMarket,
-
-    /**
-     * The InlineResponse20082DataPreviousClose model constructor.
-     * @property {module:model/InlineResponse20082DataPreviousClose}
-     */
-    InlineResponse20082DataPreviousClose,
-
-    /**
-     * The InlineResponse20082DataValueUnit model constructor.
-     * @property {module:model/InlineResponse20082DataValueUnit}
-     */
-    InlineResponse20082DataValueUnit,
+    InlineResponse20082Type,
 
     /**
      * The InlineResponse20083 model constructor.
@@ -2552,70 +2518,28 @@ export {
     InlineResponse20083,
 
     /**
-     * The InlineResponse20083Accumulated model constructor.
-     * @property {module:model/InlineResponse20083Accumulated}
-     */
-    InlineResponse20083Accumulated,
-
-    /**
      * The InlineResponse20083Data model constructor.
      * @property {module:model/InlineResponse20083Data}
      */
     InlineResponse20083Data,
 
     /**
-     * The InlineResponse20083First model constructor.
-     * @property {module:model/InlineResponse20083First}
+     * The InlineResponse20083DataMarket model constructor.
+     * @property {module:model/InlineResponse20083DataMarket}
      */
-    InlineResponse20083First,
+    InlineResponse20083DataMarket,
 
     /**
-     * The InlineResponse20083High model constructor.
-     * @property {module:model/InlineResponse20083High}
+     * The InlineResponse20083DataRegional model constructor.
+     * @property {module:model/InlineResponse20083DataRegional}
      */
-    InlineResponse20083High,
+    InlineResponse20083DataRegional,
 
     /**
-     * The InlineResponse20083Latest model constructor.
-     * @property {module:model/InlineResponse20083Latest}
+     * The InlineResponse20083DataRegionalUs model constructor.
+     * @property {module:model/InlineResponse20083DataRegionalUs}
      */
-    InlineResponse20083Latest,
-
-    /**
-     * The InlineResponse20083LatestPerformance model constructor.
-     * @property {module:model/InlineResponse20083LatestPerformance}
-     */
-    InlineResponse20083LatestPerformance,
-
-    /**
-     * The InlineResponse20083LatestPerformanceIntraday model constructor.
-     * @property {module:model/InlineResponse20083LatestPerformanceIntraday}
-     */
-    InlineResponse20083LatestPerformanceIntraday,
-
-    /**
-     * The InlineResponse20083Low model constructor.
-     * @property {module:model/InlineResponse20083Low}
-     */
-    InlineResponse20083Low,
-
-    /**
-     * The InlineResponse20083Market model constructor.
-     * @property {module:model/InlineResponse20083Market}
-     */
-    InlineResponse20083Market,
-
-    /**
-     * The InlineResponse20083PreviousClose model constructor.
-     * @property {module:model/InlineResponse20083PreviousClose}
-     */
-    InlineResponse20083PreviousClose,
-
-    /**
-     * The InlineResponse20083Status model constructor.
-     * @property {module:model/InlineResponse20083Status}
-     */
-    InlineResponse20083Status,
+    InlineResponse20083DataRegionalUs,
 
     /**
      * The InlineResponse20084 model constructor.
@@ -2630,16 +2554,70 @@ export {
     InlineResponse20084Data,
 
     /**
-     * The InlineResponse20084DataAsk model constructor.
-     * @property {module:model/InlineResponse20084DataAsk}
+     * The InlineResponse20084DataAccumulated model constructor.
+     * @property {module:model/InlineResponse20084DataAccumulated}
      */
-    InlineResponse20084DataAsk,
+    InlineResponse20084DataAccumulated,
 
     /**
-     * The InlineResponse20084DataBid model constructor.
-     * @property {module:model/InlineResponse20084DataBid}
+     * The InlineResponse20084DataCurrency model constructor.
+     * @property {module:model/InlineResponse20084DataCurrency}
      */
-    InlineResponse20084DataBid,
+    InlineResponse20084DataCurrency,
+
+    /**
+     * The InlineResponse20084DataFirst model constructor.
+     * @property {module:model/InlineResponse20084DataFirst}
+     */
+    InlineResponse20084DataFirst,
+
+    /**
+     * The InlineResponse20084DataHigh model constructor.
+     * @property {module:model/InlineResponse20084DataHigh}
+     */
+    InlineResponse20084DataHigh,
+
+    /**
+     * The InlineResponse20084DataLatest model constructor.
+     * @property {module:model/InlineResponse20084DataLatest}
+     */
+    InlineResponse20084DataLatest,
+
+    /**
+     * The InlineResponse20084DataLatestPerformance model constructor.
+     * @property {module:model/InlineResponse20084DataLatestPerformance}
+     */
+    InlineResponse20084DataLatestPerformance,
+
+    /**
+     * The InlineResponse20084DataLatestPerformanceIntraday model constructor.
+     * @property {module:model/InlineResponse20084DataLatestPerformanceIntraday}
+     */
+    InlineResponse20084DataLatestPerformanceIntraday,
+
+    /**
+     * The InlineResponse20084DataLow model constructor.
+     * @property {module:model/InlineResponse20084DataLow}
+     */
+    InlineResponse20084DataLow,
+
+    /**
+     * The InlineResponse20084DataMarket model constructor.
+     * @property {module:model/InlineResponse20084DataMarket}
+     */
+    InlineResponse20084DataMarket,
+
+    /**
+     * The InlineResponse20084DataPreviousClose model constructor.
+     * @property {module:model/InlineResponse20084DataPreviousClose}
+     */
+    InlineResponse20084DataPreviousClose,
+
+    /**
+     * The InlineResponse20084DataValueUnit model constructor.
+     * @property {module:model/InlineResponse20084DataValueUnit}
+     */
+    InlineResponse20084DataValueUnit,
 
     /**
      * The InlineResponse20085 model constructor.
@@ -2648,22 +2626,70 @@ export {
     InlineResponse20085,
 
     /**
-     * The InlineResponse20085Ask model constructor.
-     * @property {module:model/InlineResponse20085Ask}
+     * The InlineResponse20085Accumulated model constructor.
+     * @property {module:model/InlineResponse20085Accumulated}
      */
-    InlineResponse20085Ask,
-
-    /**
-     * The InlineResponse20085Bid model constructor.
-     * @property {module:model/InlineResponse20085Bid}
-     */
-    InlineResponse20085Bid,
+    InlineResponse20085Accumulated,
 
     /**
      * The InlineResponse20085Data model constructor.
      * @property {module:model/InlineResponse20085Data}
      */
     InlineResponse20085Data,
+
+    /**
+     * The InlineResponse20085First model constructor.
+     * @property {module:model/InlineResponse20085First}
+     */
+    InlineResponse20085First,
+
+    /**
+     * The InlineResponse20085High model constructor.
+     * @property {module:model/InlineResponse20085High}
+     */
+    InlineResponse20085High,
+
+    /**
+     * The InlineResponse20085Latest model constructor.
+     * @property {module:model/InlineResponse20085Latest}
+     */
+    InlineResponse20085Latest,
+
+    /**
+     * The InlineResponse20085LatestPerformance model constructor.
+     * @property {module:model/InlineResponse20085LatestPerformance}
+     */
+    InlineResponse20085LatestPerformance,
+
+    /**
+     * The InlineResponse20085LatestPerformanceIntraday model constructor.
+     * @property {module:model/InlineResponse20085LatestPerformanceIntraday}
+     */
+    InlineResponse20085LatestPerformanceIntraday,
+
+    /**
+     * The InlineResponse20085Low model constructor.
+     * @property {module:model/InlineResponse20085Low}
+     */
+    InlineResponse20085Low,
+
+    /**
+     * The InlineResponse20085Market model constructor.
+     * @property {module:model/InlineResponse20085Market}
+     */
+    InlineResponse20085Market,
+
+    /**
+     * The InlineResponse20085PreviousClose model constructor.
+     * @property {module:model/InlineResponse20085PreviousClose}
+     */
+    InlineResponse20085PreviousClose,
+
+    /**
+     * The InlineResponse20085Status model constructor.
+     * @property {module:model/InlineResponse20085Status}
+     */
+    InlineResponse20085Status,
 
     /**
      * The InlineResponse20086 model constructor.
@@ -2678,10 +2704,16 @@ export {
     InlineResponse20086Data,
 
     /**
-     * The InlineResponse20086DataAsks model constructor.
-     * @property {module:model/InlineResponse20086DataAsks}
+     * The InlineResponse20086DataAsk model constructor.
+     * @property {module:model/InlineResponse20086DataAsk}
      */
-    InlineResponse20086DataAsks,
+    InlineResponse20086DataAsk,
+
+    /**
+     * The InlineResponse20086DataBid model constructor.
+     * @property {module:model/InlineResponse20086DataBid}
+     */
+    InlineResponse20086DataBid,
 
     /**
      * The InlineResponse20087 model constructor.
@@ -2690,16 +2722,22 @@ export {
     InlineResponse20087,
 
     /**
+     * The InlineResponse20087Ask model constructor.
+     * @property {module:model/InlineResponse20087Ask}
+     */
+    InlineResponse20087Ask,
+
+    /**
+     * The InlineResponse20087Bid model constructor.
+     * @property {module:model/InlineResponse20087Bid}
+     */
+    InlineResponse20087Bid,
+
+    /**
      * The InlineResponse20087Data model constructor.
      * @property {module:model/InlineResponse20087Data}
      */
     InlineResponse20087Data,
-
-    /**
-     * The InlineResponse20087DataAsks model constructor.
-     * @property {module:model/InlineResponse20087DataAsks}
-     */
-    InlineResponse20087DataAsks,
 
     /**
      * The InlineResponse20088 model constructor.
@@ -2714,28 +2752,10 @@ export {
     InlineResponse20088Data,
 
     /**
-     * The InlineResponse20088DataEvents model constructor.
-     * @property {module:model/InlineResponse20088DataEvents}
+     * The InlineResponse20088DataAsks model constructor.
+     * @property {module:model/InlineResponse20088DataAsks}
      */
-    InlineResponse20088DataEvents,
-
-    /**
-     * The InlineResponse20088DataRange model constructor.
-     * @property {module:model/InlineResponse20088DataRange}
-     */
-    InlineResponse20088DataRange,
-
-    /**
-     * The InlineResponse20088DataType model constructor.
-     * @property {module:model/InlineResponse20088DataType}
-     */
-    InlineResponse20088DataType,
-
-    /**
-     * The InlineResponse20088Meta model constructor.
-     * @property {module:model/InlineResponse20088Meta}
-     */
-    InlineResponse20088Meta,
+    InlineResponse20088DataAsks,
 
     /**
      * The InlineResponse20089 model constructor.
@@ -2748,6 +2768,12 @@ export {
      * @property {module:model/InlineResponse20089Data}
      */
     InlineResponse20089Data,
+
+    /**
+     * The InlineResponse20089DataAsks model constructor.
+     * @property {module:model/InlineResponse20089DataAsks}
+     */
+    InlineResponse20089DataAsks,
 
     /**
      * The InlineResponse2008Data model constructor.
@@ -2798,6 +2824,30 @@ export {
     InlineResponse20090Data,
 
     /**
+     * The InlineResponse20090DataEvents model constructor.
+     * @property {module:model/InlineResponse20090DataEvents}
+     */
+    InlineResponse20090DataEvents,
+
+    /**
+     * The InlineResponse20090DataRange model constructor.
+     * @property {module:model/InlineResponse20090DataRange}
+     */
+    InlineResponse20090DataRange,
+
+    /**
+     * The InlineResponse20090DataType model constructor.
+     * @property {module:model/InlineResponse20090DataType}
+     */
+    InlineResponse20090DataType,
+
+    /**
+     * The InlineResponse20090Meta model constructor.
+     * @property {module:model/InlineResponse20090Meta}
+     */
+    InlineResponse20090Meta,
+
+    /**
      * The InlineResponse20091 model constructor.
      * @property {module:model/InlineResponse20091}
      */
@@ -2810,30 +2860,6 @@ export {
     InlineResponse20091Data,
 
     /**
-     * The InlineResponse20091Instrument model constructor.
-     * @property {module:model/InlineResponse20091Instrument}
-     */
-    InlineResponse20091Instrument,
-
-    /**
-     * The InlineResponse20091InstrumentNsin model constructor.
-     * @property {module:model/InlineResponse20091InstrumentNsin}
-     */
-    InlineResponse20091InstrumentNsin,
-
-    /**
-     * The InlineResponse20091Nsin model constructor.
-     * @property {module:model/InlineResponse20091Nsin}
-     */
-    InlineResponse20091Nsin,
-
-    /**
-     * The InlineResponse20091Price model constructor.
-     * @property {module:model/InlineResponse20091Price}
-     */
-    InlineResponse20091Price,
-
-    /**
      * The InlineResponse20092 model constructor.
      * @property {module:model/InlineResponse20092}
      */
@@ -2844,48 +2870,6 @@ export {
      * @property {module:model/InlineResponse20092Data}
      */
     InlineResponse20092Data,
-
-    /**
-     * The InlineResponse20092Instrument model constructor.
-     * @property {module:model/InlineResponse20092Instrument}
-     */
-    InlineResponse20092Instrument,
-
-    /**
-     * The InlineResponse20092InstrumentAssetClass model constructor.
-     * @property {module:model/InlineResponse20092InstrumentAssetClass}
-     */
-    InlineResponse20092InstrumentAssetClass,
-
-    /**
-     * The InlineResponse20092InstrumentName model constructor.
-     * @property {module:model/InlineResponse20092InstrumentName}
-     */
-    InlineResponse20092InstrumentName,
-
-    /**
-     * The InlineResponse20092InstrumentNameDefault model constructor.
-     * @property {module:model/InlineResponse20092InstrumentNameDefault}
-     */
-    InlineResponse20092InstrumentNameDefault,
-
-    /**
-     * The InlineResponse20092TradingValue model constructor.
-     * @property {module:model/InlineResponse20092TradingValue}
-     */
-    InlineResponse20092TradingValue,
-
-    /**
-     * The InlineResponse20092TradingValueAverage model constructor.
-     * @property {module:model/InlineResponse20092TradingValueAverage}
-     */
-    InlineResponse20092TradingValueAverage,
-
-    /**
-     * The InlineResponse20092ValueUnit model constructor.
-     * @property {module:model/InlineResponse20092ValueUnit}
-     */
-    InlineResponse20092ValueUnit,
 
     /**
      * The InlineResponse20093 model constructor.
@@ -2904,6 +2888,96 @@ export {
      * @property {module:model/InlineResponse20093Instrument}
      */
     InlineResponse20093Instrument,
+
+    /**
+     * The InlineResponse20093InstrumentNsin model constructor.
+     * @property {module:model/InlineResponse20093InstrumentNsin}
+     */
+    InlineResponse20093InstrumentNsin,
+
+    /**
+     * The InlineResponse20093Nsin model constructor.
+     * @property {module:model/InlineResponse20093Nsin}
+     */
+    InlineResponse20093Nsin,
+
+    /**
+     * The InlineResponse20093Price model constructor.
+     * @property {module:model/InlineResponse20093Price}
+     */
+    InlineResponse20093Price,
+
+    /**
+     * The InlineResponse20094 model constructor.
+     * @property {module:model/InlineResponse20094}
+     */
+    InlineResponse20094,
+
+    /**
+     * The InlineResponse20094Data model constructor.
+     * @property {module:model/InlineResponse20094Data}
+     */
+    InlineResponse20094Data,
+
+    /**
+     * The InlineResponse20094Instrument model constructor.
+     * @property {module:model/InlineResponse20094Instrument}
+     */
+    InlineResponse20094Instrument,
+
+    /**
+     * The InlineResponse20094InstrumentAssetClass model constructor.
+     * @property {module:model/InlineResponse20094InstrumentAssetClass}
+     */
+    InlineResponse20094InstrumentAssetClass,
+
+    /**
+     * The InlineResponse20094InstrumentName model constructor.
+     * @property {module:model/InlineResponse20094InstrumentName}
+     */
+    InlineResponse20094InstrumentName,
+
+    /**
+     * The InlineResponse20094InstrumentNameDefault model constructor.
+     * @property {module:model/InlineResponse20094InstrumentNameDefault}
+     */
+    InlineResponse20094InstrumentNameDefault,
+
+    /**
+     * The InlineResponse20094TradingValue model constructor.
+     * @property {module:model/InlineResponse20094TradingValue}
+     */
+    InlineResponse20094TradingValue,
+
+    /**
+     * The InlineResponse20094TradingValueAverage model constructor.
+     * @property {module:model/InlineResponse20094TradingValueAverage}
+     */
+    InlineResponse20094TradingValueAverage,
+
+    /**
+     * The InlineResponse20094ValueUnit model constructor.
+     * @property {module:model/InlineResponse20094ValueUnit}
+     */
+    InlineResponse20094ValueUnit,
+
+    /**
+     * The InlineResponse20095 model constructor.
+     * @property {module:model/InlineResponse20095}
+     */
+    InlineResponse20095,
+
+    /**
+     * The InlineResponse20095Data model constructor.
+     * @property {module:model/InlineResponse20095Data}
+     */
+    InlineResponse20095Data,
+
+    /**
+     * The InlineResponse20095Instrument model constructor.
+     * @property {module:model/InlineResponse20095Instrument}
+     */
+    InlineResponse20095Instrument,
 
     /**
      * The InlineResponse2009Country model constructor.
@@ -3390,6 +3464,30 @@ export {
      * @property {module:model/PostInstrumentRatingGradeListRequestDataFilterRatingSystem}
      */
     PostInstrumentRatingGradeListRequestDataFilterRatingSystem,
+
+    /**
+     * The PostNotationCategoryListRequest model constructor.
+     * @property {module:model/PostNotationCategoryListRequest}
+     */
+    PostNotationCategoryListRequest,
+
+    /**
+     * The PostNotationCategoryListRequestData model constructor.
+     * @property {module:model/PostNotationCategoryListRequestData}
+     */
+    PostNotationCategoryListRequestData,
+
+    /**
+     * The PostNotationCategoryListRequestDataFilter model constructor.
+     * @property {module:model/PostNotationCategoryListRequestDataFilter}
+     */
+    PostNotationCategoryListRequestDataFilter,
+
+    /**
+     * The PostNotationCategoryListRequestDataFilterDataset model constructor.
+     * @property {module:model/PostNotationCategoryListRequestDataFilterDataset}
+     */
+    PostNotationCategoryListRequestDataFilterDataset,
 
     /**
      * The PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest model constructor.

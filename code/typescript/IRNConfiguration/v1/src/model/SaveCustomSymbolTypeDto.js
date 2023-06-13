@@ -35,7 +35,7 @@ class SaveCustomSymbolTypeDto {
      * Only for internal use.
      */
     static initialize(obj, name) { 
-        obj['Name'] = name;
+        obj['name'] = name;
     }
 
     /**
@@ -49,26 +49,26 @@ class SaveCustomSymbolTypeDto {
         if (data) {
             obj = obj || new SaveCustomSymbolTypeDto();
 
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('HideAddressField')) {
-                obj['HideAddressField'] = ApiClient.convertToType(data['HideAddressField'], 'Boolean');
+            if (data.hasOwnProperty('hideAddressField')) {
+                obj['hideAddressField'] = ApiClient.convertToType(data['hideAddressField'], 'Boolean');
             }
-            if (data.hasOwnProperty('HideSymbolSubtype')) {
-                obj['HideSymbolSubtype'] = ApiClient.convertToType(data['HideSymbolSubtype'], 'Boolean');
+            if (data.hasOwnProperty('hideSymbolSubtype')) {
+                obj['hideSymbolSubtype'] = ApiClient.convertToType(data['hideSymbolSubtype'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsDefault')) {
-                obj['IsDefault'] = ApiClient.convertToType(data['IsDefault'], 'Boolean');
+            if (data.hasOwnProperty('isDefault')) {
+                obj['isDefault'] = ApiClient.convertToType(data['isDefault'], 'Boolean');
             }
-            if (data.hasOwnProperty('DueDiligenceSymbolEntityType')) {
-                obj['DueDiligenceSymbolEntityType'] = EntityType.constructFromObject(data['DueDiligenceSymbolEntityType']);
+            if (data.hasOwnProperty('dueDiligenceSymbolEntityType')) {
+                obj['dueDiligenceSymbolEntityType'] = EntityType.constructFromObject(data['dueDiligenceSymbolEntityType']);
             }
-            if (data.hasOwnProperty('SubTypes')) {
-                obj['SubTypes'] = ApiClient.convertToType(data['SubTypes'], ['String']);
+            if (data.hasOwnProperty('subTypes')) {
+                obj['subTypes'] = ApiClient.convertToType(data['subTypes'], ['String']);
             }
-            if (data.hasOwnProperty('CustomFieldIds')) {
-                obj['CustomFieldIds'] = ApiClient.convertToType(data['CustomFieldIds'], ['String']);
+            if (data.hasOwnProperty('customFieldIds')) {
+                obj['customFieldIds'] = ApiClient.convertToType(data['customFieldIds'], ['String']);
             }
         }
         return obj;
@@ -78,40 +78,40 @@ class SaveCustomSymbolTypeDto {
 }
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-SaveCustomSymbolTypeDto.prototype['Name'] = undefined;
+SaveCustomSymbolTypeDto.prototype['name'] = undefined;
 
 /**
- * @member {Boolean} HideAddressField
+ * @member {Boolean} hideAddressField
  */
-SaveCustomSymbolTypeDto.prototype['HideAddressField'] = undefined;
+SaveCustomSymbolTypeDto.prototype['hideAddressField'] = undefined;
 
 /**
- * @member {Boolean} HideSymbolSubtype
+ * @member {Boolean} hideSymbolSubtype
  */
-SaveCustomSymbolTypeDto.prototype['HideSymbolSubtype'] = undefined;
+SaveCustomSymbolTypeDto.prototype['hideSymbolSubtype'] = undefined;
 
 /**
- * @member {Boolean} IsDefault
+ * @member {Boolean} isDefault
  * @default false
  */
-SaveCustomSymbolTypeDto.prototype['IsDefault'] = false;
+SaveCustomSymbolTypeDto.prototype['isDefault'] = false;
 
 /**
- * @member {module:model/EntityType} DueDiligenceSymbolEntityType
+ * @member {module:model/EntityType} dueDiligenceSymbolEntityType
  */
-SaveCustomSymbolTypeDto.prototype['DueDiligenceSymbolEntityType'] = undefined;
+SaveCustomSymbolTypeDto.prototype['dueDiligenceSymbolEntityType'] = undefined;
 
 /**
- * @member {Array.<String>} SubTypes
+ * @member {Array.<String>} subTypes
  */
-SaveCustomSymbolTypeDto.prototype['SubTypes'] = undefined;
+SaveCustomSymbolTypeDto.prototype['subTypes'] = undefined;
 
 /**
- * @member {Array.<String>} CustomFieldIds
+ * @member {Array.<String>} customFieldIds
  */
-SaveCustomSymbolTypeDto.prototype['CustomFieldIds'] = undefined;
+SaveCustomSymbolTypeDto.prototype['customFieldIds'] = undefined;
 
 
 

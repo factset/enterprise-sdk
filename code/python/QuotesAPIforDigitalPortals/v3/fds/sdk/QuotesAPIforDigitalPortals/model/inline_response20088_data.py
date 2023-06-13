@@ -30,10 +30,8 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20088_data_events import InlineResponse20088DataEvents
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20088_data_range import InlineResponse20088DataRange
-    globals()['InlineResponse20088DataEvents'] = InlineResponse20088DataEvents
-    globals()['InlineResponse20088DataRange'] = InlineResponse20088DataRange
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20088_data_asks import InlineResponse20088DataAsks
+    globals()['InlineResponse20088DataAsks'] = InlineResponse20088DataAsks
 
 
 class InlineResponse20088Data(ModelNormal):
@@ -61,6 +59,11 @@ class InlineResponse20088Data(ModelNormal):
     """
 
     allowed_values = {
+        ('quality',): {
+            'None': None,
+            'RLT': "RLT",
+            'DLY': "DLY",
+        },
     }
 
     validations = {
@@ -91,8 +94,9 @@ class InlineResponse20088Data(ModelNormal):
         return {
             'id_notation': (str, none_type,),  # noqa: E501
             'source_identifier': (str, none_type,),  # noqa: E501
-            'range': (InlineResponse20088DataRange,),  # noqa: E501
-            'events': ([InlineResponse20088DataEvents],),  # noqa: E501
+            'quality': (str, none_type,),  # noqa: E501
+            'asks': ([InlineResponse20088DataAsks],),  # noqa: E501
+            'bids': ([InlineResponse20088DataAsks],),  # noqa: E501
         }
 
     @cached_property
@@ -103,8 +107,9 @@ class InlineResponse20088Data(ModelNormal):
     attribute_map = {
         'id_notation': 'idNotation',  # noqa: E501
         'source_identifier': 'sourceIdentifier',  # noqa: E501
-        'range': 'range',  # noqa: E501
-        'events': 'events',  # noqa: E501
+        'quality': 'quality',  # noqa: E501
+        'asks': 'asks',  # noqa: E501
+        'bids': 'bids',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,8 +155,9 @@ class InlineResponse20088Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            range (InlineResponse20088DataRange): [optional]  # noqa: E501
-            events ([InlineResponse20088DataEvents]): List of trading schedule events.. [optional]  # noqa: E501
+            quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
+            asks ([InlineResponse20088DataAsks]): List of sell orders aggregated by price.. [optional]  # noqa: E501
+            bids ([InlineResponse20088DataAsks]): List of buy orders aggregated by price.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,8 +241,9 @@ class InlineResponse20088Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            range (InlineResponse20088DataRange): [optional]  # noqa: E501
-            events ([InlineResponse20088DataEvents]): List of trading schedule events.. [optional]  # noqa: E501
+            quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
+            asks ([InlineResponse20088DataAsks]): List of sell orders aggregated by price.. [optional]  # noqa: E501
+            bids ([InlineResponse20088DataAsks]): List of buy orders aggregated by price.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

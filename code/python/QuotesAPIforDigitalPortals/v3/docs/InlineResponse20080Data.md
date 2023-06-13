@@ -4,14 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **float, none_type** | Identifier of a market. | [optional] 
-**name** | **str, none_type** | Name of the market. | [optional] 
-**short_name** | **str, none_type** | Short name of the market. | [optional] 
-**country** | [**InlineResponse20080Country**](InlineResponse20080Country.md) |  | [optional] 
-**type** | [**InlineResponse20080Type**](InlineResponse20080Type.md) |  | [optional] 
-**group** | [**InlineResponse20080Group**](InlineResponse20080Group.md) |  | [optional] 
-**timezone** | [**InlineResponse20080Timezone**](InlineResponse20080Timezone.md) |  | [optional] 
-**count** | **float, none_type** | Number of entitled notations. | [optional] 
+**id_notation** | **str, none_type** | MDG identifier of the listing. | [optional] 
+**source_identifier** | **str, none_type** | Identifier used in the request. | [optional] 
+**reference_date** | **date, none_type** | Reference date of the time range. | [optional] 
+**performance** | [**InlineResponse20075DataPerformance**](InlineResponse20075DataPerformance.md) |  | [optional] 
+**high** | [**InlineResponse20075DataHigh**](InlineResponse20075DataHigh.md) |  | [optional] 
+**low** | [**InlineResponse20075DataLow**](InlineResponse20075DataLow.md) |  | [optional] 
+**volatility** | **float, none_type** | Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year. | [optional] 
+**status** | [**InlineResponse20076Status**](InlineResponse20076Status.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -48,35 +48,35 @@ class CustomSymbolCustomFieldConfigDto {
         if (data) {
             obj = obj || new CustomSymbolCustomFieldConfigDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsShownInInfobox')) {
-                obj['IsShownInInfobox'] = ApiClient.convertToType(data['IsShownInInfobox'], 'Boolean');
+            if (data.hasOwnProperty('isShownInInfobox')) {
+                obj['isShownInInfobox'] = ApiClient.convertToType(data['isShownInInfobox'], 'Boolean');
             }
-            if (data.hasOwnProperty('FormulaConfig')) {
-                obj['FormulaConfig'] = CustomSymbolCustomFieldFormulaConfigDto.constructFromObject(data['FormulaConfig']);
+            if (data.hasOwnProperty('formulaConfig')) {
+                obj['formulaConfig'] = CustomSymbolCustomFieldFormulaConfigDto.constructFromObject(data['formulaConfig']);
             }
-            if (data.hasOwnProperty('OptionsConfig')) {
-                obj['OptionsConfig'] = ApiClient.convertToType(data['OptionsConfig'], ['String']);
+            if (data.hasOwnProperty('optionsConfig')) {
+                obj['optionsConfig'] = ApiClient.convertToType(data['optionsConfig'], ['String']);
             }
-            if (data.hasOwnProperty('CustomSymbolTypes')) {
-                obj['CustomSymbolTypes'] = ApiClient.convertToType(data['CustomSymbolTypes'], [CustomSymbolTypeSummaryDto]);
+            if (data.hasOwnProperty('customSymbolTypes')) {
+                obj['customSymbolTypes'] = ApiClient.convertToType(data['customSymbolTypes'], [CustomSymbolTypeSummaryDto]);
             }
         }
         return obj;
@@ -86,54 +86,54 @@ class CustomSymbolCustomFieldConfigDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-CustomSymbolCustomFieldConfigDto.prototype['Id'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-CustomSymbolCustomFieldConfigDto.prototype['Code'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['code'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-CustomSymbolCustomFieldConfigDto.prototype['Name'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['name'] = undefined;
 
 /**
- * @member {String} Type
+ * @member {String} type
  */
-CustomSymbolCustomFieldConfigDto.prototype['Type'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['type'] = undefined;
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-CustomSymbolCustomFieldConfigDto.prototype['IsHidden'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  */
-CustomSymbolCustomFieldConfigDto.prototype['IsMandatory'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['isMandatory'] = undefined;
 
 /**
- * @member {Boolean} IsShownInInfobox
+ * @member {Boolean} isShownInInfobox
  */
-CustomSymbolCustomFieldConfigDto.prototype['IsShownInInfobox'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['isShownInInfobox'] = undefined;
 
 /**
- * @member {module:model/CustomSymbolCustomFieldFormulaConfigDto} FormulaConfig
+ * @member {module:model/CustomSymbolCustomFieldFormulaConfigDto} formulaConfig
  */
-CustomSymbolCustomFieldConfigDto.prototype['FormulaConfig'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['formulaConfig'] = undefined;
 
 /**
- * @member {Array.<String>} OptionsConfig
+ * @member {Array.<String>} optionsConfig
  */
-CustomSymbolCustomFieldConfigDto.prototype['OptionsConfig'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['optionsConfig'] = undefined;
 
 /**
- * @member {Array.<module:model/CustomSymbolTypeSummaryDto>} CustomSymbolTypes
+ * @member {Array.<module:model/CustomSymbolTypeSummaryDto>} customSymbolTypes
  */
-CustomSymbolCustomFieldConfigDto.prototype['CustomSymbolTypes'] = undefined;
+CustomSymbolCustomFieldConfigDto.prototype['customSymbolTypes'] = undefined;
 
 
 

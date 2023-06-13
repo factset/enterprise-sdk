@@ -30,10 +30,10 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20036_meta import InlineResponse20036Meta
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20091_data import InlineResponse20091Data
-    globals()['InlineResponse20036Meta'] = InlineResponse20036Meta
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response200_meta import InlineResponse200Meta
     globals()['InlineResponse20091Data'] = InlineResponse20091Data
+    globals()['InlineResponse200Meta'] = InlineResponse200Meta
 
 
 class InlineResponse20091(ModelNormal):
@@ -90,7 +90,7 @@ class InlineResponse20091(ModelNormal):
         lazy_import()
         return {
             'data': ([InlineResponse20091Data],),  # noqa: E501
-            'meta': (InlineResponse20036Meta,),  # noqa: E501
+            'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class InlineResponse20091(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20091Data]): List of notations.. [optional]  # noqa: E501
-            meta (InlineResponse20036Meta): [optional]  # noqa: E501
+            data ([InlineResponse20091Data]): List of trading schedule event types.. [optional]  # noqa: E501
+            meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,8 @@ class InlineResponse20091(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20091Data]): List of notations.. [optional]  # noqa: E501
-            meta (InlineResponse20036Meta): [optional]  # noqa: E501
+            data ([InlineResponse20091Data]): List of trading schedule event types.. [optional]  # noqa: E501
+            meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

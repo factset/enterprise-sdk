@@ -12,9 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20036Fsym from './InlineResponse20036Fsym';
-import InlineResponse20038DataCategories from './InlineResponse20038DataCategories';
-import InlineResponse20042DataNsin from './InlineResponse20042DataNsin';
+import InlineResponse20090DataEvents from './InlineResponse20090DataEvents';
+import InlineResponse20090DataRange from './InlineResponse20090DataRange';
 
 /**
  * The InlineResponse20090Data model module.
@@ -23,7 +22,7 @@ import InlineResponse20042DataNsin from './InlineResponse20042DataNsin';
 class InlineResponse20090Data {
     /**
      * Constructs a new <code>InlineResponse20090Data</code>.
-     * The data member contains a list of the matching instruments
+     * List of trading schedule events for a notation.
      * @alias module:model/InlineResponse20090Data
      */
     constructor() { 
@@ -50,26 +49,17 @@ class InlineResponse20090Data {
         if (data) {
             obj = obj || new InlineResponse20090Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('idNotation')) {
+                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('sourceIdentifier')) {
+                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
-                obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
+            if (data.hasOwnProperty('range')) {
+                obj['range'] = InlineResponse20090DataRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('nsin')) {
-                obj['nsin'] = InlineResponse20042DataNsin.constructFromObject(data['nsin']);
-            }
-            if (data.hasOwnProperty('fsym')) {
-                obj['fsym'] = InlineResponse20036Fsym.constructFromObject(data['fsym']);
-            }
-            if (data.hasOwnProperty('assetClass')) {
-                obj['assetClass'] = ApiClient.convertToType(data['assetClass'], 'String');
-            }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ApiClient.convertToType(data['type'], [InlineResponse20038DataCategories]);
+            if (data.hasOwnProperty('events')) {
+                obj['events'] = ApiClient.convertToType(data['events'], [InlineResponse20090DataEvents]);
             }
         }
         return obj;
@@ -79,44 +69,27 @@ class InlineResponse20090Data {
 }
 
 /**
- * Identifier of the instrument.
- * @member {String} id
+ * MDG identifier of the listing.
+ * @member {String} idNotation
  */
-InlineResponse20090Data.prototype['id'] = undefined;
+InlineResponse20090Data.prototype['idNotation'] = undefined;
 
 /**
- * Asset class-unspecific name in English.
- * @member {String} name
+ * Identifier used in the request.
+ * @member {String} sourceIdentifier
  */
-InlineResponse20090Data.prototype['name'] = undefined;
+InlineResponse20090Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
- * @member {String} isin
+ * @member {module:model/InlineResponse20090DataRange} range
  */
-InlineResponse20090Data.prototype['isin'] = undefined;
+InlineResponse20090Data.prototype['range'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20042DataNsin} nsin
+ * List of trading schedule events.
+ * @member {Array.<module:model/InlineResponse20090DataEvents>} events
  */
-InlineResponse20090Data.prototype['nsin'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20036Fsym} fsym
- */
-InlineResponse20090Data.prototype['fsym'] = undefined;
-
-/**
- * Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.
- * @member {String} assetClass
- */
-InlineResponse20090Data.prototype['assetClass'] = undefined;
-
-/**
- * Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
- * @member {Array.<module:model/InlineResponse20038DataCategories>} type
- */
-InlineResponse20090Data.prototype['type'] = undefined;
+InlineResponse20090Data.prototype['events'] = undefined;
 
 
 

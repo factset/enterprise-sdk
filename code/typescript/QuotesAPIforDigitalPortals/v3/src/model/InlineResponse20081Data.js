@@ -12,7 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20081DataMarket from './InlineResponse20081DataMarket';
+import InlineResponse20081DataPrice from './InlineResponse20081DataPrice';
+import InlineResponse20081DataValue from './InlineResponse20081DataValue';
+import InlineResponse20081DataVolume from './InlineResponse20081DataVolume';
 
 /**
  * The InlineResponse20081Data model module.
@@ -21,6 +23,7 @@ import InlineResponse20081DataMarket from './InlineResponse20081DataMarket';
 class InlineResponse20081Data {
     /**
      * Constructs a new <code>InlineResponse20081Data</code>.
+     * Average end-of-day (EOD) key figures for various time ranges.
      * @alias module:model/InlineResponse20081Data
      */
     constructor() { 
@@ -53,23 +56,14 @@ class InlineResponse20081Data {
             if (data.hasOwnProperty('sourceIdentifier')) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('suspended')) {
-                obj['suspended'] = ApiClient.convertToType(data['suspended'], 'Boolean');
+            if (data.hasOwnProperty('price')) {
+                obj['price'] = InlineResponse20081DataPrice.constructFromObject(data['price']);
             }
-            if (data.hasOwnProperty('tradingStatus')) {
-                obj['tradingStatus'] = ApiClient.convertToType(data['tradingStatus'], 'String');
+            if (data.hasOwnProperty('volume')) {
+                obj['volume'] = InlineResponse20081DataVolume.constructFromObject(data['volume']);
             }
-            if (data.hasOwnProperty('priceDelay')) {
-                obj['priceDelay'] = ApiClient.convertToType(data['priceDelay'], 'Number');
-            }
-            if (data.hasOwnProperty('tickSize')) {
-                obj['tickSize'] = ApiClient.convertToType(data['tickSize'], 'Number');
-            }
-            if (data.hasOwnProperty('lotSize')) {
-                obj['lotSize'] = ApiClient.convertToType(data['lotSize'], 'Number');
-            }
-            if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse20081DataMarket.constructFromObject(data['market']);
+            if (data.hasOwnProperty('value')) {
+                obj['value'] = InlineResponse20081DataValue.constructFromObject(data['value']);
             }
         }
         return obj;
@@ -91,39 +85,19 @@ InlineResponse20081Data.prototype['idNotation'] = undefined;
 InlineResponse20081Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.
- * @member {Boolean} suspended
+ * @member {module:model/InlineResponse20081DataPrice} price
  */
-InlineResponse20081Data.prototype['suspended'] = undefined;
+InlineResponse20081Data.prototype['price'] = undefined;
 
 /**
- * Market-specific code of the trading status and/or the suspension of the notation.
- * @member {String} tradingStatus
+ * @member {module:model/InlineResponse20081DataVolume} volume
  */
-InlineResponse20081Data.prototype['tradingStatus'] = undefined;
+InlineResponse20081Data.prototype['volume'] = undefined;
 
 /**
- * Exchange-imposed delay in seconds for delayed-quality tick data.
- * @member {Number} priceDelay
+ * @member {module:model/InlineResponse20081DataValue} value
  */
-InlineResponse20081Data.prototype['priceDelay'] = undefined;
-
-/**
- * The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.
- * @member {Number} tickSize
- */
-InlineResponse20081Data.prototype['tickSize'] = undefined;
-
-/**
- * he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.
- * @member {Number} lotSize
- */
-InlineResponse20081Data.prototype['lotSize'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20081DataMarket} market
- */
-InlineResponse20081Data.prototype['market'] = undefined;
+InlineResponse20081Data.prototype['value'] = undefined;
 
 
 

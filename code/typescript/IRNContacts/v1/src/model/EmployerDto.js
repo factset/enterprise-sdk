@@ -34,7 +34,7 @@ class EmployerDto {
      * Only for internal use.
      */
     static initialize(obj, id) { 
-        obj['Id'] = id;
+        obj['id'] = id;
     }
 
     /**
@@ -48,14 +48,14 @@ class EmployerDto {
         if (data) {
             obj = obj || new EmployerDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('FactsetIdentifier')) {
-                obj['FactsetIdentifier'] = ApiClient.convertToType(data['FactsetIdentifier'], 'String');
+            if (data.hasOwnProperty('factsetIdentifier')) {
+                obj['factsetIdentifier'] = ApiClient.convertToType(data['factsetIdentifier'], 'String');
             }
         }
         return obj;
@@ -65,19 +65,19 @@ class EmployerDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-EmployerDto.prototype['Id'] = undefined;
+EmployerDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-EmployerDto.prototype['Name'] = undefined;
+EmployerDto.prototype['name'] = undefined;
 
 /**
- * @member {String} FactsetIdentifier
+ * @member {String} factsetIdentifier
  */
-EmployerDto.prototype['FactsetIdentifier'] = undefined;
+EmployerDto.prototype['factsetIdentifier'] = undefined;
 
 
 

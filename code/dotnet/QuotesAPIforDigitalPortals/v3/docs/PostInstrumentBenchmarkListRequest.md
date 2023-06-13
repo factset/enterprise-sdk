@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostInstrumentBenchmarkListRequest
+Request Body
 
 ## Properties
 

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// InlineResponse20093Data
+    /// The data member contains a list of the matching notations.
     /// </summary>
     [DataContract(Name = "inline_response_200_93_data")]
     public partial class InlineResponse20093Data : IEquatable<InlineResponse20093Data>, IValidatableObject
@@ -34,32 +34,26 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20093Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of a notation..</param>
-        /// <param name="market">market.</param>
+        /// <param name="id">Identifier of the notation..</param>
         /// <param name="symbol">The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market..</param>
         /// <param name="nsin">nsin.</param>
+        /// <param name="price">price.</param>
         /// <param name="instrument">instrument.</param>
-        public InlineResponse20093Data(string id = default(string), InlineResponse20067DataMarket market = default(InlineResponse20067DataMarket), string symbol = default(string), InlineResponse20091Nsin nsin = default(InlineResponse20091Nsin), InlineResponse20093Instrument instrument = default(InlineResponse20093Instrument))
+        public InlineResponse20093Data(string id = default(string), string symbol = default(string), InlineResponse20093Nsin nsin = default(InlineResponse20093Nsin), InlineResponse20093Price price = default(InlineResponse20093Price), InlineResponse20093Instrument instrument = default(InlineResponse20093Instrument))
         {
             this.Id = id;
-            this.Market = market;
             this.Symbol = symbol;
             this.Nsin = nsin;
+            this.Price = price;
             this.Instrument = instrument;
         }
 
         /// <summary>
-        /// Identifier of a notation.
+        /// Identifier of the notation.
         /// </summary>
-        /// <value>Identifier of a notation.</value>
+        /// <value>Identifier of the notation.</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Market
-        /// </summary>
-        [DataMember(Name = "market", EmitDefaultValue = false)]
-        public InlineResponse20067DataMarket Market { get; set; }
 
         /// <summary>
         /// The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
@@ -72,7 +66,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets Nsin
         /// </summary>
         [DataMember(Name = "nsin", EmitDefaultValue = false)]
-        public InlineResponse20091Nsin Nsin { get; set; }
+        public InlineResponse20093Nsin Nsin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Price
+        /// </summary>
+        [DataMember(Name = "price", EmitDefaultValue = false)]
+        public InlineResponse20093Price Price { get; set; }
 
         /// <summary>
         /// Gets or Sets Instrument
@@ -89,9 +89,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20093Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  Symbol: ").Append(Symbol).Append("\n");
             sb.Append("  Nsin: ").Append(Nsin).Append("\n");
+            sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -134,11 +134,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Market == input.Market ||
-                    (this.Market != null &&
-                    this.Market.Equals(input.Market))
-                ) && 
-                (
                     this.Symbol == input.Symbol ||
                     (this.Symbol != null &&
                     this.Symbol.Equals(input.Symbol))
@@ -147,6 +142,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Nsin == input.Nsin ||
                     (this.Nsin != null &&
                     this.Nsin.Equals(input.Nsin))
+                ) && 
+                (
+                    this.Price == input.Price ||
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 ) && 
                 (
                     this.Instrument == input.Instrument ||
@@ -168,10 +168,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Market != null)
-                {
-                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
-                }
                 if (this.Symbol != null)
                 {
                     hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
@@ -179,6 +175,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 if (this.Nsin != null)
                 {
                     hashCode = (hashCode * 59) + this.Nsin.GetHashCode();
+                }
+                if (this.Price != null)
+                {
+                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
                 }
                 if (this.Instrument != null)
                 {

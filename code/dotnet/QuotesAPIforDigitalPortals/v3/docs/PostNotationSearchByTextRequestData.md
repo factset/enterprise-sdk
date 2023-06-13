@@ -5,7 +5,7 @@ The data member contains the request's primary data.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | [**PostNotationSearchByTextRequestDataText**](PostNotationSearchByTextRequestDataText.md) |  | [optional] 
+**Text** | [**PostNotationSearchByTextRequestDataText**](PostNotationSearchByTextRequestDataText.md) |  | 
 **Validation** | [**PostNotationSearchByTextRequestDataValidation**](PostNotationSearchByTextRequestDataValidation.md) |  | [optional] 
 **AssetClasses** | [**PostNotationSearchByTextRequestDataAssetClasses**](PostNotationSearchByTextRequestDataAssetClasses.md) |  | [optional] 
 **Market** | [**PostNotationSearchByTextRequestDataMarket**](PostNotationSearchByTextRequestDataMarket.md) |  | [optional] 

@@ -38,7 +38,7 @@ import com.factset.sdk.IRNContacts.JSON;
  * RelationshipSymbolSummaryDto
  */
 @JsonPropertyOrder({
-  RelationshipSymbolSummaryDto.JSON_PROPERTY_IDENTIFIER,
+  RelationshipSymbolSummaryDto.JSON_PROPERTY_TDENTIFIER,
   RelationshipSymbolSummaryDto.JSON_PROPERTY_NAME,
   RelationshipSymbolSummaryDto.JSON_PROPERTY_TYPE
 })
@@ -46,49 +46,49 @@ import com.factset.sdk.IRNContacts.JSON;
 public class RelationshipSymbolSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
-  private JsonNullable<String> identifier = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_TDENTIFIER = "tdentifier";
+  private JsonNullable<String> tdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private SymbolType type;
 
   public RelationshipSymbolSummaryDto() { 
   }
 
-  public RelationshipSymbolSummaryDto identifier(String identifier) {
-    this.identifier = JsonNullable.<String>of(identifier);
+  public RelationshipSymbolSummaryDto tdentifier(String tdentifier) {
+    this.tdentifier = JsonNullable.<String>of(tdentifier);
     return this;
   }
 
    /**
-   * Get identifier
-   * @return identifier
+   * Get tdentifier
+   * @return tdentifier
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
 
-  public String getIdentifier() {
-        return identifier.orElse(null);
+  public String getTdentifier() {
+        return tdentifier.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
+  @JsonProperty(JSON_PROPERTY_TDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getIdentifier_JsonNullable() {
-    return identifier;
+  public JsonNullable<String> getTdentifier_JsonNullable() {
+    return tdentifier;
   }
   
-  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
-  public void setIdentifier_JsonNullable(JsonNullable<String> identifier) {
-    this.identifier = identifier;
+  @JsonProperty(JSON_PROPERTY_TDENTIFIER)
+  public void setTdentifier_JsonNullable(JsonNullable<String> tdentifier) {
+    this.tdentifier = tdentifier;
   }
 
-  public void setIdentifier(String identifier) {
-    this.identifier = JsonNullable.<String>of(identifier);
+  public void setTdentifier(String tdentifier) {
+    this.tdentifier = JsonNullable.<String>of(tdentifier);
   }
 
 
@@ -164,7 +164,7 @@ public class RelationshipSymbolSummaryDto implements Serializable {
       return false;
     }
     RelationshipSymbolSummaryDto relationshipSymbolSummaryDto = (RelationshipSymbolSummaryDto) o;
-    return equalsNullable(this.identifier, relationshipSymbolSummaryDto.identifier) &&
+    return equalsNullable(this.tdentifier, relationshipSymbolSummaryDto.tdentifier) &&
         equalsNullable(this.name, relationshipSymbolSummaryDto.name) &&
         Objects.equals(this.type, relationshipSymbolSummaryDto.type);
   }
@@ -175,7 +175,7 @@ public class RelationshipSymbolSummaryDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(identifier), hashCodeNullable(name), type);
+    return Objects.hash(hashCodeNullable(tdentifier), hashCodeNullable(name), type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -189,7 +189,7 @@ public class RelationshipSymbolSummaryDto implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RelationshipSymbolSummaryDto {\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    tdentifier: ").append(toIndentedString(tdentifier)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

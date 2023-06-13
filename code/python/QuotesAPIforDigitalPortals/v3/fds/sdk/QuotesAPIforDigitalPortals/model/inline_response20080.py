@@ -31,9 +31,9 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20080_data import InlineResponse20080Data
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2009_meta import InlineResponse2009Meta
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response200_meta import InlineResponse200Meta
     globals()['InlineResponse20080Data'] = InlineResponse20080Data
-    globals()['InlineResponse2009Meta'] = InlineResponse2009Meta
+    globals()['InlineResponse200Meta'] = InlineResponse200Meta
 
 
 class InlineResponse20080(ModelNormal):
@@ -90,7 +90,7 @@ class InlineResponse20080(ModelNormal):
         lazy_import()
         return {
             'data': ([InlineResponse20080Data],),  # noqa: E501
-            'meta': (InlineResponse2009Meta,),  # noqa: E501
+            'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class InlineResponse20080(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20080Data]): List of entitled markets.. [optional]  # noqa: E501
-            meta (InlineResponse2009Meta): [optional]  # noqa: E501
+            data ([InlineResponse20080Data]): EOD key figures for a list of notations.. [optional]  # noqa: E501
+            meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,8 @@ class InlineResponse20080(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20080Data]): List of entitled markets.. [optional]  # noqa: E501
-            meta (InlineResponse2009Meta): [optional]  # noqa: E501
+            data ([InlineResponse20080Data]): EOD key figures for a list of notations.. [optional]  # noqa: E501
+            meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

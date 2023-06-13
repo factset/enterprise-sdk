@@ -17,7 +17,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20068DataNotations;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20068DataInstrument;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20068DataMarket;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20068DataValueUnit;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,129 +37,143 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * List of notations.
+ * Notation identified by the FactSet market symbol.
  */
-@ApiModel(description = "List of notations.")
+@ApiModel(description = "Notation identified by the FactSet market symbol.")
 @JsonPropertyOrder({
-  InlineResponse20068Data.JSON_PROPERTY_ID_INSTRUMENT,
-  InlineResponse20068Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
-  InlineResponse20068Data.JSON_PROPERTY_NOTATIONS
+  InlineResponse20068Data.JSON_PROPERTY_ID,
+  InlineResponse20068Data.JSON_PROPERTY_MARKET,
+  InlineResponse20068Data.JSON_PROPERTY_VALUE_UNIT,
+  InlineResponse20068Data.JSON_PROPERTY_INSTRUMENT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20068Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID_INSTRUMENT = "idInstrument";
-  private JsonNullable<String> idInstrument = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_ID = "id";
+  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
-  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_MARKET = "market";
+  private InlineResponse20068DataMarket market;
 
-  public static final String JSON_PROPERTY_NOTATIONS = "notations";
-  private java.util.List<InlineResponse20068DataNotations> notations = null;
+  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
+  private InlineResponse20068DataValueUnit valueUnit;
+
+  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
+  private InlineResponse20068DataInstrument instrument;
 
   public InlineResponse20068Data() { 
   }
 
-  public InlineResponse20068Data idInstrument(String idInstrument) {
-    this.idInstrument = JsonNullable.<String>of(idInstrument);
+  public InlineResponse20068Data id(String id) {
+    this.id = JsonNullable.<String>of(id);
     return this;
   }
 
    /**
-   * MDG identifier of the instrument.
-   * @return idInstrument
+   * Identifier of the notation.
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "MDG identifier of the instrument.")
+  @ApiModelProperty(value = "Identifier of the notation.")
   @JsonIgnore
 
-  public String getIdInstrument() {
-        return idInstrument.orElse(null);
+  public String getId() {
+        return id.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getIdInstrument_JsonNullable() {
-    return idInstrument;
+  public JsonNullable<String> getId_JsonNullable() {
+    return id;
   }
   
-  @JsonProperty(JSON_PROPERTY_ID_INSTRUMENT)
-  public void setIdInstrument_JsonNullable(JsonNullable<String> idInstrument) {
-    this.idInstrument = idInstrument;
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<String> id) {
+    this.id = id;
   }
 
-  public void setIdInstrument(String idInstrument) {
-    this.idInstrument = JsonNullable.<String>of(idInstrument);
+  public void setId(String id) {
+    this.id = JsonNullable.<String>of(id);
   }
 
 
-  public InlineResponse20068Data sourceIdentifier(String sourceIdentifier) {
-    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+  public InlineResponse20068Data market(InlineResponse20068DataMarket market) {
+    this.market = market;
     return this;
   }
 
    /**
-   * Identifier used in the request.
-   * @return sourceIdentifier
+   * Get market
+   * @return market
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier used in the request.")
-  @JsonIgnore
-
-  public String getSourceIdentifier() {
-        return sourceIdentifier.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
-    return sourceIdentifier;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
-  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
-    this.sourceIdentifier = sourceIdentifier;
-  }
-
-  public void setSourceIdentifier(String sourceIdentifier) {
-    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+  public InlineResponse20068DataMarket getMarket() {
+    return market;
   }
 
 
-  public InlineResponse20068Data notations(java.util.List<InlineResponse20068DataNotations> notations) {
-    this.notations = notations;
-    return this;
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMarket(InlineResponse20068DataMarket market) {
+    this.market = market;
   }
 
-  public InlineResponse20068Data addNotationsItem(InlineResponse20068DataNotations notationsItem) {
-    if (this.notations == null) {
-      this.notations = new java.util.ArrayList<>();
-    }
-    this.notations.add(notationsItem);
+
+  public InlineResponse20068Data valueUnit(InlineResponse20068DataValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
     return this;
   }
 
    /**
-   * List of notations.
-   * @return notations
+   * Get valueUnit
+   * @return valueUnit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of notations.")
-  @JsonProperty(JSON_PROPERTY_NOTATIONS)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20068DataNotations> getNotations() {
-    return notations;
+  public InlineResponse20068DataValueUnit getValueUnit() {
+    return valueUnit;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NOTATIONS)
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNotations(java.util.List<InlineResponse20068DataNotations> notations) {
-    this.notations = notations;
+  public void setValueUnit(InlineResponse20068DataValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
+  }
+
+
+  public InlineResponse20068Data instrument(InlineResponse20068DataInstrument instrument) {
+    this.instrument = instrument;
+    return this;
+  }
+
+   /**
+   * Get instrument
+   * @return instrument
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20068DataInstrument getInstrument() {
+    return instrument;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstrument(InlineResponse20068DataInstrument instrument) {
+    this.instrument = instrument;
   }
 
 
@@ -173,9 +189,10 @@ public class InlineResponse20068Data implements Serializable {
       return false;
     }
     InlineResponse20068Data inlineResponse20068Data = (InlineResponse20068Data) o;
-    return equalsNullable(this.idInstrument, inlineResponse20068Data.idInstrument) &&
-        equalsNullable(this.sourceIdentifier, inlineResponse20068Data.sourceIdentifier) &&
-        Objects.equals(this.notations, inlineResponse20068Data.notations);
+    return equalsNullable(this.id, inlineResponse20068Data.id) &&
+        Objects.equals(this.market, inlineResponse20068Data.market) &&
+        Objects.equals(this.valueUnit, inlineResponse20068Data.valueUnit) &&
+        Objects.equals(this.instrument, inlineResponse20068Data.instrument);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -184,7 +201,7 @@ public class InlineResponse20068Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(idInstrument), hashCodeNullable(sourceIdentifier), notations);
+    return Objects.hash(hashCodeNullable(id), market, valueUnit, instrument);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -198,9 +215,10 @@ public class InlineResponse20068Data implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20068Data {\n");
-    sb.append("    idInstrument: ").append(toIndentedString(idInstrument)).append("\n");
-    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
-    sb.append("    notations: ").append(toIndentedString(notations)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    market: ").append(toIndentedString(market)).append("\n");
+    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
+    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
     sb.append("}");
     return sb.toString();
   }

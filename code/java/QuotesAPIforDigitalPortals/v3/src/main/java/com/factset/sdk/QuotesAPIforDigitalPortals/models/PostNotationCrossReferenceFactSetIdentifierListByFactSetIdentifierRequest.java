@@ -32,8 +32,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest
+ * Request Body
  */
+@ApiModel(description = "Request Body")
 @JsonPropertyOrder({
   PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.JSON_PROPERTY_DATA,
   PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.JSON_PROPERTY_META

@@ -49,7 +49,7 @@ class InlineResponse20087 {
             obj = obj || new InlineResponse20087();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = InlineResponse20087Data.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20087Data]);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -62,7 +62,8 @@ class InlineResponse20087 {
 }
 
 /**
- * @member {module:model/InlineResponse20087Data} data
+ * Set of bid and ask prices for a list of notations.
+ * @member {Array.<module:model/InlineResponse20087Data>} data
  */
 InlineResponse20087.prototype['data'] = undefined;
 

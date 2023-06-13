@@ -12,8 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20071DataInstrument from './InlineResponse20071DataInstrument';
-import InlineResponse20071DataRegional from './InlineResponse20071DataRegional';
+import InlineResponse20046NotationFsym from './InlineResponse20046NotationFsym';
+import InlineResponse20068DataMarket from './InlineResponse20068DataMarket';
+import InlineResponse20068DataValueUnit from './InlineResponse20068DataValueUnit';
+import InlineResponse20071Instrument from './InlineResponse20071Instrument';
 
 /**
  * The InlineResponse20071Data model module.
@@ -22,7 +24,6 @@ import InlineResponse20071DataRegional from './InlineResponse20071DataRegional';
 class InlineResponse20071Data {
     /**
      * Constructs a new <code>InlineResponse20071Data</code>.
-     * Instrument data with a list of regional-level data and assigned listing-level data.
      * @alias module:model/InlineResponse20071Data
      */
     constructor() { 
@@ -49,20 +50,23 @@ class InlineResponse20071Data {
         if (data) {
             obj = obj || new InlineResponse20071Data();
 
-            if (data.hasOwnProperty('idNotation')) {
-                obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
-                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            if (data.hasOwnProperty('active')) {
+                obj['active'] = ApiClient.convertToType(data['active'], 'Boolean');
+            }
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse20068DataMarket.constructFromObject(data['market']);
+            }
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = InlineResponse20068DataValueUnit.constructFromObject(data['valueUnit']);
+            }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse20046NotationFsym.constructFromObject(data['fsym']);
             }
             if (data.hasOwnProperty('instrument')) {
-                obj['instrument'] = InlineResponse20071DataInstrument.constructFromObject(data['instrument']);
-            }
-            if (data.hasOwnProperty('permanentIdentifier')) {
-                obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
-            }
-            if (data.hasOwnProperty('regional')) {
-                obj['regional'] = InlineResponse20071DataRegional.constructFromObject(data['regional']);
+                obj['instrument'] = InlineResponse20071Instrument.constructFromObject(data['instrument']);
             }
         }
         return obj;
@@ -72,32 +76,36 @@ class InlineResponse20071Data {
 }
 
 /**
- * MDG identifier of the listing.
- * @member {String} idNotation
+ * Identifier of the notation.
+ * @member {String} id
  */
-InlineResponse20071Data.prototype['idNotation'] = undefined;
+InlineResponse20071Data.prototype['id'] = undefined;
 
 /**
- * Identifier used in the request.
- * @member {String} sourceIdentifier
+ * Indicates whether the notation is active.
+ * @member {Boolean} active
  */
-InlineResponse20071Data.prototype['sourceIdentifier'] = undefined;
+InlineResponse20071Data.prototype['active'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20071DataInstrument} instrument
+ * @member {module:model/InlineResponse20068DataMarket} market
+ */
+InlineResponse20071Data.prototype['market'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20068DataValueUnit} valueUnit
+ */
+InlineResponse20071Data.prototype['valueUnit'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20046NotationFsym} fsym
+ */
+InlineResponse20071Data.prototype['fsym'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20071Instrument} instrument
  */
 InlineResponse20071Data.prototype['instrument'] = undefined;
-
-/**
- * FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
- * @member {String} permanentIdentifier
- */
-InlineResponse20071Data.prototype['permanentIdentifier'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20071DataRegional} regional
- */
-InlineResponse20071Data.prototype['regional'] = undefined;
 
 
 

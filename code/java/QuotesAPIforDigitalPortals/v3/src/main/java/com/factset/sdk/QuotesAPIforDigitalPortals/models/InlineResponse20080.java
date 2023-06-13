@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20080Data;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse2009Meta;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,7 +46,7 @@ public class InlineResponse20080 implements Serializable {
   private java.util.List<InlineResponse20080Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse2009Meta meta;
+  private InlineResponse200Meta meta;
 
   public InlineResponse20080() { 
   }
@@ -65,11 +65,11 @@ public class InlineResponse20080 implements Serializable {
   }
 
    /**
-   * List of entitled markets.
+   * EOD key figures for a list of notations.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of entitled markets.")
+  @ApiModelProperty(value = "EOD key figures for a list of notations.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,7 +85,7 @@ public class InlineResponse20080 implements Serializable {
   }
 
 
-  public InlineResponse20080 meta(InlineResponse2009Meta meta) {
+  public InlineResponse20080 meta(InlineResponse200Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -99,14 +99,14 @@ public class InlineResponse20080 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2009Meta getMeta() {
+  public InlineResponse200Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse2009Meta meta) {
+  public void setMeta(InlineResponse200Meta meta) {
     this.meta = meta;
   }
 

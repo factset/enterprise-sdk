@@ -51,31 +51,31 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets RatingsVisibleToAuthor
         /// </summary>
-        [DataMember(Name = "RatingsVisibleToAuthor", EmitDefaultValue = true)]
+        [DataMember(Name = "ratingsVisibleToAuthor", EmitDefaultValue = true)]
         public bool RatingsVisibleToAuthor { get; set; }
 
         /// <summary>
         /// Gets or Sets RatingsVisibleToViewers
         /// </summary>
-        [DataMember(Name = "RatingsVisibleToViewers", EmitDefaultValue = true)]
+        [DataMember(Name = "ratingsVisibleToViewers", EmitDefaultValue = true)]
         public bool RatingsVisibleToViewers { get; set; }
 
         /// <summary>
         /// Gets or Sets RatingsVisibleToAll
         /// </summary>
-        [DataMember(Name = "RatingsVisibleToAll", EmitDefaultValue = true)]
+        [DataMember(Name = "ratingsVisibleToAll", EmitDefaultValue = true)]
         public bool RatingsVisibleToAll { get; set; }
 
         /// <summary>
         /// Gets or Sets ViewerIds
         /// </summary>
-        [DataMember(Name = "ViewerIds", EmitDefaultValue = true)]
+        [DataMember(Name = "viewerIds", EmitDefaultValue = true)]
         public List<Guid> ViewerIds { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionValues
         /// </summary>
-        [DataMember(Name = "OptionValues", EmitDefaultValue = true)]
+        [DataMember(Name = "optionValues", EmitDefaultValue = true)]
         public List<int> OptionValues { get; set; }
 
         /// <summary>

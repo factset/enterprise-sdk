@@ -37,8 +37,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20071</returns>
-        InlineResponse20071 GetNotationCrossReferenceFactSetIdentifierGet(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20072</returns>
+        InlineResponse20072 GetNotationCrossReferenceFactSetIdentifierGet(string identifier, string identifierType, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve FactSet identifiers for a given notation.
@@ -50,8 +50,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20071</returns>
-        ApiResponse<InlineResponse20071> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20072</returns>
+        ApiResponse<InlineResponse20072> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
         /// <summary>
         /// Translate a FactSet market symbol to a notation.
         /// </summary>
@@ -62,8 +62,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="factSetMarketSymbol"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language"> (optional)</param>
-        /// <returns>InlineResponse20067</returns>
-        InlineResponse20067 GetNotationCrossReferenceGetByFactSetMarketSymbol(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string));
+        /// <returns>InlineResponse20068</returns>
+        InlineResponse20068 GetNotationCrossReferenceGetByFactSetMarketSymbol(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// Translate a FactSet market symbol to a notation.
@@ -75,8 +75,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="factSetMarketSymbol"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20067</returns>
-        ApiResponse<InlineResponse20067> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string));
+        /// <returns>ApiResponse of InlineResponse20068</returns>
+        ApiResponse<InlineResponse20068> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// Basic data for a notation.
         /// </summary>
@@ -114,8 +114,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20076</returns>
-        InlineResponse20076 GetNotationKeyFiguresMonth1Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20077</returns>
+        InlineResponse20077 GetNotationKeyFiguresMonth1Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// End-of-day (EOD) key figures for the time range of one month.
@@ -127,445 +127,470 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20076</returns>
-        ApiResponse<InlineResponse20076> GetNotationKeyFiguresMonth1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20077</returns>
-        InlineResponse20077 GetNotationKeyFiguresMonth1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20077</returns>
-        ApiResponse<InlineResponse20077> GetNotationKeyFiguresMonth1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        ApiResponse<InlineResponse20077> GetNotationKeyFiguresMonth1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
         /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three months.
+        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
         /// </summary>
         /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three months.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        InlineResponse20074 GetNotationKeyFiguresMonth3Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three months.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three months.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        ApiResponse<InlineResponse20074> GetNotationKeyFiguresMonth3GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        InlineResponse20075 GetNotationKeyFiguresMonth3List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth3ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of six months.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of six months.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        InlineResponse20074 GetNotationKeyFiguresMonth6Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of six months.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of six months.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        ApiResponse<InlineResponse20074> GetNotationKeyFiguresMonth6GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        InlineResponse20075 GetNotationKeyFiguresMonth6List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth6ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one week.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one week.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20076</returns>
-        InlineResponse20076 GetNotationKeyFiguresWeek1Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one week.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one week.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20076</returns>
-        ApiResponse<InlineResponse20076> GetNotationKeyFiguresWeek1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20077</returns>
-        InlineResponse20077 GetNotationKeyFiguresWeek1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20077</returns>
-        ApiResponse<InlineResponse20077> GetNotationKeyFiguresWeek1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of ten years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of ten years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        InlineResponse20074 GetNotationKeyFiguresYear10Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of ten years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of ten years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear10GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        InlineResponse20075 GetNotationKeyFiguresYear10List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear10ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one year.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one year.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20076</returns>
-        InlineResponse20076 GetNotationKeyFiguresYear1Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one year.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one year.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20076</returns>
-        ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20077</returns>
-        InlineResponse20077 GetNotationKeyFiguresYear1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20077</returns>
-        ApiResponse<InlineResponse20077> GetNotationKeyFiguresYear1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        InlineResponse20074 GetNotationKeyFiguresYear3Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear3GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        InlineResponse20075 GetNotationKeyFiguresYear3List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear3ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of five years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of five years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        InlineResponse20074 GetNotationKeyFiguresYear5Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of five years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of five years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear5GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        InlineResponse20075 GetNotationKeyFiguresYear5List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear5ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of seven years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of seven years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        InlineResponse20074 GetNotationKeyFiguresYear7Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of seven years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of seven years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear7GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        InlineResponse20075 GetNotationKeyFiguresYear7List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear7ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range year-to-date (YTD)..
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse20078</returns>
-        InlineResponse20078 GetNotationKeyFiguresYearToDateGet(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        InlineResponse20078 GetNotationKeyFiguresMonth1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20078</returns>
+        ApiResponse<InlineResponse20078> GetNotationKeyFiguresMonth1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three months.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three months.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20075</returns>
+        InlineResponse20075 GetNotationKeyFiguresMonth3Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three months.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three months.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth3GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20076</returns>
+        InlineResponse20076 GetNotationKeyFiguresMonth3List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        ApiResponse<InlineResponse20076> GetNotationKeyFiguresMonth3ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of six months.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of six months.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20075</returns>
+        InlineResponse20075 GetNotationKeyFiguresMonth6Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of six months.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of six months.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth6GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20076</returns>
+        InlineResponse20076 GetNotationKeyFiguresMonth6List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        ApiResponse<InlineResponse20076> GetNotationKeyFiguresMonth6ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Average end-of-day (EOD) key figures for different trading days periods.
+        /// </summary>
+        /// <remarks>
+        /// Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20081</returns>
+        InlineResponse20081 GetNotationKeyFiguresTradingDayAverageGet(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// Average end-of-day (EOD) key figures for different trading days periods.
+        /// </summary>
+        /// <remarks>
+        /// Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20081</returns>
+        ApiResponse<InlineResponse20081> GetNotationKeyFiguresTradingDayAverageGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one week.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one week.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20077</returns>
+        InlineResponse20077 GetNotationKeyFiguresWeek1Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one week.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one week.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20077</returns>
+        ApiResponse<InlineResponse20077> GetNotationKeyFiguresWeek1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20078</returns>
+        InlineResponse20078 GetNotationKeyFiguresWeek1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20078</returns>
+        ApiResponse<InlineResponse20078> GetNotationKeyFiguresWeek1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of ten years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of ten years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20075</returns>
+        InlineResponse20075 GetNotationKeyFiguresYear10Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of ten years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of ten years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear10GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20076</returns>
+        InlineResponse20076 GetNotationKeyFiguresYear10List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear10ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one year.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one year.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20077</returns>
+        InlineResponse20077 GetNotationKeyFiguresYear1Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one year.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one year.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20077</returns>
+        ApiResponse<InlineResponse20077> GetNotationKeyFiguresYear1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20078</returns>
+        InlineResponse20078 GetNotationKeyFiguresYear1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20078</returns>
+        ApiResponse<InlineResponse20078> GetNotationKeyFiguresYear1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20075</returns>
+        InlineResponse20075 GetNotationKeyFiguresYear3Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear3GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20076</returns>
+        InlineResponse20076 GetNotationKeyFiguresYear3List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear3ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of five years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of five years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20075</returns>
+        InlineResponse20075 GetNotationKeyFiguresYear5Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of five years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of five years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear5GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20076</returns>
+        InlineResponse20076 GetNotationKeyFiguresYear5List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear5ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of seven years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of seven years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20075</returns>
+        InlineResponse20075 GetNotationKeyFiguresYear7Get(string identifier, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of seven years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of seven years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear7GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20076</returns>
+        InlineResponse20076 GetNotationKeyFiguresYear7List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear7ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range year-to-date (YTD)..
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20079</returns>
+        InlineResponse20079 GetNotationKeyFiguresYearToDateGet(string identifier, string identifierType, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// End-of-day (EOD) key figures for the time range year-to-date (YTD)..
@@ -577,8 +602,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20078</returns>
-        ApiResponse<InlineResponse20078> GetNotationKeyFiguresYearToDateGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20079</returns>
+        ApiResponse<InlineResponse20079> GetNotationKeyFiguresYearToDateGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>));
         /// <summary>
         /// End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
         /// </summary>
@@ -589,8 +614,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20079</returns>
-        InlineResponse20079 GetNotationKeyFiguresYearToDateList(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20080</returns>
+        InlineResponse20080 GetNotationKeyFiguresYearToDateList(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
@@ -602,8 +627,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20079</returns>
-        ApiResponse<InlineResponse20079> GetNotationKeyFiguresYearToDateListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20080</returns>
+        ApiResponse<InlineResponse20080> GetNotationKeyFiguresYearToDateListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>));
         /// <summary>
         /// Basic data for a list of notations.
         /// </summary>
@@ -647,8 +672,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>InlineResponse20091</returns>
-        InlineResponse20091 GetNotationSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>InlineResponse20093</returns>
+        InlineResponse20093 GetNotationSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// Basic search for notations.
@@ -666,72 +691,93 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>ApiResponse of InlineResponse20091</returns>
-        ApiResponse<InlineResponse20091> GetNotationSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
-        /// <summary>
-        /// Basic search for notations.
-        /// </summary>
-        /// <remarks>
-        /// Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchValue"></param>
-        /// <param name="idMarkets"> (optional)</param>
-        /// <param name="nsins"> (optional)</param>
-        /// <param name="assetClass"> (optional)</param>
-        /// <param name="onlyActive"> (optional, default to true)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language"> (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>InlineResponse20093</returns>
-        InlineResponse20093 GetNotationSearchByTextRankedByVolume(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
-
-        /// <summary>
-        /// Basic search for notations.
-        /// </summary>
-        /// <remarks>
-        /// Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchValue"></param>
-        /// <param name="idMarkets"> (optional)</param>
-        /// <param name="nsins"> (optional)</param>
-        /// <param name="assetClass"> (optional)</param>
-        /// <param name="onlyActive"> (optional, default to true)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language"> (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <returns>ApiResponse of InlineResponse20093</returns>
-        ApiResponse<InlineResponse20093> GetNotationSearchByTextRankedByVolumeWithHttpInfo(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        ApiResponse<InlineResponse20093> GetNotationSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <summary>
+        /// Basic search for notations.
+        /// </summary>
+        /// <remarks>
+        /// Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchValue"></param>
+        /// <param name="idMarkets"> (optional)</param>
+        /// <param name="nsins"> (optional)</param>
+        /// <param name="assetClass"> (optional)</param>
+        /// <param name="onlyActive"> (optional, default to true)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
+        /// <returns>InlineResponse20095</returns>
+        InlineResponse20095 GetNotationSearchByTextRankedByVolume(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+
+        /// <summary>
+        /// Basic search for notations.
+        /// </summary>
+        /// <remarks>
+        /// Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchValue"></param>
+        /// <param name="idMarkets"> (optional)</param>
+        /// <param name="nsins"> (optional)</param>
+        /// <param name="assetClass"> (optional)</param>
+        /// <param name="onlyActive"> (optional, default to true)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
+        /// <returns>ApiResponse of InlineResponse20095</returns>
+        ApiResponse<InlineResponse20095> GetNotationSearchByTextRankedByVolumeWithHttpInfo(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
         /// Intraday trading status of a notation.
         /// </summary>
         /// <remarks>
-        /// Intraday trading status of a notation.
+        /// Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20081</returns>
-        InlineResponse20081 GetNotationStatusGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20083</returns>
+        InlineResponse20083 GetNotationStatusGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Intraday trading status of a notation.
         /// </summary>
         /// <remarks>
-        /// Intraday trading status of a notation.
+        /// Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20081</returns>
-        ApiResponse<InlineResponse20081> GetNotationStatusGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20083</returns>
+        ApiResponse<InlineResponse20083> GetNotationStatusGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>));
+        /// <summary>
+        /// List of categories assigned to a specific notation the application is entitled to see.
+        /// </summary>
+        /// <remarks>
+        /// List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCategoryListRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20067</returns>
+        InlineResponse20067 PostNotationCategoryList(PostNotationCategoryListRequest postNotationCategoryListRequest = default(PostNotationCategoryListRequest));
+
+        /// <summary>
+        /// List of categories assigned to a specific notation the application is entitled to see.
+        /// </summary>
+        /// <remarks>
+        /// List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCategoryListRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20067</returns>
+        ApiResponse<InlineResponse20067> PostNotationCategoryListWithHttpInfo(PostNotationCategoryListRequest postNotationCategoryListRequest = default(PostNotationCategoryListRequest));
         /// <summary>
         /// Retrieve a list of notations for a given FactSet identifier.
         /// </summary>
@@ -739,30 +785,30 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"> (optional)</param>
-        /// <returns>InlineResponse20072</returns>
-        InlineResponse20072 PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = default(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest));
-
-        /// <summary>
-        /// Retrieve a list of notations for a given FactSet identifier.
-        /// </summary>
-        /// <remarks>
-        /// &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20072</returns>
-        ApiResponse<InlineResponse20072> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = default(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest));
-        /// <summary>
-        /// Retrieve a list of FactSet identifiers for a given instrument.
-        /// </summary>
-        /// <remarks>
-        /// &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest">Request Body</param>
         /// <returns>InlineResponse20073</returns>
-        InlineResponse20073 PostNotationCrossReferenceFactSetIdentifierListByInstrument(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = default(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest));
+        InlineResponse20073 PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest);
+
+        /// <summary>
+        /// Retrieve a list of notations for a given FactSet identifier.
+        /// </summary>
+        /// <remarks>
+        /// &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest">Request Body</param>
+        /// <returns>ApiResponse of InlineResponse20073</returns>
+        ApiResponse<InlineResponse20073> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest);
+        /// <summary>
+        /// Retrieve a list of FactSet identifiers for a given instrument.
+        /// </summary>
+        /// <remarks>
+        /// &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest">Request Body</param>
+        /// <returns>InlineResponse20074</returns>
+        InlineResponse20074 PostNotationCrossReferenceFactSetIdentifierListByInstrument(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest);
 
         /// <summary>
         /// Retrieve a list of FactSet identifiers for a given instrument.
@@ -771,9 +817,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20073</returns>
-        ApiResponse<InlineResponse20073> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = default(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest));
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest">Request Body</param>
+        /// <returns>ApiResponse of InlineResponse20074</returns>
+        ApiResponse<InlineResponse20074> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest);
         /// <summary>
         /// List of entitled notations.
         /// </summary>
@@ -781,51 +827,51 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByISINRequest"> (optional)</param>
-        /// <returns>InlineResponse20069</returns>
-        InlineResponse20069 PostNotationCrossReferenceListByISIN(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest));
-
-        /// <summary>
-        /// List of entitled notations.
-        /// </summary>
-        /// <remarks>
-        /// List of entitled notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByISINRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20069</returns>
-        ApiResponse<InlineResponse20069> PostNotationCrossReferenceListByISINWithHttpInfo(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest));
-        /// <summary>
-        /// List of entitled notations.
-        /// </summary>
-        /// <remarks>
-        /// List of entitled notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByInstrumentRequest"> (optional)</param>
-        /// <returns>InlineResponse20068</returns>
-        InlineResponse20068 PostNotationCrossReferenceListByInstrument(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest));
-
-        /// <summary>
-        /// List of entitled notations.
-        /// </summary>
-        /// <remarks>
-        /// List of entitled notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByInstrumentRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20068</returns>
-        ApiResponse<InlineResponse20068> PostNotationCrossReferenceListByInstrumentWithHttpInfo(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest));
-        /// <summary>
-        /// List of entitled notations.
-        /// </summary>
-        /// <remarks>
-        /// List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListBySymbolRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListByISINRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20070</returns>
-        InlineResponse20070 PostNotationCrossReferenceListBySymbol(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest));
+        InlineResponse20070 PostNotationCrossReferenceListByISIN(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest));
+
+        /// <summary>
+        /// List of entitled notations.
+        /// </summary>
+        /// <remarks>
+        /// List of entitled notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceListByISINRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20070</returns>
+        ApiResponse<InlineResponse20070> PostNotationCrossReferenceListByISINWithHttpInfo(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest));
+        /// <summary>
+        /// List of entitled notations.
+        /// </summary>
+        /// <remarks>
+        /// List of entitled notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceListByInstrumentRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20069</returns>
+        InlineResponse20069 PostNotationCrossReferenceListByInstrument(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest));
+
+        /// <summary>
+        /// List of entitled notations.
+        /// </summary>
+        /// <remarks>
+        /// List of entitled notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceListByInstrumentRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20069</returns>
+        ApiResponse<InlineResponse20069> PostNotationCrossReferenceListByInstrumentWithHttpInfo(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest));
+        /// <summary>
+        /// List of entitled notations.
+        /// </summary>
+        /// <remarks>
+        /// List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceListBySymbolRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20071</returns>
+        InlineResponse20071 PostNotationCrossReferenceListBySymbol(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest));
 
         /// <summary>
         /// List of entitled notations.
@@ -834,9 +880,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListBySymbolRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20070</returns>
-        ApiResponse<InlineResponse20070> PostNotationCrossReferenceListBySymbolWithHttpInfo(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest));
+        /// <param name="postNotationCrossReferenceListBySymbolRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20071</returns>
+        ApiResponse<InlineResponse20071> PostNotationCrossReferenceListBySymbolWithHttpInfo(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest));
         /// <summary>
         /// List of markets with entitled notations.
         /// </summary>
@@ -844,9 +890,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationMarketListRequest"> (optional)</param>
-        /// <returns>InlineResponse20080</returns>
-        InlineResponse20080 PostNotationMarketList(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest));
+        /// <param name="postNotationMarketListRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20082</returns>
+        InlineResponse20082 PostNotationMarketList(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest));
 
         /// <summary>
         /// List of markets with entitled notations.
@@ -855,9 +901,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationMarketListRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20080</returns>
-        ApiResponse<InlineResponse20080> PostNotationMarketListWithHttpInfo(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest));
+        /// <param name="postNotationMarketListRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20082</returns>
+        ApiResponse<InlineResponse20082> PostNotationMarketListWithHttpInfo(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest));
         /// <summary>
         /// Text-based search for notations.
         /// </summary>
@@ -865,9 +911,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationSearchByTextRequest"> (optional)</param>
-        /// <returns>InlineResponse20092</returns>
-        InlineResponse20092 PostNotationSearchByText(PostNotationSearchByTextRequest postNotationSearchByTextRequest = default(PostNotationSearchByTextRequest));
+        /// <param name="postNotationSearchByTextRequest">Request Body</param>
+        /// <returns>InlineResponse20094</returns>
+        InlineResponse20094 PostNotationSearchByText(PostNotationSearchByTextRequest postNotationSearchByTextRequest);
 
         /// <summary>
         /// Text-based search for notations.
@@ -876,9 +922,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationSearchByTextRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20092</returns>
-        ApiResponse<InlineResponse20092> PostNotationSearchByTextWithHttpInfo(PostNotationSearchByTextRequest postNotationSearchByTextRequest = default(PostNotationSearchByTextRequest));
+        /// <param name="postNotationSearchByTextRequest">Request Body</param>
+        /// <returns>ApiResponse of InlineResponse20094</returns>
+        ApiResponse<InlineResponse20094> PostNotationSearchByTextWithHttpInfo(PostNotationSearchByTextRequest postNotationSearchByTextRequest);
         #endregion Synchronous Operations
     }
 
@@ -899,8 +945,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20071</returns>
-        System.Threading.Tasks.Task<InlineResponse20071> GetNotationCrossReferenceFactSetIdentifierGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20072</returns>
+        System.Threading.Tasks.Task<InlineResponse20072> GetNotationCrossReferenceFactSetIdentifierGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve FactSet identifiers for a given notation.
@@ -913,8 +959,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20071)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20071>> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20072)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20072>> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Translate a FactSet market symbol to a notation.
         /// </summary>
@@ -926,8 +972,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20067</returns>
-        System.Threading.Tasks.Task<InlineResponse20067> GetNotationCrossReferenceGetByFactSetMarketSymbolAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20068</returns>
+        System.Threading.Tasks.Task<InlineResponse20068> GetNotationCrossReferenceGetByFactSetMarketSymbolAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Translate a FactSet market symbol to a notation.
@@ -940,8 +986,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20067)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20067>> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20068)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20068>> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Basic data for a notation.
         /// </summary>
@@ -982,8 +1028,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20076</returns>
-        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresMonth1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20077</returns>
+        System.Threading.Tasks.Task<InlineResponse20077> GetNotationKeyFiguresMonth1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) key figures for the time range of one month.
@@ -996,480 +1042,507 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20077</returns>
-        System.Threading.Tasks.Task<InlineResponse20077> GetNotationKeyFiguresMonth1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three months.
+        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
         /// </summary>
         /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three months.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresMonth3GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three months.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three months.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresMonth3ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of six months.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of six months.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresMonth6GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of six months.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of six months.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresMonth6ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one week.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one week.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20076</returns>
-        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresWeek1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one week.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one week.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20077</returns>
-        System.Threading.Tasks.Task<InlineResponse20077> GetNotationKeyFiguresWeek1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of ten years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of ten years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresYear10GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of ten years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of ten years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear10GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear10ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear10ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one year.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one year.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20076</returns>
-        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresYear1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one year.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one year.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20077</returns>
-        System.Threading.Tasks.Task<InlineResponse20077> GetNotationKeyFiguresYear1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresYear1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresYear3GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear3GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear3ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear3ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of five years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of five years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresYear5GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of five years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of five years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear5GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear5ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear5ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of seven years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of seven years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresYear7GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of seven years.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of seven years.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear7GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear7ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifiers"></param>
-        /// <param name="identifierType"></param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear7ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// End-of-day (EOD) key figures for the time range year-to-date (YTD)..
-        /// </summary>
-        /// <remarks>
-        /// End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20078</returns>
-        System.Threading.Tasks.Task<InlineResponse20078> GetNotationKeyFiguresYearToDateGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20078> GetNotationKeyFiguresMonth1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one month, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three months.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three months.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20075</returns>
+        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresMonth3GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three months.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three months.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20076</returns>
+        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresMonth3ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of six months.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of six months.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20075</returns>
+        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresMonth6GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of six months.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of six months.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20076</returns>
+        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresMonth6ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Average end-of-day (EOD) key figures for different trading days periods.
+        /// </summary>
+        /// <remarks>
+        /// Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20081</returns>
+        System.Threading.Tasks.Task<InlineResponse20081> GetNotationKeyFiguresTradingDayAverageGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Average end-of-day (EOD) key figures for different trading days periods.
+        /// </summary>
+        /// <remarks>
+        /// Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20081)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20081>> GetNotationKeyFiguresTradingDayAverageGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one week.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one week.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20077</returns>
+        System.Threading.Tasks.Task<InlineResponse20077> GetNotationKeyFiguresWeek1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one week.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one week.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20078</returns>
+        System.Threading.Tasks.Task<InlineResponse20078> GetNotationKeyFiguresWeek1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of ten years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of ten years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20075</returns>
+        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear10GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of ten years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of ten years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear10GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20076</returns>
+        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresYear10ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear10ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one year.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one year.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20077</returns>
+        System.Threading.Tasks.Task<InlineResponse20077> GetNotationKeyFiguresYear1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one year.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one year.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresYear1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20078</returns>
+        System.Threading.Tasks.Task<InlineResponse20078> GetNotationKeyFiguresYear1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationKeyFiguresYear1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20075</returns>
+        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear3GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear3GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20076</returns>
+        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresYear3ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear3ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of five years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of five years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20075</returns>
+        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear5GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of five years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of five years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear5GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20076</returns>
+        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresYear5ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear5ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of seven years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of seven years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20075</returns>
+        System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear7GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of seven years.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of seven years.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear7GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20076</returns>
+        System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresYear7ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifiers"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear7ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// End-of-day (EOD) key figures for the time range year-to-date (YTD)..
+        /// </summary>
+        /// <remarks>
+        /// End-of-day (EOD) key figures for the time range year-to-date (YTD). The time range YTD begins with the last trading day of the previous calendar year for which EOD prices are available and ends with the most recent trading day of the current calendar year for which EOD prices are available..
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20079</returns>
+        System.Threading.Tasks.Task<InlineResponse20079> GetNotationKeyFiguresYearToDateGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) key figures for the time range year-to-date (YTD)..
@@ -1482,8 +1555,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20079)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20079>> GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
         /// </summary>
@@ -1495,8 +1568,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20079</returns>
-        System.Threading.Tasks.Task<InlineResponse20079> GetNotationKeyFiguresYearToDateListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20080</returns>
+        System.Threading.Tasks.Task<InlineResponse20080> GetNotationKeyFiguresYearToDateListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
@@ -1509,8 +1582,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20079)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20079>> GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20080)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20080>> GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Basic data for a list of notations.
         /// </summary>
@@ -1557,8 +1630,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20091</returns>
-        System.Threading.Tasks.Task<InlineResponse20091> GetNotationSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20093</returns>
+        System.Threading.Tasks.Task<InlineResponse20093> GetNotationSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Basic search for notations.
@@ -1577,52 +1650,52 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20091)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20091>> GetNotationSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Basic search for notations.
-        /// </summary>
-        /// <remarks>
-        /// Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchValue"></param>
-        /// <param name="idMarkets"> (optional)</param>
-        /// <param name="nsins"> (optional)</param>
-        /// <param name="assetClass"> (optional)</param>
-        /// <param name="onlyActive"> (optional, default to true)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language"> (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20093</returns>
-        System.Threading.Tasks.Task<InlineResponse20093> GetNotationSearchByTextRankedByVolumeAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Basic search for notations.
-        /// </summary>
-        /// <remarks>
-        /// Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchValue"></param>
-        /// <param name="idMarkets"> (optional)</param>
-        /// <param name="nsins"> (optional)</param>
-        /// <param name="assetClass"> (optional)</param>
-        /// <param name="onlyActive"> (optional, default to true)</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language"> (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20093)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20093>> GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20093>> GetNotationSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Basic search for notations.
+        /// </summary>
+        /// <remarks>
+        /// Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchValue"></param>
+        /// <param name="idMarkets"> (optional)</param>
+        /// <param name="nsins"> (optional)</param>
+        /// <param name="assetClass"> (optional)</param>
+        /// <param name="onlyActive"> (optional, default to true)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20095</returns>
+        System.Threading.Tasks.Task<InlineResponse20095> GetNotationSearchByTextRankedByVolumeAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Basic search for notations.
+        /// </summary>
+        /// <remarks>
+        /// Search for notations whose ISIN, specified NSINs, name, or symbol match the search value according to a tolerant full-text match algorithm. If more than one notation of an instrument matches, only the notation with the highest monetary trading volume, averaged over one month, is considered.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchValue"></param>
+        /// <param name="idMarkets"> (optional)</param>
+        /// <param name="nsins"> (optional)</param>
+        /// <param name="assetClass"> (optional)</param>
+        /// <param name="onlyActive"> (optional, default to true)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20095)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20095>> GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Intraday trading status of a notation.
         /// </summary>
         /// <remarks>
-        /// Intraday trading status of a notation.
+        /// Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
@@ -1630,14 +1703,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20081</returns>
-        System.Threading.Tasks.Task<InlineResponse20081> GetNotationStatusGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20083</returns>
+        System.Threading.Tasks.Task<InlineResponse20083> GetNotationStatusGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Intraday trading status of a notation.
         /// </summary>
         /// <remarks>
-        /// Intraday trading status of a notation.
+        /// Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
@@ -1645,42 +1718,65 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20081)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20081>> GetNotationStatusGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20083)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20083>> GetNotationStatusGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieve a list of notations for a given FactSet identifier.
+        /// List of categories assigned to a specific notation the application is entitled to see.
         /// </summary>
         /// <remarks>
-        /// &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
+        /// List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"> (optional)</param>
+        /// <param name="postNotationCategoryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20072</returns>
-        System.Threading.Tasks.Task<InlineResponse20072> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierAsync(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = default(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20067</returns>
+        System.Threading.Tasks.Task<InlineResponse20067> PostNotationCategoryListAsync(PostNotationCategoryListRequest postNotationCategoryListRequest = default(PostNotationCategoryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
+        /// List of categories assigned to a specific notation the application is entitled to see.
+        /// </summary>
+        /// <remarks>
+        /// List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCategoryListRequest">Request Body (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20067)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20067>> PostNotationCategoryListWithHttpInfoAsync(PostNotationCategoryListRequest postNotationCategoryListRequest = default(PostNotationCategoryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Retrieve a list of notations for a given FactSet identifier.
         /// </summary>
         /// <remarks>
         /// &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20072)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20072>> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = default(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Retrieve a list of FactSet identifiers for a given instrument.
-        /// </summary>
-        /// <remarks>
-        /// &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20073</returns>
-        System.Threading.Tasks.Task<InlineResponse20073> PostNotationCrossReferenceFactSetIdentifierListByInstrumentAsync(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = default(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20073> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierAsync(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieve a list of notations for a given FactSet identifier.
+        /// </summary>
+        /// <remarks>
+        /// &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest">Request Body</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20073)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20073>> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve a list of FactSet identifiers for a given instrument.
+        /// </summary>
+        /// <remarks>
+        /// &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest">Request Body</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20074</returns>
+        System.Threading.Tasks.Task<InlineResponse20074> PostNotationCrossReferenceFactSetIdentifierListByInstrumentAsync(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve a list of FactSet identifiers for a given instrument.
@@ -1689,10 +1785,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20073)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20073>> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = default(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List of entitled notations.
         /// </summary>
@@ -1700,56 +1796,56 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByISINRequest"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20069</returns>
-        System.Threading.Tasks.Task<InlineResponse20069> PostNotationCrossReferenceListByISINAsync(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// List of entitled notations.
-        /// </summary>
-        /// <remarks>
-        /// List of entitled notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByISINRequest"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20069)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20069>> PostNotationCrossReferenceListByISINWithHttpInfoAsync(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// List of entitled notations.
-        /// </summary>
-        /// <remarks>
-        /// List of entitled notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByInstrumentRequest"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20068</returns>
-        System.Threading.Tasks.Task<InlineResponse20068> PostNotationCrossReferenceListByInstrumentAsync(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// List of entitled notations.
-        /// </summary>
-        /// <remarks>
-        /// List of entitled notations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByInstrumentRequest"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20068)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20068>> PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// List of entitled notations.
-        /// </summary>
-        /// <remarks>
-        /// List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListBySymbolRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListByISINRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20070</returns>
-        System.Threading.Tasks.Task<InlineResponse20070> PostNotationCrossReferenceListBySymbolAsync(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20070> PostNotationCrossReferenceListByISINAsync(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List of entitled notations.
+        /// </summary>
+        /// <remarks>
+        /// List of entitled notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceListByISINRequest">Request Body (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20070)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20070>> PostNotationCrossReferenceListByISINWithHttpInfoAsync(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List of entitled notations.
+        /// </summary>
+        /// <remarks>
+        /// List of entitled notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceListByInstrumentRequest">Request Body (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20069</returns>
+        System.Threading.Tasks.Task<InlineResponse20069> PostNotationCrossReferenceListByInstrumentAsync(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List of entitled notations.
+        /// </summary>
+        /// <remarks>
+        /// List of entitled notations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceListByInstrumentRequest">Request Body (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20069)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20069>> PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List of entitled notations.
+        /// </summary>
+        /// <remarks>
+        /// List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCrossReferenceListBySymbolRequest">Request Body (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20071</returns>
+        System.Threading.Tasks.Task<InlineResponse20071> PostNotationCrossReferenceListBySymbolAsync(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List of entitled notations.
@@ -1758,10 +1854,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListBySymbolRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListBySymbolRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20070)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20070>> PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20071)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20071>> PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List of markets with entitled notations.
         /// </summary>
@@ -1769,10 +1865,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationMarketListRequest"> (optional)</param>
+        /// <param name="postNotationMarketListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20080</returns>
-        System.Threading.Tasks.Task<InlineResponse20080> PostNotationMarketListAsync(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20082</returns>
+        System.Threading.Tasks.Task<InlineResponse20082> PostNotationMarketListAsync(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List of markets with entitled notations.
@@ -1781,10 +1877,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationMarketListRequest"> (optional)</param>
+        /// <param name="postNotationMarketListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20080)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20080>> PostNotationMarketListWithHttpInfoAsync(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20082)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20082>> PostNotationMarketListWithHttpInfoAsync(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Text-based search for notations.
         /// </summary>
@@ -1792,10 +1888,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationSearchByTextRequest"> (optional)</param>
+        /// <param name="postNotationSearchByTextRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20092</returns>
-        System.Threading.Tasks.Task<InlineResponse20092> PostNotationSearchByTextAsync(PostNotationSearchByTextRequest postNotationSearchByTextRequest = default(PostNotationSearchByTextRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20094</returns>
+        System.Threading.Tasks.Task<InlineResponse20094> PostNotationSearchByTextAsync(PostNotationSearchByTextRequest postNotationSearchByTextRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Text-based search for notations.
@@ -1804,10 +1900,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationSearchByTextRequest"> (optional)</param>
+        /// <param name="postNotationSearchByTextRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20092)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20092>> PostNotationSearchByTextWithHttpInfoAsync(PostNotationSearchByTextRequest postNotationSearchByTextRequest = default(PostNotationSearchByTextRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20094)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20094>> PostNotationSearchByTextWithHttpInfoAsync(PostNotationSearchByTextRequest postNotationSearchByTextRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1830,12 +1926,12 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationCrossReferenceFactSetIdentifierGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20071) },
+            { (HttpStatusCode)200, typeof(InlineResponse20072) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20067) },
+            { (HttpStatusCode)200, typeof(InlineResponse20068) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -1845,102 +1941,107 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20076) },
+            { (HttpStatusCode)200, typeof(InlineResponse20077) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20077) },
+            { (HttpStatusCode)200, typeof(InlineResponse20078) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth3ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+            { (HttpStatusCode)200, typeof(InlineResponse20076) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth6GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth6ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+            { (HttpStatusCode)200, typeof(InlineResponse20076) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresTradingDayAverageGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20081) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresWeek1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20076) },
+            { (HttpStatusCode)200, typeof(InlineResponse20077) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresWeek1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20077) },
+            { (HttpStatusCode)200, typeof(InlineResponse20078) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear10GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear10ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+            { (HttpStatusCode)200, typeof(InlineResponse20076) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20076) },
+            { (HttpStatusCode)200, typeof(InlineResponse20077) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20077) },
+            { (HttpStatusCode)200, typeof(InlineResponse20078) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear3ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+            { (HttpStatusCode)200, typeof(InlineResponse20076) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear5GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear5ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+            { (HttpStatusCode)200, typeof(InlineResponse20076) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear7GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear7ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+            { (HttpStatusCode)200, typeof(InlineResponse20076) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYearToDateGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20078) },
+            { (HttpStatusCode)200, typeof(InlineResponse20079) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYearToDateListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20079) },
+            { (HttpStatusCode)200, typeof(InlineResponse20080) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -1950,52 +2051,57 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationSearchBasicResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20091) },
+            { (HttpStatusCode)200, typeof(InlineResponse20093) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationSearchByTextRankedByVolumeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20093) },
+            { (HttpStatusCode)200, typeof(InlineResponse20095) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationStatusGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20081) },
+            { (HttpStatusCode)200, typeof(InlineResponse20083) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCategoryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20067) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20072) },
+            { (HttpStatusCode)200, typeof(InlineResponse20073) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20073) },
+            { (HttpStatusCode)200, typeof(InlineResponse20074) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListByISINResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20069) },
+            { (HttpStatusCode)200, typeof(InlineResponse20070) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20068) },
+            { (HttpStatusCode)200, typeof(InlineResponse20069) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20070) },
+            { (HttpStatusCode)200, typeof(InlineResponse20071) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationMarketListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20080) },
+            { (HttpStatusCode)200, typeof(InlineResponse20082) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationSearchByTextResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20092) },
+            { (HttpStatusCode)200, typeof(InlineResponse20094) },
         };
 
         # endregion Response Type Disctionaries
@@ -2114,8 +2220,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20071</returns>
-        public InlineResponse20071 GetNotationCrossReferenceFactSetIdentifierGet(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20072</returns>
+        public InlineResponse20072 GetNotationCrossReferenceFactSetIdentifierGet(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -2128,8 +2234,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20071</returns>
-        public ApiResponse<InlineResponse20071> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20072</returns>
+        public ApiResponse<InlineResponse20072> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2196,7 +2302,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20071>("/notation/crossReference/factSetIdentifier/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20072>("/notation/crossReference/factSetIdentifier/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationCrossReferenceFactSetIdentifierGet", localVarResponse);
@@ -2216,8 +2322,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20071</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20071>GetNotationCrossReferenceFactSetIdentifierGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20072</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20072>GetNotationCrossReferenceFactSetIdentifierGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2231,9 +2337,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20071)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20072)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20071>> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20072>> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2300,7 +2406,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationCrossReferenceFactSetIdentifierGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20071>("/notation/crossReference/factSetIdentifier/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20072>("/notation/crossReference/factSetIdentifier/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2321,8 +2427,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="factSetMarketSymbol"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language"> (optional)</param>
-        /// <returns>InlineResponse20067</returns>
-        public InlineResponse20067 GetNotationCrossReferenceGetByFactSetMarketSymbol(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string))
+        /// <returns>InlineResponse20068</returns>
+        public InlineResponse20068 GetNotationCrossReferenceGetByFactSetMarketSymbol(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, attributes, language);
             return localVarResponse.Data;
@@ -2335,8 +2441,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="factSetMarketSymbol"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20067</returns>
-        public ApiResponse<InlineResponse20067> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string))
+        /// <returns>ApiResponse of InlineResponse20068</returns>
+        public ApiResponse<InlineResponse20068> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'factSetMarketSymbol' is set
             if (factSetMarketSymbol == null)
@@ -2400,7 +2506,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20067>("/notation/crossReference/getByFactSetMarketSymbol", localVarRequestOptions, this.Configuration);
+            InlineResponse20068>("/notation/crossReference/getByFactSetMarketSymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationCrossReferenceGetByFactSetMarketSymbol", localVarResponse);
@@ -2420,8 +2526,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20067</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20067>GetNotationCrossReferenceGetByFactSetMarketSymbolAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20068</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20068>GetNotationCrossReferenceGetByFactSetMarketSymbolAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(factSetMarketSymbol, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2435,9 +2541,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20067)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20068)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20067>> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20068>> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'factSetMarketSymbol' is set
             if (factSetMarketSymbol == null)
@@ -2501,7 +2607,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20067>("/notation/crossReference/getByFactSetMarketSymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20068>("/notation/crossReference/getByFactSetMarketSymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2741,8 +2847,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20076</returns>
-        public InlineResponse20076 GetNotationKeyFiguresMonth1Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20077</returns>
+        public InlineResponse20077 GetNotationKeyFiguresMonth1Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresMonth1GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -2755,8 +2861,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20076</returns>
-        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresMonth1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20077</returns>
+        public ApiResponse<InlineResponse20077> GetNotationKeyFiguresMonth1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2823,7 +2929,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20076>("/notation/keyFigures/month/1/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20077>("/notation/keyFigures/month/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth1Get", localVarResponse);
@@ -2843,8 +2949,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20076</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresMonth1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20077</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20077>GetNotationKeyFiguresMonth1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2858,9 +2964,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2927,7 +3033,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth1GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/month/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20077>("/notation/keyFigures/month/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2948,8 +3054,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20077</returns>
-        public InlineResponse20077 GetNotationKeyFiguresMonth1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20078</returns>
+        public InlineResponse20078 GetNotationKeyFiguresMonth1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresMonth1ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -2962,8 +3068,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20077</returns>
-        public ApiResponse<InlineResponse20077> GetNotationKeyFiguresMonth1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20078</returns>
+        public ApiResponse<InlineResponse20078> GetNotationKeyFiguresMonth1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -3030,7 +3136,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20077>("/notation/keyFigures/month/1/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20078>("/notation/keyFigures/month/1/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth1List", localVarResponse);
@@ -3050,8 +3156,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20077</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20077>GetNotationKeyFiguresMonth1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20078</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20078>GetNotationKeyFiguresMonth1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3065,9 +3171,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -3134,7 +3240,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth1ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20077>("/notation/keyFigures/month/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20078>("/notation/keyFigures/month/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3155,8 +3261,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        public InlineResponse20074 GetNotationKeyFiguresMonth3Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20075</returns>
+        public InlineResponse20075 GetNotationKeyFiguresMonth3Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresMonth3GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -3169,8 +3275,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresMonth3GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth3GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3237,7 +3343,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20074>("/notation/keyFigures/month/3/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20075>("/notation/keyFigures/month/3/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth3Get", localVarResponse);
@@ -3257,8 +3363,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresMonth3GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20075</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresMonth3GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3272,9 +3378,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3341,7 +3447,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth3GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/month/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/month/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3362,8 +3468,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        public InlineResponse20075 GetNotationKeyFiguresMonth3List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20076</returns>
+        public InlineResponse20076 GetNotationKeyFiguresMonth3List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresMonth3ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -3376,8 +3482,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth3ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresMonth3ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -3444,7 +3550,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20075>("/notation/keyFigures/month/3/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20076>("/notation/keyFigures/month/3/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth3List", localVarResponse);
@@ -3464,8 +3570,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresMonth3ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20076</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresMonth3ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3479,9 +3585,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -3548,7 +3654,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth3ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/month/3/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/month/3/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3569,8 +3675,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        public InlineResponse20074 GetNotationKeyFiguresMonth6Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20075</returns>
+        public InlineResponse20075 GetNotationKeyFiguresMonth6Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresMonth6GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -3583,8 +3689,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresMonth6GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth6GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3651,7 +3757,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20074>("/notation/keyFigures/month/6/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20075>("/notation/keyFigures/month/6/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth6Get", localVarResponse);
@@ -3671,8 +3777,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresMonth6GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20075</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresMonth6GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3686,9 +3792,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3755,7 +3861,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth6GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/month/6/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/month/6/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3776,8 +3882,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        public InlineResponse20075 GetNotationKeyFiguresMonth6List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20076</returns>
+        public InlineResponse20076 GetNotationKeyFiguresMonth6List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresMonth6ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -3790,8 +3896,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth6ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresMonth6ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -3858,7 +3964,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20075>("/notation/keyFigures/month/6/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20076>("/notation/keyFigures/month/6/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth6List", localVarResponse);
@@ -3878,8 +3984,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresMonth6ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20076</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresMonth6ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3893,9 +3999,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -3962,7 +4068,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth6ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/month/6/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/month/6/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3977,14 +4083,221 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         }
 
         /// <summary>
+        /// Average end-of-day (EOD) key figures for different trading days periods. Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20081</returns>
+        public InlineResponse20081 GetNotationKeyFiguresTradingDayAverageGet(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetNotationKeyFiguresTradingDayAverageGetWithHttpInfo(identifier, identifierType, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Average end-of-day (EOD) key figures for different trading days periods. Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20081</returns>
+        public ApiResponse<InlineResponse20081> GetNotationKeyFiguresTradingDayAverageGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'identifier' when calling NotationApi->GetNotationKeyFiguresTradingDayAverageGet");
+            }
+
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'identifierType' when calling NotationApi->GetNotationKeyFiguresTradingDayAverageGet");
+            }
+
+            FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "identifier", identifier));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "identifierType", identifierType));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresTradingDayAverageGetResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20081>("/notation/keyFigures/tradingDay/average/get", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresTradingDayAverageGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Average end-of-day (EOD) key figures for different trading days periods. Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20081</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20081>GetNotationKeyFiguresTradingDayAverageGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetNotationKeyFiguresTradingDayAverageGetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Average end-of-day (EOD) key figures for different trading days periods. Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier"></param>
+        /// <param name="identifierType"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20081)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20081>> GetNotationKeyFiguresTradingDayAverageGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'identifier' when calling NotationApi->GetNotationKeyFiguresTradingDayAverageGet");
+            }
+
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'identifierType' when calling NotationApi->GetNotationKeyFiguresTradingDayAverageGet");
+            }
+
+
+            FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "identifier", identifier));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "identifierType", identifierType));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresTradingDayAverageGetResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20081>("/notation/keyFigures/tradingDay/average/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresTradingDayAverageGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// End-of-day (EOD) key figures for the time range of one week. End-of-day (EOD) key figures for the time range of one week.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20076</returns>
-        public InlineResponse20076 GetNotationKeyFiguresWeek1Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20077</returns>
+        public InlineResponse20077 GetNotationKeyFiguresWeek1Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresWeek1GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -3997,8 +4310,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20076</returns>
-        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresWeek1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20077</returns>
+        public ApiResponse<InlineResponse20077> GetNotationKeyFiguresWeek1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -4065,7 +4378,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20076>("/notation/keyFigures/week/1/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20077>("/notation/keyFigures/week/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresWeek1Get", localVarResponse);
@@ -4085,8 +4398,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20076</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresWeek1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20077</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20077>GetNotationKeyFiguresWeek1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4100,9 +4413,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -4169,7 +4482,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresWeek1GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/week/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20077>("/notation/keyFigures/week/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4190,8 +4503,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20077</returns>
-        public InlineResponse20077 GetNotationKeyFiguresWeek1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20078</returns>
+        public InlineResponse20078 GetNotationKeyFiguresWeek1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresWeek1ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -4204,8 +4517,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20077</returns>
-        public ApiResponse<InlineResponse20077> GetNotationKeyFiguresWeek1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20078</returns>
+        public ApiResponse<InlineResponse20078> GetNotationKeyFiguresWeek1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -4272,7 +4585,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20077>("/notation/keyFigures/week/1/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20078>("/notation/keyFigures/week/1/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresWeek1List", localVarResponse);
@@ -4292,8 +4605,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20077</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20077>GetNotationKeyFiguresWeek1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20078</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20078>GetNotationKeyFiguresWeek1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4307,9 +4620,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -4376,7 +4689,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresWeek1ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20077>("/notation/keyFigures/week/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20078>("/notation/keyFigures/week/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4397,8 +4710,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        public InlineResponse20074 GetNotationKeyFiguresYear10Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20075</returns>
+        public InlineResponse20075 GetNotationKeyFiguresYear10Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear10GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -4411,8 +4724,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear10GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear10GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -4479,7 +4792,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20074>("/notation/keyFigures/year/10/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20075>("/notation/keyFigures/year/10/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear10Get", localVarResponse);
@@ -4499,8 +4812,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresYear10GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20075</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear10GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear10GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4514,9 +4827,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear10GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear10GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -4583,7 +4896,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear10GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/year/10/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/10/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4604,8 +4917,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        public InlineResponse20075 GetNotationKeyFiguresYear10List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20076</returns>
+        public InlineResponse20076 GetNotationKeyFiguresYear10List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear10ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -4618,8 +4931,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear10ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear10ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -4686,7 +4999,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20075>("/notation/keyFigures/year/10/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20076>("/notation/keyFigures/year/10/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear10List", localVarResponse);
@@ -4706,8 +5019,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear10ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20076</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresYear10ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear10ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4721,9 +5034,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear10ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear10ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -4790,7 +5103,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear10ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/10/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/year/10/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4811,8 +5124,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20076</returns>
-        public InlineResponse20076 GetNotationKeyFiguresYear1Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20077</returns>
+        public InlineResponse20077 GetNotationKeyFiguresYear1Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear1GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -4825,8 +5138,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20076</returns>
-        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20077</returns>
+        public ApiResponse<InlineResponse20077> GetNotationKeyFiguresYear1GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -4893,7 +5206,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20076>("/notation/keyFigures/year/1/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20077>("/notation/keyFigures/year/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear1Get", localVarResponse);
@@ -4913,8 +5226,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20076</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresYear1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20077</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20077>GetNotationKeyFiguresYear1GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear1GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4928,9 +5241,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresYear1GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -4997,7 +5310,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear1GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/year/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20077>("/notation/keyFigures/year/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5018,8 +5331,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20077</returns>
-        public InlineResponse20077 GetNotationKeyFiguresYear1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20078</returns>
+        public InlineResponse20078 GetNotationKeyFiguresYear1List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear1ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -5032,8 +5345,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20077</returns>
-        public ApiResponse<InlineResponse20077> GetNotationKeyFiguresYear1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20078</returns>
+        public ApiResponse<InlineResponse20078> GetNotationKeyFiguresYear1ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -5100,7 +5413,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20077>("/notation/keyFigures/year/1/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20078>("/notation/keyFigures/year/1/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear1List", localVarResponse);
@@ -5120,8 +5433,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20077</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20077>GetNotationKeyFiguresYear1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20078</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20078>GetNotationKeyFiguresYear1ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear1ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5135,9 +5448,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresYear1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationKeyFiguresYear1ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -5204,7 +5517,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear1ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20077>("/notation/keyFigures/year/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20078>("/notation/keyFigures/year/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5225,8 +5538,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        public InlineResponse20074 GetNotationKeyFiguresYear3Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20075</returns>
+        public InlineResponse20075 GetNotationKeyFiguresYear3Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear3GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -5239,8 +5552,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear3GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear3GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -5307,7 +5620,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20074>("/notation/keyFigures/year/3/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20075>("/notation/keyFigures/year/3/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear3Get", localVarResponse);
@@ -5327,8 +5640,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresYear3GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20075</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear3GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear3GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5342,9 +5655,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear3GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear3GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -5411,7 +5724,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear3GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/year/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5432,8 +5745,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        public InlineResponse20075 GetNotationKeyFiguresYear3List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20076</returns>
+        public InlineResponse20076 GetNotationKeyFiguresYear3List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear3ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -5446,8 +5759,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear3ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear3ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -5514,7 +5827,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20075>("/notation/keyFigures/year/3/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20076>("/notation/keyFigures/year/3/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear3List", localVarResponse);
@@ -5534,8 +5847,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear3ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20076</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresYear3ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear3ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5549,9 +5862,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear3ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear3ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -5618,7 +5931,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear3ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/3/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/year/3/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5639,8 +5952,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        public InlineResponse20074 GetNotationKeyFiguresYear5Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20075</returns>
+        public InlineResponse20075 GetNotationKeyFiguresYear5Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear5GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -5653,8 +5966,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear5GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear5GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -5721,7 +6034,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20074>("/notation/keyFigures/year/5/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20075>("/notation/keyFigures/year/5/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear5Get", localVarResponse);
@@ -5741,8 +6054,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresYear5GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20075</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear5GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear5GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5756,9 +6069,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear5GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear5GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -5825,7 +6138,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear5GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/year/5/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/5/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5846,8 +6159,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        public InlineResponse20075 GetNotationKeyFiguresYear5List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20076</returns>
+        public InlineResponse20076 GetNotationKeyFiguresYear5List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear5ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -5860,8 +6173,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear5ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear5ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -5928,7 +6241,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20075>("/notation/keyFigures/year/5/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20076>("/notation/keyFigures/year/5/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear5List", localVarResponse);
@@ -5948,8 +6261,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear5ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20076</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresYear5ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear5ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5963,9 +6276,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear5ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear5ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -6032,7 +6345,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear5ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/5/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/year/5/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6053,8 +6366,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20074</returns>
-        public InlineResponse20074 GetNotationKeyFiguresYear7Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20075</returns>
+        public InlineResponse20075 GetNotationKeyFiguresYear7Get(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear7GetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -6067,8 +6380,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20074</returns>
-        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear7GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20075</returns>
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear7GetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -6135,7 +6448,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20074>("/notation/keyFigures/year/7/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20075>("/notation/keyFigures/year/7/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear7Get", localVarResponse);
@@ -6155,8 +6468,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresYear7GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20075</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear7GetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear7GetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6170,9 +6483,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear7GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear7GetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -6239,7 +6552,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear7GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/year/7/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/7/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6260,8 +6573,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20075</returns>
-        public InlineResponse20075 GetNotationKeyFiguresYear7List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20076</returns>
+        public InlineResponse20076 GetNotationKeyFiguresYear7List(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYear7ListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -6274,8 +6587,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20075</returns>
-        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear7ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20076</returns>
+        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresYear7ListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -6342,7 +6655,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20075>("/notation/keyFigures/year/7/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20076>("/notation/keyFigures/year/7/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear7List", localVarResponse);
@@ -6362,8 +6675,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear7ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20076</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresYear7ListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYear7ListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6377,9 +6690,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear7ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYear7ListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -6446,7 +6759,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear7ListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/7/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/year/7/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6467,8 +6780,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20078</returns>
-        public InlineResponse20078 GetNotationKeyFiguresYearToDateGet(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20079</returns>
+        public InlineResponse20079 GetNotationKeyFiguresYearToDateGet(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYearToDateGetWithHttpInfo(identifier, identifierType, attributes);
             return localVarResponse.Data;
@@ -6481,8 +6794,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20078</returns>
-        public ApiResponse<InlineResponse20078> GetNotationKeyFiguresYearToDateGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20079</returns>
+        public ApiResponse<InlineResponse20079> GetNotationKeyFiguresYearToDateGetWithHttpInfo(string identifier, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -6549,7 +6862,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20078>("/notation/keyFigures/yearToDate/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20079>("/notation/keyFigures/yearToDate/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYearToDateGet", localVarResponse);
@@ -6569,8 +6882,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20078</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20078>GetNotationKeyFiguresYearToDateGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20079</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20079>GetNotationKeyFiguresYearToDateGetAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(identifier, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6584,9 +6897,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20079)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20079>> GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(string identifier, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -6653,7 +6966,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYearToDateGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20078>("/notation/keyFigures/yearToDate/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20079>("/notation/keyFigures/yearToDate/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6674,8 +6987,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20079</returns>
-        public InlineResponse20079 GetNotationKeyFiguresYearToDateList(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20080</returns>
+        public InlineResponse20080 GetNotationKeyFiguresYearToDateList(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationKeyFiguresYearToDateListWithHttpInfo(identifiers, identifierType, attributes);
             return localVarResponse.Data;
@@ -6688,8 +7001,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifiers"></param>
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20079</returns>
-        public ApiResponse<InlineResponse20079> GetNotationKeyFiguresYearToDateListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20080</returns>
+        public ApiResponse<InlineResponse20080> GetNotationKeyFiguresYearToDateListWithHttpInfo(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -6756,7 +7069,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20079>("/notation/keyFigures/yearToDate/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20080>("/notation/keyFigures/yearToDate/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYearToDateList", localVarResponse);
@@ -6776,8 +7089,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20079</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20079>GetNotationKeyFiguresYearToDateListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20080</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20080>GetNotationKeyFiguresYearToDateListAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(identifiers, identifierType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6791,9 +7104,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="identifierType"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20079)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20080)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20079>> GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20080>> GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(List<string> identifiers, string identifierType, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifiers' is set
             if (identifiers == null)
@@ -6860,7 +7173,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYearToDateListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20079>("/notation/keyFigures/yearToDate/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20080>("/notation/keyFigures/yearToDate/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -7106,8 +7419,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>InlineResponse20091</returns>
-        public InlineResponse20091 GetNotationSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>InlineResponse20093</returns>
+        public InlineResponse20093 GetNotationSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             var localVarResponse = GetNotationSearchBasicWithHttpInfo(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit);
             return localVarResponse.Data;
@@ -7126,8 +7439,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>ApiResponse of InlineResponse20091</returns>
-        public ApiResponse<InlineResponse20091> GetNotationSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20093</returns>
+        public ApiResponse<InlineResponse20093> GetNotationSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
@@ -7215,7 +7528,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20091>("/notation/search/basic", localVarRequestOptions, this.Configuration);
+            InlineResponse20093>("/notation/search/basic", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationSearchBasic", localVarResponse);
@@ -7241,8 +7554,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20091</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20091>GetNotationSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20093</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20093>GetNotationSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationSearchBasicWithHttpInfoAsync(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7262,9 +7575,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20091)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20093)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20091>> GetNotationSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20093>> GetNotationSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
@@ -7352,7 +7665,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationSearchBasicResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20091>("/notation/search/basic", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20093>("/notation/search/basic", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -7379,8 +7692,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>InlineResponse20093</returns>
-        public InlineResponse20093 GetNotationSearchByTextRankedByVolume(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>InlineResponse20095</returns>
+        public InlineResponse20095 GetNotationSearchByTextRankedByVolume(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             var localVarResponse = GetNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
             return localVarResponse.Data;
@@ -7399,8 +7712,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language"> (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
-        /// <returns>ApiResponse of InlineResponse20093</returns>
-        public ApiResponse<InlineResponse20093> GetNotationSearchByTextRankedByVolumeWithHttpInfo(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20095</returns>
+        public ApiResponse<InlineResponse20095> GetNotationSearchByTextRankedByVolumeWithHttpInfo(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
@@ -7488,7 +7801,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20093>("/notation/searchByTextRankedByVolume", localVarRequestOptions, this.Configuration);
+            InlineResponse20095>("/notation/searchByTextRankedByVolume", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationSearchByTextRankedByVolume", localVarResponse);
@@ -7514,8 +7827,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20093</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20093>GetNotationSearchByTextRankedByVolumeAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20095</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20095>GetNotationSearchByTextRankedByVolumeAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7535,9 +7848,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20093)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20095)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20093>> GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20095>> GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
@@ -7625,7 +7938,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationSearchByTextRankedByVolumeResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20093>("/notation/searchByTextRankedByVolume", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20095>("/notation/searchByTextRankedByVolume", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -7640,30 +7953,30 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         }
 
         /// <summary>
-        /// Intraday trading status of a notation. Intraday trading status of a notation.
+        /// Intraday trading status of a notation. Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20081</returns>
-        public InlineResponse20081 GetNotationStatusGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20083</returns>
+        public InlineResponse20083 GetNotationStatusGet(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetNotationStatusGetWithHttpInfo(identifier, identifierType, quality, attributes);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Intraday trading status of a notation. Intraday trading status of a notation.
+        /// Intraday trading status of a notation. Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
         /// <param name="identifierType"></param>
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20081</returns>
-        public ApiResponse<InlineResponse20081> GetNotationStatusGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20083</returns>
+        public ApiResponse<InlineResponse20083> GetNotationStatusGetWithHttpInfo(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -7734,7 +8047,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse20081>("/notation/status/get", localVarRequestOptions, this.Configuration);
+            InlineResponse20083>("/notation/status/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationStatusGet", localVarResponse);
@@ -7747,7 +8060,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         }
 
         /// <summary>
-        /// Intraday trading status of a notation. Intraday trading status of a notation.
+        /// Intraday trading status of a notation. Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
@@ -7755,15 +8068,15 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20081</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20081>GetNotationStatusGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20083</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20083>GetNotationStatusGetAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetNotationStatusGetWithHttpInfoAsync(identifier, identifierType, quality, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Intraday trading status of a notation. Intraday trading status of a notation.
+        /// Intraday trading status of a notation. Intraday trading status of a notation.&lt;br&gt;The endpoint is subscribable to provide push updates. See attribute &#x60;_subscriptionMinimalInterval&#x60; for valid update rates.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier"></param>
@@ -7771,9 +8084,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality"> (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20081)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20083)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20081>> GetNotationStatusGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20083>> GetNotationStatusGetWithHttpInfoAsync(string identifier, string identifierType, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -7844,7 +8157,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetNotationStatusGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20081>("/notation/status/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20083>("/notation/status/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -7859,12 +8172,179 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         }
 
         /// <summary>
+        /// List of categories assigned to a specific notation the application is entitled to see. List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCategoryListRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20067</returns>
+        public InlineResponse20067 PostNotationCategoryList(PostNotationCategoryListRequest postNotationCategoryListRequest = default(PostNotationCategoryListRequest))
+        {
+            var localVarResponse = PostNotationCategoryListWithHttpInfo(postNotationCategoryListRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of categories assigned to a specific notation the application is entitled to see. List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCategoryListRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20067</returns>
+        public ApiResponse<InlineResponse20067> PostNotationCategoryListWithHttpInfo(PostNotationCategoryListRequest postNotationCategoryListRequest = default(PostNotationCategoryListRequest))
+        {
+            FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = postNotationCategoryListRequest;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCategoryListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20067>("/notation/category/list", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostNotationCategoryList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of categories assigned to a specific notation the application is entitled to see. List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCategoryListRequest">Request Body (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20067</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20067>PostNotationCategoryListAsync(PostNotationCategoryListRequest postNotationCategoryListRequest = default(PostNotationCategoryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await PostNotationCategoryListWithHttpInfoAsync(postNotationCategoryListRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of categories assigned to a specific notation the application is entitled to see. List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postNotationCategoryListRequest">Request Body (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20067)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20067>> PostNotationCategoryListWithHttpInfoAsync(PostNotationCategoryListRequest postNotationCategoryListRequest = default(PostNotationCategoryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = postNotationCategoryListRequest;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCategoryListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20067>("/notation/category/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostNotationCategoryList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Retrieve a list of notations for a given FactSet identifier. &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"> (optional)</param>
-        /// <returns>InlineResponse20072</returns>
-        public InlineResponse20072 PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = default(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest))
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest">Request Body</param>
+        /// <returns>InlineResponse20073</returns>
+        public InlineResponse20073 PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest)
         {
             var localVarResponse = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest);
             return localVarResponse.Data;
@@ -7874,10 +8354,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Retrieve a list of notations for a given FactSet identifier. &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20072</returns>
-        public ApiResponse<InlineResponse20072> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = default(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest))
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest">Request Body</param>
+        /// <returns>ApiResponse of InlineResponse20073</returns>
+        public ApiResponse<InlineResponse20073> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest)
         {
+            // verify the required parameter 'postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest' is set
+            if (postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest' when calling NotationApi->PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier");
+            }
+
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -7927,7 +8413,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20072>("/notation/crossReference/factSetIdentifier/listByFactSetIdentifier", localVarRequestOptions, this.Configuration);
+            InlineResponse20073>("/notation/crossReference/factSetIdentifier/listByFactSetIdentifier", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier", localVarResponse);
@@ -7943,10 +8429,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Retrieve a list of notations for a given FactSet identifier. &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20072</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20072>PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierAsync(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = default(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20073</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20073>PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierAsync(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7956,12 +8442,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Retrieve a list of notations for a given FactSet identifier. &lt;p&gt;Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20072)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20073)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20072>> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest = default(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20073>> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest' is set
+            if (postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest' when calling NotationApi->PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier");
+            }
+
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -8011,7 +8503,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20072>("/notation/crossReference/factSetIdentifier/listByFactSetIdentifier", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20073>("/notation/crossReference/factSetIdentifier/listByFactSetIdentifier", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -8029,9 +8521,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Retrieve a list of FactSet identifiers for a given instrument. &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"> (optional)</param>
-        /// <returns>InlineResponse20073</returns>
-        public InlineResponse20073 PostNotationCrossReferenceFactSetIdentifierListByInstrument(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = default(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest))
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest">Request Body</param>
+        /// <returns>InlineResponse20074</returns>
+        public InlineResponse20074 PostNotationCrossReferenceFactSetIdentifierListByInstrument(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest)
         {
             var localVarResponse = PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest);
             return localVarResponse.Data;
@@ -8041,10 +8533,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Retrieve a list of FactSet identifiers for a given instrument. &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20073</returns>
-        public ApiResponse<InlineResponse20073> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = default(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest))
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest">Request Body</param>
+        /// <returns>ApiResponse of InlineResponse20074</returns>
+        public ApiResponse<InlineResponse20074> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest)
         {
+            // verify the required parameter 'postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest' is set
+            if (postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest' when calling NotationApi->PostNotationCrossReferenceFactSetIdentifierListByInstrument");
+            }
+
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -8094,7 +8592,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20073>("/notation/crossReference/factSetIdentifier/listByInstrument", localVarRequestOptions, this.Configuration);
+            InlineResponse20074>("/notation/crossReference/factSetIdentifier/listByInstrument", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceFactSetIdentifierListByInstrument", localVarResponse);
@@ -8110,10 +8608,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Retrieve a list of FactSet identifiers for a given instrument. &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20073</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20073>PostNotationCrossReferenceFactSetIdentifierListByInstrumentAsync(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = default(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20074</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20074>PostNotationCrossReferenceFactSetIdentifierListByInstrumentAsync(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8123,12 +8621,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Retrieve a list of FactSet identifiers for a given instrument. &lt;p&gt;Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.&lt;/p&gt;&lt;p&gt;The notation corresponding to the security&#39;s primary listing has the attributes &lt;big&gt;&lt;tt&gt;regional.isPrimary&lt;/tt&gt;&lt;/big&gt; and &lt;big&gt;&lt;tt&gt;regional.listing.isPrimary&lt;/tt&gt;&lt;/big&gt; both set to true.The security&#39;s primary listing might not be among the results depending on the entitlement.&lt;/p&gt;&lt;p&gt;The result contains only notations that have at least one FactSet identifier (see &lt;big&gt;&lt;tt&gt;listing.permanentIdentifier&lt;/tt&gt;&lt;/big&gt;, &lt;big&gt;&lt;tt&gt;listing.tickerExchange&lt;/tt&gt;&lt;/big&gt;).&lt;/p&gt;&lt;p&gt;See the group description for more information about the security&#39;s primary listing.&lt;/p&gt;
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20073)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20073>> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest = default(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest' is set
+            if (postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postNotationCrossReferenceFactSetIdentifierListByInstrumentRequest' when calling NotationApi->PostNotationCrossReferenceFactSetIdentifierListByInstrument");
+            }
+
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -8178,7 +8682,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20073>("/notation/crossReference/factSetIdentifier/listByInstrument", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20074>("/notation/crossReference/factSetIdentifier/listByInstrument", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -8196,9 +8700,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByISINRequest"> (optional)</param>
-        /// <returns>InlineResponse20069</returns>
-        public InlineResponse20069 PostNotationCrossReferenceListByISIN(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest))
+        /// <param name="postNotationCrossReferenceListByISINRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20070</returns>
+        public InlineResponse20070 PostNotationCrossReferenceListByISIN(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest))
         {
             var localVarResponse = PostNotationCrossReferenceListByISINWithHttpInfo(postNotationCrossReferenceListByISINRequest);
             return localVarResponse.Data;
@@ -8208,9 +8712,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByISINRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20069</returns>
-        public ApiResponse<InlineResponse20069> PostNotationCrossReferenceListByISINWithHttpInfo(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest))
+        /// <param name="postNotationCrossReferenceListByISINRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20070</returns>
+        public ApiResponse<InlineResponse20070> PostNotationCrossReferenceListByISINWithHttpInfo(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -8261,7 +8765,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20069>("/notation/crossReference/listByISIN", localVarRequestOptions, this.Configuration);
+            InlineResponse20070>("/notation/crossReference/listByISIN", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListByISIN", localVarResponse);
@@ -8277,10 +8781,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListByISINRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20069</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20069>PostNotationCrossReferenceListByISINAsync(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20070</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20070>PostNotationCrossReferenceListByISINAsync(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostNotationCrossReferenceListByISINWithHttpInfoAsync(postNotationCrossReferenceListByISINRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8290,11 +8794,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByISINRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListByISINRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20069)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20070)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20069>> PostNotationCrossReferenceListByISINWithHttpInfoAsync(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20070>> PostNotationCrossReferenceListByISINWithHttpInfoAsync(PostNotationCrossReferenceListByISINRequest postNotationCrossReferenceListByISINRequest = default(PostNotationCrossReferenceListByISINRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -8345,7 +8849,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListByISINResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20069>("/notation/crossReference/listByISIN", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20070>("/notation/crossReference/listByISIN", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -8363,9 +8867,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByInstrumentRequest"> (optional)</param>
-        /// <returns>InlineResponse20068</returns>
-        public InlineResponse20068 PostNotationCrossReferenceListByInstrument(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest))
+        /// <param name="postNotationCrossReferenceListByInstrumentRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20069</returns>
+        public InlineResponse20069 PostNotationCrossReferenceListByInstrument(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest))
         {
             var localVarResponse = PostNotationCrossReferenceListByInstrumentWithHttpInfo(postNotationCrossReferenceListByInstrumentRequest);
             return localVarResponse.Data;
@@ -8375,9 +8879,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByInstrumentRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20068</returns>
-        public ApiResponse<InlineResponse20068> PostNotationCrossReferenceListByInstrumentWithHttpInfo(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest))
+        /// <param name="postNotationCrossReferenceListByInstrumentRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20069</returns>
+        public ApiResponse<InlineResponse20069> PostNotationCrossReferenceListByInstrumentWithHttpInfo(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -8428,7 +8932,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20068>("/notation/crossReference/listByInstrument", localVarRequestOptions, this.Configuration);
+            InlineResponse20069>("/notation/crossReference/listByInstrument", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListByInstrument", localVarResponse);
@@ -8444,10 +8948,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByInstrumentRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListByInstrumentRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20068</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20068>PostNotationCrossReferenceListByInstrumentAsync(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20069</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20069>PostNotationCrossReferenceListByInstrumentAsync(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(postNotationCrossReferenceListByInstrumentRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8457,11 +8961,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListByInstrumentRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListByInstrumentRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20068)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20069)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20068>> PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20069>> PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(PostNotationCrossReferenceListByInstrumentRequest postNotationCrossReferenceListByInstrumentRequest = default(PostNotationCrossReferenceListByInstrumentRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -8512,7 +9016,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListByInstrumentResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20068>("/notation/crossReference/listByInstrument", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20069>("/notation/crossReference/listByInstrument", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -8530,9 +9034,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListBySymbolRequest"> (optional)</param>
-        /// <returns>InlineResponse20070</returns>
-        public InlineResponse20070 PostNotationCrossReferenceListBySymbol(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest))
+        /// <param name="postNotationCrossReferenceListBySymbolRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20071</returns>
+        public InlineResponse20071 PostNotationCrossReferenceListBySymbol(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest))
         {
             var localVarResponse = PostNotationCrossReferenceListBySymbolWithHttpInfo(postNotationCrossReferenceListBySymbolRequest);
             return localVarResponse.Data;
@@ -8542,9 +9046,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListBySymbolRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20070</returns>
-        public ApiResponse<InlineResponse20070> PostNotationCrossReferenceListBySymbolWithHttpInfo(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest))
+        /// <param name="postNotationCrossReferenceListBySymbolRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20071</returns>
+        public ApiResponse<InlineResponse20071> PostNotationCrossReferenceListBySymbolWithHttpInfo(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -8595,7 +9099,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20070>("/notation/crossReference/listBySymbol", localVarRequestOptions, this.Configuration);
+            InlineResponse20071>("/notation/crossReference/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListBySymbol", localVarResponse);
@@ -8611,10 +9115,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListBySymbolRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListBySymbolRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20070</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20070>PostNotationCrossReferenceListBySymbolAsync(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20071</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20071>PostNotationCrossReferenceListBySymbolAsync(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(postNotationCrossReferenceListBySymbolRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8624,11 +9128,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of entitled notations. List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationCrossReferenceListBySymbolRequest"> (optional)</param>
+        /// <param name="postNotationCrossReferenceListBySymbolRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20070)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20071)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20070>> PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20071>> PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(PostNotationCrossReferenceListBySymbolRequest postNotationCrossReferenceListBySymbolRequest = default(PostNotationCrossReferenceListBySymbolRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -8679,7 +9183,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListBySymbolResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20070>("/notation/crossReference/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20071>("/notation/crossReference/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -8697,9 +9201,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets with entitled notations. List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationMarketListRequest"> (optional)</param>
-        /// <returns>InlineResponse20080</returns>
-        public InlineResponse20080 PostNotationMarketList(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest))
+        /// <param name="postNotationMarketListRequest">Request Body (optional)</param>
+        /// <returns>InlineResponse20082</returns>
+        public InlineResponse20082 PostNotationMarketList(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest))
         {
             var localVarResponse = PostNotationMarketListWithHttpInfo(postNotationMarketListRequest);
             return localVarResponse.Data;
@@ -8709,9 +9213,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets with entitled notations. List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationMarketListRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20080</returns>
-        public ApiResponse<InlineResponse20080> PostNotationMarketListWithHttpInfo(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest))
+        /// <param name="postNotationMarketListRequest">Request Body (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20082</returns>
+        public ApiResponse<InlineResponse20082> PostNotationMarketListWithHttpInfo(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -8762,7 +9266,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20080>("/notation/market/list", localVarRequestOptions, this.Configuration);
+            InlineResponse20082>("/notation/market/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationMarketList", localVarResponse);
@@ -8778,10 +9282,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets with entitled notations. List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationMarketListRequest"> (optional)</param>
+        /// <param name="postNotationMarketListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20080</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20080>PostNotationMarketListAsync(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20082</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20082>PostNotationMarketListAsync(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostNotationMarketListWithHttpInfoAsync(postNotationMarketListRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8791,11 +9295,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets with entitled notations. List of markets with entitled notations. The list contains only markets with at least one active and entitled notation.  All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationMarketListRequest"> (optional)</param>
+        /// <param name="postNotationMarketListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20080)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20082)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20080>> PostNotationMarketListWithHttpInfoAsync(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20082>> PostNotationMarketListWithHttpInfoAsync(PostNotationMarketListRequest postNotationMarketListRequest = default(PostNotationMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -8846,7 +9350,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostNotationMarketListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20080>("/notation/market/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20082>("/notation/market/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -8864,9 +9368,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Text-based search for notations. Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationSearchByTextRequest"> (optional)</param>
-        /// <returns>InlineResponse20092</returns>
-        public InlineResponse20092 PostNotationSearchByText(PostNotationSearchByTextRequest postNotationSearchByTextRequest = default(PostNotationSearchByTextRequest))
+        /// <param name="postNotationSearchByTextRequest">Request Body</param>
+        /// <returns>InlineResponse20094</returns>
+        public InlineResponse20094 PostNotationSearchByText(PostNotationSearchByTextRequest postNotationSearchByTextRequest)
         {
             var localVarResponse = PostNotationSearchByTextWithHttpInfo(postNotationSearchByTextRequest);
             return localVarResponse.Data;
@@ -8876,10 +9380,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Text-based search for notations. Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationSearchByTextRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20092</returns>
-        public ApiResponse<InlineResponse20092> PostNotationSearchByTextWithHttpInfo(PostNotationSearchByTextRequest postNotationSearchByTextRequest = default(PostNotationSearchByTextRequest))
+        /// <param name="postNotationSearchByTextRequest">Request Body</param>
+        /// <returns>ApiResponse of InlineResponse20094</returns>
+        public ApiResponse<InlineResponse20094> PostNotationSearchByTextWithHttpInfo(PostNotationSearchByTextRequest postNotationSearchByTextRequest)
         {
+            // verify the required parameter 'postNotationSearchByTextRequest' is set
+            if (postNotationSearchByTextRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postNotationSearchByTextRequest' when calling NotationApi->PostNotationSearchByText");
+            }
+
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -8929,7 +9439,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20092>("/notation/searchByText", localVarRequestOptions, this.Configuration);
+            InlineResponse20094>("/notation/searchByText", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationSearchByText", localVarResponse);
@@ -8945,10 +9455,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Text-based search for notations. Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationSearchByTextRequest"> (optional)</param>
+        /// <param name="postNotationSearchByTextRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20092</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20092>PostNotationSearchByTextAsync(PostNotationSearchByTextRequest postNotationSearchByTextRequest = default(PostNotationSearchByTextRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20094</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20094>PostNotationSearchByTextAsync(PostNotationSearchByTextRequest postNotationSearchByTextRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await PostNotationSearchByTextWithHttpInfoAsync(postNotationSearchByTextRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8958,12 +9468,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// Text-based search for notations. Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postNotationSearchByTextRequest"> (optional)</param>
+        /// <param name="postNotationSearchByTextRequest">Request Body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20092)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse20094)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20092>> PostNotationSearchByTextWithHttpInfoAsync(PostNotationSearchByTextRequest postNotationSearchByTextRequest = default(PostNotationSearchByTextRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20094>> PostNotationSearchByTextWithHttpInfoAsync(PostNotationSearchByTextRequest postNotationSearchByTextRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'postNotationSearchByTextRequest' is set
+            if (postNotationSearchByTextRequest == null)
+            {
+                throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'postNotationSearchByTextRequest' when calling NotationApi->PostNotationSearchByText");
+            }
+
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -9013,7 +9529,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostNotationSearchByTextResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20092>("/notation/searchByText", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20094>("/notation/searchByText", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -2005,7 +2005,7 @@ public class BasicApi {
   /**
    * List of background text types.
    * List of background text types.
-   * @param postBasicBackgroundTextTypeListRequest  (optional)
+   * @param postBasicBackgroundTextTypeListRequest Request Body (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2021,7 +2021,7 @@ public class BasicApi {
   /**
    * List of background text types.
    * List of background text types.
-   * @param postBasicBackgroundTextTypeListRequest  (optional)
+   * @param postBasicBackgroundTextTypeListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2073,7 +2073,7 @@ public class BasicApi {
   /**
    * List of deliveries.
    * List of deliveries.
-   * @param postBasicDeliveryListRequest  (optional)
+   * @param postBasicDeliveryListRequest Request Body (optional)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2089,7 +2089,7 @@ public class BasicApi {
   /**
    * List of deliveries.
    * List of deliveries.
-   * @param postBasicDeliveryListRequest  (optional)
+   * @param postBasicDeliveryListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2141,7 +2141,7 @@ public class BasicApi {
   /**
    * List of markets.
    * List of markets.
-   * @param postBasicMarketListRequest  (optional)
+   * @param postBasicMarketListRequest Request Body (optional)
    * @return InlineResponse2009
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2157,7 +2157,7 @@ public class BasicApi {
   /**
    * List of markets.
    * List of markets.
-   * @param postBasicMarketListRequest  (optional)
+   * @param postBasicMarketListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse2009&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2209,7 +2209,7 @@ public class BasicApi {
   /**
    * List of Internet media types.
    * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
-   * @param postBasicMediaTypeListRequest  (optional)
+   * @param postBasicMediaTypeListRequest Request Body (optional)
    * @return InlineResponse20013
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2225,7 +2225,7 @@ public class BasicApi {
   /**
    * List of Internet media types.
    * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
-   * @param postBasicMediaTypeListRequest  (optional)
+   * @param postBasicMediaTypeListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20013&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2277,7 +2277,7 @@ public class BasicApi {
   /**
    * List of operating market identifier codes (MIC).
    * List of operating market identifier codes (MIC).
-   * @param postBasicMicOperatingListRequest  (optional)
+   * @param postBasicMicOperatingListRequest Request Body (optional)
    * @return InlineResponse20014
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2293,7 +2293,7 @@ public class BasicApi {
   /**
    * List of operating market identifier codes (MIC).
    * List of operating market identifier codes (MIC).
-   * @param postBasicMicOperatingListRequest  (optional)
+   * @param postBasicMicOperatingListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20014&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2345,7 +2345,7 @@ public class BasicApi {
   /**
    * List of timezones.
    * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-   * @param postBasicTimezoneListRequest  (optional)
+   * @param postBasicTimezoneListRequest Request Body (optional)
    * @return InlineResponse20023
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2361,7 +2361,7 @@ public class BasicApi {
   /**
    * List of timezones.
    * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
-   * @param postBasicTimezoneListRequest  (optional)
+   * @param postBasicTimezoneListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20023&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2413,7 +2413,7 @@ public class BasicApi {
   /**
    * List of currencies.
    * List of currencies.
-   * @param postBasicValueUnitCurrencyListRequest  (optional)
+   * @param postBasicValueUnitCurrencyListRequest Request Body (optional)
    * @return InlineResponse20027
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2429,7 +2429,7 @@ public class BasicApi {
   /**
    * List of currencies.
    * List of currencies.
-   * @param postBasicValueUnitCurrencyListRequest  (optional)
+   * @param postBasicValueUnitCurrencyListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20027&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2481,7 +2481,7 @@ public class BasicApi {
   /**
    * List of main currencies.
    * List of main currencies.
-   * @param postBasicValueUnitCurrencyMainListRequest  (optional)
+   * @param postBasicValueUnitCurrencyMainListRequest Request Body (optional)
    * @return InlineResponse20030
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2497,7 +2497,7 @@ public class BasicApi {
   /**
    * List of main currencies.
    * List of main currencies.
-   * @param postBasicValueUnitCurrencyMainListRequest  (optional)
+   * @param postBasicValueUnitCurrencyMainListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20030&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2549,7 +2549,7 @@ public class BasicApi {
   /**
    * List of value units.
    * List of value units.
-   * @param postBasicValueUnitListRequest  (optional)
+   * @param postBasicValueUnitListRequest Request Body (optional)
    * @return InlineResponse20025
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2565,7 +2565,7 @@ public class BasicApi {
   /**
    * List of value units.
    * List of value units.
-   * @param postBasicValueUnitListRequest  (optional)
+   * @param postBasicValueUnitListRequest Request Body (optional)
    * @return ApiResponse&lt;InlineResponse20025&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse20075Data]**](InlineResponse20075Data.md) | EOD key figures for a list of notations. | [optional] 
+**data** | [**InlineResponse20075Data**](InlineResponse20075Data.md) |  | [optional] 
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

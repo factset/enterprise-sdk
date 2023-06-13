@@ -22,6 +22,7 @@ import PostBasicBackgroundTextTypeListRequestMeta from './PostBasicBackgroundTex
 class PostBasicBackgroundTextTypeListRequest {
     /**
      * Constructs a new <code>PostBasicBackgroundTextTypeListRequest</code>.
+     * Request Body
      * @alias module:model/PostBasicBackgroundTextTypeListRequest
      */
     constructor() { 

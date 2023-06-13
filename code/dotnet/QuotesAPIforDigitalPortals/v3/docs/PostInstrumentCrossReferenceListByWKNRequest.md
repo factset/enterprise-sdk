@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostInstrumentCrossReferenceListByWKNRequest
+Request Body
 
 ## Properties
 

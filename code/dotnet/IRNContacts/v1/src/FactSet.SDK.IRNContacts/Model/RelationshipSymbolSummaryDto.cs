@@ -35,31 +35,31 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = false)]
         public SymbolType? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="RelationshipSymbolSummaryDto" /> class.
         /// </summary>
-        /// <param name="identifier">identifier.</param>
+        /// <param name="tdentifier">tdentifier.</param>
         /// <param name="name">name.</param>
         /// <param name="type">type.</param>
-        public RelationshipSymbolSummaryDto(string identifier = default(string), string name = default(string), SymbolType type = default(SymbolType))
+        public RelationshipSymbolSummaryDto(string tdentifier = default(string), string name = default(string), SymbolType type = default(SymbolType))
         {
-            this.Identifier = identifier;
+            this.Tdentifier = tdentifier;
             this.Name = name;
             this.Type = type;
         }
 
         /// <summary>
-        /// Gets or Sets Identifier
+        /// Gets or Sets Tdentifier
         /// </summary>
-        [DataMember(Name = "Identifier", EmitDefaultValue = true)]
-        public string Identifier { get; set; }
+        [DataMember(Name = "tdentifier", EmitDefaultValue = true)]
+        public string Tdentifier { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace FactSet.SDK.IRNContacts.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class RelationshipSymbolSummaryDto {\n");
-            sb.Append("  Identifier: ").Append(Identifier).Append("\n");
+            sb.Append("  Tdentifier: ").Append(Tdentifier).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -109,9 +109,9 @@ namespace FactSet.SDK.IRNContacts.Model
             }
             return 
                 (
-                    this.Identifier == input.Identifier ||
-                    (this.Identifier != null &&
-                    this.Identifier.Equals(input.Identifier))
+                    this.Tdentifier == input.Tdentifier ||
+                    (this.Tdentifier != null &&
+                    this.Tdentifier.Equals(input.Tdentifier))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -133,9 +133,9 @@ namespace FactSet.SDK.IRNContacts.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Identifier != null)
+                if (this.Tdentifier != null)
                 {
-                    hashCode = (hashCode * 59) + this.Identifier.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Tdentifier.GetHashCode();
                 }
                 if (this.Name != null)
                 {

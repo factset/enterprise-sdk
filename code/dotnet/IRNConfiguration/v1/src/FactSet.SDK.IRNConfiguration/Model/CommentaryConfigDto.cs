@@ -47,19 +47,19 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsToAuthor
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsToAuthor", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsToAuthor", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsToAuthor { get; set; }
 
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsToCommenters
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsToCommenters", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsToCommenters", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsToCommenters { get; set; }
 
         /// <summary>
         /// Gets or Sets ShouldSendEmailAlertsToAll
         /// </summary>
-        [DataMember(Name = "ShouldSendEmailAlertsToAll", EmitDefaultValue = true)]
+        [DataMember(Name = "shouldSendEmailAlertsToAll", EmitDefaultValue = true)]
         public bool ShouldSendEmailAlertsToAll { get; set; }
 
         /// <summary>

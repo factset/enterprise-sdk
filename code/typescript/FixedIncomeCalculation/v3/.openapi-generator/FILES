@@ -11,6 +11,8 @@ docs/ClientErrorResponse.md
 docs/DiscountCurvesApi.md
 docs/Error.md
 docs/ErrorSource.md
+docs/FIAttributionForJobSettings.md
+docs/FIAttributionForSecurities.md
 docs/FIBalloonExtension.md
 docs/FIBankLoans.md
 docs/FICalculationParameters.md
@@ -47,6 +49,8 @@ src/model/CalculationMeta.js
 src/model/ClientErrorResponse.js
 src/model/Error.js
 src/model/ErrorSource.js
+src/model/FIAttributionForJobSettings.js
+src/model/FIAttributionForSecurities.js
 src/model/FIBalloonExtension.js
 src/model/FIBankLoans.js
 src/model/FICalculationParameters.js

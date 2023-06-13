@@ -12,9 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20067DataInstrument from './InlineResponse20067DataInstrument';
-import InlineResponse20067DataMarket from './InlineResponse20067DataMarket';
-import InlineResponse20067DataValueUnit from './InlineResponse20067DataValueUnit';
+import InlineResponse20038DataCategories from './InlineResponse20038DataCategories';
+import InlineResponse20067Dataset from './InlineResponse20067Dataset';
 
 /**
  * The InlineResponse20067Data model module.
@@ -23,7 +22,6 @@ import InlineResponse20067DataValueUnit from './InlineResponse20067DataValueUnit
 class InlineResponse20067Data {
     /**
      * Constructs a new <code>InlineResponse20067Data</code>.
-     * Notation identified by the FactSet market symbol.
      * @alias module:model/InlineResponse20067Data
      */
     constructor() { 
@@ -50,17 +48,11 @@ class InlineResponse20067Data {
         if (data) {
             obj = obj || new InlineResponse20067Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('dataset')) {
+                obj['dataset'] = InlineResponse20067Dataset.constructFromObject(data['dataset']);
             }
-            if (data.hasOwnProperty('market')) {
-                obj['market'] = InlineResponse20067DataMarket.constructFromObject(data['market']);
-            }
-            if (data.hasOwnProperty('valueUnit')) {
-                obj['valueUnit'] = InlineResponse20067DataValueUnit.constructFromObject(data['valueUnit']);
-            }
-            if (data.hasOwnProperty('instrument')) {
-                obj['instrument'] = InlineResponse20067DataInstrument.constructFromObject(data['instrument']);
+            if (data.hasOwnProperty('categories')) {
+                obj['categories'] = ApiClient.convertToType(data['categories'], [InlineResponse20038DataCategories]);
             }
         }
         return obj;
@@ -70,25 +62,15 @@ class InlineResponse20067Data {
 }
 
 /**
- * Identifier of the notation.
- * @member {String} id
+ * @member {module:model/InlineResponse20067Dataset} dataset
  */
-InlineResponse20067Data.prototype['id'] = undefined;
+InlineResponse20067Data.prototype['dataset'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20067DataMarket} market
+ * List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.
+ * @member {Array.<module:model/InlineResponse20038DataCategories>} categories
  */
-InlineResponse20067Data.prototype['market'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20067DataValueUnit} valueUnit
- */
-InlineResponse20067Data.prototype['valueUnit'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20067DataInstrument} instrument
- */
-InlineResponse20067Data.prototype['instrument'] = undefined;
+InlineResponse20067Data.prototype['categories'] = undefined;
 
 
 

@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.9.0"
+    "version": "3.11.0"
   },
   "servers": [
     {
@@ -2509,6 +2509,14 @@
             "type": "string",
             "nullable": true
           },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
           "detail": {
             "type": "string",
             "nullable": true
@@ -2761,6 +2769,46 @@
           }
         }
       },
+      "FIAttributionForSecurities": {
+        "type": "object",
+        "properties": {
+          "startPrice": {
+            "type": "number",
+            "description": "Start Price",
+            "format": "double",
+            "nullable": true
+          },
+          "endPrice": {
+            "type": "number",
+            "description": "End Price",
+            "format": "double",
+            "nullable": true
+          },
+          "startSpread": {
+            "type": "number",
+            "description": "Start Spread",
+            "format": "double",
+            "nullable": true
+          },
+          "endSpread": {
+            "type": "number",
+            "description": "End Spread",
+            "format": "double",
+            "nullable": true
+          },
+          "pricingMethod": {
+            "enum": [
+              "Inputted Price",
+              "Pricing Matrix",
+              "Actual Spread",
+              "OAS"
+            ],
+            "type": "string",
+            "description": "Pricing Method",
+            "nullable": true
+          }
+        }
+      },
       "FISecurity": {
         "required": [
           "calcFromValue",
@@ -2813,6 +2861,9 @@
           },
           "structuredProducts": {
             "$ref": "#/components/schemas/FIStructuredProductsForSecurities"
+          },
+          "attribution": {
+            "$ref": "#/components/schemas/FIAttributionForSecurities"
           },
           "calcFromMethod": {
             "type": "string",
@@ -2935,6 +2986,21 @@
           }
         }
       },
+      "FIAttributionForJobSettings": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "description": "Start Date",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "description": "End Date",
+            "nullable": true
+          }
+        }
+      },
       "FIJobSettings": {
         "required": [
           "asOfDate"
@@ -2986,6 +3052,9 @@
           },
           "structuredProducts": {
             "$ref": "#/components/schemas/FIStructuredProductsForJobSettings"
+          },
+          "attribution": {
+            "$ref": "#/components/schemas/FIAttributionForJobSettings"
           }
         }
       },
@@ -3097,7 +3166,6 @@
             "$ref": "#/components/schemas/CalculationInfo"
           },
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }
@@ -3108,11 +3176,8 @@
         ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object"
-          },
+          "data": {},
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }

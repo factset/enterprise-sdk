@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20036Meta from './InlineResponse20036Meta';
 import InlineResponse20090Data from './InlineResponse20090Data';
+import InlineResponse20090Meta from './InlineResponse20090Meta';
 
 /**
  * The InlineResponse20090 model module.
@@ -49,10 +49,10 @@ class InlineResponse20090 {
             obj = obj || new InlineResponse20090();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20090Data]);
+                obj['data'] = InlineResponse20090Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse20036Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse20090Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,13 +62,12 @@ class InlineResponse20090 {
 }
 
 /**
- * List of instruments.
- * @member {Array.<module:model/InlineResponse20090Data>} data
+ * @member {module:model/InlineResponse20090Data} data
  */
 InlineResponse20090.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20036Meta} meta
+ * @member {module:model/InlineResponse20090Meta} meta
  */
 InlineResponse20090.prototype['meta'] = undefined;
 

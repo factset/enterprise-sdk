@@ -2,6 +2,7 @@
 
 # ErrorMetaObject
 
+The meta member contains the meta information of the response.
 
 ## Properties
 

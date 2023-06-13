@@ -85,8 +85,8 @@ class FormulaConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'formula': 'Formula',  # noqa: E501
-        'formula_type': 'FormulaType',  # noqa: E501
+        'formula': 'formula',  # noqa: E501
+        'formula_type': 'formulaType',  # noqa: E501
     }
 
     read_only_vars = {

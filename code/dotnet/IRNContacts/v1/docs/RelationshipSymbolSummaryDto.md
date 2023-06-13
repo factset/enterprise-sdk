@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identifier** | **string** |  | [optional] 
+**Tdentifier** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Type** | **SymbolType** |  | [optional] 
 

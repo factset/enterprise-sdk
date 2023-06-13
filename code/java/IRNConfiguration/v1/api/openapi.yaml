@@ -1960,15 +1960,15 @@ components:
     ApprovalLevelConfigDto:
       additionalProperties: false
       example:
-        ApproverIds:
+        approverIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
       properties:
-        Name:
+        name:
           nullable: true
           type: string
-        ApproverIds:
+        approverIds:
           items:
             format: uuid
             type: string
@@ -1978,159 +1978,159 @@ components:
     ApprovalProcessConfigDto:
       additionalProperties: false
       example:
-        ShouldSendEmailAlertsToAuthor: true
-        ViewerIds:
+        shouldSendEmailAlertsWhenSubmittedForApproval: true
+        shouldSendEmailAlertsWhenApproved: true
+        shouldSendEmailAlertsToAuthor: true
+        viewerIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        ShouldSendEmailAlertsWhenDenied: true
-        CanAuthorSelfApprove: true
-        ShouldSendEmailAlertsWhenSubmittedForApproval: true
-        ShouldSendEmailAlertsWhenApproved: true
-        ApprovalLevels:
-        - ApproverIds:
+        shouldSendEmailAlertsToApprovers: true
+        shouldSendEmailAlertsToViewers: true
+        canAuthorEditPending: true
+        approvalLevels:
+        - approverIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        - ApproverIds:
+          name: name
+        - approverIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        ShouldSendEmailAlertsToApprovers: true
-        ShouldSendEmailAlertsToViewers: true
-        CanAuthorEditPending: true
+          name: name
+        shouldSendEmailAlertsWhenDenied: true
+        canAuthorSelfApprove: true
       properties:
-        ApprovalLevels:
+        approvalLevels:
           items:
             $ref: '#/components/schemas/ApprovalLevelConfigDto'
           nullable: true
           type: array
-        ViewerIds:
+        viewerIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        ShouldSendEmailAlertsWhenSubmittedForApproval:
+        shouldSendEmailAlertsWhenSubmittedForApproval:
           type: boolean
-        ShouldSendEmailAlertsWhenApproved:
+        shouldSendEmailAlertsWhenApproved:
           type: boolean
-        ShouldSendEmailAlertsWhenDenied:
+        shouldSendEmailAlertsWhenDenied:
           type: boolean
-        ShouldSendEmailAlertsToAuthor:
+        shouldSendEmailAlertsToAuthor:
           type: boolean
-        ShouldSendEmailAlertsToApprovers:
+        shouldSendEmailAlertsToApprovers:
           type: boolean
-        ShouldSendEmailAlertsToViewers:
+        shouldSendEmailAlertsToViewers:
           type: boolean
-        CanAuthorSelfApprove:
+        canAuthorSelfApprove:
           type: boolean
-        CanAuthorEditPending:
+        canAuthorEditPending:
           type: boolean
       type: object
     AuthorConfigDto:
       additionalProperties: false
       example:
-        UserName: UserName
-        SerialNumber: SerialNumber
-        FirstName: FirstName
-        IsActive: true
-        Team:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Code: Code
-          Name: Name
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        LastName: LastName
-        EmailAddress: EmailAddress
+        firstName: firstName
+        lastName: lastName
+        emailAddress: emailAddress
+        serialNumber: serialNumber
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        team:
+          code: code
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userName: userName
+        isActive: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        UserName:
+        userName:
           nullable: true
           type: string
-        SerialNumber:
+        serialNumber:
           nullable: true
           type: string
-        FirstName:
+        firstName:
           nullable: true
           type: string
-        LastName:
+        lastName:
           nullable: true
           type: string
-        EmailAddress:
+        emailAddress:
           nullable: true
           type: string
-        IsActive:
+        isActive:
           type: boolean
-        Team:
+        team:
           $ref: '#/components/schemas/TeamSummaryDto'
       type: object
     ClientSalesRepresentativeDto:
       additionalProperties: false
       example:
-        Fullname: Fullname
-        EmailAddress: EmailAddress
+        emailAddress: emailAddress
+        fullname: fullname
       properties:
-        Fullname:
+        fullname:
           nullable: true
           type: string
-        EmailAddress:
+        emailAddress:
           nullable: true
           type: string
       type: object
     CommentaryConfigDto:
       additionalProperties: false
       example:
-        ShouldSendEmailAlertsToAuthor: true
-        ShouldSendEmailAlertsToAll: true
-        ShouldSendEmailAlertsToCommenters: true
+        shouldSendEmailAlertsToAuthor: true
+        shouldSendEmailAlertsToCommenters: true
+        shouldSendEmailAlertsToAll: true
       properties:
-        ShouldSendEmailAlertsToAuthor:
+        shouldSendEmailAlertsToAuthor:
           type: boolean
-        ShouldSendEmailAlertsToCommenters:
+        shouldSendEmailAlertsToCommenters:
           type: boolean
-        ShouldSendEmailAlertsToAll:
+        shouldSendEmailAlertsToAll:
           type: boolean
       type: object
     ContactCustomFieldDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        Type: Type
-        IsMandatory: true
-        FormulaConfig:
-          Formula: Formula
-          FormulaType: FormulaType
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        ContactCustomFieldOptions:
-        - Order: 0
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        - Order: 0
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Code: Code
-        Name: Name
+        contactCustomFieldOptions:
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          order: 0
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          order: 0
+        code: code
+        formulaConfig:
+          formulaType: formulaType
+          formula: formula
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: type
+        isMandatory: true
+        isHidden: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Code:
+        code:
           nullable: true
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Type:
+        type:
           nullable: true
           type: string
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        FormulaConfig:
+        formulaConfig:
           $ref: '#/components/schemas/FormulaConfigDto'
-        ContactCustomFieldOptions:
+        contactCustomFieldOptions:
           items:
             $ref: '#/components/schemas/ContactCustomFieldOptionDto'
           nullable: true
@@ -2139,91 +2139,91 @@ components:
     ContactCustomFieldFormulaDto:
       additionalProperties: false
       example:
-        Formula: Formula
-        Symbol: Symbol
-        IsScreening: false
+        symbol: symbol
+        formula: formula
+        isScreening: false
       properties:
-        Formula:
+        formula:
           maxLength: 2040
           nullable: true
           type: string
-        IsScreening:
+        isScreening:
           default: false
           type: boolean
-        Symbol:
+        symbol:
           nullable: true
           type: string
       type: object
     ContactCustomFieldOptionDto:
       additionalProperties: false
       example:
-        Order: 0
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        order: 0
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Order:
+        order:
           format: int32
           type: integer
       type: object
     ContactCustomFieldOptionSaveDto:
       additionalProperties: false
       example:
-        Name: Name
+        name: name
       properties:
-        Name:
+        name:
           maxLength: 255
           type: string
       required:
-      - Name
+      - name
       type: object
     ContactCustomFieldSaveDto:
       additionalProperties: false
       example:
-        IsHidden: false
-        IsMandatory: false
-        FieldFormula:
-          Formula: Formula
-          Symbol: Symbol
-          IsScreening: false
-        ContactCustomFieldOptions:
-        - Name: Name
-        - Name: Name
-        Code: Code
-        Name: Name
+        contactCustomFieldOptions:
+        - name: name
+        - name: name
+        code: code
+        fieldFormula:
+          symbol: symbol
+          formula: formula
+          isScreening: false
+        name: name
+        isMandatory: false
+        isHidden: false
       properties:
-        Code:
+        code:
           maxLength: 32
           type: string
-        Name:
+        name:
           maxLength: 100
           type: string
-        Type:
+        type:
           $ref: '#/components/schemas/ContactCustomFieldType'
-        IsHidden:
+        isHidden:
           default: false
           type: boolean
-        IsMandatory:
+        isMandatory:
           default: false
           type: boolean
-        FieldFormula:
+        fieldFormula:
           $ref: '#/components/schemas/ContactCustomFieldFormulaDto'
-        ContactCustomFieldOptions:
+        contactCustomFieldOptions:
           items:
             $ref: '#/components/schemas/ContactCustomFieldOptionSaveDto'
           nullable: true
           type: array
       required:
-      - Code
-      - IsHidden
-      - IsMandatory
-      - Name
-      - Type
+      - code
+      - isHidden
+      - isMandatory
+      - name
+      - type
       type: object
     ContactCustomFieldType:
       enum:
@@ -2240,207 +2240,207 @@ components:
     ContactRoleDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           maxLength: 50
           minLength: 0
           type: string
       required:
-      - Id
-      - Name
+      - id
+      - name
       type: object
     ContactTypeDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           maxLength: 50
           minLength: 0
           type: string
       required:
-      - Id
-      - Name
+      - id
+      - name
       type: object
     CreateCustomSymbolCustomFieldDto:
       additionalProperties: false
       example:
-        IsHidden: false
-        Type: Type
-        IsShownInInfobox: true
-        IsMandatory: false
-        FormulaConfig:
-          Formula: Formula
-          FormulaType: FormulaType
-        OptionsConfig:
-        - OptionsConfig
-        - OptionsConfig
-        Code: Code
-        CustomSymbolTypes:
+        code: code
+        formulaConfig:
+          formulaType: formulaType
+          formula: formula
+        optionsConfig:
+        - optionsConfig
+        - optionsConfig
+        name: name
+        customSymbolTypes:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        type: type
+        isMandatory: false
+        isHidden: false
+        isShownInInfobox: true
       properties:
-        Code:
+        code:
           maxLength: 32
           type: string
-        Name:
+        name:
           maxLength: 100
           type: string
-        Type:
+        type:
           description: Type can be one of Text, SingleOption, MultiOptions, Numeric,
             Date, ExtendedText, ContactLookup
           type: string
-        IsHidden:
+        isHidden:
           default: false
           type: boolean
-        IsMandatory:
+        isMandatory:
           default: false
           type: boolean
-        IsShownInInfobox:
+        isShownInInfobox:
           default: true
           type: boolean
-        FormulaConfig:
+        formulaConfig:
           $ref: '#/components/schemas/CustomSymbolCustomFieldFormulaConfigDto'
-        OptionsConfig:
+        optionsConfig:
           items:
             type: string
           nullable: true
           type: array
-        CustomSymbolTypes:
+        customSymbolTypes:
           items:
             format: uuid
             type: string
           type: array
       required:
-      - Code
-      - CustomSymbolTypes
-      - IsHidden
-      - IsMandatory
-      - IsShownInInfobox
-      - Name
-      - Type
+      - code
+      - customSymbolTypes
+      - isHidden
+      - isMandatory
+      - isShownInInfobox
+      - name
+      - type
       type: object
     CustomFieldConfigDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        UsePreviousValue: true
-        OptionsConfig:
-          OnTheFlyEnabled: true
-          Options:
-          - Options
-          - Options
-          MultiSelectEnabled: true
-        Code: Code
-        Source: Source
-        Name: Name
-        Type: Type
-        IsMandatory: true
-        FormulaConfig:
-          Formula: Formula
-          FormulaType: FormulaType
-        IntegerConfig:
-          SplitType: SplitType
-        NumericConfig:
-          SplitType: SplitType
-          Decimals: 0
-        ExtendedTextConfig:
-          MaxChars: 6
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        IsFilePath: true
+        usePreviousValue: true
+        code: code
+        optionsConfig:
+          multiSelectEnabled: true
+          options:
+          - options
+          - options
+          onTheFlyEnabled: true
+        source: source
+        type: type
+        isHidden: true
+        extendedTextConfig:
+          maxChars: 6
+        isFilePath: true
+        formulaConfig:
+          formulaType: formulaType
+          formula: formula
+        numericConfig:
+          decimals: 0
+          splitType: splitType
+        integerConfig:
+          splitType: splitType
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isMandatory: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Code:
+        code:
           nullable: true
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Source:
+        source:
           nullable: true
           type: string
-        Type:
+        type:
           nullable: true
           type: string
-        UsePreviousValue:
+        usePreviousValue:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        IsHidden:
+        isHidden:
           type: boolean
-        IsFilePath:
+        isFilePath:
           type: boolean
-        FormulaConfig:
+        formulaConfig:
           $ref: '#/components/schemas/FormulaConfigDto'
-        NumericConfig:
+        numericConfig:
           $ref: '#/components/schemas/NumericConfigDto'
-        IntegerConfig:
+        integerConfig:
           $ref: '#/components/schemas/IntegerConfigDto'
-        ExtendedTextConfig:
+        extendedTextConfig:
           $ref: '#/components/schemas/ExtendedTextConfigDto'
-        OptionsConfig:
+        optionsConfig:
           $ref: '#/components/schemas/OptionsConfigDto'
       type: object
     CustomSymbolCustomFieldConfigDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        Type: Type
-        IsShownInInfobox: true
-        IsMandatory: true
-        FormulaConfig:
-          Formula: Formula
-          FormulaType: FormulaType
-        OptionsConfig:
-        - OptionsConfig
-        - OptionsConfig
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Code: Code
-        CustomSymbolTypes:
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        Name: Name
+        code: code
+        formulaConfig:
+          formulaType: formulaType
+          formula: formula
+        optionsConfig:
+        - optionsConfig
+        - optionsConfig
+        name: name
+        customSymbolTypes:
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: type
+        isMandatory: true
+        isHidden: true
+        isShownInInfobox: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Code:
+        code:
           nullable: true
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Type:
+        type:
           nullable: true
           type: string
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        IsShownInInfobox:
+        isShownInInfobox:
           type: boolean
-        FormulaConfig:
+        formulaConfig:
           $ref: '#/components/schemas/CustomSymbolCustomFieldFormulaConfigDto'
-        OptionsConfig:
+        optionsConfig:
           items:
             type: string
           nullable: true
           type: array
-        CustomSymbolTypes:
+        customSymbolTypes:
           items:
             $ref: '#/components/schemas/CustomSymbolTypeSummaryDto'
           nullable: true
@@ -2449,60 +2449,60 @@ components:
     CustomSymbolCustomFieldFormulaConfigDto:
       additionalProperties: false
       example:
-        Formula: Formula
-        FormulaType: FormulaType
+        formulaType: formulaType
+        formula: formula
       properties:
-        Formula:
+        formula:
           maxLength: 2040
           type: string
-        FormulaType:
+        formulaType:
           type: string
       required:
-      - Formula
-      - FormulaType
+      - formula
+      - formulaType
       type: object
     CustomSymbolSubTypeDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
       type: object
     CustomSymbolTypeDetailDto:
       additionalProperties: false
       example:
-        IsDefault: true
-        HideSymbolSubType: true
-        SubTypes:
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        HideAddressField: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        hideSymbolSubType: true
+        isDefault: true
+        hideAddressField: true
+        name: name
+        subTypes:
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        HideAddressField:
+        hideAddressField:
           type: boolean
-        HideSymbolSubType:
+        hideSymbolSubType:
           type: boolean
-        IsDefault:
+        isDefault:
           type: boolean
-        DueDiligenceSymbolEntityType:
+        dueDiligenceSymbolEntityType:
           $ref: '#/components/schemas/EntityType'
-        SubTypes:
+        subTypes:
           items:
             $ref: '#/components/schemas/CustomSymbolSubTypeDto'
           nullable: true
@@ -2511,53 +2511,53 @@ components:
     CustomSymbolTypeDto:
       additionalProperties: false
       example:
-        IsDefault: true
-        Order: 0
-        HideSymbolSubType: true
-        HideAddressField: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        hideSymbolSubType: true
+        isDefault: true
+        hideAddressField: true
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        order: 0
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        HideAddressField:
+        hideAddressField:
           type: boolean
-        HideSymbolSubType:
+        hideSymbolSubType:
           type: boolean
-        IsDefault:
+        isDefault:
           type: boolean
-        Order:
+        order:
           format: int32
           type: integer
-        DueDiligenceSymbolEntityType:
+        dueDiligenceSymbolEntityType:
           $ref: '#/components/schemas/EntityType'
       type: object
     CustomSymbolTypeSummaryDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
       type: object
     DateSettingsDto:
       additionalProperties: false
       example:
-        AllowEdit: true
-        IsLocked: true
+        allowEdit: true
+        isLocked: true
       properties:
-        AllowEdit:
+        allowEdit:
           type: boolean
-        IsLocked:
+        isLocked:
           type: boolean
       type: object
     EntityType:
@@ -2571,22 +2571,22 @@ components:
     ExtendedTextConfigDto:
       additionalProperties: false
       example:
-        MaxChars: 6
+        maxChars: 6
       properties:
-        MaxChars:
+        maxChars:
           format: int32
           type: integer
       type: object
     FormulaConfigDto:
       additionalProperties: false
       example:
-        Formula: Formula
-        FormulaType: FormulaType
+        formulaType: formulaType
+        formula: formula
       properties:
-        Formula:
+        formula:
           nullable: true
           type: string
-        FormulaType:
+        formulaType:
           nullable: true
           type: string
       type: object
@@ -2594,57 +2594,57 @@ components:
       additionalProperties: false
       example:
         Fields:
-          RelatedContacts:
-            IsHidden: true
-            IsMandatory: true
-            UsePrevious: true
-          RelatedResearch:
-            IsHidden: true
-            IsMandatory: true
-            UsePrevious: true
-          Organizer:
-            IsHidden: true
-            IsMandatory: true
-          Title:
-            UsePrevious: true
-          Date:
-            AllowEdit: true
-            IsLocked: true
-          Subject:
-            DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Recommendation:
-            IsHidden: true
-            IsMandatory: true
-            UsePrevious: true
-            DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Sentiment:
-            IsHidden: true
-            IsMandatory: true
-            UsePrevious: true
-            DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Source:
-            IsHidden: true
-            IsMandatory: true
-            UsePrevious: true
-          RelatedSymbols:
-            IsHidden: true
-            IsMandatory: true
-            UsePrevious: true
-          Identifier:
-            AllowEdit: true
-          Note:
-            IsHidden: true
-            DefaultStatus: DefaultStatus
-            IsMandatory: true
-            UsePrevious: true
-            AllowPersonal: true
-            AlternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Team:
-            DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Link:
-            IsHidden: true
-            IsMandatory: true
-            UsePrevious: true
+          date:
+            allowEdit: true
+            isLocked: true
+          identifier:
+            allowEdit: true
+          sentiment:
+            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            isMandatory: true
+            isHidden: true
+            usePrevious: true
+          note:
+            defaultStatus: defaultStatus
+            alternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            allowPersonal: true
+            isMandatory: true
+            isHidden: true
+            usePrevious: true
+          subject:
+            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          link:
+            isMandatory: true
+            isHidden: true
+            usePrevious: true
+          recommendation:
+            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            isMandatory: true
+            isHidden: true
+            usePrevious: true
+          relatedSymbols:
+            isMandatory: true
+            isHidden: true
+            usePrevious: true
+          source:
+            isMandatory: true
+            isHidden: true
+            usePrevious: true
+          team:
+            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title:
+            usePrevious: true
+          relatedResearch:
+            isMandatory: true
+            isHidden: true
+            usePrevious: true
+          relatedContacts:
+            isMandatory: true
+            isHidden: true
+            usePrevious: true
+          organizer:
+            isMandatory: true
+            isHidden: true
         Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         Name: Name
       properties:
@@ -2660,166 +2660,166 @@ components:
     GroupFieldsDto:
       additionalProperties: false
       example:
-        RelatedContacts:
-          IsHidden: true
-          IsMandatory: true
-          UsePrevious: true
-        RelatedResearch:
-          IsHidden: true
-          IsMandatory: true
-          UsePrevious: true
-        Organizer:
-          IsHidden: true
-          IsMandatory: true
-        Title:
-          UsePrevious: true
-        Date:
-          AllowEdit: true
-          IsLocked: true
-        Subject:
-          DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Recommendation:
-          IsHidden: true
-          IsMandatory: true
-          UsePrevious: true
-          DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Sentiment:
-          IsHidden: true
-          IsMandatory: true
-          UsePrevious: true
-          DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Source:
-          IsHidden: true
-          IsMandatory: true
-          UsePrevious: true
-        RelatedSymbols:
-          IsHidden: true
-          IsMandatory: true
-          UsePrevious: true
-        Identifier:
-          AllowEdit: true
-        Note:
-          IsHidden: true
-          DefaultStatus: DefaultStatus
-          IsMandatory: true
-          UsePrevious: true
-          AllowPersonal: true
-          AlternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Team:
-          DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Link:
-          IsHidden: true
-          IsMandatory: true
-          UsePrevious: true
+        date:
+          allowEdit: true
+          isLocked: true
+        identifier:
+          allowEdit: true
+        sentiment:
+          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isMandatory: true
+          isHidden: true
+          usePrevious: true
+        note:
+          defaultStatus: defaultStatus
+          alternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          allowPersonal: true
+          isMandatory: true
+          isHidden: true
+          usePrevious: true
+        subject:
+          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        link:
+          isMandatory: true
+          isHidden: true
+          usePrevious: true
+        recommendation:
+          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isMandatory: true
+          isHidden: true
+          usePrevious: true
+        relatedSymbols:
+          isMandatory: true
+          isHidden: true
+          usePrevious: true
+        source:
+          isMandatory: true
+          isHidden: true
+          usePrevious: true
+        team:
+          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title:
+          usePrevious: true
+        relatedResearch:
+          isMandatory: true
+          isHidden: true
+          usePrevious: true
+        relatedContacts:
+          isMandatory: true
+          isHidden: true
+          usePrevious: true
+        organizer:
+          isMandatory: true
+          isHidden: true
       properties:
-        Title:
+        title:
           $ref: '#/components/schemas/TitleSettingsDto'
-        Date:
+        date:
           $ref: '#/components/schemas/DateSettingsDto'
-        Identifier:
+        identifier:
           $ref: '#/components/schemas/IdentifierSettingsDto'
-        Subject:
+        subject:
           $ref: '#/components/schemas/SubjectSettingsDto'
-        Recommendation:
+        recommendation:
           $ref: '#/components/schemas/RecommendationSettingsDto'
-        Sentiment:
+        sentiment:
           $ref: '#/components/schemas/SentimentSettingsDto'
-        Link:
+        link:
           $ref: '#/components/schemas/LinkSettingsDto'
-        Note:
+        note:
           $ref: '#/components/schemas/NoteSettingsDto'
-        Source:
+        source:
           $ref: '#/components/schemas/SourceSettingsDto'
-        RelatedSymbols:
+        relatedSymbols:
           $ref: '#/components/schemas/RelatedSymbolsSettingsDto'
-        RelatedResearch:
+        relatedResearch:
           $ref: '#/components/schemas/RelatedResearchSettingsDto'
-        RelatedContacts:
+        relatedContacts:
           $ref: '#/components/schemas/RelatedContactsSettingsDto'
-        Team:
+        team:
           $ref: '#/components/schemas/TeamSettingsDto'
-        Organizer:
+        organizer:
           $ref: '#/components/schemas/OrganizerSettingsDto'
       type: object
     HeadlineFormatConfigDto:
       additionalProperties: false
       example:
-        CustomFieldName: CustomFieldName
-        CustomString: CustomString
-        Name: Name
+        name: name
+        customFieldName: customFieldName
+        customString: customString
       properties:
-        Name:
+        name:
           nullable: true
           type: string
-        CustomString:
+        customString:
           nullable: true
           type: string
-        CustomFieldName:
+        customFieldName:
           nullable: true
           type: string
       type: object
     IdentifierSettingsDto:
       additionalProperties: false
       example:
-        AllowEdit: true
+        allowEdit: true
       properties:
-        AllowEdit:
+        allowEdit:
           type: boolean
       type: object
     IntegerConfigDto:
       additionalProperties: false
       example:
-        SplitType: SplitType
+        splitType: splitType
       properties:
-        SplitType:
+        splitType:
           nullable: true
           type: string
       type: object
     LinkSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        IsMandatory: true
-        UsePrevious: true
+        isMandatory: true
+        isHidden: true
+        usePrevious: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        UsePrevious:
+        usePrevious:
           type: boolean
       type: object
     NewItemDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
       type: object
     NoteSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        DefaultStatus: DefaultStatus
-        IsMandatory: true
-        UsePrevious: true
-        AllowPersonal: true
-        AlternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        defaultStatus: defaultStatus
+        alternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        allowPersonal: true
+        isMandatory: true
+        isHidden: true
+        usePrevious: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        UsePrevious:
+        usePrevious:
           type: boolean
-        AllowPersonal:
+        allowPersonal:
           type: boolean
-        DefaultStatus:
+        defaultStatus:
           nullable: true
           type: string
-        AlternativeCustomFieldId:
+        alternativeCustomFieldId:
           format: uuid
           nullable: true
           type: string
@@ -2827,13 +2827,13 @@ components:
     NumericConfigDto:
       additionalProperties: false
       example:
-        SplitType: SplitType
-        Decimals: 0
+        decimals: 0
+        splitType: splitType
       properties:
-        Decimals:
+        decimals:
           format: int32
           type: integer
-        SplitType:
+        splitType:
           nullable: true
           type: string
       type: object
@@ -2845,7 +2845,7 @@ components:
         from: from
         value: ""
       properties:
-        OperationType:
+        operationType:
           $ref: '#/components/schemas/OperationType'
         path:
           nullable: true
@@ -2873,17 +2873,17 @@ components:
     OptionsConfigDto:
       additionalProperties: false
       example:
-        OnTheFlyEnabled: true
-        Options:
-        - Options
-        - Options
-        MultiSelectEnabled: true
+        multiSelectEnabled: true
+        options:
+        - options
+        - options
+        onTheFlyEnabled: true
       properties:
-        MultiSelectEnabled:
+        multiSelectEnabled:
           type: boolean
-        OnTheFlyEnabled:
+        onTheFlyEnabled:
           type: boolean
-        Options:
+        options:
           items:
             type: string
           nullable: true
@@ -2892,30 +2892,30 @@ components:
     OrganizerSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        IsMandatory: true
+        isMandatory: true
+        isHidden: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
       type: object
     PhoneNumberTypeDto:
       additionalProperties: false
       example:
-        IsStandard: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        isStandard: true
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        IsStandard:
+        isStandard:
           type: boolean
       type: object
     ProblemDetails:
@@ -2941,29 +2941,29 @@ components:
     RatingConfigDto:
       additionalProperties: false
       example:
-        RatingsVisibleToAuthor: true
-        ViewerIds:
+        viewerIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        OptionValues:
+        ratingsVisibleToAll: true
+        ratingsVisibleToViewers: true
+        ratingsVisibleToAuthor: true
+        optionValues:
         - 0
         - 0
-        RatingsVisibleToViewers: true
-        RatingsVisibleToAll: true
       properties:
-        RatingsVisibleToAuthor:
+        ratingsVisibleToAuthor:
           type: boolean
-        RatingsVisibleToViewers:
+        ratingsVisibleToViewers:
           type: boolean
-        RatingsVisibleToAll:
+        ratingsVisibleToAll:
           type: boolean
-        ViewerIds:
+        viewerIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        OptionValues:
+        optionValues:
           items:
             format: int32
             type: integer
@@ -2973,38 +2973,38 @@ components:
     RecommendationConfigDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Code: 0
-        Name: Name
+        code: 0
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isHidden: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Code:
+        code:
           format: int32
           type: integer
-        IsHidden:
+        isHidden:
           type: boolean
       type: object
     RecommendationSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        IsMandatory: true
-        UsePrevious: true
-        DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isMandatory: true
+        isHidden: true
+        usePrevious: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        UsePrevious:
+        usePrevious:
           type: boolean
-        DefaultId:
+        defaultId:
           format: uuid
           nullable: true
           type: string
@@ -3012,88 +3012,88 @@ components:
     RelatedContactsSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        IsMandatory: true
-        UsePrevious: true
+        isMandatory: true
+        isHidden: true
+        usePrevious: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        UsePrevious:
+        usePrevious:
           type: boolean
       type: object
     RelatedResearchSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        IsMandatory: true
-        UsePrevious: true
+        isMandatory: true
+        isHidden: true
+        usePrevious: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        UsePrevious:
+        usePrevious:
           type: boolean
       type: object
     RelatedSymbolsSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        IsMandatory: true
-        UsePrevious: true
+        isMandatory: true
+        isHidden: true
+        usePrevious: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        UsePrevious:
+        usePrevious:
           type: boolean
       type: object
     RelationshipCategoryDto:
       additionalProperties: false
       example:
-        IsStandard: true
-        Relationships:
-        - RelationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          RightToLeftName: RightToLeftName
-          RelationshipCode: RelationshipCode
-          LeftToRightName: LeftToRightName
-          HideCompany: true
-          IsCustomisable: true
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          BidirectionalName: BidirectionalName
-          HideDates: true
-          HideComment: true
-        - RelationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          RightToLeftName: RightToLeftName
-          RelationshipCode: RelationshipCode
-          LeftToRightName: LeftToRightName
-          HideCompany: true
-          IsCustomisable: true
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          BidirectionalName: BidirectionalName
-          HideDates: true
-          HideComment: true
-        IsContactToSymbol: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        IsContactToContact: true
-        Name: Name
+        isContactToContact: true
+        relationships:
+        - bidirectionalName: bidirectionalName
+          hideCompany: true
+          rightToLeftName: rightToLeftName
+          hideComment: true
+          relationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          leftToRightName: leftToRightName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          relationshipCode: relationshipCode
+          hideDates: true
+          isCustomisable: true
+        - bidirectionalName: bidirectionalName
+          hideCompany: true
+          rightToLeftName: rightToLeftName
+          hideComment: true
+          relationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          leftToRightName: leftToRightName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          relationshipCode: relationshipCode
+          hideDates: true
+          isCustomisable: true
+        isContactToSymbol: true
+        isStandard: true
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        IsStandard:
+        isStandard:
           type: boolean
-        IsContactToContact:
+        isContactToContact:
           type: boolean
-        IsContactToSymbol:
+        isContactToSymbol:
           type: boolean
-        Relationships:
+        relationships:
           items:
             $ref: '#/components/schemas/RelationshipDto'
           nullable: true
@@ -3102,128 +3102,128 @@ components:
     RelationshipCategoryListDto:
       additionalProperties: false
       example:
-        Ids:
+        ids:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Ids:
+        ids:
           items:
             format: uuid
             type: string
           type: array
       required:
-      - Ids
+      - ids
       type: object
     RelationshipCategorySaveDto:
       additionalProperties: false
       example:
-        IsContactToSymbol: false
-        CategoryName: CategoryName
-        IsContactToContact: false
+        isContactToContact: false
+        isContactToSymbol: false
+        categoryName: categoryName
       properties:
-        CategoryName:
+        categoryName:
           maxLength: 50
           minLength: 0
           type: string
-        IsContactToContact:
+        isContactToContact:
           default: false
           type: boolean
-        IsContactToSymbol:
+        isContactToSymbol:
           default: false
           type: boolean
       required:
-      - CategoryName
+      - categoryName
       type: object
     RelationshipDto:
       additionalProperties: false
       example:
-        RelationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        RightToLeftName: RightToLeftName
-        RelationshipCode: RelationshipCode
-        LeftToRightName: LeftToRightName
-        HideCompany: true
-        IsCustomisable: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        BidirectionalName: BidirectionalName
-        HideDates: true
-        HideComment: true
+        bidirectionalName: bidirectionalName
+        hideCompany: true
+        rightToLeftName: rightToLeftName
+        hideComment: true
+        relationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        leftToRightName: leftToRightName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relationshipCode: relationshipCode
+        hideDates: true
+        isCustomisable: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        RelationshipCategoryId:
+        relationshipCategoryId:
           format: uuid
           type: string
-        RelationshipCode:
+        relationshipCode:
           nullable: true
           type: string
-        BidirectionalName:
+        bidirectionalName:
           nullable: true
           type: string
-        LeftToRightName:
+        leftToRightName:
           nullable: true
           type: string
-        RightToLeftName:
+        rightToLeftName:
           nullable: true
           type: string
-        HideDates:
+        hideDates:
           type: boolean
-        HideComment:
+        hideComment:
           type: boolean
-        HideCompany:
+        hideCompany:
           type: boolean
-        IsCustomisable:
+        isCustomisable:
           type: boolean
       type: object
     RelationshipSaveDto:
       additionalProperties: false
       example:
-        RelationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        RightToLeftName: RightToLeftName
-        RelationshipCode: RelationshipCode
-        LeftToRightName: LeftToRightName
-        HideCompany: false
-        BidirectionalName: BidirectionalName
-        HideDates: false
-        HideComment: false
+        bidirectionalName: bidirectionalName
+        hideCompany: false
+        rightToLeftName: rightToLeftName
+        hideComment: false
+        relationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        leftToRightName: leftToRightName
+        relationshipCode: relationshipCode
+        hideDates: false
       properties:
-        RelationshipCategoryId:
+        relationshipCategoryId:
           format: uuid
           type: string
-        RelationshipCode:
+        relationshipCode:
           maxLength: 5
           minLength: 0
           nullable: true
           type: string
-        BidirectionalName:
+        bidirectionalName:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        LeftToRightName:
+        leftToRightName:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        RightToLeftName:
+        rightToLeftName:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        HideDates:
+        hideDates:
           default: false
           type: boolean
-        HideComment:
+        hideComment:
           default: false
           type: boolean
-        HideCompany:
+        hideCompany:
           default: false
           type: boolean
       required:
-      - HideComment
-      - HideCompany
-      - HideDates
-      - RelationshipCategoryId
+      - hideComment
+      - hideCompany
+      - hideDates
+      - relationshipCategoryId
       type: object
     RelationshipType:
       enum:
@@ -3235,11 +3235,11 @@ components:
     ReorderCustomSymbolTypeDto:
       additionalProperties: false
       example:
-        Ids:
+        ids:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Ids:
+        ids:
           items:
             format: uuid
             type: string
@@ -3249,83 +3249,83 @@ components:
     SaveCustomSymbolTypeDto:
       additionalProperties: false
       example:
-        IsDefault: false
-        HideSymbolSubtype: true
-        SubTypes:
-        - SubTypes
-        - SubTypes
-        HideAddressField: true
-        CustomFieldIds:
+        isDefault: false
+        hideAddressField: true
+        customFieldIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        subTypes:
+        - subTypes
+        - subTypes
+        hideSymbolSubtype: true
       properties:
-        Name:
+        name:
           maxLength: 100
           minLength: 0
           type: string
-        HideAddressField:
+        hideAddressField:
           type: boolean
-        HideSymbolSubtype:
+        hideSymbolSubtype:
           type: boolean
-        IsDefault:
+        isDefault:
           default: false
           type: boolean
-        DueDiligenceSymbolEntityType:
+        dueDiligenceSymbolEntityType:
           $ref: '#/components/schemas/EntityType'
-        SubTypes:
+        subTypes:
           items:
             type: string
           nullable: true
           type: array
-        CustomFieldIds:
+        customFieldIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
       required:
-      - Name
+      - name
       type: object
     SentimentConfigDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        Color: Color
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Code: 0
-        Name: Name
+        code: 0
+        color: color
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isHidden: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Code:
+        code:
           format: int32
           type: integer
-        Color:
+        color:
           nullable: true
           type: string
-        IsHidden:
+        isHidden:
           type: boolean
       type: object
     SentimentSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        IsMandatory: true
-        UsePrevious: true
-        DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isMandatory: true
+        isHidden: true
+        usePrevious: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        UsePrevious:
+        usePrevious:
           type: boolean
-        DefaultId:
+        defaultId:
           format: uuid
           nullable: true
           type: string
@@ -3333,128 +3333,128 @@ components:
     SourceSettingsDto:
       additionalProperties: false
       example:
-        IsHidden: true
-        IsMandatory: true
-        UsePrevious: true
+        isMandatory: true
+        isHidden: true
+        usePrevious: true
       properties:
-        IsHidden:
+        isHidden:
           type: boolean
-        IsMandatory:
+        isMandatory:
           type: boolean
-        UsePrevious:
+        usePrevious:
           type: boolean
       type: object
     SubjectConfigDto:
       additionalProperties: false
       example:
-        IdentifierTypes:
-        - IdentifierTypes
-        - IdentifierTypes
-        IsHidden: true
-        NoteLengthLimit: 6
-        NewsHeadlineFormat:
-        - CustomFieldName: CustomFieldName
-          CustomString: CustomString
-          Name: Name
-        - CustomFieldName: CustomFieldName
-          CustomString: CustomString
-          Name: Name
-        EmailHeadlineFormat:
-        - CustomFieldName: CustomFieldName
-          CustomString: CustomString
-          Name: Name
-        - CustomFieldName: CustomFieldName
-          CustomString: CustomString
-          Name: Name
-        Code: Code
-        IdentifierType: IdentifierType
-        Name: Name
-        RatingConfig:
-          RatingsVisibleToAuthor: true
-          ViewerIds:
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          OptionValues:
-          - 0
-          - 0
-          RatingsVisibleToViewers: true
-          RatingsVisibleToAll: true
-        Type: Type
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        ApprovalProcessConfig:
-          ShouldSendEmailAlertsToAuthor: true
-          ViewerIds:
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          ShouldSendEmailAlertsWhenDenied: true
-          CanAuthorSelfApprove: true
-          ShouldSendEmailAlertsWhenSubmittedForApproval: true
-          ShouldSendEmailAlertsWhenApproved: true
-          ApprovalLevels:
-          - ApproverIds:
-            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            Name: Name
-          - ApproverIds:
-            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            Name: Name
-          ShouldSendEmailAlertsToApprovers: true
-          ShouldSendEmailAlertsToViewers: true
-          CanAuthorEditPending: true
-        CustomFieldIds:
+        code: code
+        customFieldIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        CommentaryConfig:
-          ShouldSendEmailAlertsToAuthor: true
-          ShouldSendEmailAlertsToAll: true
-          ShouldSendEmailAlertsToCommenters: true
+        identifierType: identifierType
+        type: type
+        newsHeadlineFormat:
+        - name: name
+          customFieldName: customFieldName
+          customString: customString
+        - name: name
+          customFieldName: customFieldName
+          customString: customString
+        identifierTypes:
+        - identifierTypes
+        - identifierTypes
+        isHidden: true
+        noteLengthLimit: 6
+        name: name
+        commentaryConfig:
+          shouldSendEmailAlertsToAuthor: true
+          shouldSendEmailAlertsToCommenters: true
+          shouldSendEmailAlertsToAll: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        approvalProcessConfig:
+          shouldSendEmailAlertsWhenSubmittedForApproval: true
+          shouldSendEmailAlertsWhenApproved: true
+          shouldSendEmailAlertsToAuthor: true
+          viewerIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          shouldSendEmailAlertsToApprovers: true
+          shouldSendEmailAlertsToViewers: true
+          canAuthorEditPending: true
+          approvalLevels:
+          - approverIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+          - approverIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+          shouldSendEmailAlertsWhenDenied: true
+          canAuthorSelfApprove: true
+        ratingConfig:
+          viewerIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          ratingsVisibleToAll: true
+          ratingsVisibleToViewers: true
+          ratingsVisibleToAuthor: true
+          optionValues:
+          - 0
+          - 0
+        emailHeadlineFormat:
+        - name: name
+          customFieldName: customFieldName
+          customString: customString
+        - name: name
+          customFieldName: customFieldName
+          customString: customString
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Code:
+        code:
           nullable: true
           type: string
-        IsHidden:
+        isHidden:
           type: boolean
-        IdentifierType:
+        identifierType:
           nullable: true
           type: string
-        IdentifierTypes:
+        identifierTypes:
           items:
             type: string
           nullable: true
           type: array
-        Type:
+        type:
           nullable: true
           type: string
-        CustomFieldIds:
+        customFieldIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        ApprovalProcessConfig:
+        approvalProcessConfig:
           $ref: '#/components/schemas/ApprovalProcessConfigDto'
-        CommentaryConfig:
+        commentaryConfig:
           $ref: '#/components/schemas/CommentaryConfigDto'
-        NewsHeadlineFormat:
+        newsHeadlineFormat:
           items:
             $ref: '#/components/schemas/HeadlineFormatConfigDto'
           nullable: true
           type: array
-        EmailHeadlineFormat:
+        emailHeadlineFormat:
           items:
             $ref: '#/components/schemas/HeadlineFormatConfigDto'
           nullable: true
           type: array
-        RatingConfig:
+        ratingConfig:
           $ref: '#/components/schemas/RatingConfigDto'
-        NoteLengthLimit:
+        noteLengthLimit:
           format: int32
           nullable: true
           type: integer
@@ -3462,9 +3462,9 @@ components:
     SubjectSettingsDto:
       additionalProperties: false
       example:
-        DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        DefaultId:
+        defaultId:
           format: uuid
           nullable: true
           type: string
@@ -3472,49 +3472,49 @@ components:
     SubjectSummaryDto:
       additionalProperties: false
       example:
-        IdentifierTypes:
-        - IdentifierTypes
-        - IdentifierTypes
-        IsHidden: true
-        Type: Type
-        NoteLengthLimit: 0
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Code: Code
-        IdentifierType: IdentifierType
-        CustomFieldIds:
+        noteLengthLimit: 0
+        code: code
+        customFieldIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        identifierType: identifierType
+        type: type
+        identifierTypes:
+        - identifierTypes
+        - identifierTypes
+        isHidden: true
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Code:
+        code:
           nullable: true
           type: string
-        IdentifierType:
+        identifierType:
           nullable: true
           type: string
-        IdentifierTypes:
+        identifierTypes:
           items:
             type: string
           nullable: true
           type: array
-        Type:
+        type:
           nullable: true
           type: string
-        IsHidden:
+        isHidden:
           type: boolean
-        CustomFieldIds:
+        customFieldIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        NoteLengthLimit:
+        noteLengthLimit:
           format: int32
           nullable: true
           type: integer
@@ -3522,99 +3522,99 @@ components:
     SymbolsRelationShipSaveDto:
       additionalProperties: false
       example:
-        ParentToChildName: ParentToChildName
-        PeerName: PeerName
-        RelationshipCode: RelationshipCode
-        HideDates: true
-        ChildToParentName: ChildToParentName
-        HideComment: true
+        peerName: peerName
+        childToParentName: childToParentName
+        hideComment: true
+        relationshipCode: relationshipCode
+        hideDates: true
+        parentToChildName: parentToChildName
       properties:
-        RelationshipCode:
+        relationshipCode:
           maxLength: 3
           minLength: 0
           nullable: true
           type: string
-        ParentToChildName:
+        parentToChildName:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        ChildToParentName:
+        childToParentName:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        PeerName:
+        peerName:
           maxLength: 50
           minLength: 0
           nullable: true
           type: string
-        HideDates:
+        hideDates:
           default: true
           type: boolean
-        HideComment:
+        hideComment:
           default: true
           type: boolean
       required:
-      - HideComment
-      - HideDates
+      - hideComment
+      - hideDates
       type: object
     SymbolsRelationshipDto:
       additionalProperties: false
       example:
-        ParentToChildName: ParentToChildName
-        PeerName: PeerName
-        RelationshipCode: RelationshipCode
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        HideDates: true
-        ChildToParentName: ChildToParentName
-        HideComment: true
+        peerName: peerName
+        childToParentName: childToParentName
+        hideComment: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relationshipCode: relationshipCode
+        hideDates: true
+        parentToChildName: parentToChildName
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        RelationshipCode:
+        relationshipCode:
           nullable: true
           type: string
-        ParentToChildName:
+        parentToChildName:
           nullable: true
           type: string
-        ChildToParentName:
+        childToParentName:
           nullable: true
           type: string
-        PeerName:
+        peerName:
           nullable: true
           type: string
-        HideDates:
+        hideDates:
           type: boolean
-        HideComment:
+        hideComment:
           type: boolean
       type: object
     TeamConfigDto:
       additionalProperties: false
       example:
-        DefaultSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Code: Code
-        UserIds:
+        code: code
+        userIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        defaultSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Code:
+        code:
           nullable: true
           type: string
-        DefaultSubjectId:
+        defaultSubjectId:
           format: uuid
           nullable: true
           type: string
-        UserIds:
+        userIds:
           items:
             format: uuid
             type: string
@@ -3624,9 +3624,9 @@ components:
     TeamSettingsDto:
       additionalProperties: false
       example:
-        DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        DefaultId:
+        defaultId:
           format: uuid
           nullable: true
           type: string
@@ -3634,104 +3634,104 @@ components:
     TeamSummaryDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Code: Code
-        Name: Name
+        code: code
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Name:
+        name:
           nullable: true
           type: string
-        Code:
+        code:
           nullable: true
           type: string
       type: object
     TitleSettingsDto:
       additionalProperties: false
       example:
-        UsePrevious: true
+        usePrevious: true
       properties:
-        UsePrevious:
+        usePrevious:
           type: boolean
       type: object
     UpdateCustomSymbolTypeDto:
       additionalProperties: false
       example:
-        IsDefault: false
-        HideSymbolSubtype: true
-        SubTypes:
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Name: Name
-        HideAddressField: true
-        CustomFieldIds:
+        isDefault: false
+        hideAddressField: true
+        customFieldIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Name: Name
+        name: name
+        subTypes:
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        hideSymbolSubtype: true
       properties:
-        Name:
+        name:
           maxLength: 100
           minLength: 0
           type: string
-        HideAddressField:
+        hideAddressField:
           type: boolean
-        HideSymbolSubtype:
+        hideSymbolSubtype:
           type: boolean
-        IsDefault:
+        isDefault:
           default: false
           type: boolean
-        DueDiligenceSymbolEntityType:
+        dueDiligenceSymbolEntityType:
           $ref: '#/components/schemas/EntityType'
-        SubTypes:
+        subTypes:
           items:
             $ref: '#/components/schemas/CustomSymbolSubTypeDto'
           nullable: true
           type: array
-        CustomFieldIds:
+        customFieldIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
       required:
-      - Name
+      - name
       type: object
     UserConfigDto:
       additionalProperties: false
       example:
-        UserName: UserName
-        SerialNumber: SerialNumber
-        FirstName: FirstName
-        Team:
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          Code: Code
-          Name: Name
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        LastName: LastName
-        EmailAddress: EmailAddress
+        firstName: firstName
+        lastName: lastName
+        emailAddress: emailAddress
+        serialNumber: serialNumber
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        team:
+          code: code
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userName: userName
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        UserName:
+        userName:
           nullable: true
           type: string
-        SerialNumber:
+        serialNumber:
           nullable: true
           type: string
-        FirstName:
+        firstName:
           nullable: true
           type: string
-        LastName:
+        lastName:
           nullable: true
           type: string
-        EmailAddress:
+        emailAddress:
           nullable: true
           type: string
-        Team:
+        team:
           $ref: '#/components/schemas/TeamSummaryDto'
       type: object
   securitySchemes:

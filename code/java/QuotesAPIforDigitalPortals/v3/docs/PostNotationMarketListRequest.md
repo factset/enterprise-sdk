@@ -2,6 +2,7 @@
 
 # PostNotationMarketListRequest
 
+Request Body
 
 ## Properties
 

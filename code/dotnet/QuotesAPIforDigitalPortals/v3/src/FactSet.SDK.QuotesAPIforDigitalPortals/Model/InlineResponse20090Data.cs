@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// The data member contains a list of the matching instruments
+    /// List of trading schedule events for a notation.
     /// </summary>
     [DataContract(Name = "inline_response_200_90_data")]
     public partial class InlineResponse20090Data : IEquatable<InlineResponse20090Data>, IValidatableObject
@@ -34,70 +34,44 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20090Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of the instrument..</param>
-        /// <param name="name">Asset class-unspecific name in English..</param>
-        /// <param name="isin">The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument..</param>
-        /// <param name="nsin">nsin.</param>
-        /// <param name="fsym">fsym.</param>
-        /// <param name="assetClass">Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description..</param>
-        /// <param name="type">Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18)..</param>
-        public InlineResponse20090Data(string id = default(string), string name = default(string), string isin = default(string), InlineResponse20042DataNsin nsin = default(InlineResponse20042DataNsin), InlineResponse20036Fsym fsym = default(InlineResponse20036Fsym), string assetClass = default(string), List<InlineResponse20038DataCategories> type = default(List<InlineResponse20038DataCategories>))
+        /// <param name="idNotation">MDG identifier of the listing..</param>
+        /// <param name="sourceIdentifier">Identifier used in the request..</param>
+        /// <param name="range">range.</param>
+        /// <param name="events">List of trading schedule events..</param>
+        public InlineResponse20090Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20090DataRange range = default(InlineResponse20090DataRange), List<InlineResponse20090DataEvents> events = default(List<InlineResponse20090DataEvents>))
         {
-            this.Id = id;
-            this.Name = name;
-            this.Isin = isin;
-            this.Nsin = nsin;
-            this.Fsym = fsym;
-            this.AssetClass = assetClass;
-            this.Type = type;
+            this.IdNotation = idNotation;
+            this.SourceIdentifier = sourceIdentifier;
+            this.Range = range;
+            this.Events = events;
         }
 
         /// <summary>
-        /// Identifier of the instrument.
+        /// MDG identifier of the listing.
         /// </summary>
-        /// <value>Identifier of the instrument.</value>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; set; }
+        /// <value>MDG identifier of the listing.</value>
+        [DataMember(Name = "idNotation", EmitDefaultValue = true)]
+        public string IdNotation { get; set; }
 
         /// <summary>
-        /// Asset class-unspecific name in English.
+        /// Identifier used in the request.
         /// </summary>
-        /// <value>Asset class-unspecific name in English.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
+        /// <value>Identifier used in the request.</value>
+        [DataMember(Name = "sourceIdentifier", EmitDefaultValue = true)]
+        public string SourceIdentifier { get; set; }
 
         /// <summary>
-        /// The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
+        /// Gets or Sets Range
         /// </summary>
-        /// <value>The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.</value>
-        [DataMember(Name = "isin", EmitDefaultValue = true)]
-        public string Isin { get; set; }
+        [DataMember(Name = "range", EmitDefaultValue = true)]
+        public InlineResponse20090DataRange Range { get; set; }
 
         /// <summary>
-        /// Gets or Sets Nsin
+        /// List of trading schedule events.
         /// </summary>
-        [DataMember(Name = "nsin", EmitDefaultValue = false)]
-        public InlineResponse20042DataNsin Nsin { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Fsym
-        /// </summary>
-        [DataMember(Name = "fsym", EmitDefaultValue = false)]
-        public InlineResponse20036Fsym Fsym { get; set; }
-
-        /// <summary>
-        /// Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.
-        /// </summary>
-        /// <value>Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.</value>
-        [DataMember(Name = "assetClass", EmitDefaultValue = true)]
-        public string AssetClass { get; set; }
-
-        /// <summary>
-        /// Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
-        /// </summary>
-        /// <value>Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public List<InlineResponse20038DataCategories> Type { get; set; }
+        /// <value>List of trading schedule events.</value>
+        [DataMember(Name = "events", EmitDefaultValue = false)]
+        public List<InlineResponse20090DataEvents> Events { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,13 +81,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20090Data {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Isin: ").Append(Isin).Append("\n");
-            sb.Append("  Nsin: ").Append(Nsin).Append("\n");
-            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
-            sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
+            sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
+            sb.Append("  Range: ").Append(Range).Append("\n");
+            sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,40 +121,25 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.IdNotation == input.IdNotation ||
+                    (this.IdNotation != null &&
+                    this.IdNotation.Equals(input.IdNotation))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.SourceIdentifier == input.SourceIdentifier ||
+                    (this.SourceIdentifier != null &&
+                    this.SourceIdentifier.Equals(input.SourceIdentifier))
                 ) && 
                 (
-                    this.Isin == input.Isin ||
-                    (this.Isin != null &&
-                    this.Isin.Equals(input.Isin))
+                    this.Range == input.Range ||
+                    (this.Range != null &&
+                    this.Range.Equals(input.Range))
                 ) && 
                 (
-                    this.Nsin == input.Nsin ||
-                    (this.Nsin != null &&
-                    this.Nsin.Equals(input.Nsin))
-                ) && 
-                (
-                    this.Fsym == input.Fsym ||
-                    (this.Fsym != null &&
-                    this.Fsym.Equals(input.Fsym))
-                ) && 
-                (
-                    this.AssetClass == input.AssetClass ||
-                    (this.AssetClass != null &&
-                    this.AssetClass.Equals(input.AssetClass))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type != null &&
-                    input.Type != null &&
-                    this.Type.SequenceEqual(input.Type)
+                    this.Events == input.Events ||
+                    this.Events != null &&
+                    input.Events != null &&
+                    this.Events.SequenceEqual(input.Events)
                 );
         }
 
@@ -196,33 +152,21 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
+                if (this.IdNotation != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.IdNotation.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.SourceIdentifier != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
                 }
-                if (this.Isin != null)
+                if (this.Range != null)
                 {
-                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
                 }
-                if (this.Nsin != null)
+                if (this.Events != null)
                 {
-                    hashCode = (hashCode * 59) + this.Nsin.GetHashCode();
-                }
-                if (this.Fsym != null)
-                {
-                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
-                }
-                if (this.AssetClass != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetClass.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Events.GetHashCode();
                 }
                 return hashCode;
             }

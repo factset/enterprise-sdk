@@ -84,7 +84,7 @@ class IdentifierSettingsDto(ModelNormal):
 
 
     attribute_map = {
-        'allow_edit': 'AllowEdit',  # noqa: E501
+        'allow_edit': 'allowEdit',  # noqa: E501
     }
 
     read_only_vars = {

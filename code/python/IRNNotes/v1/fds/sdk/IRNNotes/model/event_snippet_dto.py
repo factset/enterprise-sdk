@@ -88,11 +88,11 @@ class EventSnippetDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'type': 'Type',  # noqa: E501
-        'note_id': 'NoteId',  # noqa: E501
-        'meeting_id': 'MeetingId',  # noqa: E501
-        'created_at': 'CreatedAt',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'note_id': 'noteId',  # noqa: E501
+        'meeting_id': 'meetingId',  # noqa: E501
+        'created_at': 'createdAt',  # noqa: E501
     }
 
     read_only_vars = {

@@ -40,10 +40,10 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class CustomSymbolCustomFieldFormulaConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FORMULA = "Formula";
+  public static final String JSON_PROPERTY_FORMULA = "formula";
   private String formula;
 
-  public static final String JSON_PROPERTY_FORMULA_TYPE = "FormulaType";
+  public static final String JSON_PROPERTY_FORMULA_TYPE = "formulaType";
   private String formulaType;
 
   public CustomSymbolCustomFieldFormulaConfigDto() { 

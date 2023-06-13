@@ -3,6 +3,9 @@ info:
   description: Allows users to extract, create, update and configure IRN data.
   title: IRN API v1
   version: "1"
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/irn-notes-api#apiDocumentation
 servers:
 - description: Production Server
   url: https://api.factset.com/research/irn
@@ -1125,21 +1128,21 @@ components:
     AttachmentSummaryDto:
       additionalProperties: false
       example:
-        Size: 0
-        FileName: FileName
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        MimeType: MimeType
+        fileName: fileName
+        size: 0
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        mimeType: mimeType
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        FileName:
+        fileName:
           nullable: true
           type: string
-        MimeType:
+        mimeType:
           nullable: true
           type: string
-        Size:
+        size:
           format: int64
           nullable: true
           type: integer
@@ -1147,50 +1150,50 @@ components:
     CommentDto:
       additionalProperties: false
       example:
-        AuthorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Subcomments:
-        - UserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          CreatedAt: CreatedAt
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - UserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          CreatedAt: CreatedAt
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        CreatedAt: CreatedAt
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        ParentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Body: Body
-        Attachments:
-        - Size: 0
-          FileName: FileName
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          MimeType: MimeType
-        - Size: 0
-          FileName: FileName
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          MimeType: MimeType
+        createdAt: createdAt
+        attachments:
+        - fileName: fileName
+          size: 0
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          mimeType: mimeType
+        - fileName: fileName
+          size: 0
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          mimeType: mimeType
+        subcomments:
+        - createdAt: createdAt
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - createdAt: createdAt
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        parentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        body: body
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        AuthorId:
+        authorId:
           format: uuid
           type: string
-        ParentCommentId:
+        parentCommentId:
           format: uuid
           nullable: true
           type: string
-        Body:
+        body:
           nullable: true
           type: string
-        CreatedAt:
+        createdAt:
           nullable: true
           type: string
-        Attachments:
+        attachments:
           items:
             $ref: '#/components/schemas/AttachmentSummaryDto'
           nullable: true
           type: array
-        Subcomments:
+        subcomments:
           items:
             $ref: '#/components/schemas/SubcommentSummaryDto'
           nullable: true
@@ -1199,27 +1202,27 @@ components:
     CommentSummaryDto:
       additionalProperties: false
       example:
-        Subcomments:
-        - UserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          CreatedAt: CreatedAt
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - UserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          CreatedAt: CreatedAt
-          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        UserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        CreatedAt: CreatedAt
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        createdAt: createdAt
+        subcomments:
+        - createdAt: createdAt
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - createdAt: createdAt
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        UserId:
+        userId:
           format: uuid
           type: string
-        CreatedAt:
+        createdAt:
           nullable: true
           type: string
-        Subcomments:
+        subcomments:
           items:
             $ref: '#/components/schemas/SubcommentSummaryDto'
           nullable: true
@@ -1228,27 +1231,27 @@ components:
     CreateBodyDto:
       additionalProperties: false
       example:
-        Content: Content
+        content: content
       properties:
-        Content:
+        content:
           nullable: true
           type: string
       type: object
     CreateCommentDto:
       additionalProperties: false
       example:
-        AuthorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        ParentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Body: Body
+        parentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        body: body
       properties:
-        AuthorId:
+        authorId:
           format: uuid
           type: string
-        ParentCommentId:
+        parentCommentId:
           format: uuid
           nullable: true
           type: string
-        Body:
+        body:
           nullable: true
           type: string
       type: object
@@ -1259,207 +1262,207 @@ components:
         \ etc) will be used,\r\ndepending on the data type of the custom field corresponding\
         \ to the 'Code' provided"
       example:
-        ContactLookupValues:
+        dateValue: dateValue
+        code: code
+        textValue: textValue
+        contactLookupValues:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        OptionValues:
-        - OptionValues
-        - OptionValues
-        TextValue: TextValue
-        DateValue: DateValue
-        IntegerValue: 0
-        OptionValue: OptionValue
-        NumericValue: 6.027456183070403
-        Code: Code
-        FilePathValue: FilePathValue
-        ExtendedTextValue: ExtendedTextValue
+        optionValue: optionValue
+        numericValue: 6.027456183070403
+        integerValue: 0
+        extendedTextValue: extendedTextValue
+        filePathValue: filePathValue
+        optionValues:
+        - optionValues
+        - optionValues
       properties:
-        Code:
+        code:
           type: string
-        IntegerValue:
+        integerValue:
           format: int32
           nullable: true
           type: integer
-        TextValue:
+        textValue:
           nullable: true
           type: string
-        FilePathValue:
+        filePathValue:
           nullable: true
           type: string
-        NumericValue:
+        numericValue:
           format: double
           nullable: true
           type: number
-        DateValue:
+        dateValue:
           nullable: true
           type: string
-        ExtendedTextValue:
+        extendedTextValue:
           nullable: true
           type: string
-        ContactLookupValues:
+        contactLookupValues:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        OptionValue:
+        optionValue:
           nullable: true
           type: string
-        OptionValues:
+        optionValues:
           items:
             type: string
           nullable: true
           type: array
       required:
-      - Code
+      - code
       type: object
     CreateNoteDto:
       additionalProperties: false
       example:
-        RelatedContacts:
+        date: date
+        identifier: identifier
+        author:
+          serialNumber: serialNumber
+          username: username
+        link: link
+        relatedSymbols:
+        - relatedSymbols
+        - relatedSymbols
+        - relatedSymbols
+        - relatedSymbols
+        - relatedSymbols
+        recommendationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        source: source
+        isPersonal: false
+        title: title
+        body:
+          content: content
+        subjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relatedContacts:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        RelatedRecords:
-          MeetingIds:
+        customFieldValues:
+        - dateValue: dateValue
+          code: code
+          textValue: textValue
+          contactLookupValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          NoteIds:
+          optionValue: optionValue
+          numericValue: 6.027456183070403
+          integerValue: 0
+          extendedTextValue: extendedTextValue
+          filePathValue: filePathValue
+          optionValues:
+          - optionValues
+          - optionValues
+        - dateValue: dateValue
+          code: code
+          textValue: textValue
+          contactLookupValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        CustomFieldValues:
-        - ContactLookupValues:
+          optionValue: optionValue
+          numericValue: 6.027456183070403
+          integerValue: 0
+          extendedTextValue: extendedTextValue
+          filePathValue: filePathValue
+          optionValues:
+          - optionValues
+          - optionValues
+        relatedRecords:
+          meetingIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          OptionValues:
-          - OptionValues
-          - OptionValues
-          TextValue: TextValue
-          DateValue: DateValue
-          IntegerValue: 0
-          OptionValue: OptionValue
-          NumericValue: 6.027456183070403
-          Code: Code
-          FilePathValue: FilePathValue
-          ExtendedTextValue: ExtendedTextValue
-        - ContactLookupValues:
+          noteIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          OptionValues:
-          - OptionValues
-          - OptionValues
-          TextValue: TextValue
-          DateValue: DateValue
-          IntegerValue: 0
-          OptionValue: OptionValue
-          NumericValue: 6.027456183070403
-          Code: Code
-          FilePathValue: FilePathValue
-          ExtendedTextValue: ExtendedTextValue
-        Title: Title
-        SentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Date: Date
-        Source: Source
-        RelatedSymbols:
-        - RelatedSymbols
-        - RelatedSymbols
-        - RelatedSymbols
-        - RelatedSymbols
-        - RelatedSymbols
-        Identifier: Identifier
-        RecommendationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Author:
-          SerialNumber: SerialNumber
-          Username: Username
-        IsPersonal: false
-        SubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Body:
-          Content: Content
-        Link: Link
+        sentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Author:
+        author:
           $ref: '#/components/schemas/UserSerialDto'
-        Title:
+        title:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        Identifier:
+        identifier:
           nullable: true
           type: string
-        Date:
+        date:
           type: string
-        SubjectId:
+        subjectId:
           format: uuid
           nullable: true
           type: string
-        RecommendationId:
+        recommendationId:
           format: uuid
           nullable: true
           type: string
-        SentimentId:
+        sentimentId:
           format: uuid
           nullable: true
           type: string
-        Body:
+        body:
           $ref: '#/components/schemas/CreateBodyDto'
-        Source:
+        source:
           nullable: true
           type: string
-        Link:
+        link:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        RelatedSymbols:
+        relatedSymbols:
           items:
             type: string
           maxItems: 100
           nullable: true
           type: array
-        RelatedContacts:
+        relatedContacts:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        RelatedRecords:
+        relatedRecords:
           $ref: '#/components/schemas/RelatedRecordsDto'
-        CustomFieldValues:
+        customFieldValues:
           items:
             $ref: '#/components/schemas/CreateCustomFieldValueDto'
           nullable: true
           type: array
-        IsPersonal:
+        isPersonal:
           default: false
           type: boolean
       required:
-      - Author
-      - Date
+      - author
+      - date
       type: object
     CustomFieldValueDto:
       additionalProperties: false
       example:
-        Options:
-        - Options
-        - Options
-        Value: Value
-        Code: Code
-        ContactValues:
+        code: code
+        options:
+        - options
+        - options
+        contactValues:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
       properties:
-        Code:
+        code:
           nullable: true
           type: string
-        Value:
+        value:
           nullable: true
           type: string
-        Options:
+        options:
           items:
             type: string
           nullable: true
           type: array
-        ContactValues:
+        contactValues:
           items:
             format: uuid
             type: string
@@ -1469,27 +1472,27 @@ components:
     EventSnippetDto:
       additionalProperties: false
       example:
-        NoteId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Type: Type
-        CreatedAt: 2000-01-23T04:56:07.000+00:00
-        MeetingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        noteId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        meetingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: type
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Type:
+        type:
           nullable: true
           type: string
-        NoteId:
-          format: uuid
-          nullable: true
-          type: string
-        MeetingId:
+        noteId:
           format: uuid
           nullable: true
           type: string
-        CreatedAt:
+        meetingId:
+          format: uuid
+          nullable: true
+          type: string
+        createdAt:
           format: date-time
           type: string
       type: object
@@ -1499,130 +1502,130 @@ components:
     NewItemDto:
       additionalProperties: false
       example:
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
       type: object
     NoteDto:
       additionalProperties: false
       example:
-        RelatedContacts:
+        date: date
+        approvalStatus: approvalStatus
+        identifier: identifier
+        contributorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        customFields:
+        - code: code
+          options:
+          - options
+          - options
+          contactValues:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+        - code: code
+          options:
+          - options
+          - options
+          contactValues:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+        link: link
+        relatedSymbols:
+        - relatedSymbols
+        - relatedSymbols
+        recommendationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        source: source
+        isPersonal: true
+        authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        body: body
+        subjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        createdAt: createdAt
+        relatedContacts:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        AuthorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        ContributorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        RelatedRecords:
-          MeetingIds:
+        averageRating: 0
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        state: state
+        relatedRecords:
+          meetingIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          NoteIds:
+          noteIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        CreatedAt: CreatedAt
-        Title: Title
-        SentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Date: Date
-        Source: Source
-        ApprovalStatus: ApprovalStatus
-        RelatedSymbols:
-        - RelatedSymbols
-        - RelatedSymbols
-        CustomFields:
-        - Options:
-          - Options
-          - Options
-          Value: Value
-          Code: Code
-          ContactValues:
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - Options:
-          - Options
-          - Options
-          Value: Value
-          Code: Code
-          ContactValues:
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Identifier: Identifier
-        State: State
-        AverageRating: 0
-        RecommendationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        IsPersonal: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        SubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Body: Body
-        Link: Link
+        sentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Date:
+        date:
           nullable: true
           type: string
-        CreatedAt:
+        createdAt:
           nullable: true
           type: string
-        AuthorId:
+        authorId:
           format: uuid
           type: string
-        ContributorId:
+        contributorId:
           format: uuid
           type: string
-        Title:
+        title:
           nullable: true
           type: string
-        Identifier:
+        identifier:
           nullable: true
           type: string
-        RelatedSymbols:
+        relatedSymbols:
           items:
             type: string
           nullable: true
           type: array
-        SubjectId:
+        subjectId:
           format: uuid
           type: string
-        RecommendationId:
-          format: uuid
-          nullable: true
-          type: string
-        SentimentId:
+        recommendationId:
           format: uuid
           nullable: true
           type: string
-        Source:
+        sentimentId:
+          format: uuid
           nullable: true
           type: string
-        Link:
+        source:
           nullable: true
           type: string
-        Body:
+        link:
           nullable: true
           type: string
-        IsPersonal:
+        body:
+          nullable: true
+          type: string
+        isPersonal:
           type: boolean
-        State:
+        state:
           nullable: true
           type: string
-        ApprovalStatus:
+        approvalStatus:
           nullable: true
           type: string
-        AverageRating:
+        averageRating:
           format: int32
           nullable: true
           type: integer
-        RelatedRecords:
+        relatedRecords:
           $ref: '#/components/schemas/RelatedRecordsDto'
-        RelatedContacts:
+        relatedContacts:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        CustomFields:
+        customFields:
           items:
             $ref: '#/components/schemas/CustomFieldValueDto'
           nullable: true
@@ -1631,45 +1634,45 @@ components:
     NoteEventDto:
       additionalProperties: false
       example:
-        Comment: Comment
-        Type: Type
-        User: User
-        ChangeList:
-        - Field: Field
-          OldValue: OldValue
-          OldList:
-          - OldList
-          - OldList
-          NewValue: NewValue
-          Operation: Operation
-          NewList:
-          - NewList
-          - NewList
-        - Field: Field
-          OldValue: OldValue
-          OldList:
-          - OldList
-          - OldList
-          NewValue: NewValue
-          Operation: Operation
-          NewList:
-          - NewList
-          - NewList
-        CreatedAt: CreatedAt
+        createdAt: createdAt
+        changeList:
+        - newValue: newValue
+          oldList:
+          - oldList
+          - oldList
+          field: field
+          newList:
+          - newList
+          - newList
+          oldValue: oldValue
+          operation: operation
+        - newValue: newValue
+          oldList:
+          - oldList
+          - oldList
+          field: field
+          newList:
+          - newList
+          - newList
+          oldValue: oldValue
+          operation: operation
+        comment: comment
+        type: type
+        user: user
       properties:
-        CreatedAt:
+        createdAt:
           nullable: true
           type: string
-        Type:
+        type:
           nullable: true
           type: string
-        User:
+        user:
           nullable: true
           type: string
-        Comment:
+        comment:
           nullable: true
           type: string
-        ChangeList:
+        changeList:
           items:
             $ref: '#/components/schemas/RecordChangeDto'
           nullable: true
@@ -1678,93 +1681,93 @@ components:
     NoteSummaryDto:
       additionalProperties: false
       example:
-        AuthorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        ContributorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        CreatedAt: CreatedAt
-        Title: Title
-        SentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Date: Date
-        ApprovalStatus: ApprovalStatus
-        RelatedSymbols:
-        - RelatedSymbols
-        - RelatedSymbols
-        CustomFields:
-        - Options:
-          - Options
-          - Options
-          Value: Value
-          Code: Code
-          ContactValues:
+        date: date
+        approvalStatus: approvalStatus
+        identifier: identifier
+        contributorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        customFields:
+        - code: code
+          options:
+          - options
+          - options
+          contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - Options:
-          - Options
-          - Options
-          Value: Value
-          Code: Code
-          ContactValues:
+          value: value
+        - code: code
+          options:
+          - options
+          - options
+          contactValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Identifier: Identifier
-        State: State
-        RecommendationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        IsPersonal: true
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        AttachmentIds:
+          value: value
+        relatedSymbols:
+        - relatedSymbols
+        - relatedSymbols
+        isPersonal: true
+        recommendationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        subjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        createdAt: createdAt
+        attachmentIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        SubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        state: state
+        sentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Date:
+        date:
           nullable: true
           type: string
-        CreatedAt:
+        createdAt:
           nullable: true
           type: string
-        AuthorId:
+        authorId:
           format: uuid
           type: string
-        ContributorId:
+        contributorId:
           format: uuid
           type: string
-        Title:
+        title:
           nullable: true
           type: string
-        Identifier:
+        identifier:
           nullable: true
           type: string
-        SubjectId:
+        subjectId:
           format: uuid
           type: string
-        IsPersonal:
+        isPersonal:
           type: boolean
-        State:
+        state:
           nullable: true
           type: string
-        ApprovalStatus:
+        approvalStatus:
           nullable: true
           type: string
-        AttachmentIds:
+        attachmentIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        RelatedSymbols:
+        relatedSymbols:
           items:
             type: string
           nullable: true
           type: array
-        RecommendationId:
+        recommendationId:
           format: uuid
           type: string
-        SentimentId:
+        sentimentId:
           format: uuid
           type: string
-        CustomFields:
+        customFields:
           items:
             $ref: '#/components/schemas/CustomFieldValueDto'
           nullable: true
@@ -1778,7 +1781,7 @@ components:
         from: from
         value: ""
       properties:
-        OperationType:
+        operationType:
           $ref: '#/components/schemas/OperationType'
         path:
           nullable: true
@@ -1826,35 +1829,35 @@ components:
     RecordChangeDto:
       additionalProperties: false
       example:
-        Field: Field
-        OldValue: OldValue
-        OldList:
-        - OldList
-        - OldList
-        NewValue: NewValue
-        Operation: Operation
-        NewList:
-        - NewList
-        - NewList
+        newValue: newValue
+        oldList:
+        - oldList
+        - oldList
+        field: field
+        newList:
+        - newList
+        - newList
+        oldValue: oldValue
+        operation: operation
       properties:
-        Field:
+        field:
           nullable: true
           type: string
-        Operation:
+        operation:
           nullable: true
           type: string
-        OldValue:
+        oldValue:
           nullable: true
           type: string
-        NewValue:
+        newValue:
           nullable: true
           type: string
-        OldList:
+        oldList:
           items:
             type: string
           nullable: true
           type: array
-        NewList:
+        newList:
           items:
             type: string
           nullable: true
@@ -1863,37 +1866,37 @@ components:
     RecordEventSummaryDto:
       additionalProperties: false
       example:
-        Type: Type
-        CreatedAt: CreatedAt
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        createdAt: createdAt
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: type
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        Type:
+        type:
           nullable: true
           type: string
-        CreatedAt:
+        createdAt:
           nullable: true
           type: string
       type: object
     RelatedRecordsDto:
       additionalProperties: false
       example:
-        MeetingIds:
+        meetingIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        NoteIds:
+        noteIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        NoteIds:
+        noteIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        MeetingIds:
+        meetingIds:
           items:
             format: uuid
             type: string
@@ -1903,157 +1906,157 @@ components:
     SubcommentSummaryDto:
       additionalProperties: false
       example:
-        UserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        CreatedAt: CreatedAt
-        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        createdAt: createdAt
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Id:
+        id:
           format: uuid
           type: string
-        UserId:
+        userId:
           format: uuid
           type: string
-        CreatedAt:
+        createdAt:
           nullable: true
           type: string
       type: object
     UpdateNoteDto:
       additionalProperties: false
       example:
-        RelatedContacts:
+        identifier: identifier
+        author:
+          serialNumber: serialNumber
+          username: username
+        link: link
+        relatedSymbols:
+        - relatedSymbols
+        - relatedSymbols
+        - relatedSymbols
+        - relatedSymbols
+        - relatedSymbols
+        recommendationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        source: source
+        isPersonal: true
+        title: title
+        body:
+          content: content
+        subjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relatedContacts:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        RelatedRecords:
-          MeetingIds:
+        customFieldValues:
+        - dateValue: dateValue
+          code: code
+          textValue: textValue
+          contactLookupValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          NoteIds:
+          optionValue: optionValue
+          numericValue: 6.027456183070403
+          integerValue: 0
+          extendedTextValue: extendedTextValue
+          filePathValue: filePathValue
+          optionValues:
+          - optionValues
+          - optionValues
+        - dateValue: dateValue
+          code: code
+          textValue: textValue
+          contactLookupValues:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        CustomFieldValues:
-        - ContactLookupValues:
+          optionValue: optionValue
+          numericValue: 6.027456183070403
+          integerValue: 0
+          extendedTextValue: extendedTextValue
+          filePathValue: filePathValue
+          optionValues:
+          - optionValues
+          - optionValues
+        noteDate: noteDate
+        relatedRecords:
+          meetingIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          OptionValues:
-          - OptionValues
-          - OptionValues
-          TextValue: TextValue
-          DateValue: DateValue
-          IntegerValue: 0
-          OptionValue: OptionValue
-          NumericValue: 6.027456183070403
-          Code: Code
-          FilePathValue: FilePathValue
-          ExtendedTextValue: ExtendedTextValue
-        - ContactLookupValues:
+          noteIds:
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          OptionValues:
-          - OptionValues
-          - OptionValues
-          TextValue: TextValue
-          DateValue: DateValue
-          IntegerValue: 0
-          OptionValue: OptionValue
-          NumericValue: 6.027456183070403
-          Code: Code
-          FilePathValue: FilePathValue
-          ExtendedTextValue: ExtendedTextValue
-        Title: Title
-        SentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Source: Source
-        RelatedSymbols:
-        - RelatedSymbols
-        - RelatedSymbols
-        - RelatedSymbols
-        - RelatedSymbols
-        - RelatedSymbols
-        NoteDate: NoteDate
-        Identifier: Identifier
-        RecommendationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Author:
-          SerialNumber: SerialNumber
-          Username: Username
-        IsPersonal: true
-        SubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        Body:
-          Content: Content
-        Link: Link
+        sentimentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
-        Author:
+        author:
           $ref: '#/components/schemas/UserSerialDto'
-        Title:
+        title:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        SubjectId:
+        subjectId:
           format: uuid
           type: string
-        NoteDate:
+        noteDate:
           nullable: true
           type: string
-        RecommendationId:
-          format: uuid
-          nullable: true
-          type: string
-        SentimentId:
+        recommendationId:
           format: uuid
           nullable: true
           type: string
-        Body:
+        sentimentId:
+          format: uuid
+          nullable: true
+          type: string
+        body:
           $ref: '#/components/schemas/CreateBodyDto'
-        Source:
+        source:
           nullable: true
           type: string
-        Link:
+        link:
           maxLength: 255
           minLength: 0
           nullable: true
           type: string
-        RelatedSymbols:
+        relatedSymbols:
           items:
             type: string
           maxItems: 100
           nullable: true
           type: array
-        RelatedContacts:
+        relatedContacts:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        RelatedRecords:
+        relatedRecords:
           $ref: '#/components/schemas/RelatedRecordsDto'
-        CustomFieldValues:
+        customFieldValues:
           items:
             $ref: '#/components/schemas/CreateCustomFieldValueDto'
           nullable: true
           type: array
-        IsPersonal:
+        isPersonal:
           nullable: true
           type: boolean
-        Identifier:
+        identifier:
           nullable: true
           type: string
       type: object
     UserSerialDto:
       additionalProperties: false
       example:
-        SerialNumber: SerialNumber
-        Username: Username
+        serialNumber: serialNumber
+        username: username
       properties:
-        Username:
+        username:
           maxLength: 30
           minLength: 0
           type: string
-        SerialNumber:
+        serialNumber:
           maxLength: 8
           minLength: 0
           type: string
       required:
-      - SerialNumber
-      - Username
+      - serialNumber
+      - username
       type: object
     inline_object:
       properties:

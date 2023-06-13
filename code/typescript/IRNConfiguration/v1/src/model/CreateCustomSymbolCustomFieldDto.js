@@ -41,13 +41,13 @@ class CreateCustomSymbolCustomFieldDto {
      * Only for internal use.
      */
     static initialize(obj, code, name, type, isHidden, isMandatory, isShownInInfobox, customSymbolTypes) { 
-        obj['Code'] = code;
-        obj['Name'] = name;
-        obj['Type'] = type;
-        obj['IsHidden'] = isHidden || false;
-        obj['IsMandatory'] = isMandatory || false;
-        obj['IsShownInInfobox'] = isShownInInfobox || true;
-        obj['CustomSymbolTypes'] = customSymbolTypes;
+        obj['code'] = code;
+        obj['name'] = name;
+        obj['type'] = type;
+        obj['isHidden'] = isHidden || false;
+        obj['isMandatory'] = isMandatory || false;
+        obj['isShownInInfobox'] = isShownInInfobox || true;
+        obj['customSymbolTypes'] = customSymbolTypes;
     }
 
     /**
@@ -61,32 +61,32 @@ class CreateCustomSymbolCustomFieldDto {
         if (data) {
             obj = obj || new CreateCustomSymbolCustomFieldDto();
 
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsShownInInfobox')) {
-                obj['IsShownInInfobox'] = ApiClient.convertToType(data['IsShownInInfobox'], 'Boolean');
+            if (data.hasOwnProperty('isShownInInfobox')) {
+                obj['isShownInInfobox'] = ApiClient.convertToType(data['isShownInInfobox'], 'Boolean');
             }
-            if (data.hasOwnProperty('FormulaConfig')) {
-                obj['FormulaConfig'] = CustomSymbolCustomFieldFormulaConfigDto.constructFromObject(data['FormulaConfig']);
+            if (data.hasOwnProperty('formulaConfig')) {
+                obj['formulaConfig'] = CustomSymbolCustomFieldFormulaConfigDto.constructFromObject(data['formulaConfig']);
             }
-            if (data.hasOwnProperty('OptionsConfig')) {
-                obj['OptionsConfig'] = ApiClient.convertToType(data['OptionsConfig'], ['String']);
+            if (data.hasOwnProperty('optionsConfig')) {
+                obj['optionsConfig'] = ApiClient.convertToType(data['optionsConfig'], ['String']);
             }
-            if (data.hasOwnProperty('CustomSymbolTypes')) {
-                obj['CustomSymbolTypes'] = ApiClient.convertToType(data['CustomSymbolTypes'], ['String']);
+            if (data.hasOwnProperty('customSymbolTypes')) {
+                obj['customSymbolTypes'] = ApiClient.convertToType(data['customSymbolTypes'], ['String']);
             }
         }
         return obj;
@@ -96,53 +96,53 @@ class CreateCustomSymbolCustomFieldDto {
 }
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-CreateCustomSymbolCustomFieldDto.prototype['Code'] = undefined;
+CreateCustomSymbolCustomFieldDto.prototype['code'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-CreateCustomSymbolCustomFieldDto.prototype['Name'] = undefined;
+CreateCustomSymbolCustomFieldDto.prototype['name'] = undefined;
 
 /**
  * Type can be one of Text, SingleOption, MultiOptions, Numeric, Date, ExtendedText, ContactLookup
- * @member {String} Type
+ * @member {String} type
  */
-CreateCustomSymbolCustomFieldDto.prototype['Type'] = undefined;
+CreateCustomSymbolCustomFieldDto.prototype['type'] = undefined;
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  * @default false
  */
-CreateCustomSymbolCustomFieldDto.prototype['IsHidden'] = false;
+CreateCustomSymbolCustomFieldDto.prototype['isHidden'] = false;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  * @default false
  */
-CreateCustomSymbolCustomFieldDto.prototype['IsMandatory'] = false;
+CreateCustomSymbolCustomFieldDto.prototype['isMandatory'] = false;
 
 /**
- * @member {Boolean} IsShownInInfobox
+ * @member {Boolean} isShownInInfobox
  * @default true
  */
-CreateCustomSymbolCustomFieldDto.prototype['IsShownInInfobox'] = true;
+CreateCustomSymbolCustomFieldDto.prototype['isShownInInfobox'] = true;
 
 /**
- * @member {module:model/CustomSymbolCustomFieldFormulaConfigDto} FormulaConfig
+ * @member {module:model/CustomSymbolCustomFieldFormulaConfigDto} formulaConfig
  */
-CreateCustomSymbolCustomFieldDto.prototype['FormulaConfig'] = undefined;
+CreateCustomSymbolCustomFieldDto.prototype['formulaConfig'] = undefined;
 
 /**
- * @member {Array.<String>} OptionsConfig
+ * @member {Array.<String>} optionsConfig
  */
-CreateCustomSymbolCustomFieldDto.prototype['OptionsConfig'] = undefined;
+CreateCustomSymbolCustomFieldDto.prototype['optionsConfig'] = undefined;
 
 /**
- * @member {Array.<String>} CustomSymbolTypes
+ * @member {Array.<String>} customSymbolTypes
  */
-CreateCustomSymbolCustomFieldDto.prototype['CustomSymbolTypes'] = undefined;
+CreateCustomSymbolCustomFieldDto.prototype['customSymbolTypes'] = undefined;
 
 
 

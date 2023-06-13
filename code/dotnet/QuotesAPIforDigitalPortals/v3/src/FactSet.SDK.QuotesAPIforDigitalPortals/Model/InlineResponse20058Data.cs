@@ -35,12 +35,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="InlineResponse20058Data" /> class.
         /// </summary>
         /// <param name="id">Identifier of the instrument..</param>
-        /// <param name="fsym">fsym.</param>
         /// <param name="validity">validity.</param>
-        public InlineResponse20058Data(string id = default(string), InlineResponse20036Fsym fsym = default(InlineResponse20036Fsym), InlineResponse20055DataValidity validity = default(InlineResponse20055DataValidity))
+        public InlineResponse20058Data(string id = default(string), InlineResponse20055DataValidity validity = default(InlineResponse20055DataValidity))
         {
             this.Id = id;
-            this.Fsym = fsym;
             this.Validity = validity;
         }
 
@@ -50,12 +48,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <value>Identifier of the instrument.</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Fsym
-        /// </summary>
-        [DataMember(Name = "fsym", EmitDefaultValue = false)]
-        public InlineResponse20036Fsym Fsym { get; set; }
 
         /// <summary>
         /// Gets or Sets Validity
@@ -72,7 +64,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20058Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
             sb.Append("  Validity: ").Append(Validity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,11 +106,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Fsym == input.Fsym ||
-                    (this.Fsym != null &&
-                    this.Fsym.Equals(input.Fsym))
-                ) && 
-                (
                     this.Validity == input.Validity ||
                     (this.Validity != null &&
                     this.Validity.Equals(input.Validity))
@@ -138,10 +124,6 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Fsym != null)
-                {
-                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
                 }
                 if (this.Validity != null)
                 {

@@ -34,25 +34,26 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20082" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        /// <param name="data">List of entitled markets..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20082(InlineResponse20082Data data = default(InlineResponse20082Data), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse20082(List<InlineResponse20082Data> data = default(List<InlineResponse20082Data>), InlineResponse2009Meta meta = default(InlineResponse2009Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// List of entitled markets.
         /// </summary>
+        /// <value>List of entitled markets.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public InlineResponse20082Data Data { get; set; }
+        public List<InlineResponse20082Data> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public InlineResponse200Meta Meta { get; set; }
+        public InlineResponse2009Meta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,8 +102,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             return 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 ) && 
                 (
                     this.Meta == input.Meta ||

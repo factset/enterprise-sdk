@@ -93,8 +93,8 @@ class UserSerialDto(ModelNormal):
 
 
     attribute_map = {
-        'username': 'Username',  # noqa: E501
-        'serial_number': 'SerialNumber',  # noqa: E501
+        'username': 'username',  # noqa: E501
+        'serial_number': 'serialNumber',  # noqa: E501
     }
 
     read_only_vars = {

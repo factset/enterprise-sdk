@@ -45,13 +45,13 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactEventUpdateDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FIELD_NAME = "FieldName";
+  public static final String JSON_PROPERTY_FIELD_NAME = "fieldName";
   private JsonNullable<String> fieldName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OLD_VALUE = "OldValue";
+  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private JsonNullable<String> oldValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "NewValue";
+  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
   private JsonNullable<String> newValue = JsonNullable.<String>undefined();
 
   public ContactEventUpdateDto() { 

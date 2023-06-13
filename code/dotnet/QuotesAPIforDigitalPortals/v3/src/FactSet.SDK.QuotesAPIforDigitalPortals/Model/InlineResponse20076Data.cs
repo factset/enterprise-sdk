@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// EOD key figures.
+    /// InlineResponse20076Data
     /// </summary>
     [DataContract(Name = "inline_response_200_76_data")]
     public partial class InlineResponse20076Data : IEquatable<InlineResponse20076Data>, IValidatableObject
@@ -40,11 +40,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <param name="performance">performance.</param>
         /// <param name="high">high.</param>
         /// <param name="low">low.</param>
-        /// <param name="averagePrice">Arithmetic mean of the notation&#39;s EOD closing prices for the given time range..</param>
-        /// <param name="tradingVolume">tradingVolume.</param>
-        /// <param name="tradingValue">Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price..</param>
+        /// <param name="tradingVolume">Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive)..</param>
         /// <param name="volatility">Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year..</param>
-        public InlineResponse20076Data(string idNotation = default(string), string sourceIdentifier = default(string), DateTime? referenceDate = default(DateTime?), InlineResponse20074DataPerformance performance = default(InlineResponse20074DataPerformance), InlineResponse20074DataHigh high = default(InlineResponse20074DataHigh), InlineResponse20074DataLow low = default(InlineResponse20074DataLow), decimal? averagePrice = default(decimal?), InlineResponse20076DataTradingVolume tradingVolume = default(InlineResponse20076DataTradingVolume), decimal? tradingValue = default(decimal?), decimal? volatility = default(decimal?))
+        /// <param name="status">status.</param>
+        public InlineResponse20076Data(string idNotation = default(string), string sourceIdentifier = default(string), DateTime? referenceDate = default(DateTime?), InlineResponse20075DataPerformance performance = default(InlineResponse20075DataPerformance), InlineResponse20075DataHigh high = default(InlineResponse20075DataHigh), InlineResponse20075DataLow low = default(InlineResponse20075DataLow), decimal? tradingVolume = default(decimal?), decimal? volatility = default(decimal?), InlineResponse20076Status status = default(InlineResponse20076Status))
         {
             this.IdNotation = idNotation;
             this.SourceIdentifier = sourceIdentifier;
@@ -52,10 +51,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             this.Performance = performance;
             this.High = high;
             this.Low = low;
-            this.AveragePrice = averagePrice;
             this.TradingVolume = tradingVolume;
-            this.TradingValue = tradingValue;
             this.Volatility = volatility;
+            this.Status = status;
         }
 
         /// <summary>
@@ -84,39 +82,26 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets Performance
         /// </summary>
         [DataMember(Name = "performance", EmitDefaultValue = false)]
-        public InlineResponse20074DataPerformance Performance { get; set; }
+        public InlineResponse20075DataPerformance Performance { get; set; }
 
         /// <summary>
         /// Gets or Sets High
         /// </summary>
         [DataMember(Name = "high", EmitDefaultValue = false)]
-        public InlineResponse20074DataHigh High { get; set; }
+        public InlineResponse20075DataHigh High { get; set; }
 
         /// <summary>
         /// Gets or Sets Low
         /// </summary>
         [DataMember(Name = "low", EmitDefaultValue = false)]
-        public InlineResponse20074DataLow Low { get; set; }
+        public InlineResponse20075DataLow Low { get; set; }
 
         /// <summary>
-        /// Arithmetic mean of the notation&#39;s EOD closing prices for the given time range.
+        /// Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive).
         /// </summary>
-        /// <value>Arithmetic mean of the notation&#39;s EOD closing prices for the given time range.</value>
-        [DataMember(Name = "averagePrice", EmitDefaultValue = true)]
-        public decimal? AveragePrice { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TradingVolume
-        /// </summary>
-        [DataMember(Name = "tradingVolume", EmitDefaultValue = false)]
-        public InlineResponse20076DataTradingVolume TradingVolume { get; set; }
-
-        /// <summary>
-        /// Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.
-        /// </summary>
-        /// <value>Sum of the cash flow for all transactions of one notation over a certain time range. The cash flow of a transaction is its volume multiplied by its trade price.</value>
-        [DataMember(Name = "tradingValue", EmitDefaultValue = true)]
-        public decimal? TradingValue { get; set; }
+        /// <value>Sum of the trading volume of a notation in number of shares for the time-range between the date of the most recent end-of-day (EOD) closing price (inclusive) and the reference date (exclusive).</value>
+        [DataMember(Name = "tradingVolume", EmitDefaultValue = true)]
+        public decimal? TradingVolume { get; set; }
 
         /// <summary>
         /// Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.
@@ -124,6 +109,12 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <value>Volatility of the daily logarithmic returns, annualized assuming 256 trading days per year.</value>
         [DataMember(Name = "volatility", EmitDefaultValue = true)]
         public decimal? Volatility { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public InlineResponse20076Status Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -139,10 +130,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             sb.Append("  Performance: ").Append(Performance).Append("\n");
             sb.Append("  High: ").Append(High).Append("\n");
             sb.Append("  Low: ").Append(Low).Append("\n");
-            sb.Append("  AveragePrice: ").Append(AveragePrice).Append("\n");
             sb.Append("  TradingVolume: ").Append(TradingVolume).Append("\n");
-            sb.Append("  TradingValue: ").Append(TradingValue).Append("\n");
             sb.Append("  Volatility: ").Append(Volatility).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -209,24 +199,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                     this.Low.Equals(input.Low))
                 ) && 
                 (
-                    this.AveragePrice == input.AveragePrice ||
-                    (this.AveragePrice != null &&
-                    this.AveragePrice.Equals(input.AveragePrice))
-                ) && 
-                (
                     this.TradingVolume == input.TradingVolume ||
                     (this.TradingVolume != null &&
                     this.TradingVolume.Equals(input.TradingVolume))
                 ) && 
                 (
-                    this.TradingValue == input.TradingValue ||
-                    (this.TradingValue != null &&
-                    this.TradingValue.Equals(input.TradingValue))
-                ) && 
-                (
                     this.Volatility == input.Volatility ||
                     (this.Volatility != null &&
                     this.Volatility.Equals(input.Volatility))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -263,21 +248,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.Low.GetHashCode();
                 }
-                if (this.AveragePrice != null)
-                {
-                    hashCode = (hashCode * 59) + this.AveragePrice.GetHashCode();
-                }
                 if (this.TradingVolume != null)
                 {
                     hashCode = (hashCode * 59) + this.TradingVolume.GetHashCode();
                 }
-                if (this.TradingValue != null)
-                {
-                    hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
-                }
                 if (this.Volatility != null)
                 {
                     hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 return hashCode;
             }

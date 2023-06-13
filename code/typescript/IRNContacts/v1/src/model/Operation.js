@@ -47,8 +47,8 @@ class Operation {
         if (data) {
             obj = obj || new Operation();
 
-            if (data.hasOwnProperty('OperationType')) {
-                obj['OperationType'] = OperationType.constructFromObject(data['OperationType']);
+            if (data.hasOwnProperty('operationType')) {
+                obj['operationType'] = OperationType.constructFromObject(data['operationType']);
             }
             if (data.hasOwnProperty('path')) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
@@ -70,9 +70,9 @@ class Operation {
 }
 
 /**
- * @member {module:model/OperationType} OperationType
+ * @member {module:model/OperationType} operationType
  */
-Operation.prototype['OperationType'] = undefined;
+Operation.prototype['operationType'] = undefined;
 
 /**
  * @member {String} path

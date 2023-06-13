@@ -51,28 +51,28 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class AuthorConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_USER_NAME = "UserName";
+  public static final String JSON_PROPERTY_USER_NAME = "userName";
   private JsonNullable<String> userName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SERIAL_NUMBER = "SerialNumber";
+  public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
   private JsonNullable<String> serialNumber = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FIRST_NAME = "FirstName";
+  public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private JsonNullable<String> firstName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_LAST_NAME = "LastName";
+  public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private JsonNullable<String> lastName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_EMAIL_ADDRESS = "EmailAddress";
+  public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
   private JsonNullable<String> emailAddress = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_ACTIVE = "IsActive";
+  public static final String JSON_PROPERTY_IS_ACTIVE = "isActive";
   private Boolean isActive;
 
-  public static final String JSON_PROPERTY_TEAM = "Team";
+  public static final String JSON_PROPERTY_TEAM = "team";
   private TeamSummaryDto team;
 
   public AuthorConfigDto() { 

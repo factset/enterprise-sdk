@@ -41,11 +41,11 @@ class ContactCustomFieldSaveDto {
      * Only for internal use.
      */
     static initialize(obj, code, name, type, isHidden, isMandatory) { 
-        obj['Code'] = code;
-        obj['Name'] = name;
-        obj['Type'] = type;
-        obj['IsHidden'] = isHidden || false;
-        obj['IsMandatory'] = isMandatory || false;
+        obj['code'] = code;
+        obj['name'] = name;
+        obj['type'] = type;
+        obj['isHidden'] = isHidden || false;
+        obj['isMandatory'] = isMandatory || false;
     }
 
     /**
@@ -59,26 +59,26 @@ class ContactCustomFieldSaveDto {
         if (data) {
             obj = obj || new ContactCustomFieldSaveDto();
 
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ContactCustomFieldType.constructFromObject(data['Type']);
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ContactCustomFieldType.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('FieldFormula')) {
-                obj['FieldFormula'] = ContactCustomFieldFormulaDto.constructFromObject(data['FieldFormula']);
+            if (data.hasOwnProperty('fieldFormula')) {
+                obj['fieldFormula'] = ContactCustomFieldFormulaDto.constructFromObject(data['fieldFormula']);
             }
-            if (data.hasOwnProperty('ContactCustomFieldOptions')) {
-                obj['ContactCustomFieldOptions'] = ApiClient.convertToType(data['ContactCustomFieldOptions'], [ContactCustomFieldOptionSaveDto]);
+            if (data.hasOwnProperty('contactCustomFieldOptions')) {
+                obj['contactCustomFieldOptions'] = ApiClient.convertToType(data['contactCustomFieldOptions'], [ContactCustomFieldOptionSaveDto]);
             }
         }
         return obj;
@@ -88,41 +88,41 @@ class ContactCustomFieldSaveDto {
 }
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-ContactCustomFieldSaveDto.prototype['Code'] = undefined;
+ContactCustomFieldSaveDto.prototype['code'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-ContactCustomFieldSaveDto.prototype['Name'] = undefined;
+ContactCustomFieldSaveDto.prototype['name'] = undefined;
 
 /**
- * @member {module:model/ContactCustomFieldType} Type
+ * @member {module:model/ContactCustomFieldType} type
  */
-ContactCustomFieldSaveDto.prototype['Type'] = undefined;
+ContactCustomFieldSaveDto.prototype['type'] = undefined;
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  * @default false
  */
-ContactCustomFieldSaveDto.prototype['IsHidden'] = false;
+ContactCustomFieldSaveDto.prototype['isHidden'] = false;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  * @default false
  */
-ContactCustomFieldSaveDto.prototype['IsMandatory'] = false;
+ContactCustomFieldSaveDto.prototype['isMandatory'] = false;
 
 /**
- * @member {module:model/ContactCustomFieldFormulaDto} FieldFormula
+ * @member {module:model/ContactCustomFieldFormulaDto} fieldFormula
  */
-ContactCustomFieldSaveDto.prototype['FieldFormula'] = undefined;
+ContactCustomFieldSaveDto.prototype['fieldFormula'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactCustomFieldOptionSaveDto>} ContactCustomFieldOptions
+ * @member {Array.<module:model/ContactCustomFieldOptionSaveDto>} contactCustomFieldOptions
  */
-ContactCustomFieldSaveDto.prototype['ContactCustomFieldOptions'] = undefined;
+ContactCustomFieldSaveDto.prototype['contactCustomFieldOptions'] = undefined;
 
 
 

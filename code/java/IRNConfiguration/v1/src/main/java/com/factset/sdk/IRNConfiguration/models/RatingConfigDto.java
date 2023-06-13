@@ -47,19 +47,19 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class RatingConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_AUTHOR = "RatingsVisibleToAuthor";
+  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_AUTHOR = "ratingsVisibleToAuthor";
   private Boolean ratingsVisibleToAuthor;
 
-  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_VIEWERS = "RatingsVisibleToViewers";
+  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_VIEWERS = "ratingsVisibleToViewers";
   private Boolean ratingsVisibleToViewers;
 
-  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_ALL = "RatingsVisibleToAll";
+  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_ALL = "ratingsVisibleToAll";
   private Boolean ratingsVisibleToAll;
 
-  public static final String JSON_PROPERTY_VIEWER_IDS = "ViewerIds";
+  public static final String JSON_PROPERTY_VIEWER_IDS = "viewerIds";
   private JsonNullable<java.util.List<java.util.UUID>> viewerIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_OPTION_VALUES = "OptionValues";
+  public static final String JSON_PROPERTY_OPTION_VALUES = "optionValues";
   private JsonNullable<java.util.List<Integer>> optionValues = JsonNullable.<java.util.List<Integer>>undefined();
 
   public RatingConfigDto() { 

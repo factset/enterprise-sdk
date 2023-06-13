@@ -61,46 +61,46 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class CustomFieldConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_CODE = "Code";
+  public static final String JSON_PROPERTY_CODE = "code";
   private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SOURCE = "Source";
+  public static final String JSON_PROPERTY_SOURCE = "source";
   private JsonNullable<String> source = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_USE_PREVIOUS_VALUE = "UsePreviousValue";
+  public static final String JSON_PROPERTY_USE_PREVIOUS_VALUE = "usePreviousValue";
   private Boolean usePreviousValue;
 
-  public static final String JSON_PROPERTY_IS_MANDATORY = "IsMandatory";
+  public static final String JSON_PROPERTY_IS_MANDATORY = "isMandatory";
   private Boolean isMandatory;
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
   private Boolean isHidden;
 
-  public static final String JSON_PROPERTY_IS_FILE_PATH = "IsFilePath";
+  public static final String JSON_PROPERTY_IS_FILE_PATH = "isFilePath";
   private Boolean isFilePath;
 
-  public static final String JSON_PROPERTY_FORMULA_CONFIG = "FormulaConfig";
+  public static final String JSON_PROPERTY_FORMULA_CONFIG = "formulaConfig";
   private FormulaConfigDto formulaConfig;
 
-  public static final String JSON_PROPERTY_NUMERIC_CONFIG = "NumericConfig";
+  public static final String JSON_PROPERTY_NUMERIC_CONFIG = "numericConfig";
   private NumericConfigDto numericConfig;
 
-  public static final String JSON_PROPERTY_INTEGER_CONFIG = "IntegerConfig";
+  public static final String JSON_PROPERTY_INTEGER_CONFIG = "integerConfig";
   private IntegerConfigDto integerConfig;
 
-  public static final String JSON_PROPERTY_EXTENDED_TEXT_CONFIG = "ExtendedTextConfig";
+  public static final String JSON_PROPERTY_EXTENDED_TEXT_CONFIG = "extendedTextConfig";
   private ExtendedTextConfigDto extendedTextConfig;
 
-  public static final String JSON_PROPERTY_OPTIONS_CONFIG = "OptionsConfig";
+  public static final String JSON_PROPERTY_OPTIONS_CONFIG = "optionsConfig";
   private OptionsConfigDto optionsConfig;
 
   public CustomFieldConfigDto() { 

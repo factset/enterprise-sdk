@@ -593,7 +593,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postBasicBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse2001</returns>
         InlineResponse2001 PostBasicBackgroundTextTypeList(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = default(PostBasicBackgroundTextTypeListRequest));
 
@@ -604,7 +604,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postBasicBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
         ApiResponse<InlineResponse2001> PostBasicBackgroundTextTypeListWithHttpInfo(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = default(PostBasicBackgroundTextTypeListRequest));
         /// <summary>
@@ -614,7 +614,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of deliveries.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicDeliveryListRequest"> (optional)</param>
+        /// <param name="postBasicDeliveryListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse2003</returns>
         InlineResponse2003 PostBasicDeliveryList(PostBasicDeliveryListRequest postBasicDeliveryListRequest = default(PostBasicDeliveryListRequest));
 
@@ -625,7 +625,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of deliveries.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicDeliveryListRequest"> (optional)</param>
+        /// <param name="postBasicDeliveryListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
         ApiResponse<InlineResponse2003> PostBasicDeliveryListWithHttpInfo(PostBasicDeliveryListRequest postBasicDeliveryListRequest = default(PostBasicDeliveryListRequest));
         /// <summary>
@@ -635,7 +635,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMarketListRequest"> (optional)</param>
+        /// <param name="postBasicMarketListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse2009</returns>
         InlineResponse2009 PostBasicMarketList(PostBasicMarketListRequest postBasicMarketListRequest = default(PostBasicMarketListRequest));
 
@@ -646,7 +646,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMarketListRequest"> (optional)</param>
+        /// <param name="postBasicMarketListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
         ApiResponse<InlineResponse2009> PostBasicMarketListWithHttpInfo(PostBasicMarketListRequest postBasicMarketListRequest = default(PostBasicMarketListRequest));
         /// <summary>
@@ -656,7 +656,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMediaTypeListRequest"> (optional)</param>
+        /// <param name="postBasicMediaTypeListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20013</returns>
         InlineResponse20013 PostBasicMediaTypeList(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = default(PostBasicMediaTypeListRequest));
 
@@ -667,7 +667,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMediaTypeListRequest"> (optional)</param>
+        /// <param name="postBasicMediaTypeListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20013</returns>
         ApiResponse<InlineResponse20013> PostBasicMediaTypeListWithHttpInfo(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = default(PostBasicMediaTypeListRequest));
         /// <summary>
@@ -677,7 +677,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of operating market identifier codes (MIC).
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMicOperatingListRequest"> (optional)</param>
+        /// <param name="postBasicMicOperatingListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20014</returns>
         InlineResponse20014 PostBasicMicOperatingList(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = default(PostBasicMicOperatingListRequest));
 
@@ -688,7 +688,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of operating market identifier codes (MIC).
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMicOperatingListRequest"> (optional)</param>
+        /// <param name="postBasicMicOperatingListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20014</returns>
         ApiResponse<InlineResponse20014> PostBasicMicOperatingListWithHttpInfo(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = default(PostBasicMicOperatingListRequest));
         /// <summary>
@@ -698,7 +698,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicTimezoneListRequest"> (optional)</param>
+        /// <param name="postBasicTimezoneListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20023</returns>
         InlineResponse20023 PostBasicTimezoneList(PostBasicTimezoneListRequest postBasicTimezoneListRequest = default(PostBasicTimezoneListRequest));
 
@@ -709,7 +709,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicTimezoneListRequest"> (optional)</param>
+        /// <param name="postBasicTimezoneListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20023</returns>
         ApiResponse<InlineResponse20023> PostBasicTimezoneListWithHttpInfo(PostBasicTimezoneListRequest postBasicTimezoneListRequest = default(PostBasicTimezoneListRequest));
         /// <summary>
@@ -719,7 +719,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of currencies.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20027</returns>
         InlineResponse20027 PostBasicValueUnitCurrencyList(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = default(PostBasicValueUnitCurrencyListRequest));
 
@@ -730,7 +730,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of currencies.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20027</returns>
         ApiResponse<InlineResponse20027> PostBasicValueUnitCurrencyListWithHttpInfo(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = default(PostBasicValueUnitCurrencyListRequest));
         /// <summary>
@@ -740,7 +740,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of main currencies.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyMainListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyMainListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20030</returns>
         InlineResponse20030 PostBasicValueUnitCurrencyMainList(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = default(PostBasicValueUnitCurrencyMainListRequest));
 
@@ -751,7 +751,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of main currencies.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyMainListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyMainListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20030</returns>
         ApiResponse<InlineResponse20030> PostBasicValueUnitCurrencyMainListWithHttpInfo(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = default(PostBasicValueUnitCurrencyMainListRequest));
         /// <summary>
@@ -761,7 +761,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of value units.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20025</returns>
         InlineResponse20025 PostBasicValueUnitList(PostBasicValueUnitListRequest postBasicValueUnitListRequest = default(PostBasicValueUnitListRequest));
 
@@ -772,7 +772,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of value units.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20025</returns>
         ApiResponse<InlineResponse20025> PostBasicValueUnitListWithHttpInfo(PostBasicValueUnitListRequest postBasicValueUnitListRequest = default(PostBasicValueUnitListRequest));
         #endregion Synchronous Operations
@@ -1396,7 +1396,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postBasicBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
         System.Threading.Tasks.Task<InlineResponse2001> PostBasicBackgroundTextTypeListAsync(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = default(PostBasicBackgroundTextTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1408,7 +1408,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postBasicBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostBasicBackgroundTextTypeListWithHttpInfoAsync(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = default(PostBasicBackgroundTextTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1419,7 +1419,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of deliveries.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicDeliveryListRequest"> (optional)</param>
+        /// <param name="postBasicDeliveryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
         System.Threading.Tasks.Task<InlineResponse2003> PostBasicDeliveryListAsync(PostBasicDeliveryListRequest postBasicDeliveryListRequest = default(PostBasicDeliveryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1431,7 +1431,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of deliveries.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicDeliveryListRequest"> (optional)</param>
+        /// <param name="postBasicDeliveryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PostBasicDeliveryListWithHttpInfoAsync(PostBasicDeliveryListRequest postBasicDeliveryListRequest = default(PostBasicDeliveryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1442,7 +1442,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMarketListRequest"> (optional)</param>
+        /// <param name="postBasicMarketListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
         System.Threading.Tasks.Task<InlineResponse2009> PostBasicMarketListAsync(PostBasicMarketListRequest postBasicMarketListRequest = default(PostBasicMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1454,7 +1454,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMarketListRequest"> (optional)</param>
+        /// <param name="postBasicMarketListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> PostBasicMarketListWithHttpInfoAsync(PostBasicMarketListRequest postBasicMarketListRequest = default(PostBasicMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1465,7 +1465,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMediaTypeListRequest"> (optional)</param>
+        /// <param name="postBasicMediaTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20013</returns>
         System.Threading.Tasks.Task<InlineResponse20013> PostBasicMediaTypeListAsync(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = default(PostBasicMediaTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1477,7 +1477,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMediaTypeListRequest"> (optional)</param>
+        /// <param name="postBasicMediaTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> PostBasicMediaTypeListWithHttpInfoAsync(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = default(PostBasicMediaTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1488,7 +1488,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of operating market identifier codes (MIC).
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMicOperatingListRequest"> (optional)</param>
+        /// <param name="postBasicMicOperatingListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20014</returns>
         System.Threading.Tasks.Task<InlineResponse20014> PostBasicMicOperatingListAsync(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = default(PostBasicMicOperatingListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1500,7 +1500,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of operating market identifier codes (MIC).
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMicOperatingListRequest"> (optional)</param>
+        /// <param name="postBasicMicOperatingListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> PostBasicMicOperatingListWithHttpInfoAsync(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = default(PostBasicMicOperatingListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1511,7 +1511,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicTimezoneListRequest"> (optional)</param>
+        /// <param name="postBasicTimezoneListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20023</returns>
         System.Threading.Tasks.Task<InlineResponse20023> PostBasicTimezoneListAsync(PostBasicTimezoneListRequest postBasicTimezoneListRequest = default(PostBasicTimezoneListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1523,7 +1523,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicTimezoneListRequest"> (optional)</param>
+        /// <param name="postBasicTimezoneListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> PostBasicTimezoneListWithHttpInfoAsync(PostBasicTimezoneListRequest postBasicTimezoneListRequest = default(PostBasicTimezoneListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1534,7 +1534,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of currencies.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20027</returns>
         System.Threading.Tasks.Task<InlineResponse20027> PostBasicValueUnitCurrencyListAsync(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = default(PostBasicValueUnitCurrencyListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1546,7 +1546,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of currencies.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> PostBasicValueUnitCurrencyListWithHttpInfoAsync(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = default(PostBasicValueUnitCurrencyListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1557,7 +1557,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of main currencies.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyMainListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyMainListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20030</returns>
         System.Threading.Tasks.Task<InlineResponse20030> PostBasicValueUnitCurrencyMainListAsync(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = default(PostBasicValueUnitCurrencyMainListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1569,7 +1569,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of main currencies.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyMainListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyMainListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20030>> PostBasicValueUnitCurrencyMainListWithHttpInfoAsync(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = default(PostBasicValueUnitCurrencyMainListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1580,7 +1580,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of value units.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20025</returns>
         System.Threading.Tasks.Task<InlineResponse20025> PostBasicValueUnitListAsync(PostBasicValueUnitListRequest postBasicValueUnitListRequest = default(PostBasicValueUnitListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1592,7 +1592,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of value units.
         /// </remarks>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> PostBasicValueUnitListWithHttpInfoAsync(PostBasicValueUnitListRequest postBasicValueUnitListRequest = default(PostBasicValueUnitListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -6248,7 +6248,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types. List of background text types.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postBasicBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PostBasicBackgroundTextTypeList(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = default(PostBasicBackgroundTextTypeListRequest))
         {
@@ -6260,7 +6260,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types. List of background text types.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postBasicBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
         public ApiResponse<InlineResponse2001> PostBasicBackgroundTextTypeListWithHttpInfo(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = default(PostBasicBackgroundTextTypeListRequest))
         {
@@ -6329,7 +6329,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types. List of background text types.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postBasicBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
         public async System.Threading.Tasks.Task<InlineResponse2001>PostBasicBackgroundTextTypeListAsync(PostBasicBackgroundTextTypeListRequest postBasicBackgroundTextTypeListRequest = default(PostBasicBackgroundTextTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -6342,7 +6342,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of background text types. List of background text types.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicBackgroundTextTypeListRequest"> (optional)</param>
+        /// <param name="postBasicBackgroundTextTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
 
@@ -6415,7 +6415,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of deliveries. List of deliveries.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicDeliveryListRequest"> (optional)</param>
+        /// <param name="postBasicDeliveryListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 PostBasicDeliveryList(PostBasicDeliveryListRequest postBasicDeliveryListRequest = default(PostBasicDeliveryListRequest))
         {
@@ -6427,7 +6427,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of deliveries. List of deliveries.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicDeliveryListRequest"> (optional)</param>
+        /// <param name="postBasicDeliveryListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
         public ApiResponse<InlineResponse2003> PostBasicDeliveryListWithHttpInfo(PostBasicDeliveryListRequest postBasicDeliveryListRequest = default(PostBasicDeliveryListRequest))
         {
@@ -6496,7 +6496,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of deliveries. List of deliveries.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicDeliveryListRequest"> (optional)</param>
+        /// <param name="postBasicDeliveryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
         public async System.Threading.Tasks.Task<InlineResponse2003>PostBasicDeliveryListAsync(PostBasicDeliveryListRequest postBasicDeliveryListRequest = default(PostBasicDeliveryListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -6509,7 +6509,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of deliveries. List of deliveries.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicDeliveryListRequest"> (optional)</param>
+        /// <param name="postBasicDeliveryListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
 
@@ -6582,7 +6582,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets. List of markets.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMarketListRequest"> (optional)</param>
+        /// <param name="postBasicMarketListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse2009</returns>
         public InlineResponse2009 PostBasicMarketList(PostBasicMarketListRequest postBasicMarketListRequest = default(PostBasicMarketListRequest))
         {
@@ -6594,7 +6594,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets. List of markets.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMarketListRequest"> (optional)</param>
+        /// <param name="postBasicMarketListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
         public ApiResponse<InlineResponse2009> PostBasicMarketListWithHttpInfo(PostBasicMarketListRequest postBasicMarketListRequest = default(PostBasicMarketListRequest))
         {
@@ -6663,7 +6663,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets. List of markets.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMarketListRequest"> (optional)</param>
+        /// <param name="postBasicMarketListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
         public async System.Threading.Tasks.Task<InlineResponse2009>PostBasicMarketListAsync(PostBasicMarketListRequest postBasicMarketListRequest = default(PostBasicMarketListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -6676,7 +6676,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of markets. List of markets.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMarketListRequest"> (optional)</param>
+        /// <param name="postBasicMarketListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
 
@@ -6749,7 +6749,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of Internet media types. List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMediaTypeListRequest"> (optional)</param>
+        /// <param name="postBasicMediaTypeListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20013</returns>
         public InlineResponse20013 PostBasicMediaTypeList(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = default(PostBasicMediaTypeListRequest))
         {
@@ -6761,7 +6761,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of Internet media types. List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMediaTypeListRequest"> (optional)</param>
+        /// <param name="postBasicMediaTypeListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20013</returns>
         public ApiResponse<InlineResponse20013> PostBasicMediaTypeListWithHttpInfo(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = default(PostBasicMediaTypeListRequest))
         {
@@ -6830,7 +6830,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of Internet media types. List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMediaTypeListRequest"> (optional)</param>
+        /// <param name="postBasicMediaTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20013</returns>
         public async System.Threading.Tasks.Task<InlineResponse20013>PostBasicMediaTypeListAsync(PostBasicMediaTypeListRequest postBasicMediaTypeListRequest = default(PostBasicMediaTypeListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -6843,7 +6843,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of Internet media types. List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMediaTypeListRequest"> (optional)</param>
+        /// <param name="postBasicMediaTypeListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
 
@@ -6916,7 +6916,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of operating market identifier codes (MIC). List of operating market identifier codes (MIC).
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMicOperatingListRequest"> (optional)</param>
+        /// <param name="postBasicMicOperatingListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20014</returns>
         public InlineResponse20014 PostBasicMicOperatingList(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = default(PostBasicMicOperatingListRequest))
         {
@@ -6928,7 +6928,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of operating market identifier codes (MIC). List of operating market identifier codes (MIC).
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMicOperatingListRequest"> (optional)</param>
+        /// <param name="postBasicMicOperatingListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20014</returns>
         public ApiResponse<InlineResponse20014> PostBasicMicOperatingListWithHttpInfo(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = default(PostBasicMicOperatingListRequest))
         {
@@ -6997,7 +6997,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of operating market identifier codes (MIC). List of operating market identifier codes (MIC).
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMicOperatingListRequest"> (optional)</param>
+        /// <param name="postBasicMicOperatingListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20014</returns>
         public async System.Threading.Tasks.Task<InlineResponse20014>PostBasicMicOperatingListAsync(PostBasicMicOperatingListRequest postBasicMicOperatingListRequest = default(PostBasicMicOperatingListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -7010,7 +7010,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of operating market identifier codes (MIC). List of operating market identifier codes (MIC).
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicMicOperatingListRequest"> (optional)</param>
+        /// <param name="postBasicMicOperatingListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
 
@@ -7083,7 +7083,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of timezones. List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicTimezoneListRequest"> (optional)</param>
+        /// <param name="postBasicTimezoneListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20023</returns>
         public InlineResponse20023 PostBasicTimezoneList(PostBasicTimezoneListRequest postBasicTimezoneListRequest = default(PostBasicTimezoneListRequest))
         {
@@ -7095,7 +7095,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of timezones. List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicTimezoneListRequest"> (optional)</param>
+        /// <param name="postBasicTimezoneListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20023</returns>
         public ApiResponse<InlineResponse20023> PostBasicTimezoneListWithHttpInfo(PostBasicTimezoneListRequest postBasicTimezoneListRequest = default(PostBasicTimezoneListRequest))
         {
@@ -7164,7 +7164,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of timezones. List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicTimezoneListRequest"> (optional)</param>
+        /// <param name="postBasicTimezoneListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20023</returns>
         public async System.Threading.Tasks.Task<InlineResponse20023>PostBasicTimezoneListAsync(PostBasicTimezoneListRequest postBasicTimezoneListRequest = default(PostBasicTimezoneListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -7177,7 +7177,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of timezones. List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicTimezoneListRequest"> (optional)</param>
+        /// <param name="postBasicTimezoneListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
 
@@ -7250,7 +7250,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of currencies. List of currencies.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20027</returns>
         public InlineResponse20027 PostBasicValueUnitCurrencyList(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = default(PostBasicValueUnitCurrencyListRequest))
         {
@@ -7262,7 +7262,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of currencies. List of currencies.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20027</returns>
         public ApiResponse<InlineResponse20027> PostBasicValueUnitCurrencyListWithHttpInfo(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = default(PostBasicValueUnitCurrencyListRequest))
         {
@@ -7331,7 +7331,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of currencies. List of currencies.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20027</returns>
         public async System.Threading.Tasks.Task<InlineResponse20027>PostBasicValueUnitCurrencyListAsync(PostBasicValueUnitCurrencyListRequest postBasicValueUnitCurrencyListRequest = default(PostBasicValueUnitCurrencyListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -7344,7 +7344,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of currencies. List of currencies.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
 
@@ -7417,7 +7417,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of main currencies. List of main currencies.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyMainListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyMainListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20030</returns>
         public InlineResponse20030 PostBasicValueUnitCurrencyMainList(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = default(PostBasicValueUnitCurrencyMainListRequest))
         {
@@ -7429,7 +7429,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of main currencies. List of main currencies.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyMainListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyMainListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20030</returns>
         public ApiResponse<InlineResponse20030> PostBasicValueUnitCurrencyMainListWithHttpInfo(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = default(PostBasicValueUnitCurrencyMainListRequest))
         {
@@ -7498,7 +7498,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of main currencies. List of main currencies.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyMainListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyMainListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20030</returns>
         public async System.Threading.Tasks.Task<InlineResponse20030>PostBasicValueUnitCurrencyMainListAsync(PostBasicValueUnitCurrencyMainListRequest postBasicValueUnitCurrencyMainListRequest = default(PostBasicValueUnitCurrencyMainListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -7511,7 +7511,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of main currencies. List of main currencies.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitCurrencyMainListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitCurrencyMainListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
 
@@ -7584,7 +7584,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of value units. List of value units.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitListRequest">Request Body (optional)</param>
         /// <returns>InlineResponse20025</returns>
         public InlineResponse20025 PostBasicValueUnitList(PostBasicValueUnitListRequest postBasicValueUnitListRequest = default(PostBasicValueUnitListRequest))
         {
@@ -7596,7 +7596,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of value units. List of value units.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitListRequest">Request Body (optional)</param>
         /// <returns>ApiResponse of InlineResponse20025</returns>
         public ApiResponse<InlineResponse20025> PostBasicValueUnitListWithHttpInfo(PostBasicValueUnitListRequest postBasicValueUnitListRequest = default(PostBasicValueUnitListRequest))
         {
@@ -7665,7 +7665,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of value units. List of value units.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20025</returns>
         public async System.Threading.Tasks.Task<InlineResponse20025>PostBasicValueUnitListAsync(PostBasicValueUnitListRequest postBasicValueUnitListRequest = default(PostBasicValueUnitListRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -7678,7 +7678,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// List of value units. List of value units.
         /// </summary>
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postBasicValueUnitListRequest"> (optional)</param>
+        /// <param name="postBasicValueUnitListRequest">Request Body (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
 

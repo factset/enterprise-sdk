@@ -34,19 +34,20 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20087" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        /// <param name="data">Set of bid and ask prices for a list of notations..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20087(InlineResponse20087Data data = default(InlineResponse20087Data), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse20087(List<InlineResponse20087Data> data = default(List<InlineResponse20087Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Set of bid and ask prices for a list of notations.
         /// </summary>
+        /// <value>Set of bid and ask prices for a list of notations.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public InlineResponse20087Data Data { get; set; }
+        public List<InlineResponse20087Data> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
@@ -101,8 +102,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             return 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 ) && 
                 (
                     this.Meta == input.Meta ||

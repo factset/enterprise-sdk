@@ -85,8 +85,8 @@ class AlternativeEmailAddressDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'email_address': 'EmailAddress',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'email_address': 'emailAddress',  # noqa: E501
     }
 
     read_only_vars = {

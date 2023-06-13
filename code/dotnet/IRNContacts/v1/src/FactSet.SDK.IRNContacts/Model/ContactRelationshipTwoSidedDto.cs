@@ -63,67 +63,67 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets RelationshipCategory
         /// </summary>
-        [DataMember(Name = "RelationshipCategory", EmitDefaultValue = false)]
+        [DataMember(Name = "relationshipCategory", EmitDefaultValue = false)]
         public RelationshipCategoryIdNameDto RelationshipCategory { get; set; }
 
         /// <summary>
         /// Gets or Sets Relationship
         /// </summary>
-        [DataMember(Name = "Relationship", EmitDefaultValue = false)]
+        [DataMember(Name = "relationship", EmitDefaultValue = false)]
         public RelationshipIdNameDto Relationship { get; set; }
 
         /// <summary>
         /// Gets or Sets LeftContact
         /// </summary>
-        [DataMember(Name = "LeftContact", EmitDefaultValue = false)]
+        [DataMember(Name = "leftContact", EmitDefaultValue = false)]
         public ContactIdNameDto LeftContact { get; set; }
 
         /// <summary>
         /// Gets or Sets RightContact
         /// </summary>
-        [DataMember(Name = "RightContact", EmitDefaultValue = false)]
+        [DataMember(Name = "rightContact", EmitDefaultValue = false)]
         public ContactIdNameDto RightContact { get; set; }
 
         /// <summary>
         /// Gets or Sets Symbol
         /// </summary>
-        [DataMember(Name = "Symbol", EmitDefaultValue = false)]
+        [DataMember(Name = "symbol", EmitDefaultValue = false)]
         public RelationshipSymbolSummaryDto Symbol { get; set; }
 
         /// <summary>
         /// Gets or Sets IsCurrent
         /// </summary>
-        [DataMember(Name = "IsCurrent", EmitDefaultValue = true)]
+        [DataMember(Name = "isCurrent", EmitDefaultValue = true)]
         public bool IsCurrent { get; set; }
 
         /// <summary>
         /// Gets or Sets Start
         /// </summary>
-        [DataMember(Name = "Start", EmitDefaultValue = true)]
+        [DataMember(Name = "start", EmitDefaultValue = true)]
         public DateTime? Start { get; set; }
 
         /// <summary>
         /// Gets or Sets End
         /// </summary>
-        [DataMember(Name = "End", EmitDefaultValue = true)]
+        [DataMember(Name = "end", EmitDefaultValue = true)]
         public DateTime? End { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "Title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Comment
         /// </summary>
-        [DataMember(Name = "Comment", EmitDefaultValue = true)]
+        [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>

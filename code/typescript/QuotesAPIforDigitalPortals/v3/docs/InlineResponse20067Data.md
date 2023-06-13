@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Identifier of the notation. | [optional] 
-**market** | [**InlineResponse20067DataMarket**](InlineResponse20067DataMarket.md) |  | [optional] 
-**valueUnit** | [**InlineResponse20067DataValueUnit**](InlineResponse20067DataValueUnit.md) |  | [optional] 
-**instrument** | [**InlineResponse20067DataInstrument**](InlineResponse20067DataInstrument.md) |  | [optional] 
+**dataset** | [**InlineResponse20067Dataset**](InlineResponse20067Dataset.md) |  | [optional] 
+**categories** | [**[InlineResponse20038DataCategories]**](InlineResponse20038DataCategories.md) | List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed. | [optional] 
 
 

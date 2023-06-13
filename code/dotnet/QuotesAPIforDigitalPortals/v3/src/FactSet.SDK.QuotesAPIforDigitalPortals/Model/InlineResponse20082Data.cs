@@ -26,143 +26,85 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// Set of price related data for the notation.
+    /// InlineResponse20082Data
     /// </summary>
     [DataContract(Name = "inline_response_200_82_data")]
     public partial class InlineResponse20082Data : IEquatable<InlineResponse20082Data>, IValidatableObject
     {
         /// <summary>
-        /// Quality of the price.
-        /// </summary>
-        /// <value>Quality of the price.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum QualityEnum
-        {
-            /// <summary>
-            /// Enum RLT for value: RLT
-            /// </summary>
-            [EnumMember(Value = "RLT")]
-            RLT = 1,
-
-            /// <summary>
-            /// Enum DLY for value: DLY
-            /// </summary>
-            [EnumMember(Value = "DLY")]
-            DLY = 2,
-
-            /// <summary>
-            /// Enum EOD for value: EOD
-            /// </summary>
-            [EnumMember(Value = "EOD")]
-            EOD = 3
-
-        }
-
-
-        /// <summary>
-        /// Quality of the price.
-        /// </summary>
-        /// <value>Quality of the price.</value>
-        [DataMember(Name = "quality", EmitDefaultValue = true)]
-        public QualityEnum? Quality { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20082Data" /> class.
         /// </summary>
-        /// <param name="idNotation">MDG identifier of the listing..</param>
-        /// <param name="sourceIdentifier">Identifier used in the request..</param>
-        /// <param name="valueUnit">valueUnit.</param>
-        /// <param name="currency">currency.</param>
-        /// <param name="market">market.</param>
-        /// <param name="quality">Quality of the price..</param>
-        /// <param name="latest">latest.</param>
-        /// <param name="first">first.</param>
-        /// <param name="low">low.</param>
-        /// <param name="high">high.</param>
-        /// <param name="previousClose">previousClose.</param>
-        /// <param name="accumulated">accumulated.</param>
-        public InlineResponse20082Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20082DataValueUnit valueUnit = default(InlineResponse20082DataValueUnit), InlineResponse20082DataCurrency currency = default(InlineResponse20082DataCurrency), InlineResponse20082DataMarket market = default(InlineResponse20082DataMarket), QualityEnum? quality = default(QualityEnum?), InlineResponse20082DataLatest latest = default(InlineResponse20082DataLatest), InlineResponse20082DataFirst first = default(InlineResponse20082DataFirst), InlineResponse20082DataLow low = default(InlineResponse20082DataLow), InlineResponse20082DataHigh high = default(InlineResponse20082DataHigh), InlineResponse20082DataPreviousClose previousClose = default(InlineResponse20082DataPreviousClose), InlineResponse20082DataAccumulated accumulated = default(InlineResponse20082DataAccumulated))
+        /// <param name="id">Identifier of a market..</param>
+        /// <param name="name">Name of the market..</param>
+        /// <param name="shortName">Short name of the market..</param>
+        /// <param name="country">country.</param>
+        /// <param name="type">type.</param>
+        /// <param name="group">group.</param>
+        /// <param name="timezone">timezone.</param>
+        /// <param name="count">Number of entitled notations..</param>
+        public InlineResponse20082Data(decimal? id = default(decimal?), string name = default(string), string shortName = default(string), InlineResponse20082Country country = default(InlineResponse20082Country), InlineResponse20082Type type = default(InlineResponse20082Type), InlineResponse20082Group group = default(InlineResponse20082Group), InlineResponse20082Timezone timezone = default(InlineResponse20082Timezone), decimal? count = default(decimal?))
         {
-            this.IdNotation = idNotation;
-            this.SourceIdentifier = sourceIdentifier;
-            this.ValueUnit = valueUnit;
-            this.Currency = currency;
-            this.Market = market;
-            this.Quality = quality;
-            this.Latest = latest;
-            this.First = first;
-            this.Low = low;
-            this.High = high;
-            this.PreviousClose = previousClose;
-            this.Accumulated = accumulated;
+            this.Id = id;
+            this.Name = name;
+            this.ShortName = shortName;
+            this.Country = country;
+            this.Type = type;
+            this.Group = group;
+            this.Timezone = timezone;
+            this.Count = count;
         }
 
         /// <summary>
-        /// MDG identifier of the listing.
+        /// Identifier of a market.
         /// </summary>
-        /// <value>MDG identifier of the listing.</value>
-        [DataMember(Name = "idNotation", EmitDefaultValue = true)]
-        public string IdNotation { get; set; }
+        /// <value>Identifier of a market.</value>
+        [DataMember(Name = "id", EmitDefaultValue = true)]
+        public decimal? Id { get; set; }
 
         /// <summary>
-        /// Identifier used in the request.
+        /// Name of the market.
         /// </summary>
-        /// <value>Identifier used in the request.</value>
-        [DataMember(Name = "sourceIdentifier", EmitDefaultValue = true)]
-        public string SourceIdentifier { get; set; }
+        /// <value>Name of the market.</value>
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValueUnit
+        /// Short name of the market.
         /// </summary>
-        [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
-        public InlineResponse20082DataValueUnit ValueUnit { get; set; }
+        /// <value>Short name of the market.</value>
+        [DataMember(Name = "shortName", EmitDefaultValue = true)]
+        public string ShortName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// Gets or Sets Country
         /// </summary>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
-        public InlineResponse20082DataCurrency Currency { get; set; }
+        [DataMember(Name = "country", EmitDefaultValue = false)]
+        public InlineResponse20082Country Country { get; set; }
 
         /// <summary>
-        /// Gets or Sets Market
+        /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "market", EmitDefaultValue = false)]
-        public InlineResponse20082DataMarket Market { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public InlineResponse20082Type Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Latest
+        /// Gets or Sets Group
         /// </summary>
-        [DataMember(Name = "latest", EmitDefaultValue = false)]
-        public InlineResponse20082DataLatest Latest { get; set; }
+        [DataMember(Name = "group", EmitDefaultValue = false)]
+        public InlineResponse20082Group Group { get; set; }
 
         /// <summary>
-        /// Gets or Sets First
+        /// Gets or Sets Timezone
         /// </summary>
-        [DataMember(Name = "first", EmitDefaultValue = false)]
-        public InlineResponse20082DataFirst First { get; set; }
+        [DataMember(Name = "timezone", EmitDefaultValue = false)]
+        public InlineResponse20082Timezone Timezone { get; set; }
 
         /// <summary>
-        /// Gets or Sets Low
+        /// Number of entitled notations.
         /// </summary>
-        [DataMember(Name = "low", EmitDefaultValue = false)]
-        public InlineResponse20082DataLow Low { get; set; }
-
-        /// <summary>
-        /// Gets or Sets High
-        /// </summary>
-        [DataMember(Name = "high", EmitDefaultValue = false)]
-        public InlineResponse20082DataHigh High { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PreviousClose
-        /// </summary>
-        [DataMember(Name = "previousClose", EmitDefaultValue = false)]
-        public InlineResponse20082DataPreviousClose PreviousClose { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Accumulated
-        /// </summary>
-        [DataMember(Name = "accumulated", EmitDefaultValue = false)]
-        public InlineResponse20082DataAccumulated Accumulated { get; set; }
+        /// <value>Number of entitled notations.</value>
+        [DataMember(Name = "count", EmitDefaultValue = true)]
+        public decimal? Count { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -172,18 +114,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20082Data {\n");
-            sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
-            sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
-            sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Market: ").Append(Market).Append("\n");
-            sb.Append("  Quality: ").Append(Quality).Append("\n");
-            sb.Append("  Latest: ").Append(Latest).Append("\n");
-            sb.Append("  First: ").Append(First).Append("\n");
-            sb.Append("  Low: ").Append(Low).Append("\n");
-            sb.Append("  High: ").Append(High).Append("\n");
-            sb.Append("  PreviousClose: ").Append(PreviousClose).Append("\n");
-            sb.Append("  Accumulated: ").Append(Accumulated).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  ShortName: ").Append(ShortName).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Group: ").Append(Group).Append("\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -220,63 +158,44 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.IdNotation == input.IdNotation ||
-                    (this.IdNotation != null &&
-                    this.IdNotation.Equals(input.IdNotation))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.SourceIdentifier == input.SourceIdentifier ||
-                    (this.SourceIdentifier != null &&
-                    this.SourceIdentifier.Equals(input.SourceIdentifier))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.ValueUnit == input.ValueUnit ||
-                    (this.ValueUnit != null &&
-                    this.ValueUnit.Equals(input.ValueUnit))
+                    this.ShortName == input.ShortName ||
+                    (this.ShortName != null &&
+                    this.ShortName.Equals(input.ShortName))
                 ) && 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
+                    this.Country == input.Country ||
+                    (this.Country != null &&
+                    this.Country.Equals(input.Country))
                 ) && 
                 (
-                    this.Market == input.Market ||
-                    (this.Market != null &&
-                    this.Market.Equals(input.Market))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Quality == input.Quality ||
-                    this.Quality.Equals(input.Quality)
+                    this.Group == input.Group ||
+                    (this.Group != null &&
+                    this.Group.Equals(input.Group))
                 ) && 
                 (
-                    this.Latest == input.Latest ||
-                    (this.Latest != null &&
-                    this.Latest.Equals(input.Latest))
+                    this.Timezone == input.Timezone ||
+                    (this.Timezone != null &&
+                    this.Timezone.Equals(input.Timezone))
                 ) && 
                 (
-                    this.First == input.First ||
-                    (this.First != null &&
-                    this.First.Equals(input.First))
-                ) && 
-                (
-                    this.Low == input.Low ||
-                    (this.Low != null &&
-                    this.Low.Equals(input.Low))
-                ) && 
-                (
-                    this.High == input.High ||
-                    (this.High != null &&
-                    this.High.Equals(input.High))
-                ) && 
-                (
-                    this.PreviousClose == input.PreviousClose ||
-                    (this.PreviousClose != null &&
-                    this.PreviousClose.Equals(input.PreviousClose))
-                ) && 
-                (
-                    this.Accumulated == input.Accumulated ||
-                    (this.Accumulated != null &&
-                    this.Accumulated.Equals(input.Accumulated))
+                    this.Count == input.Count ||
+                    (this.Count != null &&
+                    this.Count.Equals(input.Count))
                 );
         }
 
@@ -289,50 +208,37 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdNotation != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.IdNotation.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.SourceIdentifier != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                if (this.ValueUnit != null)
+                if (this.ShortName != null)
                 {
-                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
                 }
-                if (this.Currency != null)
+                if (this.Country != null)
                 {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
                 }
-                if (this.Market != null)
+                if (this.Type != null)
                 {
-                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
-                if (this.Latest != null)
+                if (this.Group != null)
                 {
-                    hashCode = (hashCode * 59) + this.Latest.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
                 }
-                if (this.First != null)
+                if (this.Timezone != null)
                 {
-                    hashCode = (hashCode * 59) + this.First.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Timezone.GetHashCode();
                 }
-                if (this.Low != null)
+                if (this.Count != null)
                 {
-                    hashCode = (hashCode * 59) + this.Low.GetHashCode();
-                }
-                if (this.High != null)
-                {
-                    hashCode = (hashCode * 59) + this.High.GetHashCode();
-                }
-                if (this.PreviousClose != null)
-                {
-                    hashCode = (hashCode * 59) + this.PreviousClose.GetHashCode();
-                }
-                if (this.Accumulated != null)
-                {
-                    hashCode = (hashCode * 59) + this.Accumulated.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Count.GetHashCode();
                 }
                 return hashCode;
             }

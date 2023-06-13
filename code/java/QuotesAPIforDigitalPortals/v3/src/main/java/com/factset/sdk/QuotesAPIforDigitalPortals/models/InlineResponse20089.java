@@ -43,7 +43,7 @@ public class InlineResponse20089 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<InlineResponse20089Data> data = null;
+  private InlineResponse20089Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse200Meta meta;
@@ -51,36 +51,28 @@ public class InlineResponse20089 implements Serializable {
   public InlineResponse20089() { 
   }
 
-  public InlineResponse20089 data(java.util.List<InlineResponse20089Data> data) {
+  public InlineResponse20089 data(InlineResponse20089Data data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse20089 addDataItem(InlineResponse20089Data dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.ArrayList<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * List of trading schedule event types.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of trading schedule event types.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse20089Data> getData() {
+  public InlineResponse20089Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<InlineResponse20089Data> data) {
+  public void setData(InlineResponse20089Data data) {
     this.data = data;
   }
 

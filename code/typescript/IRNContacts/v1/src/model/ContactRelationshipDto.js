@@ -50,35 +50,35 @@ class ContactRelationshipDto {
         if (data) {
             obj = obj || new ContactRelationshipDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('RelationshipCategory')) {
-                obj['RelationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['RelationshipCategory']);
+            if (data.hasOwnProperty('relationshipCategory')) {
+                obj['relationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['relationshipCategory']);
             }
-            if (data.hasOwnProperty('Relationship')) {
-                obj['Relationship'] = RelationshipIdNameDto.constructFromObject(data['Relationship']);
+            if (data.hasOwnProperty('relationship')) {
+                obj['relationship'] = RelationshipIdNameDto.constructFromObject(data['relationship']);
             }
-            if (data.hasOwnProperty('Contact')) {
-                obj['Contact'] = ContactIdNameDto.constructFromObject(data['Contact']);
+            if (data.hasOwnProperty('contact')) {
+                obj['contact'] = ContactIdNameDto.constructFromObject(data['contact']);
             }
-            if (data.hasOwnProperty('Symbol')) {
-                obj['Symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['Symbol']);
+            if (data.hasOwnProperty('symbol')) {
+                obj['symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['symbol']);
             }
-            if (data.hasOwnProperty('IsCurrent')) {
-                obj['IsCurrent'] = ApiClient.convertToType(data['IsCurrent'], 'Boolean');
+            if (data.hasOwnProperty('isCurrent')) {
+                obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('Start')) {
-                obj['Start'] = ApiClient.convertToType(data['Start'], 'Date');
+            if (data.hasOwnProperty('start')) {
+                obj['start'] = ApiClient.convertToType(data['start'], 'Date');
             }
-            if (data.hasOwnProperty('End')) {
-                obj['End'] = ApiClient.convertToType(data['End'], 'Date');
+            if (data.hasOwnProperty('end')) {
+                obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
-            if (data.hasOwnProperty('Title')) {
-                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('Comment')) {
-                obj['Comment'] = ApiClient.convertToType(data['Comment'], 'String');
+            if (data.hasOwnProperty('comment')) {
+                obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
         }
         return obj;
@@ -88,54 +88,54 @@ class ContactRelationshipDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactRelationshipDto.prototype['Id'] = undefined;
+ContactRelationshipDto.prototype['id'] = undefined;
 
 /**
- * @member {module:model/RelationshipCategoryIdNameDto} RelationshipCategory
+ * @member {module:model/RelationshipCategoryIdNameDto} relationshipCategory
  */
-ContactRelationshipDto.prototype['RelationshipCategory'] = undefined;
+ContactRelationshipDto.prototype['relationshipCategory'] = undefined;
 
 /**
- * @member {module:model/RelationshipIdNameDto} Relationship
+ * @member {module:model/RelationshipIdNameDto} relationship
  */
-ContactRelationshipDto.prototype['Relationship'] = undefined;
+ContactRelationshipDto.prototype['relationship'] = undefined;
 
 /**
- * @member {module:model/ContactIdNameDto} Contact
+ * @member {module:model/ContactIdNameDto} contact
  */
-ContactRelationshipDto.prototype['Contact'] = undefined;
+ContactRelationshipDto.prototype['contact'] = undefined;
 
 /**
- * @member {module:model/RelationshipSymbolSummaryDto} Symbol
+ * @member {module:model/RelationshipSymbolSummaryDto} symbol
  */
-ContactRelationshipDto.prototype['Symbol'] = undefined;
+ContactRelationshipDto.prototype['symbol'] = undefined;
 
 /**
- * @member {Boolean} IsCurrent
+ * @member {Boolean} isCurrent
  */
-ContactRelationshipDto.prototype['IsCurrent'] = undefined;
+ContactRelationshipDto.prototype['isCurrent'] = undefined;
 
 /**
- * @member {Date} Start
+ * @member {Date} start
  */
-ContactRelationshipDto.prototype['Start'] = undefined;
+ContactRelationshipDto.prototype['start'] = undefined;
 
 /**
- * @member {Date} End
+ * @member {Date} end
  */
-ContactRelationshipDto.prototype['End'] = undefined;
+ContactRelationshipDto.prototype['end'] = undefined;
 
 /**
- * @member {String} Title
+ * @member {String} title
  */
-ContactRelationshipDto.prototype['Title'] = undefined;
+ContactRelationshipDto.prototype['title'] = undefined;
 
 /**
- * @member {String} Comment
+ * @member {String} comment
  */
-ContactRelationshipDto.prototype['Comment'] = undefined;
+ContactRelationshipDto.prototype['comment'] = undefined;
 
 
 

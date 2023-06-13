@@ -11,6 +11,8 @@ docs/ClientErrorResponse.md
 docs/DiscountCurvesApi.md
 docs/Error.md
 docs/ErrorSource.md
+docs/FIAttributionForJobSettings.md
+docs/FIAttributionForSecurities.md
 docs/FIBalloonExtension.md
 docs/FIBankLoans.md
 docs/FICalculationParameters.md
@@ -61,6 +63,8 @@ src/FactSet.SDK.FixedIncomeCalculation/Model/CalculationMeta.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/ClientErrorResponse.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/Error.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/ErrorSource.cs
+src/FactSet.SDK.FixedIncomeCalculation/Model/FIAttributionForJobSettings.cs
+src/FactSet.SDK.FixedIncomeCalculation/Model/FIAttributionForSecurities.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FIBalloonExtension.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FIBankLoans.cs
 src/FactSet.SDK.FixedIncomeCalculation/Model/FICalculationParameters.cs

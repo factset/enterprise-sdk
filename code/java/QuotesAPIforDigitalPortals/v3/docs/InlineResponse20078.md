@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**InlineResponse20078Data**](InlineResponse20078Data.md) |  |  [optional]
+**data** | [**java.util.List&lt;InlineResponse20078Data&gt;**](InlineResponse20078Data.md) | EOD key figures for a list of notations. |  [optional]
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 

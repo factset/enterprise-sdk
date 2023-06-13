@@ -47,19 +47,19 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class TeamConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CODE = "Code";
+  public static final String JSON_PROPERTY_CODE = "code";
   private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DEFAULT_SUBJECT_ID = "DefaultSubjectId";
+  public static final String JSON_PROPERTY_DEFAULT_SUBJECT_ID = "defaultSubjectId";
   private JsonNullable<java.util.UUID> defaultSubjectId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_USER_IDS = "UserIds";
+  public static final String JSON_PROPERTY_USER_IDS = "userIds";
   private JsonNullable<java.util.List<java.util.UUID>> userIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
   public TeamConfigDto() { 

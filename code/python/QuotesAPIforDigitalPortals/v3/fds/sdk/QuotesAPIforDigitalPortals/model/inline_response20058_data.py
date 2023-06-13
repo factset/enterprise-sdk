@@ -30,9 +30,7 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20036_fsym import InlineResponse20036Fsym
     from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20055_data_validity import InlineResponse20055DataValidity
-    globals()['InlineResponse20036Fsym'] = InlineResponse20036Fsym
     globals()['InlineResponse20055DataValidity'] = InlineResponse20055DataValidity
 
 
@@ -90,7 +88,6 @@ class InlineResponse20058Data(ModelNormal):
         lazy_import()
         return {
             'id': (str, none_type,),  # noqa: E501
-            'fsym': (InlineResponse20036Fsym,),  # noqa: E501
             'validity': (InlineResponse20055DataValidity,),  # noqa: E501
         }
 
@@ -101,7 +98,6 @@ class InlineResponse20058Data(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'fsym': 'fsym',  # noqa: E501
         'validity': 'validity',  # noqa: E501
     }
 
@@ -147,7 +143,6 @@ class InlineResponse20058Data(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
-            fsym (InlineResponse20036Fsym): [optional]  # noqa: E501
             validity (InlineResponse20055DataValidity): [optional]  # noqa: E501
         """
 
@@ -231,7 +226,6 @@ class InlineResponse20058Data(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): Identifier of the instrument.. [optional]  # noqa: E501
-            fsym (InlineResponse20036Fsym): [optional]  # noqa: E501
             validity (InlineResponse20055DataValidity): [optional]  # noqa: E501
         """
 

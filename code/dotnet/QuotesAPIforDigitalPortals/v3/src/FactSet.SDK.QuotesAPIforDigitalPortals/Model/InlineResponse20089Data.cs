@@ -26,44 +26,83 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// InlineResponse20089Data
+    /// Orderbook.
     /// </summary>
     [DataContract(Name = "inline_response_200_89_data")]
     public partial class InlineResponse20089Data : IEquatable<InlineResponse20089Data>, IValidatableObject
     {
         /// <summary>
+        /// Quality of the price.
+        /// </summary>
+        /// <value>Quality of the price.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum QualityEnum
+        {
+            /// <summary>
+            /// Enum RLT for value: RLT
+            /// </summary>
+            [EnumMember(Value = "RLT")]
+            RLT = 1,
+
+            /// <summary>
+            /// Enum DLY for value: DLY
+            /// </summary>
+            [EnumMember(Value = "DLY")]
+            DLY = 2
+
+        }
+
+
+        /// <summary>
+        /// Quality of the price.
+        /// </summary>
+        /// <value>Quality of the price.</value>
+        [DataMember(Name = "quality", EmitDefaultValue = true)]
+        public QualityEnum? Quality { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20089Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of the type..</param>
-        /// <param name="code">Code of the type..</param>
-        /// <param name="description">Description of the type in english language..</param>
-        public InlineResponse20089Data(decimal? id = default(decimal?), string code = default(string), string description = default(string))
+        /// <param name="idNotation">MDG identifier of the listing..</param>
+        /// <param name="sourceIdentifier">Identifier used in the request..</param>
+        /// <param name="quality">Quality of the price..</param>
+        /// <param name="asks">Ask entries of the full orderbook..</param>
+        /// <param name="bids">Bid entries of the full orderbook..</param>
+        public InlineResponse20089Data(string idNotation = default(string), string sourceIdentifier = default(string), QualityEnum? quality = default(QualityEnum?), List<InlineResponse20089DataAsks> asks = default(List<InlineResponse20089DataAsks>), List<InlineResponse20089DataAsks> bids = default(List<InlineResponse20089DataAsks>))
         {
-            this.Id = id;
-            this.Code = code;
-            this.Description = description;
+            this.IdNotation = idNotation;
+            this.SourceIdentifier = sourceIdentifier;
+            this.Quality = quality;
+            this.Asks = asks;
+            this.Bids = bids;
         }
 
         /// <summary>
-        /// Identifier of the type.
+        /// MDG identifier of the listing.
         /// </summary>
-        /// <value>Identifier of the type.</value>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public decimal? Id { get; set; }
+        /// <value>MDG identifier of the listing.</value>
+        [DataMember(Name = "idNotation", EmitDefaultValue = true)]
+        public string IdNotation { get; set; }
 
         /// <summary>
-        /// Code of the type.
+        /// Identifier used in the request.
         /// </summary>
-        /// <value>Code of the type.</value>
-        [DataMember(Name = "code", EmitDefaultValue = true)]
-        public string Code { get; set; }
+        /// <value>Identifier used in the request.</value>
+        [DataMember(Name = "sourceIdentifier", EmitDefaultValue = true)]
+        public string SourceIdentifier { get; set; }
 
         /// <summary>
-        /// Description of the type in english language.
+        /// Ask entries of the full orderbook.
         /// </summary>
-        /// <value>Description of the type in english language.</value>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public string Description { get; set; }
+        /// <value>Ask entries of the full orderbook.</value>
+        [DataMember(Name = "asks", EmitDefaultValue = false)]
+        public List<InlineResponse20089DataAsks> Asks { get; set; }
+
+        /// <summary>
+        /// Bid entries of the full orderbook.
+        /// </summary>
+        /// <value>Bid entries of the full orderbook.</value>
+        [DataMember(Name = "bids", EmitDefaultValue = false)]
+        public List<InlineResponse20089DataAsks> Bids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,9 +112,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20089Data {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
+            sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
+            sb.Append("  Quality: ").Append(Quality).Append("\n");
+            sb.Append("  Asks: ").Append(Asks).Append("\n");
+            sb.Append("  Bids: ").Append(Bids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,19 +153,30 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.IdNotation == input.IdNotation ||
+                    (this.IdNotation != null &&
+                    this.IdNotation.Equals(input.IdNotation))
                 ) && 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.SourceIdentifier == input.SourceIdentifier ||
+                    (this.SourceIdentifier != null &&
+                    this.SourceIdentifier.Equals(input.SourceIdentifier))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Quality == input.Quality ||
+                    this.Quality.Equals(input.Quality)
+                ) && 
+                (
+                    this.Asks == input.Asks ||
+                    this.Asks != null &&
+                    input.Asks != null &&
+                    this.Asks.SequenceEqual(input.Asks)
+                ) && 
+                (
+                    this.Bids == input.Bids ||
+                    this.Bids != null &&
+                    input.Bids != null &&
+                    this.Bids.SequenceEqual(input.Bids)
                 );
         }
 
@@ -137,17 +189,22 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
+                if (this.IdNotation != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.IdNotation.GetHashCode();
                 }
-                if (this.Code != null)
+                if (this.SourceIdentifier != null)
                 {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
                 }
-                if (this.Description != null)
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
+                if (this.Asks != null)
                 {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Asks.GetHashCode();
+                }
+                if (this.Bids != null)
+                {
+                    hashCode = (hashCode * 59) + this.Bids.GetHashCode();
                 }
                 return hashCode;
             }

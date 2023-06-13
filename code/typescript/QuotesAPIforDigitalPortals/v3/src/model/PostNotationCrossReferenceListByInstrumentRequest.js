@@ -22,6 +22,7 @@ import PostNotationCrossReferenceListByInstrumentRequestData from './PostNotatio
 class PostNotationCrossReferenceListByInstrumentRequest {
     /**
      * Constructs a new <code>PostNotationCrossReferenceListByInstrumentRequest</code>.
+     * Request Body
      * @alias module:model/PostNotationCrossReferenceListByInstrumentRequest
      */
     constructor() { 

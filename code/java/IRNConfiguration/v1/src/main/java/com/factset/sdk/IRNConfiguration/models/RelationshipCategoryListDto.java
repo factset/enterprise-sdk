@@ -39,7 +39,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class RelationshipCategoryListDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_IDS = "Ids";
+  public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<java.util.UUID> ids = new java.util.ArrayList<>();
 
   public RelationshipCategoryListDto() { 

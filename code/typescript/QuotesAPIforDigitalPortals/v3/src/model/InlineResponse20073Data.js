@@ -12,7 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20072DataRegional from './InlineResponse20072DataRegional';
+import InlineResponse20073DataInstrument from './InlineResponse20073DataInstrument';
+import InlineResponse20073DataRegional from './InlineResponse20073DataRegional';
 
 /**
  * The InlineResponse20073Data model module.
@@ -48,17 +49,14 @@ class InlineResponse20073Data {
         if (data) {
             obj = obj || new InlineResponse20073Data();
 
-            if (data.hasOwnProperty('idInstrument')) {
-                obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
-            }
-            if (data.hasOwnProperty('sourceIdentifier')) {
-                obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
+            if (data.hasOwnProperty('instrument')) {
+                obj['instrument'] = InlineResponse20073DataInstrument.constructFromObject(data['instrument']);
             }
             if (data.hasOwnProperty('permanentIdentifier')) {
                 obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
             if (data.hasOwnProperty('regional')) {
-                obj['regional'] = ApiClient.convertToType(data['regional'], [InlineResponse20072DataRegional]);
+                obj['regional'] = ApiClient.convertToType(data['regional'], [InlineResponse20073DataRegional]);
             }
         }
         return obj;
@@ -68,16 +66,9 @@ class InlineResponse20073Data {
 }
 
 /**
- * MDG identifier of the instrument.
- * @member {String} idInstrument
+ * @member {module:model/InlineResponse20073DataInstrument} instrument
  */
-InlineResponse20073Data.prototype['idInstrument'] = undefined;
-
-/**
- * Identifier used in the request.
- * @member {String} sourceIdentifier
- */
-InlineResponse20073Data.prototype['sourceIdentifier'] = undefined;
+InlineResponse20073Data.prototype['instrument'] = undefined;
 
 /**
  * FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
@@ -87,7 +78,7 @@ InlineResponse20073Data.prototype['permanentIdentifier'] = undefined;
 
 /**
  * Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute `isPrimary = true`, then this element is the first one in the array.
- * @member {Array.<module:model/InlineResponse20072DataRegional>} regional
+ * @member {Array.<module:model/InlineResponse20073DataRegional>} regional
  */
 InlineResponse20073Data.prototype['regional'] = undefined;
 

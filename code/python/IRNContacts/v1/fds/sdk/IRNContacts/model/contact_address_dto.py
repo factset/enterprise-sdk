@@ -113,12 +113,12 @@ class ContactAddressDto(ModelNormal):
 
 
     attribute_map = {
-        'google_maps_place_id': 'GoogleMapsPlaceId',  # noqa: E501
-        'formatted_address': 'FormattedAddress',  # noqa: E501
-        'city': 'City',  # noqa: E501
-        'state_province': 'StateProvince',  # noqa: E501
-        'postal_code': 'PostalCode',  # noqa: E501
-        'country': 'Country',  # noqa: E501
+        'google_maps_place_id': 'googleMapsPlaceId',  # noqa: E501
+        'formatted_address': 'formattedAddress',  # noqa: E501
+        'city': 'city',  # noqa: E501
+        'state_province': 'stateProvince',  # noqa: E501
+        'postal_code': 'postalCode',  # noqa: E501
+        'country': 'country',  # noqa: E501
     }
 
     read_only_vars = {

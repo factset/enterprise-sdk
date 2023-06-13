@@ -39,7 +39,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class TitleSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_USE_PREVIOUS = "UsePrevious";
+  public static final String JSON_PROPERTY_USE_PREVIOUS = "usePrevious";
   private Boolean usePrevious;
 
   public TitleSettingsDto() { 

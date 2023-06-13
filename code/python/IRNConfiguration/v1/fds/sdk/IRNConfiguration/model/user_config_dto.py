@@ -95,13 +95,13 @@ class UserConfigDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'user_name': 'UserName',  # noqa: E501
-        'serial_number': 'SerialNumber',  # noqa: E501
-        'first_name': 'FirstName',  # noqa: E501
-        'last_name': 'LastName',  # noqa: E501
-        'email_address': 'EmailAddress',  # noqa: E501
-        'team': 'Team',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'user_name': 'userName',  # noqa: E501
+        'serial_number': 'serialNumber',  # noqa: E501
+        'first_name': 'firstName',  # noqa: E501
+        'last_name': 'lastName',  # noqa: E501
+        'email_address': 'emailAddress',  # noqa: E501
+        'team': 'team',  # noqa: E501
     }
 
     read_only_vars = {

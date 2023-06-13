@@ -66,46 +66,46 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class GroupFieldsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_TITLE = "Title";
+  public static final String JSON_PROPERTY_TITLE = "title";
   private TitleSettingsDto title;
 
-  public static final String JSON_PROPERTY_DATE = "Date";
+  public static final String JSON_PROPERTY_DATE = "date";
   private DateSettingsDto date;
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
+  public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   private IdentifierSettingsDto identifier;
 
-  public static final String JSON_PROPERTY_SUBJECT = "Subject";
+  public static final String JSON_PROPERTY_SUBJECT = "subject";
   private SubjectSettingsDto subject;
 
-  public static final String JSON_PROPERTY_RECOMMENDATION = "Recommendation";
+  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
   private RecommendationSettingsDto recommendation;
 
-  public static final String JSON_PROPERTY_SENTIMENT = "Sentiment";
+  public static final String JSON_PROPERTY_SENTIMENT = "sentiment";
   private SentimentSettingsDto sentiment;
 
-  public static final String JSON_PROPERTY_LINK = "Link";
+  public static final String JSON_PROPERTY_LINK = "link";
   private LinkSettingsDto link;
 
-  public static final String JSON_PROPERTY_NOTE = "Note";
+  public static final String JSON_PROPERTY_NOTE = "note";
   private NoteSettingsDto note;
 
-  public static final String JSON_PROPERTY_SOURCE = "Source";
+  public static final String JSON_PROPERTY_SOURCE = "source";
   private SourceSettingsDto source;
 
-  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "RelatedSymbols";
+  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "relatedSymbols";
   private RelatedSymbolsSettingsDto relatedSymbols;
 
-  public static final String JSON_PROPERTY_RELATED_RESEARCH = "RelatedResearch";
+  public static final String JSON_PROPERTY_RELATED_RESEARCH = "relatedResearch";
   private RelatedResearchSettingsDto relatedResearch;
 
-  public static final String JSON_PROPERTY_RELATED_CONTACTS = "RelatedContacts";
+  public static final String JSON_PROPERTY_RELATED_CONTACTS = "relatedContacts";
   private RelatedContactsSettingsDto relatedContacts;
 
-  public static final String JSON_PROPERTY_TEAM = "Team";
+  public static final String JSON_PROPERTY_TEAM = "team";
   private TeamSettingsDto team;
 
-  public static final String JSON_PROPERTY_ORGANIZER = "Organizer";
+  public static final String JSON_PROPERTY_ORGANIZER = "organizer";
   private OrganizerSettingsDto organizer;
 
   public GroupFieldsDto() { 

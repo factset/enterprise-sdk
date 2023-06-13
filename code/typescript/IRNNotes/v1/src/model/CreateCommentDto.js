@@ -46,14 +46,14 @@ class CreateCommentDto {
         if (data) {
             obj = obj || new CreateCommentDto();
 
-            if (data.hasOwnProperty('AuthorId')) {
-                obj['AuthorId'] = ApiClient.convertToType(data['AuthorId'], 'String');
+            if (data.hasOwnProperty('authorId')) {
+                obj['authorId'] = ApiClient.convertToType(data['authorId'], 'String');
             }
-            if (data.hasOwnProperty('ParentCommentId')) {
-                obj['ParentCommentId'] = ApiClient.convertToType(data['ParentCommentId'], 'String');
+            if (data.hasOwnProperty('parentCommentId')) {
+                obj['parentCommentId'] = ApiClient.convertToType(data['parentCommentId'], 'String');
             }
-            if (data.hasOwnProperty('Body')) {
-                obj['Body'] = ApiClient.convertToType(data['Body'], 'String');
+            if (data.hasOwnProperty('body')) {
+                obj['body'] = ApiClient.convertToType(data['body'], 'String');
             }
         }
         return obj;
@@ -63,19 +63,19 @@ class CreateCommentDto {
 }
 
 /**
- * @member {String} AuthorId
+ * @member {String} authorId
  */
-CreateCommentDto.prototype['AuthorId'] = undefined;
+CreateCommentDto.prototype['authorId'] = undefined;
 
 /**
- * @member {String} ParentCommentId
+ * @member {String} parentCommentId
  */
-CreateCommentDto.prototype['ParentCommentId'] = undefined;
+CreateCommentDto.prototype['parentCommentId'] = undefined;
 
 /**
- * @member {String} Body
+ * @member {String} body
  */
-CreateCommentDto.prototype['Body'] = undefined;
+CreateCommentDto.prototype['body'] = undefined;
 
 
 

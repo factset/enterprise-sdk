@@ -46,8 +46,8 @@ class IntegerConfigDto {
         if (data) {
             obj = obj || new IntegerConfigDto();
 
-            if (data.hasOwnProperty('SplitType')) {
-                obj['SplitType'] = ApiClient.convertToType(data['SplitType'], 'String');
+            if (data.hasOwnProperty('splitType')) {
+                obj['splitType'] = ApiClient.convertToType(data['splitType'], 'String');
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class IntegerConfigDto {
 }
 
 /**
- * @member {String} SplitType
+ * @member {String} splitType
  */
-IntegerConfigDto.prototype['SplitType'] = undefined;
+IntegerConfigDto.prototype['splitType'] = undefined;
 
 
 

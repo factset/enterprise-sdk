@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostInstrumentNotationListRequest
+Request Body
 
 ## Properties
 

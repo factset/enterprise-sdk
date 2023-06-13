@@ -22,6 +22,7 @@ import PostNotationCrossReferenceListByISINRequestData from './PostNotationCross
 class PostNotationCrossReferenceListByISINRequest {
     /**
      * Constructs a new <code>PostNotationCrossReferenceListByISINRequest</code>.
+     * Request Body
      * @alias module:model/PostNotationCrossReferenceListByISINRequest
      */
     constructor() { 

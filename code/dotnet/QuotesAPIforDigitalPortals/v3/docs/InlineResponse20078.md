@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**InlineResponse20078Data**](InlineResponse20078Data.md) |  | [optional] 
+**Data** | [**List&lt;InlineResponse20078Data&gt;**](InlineResponse20078Data.md) | EOD key figures for a list of notations. | [optional] 
 **Meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

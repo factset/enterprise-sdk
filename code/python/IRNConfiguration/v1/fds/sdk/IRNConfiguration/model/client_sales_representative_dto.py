@@ -85,8 +85,8 @@ class ClientSalesRepresentativeDto(ModelNormal):
 
 
     attribute_map = {
-        'fullname': 'Fullname',  # noqa: E501
-        'email_address': 'EmailAddress',  # noqa: E501
+        'fullname': 'fullname',  # noqa: E501
+        'email_address': 'emailAddress',  # noqa: E501
     }
 
     read_only_vars = {

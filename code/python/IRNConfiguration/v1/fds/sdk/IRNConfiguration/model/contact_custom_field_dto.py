@@ -98,14 +98,14 @@ class ContactCustomFieldDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'Id',  # noqa: E501
-        'code': 'Code',  # noqa: E501
-        'name': 'Name',  # noqa: E501
-        'type': 'Type',  # noqa: E501
-        'is_hidden': 'IsHidden',  # noqa: E501
-        'is_mandatory': 'IsMandatory',  # noqa: E501
-        'formula_config': 'FormulaConfig',  # noqa: E501
-        'contact_custom_field_options': 'ContactCustomFieldOptions',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'code': 'code',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'is_hidden': 'isHidden',  # noqa: E501
+        'is_mandatory': 'isMandatory',  # noqa: E501
+        'formula_config': 'formulaConfig',  # noqa: E501
+        'contact_custom_field_options': 'contactCustomFieldOptions',  # noqa: E501
     }
 
     read_only_vars = {

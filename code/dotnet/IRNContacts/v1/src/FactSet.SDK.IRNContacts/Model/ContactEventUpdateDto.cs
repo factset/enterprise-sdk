@@ -47,19 +47,19 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets FieldName
         /// </summary>
-        [DataMember(Name = "FieldName", EmitDefaultValue = true)]
+        [DataMember(Name = "fieldName", EmitDefaultValue = true)]
         public string FieldName { get; set; }
 
         /// <summary>
         /// Gets or Sets OldValue
         /// </summary>
-        [DataMember(Name = "OldValue", EmitDefaultValue = true)]
+        [DataMember(Name = "oldValue", EmitDefaultValue = true)]
         public string OldValue { get; set; }
 
         /// <summary>
         /// Gets or Sets NewValue
         /// </summary>
-        [DataMember(Name = "NewValue", EmitDefaultValue = true)]
+        [DataMember(Name = "newValue", EmitDefaultValue = true)]
         public string NewValue { get; set; }
 
         /// <summary>

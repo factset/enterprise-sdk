@@ -45,13 +45,13 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Fullname
         /// </summary>
-        [DataMember(Name = "Fullname", EmitDefaultValue = true)]
+        [DataMember(Name = "fullname", EmitDefaultValue = true)]
         public string Fullname { get; set; }
 
         /// <summary>
         /// Gets or Sets EmailAddress
         /// </summary>
-        [DataMember(Name = "EmailAddress", EmitDefaultValue = true)]
+        [DataMember(Name = "emailAddress", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>

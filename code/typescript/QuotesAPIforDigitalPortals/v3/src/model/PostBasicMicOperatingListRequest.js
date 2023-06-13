@@ -22,6 +22,7 @@ import PostBasicMicOperatingListRequestMeta from './PostBasicMicOperatingListReq
 class PostBasicMicOperatingListRequest {
     /**
      * Constructs a new <code>PostBasicMicOperatingListRequest</code>.
+     * Request Body
      * @alias module:model/PostBasicMicOperatingListRequest
      */
     constructor() { 

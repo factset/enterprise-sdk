@@ -34,15 +34,33 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20072Data" /> class.
         /// </summary>
+        /// <param name="idNotation">MDG identifier of the listing..</param>
+        /// <param name="sourceIdentifier">Identifier used in the request..</param>
         /// <param name="instrument">instrument.</param>
         /// <param name="permanentIdentifier">FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S)..</param>
-        /// <param name="regional">Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array..</param>
-        public InlineResponse20072Data(InlineResponse20072DataInstrument instrument = default(InlineResponse20072DataInstrument), string permanentIdentifier = default(string), List<InlineResponse20072DataRegional> regional = default(List<InlineResponse20072DataRegional>))
+        /// <param name="regional">regional.</param>
+        public InlineResponse20072Data(string idNotation = default(string), string sourceIdentifier = default(string), InlineResponse20072DataInstrument instrument = default(InlineResponse20072DataInstrument), string permanentIdentifier = default(string), InlineResponse20072DataRegional regional = default(InlineResponse20072DataRegional))
         {
+            this.IdNotation = idNotation;
+            this.SourceIdentifier = sourceIdentifier;
             this.Instrument = instrument;
             this.PermanentIdentifier = permanentIdentifier;
             this.Regional = regional;
         }
+
+        /// <summary>
+        /// MDG identifier of the listing.
+        /// </summary>
+        /// <value>MDG identifier of the listing.</value>
+        [DataMember(Name = "idNotation", EmitDefaultValue = true)]
+        public string IdNotation { get; set; }
+
+        /// <summary>
+        /// Identifier used in the request.
+        /// </summary>
+        /// <value>Identifier used in the request.</value>
+        [DataMember(Name = "sourceIdentifier", EmitDefaultValue = true)]
+        public string SourceIdentifier { get; set; }
 
         /// <summary>
         /// Gets or Sets Instrument
@@ -58,11 +76,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public string PermanentIdentifier { get; set; }
 
         /// <summary>
-        /// Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.
+        /// Gets or Sets Regional
         /// </summary>
-        /// <value>Regional-level data with assigned listing-level data. If the set of regional identifiers contains an element for which the attribute &#x60;isPrimary &#x3D; true&#x60;, then this element is the first one in the array.</value>
         [DataMember(Name = "regional", EmitDefaultValue = false)]
-        public List<InlineResponse20072DataRegional> Regional { get; set; }
+        public InlineResponse20072DataRegional Regional { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +89,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20072Data {\n");
+            sb.Append("  IdNotation: ").Append(IdNotation).Append("\n");
+            sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("  PermanentIdentifier: ").Append(PermanentIdentifier).Append("\n");
             sb.Append("  Regional: ").Append(Regional).Append("\n");
@@ -111,6 +130,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
+                    this.IdNotation == input.IdNotation ||
+                    (this.IdNotation != null &&
+                    this.IdNotation.Equals(input.IdNotation))
+                ) && 
+                (
+                    this.SourceIdentifier == input.SourceIdentifier ||
+                    (this.SourceIdentifier != null &&
+                    this.SourceIdentifier.Equals(input.SourceIdentifier))
+                ) && 
+                (
                     this.Instrument == input.Instrument ||
                     (this.Instrument != null &&
                     this.Instrument.Equals(input.Instrument))
@@ -122,9 +151,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
                 ) && 
                 (
                     this.Regional == input.Regional ||
-                    this.Regional != null &&
-                    input.Regional != null &&
-                    this.Regional.SequenceEqual(input.Regional)
+                    (this.Regional != null &&
+                    this.Regional.Equals(input.Regional))
                 );
         }
 
@@ -137,6 +165,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.IdNotation != null)
+                {
+                    hashCode = (hashCode * 59) + this.IdNotation.GetHashCode();
+                }
+                if (this.SourceIdentifier != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
+                }
                 if (this.Instrument != null)
                 {
                     hashCode = (hashCode * 59) + this.Instrument.GetHashCode();

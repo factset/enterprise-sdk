@@ -22,6 +22,7 @@ import PostInstrumentCompliancePropertyListRequestData from './PostInstrumentCom
 class PostInstrumentCompliancePropertyListRequest {
     /**
      * Constructs a new <code>PostInstrumentCompliancePropertyListRequest</code>.
+     * Request Body
      * @alias module:model/PostInstrumentCompliancePropertyListRequest
      */
     constructor() { 

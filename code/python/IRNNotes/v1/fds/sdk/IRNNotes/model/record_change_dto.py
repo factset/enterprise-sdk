@@ -89,12 +89,12 @@ class RecordChangeDto(ModelNormal):
 
 
     attribute_map = {
-        'field': 'Field',  # noqa: E501
-        'operation': 'Operation',  # noqa: E501
-        'old_value': 'OldValue',  # noqa: E501
-        'new_value': 'NewValue',  # noqa: E501
-        'old_list': 'OldList',  # noqa: E501
-        'new_list': 'NewList',  # noqa: E501
+        'field': 'field',  # noqa: E501
+        'operation': 'operation',  # noqa: E501
+        'old_value': 'oldValue',  # noqa: E501
+        'new_value': 'newValue',  # noqa: E501
+        'old_list': 'oldList',  # noqa: E501
+        'new_list': 'newList',  # noqa: E501
     }
 
     read_only_vars = {

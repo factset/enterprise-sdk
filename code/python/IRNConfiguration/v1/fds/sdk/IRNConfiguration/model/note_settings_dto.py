@@ -89,12 +89,12 @@ class NoteSettingsDto(ModelNormal):
 
 
     attribute_map = {
-        'is_hidden': 'IsHidden',  # noqa: E501
-        'is_mandatory': 'IsMandatory',  # noqa: E501
-        'use_previous': 'UsePrevious',  # noqa: E501
-        'allow_personal': 'AllowPersonal',  # noqa: E501
-        'default_status': 'DefaultStatus',  # noqa: E501
-        'alternative_custom_field_id': 'AlternativeCustomFieldId',  # noqa: E501
+        'is_hidden': 'isHidden',  # noqa: E501
+        'is_mandatory': 'isMandatory',  # noqa: E501
+        'use_previous': 'usePrevious',  # noqa: E501
+        'allow_personal': 'allowPersonal',  # noqa: E501
+        'default_status': 'defaultStatus',  # noqa: E501
+        'alternative_custom_field_id': 'alternativeCustomFieldId',  # noqa: E501
     }
 
     read_only_vars = {

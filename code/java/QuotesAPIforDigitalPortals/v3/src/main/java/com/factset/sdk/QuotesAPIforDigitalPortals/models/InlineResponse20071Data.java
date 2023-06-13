@@ -17,8 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20071DataInstrument;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20071DataRegional;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20046NotationFsym;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20068DataMarket;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20068DataValueUnit;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20071Instrument;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,107 +38,188 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * Instrument data with a list of regional-level data and assigned listing-level data.
+ * InlineResponse20071Data
  */
-@ApiModel(description = "Instrument data with a list of regional-level data and assigned listing-level data.")
 @JsonPropertyOrder({
-  InlineResponse20071Data.JSON_PROPERTY_ID_NOTATION,
-  InlineResponse20071Data.JSON_PROPERTY_SOURCE_IDENTIFIER,
-  InlineResponse20071Data.JSON_PROPERTY_INSTRUMENT,
-  InlineResponse20071Data.JSON_PROPERTY_PERMANENT_IDENTIFIER,
-  InlineResponse20071Data.JSON_PROPERTY_REGIONAL
+  InlineResponse20071Data.JSON_PROPERTY_ID,
+  InlineResponse20071Data.JSON_PROPERTY_ACTIVE,
+  InlineResponse20071Data.JSON_PROPERTY_MARKET,
+  InlineResponse20071Data.JSON_PROPERTY_VALUE_UNIT,
+  InlineResponse20071Data.JSON_PROPERTY_FSYM,
+  InlineResponse20071Data.JSON_PROPERTY_INSTRUMENT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20071Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID_NOTATION = "idNotation";
-  private JsonNullable<String> idNotation = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_ID = "id";
+  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SOURCE_IDENTIFIER = "sourceIdentifier";
-  private JsonNullable<String> sourceIdentifier = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_ACTIVE = "active";
+  private JsonNullable<Boolean> active = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_MARKET = "market";
+  private InlineResponse20068DataMarket market;
+
+  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
+  private InlineResponse20068DataValueUnit valueUnit;
+
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse20046NotationFsym fsym;
 
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse20071DataInstrument instrument;
-
-  public static final String JSON_PROPERTY_PERMANENT_IDENTIFIER = "permanentIdentifier";
-  private JsonNullable<String> permanentIdentifier = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_REGIONAL = "regional";
-  private InlineResponse20071DataRegional regional;
+  private InlineResponse20071Instrument instrument;
 
   public InlineResponse20071Data() { 
   }
 
-  public InlineResponse20071Data idNotation(String idNotation) {
-    this.idNotation = JsonNullable.<String>of(idNotation);
+  public InlineResponse20071Data id(String id) {
+    this.id = JsonNullable.<String>of(id);
     return this;
   }
 
    /**
-   * MDG identifier of the listing.
-   * @return idNotation
+   * Identifier of the notation.
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "MDG identifier of the listing.")
+  @ApiModelProperty(value = "Identifier of the notation.")
   @JsonIgnore
 
-  public String getIdNotation() {
-        return idNotation.orElse(null);
+  public String getId() {
+        return id.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getIdNotation_JsonNullable() {
-    return idNotation;
+  public JsonNullable<String> getId_JsonNullable() {
+    return id;
   }
   
-  @JsonProperty(JSON_PROPERTY_ID_NOTATION)
-  public void setIdNotation_JsonNullable(JsonNullable<String> idNotation) {
-    this.idNotation = idNotation;
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<String> id) {
+    this.id = id;
   }
 
-  public void setIdNotation(String idNotation) {
-    this.idNotation = JsonNullable.<String>of(idNotation);
+  public void setId(String id) {
+    this.id = JsonNullable.<String>of(id);
   }
 
 
-  public InlineResponse20071Data sourceIdentifier(String sourceIdentifier) {
-    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+  public InlineResponse20071Data active(Boolean active) {
+    this.active = JsonNullable.<Boolean>of(active);
     return this;
   }
 
    /**
-   * Identifier used in the request.
-   * @return sourceIdentifier
+   * Indicates whether the notation is active.
+   * @return active
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier used in the request.")
+  @ApiModelProperty(value = "Indicates whether the notation is active.")
   @JsonIgnore
 
-  public String getSourceIdentifier() {
-        return sourceIdentifier.orElse(null);
+  public Boolean getActive() {
+        return active.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
+  @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getSourceIdentifier_JsonNullable() {
-    return sourceIdentifier;
+  public JsonNullable<Boolean> getActive_JsonNullable() {
+    return active;
   }
   
-  @JsonProperty(JSON_PROPERTY_SOURCE_IDENTIFIER)
-  public void setSourceIdentifier_JsonNullable(JsonNullable<String> sourceIdentifier) {
-    this.sourceIdentifier = sourceIdentifier;
+  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  public void setActive_JsonNullable(JsonNullable<Boolean> active) {
+    this.active = active;
   }
 
-  public void setSourceIdentifier(String sourceIdentifier) {
-    this.sourceIdentifier = JsonNullable.<String>of(sourceIdentifier);
+  public void setActive(Boolean active) {
+    this.active = JsonNullable.<Boolean>of(active);
   }
 
 
-  public InlineResponse20071Data instrument(InlineResponse20071DataInstrument instrument) {
+  public InlineResponse20071Data market(InlineResponse20068DataMarket market) {
+    this.market = market;
+    return this;
+  }
+
+   /**
+   * Get market
+   * @return market
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20068DataMarket getMarket() {
+    return market;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MARKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMarket(InlineResponse20068DataMarket market) {
+    this.market = market;
+  }
+
+
+  public InlineResponse20071Data valueUnit(InlineResponse20068DataValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
+    return this;
+  }
+
+   /**
+   * Get valueUnit
+   * @return valueUnit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20068DataValueUnit getValueUnit() {
+    return valueUnit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValueUnit(InlineResponse20068DataValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
+  }
+
+
+  public InlineResponse20071Data fsym(InlineResponse20046NotationFsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20046NotationFsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse20046NotationFsym fsym) {
+    this.fsym = fsym;
+  }
+
+
+  public InlineResponse20071Data instrument(InlineResponse20071Instrument instrument) {
     this.instrument = instrument;
     return this;
   }
@@ -150,75 +233,15 @@ public class InlineResponse20071Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20071DataInstrument getInstrument() {
+  public InlineResponse20071Instrument getInstrument() {
     return instrument;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse20071DataInstrument instrument) {
+  public void setInstrument(InlineResponse20071Instrument instrument) {
     this.instrument = instrument;
-  }
-
-
-  public InlineResponse20071Data permanentIdentifier(String permanentIdentifier) {
-    this.permanentIdentifier = JsonNullable.<String>of(permanentIdentifier);
-    return this;
-  }
-
-   /**
-   * FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
-   * @return permanentIdentifier
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).")
-  @JsonIgnore
-
-  public String getPermanentIdentifier() {
-        return permanentIdentifier.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PERMANENT_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getPermanentIdentifier_JsonNullable() {
-    return permanentIdentifier;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PERMANENT_IDENTIFIER)
-  public void setPermanentIdentifier_JsonNullable(JsonNullable<String> permanentIdentifier) {
-    this.permanentIdentifier = permanentIdentifier;
-  }
-
-  public void setPermanentIdentifier(String permanentIdentifier) {
-    this.permanentIdentifier = JsonNullable.<String>of(permanentIdentifier);
-  }
-
-
-  public InlineResponse20071Data regional(InlineResponse20071DataRegional regional) {
-    this.regional = regional;
-    return this;
-  }
-
-   /**
-   * Get regional
-   * @return regional
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_REGIONAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20071DataRegional getRegional() {
-    return regional;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REGIONAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegional(InlineResponse20071DataRegional regional) {
-    this.regional = regional;
   }
 
 
@@ -234,11 +257,12 @@ public class InlineResponse20071Data implements Serializable {
       return false;
     }
     InlineResponse20071Data inlineResponse20071Data = (InlineResponse20071Data) o;
-    return equalsNullable(this.idNotation, inlineResponse20071Data.idNotation) &&
-        equalsNullable(this.sourceIdentifier, inlineResponse20071Data.sourceIdentifier) &&
-        Objects.equals(this.instrument, inlineResponse20071Data.instrument) &&
-        equalsNullable(this.permanentIdentifier, inlineResponse20071Data.permanentIdentifier) &&
-        Objects.equals(this.regional, inlineResponse20071Data.regional);
+    return equalsNullable(this.id, inlineResponse20071Data.id) &&
+        equalsNullable(this.active, inlineResponse20071Data.active) &&
+        Objects.equals(this.market, inlineResponse20071Data.market) &&
+        Objects.equals(this.valueUnit, inlineResponse20071Data.valueUnit) &&
+        Objects.equals(this.fsym, inlineResponse20071Data.fsym) &&
+        Objects.equals(this.instrument, inlineResponse20071Data.instrument);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -247,7 +271,7 @@ public class InlineResponse20071Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(idNotation), hashCodeNullable(sourceIdentifier), instrument, hashCodeNullable(permanentIdentifier), regional);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(active), market, valueUnit, fsym, instrument);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -261,11 +285,12 @@ public class InlineResponse20071Data implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20071Data {\n");
-    sb.append("    idNotation: ").append(toIndentedString(idNotation)).append("\n");
-    sb.append("    sourceIdentifier: ").append(toIndentedString(sourceIdentifier)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    market: ").append(toIndentedString(market)).append("\n");
+    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
-    sb.append("    permanentIdentifier: ").append(toIndentedString(permanentIdentifier)).append("\n");
-    sb.append("    regional: ").append(toIndentedString(regional)).append("\n");
     sb.append("}");
     return sb.toString();
   }

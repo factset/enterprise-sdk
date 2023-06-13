@@ -1,17 +1,17 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.InlineResponse20092Data
+The data member contains a list of the matching instruments
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Identifier of a notation. | [optional] 
-**ValueUnit** | [**InlineResponse20092ValueUnit**](InlineResponse20092ValueUnit.md) |  | [optional] 
-**Market** | [**InlineResponse20067DataMarket**](InlineResponse20067DataMarket.md) |  | [optional] 
-**Symbol** | **string** | The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market. | [optional] 
-**Nsin** | [**InlineResponse20091Nsin**](InlineResponse20091Nsin.md) |  | [optional] 
-**Fsym** | [**InlineResponse20046NotationFsym**](InlineResponse20046NotationFsym.md) |  | [optional] 
-**Instrument** | [**InlineResponse20092Instrument**](InlineResponse20092Instrument.md) |  | [optional] 
-**TradingValue** | [**InlineResponse20092TradingValue**](InlineResponse20092TradingValue.md) |  | [optional] 
+**Id** | **string** | Identifier of the instrument. | [optional] 
+**Name** | **string** | Asset class-unspecific name in English. | [optional] 
+**Isin** | **string** | The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument. | [optional] 
+**Nsin** | [**InlineResponse20042DataNsin**](InlineResponse20042DataNsin.md) |  | [optional] 
+**Fsym** | [**InlineResponse20036Fsym**](InlineResponse20036Fsym.md) |  | [optional] 
+**AssetClass** | **string** | Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description. | [optional] 
+**Type** | [**List&lt;InlineResponse20038DataCategories&gt;**](InlineResponse20038DataCategories.md) | Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

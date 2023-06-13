@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostPricesTradingScheduleEventListRequest
+Request Body
 
 ## Properties
 

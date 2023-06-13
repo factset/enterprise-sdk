@@ -30,12 +30,10 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067_data_instrument import InlineResponse20067DataInstrument
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067_data_market import InlineResponse20067DataMarket
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067_data_value_unit import InlineResponse20067DataValueUnit
-    globals()['InlineResponse20067DataInstrument'] = InlineResponse20067DataInstrument
-    globals()['InlineResponse20067DataMarket'] = InlineResponse20067DataMarket
-    globals()['InlineResponse20067DataValueUnit'] = InlineResponse20067DataValueUnit
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20038_data_categories import InlineResponse20038DataCategories
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067_dataset import InlineResponse20067Dataset
+    globals()['InlineResponse20038DataCategories'] = InlineResponse20038DataCategories
+    globals()['InlineResponse20067Dataset'] = InlineResponse20067Dataset
 
 
 class InlineResponse20067Data(ModelNormal):
@@ -91,10 +89,8 @@ class InlineResponse20067Data(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str, none_type,),  # noqa: E501
-            'market': (InlineResponse20067DataMarket,),  # noqa: E501
-            'value_unit': (InlineResponse20067DataValueUnit,),  # noqa: E501
-            'instrument': (InlineResponse20067DataInstrument,),  # noqa: E501
+            'dataset': (InlineResponse20067Dataset,),  # noqa: E501
+            'categories': ([InlineResponse20038DataCategories],),  # noqa: E501
         }
 
     @cached_property
@@ -103,10 +99,8 @@ class InlineResponse20067Data(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'market': 'market',  # noqa: E501
-        'value_unit': 'valueUnit',  # noqa: E501
-        'instrument': 'instrument',  # noqa: E501
+        'dataset': 'dataset',  # noqa: E501
+        'categories': 'categories',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,10 +144,8 @@ class InlineResponse20067Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of the notation.. [optional]  # noqa: E501
-            market (InlineResponse20067DataMarket): [optional]  # noqa: E501
-            value_unit (InlineResponse20067DataValueUnit): [optional]  # noqa: E501
-            instrument (InlineResponse20067DataInstrument): [optional]  # noqa: E501
+            dataset (InlineResponse20067Dataset): [optional]  # noqa: E501
+            categories ([InlineResponse20038DataCategories]): List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,10 +227,8 @@ class InlineResponse20067Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Identifier of the notation.. [optional]  # noqa: E501
-            market (InlineResponse20067DataMarket): [optional]  # noqa: E501
-            value_unit (InlineResponse20067DataValueUnit): [optional]  # noqa: E501
-            instrument (InlineResponse20067DataInstrument): [optional]  # noqa: E501
+            dataset (InlineResponse20067Dataset): [optional]  # noqa: E501
+            categories ([InlineResponse20038DataCategories]): List of categories covering the full path (without gaps) from the most coarse granularity to the most detailed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

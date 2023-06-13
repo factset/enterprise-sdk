@@ -46,11 +46,11 @@ class ContactCustomFieldOptionValueDto {
         if (data) {
             obj = obj || new ContactCustomFieldOptionValueDto();
 
-            if (data.hasOwnProperty('OptionId')) {
-                obj['OptionId'] = ApiClient.convertToType(data['OptionId'], 'String');
+            if (data.hasOwnProperty('optionId')) {
+                obj['optionId'] = ApiClient.convertToType(data['optionId'], 'String');
             }
-            if (data.hasOwnProperty('OptionName')) {
-                obj['OptionName'] = ApiClient.convertToType(data['OptionName'], 'String');
+            if (data.hasOwnProperty('optionName')) {
+                obj['optionName'] = ApiClient.convertToType(data['optionName'], 'String');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class ContactCustomFieldOptionValueDto {
 }
 
 /**
- * @member {String} OptionId
+ * @member {String} optionId
  */
-ContactCustomFieldOptionValueDto.prototype['OptionId'] = undefined;
+ContactCustomFieldOptionValueDto.prototype['optionId'] = undefined;
 
 /**
- * @member {String} OptionName
+ * @member {String} optionName
  */
-ContactCustomFieldOptionValueDto.prototype['OptionName'] = undefined;
+ContactCustomFieldOptionValueDto.prototype['optionName'] = undefined;
 
 
 

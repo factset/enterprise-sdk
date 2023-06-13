@@ -44,10 +44,10 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class FormulaConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FORMULA = "Formula";
+  public static final String JSON_PROPERTY_FORMULA = "formula";
   private JsonNullable<String> formula = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FORMULA_TYPE = "FormulaType";
+  public static final String JSON_PROPERTY_FORMULA_TYPE = "formulaType";
   private JsonNullable<String> formulaType = JsonNullable.<String>undefined();
 
   public FormulaConfigDto() { 

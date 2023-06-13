@@ -46,11 +46,11 @@ class FormulaConfigDto {
         if (data) {
             obj = obj || new FormulaConfigDto();
 
-            if (data.hasOwnProperty('Formula')) {
-                obj['Formula'] = ApiClient.convertToType(data['Formula'], 'String');
+            if (data.hasOwnProperty('formula')) {
+                obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
             }
-            if (data.hasOwnProperty('FormulaType')) {
-                obj['FormulaType'] = ApiClient.convertToType(data['FormulaType'], 'String');
+            if (data.hasOwnProperty('formulaType')) {
+                obj['formulaType'] = ApiClient.convertToType(data['formulaType'], 'String');
             }
         }
         return obj;
@@ -60,14 +60,14 @@ class FormulaConfigDto {
 }
 
 /**
- * @member {String} Formula
+ * @member {String} formula
  */
-FormulaConfigDto.prototype['Formula'] = undefined;
+FormulaConfigDto.prototype['formula'] = undefined;
 
 /**
- * @member {String} FormulaType
+ * @member {String} formulaType
  */
-FormulaConfigDto.prototype['FormulaType'] = undefined;
+FormulaConfigDto.prototype['formulaType'] = undefined;
 
 
 

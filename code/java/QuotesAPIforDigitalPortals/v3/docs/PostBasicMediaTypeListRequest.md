@@ -2,6 +2,7 @@
 
 # PostBasicMediaTypeListRequest
 
+Request Body
 
 ## Properties
 

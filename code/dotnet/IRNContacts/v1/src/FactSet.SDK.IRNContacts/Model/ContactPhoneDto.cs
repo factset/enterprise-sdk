@@ -49,25 +49,25 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Number
         /// </summary>
-        [DataMember(Name = "Number", EmitDefaultValue = true)]
+        [DataMember(Name = "number", EmitDefaultValue = true)]
         public string Number { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = false)]
         public PhoneNumberTypeDto Type { get; set; }
 
         /// <summary>
         /// Gets or Sets IsPrimary
         /// </summary>
-        [DataMember(Name = "IsPrimary", EmitDefaultValue = true)]
+        [DataMember(Name = "isPrimary", EmitDefaultValue = true)]
         public bool IsPrimary { get; set; }
 
         /// <summary>

@@ -34,18 +34,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20091" /> class.
         /// </summary>
-        /// <param name="data">List of notations..</param>
+        /// <param name="data">List of trading schedule event types..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20091(List<InlineResponse20091Data> data = default(List<InlineResponse20091Data>), InlineResponse20036Meta meta = default(InlineResponse20036Meta))
+        public InlineResponse20091(List<InlineResponse20091Data> data = default(List<InlineResponse20091Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// List of notations.
+        /// List of trading schedule event types.
         /// </summary>
-        /// <value>List of notations.</value>
+        /// <value>List of trading schedule event types.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse20091Data> Data { get; set; }
 
@@ -53,7 +53,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public InlineResponse20036Meta Meta { get; set; }
+        public InlineResponse200Meta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

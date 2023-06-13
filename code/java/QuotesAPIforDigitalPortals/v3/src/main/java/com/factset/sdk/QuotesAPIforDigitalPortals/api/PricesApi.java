@@ -12,14 +12,14 @@ import java.util.Map;
 import java.util.Objects;
 
 import java.math.BigDecimal;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20082;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20083;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20084;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20085;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20086;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20087;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20088;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20089;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20090;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.PostPricesTradingScheduleEventListRequest;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -36,42 +36,42 @@ public class PricesApi {
   
   private static final Map<Integer, GenericType> getPricesBidAskGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getPricesBidAskGetResponseTypeMap.put(200, new GenericType<InlineResponse20084>(){});
+    getPricesBidAskGetResponseTypeMap.put(200, new GenericType<InlineResponse20086>(){});
   }
 
   private static final Map<Integer, GenericType> getPricesBidAskListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getPricesBidAskListResponseTypeMap.put(200, new GenericType<InlineResponse20085>(){});
+    getPricesBidAskListResponseTypeMap.put(200, new GenericType<InlineResponse20087>(){});
   }
 
   private static final Map<Integer, GenericType> getPricesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getPricesGetResponseTypeMap.put(200, new GenericType<InlineResponse20082>(){});
+    getPricesGetResponseTypeMap.put(200, new GenericType<InlineResponse20084>(){});
   }
 
   private static final Map<Integer, GenericType> getPricesListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getPricesListResponseTypeMap.put(200, new GenericType<InlineResponse20083>(){});
+    getPricesListResponseTypeMap.put(200, new GenericType<InlineResponse20085>(){});
   }
 
   private static final Map<Integer, GenericType> getPricesOrderbookAggregatedGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getPricesOrderbookAggregatedGetResponseTypeMap.put(200, new GenericType<InlineResponse20086>(){});
+    getPricesOrderbookAggregatedGetResponseTypeMap.put(200, new GenericType<InlineResponse20088>(){});
   }
 
   private static final Map<Integer, GenericType> getPricesOrderbookFullGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getPricesOrderbookFullGetResponseTypeMap.put(200, new GenericType<InlineResponse20087>(){});
+    getPricesOrderbookFullGetResponseTypeMap.put(200, new GenericType<InlineResponse20089>(){});
   }
 
   private static final Map<Integer, GenericType> getPricesTradingScheduleEventTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getPricesTradingScheduleEventTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20089>(){});
+    getPricesTradingScheduleEventTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20091>(){});
   }
 
   private static final Map<Integer, GenericType> postPricesTradingScheduleEventListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postPricesTradingScheduleEventListResponseTypeMap.put(200, new GenericType<InlineResponse20088>(){});
+    postPricesTradingScheduleEventListResponseTypeMap.put(200, new GenericType<InlineResponse20090>(){});
   }
 
   
@@ -103,7 +103,7 @@ public class PricesApi {
    * @param quality  (optional, default to DLY)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param subscriptionMinimumInterval Minimum number of milliseconds at which updates are send. (optional, default to 5000)
-   * @return InlineResponse20084
+   * @return InlineResponse20086
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -111,7 +111,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20084 getPricesBidAskGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
+  public InlineResponse20086 getPricesBidAskGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
     return getPricesBidAskGetWithHttpInfo(identifier, identifierType, quality, attributes, subscriptionMinimumInterval).getData();
   }
 
@@ -123,7 +123,7 @@ public class PricesApi {
    * @param quality  (optional, default to DLY)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param subscriptionMinimumInterval Minimum number of milliseconds at which updates are send. (optional, default to 5000)
-   * @return ApiResponse&lt;InlineResponse20084&gt;
+   * @return ApiResponse&lt;InlineResponse20086&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -131,7 +131,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20084> getPricesBidAskGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
+  public ApiResponse<InlineResponse20086> getPricesBidAskGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'identifier' is set
@@ -177,7 +177,7 @@ public class PricesApi {
 
     ApiResponse<
         
-        InlineResponse20084
+        InlineResponse20086
       
     > apiResponse = apiClient.invokeAPI("PricesApi.getPricesBidAskGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -194,7 +194,7 @@ public class PricesApi {
    * @param quality  (optional, default to DLY)
    * @param sameQuality  (optional, default to true)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20085
+   * @return InlineResponse20087
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -202,7 +202,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20085 getPricesBidAskList(java.util.Set<String> identifiers, String identifierType, String quality, Boolean sameQuality, java.util.Set<String> attributes) throws ApiException {
+  public InlineResponse20087 getPricesBidAskList(java.util.Set<String> identifiers, String identifierType, String quality, Boolean sameQuality, java.util.Set<String> attributes) throws ApiException {
     return getPricesBidAskListWithHttpInfo(identifiers, identifierType, quality, sameQuality, attributes).getData();
   }
 
@@ -214,7 +214,7 @@ public class PricesApi {
    * @param quality  (optional, default to DLY)
    * @param sameQuality  (optional, default to true)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20085&gt;
+   * @return ApiResponse&lt;InlineResponse20087&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -222,7 +222,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20085> getPricesBidAskListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, String quality, Boolean sameQuality, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20087> getPricesBidAskListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, String quality, Boolean sameQuality, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'identifiers' is set
@@ -268,7 +268,7 @@ public class PricesApi {
 
     ApiResponse<
         
-        InlineResponse20085
+        InlineResponse20087
       
     > apiResponse = apiClient.invokeAPI("PricesApi.getPricesBidAskList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -285,7 +285,7 @@ public class PricesApi {
    * @param quality  (optional, default to DLY)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param subscriptionMinimumInterval Minimum number of milliseconds at which updates are sent. (optional, default to 5000)
-   * @return InlineResponse20082
+   * @return InlineResponse20084
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -293,7 +293,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20082 getPricesGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
+  public InlineResponse20084 getPricesGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
     return getPricesGetWithHttpInfo(identifier, identifierType, quality, attributes, subscriptionMinimumInterval).getData();
   }
 
@@ -305,7 +305,7 @@ public class PricesApi {
    * @param quality  (optional, default to DLY)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param subscriptionMinimumInterval Minimum number of milliseconds at which updates are sent. (optional, default to 5000)
-   * @return ApiResponse&lt;InlineResponse20082&gt;
+   * @return ApiResponse&lt;InlineResponse20084&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -313,7 +313,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20082> getPricesGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
+  public ApiResponse<InlineResponse20084> getPricesGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'identifier' is set
@@ -359,7 +359,7 @@ public class PricesApi {
 
     ApiResponse<
         
-        InlineResponse20082
+        InlineResponse20084
       
     > apiResponse = apiClient.invokeAPI("PricesApi.getPricesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -376,7 +376,7 @@ public class PricesApi {
    * @param quality  (optional, default to DLY)
    * @param sameQuality  (optional, default to true)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20083
+   * @return InlineResponse20085
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -384,7 +384,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20083 getPricesList(java.util.Set<String> identifiers, String identifierType, String quality, Boolean sameQuality, java.util.Set<String> attributes) throws ApiException {
+  public InlineResponse20085 getPricesList(java.util.Set<String> identifiers, String identifierType, String quality, Boolean sameQuality, java.util.Set<String> attributes) throws ApiException {
     return getPricesListWithHttpInfo(identifiers, identifierType, quality, sameQuality, attributes).getData();
   }
 
@@ -396,7 +396,7 @@ public class PricesApi {
    * @param quality  (optional, default to DLY)
    * @param sameQuality  (optional, default to true)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20083&gt;
+   * @return ApiResponse&lt;InlineResponse20085&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -404,7 +404,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20083> getPricesListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, String quality, Boolean sameQuality, java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20085> getPricesListWithHttpInfo(java.util.Set<String> identifiers, String identifierType, String quality, Boolean sameQuality, java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'identifiers' is set
@@ -450,7 +450,7 @@ public class PricesApi {
 
     ApiResponse<
         
-        InlineResponse20083
+        InlineResponse20085
       
     > apiResponse = apiClient.invokeAPI("PricesApi.getPricesList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -467,7 +467,7 @@ public class PricesApi {
    * @param quality  (optional, default to RLT)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000)
-   * @return InlineResponse20086
+   * @return InlineResponse20088
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -475,7 +475,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20086 getPricesOrderbookAggregatedGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
+  public InlineResponse20088 getPricesOrderbookAggregatedGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
     return getPricesOrderbookAggregatedGetWithHttpInfo(identifier, identifierType, quality, attributes, subscriptionMinimumInterval).getData();
   }
 
@@ -487,7 +487,7 @@ public class PricesApi {
    * @param quality  (optional, default to RLT)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000)
-   * @return ApiResponse&lt;InlineResponse20086&gt;
+   * @return ApiResponse&lt;InlineResponse20088&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -495,7 +495,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20086> getPricesOrderbookAggregatedGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
+  public ApiResponse<InlineResponse20088> getPricesOrderbookAggregatedGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'identifier' is set
@@ -541,7 +541,7 @@ public class PricesApi {
 
     ApiResponse<
         
-        InlineResponse20086
+        InlineResponse20088
       
     > apiResponse = apiClient.invokeAPI("PricesApi.getPricesOrderbookAggregatedGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -558,7 +558,7 @@ public class PricesApi {
    * @param quality  (optional, default to RLT)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000)
-   * @return InlineResponse20087
+   * @return InlineResponse20089
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -566,7 +566,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20087 getPricesOrderbookFullGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
+  public InlineResponse20089 getPricesOrderbookFullGet(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
     return getPricesOrderbookFullGetWithHttpInfo(identifier, identifierType, quality, attributes, subscriptionMinimumInterval).getData();
   }
 
@@ -578,7 +578,7 @@ public class PricesApi {
    * @param quality  (optional, default to RLT)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate. (optional, default to 5000)
-   * @return ApiResponse&lt;InlineResponse20087&gt;
+   * @return ApiResponse&lt;InlineResponse20089&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -586,7 +586,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20087> getPricesOrderbookFullGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
+  public ApiResponse<InlineResponse20089> getPricesOrderbookFullGetWithHttpInfo(String identifier, String identifierType, String quality, java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'identifier' is set
@@ -632,7 +632,7 @@ public class PricesApi {
 
     ApiResponse<
         
-        InlineResponse20087
+        InlineResponse20089
       
     > apiResponse = apiClient.invokeAPI("PricesApi.getPricesOrderbookFullGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -645,7 +645,7 @@ public class PricesApi {
    * Trading schedule event types.
    * Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return InlineResponse20089
+   * @return InlineResponse20091
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -653,7 +653,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20089 getPricesTradingScheduleEventTypeList(java.util.Set<String> attributes) throws ApiException {
+  public InlineResponse20091 getPricesTradingScheduleEventTypeList(java.util.Set<String> attributes) throws ApiException {
     return getPricesTradingScheduleEventTypeListWithHttpInfo(attributes).getData();
   }
 
@@ -661,7 +661,7 @@ public class PricesApi {
    * Trading schedule event types.
    * Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @return ApiResponse&lt;InlineResponse20089&gt;
+   * @return ApiResponse&lt;InlineResponse20091&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -669,7 +669,7 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20089> getPricesTradingScheduleEventTypeListWithHttpInfo(java.util.Set<String> attributes) throws ApiException {
+  public ApiResponse<InlineResponse20091> getPricesTradingScheduleEventTypeListWithHttpInfo(java.util.Set<String> attributes) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -701,7 +701,7 @@ public class PricesApi {
 
     ApiResponse<
         
-        InlineResponse20089
+        InlineResponse20091
       
     > apiResponse = apiClient.invokeAPI("PricesApi.getPricesTradingScheduleEventTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -713,8 +713,8 @@ public class PricesApi {
   /**
    * Sequence of market-related events.
    * Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-   * @param postPricesTradingScheduleEventListRequest  (optional)
-   * @return InlineResponse20088
+   * @param postPricesTradingScheduleEventListRequest Request Body (required)
+   * @return InlineResponse20090
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -722,15 +722,15 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse20088 postPricesTradingScheduleEventList(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest) throws ApiException {
+  public InlineResponse20090 postPricesTradingScheduleEventList(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest) throws ApiException {
     return postPricesTradingScheduleEventListWithHttpInfo(postPricesTradingScheduleEventListRequest).getData();
   }
 
   /**
    * Sequence of market-related events.
    * Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-   * @param postPricesTradingScheduleEventListRequest  (optional)
-   * @return ApiResponse&lt;InlineResponse20088&gt;
+   * @param postPricesTradingScheduleEventListRequest Request Body (required)
+   * @return ApiResponse&lt;InlineResponse20090&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -738,8 +738,13 @@ public class PricesApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse20088> postPricesTradingScheduleEventListWithHttpInfo(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest) throws ApiException {
+  public ApiResponse<InlineResponse20090> postPricesTradingScheduleEventListWithHttpInfo(PostPricesTradingScheduleEventListRequest postPricesTradingScheduleEventListRequest) throws ApiException {
     Object localVarPostBody = postPricesTradingScheduleEventListRequest;
+    
+    // verify the required parameter 'postPricesTradingScheduleEventListRequest' is set
+    if (postPricesTradingScheduleEventListRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'postPricesTradingScheduleEventListRequest' when calling postPricesTradingScheduleEventList");
+    }
     
     // create path and map variables
     String localVarPath = "/prices/tradingSchedule/event/list";
@@ -769,7 +774,7 @@ public class PricesApi {
 
     ApiResponse<
         
-        InlineResponse20088
+        InlineResponse20090
       
     > apiResponse = apiClient.invokeAPI("PricesApi.postPricesTradingScheduleEventList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

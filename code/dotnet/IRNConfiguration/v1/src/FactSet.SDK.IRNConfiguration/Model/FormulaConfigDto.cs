@@ -45,13 +45,13 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Formula
         /// </summary>
-        [DataMember(Name = "Formula", EmitDefaultValue = true)]
+        [DataMember(Name = "formula", EmitDefaultValue = true)]
         public string Formula { get; set; }
 
         /// <summary>
         /// Gets or Sets FormulaType
         /// </summary>
-        [DataMember(Name = "FormulaType", EmitDefaultValue = true)]
+        [DataMember(Name = "formulaType", EmitDefaultValue = true)]
         public string FormulaType { get; set; }
 
         /// <summary>

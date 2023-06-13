@@ -53,37 +53,37 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Field
         /// </summary>
-        [DataMember(Name = "Field", EmitDefaultValue = true)]
+        [DataMember(Name = "field", EmitDefaultValue = true)]
         public string Field { get; set; }
 
         /// <summary>
         /// Gets or Sets Operation
         /// </summary>
-        [DataMember(Name = "Operation", EmitDefaultValue = true)]
+        [DataMember(Name = "operation", EmitDefaultValue = true)]
         public string Operation { get; set; }
 
         /// <summary>
         /// Gets or Sets OldValue
         /// </summary>
-        [DataMember(Name = "OldValue", EmitDefaultValue = true)]
+        [DataMember(Name = "oldValue", EmitDefaultValue = true)]
         public string OldValue { get; set; }
 
         /// <summary>
         /// Gets or Sets NewValue
         /// </summary>
-        [DataMember(Name = "NewValue", EmitDefaultValue = true)]
+        [DataMember(Name = "newValue", EmitDefaultValue = true)]
         public string NewValue { get; set; }
 
         /// <summary>
         /// Gets or Sets OldList
         /// </summary>
-        [DataMember(Name = "OldList", EmitDefaultValue = true)]
+        [DataMember(Name = "oldList", EmitDefaultValue = true)]
         public List<string> OldList { get; set; }
 
         /// <summary>
         /// Gets or Sets NewList
         /// </summary>
-        [DataMember(Name = "NewList", EmitDefaultValue = true)]
+        [DataMember(Name = "newList", EmitDefaultValue = true)]
         public List<string> NewList { get; set; }
 
         /// <summary>

@@ -46,17 +46,17 @@ class SentimentSettingsDto {
         if (data) {
             obj = obj || new SentimentSettingsDto();
 
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('UsePrevious')) {
-                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            if (data.hasOwnProperty('usePrevious')) {
+                obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
-            if (data.hasOwnProperty('DefaultId')) {
-                obj['DefaultId'] = ApiClient.convertToType(data['DefaultId'], 'String');
+            if (data.hasOwnProperty('defaultId')) {
+                obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
             }
         }
         return obj;
@@ -66,24 +66,24 @@ class SentimentSettingsDto {
 }
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-SentimentSettingsDto.prototype['IsHidden'] = undefined;
+SentimentSettingsDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  */
-SentimentSettingsDto.prototype['IsMandatory'] = undefined;
+SentimentSettingsDto.prototype['isMandatory'] = undefined;
 
 /**
- * @member {Boolean} UsePrevious
+ * @member {Boolean} usePrevious
  */
-SentimentSettingsDto.prototype['UsePrevious'] = undefined;
+SentimentSettingsDto.prototype['usePrevious'] = undefined;
 
 /**
- * @member {String} DefaultId
+ * @member {String} defaultId
  */
-SentimentSettingsDto.prototype['DefaultId'] = undefined;
+SentimentSettingsDto.prototype['defaultId'] = undefined;
 
 
 

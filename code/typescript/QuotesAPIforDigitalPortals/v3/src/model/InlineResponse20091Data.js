@@ -12,9 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20091Instrument from './InlineResponse20091Instrument';
-import InlineResponse20091Nsin from './InlineResponse20091Nsin';
-import InlineResponse20091Price from './InlineResponse20091Price';
 
 /**
  * The InlineResponse20091Data model module.
@@ -23,7 +20,6 @@ import InlineResponse20091Price from './InlineResponse20091Price';
 class InlineResponse20091Data {
     /**
      * Constructs a new <code>InlineResponse20091Data</code>.
-     * The data member contains a list of the matching notations.
      * @alias module:model/InlineResponse20091Data
      */
     constructor() { 
@@ -51,19 +47,13 @@ class InlineResponse20091Data {
             obj = obj || new InlineResponse20091Data();
 
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('nsin')) {
-                obj['nsin'] = InlineResponse20091Nsin.constructFromObject(data['nsin']);
-            }
-            if (data.hasOwnProperty('price')) {
-                obj['price'] = InlineResponse20091Price.constructFromObject(data['price']);
-            }
-            if (data.hasOwnProperty('instrument')) {
-                obj['instrument'] = InlineResponse20091Instrument.constructFromObject(data['instrument']);
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
         }
         return obj;
@@ -73,31 +63,22 @@ class InlineResponse20091Data {
 }
 
 /**
- * Identifier of the notation.
- * @member {String} id
+ * Identifier of the type.
+ * @member {Number} id
  */
 InlineResponse20091Data.prototype['id'] = undefined;
 
 /**
- * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
- * @member {String} symbol
+ * Code of the type.
+ * @member {String} code
  */
-InlineResponse20091Data.prototype['symbol'] = undefined;
+InlineResponse20091Data.prototype['code'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20091Nsin} nsin
+ * Description of the type in english language.
+ * @member {String} description
  */
-InlineResponse20091Data.prototype['nsin'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20091Price} price
- */
-InlineResponse20091Data.prototype['price'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20091Instrument} instrument
- */
-InlineResponse20091Data.prototype['instrument'] = undefined;
+InlineResponse20091Data.prototype['description'] = undefined;
 
 
 

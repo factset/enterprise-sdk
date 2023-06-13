@@ -35,8 +35,8 @@ class UserSerialDto {
      * Only for internal use.
      */
     static initialize(obj, username, serialNumber) { 
-        obj['Username'] = username;
-        obj['SerialNumber'] = serialNumber;
+        obj['username'] = username;
+        obj['serialNumber'] = serialNumber;
     }
 
     /**
@@ -50,11 +50,11 @@ class UserSerialDto {
         if (data) {
             obj = obj || new UserSerialDto();
 
-            if (data.hasOwnProperty('Username')) {
-                obj['Username'] = ApiClient.convertToType(data['Username'], 'String');
+            if (data.hasOwnProperty('username')) {
+                obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('SerialNumber')) {
-                obj['SerialNumber'] = ApiClient.convertToType(data['SerialNumber'], 'String');
+            if (data.hasOwnProperty('serialNumber')) {
+                obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
             }
         }
         return obj;
@@ -64,14 +64,14 @@ class UserSerialDto {
 }
 
 /**
- * @member {String} Username
+ * @member {String} username
  */
-UserSerialDto.prototype['Username'] = undefined;
+UserSerialDto.prototype['username'] = undefined;
 
 /**
- * @member {String} SerialNumber
+ * @member {String} serialNumber
  */
-UserSerialDto.prototype['SerialNumber'] = undefined;
+UserSerialDto.prototype['serialNumber'] = undefined;
 
 
 

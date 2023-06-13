@@ -1817,7 +1817,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_instrument_search_basic**
-> InlineResponse20090 get_instrument_search_basic(search_value)
+> InlineResponse20092 get_instrument_search_basic(search_value)
 
 Basic search for instruments.
 
@@ -1912,7 +1912,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20090**](InlineResponse20090.md)
+[**InlineResponse20092**](InlineResponse20092.md)
 
 ### Authorization
 
@@ -1994,7 +1994,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # PostInstrumentBackgroundTextTypeListRequest |  (optional)
+    ) # PostInstrumentBackgroundTextTypeListRequest | Request Body (optional)
 
     try:
         # List of background text types for instruments.
@@ -2013,7 +2013,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_instrument_background_text_type_list_request** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)|  | [optional]
+ **post_instrument_background_text_type_list_request** | [**PostInstrumentBackgroundTextTypeListRequest**](PostInstrumentBackgroundTextTypeListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2100,7 +2100,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # PostInstrumentBenchmarkListRequest |  (optional)
+    ) # PostInstrumentBenchmarkListRequest | Request Body (optional)
 
     try:
         # List of benchmarks of a financial instrument.
@@ -2119,7 +2119,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_instrument_benchmark_list_request** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)|  | [optional]
+ **post_instrument_benchmark_list_request** | [**PostInstrumentBenchmarkListRequest**](PostInstrumentBenchmarkListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2207,7 +2207,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             language=LanguageMember("language_example"),
             sort=["dataset.name"],
         ),
-    ) # PostInstrumentCategoryListRequest |  (optional)
+    ) # PostInstrumentCategoryListRequest | Request Body (optional)
 
     try:
         # List of categories assigned to a specific instrument the application is entitled to see.
@@ -2226,7 +2226,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_instrument_category_list_request** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)|  | [optional]
+ **post_instrument_category_list_request** | [**PostInstrumentCategoryListRequest**](PostInstrumentCategoryListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2312,7 +2312,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # PostInstrumentCompliancePropertyListRequest |  (optional)
+    ) # PostInstrumentCompliancePropertyListRequest | Request Body (optional)
 
     try:
         # List of compliance properties for instruments.
@@ -2331,7 +2331,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_instrument_compliance_property_list_request** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)|  | [optional]
+ **post_instrument_compliance_property_list_request** | [**PostInstrumentCompliancePropertyListRequest**](PostInstrumentCompliancePropertyListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2356,7 +2356,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_instrument_cross_reference_list_by_isin**
-> InlineResponse20056 post_instrument_cross_reference_list_by_isin()
+> InlineResponse20056 post_instrument_cross_reference_list_by_isin(post_instrument_cross_reference_list_by_isin_request)
 
 Translate a list of ISINs to instruments.
 
@@ -2414,13 +2414,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
         ),
-    ) # PostInstrumentCrossReferenceListByISINRequest |  (optional)
+    ) # PostInstrumentCrossReferenceListByISINRequest | Request Body
 
     try:
         # Translate a list of ISINs to instruments.
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.post_instrument_cross_reference_list_by_isin(post_instrument_cross_reference_list_by_isin_request=post_instrument_cross_reference_list_by_isin_request)
+        api_response = api_instance.post_instrument_cross_reference_list_by_isin(post_instrument_cross_reference_list_by_isin_request)
 
         pprint(api_response)
 
@@ -2433,7 +2432,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_instrument_cross_reference_list_by_isin_request** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)|  | [optional]
+ **post_instrument_cross_reference_list_by_isin_request** | [**PostInstrumentCrossReferenceListByISINRequest**](PostInstrumentCrossReferenceListByISINRequest.md)| Request Body |
 
 ### Return type
 
@@ -2458,7 +2457,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_instrument_cross_reference_list_by_wkn**
-> InlineResponse20057 post_instrument_cross_reference_list_by_wkn()
+> InlineResponse20057 post_instrument_cross_reference_list_by_wkn(post_instrument_cross_reference_list_by_wkn_request)
 
 Translate a list of WKNs to instruments.
 
@@ -2516,13 +2515,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
         ),
-    ) # PostInstrumentCrossReferenceListByWKNRequest |  (optional)
+    ) # PostInstrumentCrossReferenceListByWKNRequest | Request Body
 
     try:
         # Translate a list of WKNs to instruments.
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.post_instrument_cross_reference_list_by_wkn(post_instrument_cross_reference_list_by_wkn_request=post_instrument_cross_reference_list_by_wkn_request)
+        api_response = api_instance.post_instrument_cross_reference_list_by_wkn(post_instrument_cross_reference_list_by_wkn_request)
 
         pprint(api_response)
 
@@ -2535,7 +2533,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_instrument_cross_reference_list_by_wkn_request** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)|  | [optional]
+ **post_instrument_cross_reference_list_by_wkn_request** | [**PostInstrumentCrossReferenceListByWKNRequest**](PostInstrumentCrossReferenceListByWKNRequest.md)| Request Body |
 
 ### Return type
 
@@ -2663,7 +2661,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             language=LanguageMember("language_example"),
             sort=["notations.tradingVolume.month1.average"],
         ),
-    ) # PostInstrumentNotationListRequest |  (optional)
+    ) # PostInstrumentNotationListRequest | Request Body (optional)
 
     try:
         # List of active, entitled notations for a set of instruments.
@@ -2682,7 +2680,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_instrument_notation_list_request** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)|  | [optional]
+ **post_instrument_notation_list_request** | [**PostInstrumentNotationListRequest**](PostInstrumentNotationListRequest.md)| Request Body | [optional]
 
 ### Return type
 
@@ -2772,7 +2770,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
         ),
-    ) # PostInstrumentRatingGradeListRequest |  (optional)
+    ) # PostInstrumentRatingGradeListRequest | Request Body (optional)
 
     try:
         # List of rating grades for a list of instruments.
@@ -2791,7 +2789,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_instrument_rating_grade_list_request** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)|  | [optional]
+ **post_instrument_rating_grade_list_request** | [**PostInstrumentRatingGradeListRequest**](PostInstrumentRatingGradeListRequest.md)| Request Body | [optional]
 
 ### Return type
 

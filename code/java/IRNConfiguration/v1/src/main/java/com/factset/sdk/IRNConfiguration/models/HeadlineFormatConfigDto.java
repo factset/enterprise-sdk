@@ -45,13 +45,13 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class HeadlineFormatConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_STRING = "CustomString";
+  public static final String JSON_PROPERTY_CUSTOM_STRING = "customString";
   private JsonNullable<String> customString = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_NAME = "CustomFieldName";
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_NAME = "customFieldName";
   private JsonNullable<String> customFieldName = JsonNullable.<String>undefined();
 
   public HeadlineFormatConfigDto() { 

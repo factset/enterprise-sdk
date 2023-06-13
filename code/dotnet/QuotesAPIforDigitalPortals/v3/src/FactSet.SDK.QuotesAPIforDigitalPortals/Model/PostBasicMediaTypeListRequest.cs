@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// PostBasicMediaTypeListRequest
+    /// Request Body
     /// </summary>
     [DataContract(Name = "PostBasicMediaTypeListRequest")]
     public partial class PostBasicMediaTypeListRequest : IEquatable<PostBasicMediaTypeListRequest>, IValidatableObject

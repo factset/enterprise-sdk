@@ -83,127 +83,127 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name = "Date", EmitDefaultValue = true)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         public string Date { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorId
         /// </summary>
-        [DataMember(Name = "AuthorId", EmitDefaultValue = false)]
+        [DataMember(Name = "authorId", EmitDefaultValue = false)]
         public Guid AuthorId { get; set; }
 
         /// <summary>
         /// Gets or Sets ContributorId
         /// </summary>
-        [DataMember(Name = "ContributorId", EmitDefaultValue = false)]
+        [DataMember(Name = "contributorId", EmitDefaultValue = false)]
         public Guid ContributorId { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "Title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Identifier
         /// </summary>
-        [DataMember(Name = "Identifier", EmitDefaultValue = true)]
+        [DataMember(Name = "identifier", EmitDefaultValue = true)]
         public string Identifier { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedSymbols
         /// </summary>
-        [DataMember(Name = "RelatedSymbols", EmitDefaultValue = true)]
+        [DataMember(Name = "relatedSymbols", EmitDefaultValue = true)]
         public List<string> RelatedSymbols { get; set; }
 
         /// <summary>
         /// Gets or Sets SubjectId
         /// </summary>
-        [DataMember(Name = "SubjectId", EmitDefaultValue = false)]
+        [DataMember(Name = "subjectId", EmitDefaultValue = false)]
         public Guid SubjectId { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendationId
         /// </summary>
-        [DataMember(Name = "RecommendationId", EmitDefaultValue = true)]
+        [DataMember(Name = "recommendationId", EmitDefaultValue = true)]
         public Guid? RecommendationId { get; set; }
 
         /// <summary>
         /// Gets or Sets SentimentId
         /// </summary>
-        [DataMember(Name = "SentimentId", EmitDefaultValue = true)]
+        [DataMember(Name = "sentimentId", EmitDefaultValue = true)]
         public Guid? SentimentId { get; set; }
 
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "Source", EmitDefaultValue = true)]
+        [DataMember(Name = "source", EmitDefaultValue = true)]
         public string Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Link
         /// </summary>
-        [DataMember(Name = "Link", EmitDefaultValue = true)]
+        [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
-        [DataMember(Name = "Body", EmitDefaultValue = true)]
+        [DataMember(Name = "body", EmitDefaultValue = true)]
         public string Body { get; set; }
 
         /// <summary>
         /// Gets or Sets IsPersonal
         /// </summary>
-        [DataMember(Name = "IsPersonal", EmitDefaultValue = true)]
+        [DataMember(Name = "isPersonal", EmitDefaultValue = true)]
         public bool IsPersonal { get; set; }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "State", EmitDefaultValue = true)]
+        [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; set; }
 
         /// <summary>
         /// Gets or Sets ApprovalStatus
         /// </summary>
-        [DataMember(Name = "ApprovalStatus", EmitDefaultValue = true)]
+        [DataMember(Name = "approvalStatus", EmitDefaultValue = true)]
         public string ApprovalStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets AverageRating
         /// </summary>
-        [DataMember(Name = "AverageRating", EmitDefaultValue = true)]
+        [DataMember(Name = "averageRating", EmitDefaultValue = true)]
         public int? AverageRating { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedRecords
         /// </summary>
-        [DataMember(Name = "RelatedRecords", EmitDefaultValue = false)]
+        [DataMember(Name = "relatedRecords", EmitDefaultValue = false)]
         public RelatedRecordsDto RelatedRecords { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedContacts
         /// </summary>
-        [DataMember(Name = "RelatedContacts", EmitDefaultValue = true)]
+        [DataMember(Name = "relatedContacts", EmitDefaultValue = true)]
         public List<Guid> RelatedContacts { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFields
         /// </summary>
-        [DataMember(Name = "CustomFields", EmitDefaultValue = true)]
+        [DataMember(Name = "customFields", EmitDefaultValue = true)]
         public List<CustomFieldValueDto> CustomFields { get; set; }
 
         /// <summary>

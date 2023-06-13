@@ -58,13 +58,13 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Formula
         /// </summary>
-        [DataMember(Name = "Formula", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "formula", IsRequired = true, EmitDefaultValue = false)]
         public string Formula { get; set; }
 
         /// <summary>
         /// Gets or Sets FormulaType
         /// </summary>
-        [DataMember(Name = "FormulaType", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "formulaType", IsRequired = true, EmitDefaultValue = false)]
         public string FormulaType { get; set; }
 
         /// <summary>

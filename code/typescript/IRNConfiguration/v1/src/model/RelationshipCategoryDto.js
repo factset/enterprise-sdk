@@ -47,23 +47,23 @@ class RelationshipCategoryDto {
         if (data) {
             obj = obj || new RelationshipCategoryDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('IsStandard')) {
-                obj['IsStandard'] = ApiClient.convertToType(data['IsStandard'], 'Boolean');
+            if (data.hasOwnProperty('isStandard')) {
+                obj['isStandard'] = ApiClient.convertToType(data['isStandard'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsContactToContact')) {
-                obj['IsContactToContact'] = ApiClient.convertToType(data['IsContactToContact'], 'Boolean');
+            if (data.hasOwnProperty('isContactToContact')) {
+                obj['isContactToContact'] = ApiClient.convertToType(data['isContactToContact'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsContactToSymbol')) {
-                obj['IsContactToSymbol'] = ApiClient.convertToType(data['IsContactToSymbol'], 'Boolean');
+            if (data.hasOwnProperty('isContactToSymbol')) {
+                obj['isContactToSymbol'] = ApiClient.convertToType(data['isContactToSymbol'], 'Boolean');
             }
-            if (data.hasOwnProperty('Relationships')) {
-                obj['Relationships'] = ApiClient.convertToType(data['Relationships'], [RelationshipDto]);
+            if (data.hasOwnProperty('relationships')) {
+                obj['relationships'] = ApiClient.convertToType(data['relationships'], [RelationshipDto]);
             }
         }
         return obj;
@@ -73,34 +73,34 @@ class RelationshipCategoryDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-RelationshipCategoryDto.prototype['Id'] = undefined;
+RelationshipCategoryDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-RelationshipCategoryDto.prototype['Name'] = undefined;
+RelationshipCategoryDto.prototype['name'] = undefined;
 
 /**
- * @member {Boolean} IsStandard
+ * @member {Boolean} isStandard
  */
-RelationshipCategoryDto.prototype['IsStandard'] = undefined;
+RelationshipCategoryDto.prototype['isStandard'] = undefined;
 
 /**
- * @member {Boolean} IsContactToContact
+ * @member {Boolean} isContactToContact
  */
-RelationshipCategoryDto.prototype['IsContactToContact'] = undefined;
+RelationshipCategoryDto.prototype['isContactToContact'] = undefined;
 
 /**
- * @member {Boolean} IsContactToSymbol
+ * @member {Boolean} isContactToSymbol
  */
-RelationshipCategoryDto.prototype['IsContactToSymbol'] = undefined;
+RelationshipCategoryDto.prototype['isContactToSymbol'] = undefined;
 
 /**
- * @member {Array.<module:model/RelationshipDto>} Relationships
+ * @member {Array.<module:model/RelationshipDto>} relationships
  */
-RelationshipCategoryDto.prototype['Relationships'] = undefined;
+RelationshipCategoryDto.prototype['relationships'] = undefined;
 
 
 

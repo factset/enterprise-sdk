@@ -61,61 +61,61 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "Code", EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "Type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets IsHidden
         /// </summary>
-        [DataMember(Name = "IsHidden", EmitDefaultValue = true)]
+        [DataMember(Name = "isHidden", EmitDefaultValue = true)]
         public bool IsHidden { get; set; }
 
         /// <summary>
         /// Gets or Sets IsMandatory
         /// </summary>
-        [DataMember(Name = "IsMandatory", EmitDefaultValue = true)]
+        [DataMember(Name = "isMandatory", EmitDefaultValue = true)]
         public bool IsMandatory { get; set; }
 
         /// <summary>
         /// Gets or Sets IsShownInInfobox
         /// </summary>
-        [DataMember(Name = "IsShownInInfobox", EmitDefaultValue = true)]
+        [DataMember(Name = "isShownInInfobox", EmitDefaultValue = true)]
         public bool IsShownInInfobox { get; set; }
 
         /// <summary>
         /// Gets or Sets FormulaConfig
         /// </summary>
-        [DataMember(Name = "FormulaConfig", EmitDefaultValue = false)]
+        [DataMember(Name = "formulaConfig", EmitDefaultValue = false)]
         public CustomSymbolCustomFieldFormulaConfigDto FormulaConfig { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionsConfig
         /// </summary>
-        [DataMember(Name = "OptionsConfig", EmitDefaultValue = true)]
+        [DataMember(Name = "optionsConfig", EmitDefaultValue = true)]
         public List<string> OptionsConfig { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomSymbolTypes
         /// </summary>
-        [DataMember(Name = "CustomSymbolTypes", EmitDefaultValue = true)]
+        [DataMember(Name = "customSymbolTypes", EmitDefaultValue = true)]
         public List<CustomSymbolTypeSummaryDto> CustomSymbolTypes { get; set; }
 
         /// <summary>

@@ -34,7 +34,7 @@ class RelationshipCategorySaveDto {
      * Only for internal use.
      */
     static initialize(obj, categoryName) { 
-        obj['CategoryName'] = categoryName;
+        obj['categoryName'] = categoryName;
     }
 
     /**
@@ -48,14 +48,14 @@ class RelationshipCategorySaveDto {
         if (data) {
             obj = obj || new RelationshipCategorySaveDto();
 
-            if (data.hasOwnProperty('CategoryName')) {
-                obj['CategoryName'] = ApiClient.convertToType(data['CategoryName'], 'String');
+            if (data.hasOwnProperty('categoryName')) {
+                obj['categoryName'] = ApiClient.convertToType(data['categoryName'], 'String');
             }
-            if (data.hasOwnProperty('IsContactToContact')) {
-                obj['IsContactToContact'] = ApiClient.convertToType(data['IsContactToContact'], 'Boolean');
+            if (data.hasOwnProperty('isContactToContact')) {
+                obj['isContactToContact'] = ApiClient.convertToType(data['isContactToContact'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsContactToSymbol')) {
-                obj['IsContactToSymbol'] = ApiClient.convertToType(data['IsContactToSymbol'], 'Boolean');
+            if (data.hasOwnProperty('isContactToSymbol')) {
+                obj['isContactToSymbol'] = ApiClient.convertToType(data['isContactToSymbol'], 'Boolean');
             }
         }
         return obj;
@@ -65,21 +65,21 @@ class RelationshipCategorySaveDto {
 }
 
 /**
- * @member {String} CategoryName
+ * @member {String} categoryName
  */
-RelationshipCategorySaveDto.prototype['CategoryName'] = undefined;
+RelationshipCategorySaveDto.prototype['categoryName'] = undefined;
 
 /**
- * @member {Boolean} IsContactToContact
+ * @member {Boolean} isContactToContact
  * @default false
  */
-RelationshipCategorySaveDto.prototype['IsContactToContact'] = false;
+RelationshipCategorySaveDto.prototype['isContactToContact'] = false;
 
 /**
- * @member {Boolean} IsContactToSymbol
+ * @member {Boolean} isContactToSymbol
  * @default false
  */
-RelationshipCategorySaveDto.prototype['IsContactToSymbol'] = false;
+RelationshipCategorySaveDto.prototype['isContactToSymbol'] = false;
 
 
 

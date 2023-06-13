@@ -12,8 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20088DataEvents from './InlineResponse20088DataEvents';
-import InlineResponse20088DataRange from './InlineResponse20088DataRange';
+import InlineResponse20088DataAsks from './InlineResponse20088DataAsks';
 
 /**
  * The InlineResponse20088Data model module.
@@ -22,7 +21,7 @@ import InlineResponse20088DataRange from './InlineResponse20088DataRange';
 class InlineResponse20088Data {
     /**
      * Constructs a new <code>InlineResponse20088Data</code>.
-     * List of trading schedule events for a notation.
+     * Orderbook.
      * @alias module:model/InlineResponse20088Data
      */
     constructor() { 
@@ -55,11 +54,14 @@ class InlineResponse20088Data {
             if (data.hasOwnProperty('sourceIdentifier')) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('range')) {
-                obj['range'] = InlineResponse20088DataRange.constructFromObject(data['range']);
+            if (data.hasOwnProperty('quality')) {
+                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('events')) {
-                obj['events'] = ApiClient.convertToType(data['events'], [InlineResponse20088DataEvents]);
+            if (data.hasOwnProperty('asks')) {
+                obj['asks'] = ApiClient.convertToType(data['asks'], [InlineResponse20088DataAsks]);
+            }
+            if (data.hasOwnProperty('bids')) {
+                obj['bids'] = ApiClient.convertToType(data['bids'], [InlineResponse20088DataAsks]);
             }
         }
         return obj;
@@ -81,18 +83,46 @@ InlineResponse20088Data.prototype['idNotation'] = undefined;
 InlineResponse20088Data.prototype['sourceIdentifier'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20088DataRange} range
+ * Quality of the price.
+ * @member {module:model/InlineResponse20088Data.QualityEnum} quality
  */
-InlineResponse20088Data.prototype['range'] = undefined;
+InlineResponse20088Data.prototype['quality'] = undefined;
 
 /**
- * List of trading schedule events.
- * @member {Array.<module:model/InlineResponse20088DataEvents>} events
+ * List of sell orders aggregated by price.
+ * @member {Array.<module:model/InlineResponse20088DataAsks>} asks
  */
-InlineResponse20088Data.prototype['events'] = undefined;
+InlineResponse20088Data.prototype['asks'] = undefined;
+
+/**
+ * List of buy orders aggregated by price.
+ * @member {Array.<module:model/InlineResponse20088DataAsks>} bids
+ */
+InlineResponse20088Data.prototype['bids'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>quality</code> property.
+ * @enum {String}
+ * @readonly
+ */
+InlineResponse20088Data['QualityEnum'] = {
+
+    /**
+     * value: "RLT"
+     * @const
+     */
+    "RLT": "RLT",
+
+    /**
+     * value: "DLY"
+     * @const
+     */
+    "DLY": "DLY"
+};
 
 
 

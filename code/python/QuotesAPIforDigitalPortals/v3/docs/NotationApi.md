@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_notation_key_figures_month_3_list**](NotationApi.md#get_notation_key_figures_month_3_list) | **GET** /notation/keyFigures/month/3/list | End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 [**get_notation_key_figures_month_6_get**](NotationApi.md#get_notation_key_figures_month_6_get) | **GET** /notation/keyFigures/month/6/get | End-of-day (EOD) key figures for the time range of six months.
 [**get_notation_key_figures_month_6_list**](NotationApi.md#get_notation_key_figures_month_6_list) | **GET** /notation/keyFigures/month/6/list | End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+[**get_notation_key_figures_trading_day_average_get**](NotationApi.md#get_notation_key_figures_trading_day_average_get) | **GET** /notation/keyFigures/tradingDay/average/get | Average end-of-day (EOD) key figures for different trading days periods.
 [**get_notation_key_figures_week_1_get**](NotationApi.md#get_notation_key_figures_week_1_get) | **GET** /notation/keyFigures/week/1/get | End-of-day (EOD) key figures for the time range of one week.
 [**get_notation_key_figures_week_1_list**](NotationApi.md#get_notation_key_figures_week_1_list) | **GET** /notation/keyFigures/week/1/list | End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 [**get_notation_key_figures_year_10_get**](NotationApi.md#get_notation_key_figures_year_10_get) | **GET** /notation/keyFigures/year/10/get | End-of-day (EOD) key figures for the time range of ten years.
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**get_notation_search_basic**](NotationApi.md#get_notation_search_basic) | **GET** /notation/search/basic | Basic search for notations.
 [**get_notation_search_by_text_ranked_by_volume**](NotationApi.md#get_notation_search_by_text_ranked_by_volume) | **GET** /notation/searchByTextRankedByVolume | Basic search for notations.
 [**get_notation_status_get**](NotationApi.md#get_notation_status_get) | **GET** /notation/status/get | Intraday trading status of a notation.
+[**post_notation_category_list**](NotationApi.md#post_notation_category_list) | **POST** /notation/category/list | List of categories assigned to a specific notation the application is entitled to see.
 [**post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier**](NotationApi.md#post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier) | **POST** /notation/crossReference/factSetIdentifier/listByFactSetIdentifier | Retrieve a list of notations for a given FactSet identifier.
 [**post_notation_cross_reference_fact_set_identifier_list_by_instrument**](NotationApi.md#post_notation_cross_reference_fact_set_identifier_list_by_instrument) | **POST** /notation/crossReference/factSetIdentifier/listByInstrument | Retrieve a list of FactSet identifiers for a given instrument.
 [**post_notation_cross_reference_list_by_instrument**](NotationApi.md#post_notation_cross_reference_list_by_instrument) | **POST** /notation/crossReference/listByInstrument | List of entitled notations.
@@ -42,7 +44,7 @@ Method | HTTP request | Description
 
 
 # **get_notation_cross_reference_fact_set_identifier_get**
-> InlineResponse20071 get_notation_cross_reference_fact_set_identifier_get(identifier, identifier_type)
+> InlineResponse20072 get_notation_cross_reference_fact_set_identifier_get(identifier, identifier_type)
 
 Retrieve FactSet identifiers for a given notation.
 
@@ -120,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20071**](InlineResponse20071.md)
+[**InlineResponse20072**](InlineResponse20072.md)
 
 ### Authorization
 
@@ -141,7 +143,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_cross_reference_get_by_fact_set_market_symbol**
-> InlineResponse20067 get_notation_cross_reference_get_by_fact_set_market_symbol(fact_set_market_symbol)
+> InlineResponse20068 get_notation_cross_reference_get_by_fact_set_market_symbol(fact_set_market_symbol)
 
 Translate a FactSet market symbol to a notation.
 
@@ -219,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20068**](InlineResponse20068.md)
 
 ### Authorization
 
@@ -342,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_1_get**
-> InlineResponse20076 get_notation_key_figures_month_1_get(identifier, identifier_type)
+> InlineResponse20077 get_notation_key_figures_month_1_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one month.
 
@@ -420,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -441,7 +443,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_1_list**
-> InlineResponse20077 get_notation_key_figures_month_1_list(identifiers, identifier_type)
+> InlineResponse20078 get_notation_key_figures_month_1_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one month, for a list of notations.
 
@@ -521,7 +523,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -542,7 +544,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_3_get**
-> InlineResponse20074 get_notation_key_figures_month_3_get(identifier, identifier_type)
+> InlineResponse20075 get_notation_key_figures_month_3_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of three months.
 
@@ -620,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -641,7 +643,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_3_list**
-> InlineResponse20075 get_notation_key_figures_month_3_list(identifiers, identifier_type)
+> InlineResponse20076 get_notation_key_figures_month_3_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of three months, for a list of notations.
 
@@ -721,7 +723,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -742,7 +744,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_6_get**
-> InlineResponse20074 get_notation_key_figures_month_6_get(identifier, identifier_type)
+> InlineResponse20075 get_notation_key_figures_month_6_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of six months.
 
@@ -820,7 +822,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -841,7 +843,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_month_6_list**
-> InlineResponse20075 get_notation_key_figures_month_6_list(identifiers, identifier_type)
+> InlineResponse20076 get_notation_key_figures_month_6_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of six months, for a list of notations.
 
@@ -921,7 +923,106 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_notation_key_figures_trading_day_average_get**
+> InlineResponse20081 get_notation_key_figures_trading_day_average_get(identifier, identifier_type)
+
+Average end-of-day (EOD) key figures for different trading days periods.
+
+Average end-of-day (EOD) key figures for different trading days periods. A trading day is a calendar day on that trading of the notation was possible.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.QuotesAPIforDigitalPortals
+from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = notation_api.NotationApi(api_client)
+
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    identifier = "80728880015" # str | 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    identifier_type = "idNotation" # str | 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+
+    try:
+        # Average end-of-day (EOD) key figures for different trading days periods.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_notation_key_figures_trading_day_average_get(identifier, identifier_type, attributes=attributes)
+
+        pprint(api_response)
+
+    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling NotationApi->get_notation_key_figures_trading_day_average_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **str**|  |
+ **identifier_type** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse20081**](InlineResponse20081.md)
 
 ### Authorization
 
@@ -942,7 +1043,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_week_1_get**
-> InlineResponse20076 get_notation_key_figures_week_1_get(identifier, identifier_type)
+> InlineResponse20077 get_notation_key_figures_week_1_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one week.
 
@@ -1020,7 +1121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -1041,7 +1142,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_week_1_list**
-> InlineResponse20077 get_notation_key_figures_week_1_list(identifiers, identifier_type)
+> InlineResponse20078 get_notation_key_figures_week_1_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one week, for a list of notations.
 
@@ -1121,7 +1222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -1142,7 +1243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_10_get**
-> InlineResponse20074 get_notation_key_figures_year_10_get(identifier, identifier_type)
+> InlineResponse20075 get_notation_key_figures_year_10_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of ten years.
 
@@ -1220,7 +1321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1241,7 +1342,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_10_list**
-> InlineResponse20075 get_notation_key_figures_year_10_list(identifiers, identifier_type)
+> InlineResponse20076 get_notation_key_figures_year_10_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of ten years, for a list of notations.
 
@@ -1321,7 +1422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1342,7 +1443,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_1_get**
-> InlineResponse20076 get_notation_key_figures_year_1_get(identifier, identifier_type)
+> InlineResponse20077 get_notation_key_figures_year_1_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one year.
 
@@ -1420,7 +1521,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20076**](InlineResponse20076.md)
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -1441,7 +1542,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_1_list**
-> InlineResponse20077 get_notation_key_figures_year_1_list(identifiers, identifier_type)
+> InlineResponse20078 get_notation_key_figures_year_1_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of one year, for a list of notations.
 
@@ -1521,7 +1622,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20078**](InlineResponse20078.md)
 
 ### Authorization
 
@@ -1542,7 +1643,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_3_get**
-> InlineResponse20074 get_notation_key_figures_year_3_get(identifier, identifier_type)
+> InlineResponse20075 get_notation_key_figures_year_3_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of three years.
 
@@ -1620,7 +1721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1641,7 +1742,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_3_list**
-> InlineResponse20075 get_notation_key_figures_year_3_list(identifiers, identifier_type)
+> InlineResponse20076 get_notation_key_figures_year_3_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of three years, for a list of notations.
 
@@ -1721,7 +1822,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1742,7 +1843,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_5_get**
-> InlineResponse20074 get_notation_key_figures_year_5_get(identifier, identifier_type)
+> InlineResponse20075 get_notation_key_figures_year_5_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of five years.
 
@@ -1820,7 +1921,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -1841,7 +1942,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_5_list**
-> InlineResponse20075 get_notation_key_figures_year_5_list(identifiers, identifier_type)
+> InlineResponse20076 get_notation_key_figures_year_5_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of five years, for a list of notations.
 
@@ -1921,7 +2022,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -1942,7 +2043,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_7_get**
-> InlineResponse20074 get_notation_key_figures_year_7_get(identifier, identifier_type)
+> InlineResponse20075 get_notation_key_figures_year_7_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range of seven years.
 
@@ -2020,7 +2121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -2041,7 +2142,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_7_list**
-> InlineResponse20075 get_notation_key_figures_year_7_list(identifiers, identifier_type)
+> InlineResponse20076 get_notation_key_figures_year_7_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range of seven years, for a list of notations.
 
@@ -2121,7 +2222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20076**](InlineResponse20076.md)
 
 ### Authorization
 
@@ -2142,7 +2243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_to_date_get**
-> InlineResponse20078 get_notation_key_figures_year_to_date_get(identifier, identifier_type)
+> InlineResponse20079 get_notation_key_figures_year_to_date_get(identifier, identifier_type)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD)..
 
@@ -2220,7 +2321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20078**](InlineResponse20078.md)
+[**InlineResponse20079**](InlineResponse20079.md)
 
 ### Authorization
 
@@ -2241,7 +2342,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_key_figures_year_to_date_list**
-> InlineResponse20079 get_notation_key_figures_year_to_date_list(identifiers, identifier_type)
+> InlineResponse20080 get_notation_key_figures_year_to_date_list(identifiers, identifier_type)
 
 End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
 
@@ -2321,7 +2422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20079**](InlineResponse20079.md)
+[**InlineResponse20080**](InlineResponse20080.md)
 
 ### Authorization
 
@@ -2446,7 +2547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_search_basic**
-> InlineResponse20091 get_notation_search_basic(search_value)
+> InlineResponse20093 get_notation_search_basic(search_value)
 
 Basic search for notations.
 
@@ -2544,7 +2645,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20091**](InlineResponse20091.md)
+[**InlineResponse20093**](InlineResponse20093.md)
 
 ### Authorization
 
@@ -2565,7 +2666,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_search_by_text_ranked_by_volume**
-> InlineResponse20093 get_notation_search_by_text_ranked_by_volume(search_value)
+> InlineResponse20095 get_notation_search_by_text_ranked_by_volume(search_value)
 
 Basic search for notations.
 
@@ -2667,7 +2768,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20093**](InlineResponse20093.md)
+[**InlineResponse20095**](InlineResponse20095.md)
 
 ### Authorization
 
@@ -2688,11 +2789,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notation_status_get**
-> InlineResponse20081 get_notation_status_get(identifier, identifier_type)
+> InlineResponse20083 get_notation_status_get(identifier, identifier_type)
 
 Intraday trading status of a notation.
 
-Intraday trading status of a notation.
+Intraday trading status of a notation.<br>The endpoint is subscribable to provide push updates. See attribute `_subscriptionMinimalInterval` for valid update rates.
 
 ### Example
 
@@ -2769,7 +2870,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20081**](InlineResponse20081.md)
+[**InlineResponse20083**](InlineResponse20083.md)
 
 ### Authorization
 
@@ -2789,8 +2890,116 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **post_notation_category_list**
+> InlineResponse20067 post_notation_category_list()
+
+List of categories assigned to a specific notation the application is entitled to see.
+
+List of categories assigned to a specific notation the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.QuotesAPIforDigitalPortals
+from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = notation_api.NotationApi(api_client)
+
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    post_notation_category_list_request = PostNotationCategoryListRequest(
+        data=PostNotationCategoryListRequestData(
+            identifier="80728880015",
+            identifier_type="idNotation",
+            filter=PostNotationCategoryListRequestDataFilter(
+                dataset=PostNotationCategoryListRequestDataFilterDataset(
+                    id=3.14,
+                ),
+            ),
+        ),
+        meta=PostInstrumentCategoryListRequestMeta(
+            attributes=AttributesMember([
+                "attributes_example",
+            ]),
+            language=LanguageMember("language_example"),
+            sort=["dataset.name"],
+        ),
+    ) # PostNotationCategoryListRequest | Request Body (optional)
+
+    try:
+        # List of categories assigned to a specific notation the application is entitled to see.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_notation_category_list(post_notation_category_list_request=post_notation_category_list_request)
+
+        pprint(api_response)
+
+    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling NotationApi->post_notation_category_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **post_notation_category_list_request** | [**PostNotationCategoryListRequest**](PostNotationCategoryListRequest.md)| Request Body | [optional]
+
+### Return type
+
+[**InlineResponse20067**](InlineResponse20067.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier**
-> InlineResponse20072 post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier()
+> InlineResponse20073 post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request)
 
 Retrieve a list of notations for a given FactSet identifier.
 
@@ -2839,7 +3048,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest(
         data=PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequestData(
-            symbology_identifier="Q6ZGCKEC0L3O4GI7XHK0JCY075UA-TI",
+            symbology_identifier="I&XQ7UAO6.&H3LOQTQJ#H7XZ1DO5-34",
         ),
         meta=PostInstrumentBackgroundTextTypeListRequestMeta(
             attributes=AttributesMember([
@@ -2847,13 +3056,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest |  (optional)
+    ) # PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest | Request Body
 
     try:
         # Retrieve a list of notations for a given FactSet identifier.
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request=post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request)
+        api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request)
 
         pprint(api_response)
 
@@ -2866,11 +3074,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)|  | [optional]
+ **post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier_request** | [**PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest**](PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierRequest.md)| Request Body |
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20073**](InlineResponse20073.md)
 
 ### Authorization
 
@@ -2891,7 +3099,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_fact_set_identifier_list_by_instrument**
-> InlineResponse20073 post_notation_cross_reference_fact_set_identifier_list_by_instrument()
+> InlineResponse20074 post_notation_cross_reference_fact_set_identifier_list_by_instrument(post_notation_cross_reference_fact_set_identifier_list_by_instrument_request)
 
 Retrieve a list of FactSet identifiers for a given instrument.
 
@@ -2951,13 +3159,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest |  (optional)
+    ) # PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest | Request Body
 
     try:
         # Retrieve a list of FactSet identifiers for a given instrument.
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_instrument(post_notation_cross_reference_fact_set_identifier_list_by_instrument_request=post_notation_cross_reference_fact_set_identifier_list_by_instrument_request)
+        api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_instrument(post_notation_cross_reference_fact_set_identifier_list_by_instrument_request)
 
         pprint(api_response)
 
@@ -2970,11 +3177,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_notation_cross_reference_fact_set_identifier_list_by_instrument_request** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)|  | [optional]
+ **post_notation_cross_reference_fact_set_identifier_list_by_instrument_request** | [**PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest**](PostNotationCrossReferenceFactSetIdentifierListByInstrumentRequest.md)| Request Body |
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20074**](InlineResponse20074.md)
 
 ### Authorization
 
@@ -2995,7 +3202,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_list_by_instrument**
-> InlineResponse20068 post_notation_cross_reference_list_by_instrument()
+> InlineResponse20069 post_notation_cross_reference_list_by_instrument()
 
 List of entitled notations.
 
@@ -3068,7 +3275,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # PostNotationCrossReferenceListByInstrumentRequest |  (optional)
+    ) # PostNotationCrossReferenceListByInstrumentRequest | Request Body (optional)
 
     try:
         # List of entitled notations.
@@ -3087,11 +3294,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_notation_cross_reference_list_by_instrument_request** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)|  | [optional]
+ **post_notation_cross_reference_list_by_instrument_request** | [**PostNotationCrossReferenceListByInstrumentRequest**](PostNotationCrossReferenceListByInstrumentRequest.md)| Request Body | [optional]
 
 ### Return type
 
-[**InlineResponse20068**](InlineResponse20068.md)
+[**InlineResponse20069**](InlineResponse20069.md)
 
 ### Authorization
 
@@ -3112,7 +3319,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_list_by_isin**
-> InlineResponse20069 post_notation_cross_reference_list_by_isin()
+> InlineResponse20070 post_notation_cross_reference_list_by_isin()
 
 List of entitled notations.
 
@@ -3182,7 +3389,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # PostNotationCrossReferenceListByISINRequest |  (optional)
+    ) # PostNotationCrossReferenceListByISINRequest | Request Body (optional)
 
     try:
         # List of entitled notations.
@@ -3201,11 +3408,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_notation_cross_reference_list_by_isin_request** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)|  | [optional]
+ **post_notation_cross_reference_list_by_isin_request** | [**PostNotationCrossReferenceListByISINRequest**](PostNotationCrossReferenceListByISINRequest.md)| Request Body | [optional]
 
 ### Return type
 
-[**InlineResponse20069**](InlineResponse20069.md)
+[**InlineResponse20070**](InlineResponse20070.md)
 
 ### Authorization
 
@@ -3226,7 +3433,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_cross_reference_list_by_symbol**
-> InlineResponse20070 post_notation_cross_reference_list_by_symbol()
+> InlineResponse20071 post_notation_cross_reference_list_by_symbol()
 
 List of entitled notations.
 
@@ -3296,7 +3503,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # PostNotationCrossReferenceListBySymbolRequest |  (optional)
+    ) # PostNotationCrossReferenceListBySymbolRequest | Request Body (optional)
 
     try:
         # List of entitled notations.
@@ -3315,11 +3522,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_notation_cross_reference_list_by_symbol_request** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)|  | [optional]
+ **post_notation_cross_reference_list_by_symbol_request** | [**PostNotationCrossReferenceListBySymbolRequest**](PostNotationCrossReferenceListBySymbolRequest.md)| Request Body | [optional]
 
 ### Return type
 
-[**InlineResponse20070**](InlineResponse20070.md)
+[**InlineResponse20071**](InlineResponse20071.md)
 
 ### Authorization
 
@@ -3340,7 +3547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_market_list**
-> InlineResponse20080 post_notation_market_list()
+> InlineResponse20082 post_notation_market_list()
 
 List of markets with entitled notations.
 
@@ -3423,7 +3630,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 limit=20,
             ),
         ),
-    ) # PostNotationMarketListRequest |  (optional)
+    ) # PostNotationMarketListRequest | Request Body (optional)
 
     try:
         # List of markets with entitled notations.
@@ -3442,11 +3649,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_notation_market_list_request** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)|  | [optional]
+ **post_notation_market_list_request** | [**PostNotationMarketListRequest**](PostNotationMarketListRequest.md)| Request Body | [optional]
 
 ### Return type
 
-[**InlineResponse20080**](InlineResponse20080.md)
+[**InlineResponse20082**](InlineResponse20082.md)
 
 ### Authorization
 
@@ -3467,7 +3674,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_notation_search_by_text**
-> InlineResponse20092 post_notation_search_by_text()
+> InlineResponse20094 post_notation_search_by_text(post_notation_search_by_text_request)
 
 Text-based search for notations.
 
@@ -3605,13 +3812,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 limit=20,
             ),
         ),
-    ) # PostNotationSearchByTextRequest |  (optional)
+    ) # PostNotationSearchByTextRequest | Request Body
 
     try:
         # Text-based search for notations.
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.post_notation_search_by_text(post_notation_search_by_text_request=post_notation_search_by_text_request)
+        api_response = api_instance.post_notation_search_by_text(post_notation_search_by_text_request)
 
         pprint(api_response)
 
@@ -3624,11 +3830,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **post_notation_search_by_text_request** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)|  | [optional]
+ **post_notation_search_by_text_request** | [**PostNotationSearchByTextRequest**](PostNotationSearchByTextRequest.md)| Request Body |
 
 ### Return type
 
-[**InlineResponse20092**](InlineResponse20092.md)
+[**InlineResponse20094**](InlineResponse20094.md)
 
 ### Authorization
 

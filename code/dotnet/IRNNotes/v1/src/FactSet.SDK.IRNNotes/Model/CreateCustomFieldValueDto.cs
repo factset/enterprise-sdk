@@ -70,61 +70,61 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "Code", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets IntegerValue
         /// </summary>
-        [DataMember(Name = "IntegerValue", EmitDefaultValue = true)]
+        [DataMember(Name = "integerValue", EmitDefaultValue = true)]
         public int? IntegerValue { get; set; }
 
         /// <summary>
         /// Gets or Sets TextValue
         /// </summary>
-        [DataMember(Name = "TextValue", EmitDefaultValue = true)]
+        [DataMember(Name = "textValue", EmitDefaultValue = true)]
         public string TextValue { get; set; }
 
         /// <summary>
         /// Gets or Sets FilePathValue
         /// </summary>
-        [DataMember(Name = "FilePathValue", EmitDefaultValue = true)]
+        [DataMember(Name = "filePathValue", EmitDefaultValue = true)]
         public string FilePathValue { get; set; }
 
         /// <summary>
         /// Gets or Sets NumericValue
         /// </summary>
-        [DataMember(Name = "NumericValue", EmitDefaultValue = true)]
+        [DataMember(Name = "numericValue", EmitDefaultValue = true)]
         public double? NumericValue { get; set; }
 
         /// <summary>
         /// Gets or Sets DateValue
         /// </summary>
-        [DataMember(Name = "DateValue", EmitDefaultValue = true)]
+        [DataMember(Name = "dateValue", EmitDefaultValue = true)]
         public string DateValue { get; set; }
 
         /// <summary>
         /// Gets or Sets ExtendedTextValue
         /// </summary>
-        [DataMember(Name = "ExtendedTextValue", EmitDefaultValue = true)]
+        [DataMember(Name = "extendedTextValue", EmitDefaultValue = true)]
         public string ExtendedTextValue { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactLookupValues
         /// </summary>
-        [DataMember(Name = "ContactLookupValues", EmitDefaultValue = true)]
+        [DataMember(Name = "contactLookupValues", EmitDefaultValue = true)]
         public List<Guid> ContactLookupValues { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionValue
         /// </summary>
-        [DataMember(Name = "OptionValue", EmitDefaultValue = true)]
+        [DataMember(Name = "optionValue", EmitDefaultValue = true)]
         public string OptionValue { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionValues
         /// </summary>
-        [DataMember(Name = "OptionValues", EmitDefaultValue = true)]
+        [DataMember(Name = "optionValues", EmitDefaultValue = true)]
         public List<string> OptionValues { get; set; }
 
         /// <summary>

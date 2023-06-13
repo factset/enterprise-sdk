@@ -53,37 +53,37 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <summary>
         /// Gets or Sets IsHidden
         /// </summary>
-        [DataMember(Name = "IsHidden", EmitDefaultValue = true)]
+        [DataMember(Name = "isHidden", EmitDefaultValue = true)]
         public bool IsHidden { get; set; }
 
         /// <summary>
         /// Gets or Sets IsMandatory
         /// </summary>
-        [DataMember(Name = "IsMandatory", EmitDefaultValue = true)]
+        [DataMember(Name = "isMandatory", EmitDefaultValue = true)]
         public bool IsMandatory { get; set; }
 
         /// <summary>
         /// Gets or Sets UsePrevious
         /// </summary>
-        [DataMember(Name = "UsePrevious", EmitDefaultValue = true)]
+        [DataMember(Name = "usePrevious", EmitDefaultValue = true)]
         public bool UsePrevious { get; set; }
 
         /// <summary>
         /// Gets or Sets AllowPersonal
         /// </summary>
-        [DataMember(Name = "AllowPersonal", EmitDefaultValue = true)]
+        [DataMember(Name = "allowPersonal", EmitDefaultValue = true)]
         public bool AllowPersonal { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultStatus
         /// </summary>
-        [DataMember(Name = "DefaultStatus", EmitDefaultValue = true)]
+        [DataMember(Name = "defaultStatus", EmitDefaultValue = true)]
         public string DefaultStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets AlternativeCustomFieldId
         /// </summary>
-        [DataMember(Name = "AlternativeCustomFieldId", EmitDefaultValue = true)]
+        [DataMember(Name = "alternativeCustomFieldId", EmitDefaultValue = true)]
         public Guid? AlternativeCustomFieldId { get; set; }
 
         /// <summary>

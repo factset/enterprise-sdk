@@ -2884,11 +2884,11 @@
       "ApprovalLevelConfigDto": {
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "ApproverIds": {
+          "approverIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -2902,14 +2902,14 @@
       "ApprovalProcessConfigDto": {
         "type": "object",
         "properties": {
-          "ApprovalLevels": {
+          "approvalLevels": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApprovalLevelConfigDto"
             },
             "nullable": true
           },
-          "ViewerIds": {
+          "viewerIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -2917,28 +2917,28 @@
             },
             "nullable": true
           },
-          "ShouldSendEmailAlertsWhenSubmittedForApproval": {
+          "shouldSendEmailAlertsWhenSubmittedForApproval": {
             "type": "boolean"
           },
-          "ShouldSendEmailAlertsWhenApproved": {
+          "shouldSendEmailAlertsWhenApproved": {
             "type": "boolean"
           },
-          "ShouldSendEmailAlertsWhenDenied": {
+          "shouldSendEmailAlertsWhenDenied": {
             "type": "boolean"
           },
-          "ShouldSendEmailAlertsToAuthor": {
+          "shouldSendEmailAlertsToAuthor": {
             "type": "boolean"
           },
-          "ShouldSendEmailAlertsToApprovers": {
+          "shouldSendEmailAlertsToApprovers": {
             "type": "boolean"
           },
-          "ShouldSendEmailAlertsToViewers": {
+          "shouldSendEmailAlertsToViewers": {
             "type": "boolean"
           },
-          "CanAuthorSelfApprove": {
+          "canAuthorSelfApprove": {
             "type": "boolean"
           },
-          "CanAuthorEditPending": {
+          "canAuthorEditPending": {
             "type": "boolean"
           }
         },
@@ -2947,34 +2947,34 @@
       "AuthorConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "UserName": {
+          "userName": {
             "type": "string",
             "nullable": true
           },
-          "SerialNumber": {
+          "serialNumber": {
             "type": "string",
             "nullable": true
           },
-          "FirstName": {
+          "firstName": {
             "type": "string",
             "nullable": true
           },
-          "LastName": {
+          "lastName": {
             "type": "string",
             "nullable": true
           },
-          "EmailAddress": {
+          "emailAddress": {
             "type": "string",
             "nullable": true
           },
-          "IsActive": {
+          "isActive": {
             "type": "boolean"
           },
-          "Team": {
+          "team": {
             "$ref": "#/components/schemas/TeamSummaryDto"
           }
         },
@@ -2983,11 +2983,11 @@
       "ClientSalesRepresentativeDto": {
         "type": "object",
         "properties": {
-          "Fullname": {
+          "fullname": {
             "type": "string",
             "nullable": true
           },
-          "EmailAddress": {
+          "emailAddress": {
             "type": "string",
             "nullable": true
           }
@@ -2997,13 +2997,13 @@
       "CommentaryConfigDto": {
         "type": "object",
         "properties": {
-          "ShouldSendEmailAlertsToAuthor": {
+          "shouldSendEmailAlertsToAuthor": {
             "type": "boolean"
           },
-          "ShouldSendEmailAlertsToCommenters": {
+          "shouldSendEmailAlertsToCommenters": {
             "type": "boolean"
           },
-          "ShouldSendEmailAlertsToAll": {
+          "shouldSendEmailAlertsToAll": {
             "type": "boolean"
           }
         },
@@ -3012,32 +3012,32 @@
       "ContactCustomFieldDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Code": {
+          "code": {
             "type": "string",
             "nullable": true
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Type": {
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "FormulaConfig": {
+          "formulaConfig": {
             "$ref": "#/components/schemas/FormulaConfigDto"
           },
-          "ContactCustomFieldOptions": {
+          "contactCustomFieldOptions": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactCustomFieldOptionDto"
@@ -3050,16 +3050,16 @@
       "ContactCustomFieldFormulaDto": {
         "type": "object",
         "properties": {
-          "Formula": {
+          "formula": {
             "maxLength": 2040,
             "type": "string",
             "nullable": true
           },
-          "IsScreening": {
+          "isScreening": {
             "type": "boolean",
             "default": false
           },
-          "Symbol": {
+          "symbol": {
             "type": "string",
             "nullable": true
           }
@@ -3069,15 +3069,15 @@
       "ContactCustomFieldOptionDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Order": {
+          "order": {
             "type": "integer",
             "format": "int32"
           }
@@ -3086,11 +3086,11 @@
       },
       "ContactCustomFieldOptionSaveDto": {
         "required": [
-          "Name"
+          "name"
         ],
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "maxLength": 255,
             "type": "string"
           }
@@ -3099,37 +3099,37 @@
       },
       "ContactCustomFieldSaveDto": {
         "required": [
-          "Code",
-          "IsHidden",
-          "IsMandatory",
-          "Name",
-          "Type"
+          "code",
+          "isHidden",
+          "isMandatory",
+          "name",
+          "type"
         ],
         "type": "object",
         "properties": {
-          "Code": {
+          "code": {
             "maxLength": 32,
             "type": "string"
           },
-          "Name": {
+          "name": {
             "maxLength": 100,
             "type": "string"
           },
-          "Type": {
+          "type": {
             "$ref": "#/components/schemas/ContactCustomFieldType"
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean",
             "default": false
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean",
             "default": false
           },
-          "FieldFormula": {
+          "fieldFormula": {
             "$ref": "#/components/schemas/ContactCustomFieldFormulaDto"
           },
-          "ContactCustomFieldOptions": {
+          "contactCustomFieldOptions": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ContactCustomFieldOptionSaveDto"
@@ -3155,16 +3155,16 @@
       },
       "ContactRoleDto": {
         "required": [
-          "Id",
-          "Name"
+          "id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string"
@@ -3174,16 +3174,16 @@
       },
       "ContactTypeDto": {
         "required": [
-          "Id",
-          "Name"
+          "id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string"
@@ -3193,51 +3193,51 @@
       },
       "CreateCustomSymbolCustomFieldDto": {
         "required": [
-          "Code",
-          "CustomSymbolTypes",
-          "IsHidden",
-          "IsMandatory",
-          "IsShownInInfobox",
-          "Name",
-          "Type"
+          "code",
+          "customSymbolTypes",
+          "isHidden",
+          "isMandatory",
+          "isShownInInfobox",
+          "name",
+          "type"
         ],
         "type": "object",
         "properties": {
-          "Code": {
+          "code": {
             "maxLength": 32,
             "type": "string"
           },
-          "Name": {
+          "name": {
             "maxLength": 100,
             "type": "string"
           },
-          "Type": {
+          "type": {
             "type": "string",
             "description": "Type can be one of Text, SingleOption, MultiOptions, Numeric, Date, ExtendedText, ContactLookup"
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean",
             "default": false
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean",
             "default": false
           },
-          "IsShownInInfobox": {
+          "isShownInInfobox": {
             "type": "boolean",
             "default": true
           },
-          "FormulaConfig": {
+          "formulaConfig": {
             "$ref": "#/components/schemas/CustomSymbolCustomFieldFormulaConfigDto"
           },
-          "OptionsConfig": {
+          "optionsConfig": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "CustomSymbolTypes": {
+          "customSymbolTypes": {
             "type": "array",
             "items": {
               "type": "string",
@@ -3250,51 +3250,51 @@
       "CustomFieldConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Code": {
+          "code": {
             "type": "string",
             "nullable": true
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Source": {
+          "source": {
             "type": "string",
             "nullable": true
           },
-          "Type": {
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "UsePreviousValue": {
+          "usePreviousValue": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsFilePath": {
+          "isFilePath": {
             "type": "boolean"
           },
-          "FormulaConfig": {
+          "formulaConfig": {
             "$ref": "#/components/schemas/FormulaConfigDto"
           },
-          "NumericConfig": {
+          "numericConfig": {
             "$ref": "#/components/schemas/NumericConfigDto"
           },
-          "IntegerConfig": {
+          "integerConfig": {
             "$ref": "#/components/schemas/IntegerConfigDto"
           },
-          "ExtendedTextConfig": {
+          "extendedTextConfig": {
             "$ref": "#/components/schemas/ExtendedTextConfigDto"
           },
-          "OptionsConfig": {
+          "optionsConfig": {
             "$ref": "#/components/schemas/OptionsConfigDto"
           }
         },
@@ -3303,42 +3303,42 @@
       "CustomSymbolCustomFieldConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Code": {
+          "code": {
             "type": "string",
             "nullable": true
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Type": {
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "IsShownInInfobox": {
+          "isShownInInfobox": {
             "type": "boolean"
           },
-          "FormulaConfig": {
+          "formulaConfig": {
             "$ref": "#/components/schemas/CustomSymbolCustomFieldFormulaConfigDto"
           },
-          "OptionsConfig": {
+          "optionsConfig": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "CustomSymbolTypes": {
+          "customSymbolTypes": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomSymbolTypeSummaryDto"
@@ -3350,16 +3350,16 @@
       },
       "CustomSymbolCustomFieldFormulaConfigDto": {
         "required": [
-          "Formula",
-          "FormulaType"
+          "formula",
+          "formulaType"
         ],
         "type": "object",
         "properties": {
-          "Formula": {
+          "formula": {
             "maxLength": 2040,
             "type": "string"
           },
-          "FormulaType": {
+          "formulaType": {
             "type": "string"
           }
         },
@@ -3368,11 +3368,11 @@
       "CustomSymbolSubTypeDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           }
@@ -3382,27 +3382,27 @@
       "CustomSymbolTypeDetailDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "HideAddressField": {
+          "hideAddressField": {
             "type": "boolean"
           },
-          "HideSymbolSubType": {
+          "hideSymbolSubType": {
             "type": "boolean"
           },
-          "IsDefault": {
+          "isDefault": {
             "type": "boolean"
           },
-          "DueDiligenceSymbolEntityType": {
+          "dueDiligenceSymbolEntityType": {
             "$ref": "#/components/schemas/EntityType"
           },
-          "SubTypes": {
+          "subTypes": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomSymbolSubTypeDto"
@@ -3415,28 +3415,28 @@
       "CustomSymbolTypeDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "HideAddressField": {
+          "hideAddressField": {
             "type": "boolean"
           },
-          "HideSymbolSubType": {
+          "hideSymbolSubType": {
             "type": "boolean"
           },
-          "IsDefault": {
+          "isDefault": {
             "type": "boolean"
           },
-          "Order": {
+          "order": {
             "type": "integer",
             "format": "int32"
           },
-          "DueDiligenceSymbolEntityType": {
+          "dueDiligenceSymbolEntityType": {
             "$ref": "#/components/schemas/EntityType"
           }
         },
@@ -3445,11 +3445,11 @@
       "CustomSymbolTypeSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           }
@@ -3459,10 +3459,10 @@
       "DateSettingsDto": {
         "type": "object",
         "properties": {
-          "AllowEdit": {
+          "allowEdit": {
             "type": "boolean"
           },
-          "IsLocked": {
+          "isLocked": {
             "type": "boolean"
           }
         },
@@ -3481,7 +3481,7 @@
       "ExtendedTextConfigDto": {
         "type": "object",
         "properties": {
-          "MaxChars": {
+          "maxChars": {
             "type": "integer",
             "format": "int32"
           }
@@ -3491,11 +3491,11 @@
       "FormulaConfigDto": {
         "type": "object",
         "properties": {
-          "Formula": {
+          "formula": {
             "type": "string",
             "nullable": true
           },
-          "FormulaType": {
+          "formulaType": {
             "type": "string",
             "nullable": true
           }
@@ -3522,46 +3522,46 @@
       "GroupFieldsDto": {
         "type": "object",
         "properties": {
-          "Title": {
+          "title": {
             "$ref": "#/components/schemas/TitleSettingsDto"
           },
-          "Date": {
+          "date": {
             "$ref": "#/components/schemas/DateSettingsDto"
           },
-          "Identifier": {
+          "identifier": {
             "$ref": "#/components/schemas/IdentifierSettingsDto"
           },
-          "Subject": {
+          "subject": {
             "$ref": "#/components/schemas/SubjectSettingsDto"
           },
-          "Recommendation": {
+          "recommendation": {
             "$ref": "#/components/schemas/RecommendationSettingsDto"
           },
-          "Sentiment": {
+          "sentiment": {
             "$ref": "#/components/schemas/SentimentSettingsDto"
           },
-          "Link": {
+          "link": {
             "$ref": "#/components/schemas/LinkSettingsDto"
           },
-          "Note": {
+          "note": {
             "$ref": "#/components/schemas/NoteSettingsDto"
           },
-          "Source": {
+          "source": {
             "$ref": "#/components/schemas/SourceSettingsDto"
           },
-          "RelatedSymbols": {
+          "relatedSymbols": {
             "$ref": "#/components/schemas/RelatedSymbolsSettingsDto"
           },
-          "RelatedResearch": {
+          "relatedResearch": {
             "$ref": "#/components/schemas/RelatedResearchSettingsDto"
           },
-          "RelatedContacts": {
+          "relatedContacts": {
             "$ref": "#/components/schemas/RelatedContactsSettingsDto"
           },
-          "Team": {
+          "team": {
             "$ref": "#/components/schemas/TeamSettingsDto"
           },
-          "Organizer": {
+          "organizer": {
             "$ref": "#/components/schemas/OrganizerSettingsDto"
           }
         },
@@ -3570,15 +3570,15 @@
       "HeadlineFormatConfigDto": {
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "CustomString": {
+          "customString": {
             "type": "string",
             "nullable": true
           },
-          "CustomFieldName": {
+          "customFieldName": {
             "type": "string",
             "nullable": true
           }
@@ -3588,7 +3588,7 @@
       "IdentifierSettingsDto": {
         "type": "object",
         "properties": {
-          "AllowEdit": {
+          "allowEdit": {
             "type": "boolean"
           }
         },
@@ -3597,7 +3597,7 @@
       "IntegerConfigDto": {
         "type": "object",
         "properties": {
-          "SplitType": {
+          "splitType": {
             "type": "string",
             "nullable": true
           }
@@ -3607,13 +3607,13 @@
       "LinkSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           }
         },
@@ -3622,7 +3622,7 @@
       "NewItemDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           }
@@ -3632,23 +3632,23 @@
       "NoteSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           },
-          "AllowPersonal": {
+          "allowPersonal": {
             "type": "boolean"
           },
-          "DefaultStatus": {
+          "defaultStatus": {
             "type": "string",
             "nullable": true
           },
-          "AlternativeCustomFieldId": {
+          "alternativeCustomFieldId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -3659,11 +3659,11 @@
       "NumericConfigDto": {
         "type": "object",
         "properties": {
-          "Decimals": {
+          "decimals": {
             "type": "integer",
             "format": "int32"
           },
-          "SplitType": {
+          "splitType": {
             "type": "string",
             "nullable": true
           }
@@ -3673,7 +3673,7 @@
       "Operation": {
         "type": "object",
         "properties": {
-          "OperationType": {
+          "operationType": {
             "$ref": "#/components/schemas/OperationType"
           },
           "path": {
@@ -3710,13 +3710,13 @@
       "OptionsConfigDto": {
         "type": "object",
         "properties": {
-          "MultiSelectEnabled": {
+          "multiSelectEnabled": {
             "type": "boolean"
           },
-          "OnTheFlyEnabled": {
+          "onTheFlyEnabled": {
             "type": "boolean"
           },
-          "Options": {
+          "options": {
             "type": "array",
             "items": {
               "type": "string"
@@ -3729,10 +3729,10 @@
       "OrganizerSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           }
         },
@@ -3741,17 +3741,17 @@
       "PhoneNumberTypeDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "IsStandard": {
+          "isStandard": {
             "type": "boolean"
           }
         },
@@ -3787,16 +3787,16 @@
       "RatingConfigDto": {
         "type": "object",
         "properties": {
-          "RatingsVisibleToAuthor": {
+          "ratingsVisibleToAuthor": {
             "type": "boolean"
           },
-          "RatingsVisibleToViewers": {
+          "ratingsVisibleToViewers": {
             "type": "boolean"
           },
-          "RatingsVisibleToAll": {
+          "ratingsVisibleToAll": {
             "type": "boolean"
           },
-          "ViewerIds": {
+          "viewerIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -3804,7 +3804,7 @@
             },
             "nullable": true
           },
-          "OptionValues": {
+          "optionValues": {
             "type": "array",
             "items": {
               "type": "integer",
@@ -3818,19 +3818,19 @@
       "RecommendationConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Code": {
+          "code": {
             "type": "integer",
             "format": "int32"
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           }
         },
@@ -3839,16 +3839,16 @@
       "RecommendationSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           },
-          "DefaultId": {
+          "defaultId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -3859,13 +3859,13 @@
       "RelatedContactsSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           }
         },
@@ -3874,13 +3874,13 @@
       "RelatedResearchSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           }
         },
@@ -3889,13 +3889,13 @@
       "RelatedSymbolsSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           }
         },
@@ -3904,24 +3904,24 @@
       "RelationshipCategoryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "IsStandard": {
+          "isStandard": {
             "type": "boolean"
           },
-          "IsContactToContact": {
+          "isContactToContact": {
             "type": "boolean"
           },
-          "IsContactToSymbol": {
+          "isContactToSymbol": {
             "type": "boolean"
           },
-          "Relationships": {
+          "relationships": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RelationshipDto"
@@ -3933,11 +3933,11 @@
       },
       "RelationshipCategoryListDto": {
         "required": [
-          "Ids"
+          "ids"
         ],
         "type": "object",
         "properties": {
-          "Ids": {
+          "ids": {
             "type": "array",
             "items": {
               "type": "string",
@@ -3949,20 +3949,20 @@
       },
       "RelationshipCategorySaveDto": {
         "required": [
-          "CategoryName"
+          "categoryName"
         ],
         "type": "object",
         "properties": {
-          "CategoryName": {
+          "categoryName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string"
           },
-          "IsContactToContact": {
+          "isContactToContact": {
             "type": "boolean",
             "default": false
           },
-          "IsContactToSymbol": {
+          "isContactToSymbol": {
             "type": "boolean",
             "default": false
           }
@@ -3972,40 +3972,40 @@
       "RelationshipDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "RelationshipCategoryId": {
+          "relationshipCategoryId": {
             "type": "string",
             "format": "uuid"
           },
-          "RelationshipCode": {
+          "relationshipCode": {
             "type": "string",
             "nullable": true
           },
-          "BidirectionalName": {
+          "bidirectionalName": {
             "type": "string",
             "nullable": true
           },
-          "LeftToRightName": {
+          "leftToRightName": {
             "type": "string",
             "nullable": true
           },
-          "RightToLeftName": {
+          "rightToLeftName": {
             "type": "string",
             "nullable": true
           },
-          "HideDates": {
+          "hideDates": {
             "type": "boolean"
           },
-          "HideComment": {
+          "hideComment": {
             "type": "boolean"
           },
-          "HideCompany": {
+          "hideCompany": {
             "type": "boolean"
           },
-          "IsCustomisable": {
+          "isCustomisable": {
             "type": "boolean"
           }
         },
@@ -4013,50 +4013,50 @@
       },
       "RelationshipSaveDto": {
         "required": [
-          "HideComment",
-          "HideCompany",
-          "HideDates",
-          "RelationshipCategoryId"
+          "hideComment",
+          "hideCompany",
+          "hideDates",
+          "relationshipCategoryId"
         ],
         "type": "object",
         "properties": {
-          "RelationshipCategoryId": {
+          "relationshipCategoryId": {
             "type": "string",
             "format": "uuid"
           },
-          "RelationshipCode": {
+          "relationshipCode": {
             "maxLength": 5,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "BidirectionalName": {
+          "bidirectionalName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "LeftToRightName": {
+          "leftToRightName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "RightToLeftName": {
+          "rightToLeftName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "HideDates": {
+          "hideDates": {
             "type": "boolean",
             "default": false
           },
-          "HideComment": {
+          "hideComment": {
             "type": "boolean",
             "default": false
           },
-          "HideCompany": {
+          "hideCompany": {
             "type": "boolean",
             "default": false
           }
@@ -4075,7 +4075,7 @@
       "ReorderCustomSymbolTypeDto": {
         "type": "object",
         "properties": {
-          "Ids": {
+          "ids": {
             "type": "array",
             "items": {
               "type": "string",
@@ -4088,36 +4088,36 @@
       },
       "SaveCustomSymbolTypeDto": {
         "required": [
-          "Name"
+          "name"
         ],
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
           },
-          "HideAddressField": {
+          "hideAddressField": {
             "type": "boolean"
           },
-          "HideSymbolSubtype": {
+          "hideSymbolSubtype": {
             "type": "boolean"
           },
-          "IsDefault": {
+          "isDefault": {
             "type": "boolean",
             "default": false
           },
-          "DueDiligenceSymbolEntityType": {
+          "dueDiligenceSymbolEntityType": {
             "$ref": "#/components/schemas/EntityType"
           },
-          "SubTypes": {
+          "subTypes": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "CustomFieldIds": {
+          "customFieldIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -4131,23 +4131,23 @@
       "SentimentConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Code": {
+          "code": {
             "type": "integer",
             "format": "int32"
           },
-          "Color": {
+          "color": {
             "type": "string",
             "nullable": true
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           }
         },
@@ -4156,16 +4156,16 @@
       "SentimentSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           },
-          "DefaultId": {
+          "defaultId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -4176,13 +4176,13 @@
       "SourceSettingsDto": {
         "type": "object",
         "properties": {
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IsMandatory": {
+          "isMandatory": {
             "type": "boolean"
           },
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           }
         },
@@ -4191,37 +4191,37 @@
       "SubjectConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Code": {
+          "code": {
             "type": "string",
             "nullable": true
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "IdentifierType": {
+          "identifierType": {
             "type": "string",
             "nullable": true
           },
-          "IdentifierTypes": {
+          "identifierTypes": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "Type": {
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "CustomFieldIds": {
+          "customFieldIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -4229,30 +4229,30 @@
             },
             "nullable": true
           },
-          "ApprovalProcessConfig": {
+          "approvalProcessConfig": {
             "$ref": "#/components/schemas/ApprovalProcessConfigDto"
           },
-          "CommentaryConfig": {
+          "commentaryConfig": {
             "$ref": "#/components/schemas/CommentaryConfigDto"
           },
-          "NewsHeadlineFormat": {
+          "newsHeadlineFormat": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/HeadlineFormatConfigDto"
             },
             "nullable": true
           },
-          "EmailHeadlineFormat": {
+          "emailHeadlineFormat": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/HeadlineFormatConfigDto"
             },
             "nullable": true
           },
-          "RatingConfig": {
+          "ratingConfig": {
             "$ref": "#/components/schemas/RatingConfigDto"
           },
-          "NoteLengthLimit": {
+          "noteLengthLimit": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -4263,7 +4263,7 @@
       "SubjectSettingsDto": {
         "type": "object",
         "properties": {
-          "DefaultId": {
+          "defaultId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -4274,37 +4274,37 @@
       "SubjectSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Code": {
+          "code": {
             "type": "string",
             "nullable": true
           },
-          "IdentifierType": {
+          "identifierType": {
             "type": "string",
             "nullable": true
           },
-          "IdentifierTypes": {
+          "identifierTypes": {
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "Type": {
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "IsHidden": {
+          "isHidden": {
             "type": "boolean"
           },
-          "CustomFieldIds": {
+          "customFieldIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -4312,7 +4312,7 @@
             },
             "nullable": true
           },
-          "NoteLengthLimit": {
+          "noteLengthLimit": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -4322,40 +4322,40 @@
       },
       "SymbolsRelationShipSaveDto": {
         "required": [
-          "HideComment",
-          "HideDates"
+          "hideComment",
+          "hideDates"
         ],
         "type": "object",
         "properties": {
-          "RelationshipCode": {
+          "relationshipCode": {
             "maxLength": 3,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "ParentToChildName": {
+          "parentToChildName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "ChildToParentName": {
+          "childToParentName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "PeerName": {
+          "peerName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "HideDates": {
+          "hideDates": {
             "type": "boolean",
             "default": true
           },
-          "HideComment": {
+          "hideComment": {
             "type": "boolean",
             "default": true
           }
@@ -4365,30 +4365,30 @@
       "SymbolsRelationshipDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "RelationshipCode": {
+          "relationshipCode": {
             "type": "string",
             "nullable": true
           },
-          "ParentToChildName": {
+          "parentToChildName": {
             "type": "string",
             "nullable": true
           },
-          "ChildToParentName": {
+          "childToParentName": {
             "type": "string",
             "nullable": true
           },
-          "PeerName": {
+          "peerName": {
             "type": "string",
             "nullable": true
           },
-          "HideDates": {
+          "hideDates": {
             "type": "boolean"
           },
-          "HideComment": {
+          "hideComment": {
             "type": "boolean"
           }
         },
@@ -4397,24 +4397,24 @@
       "TeamConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Code": {
+          "code": {
             "type": "string",
             "nullable": true
           },
-          "DefaultSubjectId": {
+          "defaultSubjectId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "UserIds": {
+          "userIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -4428,7 +4428,7 @@
       "TeamSettingsDto": {
         "type": "object",
         "properties": {
-          "DefaultId": {
+          "defaultId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -4439,15 +4439,15 @@
       "TeamSummaryDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Code": {
+          "code": {
             "type": "string",
             "nullable": true
           }
@@ -4457,7 +4457,7 @@
       "TitleSettingsDto": {
         "type": "object",
         "properties": {
-          "UsePrevious": {
+          "usePrevious": {
             "type": "boolean"
           }
         },
@@ -4465,36 +4465,36 @@
       },
       "UpdateCustomSymbolTypeDto": {
         "required": [
-          "Name"
+          "name"
         ],
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
           },
-          "HideAddressField": {
+          "hideAddressField": {
             "type": "boolean"
           },
-          "HideSymbolSubtype": {
+          "hideSymbolSubtype": {
             "type": "boolean"
           },
-          "IsDefault": {
+          "isDefault": {
             "type": "boolean",
             "default": false
           },
-          "DueDiligenceSymbolEntityType": {
+          "dueDiligenceSymbolEntityType": {
             "$ref": "#/components/schemas/EntityType"
           },
-          "SubTypes": {
+          "subTypes": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomSymbolSubTypeDto"
             },
             "nullable": true
           },
-          "CustomFieldIds": {
+          "customFieldIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -4508,31 +4508,31 @@
       "UserConfigDto": {
         "type": "object",
         "properties": {
-          "Id": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "UserName": {
+          "userName": {
             "type": "string",
             "nullable": true
           },
-          "SerialNumber": {
+          "serialNumber": {
             "type": "string",
             "nullable": true
           },
-          "FirstName": {
+          "firstName": {
             "type": "string",
             "nullable": true
           },
-          "LastName": {
+          "lastName": {
             "type": "string",
             "nullable": true
           },
-          "EmailAddress": {
+          "emailAddress": {
             "type": "string",
             "nullable": true
           },
-          "Team": {
+          "team": {
             "$ref": "#/components/schemas/TeamSummaryDto"
           }
         },

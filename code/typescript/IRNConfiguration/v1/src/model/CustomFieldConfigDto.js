@@ -51,47 +51,47 @@ class CustomFieldConfigDto {
         if (data) {
             obj = obj || new CustomFieldConfigDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('Name')) {
-                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('Source')) {
-                obj['Source'] = ApiClient.convertToType(data['Source'], 'String');
+            if (data.hasOwnProperty('source')) {
+                obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('Type')) {
-                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('UsePreviousValue')) {
-                obj['UsePreviousValue'] = ApiClient.convertToType(data['UsePreviousValue'], 'Boolean');
+            if (data.hasOwnProperty('usePreviousValue')) {
+                obj['usePreviousValue'] = ApiClient.convertToType(data['usePreviousValue'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsMandatory')) {
-                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            if (data.hasOwnProperty('isMandatory')) {
+                obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsHidden')) {
-                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            if (data.hasOwnProperty('isHidden')) {
+                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('IsFilePath')) {
-                obj['IsFilePath'] = ApiClient.convertToType(data['IsFilePath'], 'Boolean');
+            if (data.hasOwnProperty('isFilePath')) {
+                obj['isFilePath'] = ApiClient.convertToType(data['isFilePath'], 'Boolean');
             }
-            if (data.hasOwnProperty('FormulaConfig')) {
-                obj['FormulaConfig'] = FormulaConfigDto.constructFromObject(data['FormulaConfig']);
+            if (data.hasOwnProperty('formulaConfig')) {
+                obj['formulaConfig'] = FormulaConfigDto.constructFromObject(data['formulaConfig']);
             }
-            if (data.hasOwnProperty('NumericConfig')) {
-                obj['NumericConfig'] = NumericConfigDto.constructFromObject(data['NumericConfig']);
+            if (data.hasOwnProperty('numericConfig')) {
+                obj['numericConfig'] = NumericConfigDto.constructFromObject(data['numericConfig']);
             }
-            if (data.hasOwnProperty('IntegerConfig')) {
-                obj['IntegerConfig'] = IntegerConfigDto.constructFromObject(data['IntegerConfig']);
+            if (data.hasOwnProperty('integerConfig')) {
+                obj['integerConfig'] = IntegerConfigDto.constructFromObject(data['integerConfig']);
             }
-            if (data.hasOwnProperty('ExtendedTextConfig')) {
-                obj['ExtendedTextConfig'] = ExtendedTextConfigDto.constructFromObject(data['ExtendedTextConfig']);
+            if (data.hasOwnProperty('extendedTextConfig')) {
+                obj['extendedTextConfig'] = ExtendedTextConfigDto.constructFromObject(data['extendedTextConfig']);
             }
-            if (data.hasOwnProperty('OptionsConfig')) {
-                obj['OptionsConfig'] = OptionsConfigDto.constructFromObject(data['OptionsConfig']);
+            if (data.hasOwnProperty('optionsConfig')) {
+                obj['optionsConfig'] = OptionsConfigDto.constructFromObject(data['optionsConfig']);
             }
         }
         return obj;
@@ -101,74 +101,74 @@ class CustomFieldConfigDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-CustomFieldConfigDto.prototype['Id'] = undefined;
+CustomFieldConfigDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-CustomFieldConfigDto.prototype['Code'] = undefined;
+CustomFieldConfigDto.prototype['code'] = undefined;
 
 /**
- * @member {String} Name
+ * @member {String} name
  */
-CustomFieldConfigDto.prototype['Name'] = undefined;
+CustomFieldConfigDto.prototype['name'] = undefined;
 
 /**
- * @member {String} Source
+ * @member {String} source
  */
-CustomFieldConfigDto.prototype['Source'] = undefined;
+CustomFieldConfigDto.prototype['source'] = undefined;
 
 /**
- * @member {String} Type
+ * @member {String} type
  */
-CustomFieldConfigDto.prototype['Type'] = undefined;
+CustomFieldConfigDto.prototype['type'] = undefined;
 
 /**
- * @member {Boolean} UsePreviousValue
+ * @member {Boolean} usePreviousValue
  */
-CustomFieldConfigDto.prototype['UsePreviousValue'] = undefined;
+CustomFieldConfigDto.prototype['usePreviousValue'] = undefined;
 
 /**
- * @member {Boolean} IsMandatory
+ * @member {Boolean} isMandatory
  */
-CustomFieldConfigDto.prototype['IsMandatory'] = undefined;
+CustomFieldConfigDto.prototype['isMandatory'] = undefined;
 
 /**
- * @member {Boolean} IsHidden
+ * @member {Boolean} isHidden
  */
-CustomFieldConfigDto.prototype['IsHidden'] = undefined;
+CustomFieldConfigDto.prototype['isHidden'] = undefined;
 
 /**
- * @member {Boolean} IsFilePath
+ * @member {Boolean} isFilePath
  */
-CustomFieldConfigDto.prototype['IsFilePath'] = undefined;
+CustomFieldConfigDto.prototype['isFilePath'] = undefined;
 
 /**
- * @member {module:model/FormulaConfigDto} FormulaConfig
+ * @member {module:model/FormulaConfigDto} formulaConfig
  */
-CustomFieldConfigDto.prototype['FormulaConfig'] = undefined;
+CustomFieldConfigDto.prototype['formulaConfig'] = undefined;
 
 /**
- * @member {module:model/NumericConfigDto} NumericConfig
+ * @member {module:model/NumericConfigDto} numericConfig
  */
-CustomFieldConfigDto.prototype['NumericConfig'] = undefined;
+CustomFieldConfigDto.prototype['numericConfig'] = undefined;
 
 /**
- * @member {module:model/IntegerConfigDto} IntegerConfig
+ * @member {module:model/IntegerConfigDto} integerConfig
  */
-CustomFieldConfigDto.prototype['IntegerConfig'] = undefined;
+CustomFieldConfigDto.prototype['integerConfig'] = undefined;
 
 /**
- * @member {module:model/ExtendedTextConfigDto} ExtendedTextConfig
+ * @member {module:model/ExtendedTextConfigDto} extendedTextConfig
  */
-CustomFieldConfigDto.prototype['ExtendedTextConfig'] = undefined;
+CustomFieldConfigDto.prototype['extendedTextConfig'] = undefined;
 
 /**
- * @member {module:model/OptionsConfigDto} OptionsConfig
+ * @member {module:model/OptionsConfigDto} optionsConfig
  */
-CustomFieldConfigDto.prototype['OptionsConfig'] = undefined;
+CustomFieldConfigDto.prototype['optionsConfig'] = undefined;
 
 
 

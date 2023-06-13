@@ -48,22 +48,22 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class NoteSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
   private Boolean isHidden;
 
-  public static final String JSON_PROPERTY_IS_MANDATORY = "IsMandatory";
+  public static final String JSON_PROPERTY_IS_MANDATORY = "isMandatory";
   private Boolean isMandatory;
 
-  public static final String JSON_PROPERTY_USE_PREVIOUS = "UsePrevious";
+  public static final String JSON_PROPERTY_USE_PREVIOUS = "usePrevious";
   private Boolean usePrevious;
 
-  public static final String JSON_PROPERTY_ALLOW_PERSONAL = "AllowPersonal";
+  public static final String JSON_PROPERTY_ALLOW_PERSONAL = "allowPersonal";
   private Boolean allowPersonal;
 
-  public static final String JSON_PROPERTY_DEFAULT_STATUS = "DefaultStatus";
+  public static final String JSON_PROPERTY_DEFAULT_STATUS = "defaultStatus";
   private JsonNullable<String> defaultStatus = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ALTERNATIVE_CUSTOM_FIELD_ID = "AlternativeCustomFieldId";
+  public static final String JSON_PROPERTY_ALTERNATIVE_CUSTOM_FIELD_ID = "alternativeCustomFieldId";
   private JsonNullable<java.util.UUID> alternativeCustomFieldId = JsonNullable.<java.util.UUID>undefined();
 
   public NoteSettingsDto() { 

@@ -53,34 +53,34 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ApprovalProcessConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_APPROVAL_LEVELS = "ApprovalLevels";
+  public static final String JSON_PROPERTY_APPROVAL_LEVELS = "approvalLevels";
   private JsonNullable<java.util.List<ApprovalLevelConfigDto>> approvalLevels = JsonNullable.<java.util.List<ApprovalLevelConfigDto>>undefined();
 
-  public static final String JSON_PROPERTY_VIEWER_IDS = "ViewerIds";
+  public static final String JSON_PROPERTY_VIEWER_IDS = "viewerIds";
   private JsonNullable<java.util.List<java.util.UUID>> viewerIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_SUBMITTED_FOR_APPROVAL = "ShouldSendEmailAlertsWhenSubmittedForApproval";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_SUBMITTED_FOR_APPROVAL = "shouldSendEmailAlertsWhenSubmittedForApproval";
   private Boolean shouldSendEmailAlertsWhenSubmittedForApproval;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_APPROVED = "ShouldSendEmailAlertsWhenApproved";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_APPROVED = "shouldSendEmailAlertsWhenApproved";
   private Boolean shouldSendEmailAlertsWhenApproved;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_DENIED = "ShouldSendEmailAlertsWhenDenied";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_DENIED = "shouldSendEmailAlertsWhenDenied";
   private Boolean shouldSendEmailAlertsWhenDenied;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_AUTHOR = "ShouldSendEmailAlertsToAuthor";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_AUTHOR = "shouldSendEmailAlertsToAuthor";
   private Boolean shouldSendEmailAlertsToAuthor;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_APPROVERS = "ShouldSendEmailAlertsToApprovers";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_APPROVERS = "shouldSendEmailAlertsToApprovers";
   private Boolean shouldSendEmailAlertsToApprovers;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_VIEWERS = "ShouldSendEmailAlertsToViewers";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_VIEWERS = "shouldSendEmailAlertsToViewers";
   private Boolean shouldSendEmailAlertsToViewers;
 
-  public static final String JSON_PROPERTY_CAN_AUTHOR_SELF_APPROVE = "CanAuthorSelfApprove";
+  public static final String JSON_PROPERTY_CAN_AUTHOR_SELF_APPROVE = "canAuthorSelfApprove";
   private Boolean canAuthorSelfApprove;
 
-  public static final String JSON_PROPERTY_CAN_AUTHOR_EDIT_PENDING = "CanAuthorEditPending";
+  public static final String JSON_PROPERTY_CAN_AUTHOR_EDIT_PENDING = "canAuthorEditPending";
   private Boolean canAuthorEditPending;
 
   public ApprovalProcessConfigDto() { 

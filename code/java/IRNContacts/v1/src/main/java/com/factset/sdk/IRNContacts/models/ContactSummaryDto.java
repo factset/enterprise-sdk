@@ -62,52 +62,52 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "Id";
+  public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_PRIMARY_EMAIL_ADDRESS = "PrimaryEmailAddress";
+  public static final String JSON_PROPERTY_PRIMARY_EMAIL_ADDRESS = "primaryEmailAddress";
   private JsonNullable<String> primaryEmailAddress = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
+  public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   private JsonNullable<String> identifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FULL_NAME = "FullName";
+  public static final String JSON_PROPERTY_FULL_NAME = "fullName";
   private JsonNullable<String> fullName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_EMPLOYER_NAME = "EmployerName";
+  public static final String JSON_PROPERTY_EMPLOYER_NAME = "employerName";
   private JsonNullable<String> employerName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_EMPLOYER_IDENTIFIER = "EmployerIdentifier";
+  public static final String JSON_PROPERTY_EMPLOYER_IDENTIFIER = "employerIdentifier";
   private JsonNullable<String> employerIdentifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CITY = "City";
+  public static final String JSON_PROPERTY_CITY = "city";
   private JsonNullable<String> city = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_STATE_PROVINCE = "StateProvince";
+  public static final String JSON_PROPERTY_STATE_PROVINCE = "stateProvince";
   private JsonNullable<String> stateProvince = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_POSTAL_CODE = "PostalCode";
+  public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
   private JsonNullable<String> postalCode = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_COUNTRY = "Country";
+  public static final String JSON_PROPERTY_COUNTRY = "country";
   private JsonNullable<String> country = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ROLE = "Role";
+  public static final String JSON_PROPERTY_ROLE = "role";
   private ContactRoleDto role;
 
-  public static final String JSON_PROPERTY_TYPE = "Type";
+  public static final String JSON_PROPERTY_TYPE = "type";
   private ContactTypeDto type;
 
-  public static final String JSON_PROPERTY_IS_DELETED = "IsDeleted";
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public static final String JSON_PROPERTY_LAST_MEETING = "LastMeeting";
+  public static final String JSON_PROPERTY_LAST_MEETING = "lastMeeting";
   private JsonNullable<String> lastMeeting = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES = "AlternativeEmailAddresses";
+  public static final String JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES = "alternativeEmailAddresses";
   private JsonNullable<java.util.List<AlternativeEmailAddressDto>> alternativeEmailAddresses = JsonNullable.<java.util.List<AlternativeEmailAddressDto>>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "CustomFieldValues";
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "customFieldValues";
   private JsonNullable<java.util.List<ContactCustomFieldValueDto>> customFieldValues = JsonNullable.<java.util.List<ContactCustomFieldValueDto>>undefined();
 
   public ContactSummaryDto() { 

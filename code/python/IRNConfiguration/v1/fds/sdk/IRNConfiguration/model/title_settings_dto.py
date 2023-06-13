@@ -84,7 +84,7 @@ class TitleSettingsDto(ModelNormal):
 
 
     attribute_map = {
-        'use_previous': 'UsePrevious',  # noqa: E501
+        'use_previous': 'usePrevious',  # noqa: E501
     }
 
     read_only_vars = {

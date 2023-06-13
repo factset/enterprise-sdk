@@ -1,4 +1,5 @@
 # FactSet.SDK.QuotesAPIforDigitalPortals.Model.PostNotationMarketListRequest
+Request Body
 
 ## Properties
 

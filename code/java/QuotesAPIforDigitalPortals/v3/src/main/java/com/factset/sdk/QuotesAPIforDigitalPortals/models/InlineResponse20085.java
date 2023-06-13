@@ -65,11 +65,11 @@ public class InlineResponse20085 implements Serializable {
   }
 
    /**
-   * Set of bid and ask prices for a list of notations.
+   * Set of price related data for a list of notations.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set of bid and ask prices for a list of notations.")
+  @ApiModelProperty(value = "Set of price related data for a list of notations.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

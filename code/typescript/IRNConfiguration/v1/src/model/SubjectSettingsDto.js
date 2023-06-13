@@ -46,8 +46,8 @@ class SubjectSettingsDto {
         if (data) {
             obj = obj || new SubjectSettingsDto();
 
-            if (data.hasOwnProperty('DefaultId')) {
-                obj['DefaultId'] = ApiClient.convertToType(data['DefaultId'], 'String');
+            if (data.hasOwnProperty('defaultId')) {
+                obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
             }
         }
         return obj;
@@ -57,9 +57,9 @@ class SubjectSettingsDto {
 }
 
 /**
- * @member {String} DefaultId
+ * @member {String} defaultId
  */
-SubjectSettingsDto.prototype['DefaultId'] = undefined;
+SubjectSettingsDto.prototype['defaultId'] = undefined;
 
 
 

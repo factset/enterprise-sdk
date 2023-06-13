@@ -36,7 +36,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">List of notations..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20070(List<InlineResponse20070Data> data = default(List<InlineResponse20070Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse20070(List<InlineResponse20069DataNotations> data = default(List<InlineResponse20069DataNotations>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -47,7 +47,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <value>List of notations.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InlineResponse20070Data> Data { get; set; }
+        public List<InlineResponse20069DataNotations> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta

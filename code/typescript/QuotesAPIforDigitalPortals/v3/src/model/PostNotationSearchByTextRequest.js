@@ -22,6 +22,7 @@ import PostNotationSearchByTextRequestMeta from './PostNotationSearchByTextReque
 class PostNotationSearchByTextRequest {
     /**
      * Constructs a new <code>PostNotationSearchByTextRequest</code>.
+     * Request Body
      * @alias module:model/PostNotationSearchByTextRequest
      * @param data {module:model/PostNotationSearchByTextRequestData} 
      */

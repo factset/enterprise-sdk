@@ -47,35 +47,35 @@ class ApprovalProcessConfigDto {
         if (data) {
             obj = obj || new ApprovalProcessConfigDto();
 
-            if (data.hasOwnProperty('ApprovalLevels')) {
-                obj['ApprovalLevels'] = ApiClient.convertToType(data['ApprovalLevels'], [ApprovalLevelConfigDto]);
+            if (data.hasOwnProperty('approvalLevels')) {
+                obj['approvalLevels'] = ApiClient.convertToType(data['approvalLevels'], [ApprovalLevelConfigDto]);
             }
-            if (data.hasOwnProperty('ViewerIds')) {
-                obj['ViewerIds'] = ApiClient.convertToType(data['ViewerIds'], ['String']);
+            if (data.hasOwnProperty('viewerIds')) {
+                obj['viewerIds'] = ApiClient.convertToType(data['viewerIds'], ['String']);
             }
-            if (data.hasOwnProperty('ShouldSendEmailAlertsWhenSubmittedForApproval')) {
-                obj['ShouldSendEmailAlertsWhenSubmittedForApproval'] = ApiClient.convertToType(data['ShouldSendEmailAlertsWhenSubmittedForApproval'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsWhenSubmittedForApproval')) {
+                obj['shouldSendEmailAlertsWhenSubmittedForApproval'] = ApiClient.convertToType(data['shouldSendEmailAlertsWhenSubmittedForApproval'], 'Boolean');
             }
-            if (data.hasOwnProperty('ShouldSendEmailAlertsWhenApproved')) {
-                obj['ShouldSendEmailAlertsWhenApproved'] = ApiClient.convertToType(data['ShouldSendEmailAlertsWhenApproved'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsWhenApproved')) {
+                obj['shouldSendEmailAlertsWhenApproved'] = ApiClient.convertToType(data['shouldSendEmailAlertsWhenApproved'], 'Boolean');
             }
-            if (data.hasOwnProperty('ShouldSendEmailAlertsWhenDenied')) {
-                obj['ShouldSendEmailAlertsWhenDenied'] = ApiClient.convertToType(data['ShouldSendEmailAlertsWhenDenied'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsWhenDenied')) {
+                obj['shouldSendEmailAlertsWhenDenied'] = ApiClient.convertToType(data['shouldSendEmailAlertsWhenDenied'], 'Boolean');
             }
-            if (data.hasOwnProperty('ShouldSendEmailAlertsToAuthor')) {
-                obj['ShouldSendEmailAlertsToAuthor'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToAuthor'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsToAuthor')) {
+                obj['shouldSendEmailAlertsToAuthor'] = ApiClient.convertToType(data['shouldSendEmailAlertsToAuthor'], 'Boolean');
             }
-            if (data.hasOwnProperty('ShouldSendEmailAlertsToApprovers')) {
-                obj['ShouldSendEmailAlertsToApprovers'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToApprovers'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsToApprovers')) {
+                obj['shouldSendEmailAlertsToApprovers'] = ApiClient.convertToType(data['shouldSendEmailAlertsToApprovers'], 'Boolean');
             }
-            if (data.hasOwnProperty('ShouldSendEmailAlertsToViewers')) {
-                obj['ShouldSendEmailAlertsToViewers'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToViewers'], 'Boolean');
+            if (data.hasOwnProperty('shouldSendEmailAlertsToViewers')) {
+                obj['shouldSendEmailAlertsToViewers'] = ApiClient.convertToType(data['shouldSendEmailAlertsToViewers'], 'Boolean');
             }
-            if (data.hasOwnProperty('CanAuthorSelfApprove')) {
-                obj['CanAuthorSelfApprove'] = ApiClient.convertToType(data['CanAuthorSelfApprove'], 'Boolean');
+            if (data.hasOwnProperty('canAuthorSelfApprove')) {
+                obj['canAuthorSelfApprove'] = ApiClient.convertToType(data['canAuthorSelfApprove'], 'Boolean');
             }
-            if (data.hasOwnProperty('CanAuthorEditPending')) {
-                obj['CanAuthorEditPending'] = ApiClient.convertToType(data['CanAuthorEditPending'], 'Boolean');
+            if (data.hasOwnProperty('canAuthorEditPending')) {
+                obj['canAuthorEditPending'] = ApiClient.convertToType(data['canAuthorEditPending'], 'Boolean');
             }
         }
         return obj;
@@ -85,54 +85,54 @@ class ApprovalProcessConfigDto {
 }
 
 /**
- * @member {Array.<module:model/ApprovalLevelConfigDto>} ApprovalLevels
+ * @member {Array.<module:model/ApprovalLevelConfigDto>} approvalLevels
  */
-ApprovalProcessConfigDto.prototype['ApprovalLevels'] = undefined;
+ApprovalProcessConfigDto.prototype['approvalLevels'] = undefined;
 
 /**
- * @member {Array.<String>} ViewerIds
+ * @member {Array.<String>} viewerIds
  */
-ApprovalProcessConfigDto.prototype['ViewerIds'] = undefined;
+ApprovalProcessConfigDto.prototype['viewerIds'] = undefined;
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsWhenSubmittedForApproval
+ * @member {Boolean} shouldSendEmailAlertsWhenSubmittedForApproval
  */
-ApprovalProcessConfigDto.prototype['ShouldSendEmailAlertsWhenSubmittedForApproval'] = undefined;
+ApprovalProcessConfigDto.prototype['shouldSendEmailAlertsWhenSubmittedForApproval'] = undefined;
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsWhenApproved
+ * @member {Boolean} shouldSendEmailAlertsWhenApproved
  */
-ApprovalProcessConfigDto.prototype['ShouldSendEmailAlertsWhenApproved'] = undefined;
+ApprovalProcessConfigDto.prototype['shouldSendEmailAlertsWhenApproved'] = undefined;
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsWhenDenied
+ * @member {Boolean} shouldSendEmailAlertsWhenDenied
  */
-ApprovalProcessConfigDto.prototype['ShouldSendEmailAlertsWhenDenied'] = undefined;
+ApprovalProcessConfigDto.prototype['shouldSendEmailAlertsWhenDenied'] = undefined;
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsToAuthor
+ * @member {Boolean} shouldSendEmailAlertsToAuthor
  */
-ApprovalProcessConfigDto.prototype['ShouldSendEmailAlertsToAuthor'] = undefined;
+ApprovalProcessConfigDto.prototype['shouldSendEmailAlertsToAuthor'] = undefined;
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsToApprovers
+ * @member {Boolean} shouldSendEmailAlertsToApprovers
  */
-ApprovalProcessConfigDto.prototype['ShouldSendEmailAlertsToApprovers'] = undefined;
+ApprovalProcessConfigDto.prototype['shouldSendEmailAlertsToApprovers'] = undefined;
 
 /**
- * @member {Boolean} ShouldSendEmailAlertsToViewers
+ * @member {Boolean} shouldSendEmailAlertsToViewers
  */
-ApprovalProcessConfigDto.prototype['ShouldSendEmailAlertsToViewers'] = undefined;
+ApprovalProcessConfigDto.prototype['shouldSendEmailAlertsToViewers'] = undefined;
 
 /**
- * @member {Boolean} CanAuthorSelfApprove
+ * @member {Boolean} canAuthorSelfApprove
  */
-ApprovalProcessConfigDto.prototype['CanAuthorSelfApprove'] = undefined;
+ApprovalProcessConfigDto.prototype['canAuthorSelfApprove'] = undefined;
 
 /**
- * @member {Boolean} CanAuthorEditPending
+ * @member {Boolean} canAuthorEditPending
  */
-ApprovalProcessConfigDto.prototype['CanAuthorEditPending'] = undefined;
+ApprovalProcessConfigDto.prototype['canAuthorEditPending'] = undefined;
 
 
 

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// PostInstrumentCategoryListRequest
+    /// Request Body
     /// </summary>
     [DataContract(Name = "PostInstrumentCategoryListRequest")]
     public partial class PostInstrumentCategoryListRequest : IEquatable<PostInstrumentCategoryListRequest>, IValidatableObject

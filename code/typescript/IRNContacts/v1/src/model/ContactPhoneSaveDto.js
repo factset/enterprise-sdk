@@ -46,17 +46,17 @@ class ContactPhoneSaveDto {
         if (data) {
             obj = obj || new ContactPhoneSaveDto();
 
-            if (data.hasOwnProperty('Id')) {
-                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('Number')) {
-                obj['Number'] = ApiClient.convertToType(data['Number'], 'String');
+            if (data.hasOwnProperty('number')) {
+                obj['number'] = ApiClient.convertToType(data['number'], 'String');
             }
-            if (data.hasOwnProperty('TypeId')) {
-                obj['TypeId'] = ApiClient.convertToType(data['TypeId'], 'String');
+            if (data.hasOwnProperty('typeId')) {
+                obj['typeId'] = ApiClient.convertToType(data['typeId'], 'String');
             }
-            if (data.hasOwnProperty('IsPrimary')) {
-                obj['IsPrimary'] = ApiClient.convertToType(data['IsPrimary'], 'Boolean');
+            if (data.hasOwnProperty('isPrimary')) {
+                obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
             }
         }
         return obj;
@@ -66,24 +66,24 @@ class ContactPhoneSaveDto {
 }
 
 /**
- * @member {String} Id
+ * @member {String} id
  */
-ContactPhoneSaveDto.prototype['Id'] = undefined;
+ContactPhoneSaveDto.prototype['id'] = undefined;
 
 /**
- * @member {String} Number
+ * @member {String} number
  */
-ContactPhoneSaveDto.prototype['Number'] = undefined;
+ContactPhoneSaveDto.prototype['number'] = undefined;
 
 /**
- * @member {String} TypeId
+ * @member {String} typeId
  */
-ContactPhoneSaveDto.prototype['TypeId'] = undefined;
+ContactPhoneSaveDto.prototype['typeId'] = undefined;
 
 /**
- * @member {Boolean} IsPrimary
+ * @member {Boolean} isPrimary
  */
-ContactPhoneSaveDto.prototype['IsPrimary'] = undefined;
+ContactPhoneSaveDto.prototype['isPrimary'] = undefined;
 
 
 

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.QuotesAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// List of notations.
+    /// Notation identified by the FactSet market symbol.
     /// </summary>
     [DataContract(Name = "inline_response_200_68_data")]
     public partial class InlineResponse20068Data : IEquatable<InlineResponse20068Data>, IValidatableObject
@@ -34,36 +34,42 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20068Data" /> class.
         /// </summary>
-        /// <param name="idInstrument">MDG identifier of the instrument..</param>
-        /// <param name="sourceIdentifier">Identifier used in the request..</param>
-        /// <param name="notations">List of notations..</param>
-        public InlineResponse20068Data(string idInstrument = default(string), string sourceIdentifier = default(string), List<InlineResponse20068DataNotations> notations = default(List<InlineResponse20068DataNotations>))
+        /// <param name="id">Identifier of the notation..</param>
+        /// <param name="market">market.</param>
+        /// <param name="valueUnit">valueUnit.</param>
+        /// <param name="instrument">instrument.</param>
+        public InlineResponse20068Data(string id = default(string), InlineResponse20068DataMarket market = default(InlineResponse20068DataMarket), InlineResponse20068DataValueUnit valueUnit = default(InlineResponse20068DataValueUnit), InlineResponse20068DataInstrument instrument = default(InlineResponse20068DataInstrument))
         {
-            this.IdInstrument = idInstrument;
-            this.SourceIdentifier = sourceIdentifier;
-            this.Notations = notations;
+            this.Id = id;
+            this.Market = market;
+            this.ValueUnit = valueUnit;
+            this.Instrument = instrument;
         }
 
         /// <summary>
-        /// MDG identifier of the instrument.
+        /// Identifier of the notation.
         /// </summary>
-        /// <value>MDG identifier of the instrument.</value>
-        [DataMember(Name = "idInstrument", EmitDefaultValue = true)]
-        public string IdInstrument { get; set; }
+        /// <value>Identifier of the notation.</value>
+        [DataMember(Name = "id", EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Identifier used in the request.
+        /// Gets or Sets Market
         /// </summary>
-        /// <value>Identifier used in the request.</value>
-        [DataMember(Name = "sourceIdentifier", EmitDefaultValue = true)]
-        public string SourceIdentifier { get; set; }
+        [DataMember(Name = "market", EmitDefaultValue = false)]
+        public InlineResponse20068DataMarket Market { get; set; }
 
         /// <summary>
-        /// List of notations.
+        /// Gets or Sets ValueUnit
         /// </summary>
-        /// <value>List of notations.</value>
-        [DataMember(Name = "notations", EmitDefaultValue = false)]
-        public List<InlineResponse20068DataNotations> Notations { get; set; }
+        [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
+        public InlineResponse20068DataValueUnit ValueUnit { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Instrument
+        /// </summary>
+        [DataMember(Name = "instrument", EmitDefaultValue = false)]
+        public InlineResponse20068DataInstrument Instrument { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,9 +79,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20068Data {\n");
-            sb.Append("  IdInstrument: ").Append(IdInstrument).Append("\n");
-            sb.Append("  SourceIdentifier: ").Append(SourceIdentifier).Append("\n");
-            sb.Append("  Notations: ").Append(Notations).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Market: ").Append(Market).Append("\n");
+            sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
+            sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,20 +119,24 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.IdInstrument == input.IdInstrument ||
-                    (this.IdInstrument != null &&
-                    this.IdInstrument.Equals(input.IdInstrument))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.SourceIdentifier == input.SourceIdentifier ||
-                    (this.SourceIdentifier != null &&
-                    this.SourceIdentifier.Equals(input.SourceIdentifier))
+                    this.Market == input.Market ||
+                    (this.Market != null &&
+                    this.Market.Equals(input.Market))
                 ) && 
                 (
-                    this.Notations == input.Notations ||
-                    this.Notations != null &&
-                    input.Notations != null &&
-                    this.Notations.SequenceEqual(input.Notations)
+                    this.ValueUnit == input.ValueUnit ||
+                    (this.ValueUnit != null &&
+                    this.ValueUnit.Equals(input.ValueUnit))
+                ) && 
+                (
+                    this.Instrument == input.Instrument ||
+                    (this.Instrument != null &&
+                    this.Instrument.Equals(input.Instrument))
                 );
         }
 
@@ -138,17 +149,21 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdInstrument != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.IdInstrument.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.SourceIdentifier != null)
+                if (this.Market != null)
                 {
-                    hashCode = (hashCode * 59) + this.SourceIdentifier.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
                 }
-                if (this.Notations != null)
+                if (this.ValueUnit != null)
                 {
-                    hashCode = (hashCode * 59) + this.Notations.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
+                if (this.Instrument != null)
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
                 }
                 return hashCode;
             }

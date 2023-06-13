@@ -30,26 +30,10 @@ from fds.sdk.QuotesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_currency import InlineResponse20082DataCurrency
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082_data_value_unit import InlineResponse20082DataValueUnit
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_accumulated import InlineResponse20083Accumulated
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_first import InlineResponse20083First
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_high import InlineResponse20083High
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_latest import InlineResponse20083Latest
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_low import InlineResponse20083Low
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_market import InlineResponse20083Market
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_previous_close import InlineResponse20083PreviousClose
-    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_status import InlineResponse20083Status
-    globals()['InlineResponse20082DataCurrency'] = InlineResponse20082DataCurrency
-    globals()['InlineResponse20082DataValueUnit'] = InlineResponse20082DataValueUnit
-    globals()['InlineResponse20083Accumulated'] = InlineResponse20083Accumulated
-    globals()['InlineResponse20083First'] = InlineResponse20083First
-    globals()['InlineResponse20083High'] = InlineResponse20083High
-    globals()['InlineResponse20083Latest'] = InlineResponse20083Latest
-    globals()['InlineResponse20083Low'] = InlineResponse20083Low
-    globals()['InlineResponse20083Market'] = InlineResponse20083Market
-    globals()['InlineResponse20083PreviousClose'] = InlineResponse20083PreviousClose
-    globals()['InlineResponse20083Status'] = InlineResponse20083Status
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_data_market import InlineResponse20083DataMarket
+    from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083_data_regional import InlineResponse20083DataRegional
+    globals()['InlineResponse20083DataMarket'] = InlineResponse20083DataMarket
+    globals()['InlineResponse20083DataRegional'] = InlineResponse20083DataRegional
 
 
 class InlineResponse20083Data(ModelNormal):
@@ -77,12 +61,6 @@ class InlineResponse20083Data(ModelNormal):
     """
 
     allowed_values = {
-        ('quality',): {
-            'None': None,
-            'RLT': "RLT",
-            'DLY': "DLY",
-            'EOD': "EOD",
-        },
     }
 
     validations = {
@@ -113,17 +91,13 @@ class InlineResponse20083Data(ModelNormal):
         return {
             'id_notation': (str, none_type,),  # noqa: E501
             'source_identifier': (str, none_type,),  # noqa: E501
-            'value_unit': (InlineResponse20082DataValueUnit,),  # noqa: E501
-            'currency': (InlineResponse20082DataCurrency,),  # noqa: E501
-            'market': (InlineResponse20083Market,),  # noqa: E501
-            'quality': (str, none_type,),  # noqa: E501
-            'latest': (InlineResponse20083Latest,),  # noqa: E501
-            'first': (InlineResponse20083First,),  # noqa: E501
-            'low': (InlineResponse20083Low,),  # noqa: E501
-            'high': (InlineResponse20083High,),  # noqa: E501
-            'previous_close': (InlineResponse20083PreviousClose,),  # noqa: E501
-            'accumulated': (InlineResponse20083Accumulated,),  # noqa: E501
-            'status': (InlineResponse20083Status,),  # noqa: E501
+            'suspended': (bool, none_type,),  # noqa: E501
+            'trading_status': (str, none_type,),  # noqa: E501
+            'price_delay': (float, none_type,),  # noqa: E501
+            'tick_size': (float, none_type,),  # noqa: E501
+            'lot_size': (float, none_type,),  # noqa: E501
+            'market': (InlineResponse20083DataMarket,),  # noqa: E501
+            'regional': (InlineResponse20083DataRegional,),  # noqa: E501
         }
 
     @cached_property
@@ -134,17 +108,13 @@ class InlineResponse20083Data(ModelNormal):
     attribute_map = {
         'id_notation': 'idNotation',  # noqa: E501
         'source_identifier': 'sourceIdentifier',  # noqa: E501
-        'value_unit': 'valueUnit',  # noqa: E501
-        'currency': 'currency',  # noqa: E501
+        'suspended': 'suspended',  # noqa: E501
+        'trading_status': 'tradingStatus',  # noqa: E501
+        'price_delay': 'priceDelay',  # noqa: E501
+        'tick_size': 'tickSize',  # noqa: E501
+        'lot_size': 'lotSize',  # noqa: E501
         'market': 'market',  # noqa: E501
-        'quality': 'quality',  # noqa: E501
-        'latest': 'latest',  # noqa: E501
-        'first': 'first',  # noqa: E501
-        'low': 'low',  # noqa: E501
-        'high': 'high',  # noqa: E501
-        'previous_close': 'previousClose',  # noqa: E501
-        'accumulated': 'accumulated',  # noqa: E501
-        'status': 'status',  # noqa: E501
+        'regional': 'regional',  # noqa: E501
     }
 
     read_only_vars = {
@@ -190,17 +160,13 @@ class InlineResponse20083Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            value_unit (InlineResponse20082DataValueUnit): [optional]  # noqa: E501
-            currency (InlineResponse20082DataCurrency): [optional]  # noqa: E501
-            market (InlineResponse20083Market): [optional]  # noqa: E501
-            quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            latest (InlineResponse20083Latest): [optional]  # noqa: E501
-            first (InlineResponse20083First): [optional]  # noqa: E501
-            low (InlineResponse20083Low): [optional]  # noqa: E501
-            high (InlineResponse20083High): [optional]  # noqa: E501
-            previous_close (InlineResponse20083PreviousClose): [optional]  # noqa: E501
-            accumulated (InlineResponse20083Accumulated): [optional]  # noqa: E501
-            status (InlineResponse20083Status): [optional]  # noqa: E501
+            suspended (bool, none_type): Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.. [optional]  # noqa: E501
+            trading_status (str, none_type): Market-specific code of the trading status and/or the suspension of the notation.. [optional]  # noqa: E501
+            price_delay (float, none_type): Exchange-imposed delay in seconds for delayed-quality tick data.. [optional]  # noqa: E501
+            tick_size (float, none_type): The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.. [optional]  # noqa: E501
+            lot_size (float, none_type): he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.. [optional]  # noqa: E501
+            market (InlineResponse20083DataMarket): [optional]  # noqa: E501
+            regional (InlineResponse20083DataRegional): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -284,17 +250,13 @@ class InlineResponse20083Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id_notation (str, none_type): MDG identifier of the listing.. [optional]  # noqa: E501
             source_identifier (str, none_type): Identifier used in the request.. [optional]  # noqa: E501
-            value_unit (InlineResponse20082DataValueUnit): [optional]  # noqa: E501
-            currency (InlineResponse20082DataCurrency): [optional]  # noqa: E501
-            market (InlineResponse20083Market): [optional]  # noqa: E501
-            quality (str, none_type): Quality of the price.. [optional]  # noqa: E501
-            latest (InlineResponse20083Latest): [optional]  # noqa: E501
-            first (InlineResponse20083First): [optional]  # noqa: E501
-            low (InlineResponse20083Low): [optional]  # noqa: E501
-            high (InlineResponse20083High): [optional]  # noqa: E501
-            previous_close (InlineResponse20083PreviousClose): [optional]  # noqa: E501
-            accumulated (InlineResponse20083Accumulated): [optional]  # noqa: E501
-            status (InlineResponse20083Status): [optional]  # noqa: E501
+            suspended (bool, none_type): Indicates whether the notation is currently suspended from trading. The notation is tradable if it is not suspended and the market is open, see attribute `market.isOpen`.. [optional]  # noqa: E501
+            trading_status (str, none_type): Market-specific code of the trading status and/or the suspension of the notation.. [optional]  # noqa: E501
+            price_delay (float, none_type): Exchange-imposed delay in seconds for delayed-quality tick data.. [optional]  # noqa: E501
+            tick_size (float, none_type): The minimum price movement of the notation. Prices can only be integral multiples of this minimum value. See endpoint `/notation/get` for the value unit of the `tickSize` for this notation.. [optional]  # noqa: E501
+            lot_size (float, none_type): he minimum tradable volume of the notation. The number of units traded can only be integral multiples of this minimum value.. [optional]  # noqa: E501
+            market (InlineResponse20083DataMarket): [optional]  # noqa: E501
+            regional (InlineResponse20083DataRegional): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

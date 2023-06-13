@@ -22,6 +22,7 @@ import PostBasicMediaTypeListRequestMeta from './PostBasicMediaTypeListRequestMe
 class PostBasicMediaTypeListRequest {
     /**
      * Constructs a new <code>PostBasicMediaTypeListRequest</code>.
+     * Request Body
      * @alias module:model/PostBasicMediaTypeListRequest
      */
     constructor() { 

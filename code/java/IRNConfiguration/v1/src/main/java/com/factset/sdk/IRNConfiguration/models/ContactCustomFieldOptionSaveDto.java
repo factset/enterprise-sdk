@@ -39,7 +39,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ContactCustomFieldOptionSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NAME = "Name";
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public ContactCustomFieldOptionSaveDto() { 

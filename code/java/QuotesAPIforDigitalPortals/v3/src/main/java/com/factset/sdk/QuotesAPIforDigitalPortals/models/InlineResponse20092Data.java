@@ -17,12 +17,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20046NotationFsym;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20067DataMarket;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20091Nsin;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20092Instrument;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20092TradingValue;
-import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20092ValueUnit;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20036Fsym;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20038DataCategories;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineResponse20042DataNsin;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,17 +37,17 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse20092Data
+ * The data member contains a list of the matching instruments
  */
+@ApiModel(description = "The data member contains a list of the matching instruments")
 @JsonPropertyOrder({
   InlineResponse20092Data.JSON_PROPERTY_ID,
-  InlineResponse20092Data.JSON_PROPERTY_VALUE_UNIT,
-  InlineResponse20092Data.JSON_PROPERTY_MARKET,
-  InlineResponse20092Data.JSON_PROPERTY_SYMBOL,
+  InlineResponse20092Data.JSON_PROPERTY_NAME,
+  InlineResponse20092Data.JSON_PROPERTY_ISIN,
   InlineResponse20092Data.JSON_PROPERTY_NSIN,
   InlineResponse20092Data.JSON_PROPERTY_FSYM,
-  InlineResponse20092Data.JSON_PROPERTY_INSTRUMENT,
-  InlineResponse20092Data.JSON_PROPERTY_TRADING_VALUE
+  InlineResponse20092Data.JSON_PROPERTY_ASSET_CLASS,
+  InlineResponse20092Data.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20092Data implements Serializable {
@@ -59,26 +56,23 @@ public class InlineResponse20092Data implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private JsonNullable<String> id = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
-  private InlineResponse20092ValueUnit valueUnit;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MARKET = "market";
-  private InlineResponse20067DataMarket market;
-
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
-  private JsonNullable<String> symbol = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_ISIN = "isin";
+  private JsonNullable<String> isin = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NSIN = "nsin";
-  private InlineResponse20091Nsin nsin;
+  private InlineResponse20042DataNsin nsin;
 
   public static final String JSON_PROPERTY_FSYM = "fsym";
-  private InlineResponse20046NotationFsym fsym;
+  private InlineResponse20036Fsym fsym;
 
-  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
-  private InlineResponse20092Instrument instrument;
+  public static final String JSON_PROPERTY_ASSET_CLASS = "assetClass";
+  private JsonNullable<String> assetClass = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
-  private InlineResponse20092TradingValue tradingValue;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private java.util.List<InlineResponse20038DataCategories> type = null;
 
   public InlineResponse20092Data() { 
   }
@@ -89,11 +83,11 @@ public class InlineResponse20092Data implements Serializable {
   }
 
    /**
-   * Identifier of a notation.
+   * Identifier of the instrument.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a notation.")
+  @ApiModelProperty(value = "Identifier of the instrument.")
   @JsonIgnore
 
   public String getId() {
@@ -117,93 +111,75 @@ public class InlineResponse20092Data implements Serializable {
   }
 
 
-  public InlineResponse20092Data valueUnit(InlineResponse20092ValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
+  public InlineResponse20092Data name(String name) {
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
    /**
-   * Get valueUnit
-   * @return valueUnit
+   * Asset class-unspecific name in English.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20092ValueUnit getValueUnit() {
-    return valueUnit;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueUnit(InlineResponse20092ValueUnit valueUnit) {
-    this.valueUnit = valueUnit;
-  }
-
-
-  public InlineResponse20092Data market(InlineResponse20067DataMarket market) {
-    this.market = market;
-    return this;
-  }
-
-   /**
-   * Get market
-   * @return market
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20067DataMarket getMarket() {
-    return market;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarket(InlineResponse20067DataMarket market) {
-    this.market = market;
-  }
-
-
-  public InlineResponse20092Data symbol(String symbol) {
-    this.symbol = JsonNullable.<String>of(symbol);
-    return this;
-  }
-
-   /**
-   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
-   * @return symbol
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
+  @ApiModelProperty(value = "Asset class-unspecific name in English.")
   @JsonIgnore
 
-  public String getSymbol() {
-        return symbol.orElse(null);
+  public String getName() {
+        return name.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getSymbol_JsonNullable() {
-    return symbol;
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
   }
   
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
-  public void setSymbol_JsonNullable(JsonNullable<String> symbol) {
-    this.symbol = symbol;
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
   }
 
-  public void setSymbol(String symbol) {
-    this.symbol = JsonNullable.<String>of(symbol);
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
-  public InlineResponse20092Data nsin(InlineResponse20091Nsin nsin) {
+  public InlineResponse20092Data isin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
+    return this;
+  }
+
+   /**
+   * The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.
+   * @return isin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.")
+  @JsonIgnore
+
+  public String getIsin() {
+        return isin.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ISIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIsin_JsonNullable() {
+    return isin;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISIN)
+  public void setIsin_JsonNullable(JsonNullable<String> isin) {
+    this.isin = isin;
+  }
+
+  public void setIsin(String isin) {
+    this.isin = JsonNullable.<String>of(isin);
+  }
+
+
+  public InlineResponse20092Data nsin(InlineResponse20042DataNsin nsin) {
     this.nsin = nsin;
     return this;
   }
@@ -217,19 +193,19 @@ public class InlineResponse20092Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20091Nsin getNsin() {
+  public InlineResponse20042DataNsin getNsin() {
     return nsin;
   }
 
 
   @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNsin(InlineResponse20091Nsin nsin) {
+  public void setNsin(InlineResponse20042DataNsin nsin) {
     this.nsin = nsin;
   }
 
 
-  public InlineResponse20092Data fsym(InlineResponse20046NotationFsym fsym) {
+  public InlineResponse20092Data fsym(InlineResponse20036Fsym fsym) {
     this.fsym = fsym;
     return this;
   }
@@ -243,67 +219,83 @@ public class InlineResponse20092Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20046NotationFsym getFsym() {
+  public InlineResponse20036Fsym getFsym() {
     return fsym;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsym(InlineResponse20046NotationFsym fsym) {
+  public void setFsym(InlineResponse20036Fsym fsym) {
     this.fsym = fsym;
   }
 
 
-  public InlineResponse20092Data instrument(InlineResponse20092Instrument instrument) {
-    this.instrument = instrument;
+  public InlineResponse20092Data assetClass(String assetClass) {
+    this.assetClass = JsonNullable.<String>of(assetClass);
     return this;
   }
 
    /**
-   * Get instrument
-   * @return instrument
+   * Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.
+   * @return assetClass
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @ApiModelProperty(value = "Name of the asset class of the instrument. Possible values are listed in the enumeration in the parameter description.")
+  @JsonIgnore
+
+  public String getAssetClass() {
+        return assetClass.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20092Instrument getInstrument() {
-    return instrument;
+  public JsonNullable<String> getAssetClass_JsonNullable() {
+    return assetClass;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ASSET_CLASS)
+  public void setAssetClass_JsonNullable(JsonNullable<String> assetClass) {
+    this.assetClass = assetClass;
+  }
+
+  public void setAssetClass(String assetClass) {
+    this.assetClass = JsonNullable.<String>of(assetClass);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstrument(InlineResponse20092Instrument instrument) {
-    this.instrument = instrument;
+  public InlineResponse20092Data type(java.util.List<InlineResponse20038DataCategories> type) {
+    this.type = type;
+    return this;
   }
 
-
-  public InlineResponse20092Data tradingValue(InlineResponse20092TradingValue tradingValue) {
-    this.tradingValue = tradingValue;
+  public InlineResponse20092Data addTypeItem(InlineResponse20038DataCategories typeItem) {
+    if (this.type == null) {
+      this.type = new java.util.ArrayList<>();
+    }
+    this.type.add(typeItem);
     return this;
   }
 
    /**
-   * Get tradingValue
-   * @return tradingValue
+   * Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).
+   * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
+  @ApiModelProperty(value = "Instrument type as defined by FactSet Digital Solutions. Instrument categories are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).")
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20092TradingValue getTradingValue() {
-    return tradingValue;
+  public java.util.List<InlineResponse20038DataCategories> getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTradingValue(InlineResponse20092TradingValue tradingValue) {
-    this.tradingValue = tradingValue;
+  public void setType(java.util.List<InlineResponse20038DataCategories> type) {
+    this.type = type;
   }
 
 
@@ -320,13 +312,12 @@ public class InlineResponse20092Data implements Serializable {
     }
     InlineResponse20092Data inlineResponse20092Data = (InlineResponse20092Data) o;
     return equalsNullable(this.id, inlineResponse20092Data.id) &&
-        Objects.equals(this.valueUnit, inlineResponse20092Data.valueUnit) &&
-        Objects.equals(this.market, inlineResponse20092Data.market) &&
-        equalsNullable(this.symbol, inlineResponse20092Data.symbol) &&
+        equalsNullable(this.name, inlineResponse20092Data.name) &&
+        equalsNullable(this.isin, inlineResponse20092Data.isin) &&
         Objects.equals(this.nsin, inlineResponse20092Data.nsin) &&
         Objects.equals(this.fsym, inlineResponse20092Data.fsym) &&
-        Objects.equals(this.instrument, inlineResponse20092Data.instrument) &&
-        Objects.equals(this.tradingValue, inlineResponse20092Data.tradingValue);
+        equalsNullable(this.assetClass, inlineResponse20092Data.assetClass) &&
+        Objects.equals(this.type, inlineResponse20092Data.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -335,7 +326,7 @@ public class InlineResponse20092Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), valueUnit, market, hashCodeNullable(symbol), nsin, fsym, instrument, tradingValue);
+    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(isin), nsin, fsym, hashCodeNullable(assetClass), type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -350,13 +341,12 @@ public class InlineResponse20092Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20092Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
-    sb.append("    market: ").append(toIndentedString(market)).append("\n");
-    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isin: ").append(toIndentedString(isin)).append("\n");
     sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
     sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
-    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
-    sb.append("    tradingValue: ").append(toIndentedString(tradingValue)).append("\n");
+    sb.append("    assetClass: ").append(toIndentedString(assetClass)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

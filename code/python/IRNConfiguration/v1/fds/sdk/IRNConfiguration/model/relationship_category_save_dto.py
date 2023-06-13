@@ -90,9 +90,9 @@ class RelationshipCategorySaveDto(ModelNormal):
 
 
     attribute_map = {
-        'category_name': 'CategoryName',  # noqa: E501
-        'is_contact_to_contact': 'IsContactToContact',  # noqa: E501
-        'is_contact_to_symbol': 'IsContactToSymbol',  # noqa: E501
+        'category_name': 'categoryName',  # noqa: E501
+        'is_contact_to_contact': 'isContactToContact',  # noqa: E501
+        'is_contact_to_symbol': 'isContactToSymbol',  # noqa: E501
     }
 
     read_only_vars = {

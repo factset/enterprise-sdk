@@ -32,8 +32,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
 
 
 /**
- * PostBasicBackgroundTextTypeListRequest
+ * Request Body
  */
+@ApiModel(description = "Request Body")
 @JsonPropertyOrder({
   PostBasicBackgroundTextTypeListRequest.JSON_PROPERTY_DATA,
   PostBasicBackgroundTextTypeListRequest.JSON_PROPERTY_META

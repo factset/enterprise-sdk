@@ -34,7 +34,7 @@ class ContactCustomFieldValueSaveDto {
      * Only for internal use.
      */
     static initialize(obj, code) { 
-        obj['Code'] = code;
+        obj['code'] = code;
     }
 
     /**
@@ -48,17 +48,17 @@ class ContactCustomFieldValueSaveDto {
         if (data) {
             obj = obj || new ContactCustomFieldValueSaveDto();
 
-            if (data.hasOwnProperty('Code')) {
-                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('Value')) {
-                obj['Value'] = ApiClient.convertToType(data['Value'], 'String');
+            if (data.hasOwnProperty('value')) {
+                obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('OptionValues')) {
-                obj['OptionValues'] = ApiClient.convertToType(data['OptionValues'], ['String']);
+            if (data.hasOwnProperty('optionValues')) {
+                obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['String']);
             }
-            if (data.hasOwnProperty('EvaluateFormula')) {
-                obj['EvaluateFormula'] = ApiClient.convertToType(data['EvaluateFormula'], 'Boolean');
+            if (data.hasOwnProperty('evaluateFormula')) {
+                obj['evaluateFormula'] = ApiClient.convertToType(data['evaluateFormula'], 'Boolean');
             }
         }
         return obj;
@@ -68,25 +68,25 @@ class ContactCustomFieldValueSaveDto {
 }
 
 /**
- * @member {String} Code
+ * @member {String} code
  */
-ContactCustomFieldValueSaveDto.prototype['Code'] = undefined;
+ContactCustomFieldValueSaveDto.prototype['code'] = undefined;
 
 /**
- * @member {String} Value
+ * @member {String} value
  */
-ContactCustomFieldValueSaveDto.prototype['Value'] = undefined;
+ContactCustomFieldValueSaveDto.prototype['value'] = undefined;
 
 /**
- * @member {Array.<String>} OptionValues
+ * @member {Array.<String>} optionValues
  */
-ContactCustomFieldValueSaveDto.prototype['OptionValues'] = undefined;
+ContactCustomFieldValueSaveDto.prototype['optionValues'] = undefined;
 
 /**
- * @member {Boolean} EvaluateFormula
+ * @member {Boolean} evaluateFormula
  * @default false
  */
-ContactCustomFieldValueSaveDto.prototype['EvaluateFormula'] = false;
+ContactCustomFieldValueSaveDto.prototype['evaluateFormula'] = false;
 
 
 
