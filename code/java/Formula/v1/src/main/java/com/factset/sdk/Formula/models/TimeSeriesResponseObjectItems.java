@@ -94,9 +94,9 @@ public class TimeSeriesResponseObjectItems extends AbstractOpenApiSchema impleme
             JsonNode tree = jp.readValueAsTree();
 
             Object deserialized = null;
-            // deserialize TimeSeriesResultObjectFlattened
+            // deserialize TimeSeriesResultObjectNonflattened
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeSeriesResultObjectFlattened.class);
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<TimeSeriesResultObjectNonflattened>(){});
                 TimeSeriesResponseObjectItems ret = new TimeSeriesResponseObjectItems();
                 ret.setActualInstance(deserialized);
                 return ret;
@@ -105,9 +105,9 @@ public class TimeSeriesResponseObjectItems extends AbstractOpenApiSchema impleme
                 log.log(Level.FINER, "Input data does not match 'TimeSeriesResponseObjectItems'", e);
             }
 
-            // deserialize TimeSeriesResultObjectNonflattened
+            // deserialize TimeSeriesResultObjectFlattened
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeSeriesResultObjectNonflattened.class);
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<TimeSeriesResultObjectFlattened>(){});
                 TimeSeriesResponseObjectItems ret = new TimeSeriesResponseObjectItems();
                 ret.setActualInstance(deserialized);
                 return ret;
@@ -168,12 +168,12 @@ public class TimeSeriesResponseObjectItems extends AbstractOpenApiSchema impleme
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(TimeSeriesResultObjectFlattened.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(TimeSeriesResultObjectNonflattened.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(TimeSeriesResultObjectNonflattened.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(TimeSeriesResultObjectFlattened.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -193,18 +193,8 @@ public class TimeSeriesResponseObjectItems extends AbstractOpenApiSchema impleme
     }
 
     /**
-     * Get the actual instance of `TimeSeriesResultObjectFlattened`. If the actual instance is not `TimeSeriesResultObjectFlattened`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `TimeSeriesResultObjectFlattened`
-     * @throws ClassCastException if the instance is not `TimeSeriesResultObjectFlattened`
-     */
-    public TimeSeriesResultObjectFlattened getTimeSeriesResultObjectFlattened() throws ClassCastException {
-        return (TimeSeriesResultObjectFlattened)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `TimeSeriesResultObjectNonflattened`. If the actual instance is not `TimeSeriesResultObjectNonflattened`,
+     * Get the actual instance of `TimeSeriesResultObjectNonflattened`.
+     * If the actual instance is not `TimeSeriesResultObjectNonflattened`,
      * the ClassCastException will be thrown.
      *
      * @return The actual instance of `TimeSeriesResultObjectNonflattened`
@@ -212,6 +202,18 @@ public class TimeSeriesResponseObjectItems extends AbstractOpenApiSchema impleme
      */
     public TimeSeriesResultObjectNonflattened getTimeSeriesResultObjectNonflattened() throws ClassCastException {
         return (TimeSeriesResultObjectNonflattened)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `TimeSeriesResultObjectFlattened`.
+     * If the actual instance is not `TimeSeriesResultObjectFlattened`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TimeSeriesResultObjectFlattened`
+     * @throws ClassCastException if the instance is not `TimeSeriesResultObjectFlattened`
+     */
+    public TimeSeriesResultObjectFlattened getTimeSeriesResultObjectFlattened() throws ClassCastException {
+        return (TimeSeriesResultObjectFlattened)super.getActualInstance();
     }
 
 }

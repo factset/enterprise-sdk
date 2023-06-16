@@ -90,7 +90,7 @@ public class DataPointMeta extends AbstractOpenApiSchema implements Serializable
             Object deserialized = null;
             // deserialize DataPointMetaAnyOf
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(DataPointMetaAnyOf.class);
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<DataPointMetaAnyOf>(){});
                 DataPointMeta ret = new DataPointMeta();
                 ret.setActualInstance(deserialized);
                 return ret;
@@ -164,7 +164,8 @@ public class DataPointMeta extends AbstractOpenApiSchema implements Serializable
     }
 
     /**
-     * Get the actual instance of `DataPointMetaAnyOf`. If the actual instance is not `DataPointMetaAnyOf`,
+     * Get the actual instance of `DataPointMetaAnyOf`.
+     * If the actual instance is not `DataPointMetaAnyOf`,
      * the ClassCastException will be thrown.
      *
      * @return The actual instance of `DataPointMetaAnyOf`

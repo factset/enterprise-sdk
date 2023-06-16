@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "factsetquantfactorlibrary",
-  "artifactVersion": "1.0.5",
+  "artifactVersion": "1.0.6",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "FactSet Quant Factor Library client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/FactSetQuantFactorLibrary/1.0.5",
+  "httpUserAgent": "fds-sdk/java/FactSetQuantFactorLibrary/1.0.6",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

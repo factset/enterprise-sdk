@@ -5,7 +5,7 @@
     <artifactId>factsetintradaytickhistory</artifactId>
     <packaging>jar</packaging>
     <name>factsetintradaytickhistory</name>
-    <version>0.21.5</version>
+    <version>0.21.6</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Intraday Tick History client library for Java</description>
     <scm>

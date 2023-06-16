@@ -5,7 +5,7 @@
     <artifactId>spglobalfixedincomeevaluatedpricesandanalytics</artifactId>
     <packaging>jar</packaging>
     <name>spglobalfixedincomeevaluatedpricesandanalytics</name>
-    <version>0.1.4</version>
+    <version>0.1.5</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>S&amp;amp;P Global Fixed Income Evaluated Prices and Analytics client library for Java</description>
     <scm>
