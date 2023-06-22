@@ -66,12 +66,14 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "currency_example" # str | Currency for response. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)
 
     try:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_benchmark_constituents(ids, date=date, currency=currency)
+        api_response = api_instance.get_benchmark_constituents(ids, date=date, currency=currency, calendar=calendar)
 
         pprint(api_response)
 
@@ -87,6 +89,7 @@ Name | Type | Description  | Notes
  **ids** | **[str]**| Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; |
  **date** | **str**| Date of holding expressed in YYYY-MM-DD format. | [optional]
  **currency** | **str**| Currency for response. | [optional]
+ **calendar** | **str**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional]
 
 ### Return type
 
@@ -167,6 +170,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         ids=ConstituentIds(["SP50"]),
         date="2020-08-06",
         currency="USD",
+        calendar="FIVEDAY",
     ) # BenchmarkConstituentsRequest | Requests Benchmark Constituents for the given identifier and date.
 
     try:

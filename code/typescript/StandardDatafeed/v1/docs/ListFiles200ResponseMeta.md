@@ -1,4 +1,4 @@
-# standarddatafeed.ListSchema200ResponseMeta
+# standarddatafeed.ListFiles200ResponseMeta
 
 ## Properties
 

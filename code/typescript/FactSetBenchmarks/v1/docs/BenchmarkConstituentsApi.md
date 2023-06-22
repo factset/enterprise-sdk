@@ -48,7 +48,8 @@ const apiInstance = new BenchmarkConstituentsApi();
 const ids = ["null"]; // [String] | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
 const opts = {
   'date': "date_example", // String | Date of holding expressed in YYYY-MM-DD format.
-  'currency': "currency_example" // String | Currency for response.
+  'currency': "currency_example", // String | Currency for response.
+  'calendar': FIVEDAY // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
 };
 
 // Call api endpoint
@@ -74,6 +75,7 @@ Name | Type | Description  | Notes
  **ids** | [**[String]**](String.md)| Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; | 
  **date** | **String**| Date of holding expressed in YYYY-MM-DD format. | [optional] 
  **currency** | **String**| Currency for response. | [optional] 
+ **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] 
 
 ### Return type
 

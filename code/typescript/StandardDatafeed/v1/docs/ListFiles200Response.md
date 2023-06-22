@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**[Dataresponseitems]**](Dataresponseitems.md) |  | [optional] 
-**meta** | [**ListSchema200ResponseMeta**](ListSchema200ResponseMeta.md) |  | [optional] 
+**meta** | [**ListFiles200ResponseMeta**](ListFiles200ResponseMeta.md) |  | [optional] 
 
 

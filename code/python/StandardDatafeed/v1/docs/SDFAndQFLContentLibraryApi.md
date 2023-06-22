@@ -1,10 +1,10 @@
 # fds.sdk.StandardDatafeed.SDFAndQFLContentLibraryApi
 
-All URIs are relative to *https://api.factset.com/bulk-documents/sdf*
+All URIs are relative to *https://api.factset.com/bulk-documents/sdf/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_v1_list_files**](SDFAndQFLContentLibraryApi.md#get_v1_list_files) | **GET** /v1/list-files | 
+[**get_v1_list_files**](SDFAndQFLContentLibraryApi.md#get_v1_list_files) | **GET** /list-files | 
 
 
 
@@ -68,7 +68,7 @@ with fds.sdk.StandardDatafeed.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 20 # int | Specifies the number of results to return per page. Default is 20 & Maximum is 500 results per page (optional) if omitted the server will use the default value of 20
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)
+    pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) if omitted the server will use the default value of 0
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sort = "startDate" # str | Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used (optional) if omitted the server will use the default value of "startDate"
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
  **start_date** | **str**| The earliest date of the feed file the API should fetch for based on the fileTimestamp.&lt;/p&gt;   - If schema parameter is not specified in the request, then data requested should be in batches of 10days or less**(Date range should be less than or equal to 10)** - If the schema parameter is specified in the request, date range can be greater than 10 days - If startDate and endDate parameters are not specified in the request, this endpoint returns past 10 days data by default. - startDate can be absolute- YYYY-MM-DD or relative:-  -1 for yesterday  QFL:- In case of QFL - Historical files available from 1995-01-01 to 2021-12-31. YTD files are current year files. | [optional]
  **end_date** | **str**| The latest date of the feed file the API should fetch for based on the fileTimestamp  If startDate and endDate parameters are not specified in the request, this endpoint returns past 10 days data by default.  endDate can be in absolute- YYYY-MM-DD or relative date:- 0 for today | [optional]
  **pagination_limit** | **int**| Specifies the number of results to return per page. Default is 20 &amp; Maximum is 500 results per page | [optional] if omitted the server will use the default value of 20
- **pagination_offset** | **int**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional]
+ **pagination_offset** | **int**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] if omitted the server will use the default value of 0
  **sort** | **str**| Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used | [optional] if omitted the server will use the default value of "startDate"
 
 ### Return type

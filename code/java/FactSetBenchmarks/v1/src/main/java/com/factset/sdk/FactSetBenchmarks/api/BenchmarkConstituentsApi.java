@@ -96,6 +96,7 @@ public class BenchmarkConstituentsApi {
    * @param ids Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; (required)
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
    * @param currency Currency for response. (optional)
+   * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)
    * @return BenchmarkConstituentsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -109,8 +110,8 @@ public class BenchmarkConstituentsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public BenchmarkConstituentsResponse getBenchmarkConstituents(java.util.List<String> ids, String date, String currency) throws ApiException {
-    return getBenchmarkConstituentsWithHttpInfo(ids, date, currency).getData();
+  public BenchmarkConstituentsResponse getBenchmarkConstituents(java.util.List<String> ids, String date, String currency, String calendar) throws ApiException {
+    return getBenchmarkConstituentsWithHttpInfo(ids, date, currency, calendar).getData();
   }
 
   /**
@@ -119,6 +120,7 @@ public class BenchmarkConstituentsApi {
    * @param ids Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; (required)
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
    * @param currency Currency for response. (optional)
+   * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)
    * @return ApiResponse&lt;BenchmarkConstituentsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -132,7 +134,7 @@ public class BenchmarkConstituentsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<BenchmarkConstituentsResponse> getBenchmarkConstituentsWithHttpInfo(java.util.List<String> ids, String date, String currency) throws ApiException {
+  public ApiResponse<BenchmarkConstituentsResponse> getBenchmarkConstituentsWithHttpInfo(java.util.List<String> ids, String date, String currency, String calendar) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -152,6 +154,7 @@ public class BenchmarkConstituentsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "date", date));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "calendar", calendar));
 
     
     

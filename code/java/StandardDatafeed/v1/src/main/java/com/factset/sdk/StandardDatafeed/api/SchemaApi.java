@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.factset.sdk.StandardDatafeed.models.ListSchema200Response;
 import com.factset.sdk.StandardDatafeed.models.ListSchema400Response;
+import com.factset.sdk.StandardDatafeed.models.ListSchemas;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SchemaApi {
@@ -28,7 +28,7 @@ public class SchemaApi {
   
   private static final Map<Integer, GenericType> getV1ListSchemasResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getV1ListSchemasResponseTypeMap.put(200, new GenericType<ListSchema200Response>(){});
+    getV1ListSchemasResponseTypeMap.put(200, new GenericType<ListSchemas>(){});
     getV1ListSchemasResponseTypeMap.put(400, new GenericType<ListSchema400Response>(){});
   }
 
@@ -58,7 +58,7 @@ public class SchemaApi {
    * &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
    * @param schema schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)
    * @param sequence Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)
-   * @return ListSchema200Response
+   * @return ListSchemas
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -67,7 +67,7 @@ public class SchemaApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ListSchema200Response getV1ListSchemas(String schema, Integer sequence) throws ApiException {
+  public ListSchemas getV1ListSchemas(String schema, Integer sequence) throws ApiException {
     return getV1ListSchemasWithHttpInfo(schema, sequence).getData();
   }
 
@@ -76,7 +76,7 @@ public class SchemaApi {
    * &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
    * @param schema schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)
    * @param sequence Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)
-   * @return ApiResponse&lt;ListSchema200Response&gt;
+   * @return ApiResponse&lt;ListSchemas&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -85,11 +85,11 @@ public class SchemaApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ListSchema200Response> getV1ListSchemasWithHttpInfo(String schema, Integer sequence) throws ApiException {
+  public ApiResponse<ListSchemas> getV1ListSchemasWithHttpInfo(String schema, Integer sequence) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/list-schemas";
+    String localVarPath = "/list-schemas";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -118,7 +118,7 @@ public class SchemaApi {
 
     ApiResponse<
         
-        ListSchema200Response
+        ListSchemas
       
     > apiResponse = apiClient.invokeAPI("SchemaApi.getV1ListSchemas", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

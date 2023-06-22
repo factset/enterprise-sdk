@@ -1,15 +1,18 @@
 openapi: 3.0.1
 info:
   contact:
-    email: analytics.api.support@factset.com
-    name: Analytics API Support
+    email: api@factset.com
+    name: FactSet Research Systems
     url: https://developer.factset.com/contact
   description: Allow clients to fetch Analytics through APIs.
   license:
-    name: Apache License 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Vault API
-  version: "3"
+  version: 3.12.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/vault-api
 servers:
 - url: https://api.factset.com
 security:
@@ -4446,20 +4449,20 @@ paths:
 components:
   schemas:
     ComponentSummary:
-      additionalProperties: false
       example:
         name: name
         category: category
       properties:
         name:
           description: Component name.
+          nullable: true
           type: string
         category:
           description: Component category.
+          nullable: true
           type: string
       type: object
     ComponentSummaryRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -4471,47 +4474,57 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/ComponentSummary'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     ErrorSource:
-      additionalProperties: false
       example:
         pointer: pointer
         parameter: parameter
       properties:
         pointer:
+          nullable: true
           type: string
         parameter:
+          nullable: true
           type: string
       type: object
     Error:
-      additionalProperties: false
       example:
+        code: code
         id: id
         detail: detail
         source:
           pointer: pointer
           parameter: parameter
+        title: title
       properties:
         id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
           type: string
         detail:
+          nullable: true
           type: string
         source:
           $ref: '#/components/schemas/ErrorSource'
       type: object
     ClientErrorResponse:
-      additionalProperties: false
       properties:
         errors:
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
       type: object
     VaultIdentifier:
-      additionalProperties: false
       description: The account/benchmark parameter for Vault calculation.
       example:
         id: id
@@ -4523,7 +4536,6 @@ components:
       - id
       type: object
     VaultDateParameters:
-      additionalProperties: false
       description: The date parameters for Vault calculation
       example:
         enddate: enddate
@@ -4532,6 +4544,7 @@ components:
       properties:
         startdate:
           description: Calculation's start date.
+          nullable: true
           type: string
         enddate:
           description: Calculation's end date.
@@ -4544,7 +4557,6 @@ components:
       - frequency
       type: object
     VaultComponent:
-      additionalProperties: false
       example:
         currencyisocode: currencyisocode
         path: path
@@ -4563,6 +4575,7 @@ components:
       properties:
         id:
           description: Vault component identifier
+          nullable: true
           type: string
         account:
           $ref: '#/components/schemas/VaultIdentifier'
@@ -4570,6 +4583,7 @@ components:
           $ref: '#/components/schemas/VaultIdentifier'
         currencyisocode:
           description: Currency iso code saved in the document
+          nullable: true
           type: string
         dates:
           $ref: '#/components/schemas/VaultDateParameters'
@@ -4578,16 +4592,18 @@ components:
           type: boolean
         path:
           description: The path to the document
+          nullable: true
           type: string
         name:
           description: Component name.
+          nullable: true
           type: string
         category:
           description: Component category.
+          nullable: true
           type: string
       type: object
     VaultComponentRoot:
-      additionalProperties: false
       example:
         data:
           currencyisocode: currencyisocode
@@ -4608,21 +4624,21 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/VaultComponent'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     VaultConfigurationSummary:
-      additionalProperties: false
       example:
         name: name
       properties:
         name:
           description: Configuration name.
+          nullable: true
           type: string
       type: object
     VaultConfigurationSummaryRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -4633,12 +4649,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/VaultConfigurationSummary'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     ConfigurationAccount:
-      additionalProperties: false
       example:
         maxEndDate: maxEndDate
         minStartDate: minStartDate
@@ -4649,25 +4665,30 @@ components:
       properties:
         benchmarkCode:
           description: Benchmark code.
+          nullable: true
           type: string
         benchmarkName:
           description: Benchmark name.
+          nullable: true
           type: string
         maxEndDate:
           description: Maximum end date.
+          nullable: true
           type: string
         minStartDate:
           description: Minimum start date.
+          nullable: true
           type: string
         lockingDate:
           description: Locking date.
+          nullable: true
           type: string
         name:
           description: Account name.
+          nullable: true
           type: string
       type: object
     VaultConfiguration:
-      additionalProperties: false
       example:
         name: name
         accounts:
@@ -4681,14 +4702,15 @@ components:
       properties:
         name:
           description: Configuration name.
+          nullable: true
           type: string
         accounts:
           additionalProperties:
             $ref: '#/components/schemas/ConfigurationAccount'
+          nullable: true
           type: object
       type: object
     VaultConfigurationRoot:
-      additionalProperties: false
       example:
         data:
           name: name
@@ -4704,25 +4726,26 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/VaultConfiguration'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     DateParametersSummary:
-      additionalProperties: false
       example:
         enddate: enddate
         startdate: startdate
       properties:
         startdate:
           description: Start date in YYYYMMDD format.
+          nullable: true
           type: string
         enddate:
           description: End date in YYYYMMDD format.
+          nullable: true
           type: string
       type: object
     DateParametersSummaryRoot:
-      additionalProperties: false
       example:
         data:
           enddate: enddate
@@ -4731,12 +4754,12 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/DateParametersSummary'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     DocumentDirectories:
-      additionalProperties: false
       example:
         documents:
         - documents
@@ -4749,15 +4772,16 @@ components:
           description: List of documents
           items:
             type: string
+          nullable: true
           type: array
         directories:
           description: List of directories.
           items:
             type: string
+          nullable: true
           type: array
       type: object
     DocumentDirectoriesRoot:
-      additionalProperties: false
       example:
         data:
           documents:
@@ -4770,21 +4794,21 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/DocumentDirectories'
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     Frequency:
-      additionalProperties: false
       example:
         name: name
       properties:
         name:
           description: Frequency name.
+          nullable: true
           type: string
       type: object
     FrequencyRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -4795,12 +4819,12 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/Frequency'
           type: object
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     VaultCalculationParameters:
-      additionalProperties: false
       example:
         componentdetail: componentdetail
         componentid: componentid
@@ -4825,6 +4849,7 @@ components:
         componentdetail:
           description: Component detail type for the Vault component. It can be GROUPS
             or TOTALS or SECURITIES.
+          nullable: true
           type: string
       required:
       - account
@@ -4832,7 +4857,6 @@ components:
       - configid
       type: object
     CalculationMeta:
-      additionalProperties: false
       example:
         contentorganization: SimplifiedRow
         format: JsonStach
@@ -4878,7 +4902,6 @@ components:
           type: string
       type: object
     VaultCalculationParametersRoot:
-      additionalProperties: false
       example:
         data:
           key:
@@ -4901,26 +4924,33 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/VaultCalculationParameters'
           description: List of calculation parameters.
+          nullable: true
           type: object
         meta:
           $ref: '#/components/schemas/CalculationMeta'
       type: object
     CalculationUnitStatus:
-      additionalProperties: false
       example:
         result: result
+        warnings:
+        - warnings
+        - warnings
         progress: progress
         errors:
-        - id: id
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
-        - id: id
+          title: title
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
+          title: title
         status: Queued
         points: 0
       properties:
@@ -4937,43 +4967,60 @@ components:
           description: The error in a calculation unit.
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
         result:
           description: The result URL of the calculation.
+          nullable: true
           type: string
         progress:
           description: The progress of the calculation unit.
+          nullable: true
           type: string
         points:
           description: The points for the calculation unit.
           format: int32
+          nullable: true
           type: integer
+        warnings:
+          description: The warnings in a calculation unit.
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     CalculationStatus:
-      additionalProperties: false
       example:
         calculationid: calculationid
         units:
           key:
             result: result
+            warnings:
+            - warnings
+            - warnings
             progress: progress
             errors:
-            - id: id
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
-            - id: id
+              title: title
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
+              title: title
             status: Queued
             points: 0
         status: Queued
       properties:
         calculationid:
           description: Calculation's identifier
+          nullable: true
           type: string
         status:
           description: Calculation's status
@@ -4987,19 +5034,19 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatus'
           description: Number of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationUnitStatusMeta:
-      additionalProperties: false
       example:
         info: info
       properties:
         info:
           description: The Info URL of the calculation.
+          nullable: true
           type: string
       type: object
     CalculationStatusMeta:
-      additionalProperties: false
       example:
         units:
           key:
@@ -5009,28 +5056,35 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatusMeta'
           description: Meta of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationStatusRoot:
-      additionalProperties: false
       example:
         data:
           calculationid: calculationid
           units:
             key:
               result: result
+              warnings:
+              - warnings
+              - warnings
               progress: progress
               errors:
-              - id: id
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
-              - id: id
+                title: title
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
+                title: title
               status: Queued
               points: 0
           status: Queued
@@ -5047,18 +5101,17 @@ components:
       - data
       type: object
     ObjectRoot:
-      additionalProperties: false
       example:
         data: ""
         meta: ""
       properties:
         data: {}
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
     CalculationsSummary:
-      additionalProperties: false
       example:
         requestTime: 2000-01-23T04:56:07.000+00:00
         lastPollTime: 2000-01-23T04:56:07.000+00:00
@@ -5087,7 +5140,6 @@ components:
           type: string
       type: object
     PaginationInfo:
-      additionalProperties: false
       example:
         pageNumber: 6
         previousPage: previousPage
@@ -5109,12 +5161,13 @@ components:
           format: int32
           type: integer
         nextPage:
+          nullable: true
           type: string
         previousPage:
+          nullable: true
           type: string
       type: object
     PaginationMeta:
-      additionalProperties: false
       example:
         pagination:
           pageNumber: 6
@@ -5128,7 +5181,6 @@ components:
           $ref: '#/components/schemas/PaginationInfo'
       type: object
     CalculationsSummaryRoot:
-      additionalProperties: false
       example:
         data:
           requestTime: 2000-01-23T04:56:07.000+00:00

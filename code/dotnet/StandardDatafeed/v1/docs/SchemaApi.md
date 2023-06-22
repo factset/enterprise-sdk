@@ -1,16 +1,16 @@
 # FactSet.SDK.StandardDatafeed.Api.SchemaApi
 
-All URIs are relative to *https://api.factset.com/bulk-documents/sdf*
+All URIs are relative to *https://api.factset.com/bulk-documents/sdf/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetV1ListSchemas**](SchemaApi.md#getv1listschemas) | **GET** /v1/list-schemas | schemas
+[**GetV1ListSchemas**](SchemaApi.md#getv1listschemas) | **GET** /list-schemas | schemas
 
 
 
 <a name="getv1listschemas"></a>
 # **GetV1ListSchemas**
-> ListSchema200Response GetV1ListSchemas (string schema = null, int? sequence = null)
+> ListSchemas GetV1ListSchemas (string schema = null, int? sequence = null)
 
 schemas
 
@@ -58,7 +58,7 @@ namespace Example
             try
             {
                 // schemas
-                ListSchema200Response result = apiInstance.GetV1ListSchemas(schema, sequence);
+                ListSchemas result = apiInstance.GetV1ListSchemas(schema, sequence);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
  **sequence** | **int?**| Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request | [optional] 
 
 ### Return type
-[**ListSchema200Response**](ListSchema200Response.md)
+[**ListSchemas**](ListSchemas.md)
 
 ### Authorization
 

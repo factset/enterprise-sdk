@@ -1,6 +1,6 @@
 
 
-# ListSchema200ResponseMeta
+# ListFiles200ResponseMeta
 
 
 ## Properties

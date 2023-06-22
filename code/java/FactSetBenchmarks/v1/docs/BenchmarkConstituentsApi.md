@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getBenchmarkConstituents
 
-> BenchmarkConstituentsResponse getBenchmarkConstituents(ids, date, currency)
+> BenchmarkConstituentsResponse getBenchmarkConstituents(ids, date, currency, calendar)
 
 Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
 
@@ -57,8 +57,9 @@ public class Example {
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
         String date = "date_example"; // String | Date of holding expressed in YYYY-MM-DD format.
         String currency = "currency_example"; // String | Currency for response.
+        String calendar = "FIVEDAY"; // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
         try {
-            BenchmarkConstituentsResponse result = apiInstance.getBenchmarkConstituents(ids, date, currency);
+            BenchmarkConstituentsResponse result = apiInstance.getBenchmarkConstituents(ids, date, currency, calendar);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -80,6 +81,7 @@ Name | Type | Description  | Notes
  **ids** | **List&lt;String&gt;**| Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; |
  **date** | **String**| Date of holding expressed in YYYY-MM-DD format. | [optional]
  **currency** | **String**| Currency for response. | [optional]
+ **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional]
 
 ### Return type
 

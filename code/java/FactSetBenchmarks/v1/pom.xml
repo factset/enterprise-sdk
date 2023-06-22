@@ -5,7 +5,7 @@
     <artifactId>factsetbenchmarks</artifactId>
     <packaging>jar</packaging>
     <name>factsetbenchmarks</name>
-    <version>1.1.5</version>
+    <version>2.0.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Benchmarks client library for Java</description>
     <scm>

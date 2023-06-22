@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: SDF Download API
-  version: '1.0'
+  version: 1.0.0
   contact:
     name: Team Mustang
     email: teammustang@factset.com
@@ -25,9 +25,9 @@ info:
      - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.
      - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).
 servers:
-  - url: https://api.factset.com/bulk-documents/sdf
+  - url: https://api.factset.com/bulk-documents/sdf/v1
 paths:
-  /v1/list-schemas:
+  /list-schemas:
     get:
       summary: schemas
       tags:
@@ -50,10 +50,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/list-schema_200Response'
+                $ref: '#/components/schemas/ListSchemas'
               examples:
-                list-schema200ResposeExample:
+                list-schema200ResponseExample:
                   $ref: '#/components/examples/list-schema_200ResponseExample'
+                list-schema200ResponseExample2:
+                  $ref: '#/components/examples/list-schema_200ResponseExample2'
         '400':
           description: Bad Request
           content:
@@ -63,7 +65,7 @@ paths:
               examples:
                 list_schema400ResponseExample:
                   $ref: '#/components/examples/list-schema_400ResponseExample'
-  /v1/list-files:
+  /list-files:
     get:
       tags:
         - SDF and QFL Content Library
@@ -246,7 +248,7 @@ components:
       required: false
       schema:
         type: integer
-        default: '0'
+        default: 0
     _sort:
       name: _sort
       in: query
@@ -260,34 +262,36 @@ components:
         enum:
           - startDate
   schemas:
-    list-schema_200Response:
+    ListSchemas:
+      title: ListSchemas
+      description: List Of Schemas
+      anyOf:
+        - $ref: '#/components/schemas/SchemaList'
+        - $ref: '#/components/schemas/SchemaDetails'
+    SchemaList:
+      title: SchemaList
+      description: Schema List Object
+      type: object
+      additionalProperties:
+        description: Name of schema with the sequence number (version number) in the value.
+        type: array
+        items:
+          type: string
+    SchemaDetails:
+      type: object
       properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              schema:
-                description: schema name
-                type: string
-              sequence:
-                description: version number of the schema
-                type: integer
-              url:
-                description: >-
-                  pre-signed downloadable url containing the information of the
-                  schema
-                type: string
-              timestamp:
-                description: time stamp of when the schema-sequence was last updated
-                type: string
-        meta:
-          type: object
-          properties:
-            pagination:
-              $ref: '#/components/schemas/pagination'
-            partial:
-              $ref: '#/components/schemas/partial'
+        schema:
+          description: schema name
+          type: string
+        sequence:
+          description: version number of the schema
+          type: integer
+        url:
+          description: pre-signed downloadable url containing the information of the schema
+          type: string
+        timestamp:
+          description: time stamp of when the schema sequence was last updated
+          type: string
     list-schema_400Response:
       properties:
         id:
@@ -376,7 +380,10 @@ components:
           description: Total number of files the API returns for a particular query
           type: integer
         is EstimatedTotal:
-          description: "Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  â€œFalseâ€\x9D as the API should always return the exact count"
+          description: >-
+            Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to  False as the
+            API should always return the exact count
           type: boolean
         limit:
           description: Number of results returned per page
@@ -398,6 +405,15 @@ components:
         isPartial:
           type: boolean
   examples:
+    list-schema_200ResponseExample2:
+      summary: No Parameters Response
+      value:
+        acta_v1:
+          - '8'
+        actr_v1:
+          - '2'
+        qfl_v1:
+          - '2'
     list-schema_200ResponseExample:
       summary: Sample Response
       value:

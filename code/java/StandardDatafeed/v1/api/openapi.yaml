@@ -25,9 +25,9 @@ info:
     \ processes within a client environment. Cost is based on the use case and fixed\
     \ unless scope changes (same as other SDFs)."
   title: SDF Download API
-  version: "1.0"
+  version: 1.0.0
 servers:
-- url: https://api.factset.com/bulk-documents/sdf
+- url: https://api.factset.com/bulk-documents/sdf/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -35,7 +35,7 @@ tags:
 - name: Schema
 - name: SDF and QFL Content Library
 paths:
-  /v1/list-schemas:
+  /list-schemas:
     get:
       description: |-
         <a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.
@@ -69,10 +69,12 @@ paths:
           content:
             application/json:
               examples:
-                list-schema200ResposeExample:
+                list-schema200ResponseExample:
                   $ref: '#/components/examples/list-schema_200ResponseExample'
+                list-schema200ResponseExample2:
+                  $ref: '#/components/examples/list-schema_200ResponseExample2'
               schema:
-                $ref: '#/components/schemas/list-schema_200Response'
+                $ref: '#/components/schemas/ListSchemas'
           description: OK
         "400":
           content:
@@ -87,7 +89,7 @@ paths:
       tags:
       - Schema
       x-accepts: application/json
-  /v1/list-files:
+  /list-files:
     get:
       description: "<a href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a>\
         \ end point provides the delta & full files in a reverse chronological order\
@@ -189,6 +191,7 @@ paths:
         name: _paginationOffset
         required: false
         schema:
+          default: 0
           type: integer
         style: form
       - description: Enables to get the data in ascending or descending order based
@@ -227,6 +230,15 @@ paths:
       x-accepts: application/json
 components:
   examples:
+    list-schema_200ResponseExample2:
+      summary: No Parameters Response
+      value:
+        acta_v1:
+        - "8"
+        actr_v1:
+        - "2"
+        qfl_v1:
+        - "2"
     list-schema_200ResponseExample:
       summary: Sample Response
       value:
@@ -386,6 +398,7 @@ components:
       name: _paginationOffset
       required: false
       schema:
+        default: 0
         type: integer
       style: form
     _sort:
@@ -402,32 +415,38 @@ components:
         type: string
       style: form
   schemas:
-    list-schema_200Response:
-      example:
-        data:
-        - schema: schema
-          sequence: 0
-          url: url
-          timestamp: timestamp
-        - schema: schema
-          sequence: 0
-          url: url
-          timestamp: timestamp
-        meta:
-          pagination:
-            total: 6
-            offset: 5
-            is EstimatedTotal: true
-            limit: 1
-          partial:
-            isPartial: true
+    ListSchemas:
+      anyOf:
+      - $ref: '#/components/schemas/SchemaList'
+      - $ref: '#/components/schemas/SchemaDetails'
+      description: List Of Schemas
+      title: ListSchemas
+    SchemaList:
+      additionalProperties:
+        description: Name of schema with the sequence number (version number) in the
+          value.
+        items:
+          type: string
+        type: array
+      description: Schema List Object
+      title: SchemaList
+      type: object
+    SchemaDetails:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/list_schema_200Response_data'
-          type: array
-        meta:
-          $ref: '#/components/schemas/list_schema_200Response_meta'
+        schema:
+          description: schema name
+          type: string
+        sequence:
+          description: version number of the schema
+          type: integer
+        url:
+          description: pre-signed downloadable url containing the information of the
+            schema
+          type: string
+        timestamp:
+          description: time stamp of when the schema sequence was last updated
+          type: string
+      type: object
     list-schema_400Response:
       properties:
         id:
@@ -465,10 +484,10 @@ components:
           timestamp: timestamp
         meta:
           pagination:
-            total: 6
-            offset: 5
+            total: 0
+            offset: 1
             is EstimatedTotal: true
-            limit: 1
+            limit: 6
           partial:
             isPartial: true
       properties:
@@ -477,7 +496,7 @@ components:
             $ref: '#/components/schemas/dataresponseitems'
           type: array
         meta:
-          $ref: '#/components/schemas/list_schema_200Response_meta'
+          $ref: '#/components/schemas/list_files_200Response_meta'
     list-files_400Response:
       properties:
         id:
@@ -547,18 +566,18 @@ components:
     pagination:
       description: List of pagination objects
       example:
-        total: 6
-        offset: 5
+        total: 0
+        offset: 1
         is EstimatedTotal: true
-        limit: 1
+        limit: 6
       properties:
         total:
           description: Total number of files the API returns for a particular query
           type: integer
         is EstimatedTotal:
-          description: "Boolean value that represents whether the total count of files\
-            \ returned is exact or an estimate. This is defaulted to  â€œFalseâ€\x9d\
-            \ as the API should always return the exact count"
+          description: Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to  False as the API
+            should always return the exact count
           type: boolean
         limit:
           description: Number of results returned per page
@@ -581,34 +600,13 @@ components:
           type: boolean
       title: isPartialobject
       type: object
-    list_schema_200Response_data:
-      example:
-        schema: schema
-        sequence: 0
-        url: url
-        timestamp: timestamp
-      properties:
-        schema:
-          description: schema name
-          type: string
-        sequence:
-          description: version number of the schema
-          type: integer
-        url:
-          description: pre-signed downloadable url containing the information of the
-            schema
-          type: string
-        timestamp:
-          description: time stamp of when the schema-sequence was last updated
-          type: string
-      type: object
-    list_schema_200Response_meta:
+    list_files_200Response_meta:
       example:
         pagination:
-          total: 6
-          offset: 5
+          total: 0
+          offset: 1
           is EstimatedTotal: true
-          limit: 1
+          limit: 6
         partial:
           isPartial: true
       properties:

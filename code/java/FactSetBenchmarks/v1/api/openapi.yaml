@@ -6,7 +6,7 @@ info:
   description: |
     FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.
   title: FactSet Benchmarks API
-  version: 1.7.0
+  version: 1.8.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -48,6 +48,32 @@ paths:
         explode: true
         in: query
         name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Calendar of data returned. The default value is FIVEDAY which
+          displays Monday through Friday, regardless of whether there were trading
+          holidays.
+        examples:
+          fiveday:
+            description: Displays Monday through Friday, regardless of whether there
+              were trading holidays. This is the default for `calendar`.
+            summary: FIVEDAY
+            value: FIVEDAY
+          sevenday:
+            description: Displays Monday through Sunday.
+            summary: SEVENDAY
+            value: SEVENDAY
+          region:
+            description: The calendar of a specific region. The example shown here
+              'NAY' is for the UNITED STATES calendar. You can find the calendar codes
+              for regions on [Online Assistant Page 16610](https://my.apps.factset.com/oa/pages/16610#country).
+            summary: Region Specific
+            value: NAY
+        explode: true
+        in: query
+        name: calendar
         required: false
         schema:
           type: string
@@ -2577,6 +2603,32 @@ components:
         - SEVENDAY
         type: string
       style: form
+    regionCalendar:
+      description: Calendar of data returned. The default value is FIVEDAY which displays
+        Monday through Friday, regardless of whether there were trading holidays.
+      examples:
+        fiveday:
+          description: Displays Monday through Friday, regardless of whether there
+            were trading holidays. This is the default for `calendar`.
+          summary: FIVEDAY
+          value: FIVEDAY
+        sevenday:
+          description: Displays Monday through Sunday.
+          summary: SEVENDAY
+          value: SEVENDAY
+        region:
+          description: The calendar of a specific region. The example shown here 'NAY'
+            is for the UNITED STATES calendar. You can find the calendar codes for
+            regions on [Online Assistant Page 16610](https://my.apps.factset.com/oa/pages/16610#country).
+          summary: Region Specific
+          value: NAY
+      explode: true
+      in: query
+      name: calendar
+      required: false
+      schema:
+        type: string
+      style: form
     currency:
       description: Currency for response.
       explode: true
@@ -2866,6 +2918,12 @@ components:
           description: Currency for response.
           example: USD
           title: Currency
+          type: string
+        calendar:
+          default: FIVEDAY
+          description: Calendar of data returned.
+          example: FIVEDAY
+          title: Calendar
           type: string
       required:
       - ids
@@ -3797,6 +3855,12 @@ components:
       enum:
       - FIVEDAY
       - SEVENDAY
+      example: FIVEDAY
+      title: Calendar
+      type: string
+    regionCalendar:
+      default: FIVEDAY
+      description: Calendar of data returned.
       example: FIVEDAY
       title: Calendar
       type: string

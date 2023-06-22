@@ -1,11 +1,12 @@
-# FactSet.SDK.StandardDatafeed.Model.ListSchema200ResponseMeta
+# SchemaList
+
+Schema List Object
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Pagination** | [**Pagination**](Pagination.md) |  | [optional] 
-**Partial** | [**Partial**](Partial.md) |  | [optional] 
+**any string name** | **[str]** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

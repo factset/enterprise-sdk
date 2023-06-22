@@ -1,15 +1,15 @@
 # fds.sdk.StandardDatafeed.SchemaApi
 
-All URIs are relative to *https://api.factset.com/bulk-documents/sdf*
+All URIs are relative to *https://api.factset.com/bulk-documents/sdf/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_v1_list_schemas**](SchemaApi.md#get_v1_list_schemas) | **GET** /v1/list-schemas | schemas
+[**get_v1_list_schemas**](SchemaApi.md#get_v1_list_schemas) | **GET** /list-schemas | schemas
 
 
 
 # **get_v1_list_schemas**
-> ListSchema200Response get_v1_list_schemas()
+> ListSchemas get_v1_list_schemas()
 
 schemas
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListSchema200Response**](ListSchema200Response.md)
+[**ListSchemas**](ListSchemas.md)
 
 ### Authorization
 

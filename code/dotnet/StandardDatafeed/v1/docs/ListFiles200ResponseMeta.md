@@ -1,11 +1,11 @@
-# FactSet.SDK.StandardDatafeed.Model.ListSchema200Response
+# FactSet.SDK.StandardDatafeed.Model.ListFiles200ResponseMeta
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**List&lt;ListSchema200ResponseData&gt;**](ListSchema200ResponseData.md) |  | [optional] 
-**Meta** | [**ListSchema200ResponseMeta**](ListSchema200ResponseMeta.md) |  | [optional] 
+**Pagination** | [**Pagination**](Pagination.md) |  | [optional] 
+**Partial** | [**Partial**](Partial.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

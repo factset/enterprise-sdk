@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.7.0
+  version: 1.8.0
   title: FactSet Benchmarks API
   contact:
     name: FactSet Research Systems
@@ -32,6 +32,7 @@ paths:
         - $ref: '#/components/parameters/constituentIds'
         - $ref: '#/components/parameters/requestedDate'
         - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/regionCalendar'
       responses:
         '200':
           description: Benchmark data items
@@ -648,6 +649,35 @@ components:
         default: FIVEDAY
       description: Calendar of data returned. SEVENDAY includes weekends.
       example: FIVEDAY
+    regionCalendar:
+      name: calendar
+      in: query
+      schema:
+        type: string
+      description: >-
+        Calendar of data returned. The default value is FIVEDAY which displays
+        Monday through Friday, regardless of whether there were trading
+        holidays.
+      required: false
+      examples:
+        fiveday:
+          summary: FIVEDAY
+          description: >-
+            Displays Monday through Friday, regardless of whether there were
+            trading holidays. This is the default for `calendar`.
+          value: FIVEDAY
+        sevenday:
+          summary: SEVENDAY
+          description: Displays Monday through Sunday.
+          value: SEVENDAY
+        region:
+          summary: Region Specific
+          description: >-
+            The calendar of a specific region. The example shown here 'NAY' is
+            for the UNITED STATES calendar. You can find the calendar codes for
+            regions on [Online Assistant Page
+            16610](https://my.apps.factset.com/oa/pages/16610#country).
+          value: NAY
     currency:
       name: currency
       in: query
@@ -934,6 +964,8 @@ components:
           $ref: '#/components/schemas/requestedDate'
         currency:
           $ref: '#/components/schemas/currency'
+        calendar:
+          $ref: '#/components/schemas/regionCalendar'
       required:
         - ids
     benchmarkConstituentsResponse:
@@ -1571,6 +1603,12 @@ components:
         - SEVENDAY
       default: FIVEDAY
       description: Calendar of data returned. SEVENDAY includes weekends.
+      example: FIVEDAY
+    regionCalendar:
+      title: Calendar
+      type: string
+      default: FIVEDAY
+      description: Calendar of data returned.
       example: FIVEDAY
     currency:
       title: Currency

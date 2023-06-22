@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetBenchmarks",
-  "packageVersion": "1.1.4",
+  "packageVersion": "1.2.0",
   "packageGuid": "{fdcaf88b-ab40-5175-9384-e2e0d110b416}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetBenchmarks/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetBenchmarks/1.1.4",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetBenchmarks/1.2.0",
   "files": {
     "LICENSE": {}
   },

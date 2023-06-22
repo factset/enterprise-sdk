@@ -4,15 +4,15 @@
     "title": "Vault API",
     "description": "Allow clients to fetch Analytics through APIs.",
     "contact": {
-      "name": "Analytics API Support",
+      "name": "FactSet Research Systems",
       "url": "https://developer.factset.com/contact",
-      "email": "analytics.api.support@factset.com"
+      "email": "api@factset.com"
     },
     "license": {
-      "name": "Apache License 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3"
+    "version": "3.12.0"
   },
   "servers": [
     {
@@ -4600,14 +4600,15 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Component name."
+            "description": "Component name.",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Component category."
+            "description": "Component category.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ComponentSummaryRoot": {
         "required": [
@@ -4621,36 +4622,47 @@
               "$ref": "#/components/schemas/ComponentSummary"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "ErrorSource": {
         "type": "object",
         "properties": {
           "pointer": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parameter": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "Error": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
           },
           "detail": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ClientErrorResponse": {
         "type": "object",
@@ -4659,10 +4671,10 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Error"
-            }
+            },
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "VaultIdentifier": {
         "required": [
@@ -4675,7 +4687,6 @@
             "description": "User's FactSet account path OR benchmark."
           }
         },
-        "additionalProperties": false,
         "description": "The account/benchmark parameter for Vault calculation."
       },
       "VaultDateParameters": {
@@ -4687,7 +4698,8 @@
         "properties": {
           "startdate": {
             "type": "string",
-            "description": "Calculation's start date."
+            "description": "Calculation's start date.",
+            "nullable": true
           },
           "enddate": {
             "type": "string",
@@ -4698,7 +4710,6 @@
             "description": "Calculation's frequency."
           }
         },
-        "additionalProperties": false,
         "description": "The date parameters for Vault calculation"
       },
       "VaultComponent": {
@@ -4706,7 +4717,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Vault component identifier"
+            "description": "Vault component identifier",
+            "nullable": true
           },
           "account": {
             "$ref": "#/components/schemas/VaultIdentifier"
@@ -4716,7 +4728,8 @@
           },
           "currencyisocode": {
             "type": "string",
-            "description": "Currency iso code saved in the document"
+            "description": "Currency iso code saved in the document",
+            "nullable": true
           },
           "dates": {
             "$ref": "#/components/schemas/VaultDateParameters"
@@ -4727,18 +4740,20 @@
           },
           "path": {
             "type": "string",
-            "description": "The path to the document"
+            "description": "The path to the document",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Component name."
+            "description": "Component name.",
+            "nullable": true
           },
           "category": {
             "type": "string",
-            "description": "Component category."
+            "description": "Component category.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "VaultComponentRoot": {
         "required": [
@@ -4749,19 +4764,20 @@
           "data": {
             "$ref": "#/components/schemas/VaultComponent"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "VaultConfigurationSummary": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Configuration name."
+            "description": "Configuration name.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "VaultConfigurationSummaryRoot": {
         "required": [
@@ -4775,55 +4791,62 @@
               "$ref": "#/components/schemas/VaultConfigurationSummary"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "ConfigurationAccount": {
         "type": "object",
         "properties": {
           "benchmarkCode": {
             "type": "string",
-            "description": "Benchmark code."
+            "description": "Benchmark code.",
+            "nullable": true
           },
           "benchmarkName": {
             "type": "string",
-            "description": "Benchmark name."
+            "description": "Benchmark name.",
+            "nullable": true
           },
           "maxEndDate": {
             "type": "string",
-            "description": "Maximum end date."
+            "description": "Maximum end date.",
+            "nullable": true
           },
           "minStartDate": {
             "type": "string",
-            "description": "Minimum start date."
+            "description": "Minimum start date.",
+            "nullable": true
           },
           "lockingDate": {
             "type": "string",
-            "description": "Locking date."
+            "description": "Locking date.",
+            "nullable": true
           },
           "name": {
             "type": "string",
-            "description": "Account name."
+            "description": "Account name.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "VaultConfiguration": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Configuration name."
+            "description": "Configuration name.",
+            "nullable": true
           },
           "accounts": {
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/ConfigurationAccount"
-            }
+            },
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "VaultConfigurationRoot": {
         "required": [
@@ -4834,23 +4857,25 @@
           "data": {
             "$ref": "#/components/schemas/VaultConfiguration"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "DateParametersSummary": {
         "type": "object",
         "properties": {
           "startdate": {
             "type": "string",
-            "description": "Start date in YYYYMMDD format."
+            "description": "Start date in YYYYMMDD format.",
+            "nullable": true
           },
           "enddate": {
             "type": "string",
-            "description": "End date in YYYYMMDD format."
+            "description": "End date in YYYYMMDD format.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "DateParametersSummaryRoot": {
         "required": [
@@ -4861,9 +4886,10 @@
           "data": {
             "$ref": "#/components/schemas/DateParametersSummary"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "DocumentDirectories": {
         "type": "object",
@@ -4873,17 +4899,18 @@
             "items": {
               "type": "string"
             },
-            "description": "List of documents"
+            "description": "List of documents",
+            "nullable": true
           },
           "directories": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of directories."
+            "description": "List of directories.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "DocumentDirectoriesRoot": {
         "required": [
@@ -4894,19 +4921,20 @@
           "data": {
             "$ref": "#/components/schemas/DocumentDirectories"
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "Frequency": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "Frequency name."
+            "description": "Frequency name.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "FrequencyRoot": {
         "required": [
@@ -4920,9 +4948,10 @@
               "$ref": "#/components/schemas/Frequency"
             }
           },
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "VaultCalculationParameters": {
         "required": [
@@ -4948,10 +4977,10 @@
           },
           "componentdetail": {
             "type": "string",
-            "description": "Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES."
+            "description": "Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationMeta": {
         "type": "object",
@@ -5001,8 +5030,7 @@
             "type": "string",
             "default": "JsonStach"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "VaultCalculationParametersRoot": {
         "type": "object",
@@ -5012,13 +5040,13 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/VaultCalculationParameters"
             },
-            "description": "List of calculation parameters."
+            "description": "List of calculation parameters.",
+            "nullable": true
           },
           "meta": {
             "$ref": "#/components/schemas/CalculationMeta"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationUnitStatus": {
         "type": "object",
@@ -5039,30 +5067,42 @@
             "items": {
               "$ref": "#/components/schemas/Error"
             },
-            "description": "The error in a calculation unit."
+            "description": "The error in a calculation unit.",
+            "nullable": true
           },
           "result": {
             "type": "string",
-            "description": "The result URL of the calculation."
+            "description": "The result URL of the calculation.",
+            "nullable": true
           },
           "progress": {
             "type": "string",
-            "description": "The progress of the calculation unit."
+            "description": "The progress of the calculation unit.",
+            "nullable": true
           },
           "points": {
             "type": "integer",
             "description": "The points for the calculation unit.",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The warnings in a calculation unit.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationStatus": {
         "type": "object",
         "properties": {
           "calculationid": {
             "type": "string",
-            "description": "Calculation's identifier"
+            "description": "Calculation's identifier",
+            "nullable": true
           },
           "status": {
             "enum": [
@@ -5079,20 +5119,20 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatus"
             },
-            "description": "Number of calculation units in batch."
+            "description": "Number of calculation units in batch.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationUnitStatusMeta": {
         "type": "object",
         "properties": {
           "info": {
             "type": "string",
-            "description": "The Info URL of the calculation."
+            "description": "The Info URL of the calculation.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationStatusMeta": {
         "type": "object",
@@ -5102,10 +5142,10 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatusMeta"
             },
-            "description": "Meta of calculation units in batch."
+            "description": "Meta of calculation units in batch.",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationStatusRoot": {
         "required": [
@@ -5119,8 +5159,7 @@
           "meta": {
             "$ref": "#/components/schemas/CalculationStatusMeta"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "ObjectRoot": {
         "required": [
@@ -5129,9 +5168,10 @@
         "type": "object",
         "properties": {
           "data": {},
-          "meta": {}
-        },
-        "additionalProperties": false
+          "meta": {
+            "nullable": true
+          }
+        }
       },
       "CalculationsSummary": {
         "type": "object",
@@ -5161,8 +5201,7 @@
             "description": "Last poll time of calculation.",
             "format": "date-time"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PaginationInfo": {
         "type": "object",
@@ -5184,13 +5223,14 @@
             "format": "int32"
           },
           "nextPage": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "previousPage": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "additionalProperties": false
+        }
       },
       "PaginationMeta": {
         "type": "object",
@@ -5198,8 +5238,7 @@
           "pagination": {
             "$ref": "#/components/schemas/PaginationInfo"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "CalculationsSummaryRoot": {
         "required": [
@@ -5213,8 +5252,7 @@
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
           }
-        },
-        "additionalProperties": false
+        }
       }
     },
     "securitySchemes": {
@@ -5240,5 +5278,9 @@
     {
       "FactSetOAuth2": []
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/vault-api"
+  }
 }
