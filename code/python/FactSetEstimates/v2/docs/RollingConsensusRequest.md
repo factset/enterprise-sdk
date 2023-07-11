@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **relative_fiscal_start** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
 **relative_fiscal_end** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
 **periodicity** | [**Periodicity**](Periodicity.md) |  | [optional] 
-**currency** | **str** | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**currency** | **str** | Currency code for adjusting the data. Use input as &#39;ESTIMATE&#39; for values in Estimate currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

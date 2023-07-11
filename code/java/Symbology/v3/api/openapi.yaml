@@ -24,7 +24,7 @@ paths:
         \ in one request. \n* BIC* - Bank Identification Code (e.g. ABXXHKH1)\n* CIK\
         \ - Edgar Central Index Keys (e.g. 0000100331)\n* CRD - Central Registration\
         \ Depository (e.g. 149722)\n* DUNS - Dun & Bradstreet Data Universal Numbering\
-        \ System (e.g. 621513451) (Input only)\n* EIN - Employer Identification Number\
+        \ System (e.g. 687741991) (Input only)\n* EIN - Employer Identification Number\
         \ (e.g. 953540776)\n* FITCH* - Fitch Ratings Identifier (e.g. 47504)\n* LEI\
         \ - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n* MD* - Moody's Ratings\
         \ Identifier (e.g. 0823736553)\n* SPR* - S&P Ratings Identifier (e.g. 301939)\n\
@@ -242,7 +242,7 @@ paths:
         \ in one request. \n* BIC* - Bank Identification Code (e.g. ABXXHKH1)\n* CIK\
         \ - Edgar Central Index Keys (e.g. 0000100331)\n* CRD - Central Registration\
         \ Depository (e.g. 149722)\n* DUNS - Dun & Bradstreet Data Universal Numbering\
-        \ System (e.g. 621513451) (Input only)\n* EIN - Employer Identification Number\
+        \ System (e.g. 687741991) (Input only)\n* EIN - Employer Identification Number\
         \ (e.g. 953540776)\n* FITCH* - Fitch Ratings Identifier (e.g. 47504)\n* LEI\
         \ - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n* MD* - Moody's Ratings\
         \ Identifier (e.g. 0823736553)\n* SPR* - S&P Ratings Identifier (e.g. 301939)\n\

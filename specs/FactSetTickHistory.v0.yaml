@@ -1,0 +1,463 @@
+openapi: 3.0.0
+info:
+  title: Tick History Level 2 (Beta)
+  description: >-
+    Tick History **Level 2** provides dynamic access to the historical tick data
+    up to 10 levels of depth for a specific security for specific dates or date
+    range. The API generates output files with data based on client-specified
+    input parameters. The input parameters include universe specification and
+    date ranges for which the data will be generated. When the API request with
+    specified input parameters has been completed, the output files will be made
+    available back to the users through a secure URL to the location where the
+    files are stored. Therefore, this API has two APIs (i) Request files API
+    (ii) Get Files API.
+  version: 0.0.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://api.factset.com/bulk-documents/tick-history/v0
+paths:
+  /level2/request-files:
+    get:
+      tags:
+        - Request-files Level 2 (BETA)
+      summary: Returns the requestId and status
+      operationId: getrequestIdLevel2
+      description: Returns the requestId and status.
+      parameters:
+        - $ref: '#/components/parameters/ticker1'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/mic'
+        - $ref: '#/components/parameters/responseFileType'
+      responses:
+        '200':
+          description: Successs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/level2Request-FilesResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/level2Request-FilesExample'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/401Example'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/403Example'
+        '429':
+          description: Too many requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/429Example'
+        '500':
+          description: Internal Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/500Example'
+  /level2/get-files:
+    get:
+      tags:
+        - Get-files Level 2 (BETA)
+      summary: Returns the files for the requested requestId
+      operationId: getTickHistoryFilesLevel2
+      description: Plugin the requestId from request-files endpoint to get-files endpoint
+      parameters:
+        - $ref: '#/components/parameters/requestId'
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+      responses:
+        '200':
+          description: >-
+            Success</p> **To download the output file copy the response url in a
+            browser**
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Get-FilesResponseLevel2'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleGet-FilesResponseLevel2'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/401Example'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/403Example'
+        '429':
+          description: Too many requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/429Example'
+        '500':
+          description: Internal Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/500Example'
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    ticker1:
+      name: ticker
+      in: query
+      description: The requested list of one or more Market tickers.
+      required: true
+      explode: false
+      schema:
+        type: array
+        minimum: 1
+        items:
+          type: string
+      examples:
+        oneId:
+          summary: One identifier
+          value:
+            - GOOGL
+        multipleIds:
+          summary: Multiple Identifiers
+          value:
+            - GOOGL
+            - IBM
+    startDate:
+      name: startDate
+      in: query
+      description: The date to which data is required.
+      required: true
+      schema:
+        type: string
+        format: date
+      example: '2023-01-01'
+    endDate:
+      name: endDate
+      in: query
+      description: The date to which data is required.
+      required: true
+      schema:
+        type: string
+        format: date
+      example: '2023-01-30'
+    requestId:
+      name: requestId
+      in: query
+      description: >-
+        RequestId returned by request-files endpoint to poll and collect results
+        of the query
+      required: true
+      schema:
+        type: string
+    _paginationLimit:
+      name: _paginationLimit
+      in: query
+      description: Specifies the maximum number of results to return per response page
+      required: false
+      schema:
+        type: integer
+        maximum: 500
+        minimum: 1
+        default: 20
+    _paginationOffset:
+      name: _paginationOffset
+      in: query
+      description: >-
+        Specifies the starting point for pagination. This parameter is used to
+        identify the beginning of next set of results
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    mic:
+      name: mic
+      in: query
+      description: >-
+        This parameter is used to filter the results based on the exchange code.
+        <p>**NOTE**:Does not support multiple mic codes</p>
+      required: true
+      schema:
+        type: string
+      example: XNYS
+    responseFileType:
+      name: responseFileType
+      in: query
+      description: Specifies the fileType
+      required: false
+      schema:
+        type: string
+        enum:
+          - csv
+          - parquet
+        default: parquet
+  schemas:
+    level2Request-FilesResponse:
+      type: object
+      description: request-files
+      properties:
+        requestId:
+          description: a unique identification for the query requested
+          type: string
+        status:
+          description: The status of the query
+          type: string
+    status:
+      type: object
+      description: specifies the error message fields in the response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/errorExample'
+    errorExample:
+      type: object
+      description: Specifies the fields in the error message
+      properties:
+        code:
+          description: It specifies the unique code
+          type: string
+        title:
+          description: ' Specifies the error message'
+          type: string
+        id:
+          description: Specifies the id
+          type: string
+    Get-FilesResponseLevel2:
+      type: object
+      description: Returns Tick History Files
+      properties:
+        status:
+          description: The status of the request
+          type: string
+          enum:
+            - Starting
+            - Running
+            - Completed
+            - Error
+            - Failed
+            - Stopped
+        requestTimestamp:
+          description: Timestamp of when request was made
+          type: string
+          format: date-time
+        updateTimestamp:
+          description: Timestamp when the file was last updated
+          type: string
+          format: date-time
+        data:
+          type: array
+          description: Data Object
+          items:
+            $ref: '#/components/schemas/files'
+        meta:
+          $ref: '#/components/schemas/meta'
+    files:
+      title: Files
+      description: Array of data objects
+      type: object
+      properties:
+        fileName:
+          description: Name of the file(s) generated for the query requested
+          type: string
+        url:
+          description: Download link for the TickHistory file with requested parameters
+          type: string
+    meta:
+      title: Meta
+      description: Array of metadata objects
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+        partial:
+          $ref: '#/components/schemas/isPartial'
+    pagination:
+      title: Pagination
+      description: List of pagination objects
+      type: object
+      properties:
+        total:
+          description: Total number of files the API returns for a particular query
+          type: integer
+        isEstimatedTotal:
+          description: >-
+            Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to False as the
+            API should always return the exact count
+          type: boolean
+        limit:
+          description: Number of results returned per page
+          type: integer
+        offset:
+          description: >-
+            The flag indicating the position in the results array if additional
+            results are available beyond the default value or the value in
+            paginationLimit parameter (if used). This value is passed in the
+            _paginationOffset parameter to retreieve subsequent results
+          type: integer
+    isPartial:
+      title: IsPartialItems
+      description: >-
+        If the value is true, it indicates additional results are available.
+        False represents that this is the last set of results for this request.
+      type: object
+      properties:
+        isPartial:
+          description: Returns boolean value
+          type: boolean
+  examples:
+    level2Request-FilesExample:
+      summary: sample Response
+      value:
+        requestId: a6efe30f-fdba-4849-8796-da27a2e77825
+        status: Submitted
+    sampleGet-FilesResponseLevel2:
+      summary: sample Response
+      value:
+        status: Completed
+        requestTimestamp: '2023-05-16 14:11:06'
+        updateTimestamp: '2023-05-16 14:15:18'
+        data:
+          - fileName: part-00000-e4b0e511-9da2-48e5-9170-65231cd1cda1-c000.csv.gz
+            url: >-
+              https://fdss3-cts-th-l2-results-prod.s3.amazonaws.com/results/SKAKKIRENI-fds/d6bdf9cc-e566-4fb1-939d-f4036c4d71a2/part-00000-e4b0e511-9da2-48e5-9170-65231cd1cda1-c000.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDF2A35WEG%2F20230609%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230609T150543Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEcaCXVzLWVhc3QtMSJIMEYCIQDXmsqCGk3%2FaKcpaxhhZxoCu%2B9%2Bcu5nOVCZhMVFLL41swIhAM6CJL1vTvEyrALobdYbOEE0wEP2fhUPpfN7KsLgcKMCKpYDCJD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAhoMODUyNTYyNjIwODcwIgxIMndyFOnQJQAfgP8q6gKepbh5fCacy9%2BIEQskkC7ZBRD%2BLhJxw366ui4HZHUdL6KzS8NqTWgTuExP3NPpbijN3zShV3JZ7wK5VIAZ4P2082Q5Ntb4SkCPW%2FfHm9z4PEhgh5rloCq42lu4W%2FTbjYY9DKVAGH1CuNatOiFOxF387dyotXUsWRVeQM6X2s2Mj4BEQ51z3qOWpaxQhL1iPXwk2rXQwlUPrICMU3%2FiAlsCOkp55ZKRS0Q42GXMxGjmcswsu%2BM%2BzZsJwmgl%2F8zbpJozLzZcpImkOiNWanpQkmWjVuXmcR52q2bZ4tvx0mtZNCDxOq%2FKySBRMDEJiFhXFxSkoDIxN19xpmJa2Z9vzCmHpA%2FAwuLdKQ9CapBvygkYO3ojf%2Fs0whIR6LWhFMW%2FvW%2FWrFyqfF9XOLtVele1YvFlxKQpCbwT%2FNJWjW9paji%2FbekNEHpNXq1xv%2BwvcbifD7M59NjGbidHeT3jAgdoT8ie%2FfF3BaO1J1sGIDD%2B%2FYykBjqcAeESPCIDl%2FAg2PrcBioBSay%2Fp8DtvCztpb9K2YR6tXoBkiYmy35TbaxUAkopRsyIZRnySyJoemYtRlez5nt9IZk8z2KJI6bTrIY2g7oxeuz5Y0ujsblB2UAYwe%2BuemhV5wLj3QxIDloEe%2B2LYgQq8FtmbBDuyk82B068g2yD%2B7GG%2BIMFjpyDk2f9FM0zAoSdv103xmgXg1sh91oZFA%3D%3D&X-Amz-Signature=235951702d599df97160a2849b31e290461597d11c1f8f54f9f2dec7f03bb331
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+            limit: 20
+            offset: 20
+          partial:
+            isPartial: true
+    400Example:
+      summary: Sample error Response
+      value:
+        errors:
+          - code: Bad Request
+            title: parameterError:['_requestId'] is not a valid parameter(s)
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    401Example:
+      summary: sample error response
+      value:
+        errors:
+          - code: Not Authenticated
+            title: USERNAME-SERIAL does not have permission
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    403Example:
+      summary: sample error response
+      value:
+        errors:
+          - code: Forbidden
+            title: USERNAME-SERIAL does not have permission
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    500Example:
+      summary: sample error response
+      value:
+        errors:
+          - code: Internal server error
+            title: An unexpected error happened
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    429Example:
+      summary: sample error response
+      value:
+        errors:
+          - code: Too Many Requests
+            title: quantityLimitsExceeded
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+tags:
+  - name: Request-files Level 2 (BETA)
+    description: Returns the requestId and status.
+  - name: Get-files Level 2 (BETA)
+    description: Returns the files for the requested requestId.

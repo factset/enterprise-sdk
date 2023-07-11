@@ -269,12 +269,14 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     start_date = "2019-07-30" # str | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = "2020-07-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    include_all = False # bool | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (optional) if omitted the server will use the default value of False
 
     try:
         # Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_detail_ratings(ids, start_date=start_date, end_date=end_date)
+        api_response = api_instance.get_detail_ratings(ids, start_date=start_date, end_date=end_date, include_all=include_all)
 
         pprint(api_response)
 
@@ -290,6 +292,7 @@ Name | Type | Description  | Notes
  **ids** | **[str]**| Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  |
  **start_date** | **str**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
  **end_date** | **str**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **include_all** | **bool**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
@@ -370,6 +373,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         ids=Ids(["FDS-US"]),
         start_date="2019-01-01",
         end_date="2019-12-31",
+        include_all=False,
     ) # DetailRatingsRequest | Request object for Detail Reatings Data Items.
 
     try:

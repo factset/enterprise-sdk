@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.3.1
+  version: 2.5.0
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
@@ -454,6 +454,7 @@ paths:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/includeAll'
       responses:
         '200':
           description: Estimate Ratings data items
@@ -871,7 +872,7 @@ components:
         default: ANN
       description: >
         The periodicity for the estimates requested, allowing you to fetch
-        Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.
+        Quarterly, Semi-Annual, and Annual Estimates.
           * **ANN** - Annual
           * **QTR** - Quarterly
           * **SEMI** - Semi-Annual 
@@ -910,6 +911,11 @@ components:
         SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. 
         For more details, visit [Online Assistant Page
         #15034](https://oa.apps.factset.com/pages/15034).
+      examples:
+        Metric:
+          summary: Metrics
+          value:
+            - SALES
     statistic:
       name: statistic
       in: query
@@ -932,9 +938,9 @@ components:
       schema:
         type: string
       description: >-
-        Currency code for adjusting the data. For a list of currency ISO codes,
-        visit [Online Assistant Page
-        #1470](https://oa.apps.factset.com/pages/1470).
+        Currency code for adjusting the data. Use 'ESTIMATE' as input value for
+        the values in Estimate Currency. For a list of currency ISO codes, visit
+        [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
       example: USD
     startDate:
       name: startDate
@@ -1025,6 +1031,7 @@ components:
           - INSURANCE
           - MARIJUANA
           - MINING
+          - MISCELLANEOUS
           - MULTIFINANCIAL
           - OIL_AND_GAS
           - OTHER
@@ -1042,6 +1049,7 @@ components:
           * **BALANCE_SHEET** - Balance Sheet line items, such as Assets, Long-term Debt, and more.
           * **CASH_FLOW** - Cash Flow Statement line items, such as Free Cash Flow and Share Repurchases
           * **INCOME_STATEMENT** - Income Statement line items, such as EPS, Sales, DPS, and more.
+          * **MISCELLANEOUS** - EPS Long Term Growth
         </p> <p> Industry Metrics - 
 
           * **AIRLINES** - Including items such as Revenue Passenger, Total Revenue per ASK, Available Seats, and more.
@@ -1160,6 +1168,7 @@ components:
             FactSet.
           type: string
           example: SJY281-R
+          nullable: true
         metric:
           description: >-
             Company's Financial statement 'metric' that is estimated. Use the
@@ -1168,6 +1177,7 @@ components:
             #15034](https://oa.apps.factset.com/pages/15034)
           type: string
           example: SALES
+          nullable: true
         periodicity:
           description: >-
             The reporting interval for the estimate. This is derived from
@@ -1175,6 +1185,7 @@ components:
             LTMA, or NMTA.
           type: string
           example: ANN
+          nullable: true
         fiscalPeriod:
           description: >-
             Company's 'fiscal period' for the estimate record. Periods for
@@ -1183,6 +1194,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16598).
           type: integer
           example: 4
+          nullable: true
         fiscalYear:
           description: >-
             Company's 'fiscal year' for the estimate record. For more details,
@@ -1190,6 +1202,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16598)
           type: integer
           example: 2018
+          nullable: true
         fiscalEndDate:
           description: >-
             Company's 'fiscal end date' for the estimate record expressed in
@@ -1198,6 +1211,7 @@ components:
           type: string
           format: date
           example: '2017-12-31'
+          nullable: true
         relativePeriod:
           description: >-
             'Fiscal period' based on relationship to 'estimate date'. This is
@@ -1206,6 +1220,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16598)
           type: integer
           example: 2
+          nullable: true
         estimateDate:
           description: >-
             Date of estimate expressed in YYYY-MM-DD format. For more details,
@@ -1214,13 +1229,21 @@ components:
           type: string
           format: date
           example: '2017-07-24'
+          nullable: true
         currency:
           description: >-
-            Currency used estimates in consensus calculations. For a list of
-            currency ISO codes, visit [Online Assistant Page
+            Currency code for adjusting the data. Use 'ESTIMATE' as input value
+            for the values in Estimate Currency. For a list of currency ISO
+            codes, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          type: string
+          example: USD
+          nullable: true
         mean:
           description: >-
             Mean of estimates in consensus calculation. For more details, visit
@@ -1229,6 +1252,7 @@ components:
           type: number
           format: double
           example: 12345.01
+          nullable: true
         median:
           description: >-
             Median of estimates in consensus calculation. For more details,
@@ -1237,6 +1261,7 @@ components:
           type: number
           format: double
           example: 12346.01
+          nullable: true
         standardDeviation:
           description: >-
             Standard deviation of estimates in consensus calculation. For more
@@ -1245,6 +1270,7 @@ components:
           type: number
           format: double
           example: 0.011034
+          nullable: true
         high:
           description: >-
             Highest estimate in consensus calculation. For more details, visit
@@ -1253,6 +1279,7 @@ components:
           type: number
           format: double
           example: 12349.01
+          nullable: true
         low:
           description: >-
             Lowest estimate in consensus calculation. For more details, visit
@@ -1261,6 +1288,7 @@ components:
           type: number
           format: double
           example: 12344.01
+          nullable: true
         estimateCount:
           description: >-
             Count or NEST of estimates in consensus calculation. For more
@@ -1268,6 +1296,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16114)
           type: integer
           example: 20
+          nullable: true
         up:
           description: >-
             Number of Up Revisions within the consensus for the metric and
@@ -1276,6 +1305,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16114).
           type: integer
           example: 6
+          nullable: true
         down:
           description: >-
             Number of Up Revisions within the consensus for the metric and
@@ -1284,6 +1314,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16114).
           type: integer
           example: 4
+          nullable: true
     fixedConsensusRequest:
       title: Fixed Consensus Request Body
       description: Request object for requesting fixed consensus estimates.
@@ -1350,19 +1381,27 @@ components:
         fsymId:
           type: string
           example: SJY281-R
+          nullable: true
         date:
           description: Date for data expressed in YYYY-MM-DD format.
           type: string
           format: date
           example: '2017-12-31'
+          nullable: true
         currency:
           description: >-
-            Currency used estimates in consensus calculations. Currency used
-            estimates in consensus calculations. For a list of currency ISO
+            Currency code for adjusting the data. Use 'ESTIMATE' as input value
+            for the values in Estimate Currency. For a list of currency ISO
             codes, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          type: string
+          example: USD
+          nullable: true
         metric:
           description: >-
             Company's Financial statement 'metric' that is estimated. Use the
@@ -1371,6 +1410,7 @@ components:
             #15034](https://oa.apps.factset.com/pages/15034).
           type: string
           example: SALES
+          nullable: true
         statistic:
           description: >-
             Method of calculation for the consensus 'statistic'. For more
@@ -1378,6 +1418,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16114).
           type: string
           example: MEAN
+          nullable: true
         periodicity:
           description: >-
             Company's 'periodicity' for the estimate record, reflecting Annual,
@@ -1385,6 +1426,7 @@ components:
             and Last-twelve-months (LTMA) also supported.
           type: string
           example: ANN
+          nullable: true
         fiscalEndDate:
           description: >-
             Company's 'fiscal end date' for the estimate record expressed in
@@ -1392,16 +1434,19 @@ components:
           type: string
           format: date
           example: '2017-12-31'
+          nullable: true
         fiscalYear:
           description: Company's 'fiscal year' for the estimate record
           type: integer
           example: 2018
+          nullable: true
         fiscalPeriod:
           description: >-
             Company's 'fiscal period' for the estimate record.  'Periodicity'
             defines context for period.
           type: integer
           example: 4
+          nullable: true
         surpriseDate:
           description: >-
             Date of the reported event expressed in YYYY-MM-DD format. For more
@@ -1410,6 +1455,7 @@ components:
           type: string
           format: date
           example: '2017-02-24'
+          nullable: true
         surpriseAmount:
           description: >-
             Amount of difference between last consensus and actual. For more
@@ -1418,6 +1464,7 @@ components:
           type: number
           format: double
           example: 0.07951
+          nullable: true
         surprisePercent:
           description: >-
             Percent difference between last consensus and actual. For more
@@ -1426,6 +1473,7 @@ components:
           type: number
           format: double
           example: 6.16
+          nullable: true
         surpriseBefore:
           description: >-
             Last consensus before event. For more details, visit [Online
@@ -1433,6 +1481,7 @@ components:
           type: number
           format: double
           example: 1.2905
+          nullable: true
         surpriseAfter:
           description: >-
             Actual value after event. For more details, visit [Online Assistant
@@ -1440,12 +1489,14 @@ components:
           type: number
           format: double
           example: 1.3653
+          nullable: true
         eventDescription:
           description: >-
             Description of event. For more details, visit [Online Assistant Page
             #16601](https://oa.apps.factset.com/pages/16601).
           type: string
           example: Results for 2016
+          nullable: true
         eventFlag:
           description: >-
             Flag for event. Code of Event Flag, where 0 = results and 1 = profit
@@ -1453,6 +1504,7 @@ components:
             #16601](https://oa.apps.factset.com/pages/16601).
           type: integer
           example: 0
+          nullable: true
         requestId:
           type: string
           example: IBM-US
@@ -1500,6 +1552,7 @@ components:
         fsymId:
           type: string
           example: SJY281-R
+          nullable: true
         metric:
           description: >-
             Company's Financial statement 'metric' that is estimated. Use the
@@ -1508,22 +1561,26 @@ components:
             #15034](https://oa.apps.factset.com/pages/15034).
           type: string
           example: SALES
+          nullable: true
         periodicity:
           description: >-
             Company's 'periodicity' for the estimate record, reflecting Annual,
             Quarterly, or Semi-Annual report periods.
           type: string
           example: ANN
+          nullable: true
         fiscalYear:
           description: Company's 'fiscal year' for the estimate record
           type: integer
           example: 2018
+          nullable: true
         fiscalPeriod:
           description: >-
             Company's 'fiscal period' for the estimate record.  'Periodicity'
             defines context for period.
           type: integer
           example: 4
+          nullable: true
         fiscalEndDate:
           description: >-
             Company's 'fiscal end date' for the estimate record expressed in
@@ -1531,6 +1588,7 @@ components:
           type: string
           format: date
           example: '2017-12-31'
+          nullable: true
         relativePeriod:
           description: >-
             'Fiscal period' based on relationship to 'estimate date'. This is
@@ -1539,14 +1597,16 @@ components:
             #16598](https://oa.apps.factset.com/pages/16598)
           type: integer
           example: 2
+          nullable: true
         currency:
           description: >-
-            Currency used estimates in consensus calculations. Currency used
-            estimates in consensus calculations. For a list of currency ISO
+            Currency code for adjusting the data. Use 'ESTIMATE' as input value
+            for the values in Estimate Currency. For a list of currency ISO
             codes, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
+          nullable: true
         estimateDate:
           description: >-
             Date of estimate expressed in YYYY-MM-DD format. For more details,
@@ -1555,27 +1615,39 @@ components:
           type: string
           format: date
           example: '2017-07-24'
+          nullable: true
         estimateValue:
           description: The value of the estimate.
           type: number
           format: double
           example: 23456
+          nullable: true
         analystId:
           description: The FactSet Entity Identifier for the analyst making the estimate.
           type: string
           example: 0DXTST-E
+          nullable: true
         analystName:
           description: The name of the analyst making the estimate.
           type: string
           example: Josh Baer
+          nullable: true
         brokerId:
           description: The FactSet Entity Identifier for the broker making the estimate.
           type: string
           example: 05FBK7-E
+          nullable: true
         brokerName:
           description: The name of the broker making the estimate.
           type: string
           example: Morgan Stanley
+          nullable: true
+        lastModifiedDate:
+          description: The date at which a broker provided an estimate that is a revision.
+          type: string
+          format: date
+          example: '2017-07-24'
+          nullable: true
         prevEstimateDate:
           description: >-
             Date the previous estimate was made expressed in YYYY-MM-DD format.
@@ -1584,25 +1656,30 @@ components:
           type: string
           format: date
           example: '2017-05-02'
+          nullable: true
         prevEstimateValue:
           description: The value of the previous estimate.
           type: number
           format: double
           example: 22336
+          nullable: true
         section:
           description: >-
             Section of the estimate.Returns the details of brokers inlcuded and
             excluded in the consensus
           type: string
           example: Included
+          nullable: true
         statusCode:
           description: Status code of the estimate.
           type: integer
           example: 0
+          nullable: true
         statusText:
           description: Status description of the estimate.
           type: string
           example: ''
+          nullable: true
         requestId:
           description: Identifier that was used for the request.
           type: string
@@ -1612,6 +1689,22 @@ components:
           type: string
           format: string
           example: '2022-10-25T22:40:09'
+          nullable: true
+        securityCurrency:
+          description: The currency that the company trades in.
+          type: string
+          example: USD
+          nullable: true
+        brokerEstimateCurrency:
+          description: The currency in which estimates are made by broker.
+          type: string
+          example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          type: string
+          example: USD
+          nullable: true
     fixedDetailRequest:
       title: Fixed Detail Request Body
       description: Request object for requesting rolling detail estimates.
@@ -1671,6 +1764,7 @@ components:
         fsymId:
           type: string
           example: SJY281-R
+          nullable: true
         estimateDate:
           description: >-
             Date of estimate expressed in YYYY-MM-DD format. For more details,
@@ -1679,12 +1773,14 @@ components:
           type: string
           format: date
           example: '2017-07-24'
+          nullable: true
         buyCount:
           description: >-
             The number of Buy ratings taken into account in the calculation of a
             consensus. This information is shown only for a 100-day consensus.
           type: integer
           example: 5
+          nullable: true
         overweightCount:
           description: >-
             The number of Overweight ratings taken into account in the
@@ -1692,12 +1788,14 @@ components:
             100-day consensus.
           type: integer
           example: 1
+          nullable: true
         holdCount:
           description: >-
             The number of Hold ratings taken into account in the calculation of
             a consensus. This information is shown only for a 100-day consensus.
           type: integer
           example: 1
+          nullable: true
         underweightCount:
           description: >-
             The number of Underweight ratings taken into account in the
@@ -1705,18 +1803,21 @@ components:
             100-day consensus.
           type: integer
           example: 1
+          nullable: true
         sellCount:
           description: >-
             The number of Sell ratings taken into account in the calculation of
             a consensus. This information is shown only for a 100-day consensus.
           type: integer
           example: 1
+          nullable: true
         ratingsNestTotal:
           description: >-
             The total number of ratings taken into account in the calculation of
             a consensus. This information is shown only for a 100-day consensus.
           type: integer
           example: 1
+          nullable: true
         ratingsNote:
           description: >
             The mean average of ratings for the fiscal dates indicated, where
@@ -1741,6 +1842,7 @@ components:
           type: number
           format: double
           example: 1.85555
+          nullable: true
         ratingsNoteText:
           description: >
             The mean textual rating for the fiscal dates indicated. The text
@@ -1763,6 +1865,7 @@ components:
             |<= 3|Sell|
           type: string
           example: Hold
+          nullable: true
         requestId:
           description: Identifier that was used for the request.
           type: string
@@ -1778,6 +1881,8 @@ components:
           $ref: '#/components/schemas/startDate'
         endDate:
           $ref: '#/components/schemas/endDate'
+        includeAll:
+          $ref: '#/components/schemas/includeAll'
       required:
         - ids
     detailRatingsResponse:
@@ -1796,6 +1901,7 @@ components:
         fsymId:
           type: string
           example: SJY281-R
+          nullable: true
         estimateDate:
           description: >-
             Date of estimate expressed in YYYY-MM-DD format. For more details,
@@ -1804,22 +1910,27 @@ components:
           type: string
           format: date
           example: '2017-07-24'
+          nullable: true
         analystId:
           description: The FactSet Entity Identifier for the analyst making the estimate.
           type: string
           example: 0DXTST-E
+          nullable: true
         analystName:
           description: The name of the analyst making the estimate.
           type: string
           example: Josh Baer
+          nullable: true
         brokerId:
           description: The FactSet Entity Identifier for the broker making the estimate.
           type: string
           example: 05FBK7-E
+          nullable: true
         brokerName:
           description: The name of the broker making the estimate.
           type: string
           example: Morgan Stanley
+          nullable: true
         ratingsNoteText:
           description: >
             A textual representation of the analysts rating. Broker
@@ -1841,6 +1952,7 @@ components:
             top or bottom rating available for a particular security.
           type: string
           example: overweight
+          nullable: true
         requestId:
           description: Identifier that was used for the request.
           type: string
@@ -1850,6 +1962,13 @@ components:
           type: string
           format: string
           example: '2022-10-25T22:40:09'
+          nullable: true
+        lastModifiedDate:
+          description: The date at which a broker provided an estimate that is a revision.
+          type: string
+          format: date
+          example: '2017-07-24'
+          nullable: true
     segmentsRequest:
       title: Segments Request Body
       description: Request object for requesting segments estimates.
@@ -1907,10 +2026,12 @@ components:
             FactSet.
           type: string
           example: SJY281-R
+          nullable: true
         segmentType:
           description: Segment selected
           type: string
           example: BUS
+          nullable: true
         metric:
           description: >-
             Company's Financial statement 'metric' that is estimated. Use the
@@ -1919,6 +2040,7 @@ components:
             #15034](https://oa.apps.factset.com/pages/15034)
           type: string
           example: SALES
+          nullable: true
         fiscalPeriod:
           description: >-
             Company's 'fiscal period' for the estimate record. Periods for
@@ -1927,6 +2049,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16598).
           type: integer
           example: 1
+          nullable: true
         fiscalYear:
           description: >-
             Company's 'fiscal year' for the estimate record. For more details,
@@ -1934,16 +2057,19 @@ components:
             #16598](https://oa.apps.factset.com/pages/16598)
           type: integer
           example: 2018
+          nullable: true
         segmentLabel:
           description: Displays the specific label of the segment.
           type: string
           example: iPhone
+          nullable: true
         segmentLevel:
           description: >-
             Returns the level of the segment item as either P = Parent or S =
             Subordinate
           type: string
           example: S
+          nullable: true
         fiscalEndDate:
           description: >-
             Company's 'fiscal end date' for the estimate record expressed in
@@ -1952,18 +2078,27 @@ components:
           type: string
           format: date
           example: '2021-09-30'
+          nullable: true
         estimateDate:
           description: The date the estimates are as of in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-07-01'
+          nullable: true
         currency:
           description: >-
-            Currency used estimates in consensus calculations. For a list of
-            currency ISO codes, visit [Online Assistant Page
+            Currency used estimates in consensus calculations. Use 'ESTIMATE' as
+            input for values in Estimate Currency. For a list of currency ISO
+            codes, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          type: string
+          example: USD
+          nullable: true
         mean:
           description: >-
             Mean of estimates in consensus calculation. For more details, visit
@@ -1972,6 +2107,7 @@ components:
           type: number
           format: double
           example: 12345.01
+          nullable: true
         median:
           description: >-
             Median of estimates in consensus calculation. For more details,
@@ -1980,6 +2116,7 @@ components:
           type: number
           format: double
           example: 12346.01
+          nullable: true
         standardDeviation:
           description: >-
             Standard deviation of estimates in consensus calculation. For more
@@ -1988,6 +2125,7 @@ components:
           type: number
           format: double
           example: 0.011034
+          nullable: true
         high:
           description: >-
             Highest estimate in consensus calculation. For more details, visit
@@ -1996,6 +2134,7 @@ components:
           type: number
           format: double
           example: 12349.01
+          nullable: true
         low:
           description: >-
             Lowest estimate in consensus calculation. For more details, visit
@@ -2004,6 +2143,7 @@ components:
           type: number
           format: double
           example: 12344.01
+          nullable: true
         estimateCount:
           description: >-
             Count or NEST of estimates in consensus calculation. For more
@@ -2011,6 +2151,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16114)
           type: integer
           example: 20
+          nullable: true
         up:
           description: >-
             Number of Up Revisions within the consensus for the metric and
@@ -2019,6 +2160,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16114).
           type: integer
           example: 6
+          nullable: true
         down:
           description: >-
             Number of Up Revisions within the consensus for the metric and
@@ -2027,6 +2169,7 @@ components:
             #16598](https://oa.apps.factset.com/pages/16114).
           type: integer
           example: 4
+          nullable: true
     errorResponse:
       type: object
       title: Error Response
@@ -2096,28 +2239,33 @@ components:
             Estimate endpoints.
           type: string
           example: ASSETS
+          nullable: true
         name:
           description: Plain text name of the metric.
           type: string
           example: Total Assets
+          nullable: true
         category:
           description: >-
             Primary Category of metric item, such as, FINANCIAL_STATEMENT or
             INDUSTRY_METRIC
           type: string
           example: FINANCIAL_STATEMENT
+          nullable: true
         subcategory:
           description: >-
             Sub-category of metric items, such as the INCOME_STATEMENT or
             AIRLINES.
           type: string
           example: BALANCE_SHEET
+          nullable: true
         OAurl:
           description: >-
             The Online Assistant Page URL, used to lookup the definition and
             methodology of the requested item.
           type: string
           example: https://my.apps.factset.com/oa/pages/16283
+          nullable: true
     ids:
       type: array
       items:
@@ -2263,9 +2411,9 @@ components:
       minItems: 1
     currency:
       description: >-
-        Currency code for adjusting the data. For a list of currency ISO codes,
-        visit [Online Assistant Page
-        #1470](https://oa.apps.factset.com/pages/1470).
+        Currency code for adjusting the data. Use input as 'ESTIMATE' for values
+        in Estimate currency. For a list of currency ISO codes, visit [Online
+        Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
       type: string
       example: USD
     category:
@@ -2300,6 +2448,7 @@ components:
         - INSURANCE
         - MARIJUANA
         - MINING
+        - MISCELLANEOUS
         - MULTIFINANCIAL
         - OIL_AND_GAS
         - OTHER
@@ -2316,6 +2465,7 @@ components:
           * **BALANCE_SHEET** - Balance Sheet line items, such as Assets, Long-term Debt, and more.
           * **CASH_FLOW** - Cash Flow Statement line items, such as Free Cash Flow and Share Repurchases
           * **INCOME_STATEMENT** - Income Statement line items, such as EPS, Sales, DPS, and more.
+          * **MISCELLANEOUS** - EPS Long Term Growth
         </p> <p> Industry Metrics - 
 
           * **AIRLINES** - Including items such as Revenue Passenger, Total Revenue per ASK, Available Seats, and more.

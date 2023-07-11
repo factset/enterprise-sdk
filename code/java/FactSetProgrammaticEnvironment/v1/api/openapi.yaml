@@ -1,0 +1,525 @@
+openapi: 3.0.0
+info:
+  description: FactSet Programmatic Environment (FPE) API is an API for users to interact
+    with FPE programmatically, streamlining path from research to production.
+  title: FPE API
+  version: 1.0.0
+servers:
+- url: https://api.factset.com
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /analytics/quant/fpe/v1/calculations:
+    post:
+      description: This endpoint takes a python script and starts executing it within
+        FPE
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Calculation'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationStatus'
+          description: Expected response, contains the relative URL in the Location
+            header to check the status of the calculation.
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              explode: false
+              schema:
+                description: Relative URL to check status of the request.
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "400":
+          description: Invalid request body provided
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "503":
+          description: Request timeout. Retry the request later
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+      summary: Starts a new script calculation
+      tags:
+      - Calculations
+      x-contentType: application/json
+      x-accepts: application/json
+  /analytics/quant/fpe/v1/calculations/{id}:
+    get:
+      description: This is the endpoint to check on the progress of a previous calculation
+        request.
+      parameters:
+      - description: From url, provided by location header or response body in the
+          calculation start endpoint
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: From url, provided by location header or response body in the
+            calculation start endpoint
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationStatus'
+          description: Expected response. Signals that the calculation is finished.
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              explode: false
+              schema:
+                description: Relative URL to check status of the request.
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationStatus'
+          description: Expected response. Signals that the calculation is still in
+            progress.
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              explode: false
+              schema:
+                description: Relative URL to check status of the request.
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "503":
+          description: Request timeout. Retry the request later
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+      summary: Get calculation status by id
+      tags:
+      - Calculations
+      x-accepts: application/json
+  /analytics/quant/fpe/v1/calculations/{id}/output:
+    get:
+      description: This endpoint returns the specified output from the calculation.
+      parameters:
+      - description: From url, provided by location header or response body in the
+          calculation start endpoint
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: From url, provided by location header or response body in the
+            calculation start endpoint
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            '*':
+              schema:
+                format: binary
+                type: string
+          description: Expected response. Signals that the calculation is finished.
+            Output from the calculation is returned.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            Content-Type:
+              description: The content type of the output specified in the calculation's
+                script.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          description: Expected response. Signals that the calculation is still in
+            progress and no output is returned.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "503":
+          description: Request timeout. Retry the request later
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+      summary: Get calculation output for a specific calculation
+      tags:
+      - Calculations
+      x-accepts: '*'
+  /analytics/quant/fpe/v1/calculations/{id}/log:
+    get:
+      description: This endpoint returns the log from the calculation.
+      parameters:
+      - description: From url, provided by location header or response body in the
+          calculation start endpoint
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: From url, provided by location header or response body in the
+            calculation start endpoint
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                format: binary
+                type: string
+          description: Expected response. Signals that the calculation is finished.
+            Log from the calculation is returned.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "202":
+          description: Expected response. Signals that the calculation is still in
+            progress and no log is returned.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "503":
+          description: Request timeout. Retry the request later
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+      summary: Get calculation log for a specific calculation
+      tags:
+      - Calculations
+      x-accepts: text/plain
+  /analytics/quant/fpe/v1/files/{server}/{file}:
+    post:
+      description: This endpoint takes a file and uploads it
+      parameters:
+      - description: The server to upload the file to. Either `interactive` or `batch`.
+        explode: false
+        in: path
+        name: server
+        required: true
+        schema:
+          description: The server to upload the file to. Either `interactive` or `batch`.
+          type: string
+        style: simple
+      - description: The file name to upload the file to. Existing directory can be
+          specified.
+        explode: false
+        in: path
+        name: file
+        required: true
+        schema:
+          description: The file name to upload the file to. Existing directory can
+            be specified.
+          type: string
+        style: simple
+      requestBody:
+        content:
+          '*':
+            schema:
+              format: binary
+              type: string
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadStatus'
+          description: Expected response, contains the relative URL in the Location
+            header to check the status of the upload.
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              explode: false
+              schema:
+                description: Relative URL to check status of the request.
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "503":
+          description: Request timeout. Retry the request later
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+      summary: Starts a file upload
+      tags:
+      - Files
+      x-contentType: '*'
+      x-accepts: application/json
+  /analytics/quant/fpe/v1/files/uploads/{id}:
+    get:
+      description: This is the endpoint to check on the progress of a previous upload
+        request.
+      parameters:
+      - description: From url, provided by location header or response body in the
+          upload start endpoint
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: From url, provided by location header or response body in the
+            upload start endpoint
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadStatus'
+          description: Expected response. Signals that the upload is finished.
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              explode: false
+              schema:
+                description: Relative URL to check status of the request.
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadStatus'
+          description: Expected response. Signals that the upload is still in progress.
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              explode: false
+              schema:
+                description: Relative URL to check status of the request.
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "503":
+          description: Request timeout. Retry the request later
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+      summary: Get upload status by id
+      tags:
+      - Files
+      x-accepts: application/json
+components:
+  schemas:
+    Calculation:
+      example:
+        script: script
+        notebook: notebook
+      properties:
+        script:
+          description: The python script that will be executed
+          type: string
+        notebook:
+          description: Notebook file to be executed. Only notebooks in the Client
+            directory are currently supported.
+          type: string
+    CalculationStatus:
+      example:
+        id: id
+        status: pending
+      properties:
+        id:
+          description: The unique ID for this calculation
+          type: string
+        status:
+          enum:
+          - pending
+          - failed
+          - completed
+          type: string
+    FileUploadStatus:
+      example:
+        id: id
+        status: pending
+      properties:
+        id:
+          description: The unique ID for this upload
+          type: string
+        status:
+          enum:
+          - pending
+          - failed
+          - completed
+          - running
+          type: string
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

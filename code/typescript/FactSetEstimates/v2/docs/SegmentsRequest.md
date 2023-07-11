@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **frequency** | [**Frequency**](Frequency.md) |  | [optional] 
 **segmentType** | [**SegmentType**](SegmentType.md) |  | [optional] 
 **metrics** | **[String]** | Requested metrics. Use the metrics endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). | 
-**currency** | **String** | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**currency** | **String** | Currency code for adjusting the data. Use input as &#39;ESTIMATE&#39; for values in Estimate currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 
 

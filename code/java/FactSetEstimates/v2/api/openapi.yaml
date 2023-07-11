@@ -6,7 +6,7 @@ info:
   description: |
     Gain access to 20+ years of comprehensive estimates and statistics of over 250+ estimated metrics, including financial statement items, product segments, geosegments, and industry metrics. FactSet's consensus estimates are aggregated from a wide base of over 800+ contributors and cover over 19,000 active companies across 90+ countries. Data returned can be accessed on the data frequencies based on quarterly, fiscal years, and calendar years. FactSet Estimates updates on a real time basis intraday (every 5 minutes). Updating times vary based on earning season vs. non-earning season but the goal is to have the data available to the client within a few hours that FactSet receives updated information. Often times updates times can be much faster as FactSet has always been known as one of the fastest estimate providers in the market.
   title: FactSet Estimates
-  version: 2.3.1
+  version: 2.5.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -63,6 +63,11 @@ paths:
         style: form
       - description: |
           Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+        examples:
+          Metric:
+            summary: Metrics
+            value:
+            - SALES
         explode: false
         in: query
         name: metrics
@@ -176,8 +181,9 @@ paths:
           - LTMA
           type: string
         style: form
-      - description: 'Currency code for adjusting the data. For a list of currency
-          ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+      - description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as input
+          value for the values in Estimate Currency. For a list of currency ISO codes,
+          visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
         example: USD
         explode: true
         in: query
@@ -390,6 +396,11 @@ paths:
         style: form
       - description: |
           Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+        examples:
+          Metric:
+            summary: Metrics
+            value:
+            - SALES
         explode: false
         in: query
         name: metrics
@@ -503,8 +514,9 @@ paths:
           - LTMA
           type: string
         style: form
-      - description: 'Currency code for adjusting the data. For a list of currency
-          ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+      - description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as input
+          value for the values in Estimate Currency. For a list of currency ISO codes,
+          visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
         example: USD
         explode: true
         in: query
@@ -718,6 +730,11 @@ paths:
         style: form
       - description: |
           Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+        examples:
+          Metric:
+            summary: Metrics
+            value:
+            - SALES
         explode: false
         in: query
         name: metrics
@@ -784,8 +801,8 @@ paths:
           type: string
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
-          \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
+          \ fetch Quarterly, Semi-Annual, and Annual Estimates.\n  * **ANN** - Annual\n\
+          \  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
         explode: true
         in: query
         name: periodicity
@@ -835,8 +852,9 @@ paths:
         schema:
           type: integer
         style: form
-      - description: 'Currency code for adjusting the data. For a list of currency
-          ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+      - description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as input
+          value for the values in Estimate Currency. For a list of currency ISO codes,
+          visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
         example: USD
         explode: true
         in: query
@@ -1047,6 +1065,11 @@ paths:
         style: form
       - description: |
           Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+        examples:
+          Metric:
+            summary: Metrics
+            value:
+            - SALES
         explode: false
         in: query
         name: metrics
@@ -1113,8 +1136,8 @@ paths:
           type: string
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
-          \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
+          \ fetch Quarterly, Semi-Annual, and Annual Estimates.\n  * **ANN** - Annual\n\
+          \  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
         explode: true
         in: query
         name: periodicity
@@ -1164,8 +1187,9 @@ paths:
         schema:
           type: string
         style: form
-      - description: 'Currency code for adjusting the data. For a list of currency
-          ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+      - description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as input
+          value for the values in Estimate Currency. For a list of currency ISO codes,
+          visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
         example: USD
         explode: true
         in: query
@@ -1651,6 +1675,19 @@ paths:
         schema:
           type: string
         style: form
+      - description: "Include All filter is used to identify included and excluded\
+          \ broker details from the consensus\n  By default the service would return\
+          \ only the brokers included in the consensus-\n  * **TRUE** = Returns all\
+          \ the brokers included and excluded in the consensus\n  * **FALSE** = Returns\
+          \ only the broker details included in the consensus\n  \n"
+        explode: true
+        in: query
+        name: includeAll
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -1856,6 +1893,11 @@ paths:
         style: form
       - description: |
           Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+        examples:
+          Metric:
+            summary: Metrics
+            value:
+            - SALES
         explode: false
         in: query
         name: metrics
@@ -1952,8 +1994,9 @@ paths:
           - STDDEV
           type: string
         style: form
-      - description: 'Currency code for adjusting the data. For a list of currency
-          ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+      - description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as input
+          value for the values in Estimate Currency. For a list of currency ISO codes,
+          visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
         example: USD
         explode: true
         in: query
@@ -2187,6 +2230,11 @@ paths:
         style: form
       - description: |
           Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+        examples:
+          Metric:
+            summary: Metrics
+            value:
+            - SALES
         explode: false
         in: query
         name: metrics
@@ -2300,8 +2348,9 @@ paths:
           - AY
           type: string
         style: form
-      - description: 'Currency code for adjusting the data. For a list of currency
-          ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+      - description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as input
+          value for the values in Estimate Currency. For a list of currency ISO codes,
+          visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
         example: USD
         explode: true
         in: query
@@ -2514,38 +2563,39 @@ paths:
           \ - \n  * **BALANCE_SHEET** - Balance Sheet line items, such as Assets,\
           \ Long-term Debt, and more.\n  * **CASH_FLOW** - Cash Flow Statement line\
           \ items, such as Free Cash Flow and Share Repurchases\n  * **INCOME_STATEMENT**\
-          \ - Income Statement line items, such as EPS, Sales, DPS, and more.\n</p>\
-          \ <p> Industry Metrics - \n\n  * **AIRLINES** - Including items such as\
-          \ Revenue Passenger, Total Revenue per ASK, Available Seats, and more.\n\
-          \  * **BANKS** - Including items such as Net Interest Income, Trading Income,\
-          \ Net Loans, and more. SUPPLEMENTAL\n  * **COMMODITIES** - Including items\
-          \ such as Average Target Price.\n  * **COMPUTER_HARDWARE** - Including items\
-          \ such as Total Addressable Market.\n  * **CONSUMER_SERVICES** - Including\
-          \ items such as Gross Merchandise Volume\n  * **EDUCATION** - Including\
-          \ Items such as Total Student Enrollment\n  * **FINANCIAL_SERVICE_PROVIDER**\
-          \ - Including items such as Annual Subscription Value\n  * **HOME_BUILDERS**\
-          \ - Including items such as Home Sales, Land Sales, Cancellation Rates,\
-          \ and more.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
-          \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
-          \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  *\
-          \ **INSURANCE** - Including items such as Gross Premiums Written, Underwriting\
-          \ Income, and Claims.\n  * **HOSPITALS** - Including items such as Bad Debt\
-          \ Provisions, Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS**\
-          \ - Including items such as Average Daily Rate, Occupancy %, RevPAR, and\
-          \ more.\n  * **INSURANCE** - Including items such as Gross Premiums Written,\
-          \ Underwriting Income, and Claims.\n  * **MARIJUANA** - Including items\
-          \ such as Cost per Gram and Kg of Cannabis Sold.\n  * **MINING** - Including\
-          \ items such as Realized Price and Total Production\n  * **MULTIFINANCIAL**\
-          \ - Including items such as AUM, Net Flows, and Fee Related Earnings.\n\
-          \  * **OIL_AND_GAS** - Including items such as Downstream Income, Production\
-          \ per Day, and Exploration Expense.\n  * **OTHER** - Target Price\n  * **REITS**\
-          \ - Including items such as Funds from Operations, Implied Cap Rate, and\
-          \ LTV.\n  * **RESTAURANTS** - Including items such as Restaurant Margin.\n\
-          \  * **RETAILERS** - Including items such as Stores Information, Selling\
-          \ Space and Net sales per square foot.\n  * **TELECOMMUNICATIONS** - Including\
-          \ items such as Gross Adds, Monthly Revenue Per User, Churn, and more.\n\
-          \  * **TRANSPORTATION** - Including items such as Revenue Per Unit, Volume\
-          \ Growth, and Operating Ratio.</p>\n  \n"
+          \ - Income Statement line items, such as EPS, Sales, DPS, and more.\n  *\
+          \ **MISCELLANEOUS** - EPS Long Term Growth\n</p> <p> Industry Metrics -\
+          \ \n\n  * **AIRLINES** - Including items such as Revenue Passenger, Total\
+          \ Revenue per ASK, Available Seats, and more.\n  * **BANKS** - Including\
+          \ items such as Net Interest Income, Trading Income, Net Loans, and more.\
+          \ SUPPLEMENTAL\n  * **COMMODITIES** - Including items such as Average Target\
+          \ Price.\n  * **COMPUTER_HARDWARE** - Including items such as Total Addressable\
+          \ Market.\n  * **CONSUMER_SERVICES** - Including items such as Gross Merchandise\
+          \ Volume\n  * **EDUCATION** - Including Items such as Total Student Enrollment\n\
+          \  * **FINANCIAL_SERVICE_PROVIDER** - Including items such as Annual Subscription\
+          \ Value\n  * **HOME_BUILDERS** - Including items such as Home Sales, Land\
+          \ Sales, Cancellation Rates, and more.\n  * **HOSPITALS** - Including items\
+          \ such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.\n\
+          \  * **HOTELS** - Including items such as Average Daily Rate, Occupancy\
+          \ %, RevPAR, and more.\n  * **INSURANCE** - Including items such as Gross\
+          \ Premiums Written, Underwriting Income, and Claims.\n  * **HOSPITALS**\
+          \ - Including items such as Bad Debt Provisions, Medical Cost Ratio, SS\
+          \ Admissions and more.\n  * **HOTELS** - Including items such as Average\
+          \ Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE** - Including\
+          \ items such as Gross Premiums Written, Underwriting Income, and Claims.\n\
+          \  * **MARIJUANA** - Including items such as Cost per Gram and Kg of Cannabis\
+          \ Sold.\n  * **MINING** - Including items such as Realized Price and Total\
+          \ Production\n  * **MULTIFINANCIAL** - Including items such as AUM, Net\
+          \ Flows, and Fee Related Earnings.\n  * **OIL_AND_GAS** - Including items\
+          \ such as Downstream Income, Production per Day, and Exploration Expense.\n\
+          \  * **OTHER** - Target Price\n  * **REITS** - Including items such as Funds\
+          \ from Operations, Implied Cap Rate, and LTV.\n  * **RESTAURANTS** - Including\
+          \ items such as Restaurant Margin.\n  * **RETAILERS** - Including items\
+          \ such as Stores Information, Selling Space and Net sales per square foot.\n\
+          \  * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly\
+          \ Revenue Per User, Churn, and more.\n  * **TRANSPORTATION** - Including\
+          \ items such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>\n\
+          \  \n"
         explode: true
         in: query
         name: subcategory
@@ -2568,6 +2618,7 @@ paths:
           - INSURANCE
           - MARIJUANA
           - MINING
+          - MISCELLANEOUS
           - MULTIFINANCIAL
           - OIL_AND_GAS
           - OTHER
@@ -3005,8 +3056,8 @@ components:
       style: form
     periodicityDetail:
       description: "The periodicity for the estimates requested, allowing you to fetch\
-        \ Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN** -\
-        \ Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
+        \ Quarterly, Semi-Annual, and Annual Estimates.\n  * **ANN** - Annual\n  *\
+        \ **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
       explode: true
       in: query
       name: periodicity
@@ -3038,6 +3089,11 @@ components:
     metrics:
       description: |
         Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+      examples:
+        Metric:
+          summary: Metrics
+          value:
+          - SALES
       explode: false
       in: query
       name: metrics
@@ -3067,8 +3123,9 @@ components:
         type: string
       style: form
     currency:
-      description: 'Currency code for adjusting the data. For a list of currency ISO
-        codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+      description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as input
+        value for the values in Estimate Currency. For a list of currency ISO codes,
+        visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
       example: USD
       explode: true
       in: query
@@ -3158,37 +3215,37 @@ components:
         \ - \n  * **BALANCE_SHEET** - Balance Sheet line items, such as Assets, Long-term\
         \ Debt, and more.\n  * **CASH_FLOW** - Cash Flow Statement line items, such\
         \ as Free Cash Flow and Share Repurchases\n  * **INCOME_STATEMENT** - Income\
-        \ Statement line items, such as EPS, Sales, DPS, and more.\n</p> <p> Industry\
-        \ Metrics - \n\n  * **AIRLINES** - Including items such as Revenue Passenger,\
-        \ Total Revenue per ASK, Available Seats, and more.\n  * **BANKS** - Including\
-        \ items such as Net Interest Income, Trading Income, Net Loans, and more.\
-        \ SUPPLEMENTAL\n  * **COMMODITIES** - Including items such as Average Target\
-        \ Price.\n  * **COMPUTER_HARDWARE** - Including items such as Total Addressable\
-        \ Market.\n  * **CONSUMER_SERVICES** - Including items such as Gross Merchandise\
-        \ Volume\n  * **EDUCATION** - Including Items such as Total Student Enrollment\n\
-        \  * **FINANCIAL_SERVICE_PROVIDER** - Including items such as Annual Subscription\
-        \ Value\n  * **HOME_BUILDERS** - Including items such as Home Sales, Land\
-        \ Sales, Cancellation Rates, and more.\n  * **HOSPITALS** - Including items\
-        \ such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.\n\
-        \  * **HOTELS** - Including items such as Average Daily Rate, Occupancy %,\
-        \ RevPAR, and more.\n  * **INSURANCE** - Including items such as Gross Premiums\
-        \ Written, Underwriting Income, and Claims.\n  * **HOSPITALS** - Including\
-        \ items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and\
-        \ more.\n  * **HOTELS** - Including items such as Average Daily Rate, Occupancy\
-        \ %, RevPAR, and more.\n  * **INSURANCE** - Including items such as Gross\
-        \ Premiums Written, Underwriting Income, and Claims.\n  * **MARIJUANA** -\
-        \ Including items such as Cost per Gram and Kg of Cannabis Sold.\n  * **MINING**\
-        \ - Including items such as Realized Price and Total Production\n  * **MULTIFINANCIAL**\
-        \ - Including items such as AUM, Net Flows, and Fee Related Earnings.\n  *\
-        \ **OIL_AND_GAS** - Including items such as Downstream Income, Production\
-        \ per Day, and Exploration Expense.\n  * **OTHER** - Target Price\n  * **REITS**\
-        \ - Including items such as Funds from Operations, Implied Cap Rate, and LTV.\n\
-        \  * **RESTAURANTS** - Including items such as Restaurant Margin.\n  * **RETAILERS**\
-        \ - Including items such as Stores Information, Selling Space and Net sales\
-        \ per square foot.\n  * **TELECOMMUNICATIONS** - Including items such as Gross\
-        \ Adds, Monthly Revenue Per User, Churn, and more.\n  * **TRANSPORTATION**\
-        \ - Including items such as Revenue Per Unit, Volume Growth, and Operating\
-        \ Ratio.</p>\n  \n"
+        \ Statement line items, such as EPS, Sales, DPS, and more.\n  * **MISCELLANEOUS**\
+        \ - EPS Long Term Growth\n</p> <p> Industry Metrics - \n\n  * **AIRLINES**\
+        \ - Including items such as Revenue Passenger, Total Revenue per ASK, Available\
+        \ Seats, and more.\n  * **BANKS** - Including items such as Net Interest Income,\
+        \ Trading Income, Net Loans, and more. SUPPLEMENTAL\n  * **COMMODITIES** -\
+        \ Including items such as Average Target Price.\n  * **COMPUTER_HARDWARE**\
+        \ - Including items such as Total Addressable Market.\n  * **CONSUMER_SERVICES**\
+        \ - Including items such as Gross Merchandise Volume\n  * **EDUCATION** -\
+        \ Including Items such as Total Student Enrollment\n  * **FINANCIAL_SERVICE_PROVIDER**\
+        \ - Including items such as Annual Subscription Value\n  * **HOME_BUILDERS**\
+        \ - Including items such as Home Sales, Land Sales, Cancellation Rates, and\
+        \ more.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
+        \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
+        \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE**\
+        \ - Including items such as Gross Premiums Written, Underwriting Income, and\
+        \ Claims.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
+        \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
+        \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE**\
+        \ - Including items such as Gross Premiums Written, Underwriting Income, and\
+        \ Claims.\n  * **MARIJUANA** - Including items such as Cost per Gram and Kg\
+        \ of Cannabis Sold.\n  * **MINING** - Including items such as Realized Price\
+        \ and Total Production\n  * **MULTIFINANCIAL** - Including items such as AUM,\
+        \ Net Flows, and Fee Related Earnings.\n  * **OIL_AND_GAS** - Including items\
+        \ such as Downstream Income, Production per Day, and Exploration Expense.\n\
+        \  * **OTHER** - Target Price\n  * **REITS** - Including items such as Funds\
+        \ from Operations, Implied Cap Rate, and LTV.\n  * **RESTAURANTS** - Including\
+        \ items such as Restaurant Margin.\n  * **RETAILERS** - Including items such\
+        \ as Stores Information, Selling Space and Net sales per square foot.\n  *\
+        \ **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue\
+        \ Per User, Churn, and more.\n  * **TRANSPORTATION** - Including items such\
+        \ as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>\n  \n"
       explode: true
       in: query
       name: subcategory
@@ -3211,6 +3268,7 @@ components:
         - INSURANCE
         - MARIJUANA
         - MINING
+        - MISCELLANEOUS
         - MULTIFINANCIAL
         - OIL_AND_GAS
         - OTHER
@@ -3375,8 +3433,9 @@ components:
         periodicity:
           $ref: '#/components/schemas/periodicity'
         currency:
-          description: 'Currency code for adjusting the data. For a list of currency
-            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use input as ''ESTIMATE''
+            for values in Estimate currency. For a list of currency ISO codes, visit
+            [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           type: string
       required:
@@ -3389,6 +3448,7 @@ components:
         data:
         - estimateCount: 20
           fsymId: SJY281-R
+          estimateCurrency: USD
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           down: 4
           high: 12349.01
@@ -3407,6 +3467,7 @@ components:
           estimateDate: 2017-07-24T00:00:00.000+0000
         - estimateCount: 20
           fsymId: SJY281-R
+          estimateCurrency: USD
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           down: 4
           high: 12349.01
@@ -3435,6 +3496,7 @@ components:
       example:
         estimateCount: 20
         fsymId: SJY281-R
+        estimateCurrency: USD
         fiscalEndDate: 2017-12-31T00:00:00.000+0000
         down: 4
         high: 12349.01
@@ -3465,99 +3527,122 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         metric:
           description: 'Company''s Financial statement ''metric'' that is estimated.
             Use the factset-estimates/v#/metrics endpoint for a complete list. For
             more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034)'
           example: SALES
+          nullable: true
           type: string
         periodicity:
           description: The reporting interval for the estimate. This is derived from
             Estimate Date and is translated to the Period List = ANN, QTR, SEMI, LTMA,
             or NMTA.
           example: ANN
+          nullable: true
           type: string
         fiscalPeriod:
           description: 'Company''s ''fiscal period'' for the estimate record. Periods
             for periodicity of ANN = 1, and SEMI = 2. For more details, visit [Online
             Assistant Page #16598](https://oa.apps.factset.com/pages/16598).'
           example: 4
+          nullable: true
           type: integer
         fiscalYear:
           description: 'Company''s ''fiscal year'' for the estimate record. For more
             details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2018
+          nullable: true
           type: integer
         fiscalEndDate:
           description: 'Company''s ''fiscal end date'' for the estimate record expressed
             in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2017-12-31
           format: date
+          nullable: true
           type: string
         relativePeriod:
           description: '''Fiscal period'' based on relationship to ''estimate date''.
             This is not applicable for fixed-consensus endpoint. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2
+          nullable: true
           type: integer
         estimateDate:
           description: 'Date of estimate expressed in YYYY-MM-DD format. For more
             details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2017-07-24
           format: date
+          nullable: true
           type: string
         currency:
-          description: 'Currency used estimates in consensus calculations. For a list
-            of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as
+            input value for the values in Estimate Currency. For a list of currency
+            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
+          type: string
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          example: USD
+          nullable: true
           type: string
         mean:
           description: 'Mean of estimates in consensus calculation. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 12345.01
           format: double
+          nullable: true
           type: number
         median:
           description: 'Median of estimates in consensus calculation. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 12346.01
           format: double
+          nullable: true
           type: number
         standardDeviation:
           description: 'Standard deviation of estimates in consensus calculation.
             For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 0.011034
           format: double
+          nullable: true
           type: number
         high:
           description: 'Highest estimate in consensus calculation. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).'
           example: 12349.01
           format: double
+          nullable: true
           type: number
         low:
           description: 'Lowest estimate in consensus calculation. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 12344.01
           format: double
+          nullable: true
           type: number
         estimateCount:
           description: 'Count or NEST of estimates in consensus calculation. For more
             details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 20
+          nullable: true
           type: integer
         up:
           description: 'Number of Up Revisions within the consensus for the metric
             and period. The default window size is 100 days For more details, visit
             [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).'
           example: 6
+          nullable: true
           type: integer
         down:
           description: 'Number of Up Revisions within the consensus for the metric
             and period. The default window size is 100 days. For more details, visit
             [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).'
           example: 4
+          nullable: true
           type: integer
       title: Consensus Estimate
       type: object
@@ -3617,8 +3702,9 @@ components:
         periodicity:
           $ref: '#/components/schemas/periodicity'
         currency:
-          description: 'Currency code for adjusting the data. For a list of currency
-            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use input as ''ESTIMATE''
+            for values in Estimate currency. For a list of currency ISO codes, visit
+            [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           type: string
       required:
@@ -3665,8 +3751,9 @@ components:
         periodicity:
           $ref: '#/components/schemas/periodicitySurprise'
         currency:
-          description: 'Currency code for adjusting the data. For a list of currency
-            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use input as ''ESTIMATE''
+            for values in Estimate currency. For a list of currency ISO codes, visit
+            [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           type: string
         statistic:
@@ -3683,6 +3770,7 @@ components:
           statistic: MEAN
           surpriseBefore: 1.2905
           fsymId: SJY281-R
+          estimateCurrency: USD
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           surpriseDate: 2017-02-24T00:00:00.000+0000
           surpriseAmount: 0.07951
@@ -3700,6 +3788,7 @@ components:
           statistic: MEAN
           surpriseBefore: 1.2905
           fsymId: SJY281-R
+          estimateCurrency: USD
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           surpriseDate: 2017-02-24T00:00:00.000+0000
           surpriseAmount: 0.07951
@@ -3727,6 +3816,7 @@ components:
         statistic: MEAN
         surpriseBefore: 1.2905
         fsymId: SJY281-R
+        estimateCurrency: USD
         fiscalEndDate: 2017-12-31T00:00:00.000+0000
         surpriseDate: 2017-02-24T00:00:00.000+0000
         surpriseAmount: 0.07951
@@ -3743,89 +3833,110 @@ components:
       properties:
         fsymId:
           example: SJY281-R
+          nullable: true
           type: string
         date:
           description: Date for data expressed in YYYY-MM-DD format.
           example: 2017-12-31
           format: date
+          nullable: true
           type: string
         currency:
-          description: 'Currency used estimates in consensus calculations. Currency
-            used estimates in consensus calculations. For a list of currency ISO codes,
-            visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as
+            input value for the values in Estimate Currency. For a list of currency
+            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
+          type: string
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          example: USD
+          nullable: true
           type: string
         metric:
           description: 'Company''s Financial statement ''metric'' that is estimated.
             Use the factset-estimates/v#/metrics endpoint for a complete list. For
             more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).'
           example: SALES
+          nullable: true
           type: string
         statistic:
           description: 'Method of calculation for the consensus ''statistic''. For
             more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).'
           example: MEAN
+          nullable: true
           type: string
         periodicity:
           description: Company's 'periodicity' for the estimate record, reflecting
             Annual, Quarterly, or Semi-Annual report periods. Next-twelve-months (NTMA)
             and Last-twelve-months (LTMA) also supported.
           example: ANN
+          nullable: true
           type: string
         fiscalEndDate:
           description: Company's 'fiscal end date' for the estimate record expressed
             in YYYY-MM-DD format
           example: 2017-12-31
           format: date
+          nullable: true
           type: string
         fiscalYear:
           description: Company's 'fiscal year' for the estimate record
           example: 2018
+          nullable: true
           type: integer
         fiscalPeriod:
           description: Company's 'fiscal period' for the estimate record.  'Periodicity'
             defines context for period.
           example: 4
+          nullable: true
           type: integer
         surpriseDate:
           description: 'Date of the reported event expressed in YYYY-MM-DD format.
             For more details, visit [Online Assistant Page #16601](https://oa.apps.factset.com/pages/16601).'
           example: 2017-02-24
           format: date
+          nullable: true
           type: string
         surpriseAmount:
           description: 'Amount of difference between last consensus and actual. For
             more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).'
           example: 0.07951
           format: double
+          nullable: true
           type: number
         surprisePercent:
           description: 'Percent difference between last consensus and actual. For
             more details, visit [Online Assistant Page #16145](https://oa.apps.factset.com/pages/16145).'
           example: 6.16
           format: double
+          nullable: true
           type: number
         surpriseBefore:
           description: 'Last consensus before event. For more details, visit [Online
             Assistant Page #16145](https://oa.apps.factset.com/pages/16145).'
           example: 1.2905
           format: double
+          nullable: true
           type: number
         surpriseAfter:
           description: 'Actual value after event. For more details, visit [Online
             Assistant Page #16145](https://oa.apps.factset.com/pages/16145).'
           example: 1.3653
           format: double
+          nullable: true
           type: number
         eventDescription:
           description: 'Description of event. For more details, visit [Online Assistant
             Page #16601](https://oa.apps.factset.com/pages/16601).'
           example: Results for 2016
+          nullable: true
           type: string
         eventFlag:
           description: 'Flag for event. Code of Event Flag, where 0 = results and
             1 = profit warning. For more details, visit [Online Assistant Page #16601](https://oa.apps.factset.com/pages/16601).'
           example: 0
+          nullable: true
           type: integer
         requestId:
           example: IBM-US
@@ -3890,8 +4001,9 @@ components:
           minItems: 1
           type: array
         currency:
-          description: 'Currency code for adjusting the data. For a list of currency
-            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use input as ''ESTIMATE''
+            for values in Estimate currency. For a list of currency ISO codes, visit
+            [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           type: string
       required:
@@ -3902,47 +4014,55 @@ components:
     detailResponse:
       example:
         data:
-        - brokerId: 05FBK7-E
-          estimateValue: 23456
-          fsymId: SJY281-R
-          prevEstimateDate: 2017-05-02T00:00:00.000+0000
+        - fsymId: SJY281-R
           section: Included
-          analystId: 0DXTST-E
-          inputDateTime: 2022-10-25T22:40:09
+          estimateCurrency: USD
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           prevEstimateValue: 22336
-          metric: SALES
           requestId: IBM-US
           analystName: Josh Baer
-          statusText: ""
-          periodicity: ANN
           fiscalPeriod: 4
           currency: USD
+          securityCurrency: USD
+          estimateDate: 2017-07-24T00:00:00.000+0000
+          brokerId: 05FBK7-E
+          estimateValue: 23456
+          lastModifiedDate: 2017-07-24T00:00:00.000+0000
+          prevEstimateDate: 2017-05-02T00:00:00.000+0000
+          brokerEstimateCurrency: USD
+          analystId: 0DXTST-E
+          inputDateTime: 2022-10-25T22:40:09
+          metric: SALES
+          statusText: ""
+          periodicity: ANN
           brokerName: Morgan Stanley
           fiscalYear: 2018
           relativePeriod: 2
-          estimateDate: 2017-07-24T00:00:00.000+0000
           statusCode: 0
-        - brokerId: 05FBK7-E
-          estimateValue: 23456
-          fsymId: SJY281-R
-          prevEstimateDate: 2017-05-02T00:00:00.000+0000
+        - fsymId: SJY281-R
           section: Included
-          analystId: 0DXTST-E
-          inputDateTime: 2022-10-25T22:40:09
+          estimateCurrency: USD
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           prevEstimateValue: 22336
-          metric: SALES
           requestId: IBM-US
           analystName: Josh Baer
-          statusText: ""
-          periodicity: ANN
           fiscalPeriod: 4
           currency: USD
+          securityCurrency: USD
+          estimateDate: 2017-07-24T00:00:00.000+0000
+          brokerId: 05FBK7-E
+          estimateValue: 23456
+          lastModifiedDate: 2017-07-24T00:00:00.000+0000
+          prevEstimateDate: 2017-05-02T00:00:00.000+0000
+          brokerEstimateCurrency: USD
+          analystId: 0DXTST-E
+          inputDateTime: 2022-10-25T22:40:09
+          metric: SALES
+          statusText: ""
+          periodicity: ANN
           brokerName: Morgan Stanley
           fiscalYear: 2018
           relativePeriod: 2
-          estimateDate: 2017-07-24T00:00:00.000+0000
           statusCode: 0
       properties:
         data:
@@ -3954,119 +4074,148 @@ components:
       type: object
     detailEstimate:
       example:
-        brokerId: 05FBK7-E
-        estimateValue: 23456
         fsymId: SJY281-R
-        prevEstimateDate: 2017-05-02T00:00:00.000+0000
         section: Included
-        analystId: 0DXTST-E
-        inputDateTime: 2022-10-25T22:40:09
+        estimateCurrency: USD
         fiscalEndDate: 2017-12-31T00:00:00.000+0000
         prevEstimateValue: 22336
-        metric: SALES
         requestId: IBM-US
         analystName: Josh Baer
-        statusText: ""
-        periodicity: ANN
         fiscalPeriod: 4
         currency: USD
+        securityCurrency: USD
+        estimateDate: 2017-07-24T00:00:00.000+0000
+        brokerId: 05FBK7-E
+        estimateValue: 23456
+        lastModifiedDate: 2017-07-24T00:00:00.000+0000
+        prevEstimateDate: 2017-05-02T00:00:00.000+0000
+        brokerEstimateCurrency: USD
+        analystId: 0DXTST-E
+        inputDateTime: 2022-10-25T22:40:09
+        metric: SALES
+        statusText: ""
+        periodicity: ANN
         brokerName: Morgan Stanley
         fiscalYear: 2018
         relativePeriod: 2
-        estimateDate: 2017-07-24T00:00:00.000+0000
         statusCode: 0
       properties:
         fsymId:
           example: SJY281-R
+          nullable: true
           type: string
         metric:
           description: 'Company''s Financial statement ''metric'' that is estimated.
             Use the factset-estimates/v#/metrics endpoint for a complete list. For
             more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).'
           example: SALES
+          nullable: true
           type: string
         periodicity:
           description: Company's 'periodicity' for the estimate record, reflecting
             Annual, Quarterly, or Semi-Annual report periods.
           example: ANN
+          nullable: true
           type: string
         fiscalYear:
           description: Company's 'fiscal year' for the estimate record
           example: 2018
+          nullable: true
           type: integer
         fiscalPeriod:
           description: Company's 'fiscal period' for the estimate record.  'Periodicity'
             defines context for period.
           example: 4
+          nullable: true
           type: integer
         fiscalEndDate:
           description: Company's 'fiscal end date' for the estimate record expressed
             in YYYY-MM-DD format
           example: 2017-12-31
           format: date
+          nullable: true
           type: string
         relativePeriod:
           description: '''Fiscal period'' based on relationship to ''estimate date''.
             This is not applicable for fixed-consensus endpoint. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2
+          nullable: true
           type: integer
         currency:
-          description: 'Currency used estimates in consensus calculations. Currency
-            used estimates in consensus calculations. For a list of currency ISO codes,
-            visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use ''ESTIMATE'' as
+            input value for the values in Estimate Currency. For a list of currency
+            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         estimateDate:
           description: 'Date of estimate expressed in YYYY-MM-DD format. For more
             details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2017-07-24
           format: date
+          nullable: true
           type: string
         estimateValue:
           description: The value of the estimate.
           example: 23456
           format: double
+          nullable: true
           type: number
         analystId:
           description: The FactSet Entity Identifier for the analyst making the estimate.
           example: 0DXTST-E
+          nullable: true
           type: string
         analystName:
           description: The name of the analyst making the estimate.
           example: Josh Baer
+          nullable: true
           type: string
         brokerId:
           description: The FactSet Entity Identifier for the broker making the estimate.
           example: 05FBK7-E
+          nullable: true
           type: string
         brokerName:
           description: The name of the broker making the estimate.
           example: Morgan Stanley
+          nullable: true
+          type: string
+        lastModifiedDate:
+          description: The date at which a broker provided an estimate that is a revision.
+          example: 2017-07-24
+          format: date
+          nullable: true
           type: string
         prevEstimateDate:
           description: 'Date the previous estimate was made expressed in YYYY-MM-DD
             format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2017-05-02
           format: date
+          nullable: true
           type: string
         prevEstimateValue:
           description: The value of the previous estimate.
           example: 22336
           format: double
+          nullable: true
           type: number
         section:
           description: Section of the estimate.Returns the details of brokers inlcuded
             and excluded in the consensus
           example: Included
+          nullable: true
           type: string
         statusCode:
           description: Status code of the estimate.
           example: 0
+          nullable: true
           type: integer
         statusText:
           description: Status description of the estimate.
           example: ""
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -4076,6 +4225,22 @@ components:
           description: Date and time when the data is available at the source.
           example: 2022-10-25T22:40:09
           format: string
+          nullable: true
+          type: string
+        securityCurrency:
+          description: The currency that the company trades in.
+          example: USD
+          nullable: true
+          type: string
+        brokerEstimateCurrency:
+          description: The currency in which estimates are made by broker.
+          example: USD
+          nullable: true
+          type: string
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          example: USD
+          nullable: true
           type: string
       title: Detail
       type: object
@@ -4143,8 +4308,9 @@ components:
           example: "2019"
           type: string
         currency:
-          description: 'Currency code for adjusting the data. For a list of currency
-            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use input as ''ESTIMATE''
+            for values in Estimate currency. For a list of currency ISO codes, visit
+            [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           type: string
       required:
@@ -4230,44 +4396,52 @@ components:
       properties:
         fsymId:
           example: SJY281-R
+          nullable: true
           type: string
         estimateDate:
           description: 'Date of estimate expressed in YYYY-MM-DD format. For more
             details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2017-07-24
           format: date
+          nullable: true
           type: string
         buyCount:
           description: The number of Buy ratings taken into account in the calculation
             of a consensus. This information is shown only for a 100-day consensus.
           example: 5
+          nullable: true
           type: integer
         overweightCount:
           description: The number of Overweight ratings taken into account in the
             calculation of a consensus. This information is shown only for a 100-day
             consensus.
           example: 1
+          nullable: true
           type: integer
         holdCount:
           description: The number of Hold ratings taken into account in the calculation
             of a consensus. This information is shown only for a 100-day consensus.
           example: 1
+          nullable: true
           type: integer
         underweightCount:
           description: The number of Underweight ratings taken into account in the
             calculation of a consensus. This information is shown only for a 100-day
             consensus.
           example: 1
+          nullable: true
           type: integer
         sellCount:
           description: The number of Sell ratings taken into account in the calculation
             of a consensus. This information is shown only for a 100-day consensus.
           example: 1
+          nullable: true
           type: integer
         ratingsNestTotal:
           description: The total number of ratings taken into account in the calculation
             of a consensus. This information is shown only for a 100-day consensus.
           example: 1
+          nullable: true
           type: integer
         ratingsNote:
           description: |
@@ -4282,6 +4456,7 @@ components:
             |3|Sell|
           example: 1.85555
           format: double
+          nullable: true
           type: number
         ratingsNoteText:
           description: "The mean textual rating for the fiscal dates indicated. The\
@@ -4290,6 +4465,7 @@ components:
             |< 1.25|Buy|\n|< 1.75|Overweight|\n|< 2.25|Hold|\n|< 2.75|Underweight|\n\
             |<= 3|Sell|\n"
           example: Hold
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -4320,6 +4496,15 @@ components:
             The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
           example: 2019-12-31
           type: string
+        includeAll:
+          default: false
+          description: |
+            Include All filter is used to identify included and excluded broker details from the consensus
+              By default the service would return only the brokers included in the consensus-
+              * **TRUE** = Returns all the brokers included and excluded in the consensus
+              * **FALSE** = Returns only the broker details included in the consensus
+          example: false
+          type: boolean
       required:
       - ids
       title: Detail Ratings Request Body
@@ -4328,6 +4513,7 @@ components:
       example:
         data:
         - brokerId: 05FBK7-E
+          lastModifiedDate: 2017-07-24T00:00:00.000+0000
           requestId: IBM-US
           fsymId: SJY281-R
           analystName: Josh Baer
@@ -4337,6 +4523,7 @@ components:
           inputDateTime: 2022-10-25T22:40:09
           estimateDate: 2017-07-24T00:00:00.000+0000
         - brokerId: 05FBK7-E
+          lastModifiedDate: 2017-07-24T00:00:00.000+0000
           requestId: IBM-US
           fsymId: SJY281-R
           analystName: Josh Baer
@@ -4356,6 +4543,7 @@ components:
     detailRatings:
       example:
         brokerId: 05FBK7-E
+        lastModifiedDate: 2017-07-24T00:00:00.000+0000
         requestId: IBM-US
         fsymId: SJY281-R
         analystName: Josh Baer
@@ -4367,28 +4555,34 @@ components:
       properties:
         fsymId:
           example: SJY281-R
+          nullable: true
           type: string
         estimateDate:
           description: 'Date of estimate expressed in YYYY-MM-DD format. For more
             details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2017-07-24
           format: date
+          nullable: true
           type: string
         analystId:
           description: The FactSet Entity Identifier for the analyst making the estimate.
           example: 0DXTST-E
+          nullable: true
           type: string
         analystName:
           description: The name of the analyst making the estimate.
           example: Josh Baer
+          nullable: true
           type: string
         brokerId:
           description: The FactSet Entity Identifier for the broker making the estimate.
           example: 05FBK7-E
+          nullable: true
           type: string
         brokerName:
           description: The name of the broker making the estimate.
           example: Morgan Stanley
+          nullable: true
           type: string
         ratingsNoteText:
           description: "A textual representation of the analysts rating. Broker recommendations\
@@ -4403,6 +4597,7 @@ components:
             Most\" or \"Least\" favorable rating is displayed for top or bottom rating\
             \ available for a particular security.\n"
           example: overweight
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -4412,6 +4607,13 @@ components:
           description: Date and time when the data is available at the source.
           example: 2022-10-25T22:40:09
           format: string
+          nullable: true
+          type: string
+        lastModifiedDate:
+          description: The date at which a broker provided an estimate that is a revision.
+          example: 2017-07-24
+          format: date
+          nullable: true
           type: string
       title: Detail Ratings
       type: object
@@ -4466,8 +4668,9 @@ components:
           minItems: 1
           type: array
         currency:
-          description: 'Currency code for adjusting the data. For a list of currency
-            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency code for adjusting the data. Use input as ''ESTIMATE''
+            for values in Estimate currency. For a list of currency ISO codes, visit
+            [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           type: string
       required:
@@ -4481,6 +4684,7 @@ components:
         - estimateCount: 20
           fsymId: SJY281-R
           segmentLabel: iPhone
+          estimateCurrency: USD
           fiscalEndDate: 2021-09-30T00:00:00.000+0000
           down: 4
           high: 12349.01
@@ -4500,6 +4704,7 @@ components:
         - estimateCount: 20
           fsymId: SJY281-R
           segmentLabel: iPhone
+          estimateCurrency: USD
           fiscalEndDate: 2021-09-30T00:00:00.000+0000
           down: 4
           high: 12349.01
@@ -4529,6 +4734,7 @@ components:
         estimateCount: 20
         fsymId: SJY281-R
         segmentLabel: iPhone
+        estimateCurrency: USD
         fiscalEndDate: 2021-09-30T00:00:00.000+0000
         down: 4
         high: 12349.01
@@ -4559,99 +4765,123 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         segmentType:
           description: Segment selected
           example: BUS
+          nullable: true
           type: string
         metric:
           description: 'Company''s Financial statement ''metric'' that is estimated.
             Use the factset-estimates/v#/metrics endpoint for a complete list. For
             more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034)'
           example: SALES
+          nullable: true
           type: string
         fiscalPeriod:
           description: 'Company''s ''fiscal period'' for the estimate record. Periods
             for periodicity of ANN = 1, and SEMI = 2. For more details, visit [Online
             Assistant Page #16598](https://oa.apps.factset.com/pages/16598).'
           example: 1
+          nullable: true
           type: integer
         fiscalYear:
           description: 'Company''s ''fiscal year'' for the estimate record. For more
             details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2018
+          nullable: true
           type: integer
         segmentLabel:
           description: Displays the specific label of the segment.
           example: iPhone
+          nullable: true
           type: string
         segmentLevel:
           description: Returns the level of the segment item as either P = Parent
             or S = Subordinate
           example: S
+          nullable: true
           type: string
         fiscalEndDate:
           description: 'Company''s ''fiscal end date'' for the estimate record expressed
             in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598)'
           example: 2021-09-30
           format: date
+          nullable: true
           type: string
         estimateDate:
           description: The date the estimates are as of in YYYY-MM-DD format.
           example: 2021-07-01
           format: date
+          nullable: true
           type: string
         currency:
-          description: 'Currency used estimates in consensus calculations. For a list
-            of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          description: 'Currency used estimates in consensus calculations. Use ''ESTIMATE''
+            as input for values in Estimate Currency. For a list of currency ISO codes,
+            visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
+          type: string
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          example: USD
+          nullable: true
           type: string
         mean:
           description: 'Mean of estimates in consensus calculation. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 12345.01
           format: double
+          nullable: true
           type: number
         median:
           description: 'Median of estimates in consensus calculation. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 12346.01
           format: double
+          nullable: true
           type: number
         standardDeviation:
           description: 'Standard deviation of estimates in consensus calculation.
             For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 0.011034
           format: double
+          nullable: true
           type: number
         high:
           description: 'Highest estimate in consensus calculation. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).'
           example: 12349.01
           format: double
+          nullable: true
           type: number
         low:
           description: 'Lowest estimate in consensus calculation. For more details,
             visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 12344.01
           format: double
+          nullable: true
           type: number
         estimateCount:
           description: 'Count or NEST of estimates in consensus calculation. For more
             details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114)'
           example: 20
+          nullable: true
           type: integer
         up:
           description: 'Number of Up Revisions within the consensus for the metric
             and period. The default window size is 100 days For more details, visit
             [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).'
           example: 6
+          nullable: true
           type: integer
         down:
           description: 'Number of Up Revisions within the consensus for the metric
             and period. The default window size is 100 days. For more details, visit
             [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114).'
           example: 4
+          nullable: true
           type: integer
       title: Segments Estimate
       type: object
@@ -4720,25 +4950,30 @@ components:
           description: Metric identifier to be used as `metrics` input in the FactSet
             Estimate endpoints.
           example: ASSETS
+          nullable: true
           type: string
         name:
           description: Plain text name of the metric.
           example: Total Assets
+          nullable: true
           type: string
         category:
           description: Primary Category of metric item, such as, FINANCIAL_STATEMENT
             or INDUSTRY_METRIC
           example: FINANCIAL_STATEMENT
+          nullable: true
           type: string
         subcategory:
           description: Sub-category of metric items, such as the INCOME_STATEMENT
             or AIRLINES.
           example: BALANCE_SHEET
+          nullable: true
           type: string
         OAurl:
           description: The Online Assistant Page URL, used to lookup the definition
             and methodology of the requested item.
           example: https://my.apps.factset.com/oa/pages/16283
+          nullable: true
           type: string
       title: Metric Object
       type: object
@@ -4868,8 +5103,9 @@ components:
       minItems: 1
       type: array
     currency:
-      description: 'Currency code for adjusting the data. For a list of currency ISO
-        codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+      description: 'Currency code for adjusting the data. Use input as ''ESTIMATE''
+        for values in Estimate currency. For a list of currency ISO codes, visit [Online
+        Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
       example: USD
       type: string
     category:
@@ -4891,37 +5127,37 @@ components:
         \ - \n  * **BALANCE_SHEET** - Balance Sheet line items, such as Assets, Long-term\
         \ Debt, and more.\n  * **CASH_FLOW** - Cash Flow Statement line items, such\
         \ as Free Cash Flow and Share Repurchases\n  * **INCOME_STATEMENT** - Income\
-        \ Statement line items, such as EPS, Sales, DPS, and more.\n</p> <p> Industry\
-        \ Metrics - \n\n  * **AIRLINES** - Including items such as Revenue Passenger,\
-        \ Total Revenue per ASK, Available Seats, and more.\n  * **BANKS** - Including\
-        \ items such as Net Interest Income, Trading Income, Net Loans, and more.\
-        \ SUPPLEMENTAL\n  * **COMMODITIES** - Including items such as Average Target\
-        \ Price.\n  * **COMPUTER_HARDWARE** - Including items such as Total Addressable\
-        \ Market.\n  * **CONSUMER_SERVICES** - Including items such as Gross Merchandise\
-        \ Volume\n  * **EDUCATION** - Including Items such as Total Student Enrollment\n\
-        \  * **FINANCIAL_SERVICE_PROVIDER** - Including items such as Annual Subscription\
-        \ Value\n  * **HOME_BUILDERS** - Including items such as Home Sales, Land\
-        \ Sales, Cancellation Rates, and more.\n  * **HOSPITALS** - Including items\
-        \ such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.\n\
-        \  * **HOTELS** - Including items such as Average Daily Rate, Occupancy %,\
-        \ RevPAR, and more.\n  * **INSURANCE** - Including items such as Gross Premiums\
-        \ Written, Underwriting Income, and Claims.\n  * **HOSPITALS** - Including\
-        \ items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and\
-        \ more.\n  * **HOTELS** - Including items such as Average Daily Rate, Occupancy\
-        \ %, RevPAR, and more.\n  * **INSURANCE** - Including items such as Gross\
-        \ Premiums Written, Underwriting Income, and Claims.\n  * **MARIJUANA** -\
-        \ Including items such as Cost per Gram and Kg of Cannabis Sold.\n  * **MINING**\
-        \ - Including items such as Realized Price and Total Production\n  * **MULTIFINANCIAL**\
-        \ - Including items such as AUM, Net Flows, and Fee Related Earnings.\n  *\
-        \ **OIL_AND_GAS** - Including items such as Downstream Income, Production\
-        \ per Day, and Exploration Expense.\n  * **OTHER** - Target Price\n  * **REITS**\
-        \ - Including items such as Funds from Operations, Implied Cap Rate, and LTV.\n\
-        \  * **RESTAURANTS** - Including items such as Restaurant Margin.\n  * **RETAILERS**\
-        \ - Including items such as Stores Information, Selling Space and Net sales\
-        \ per square foot.\n  * **TELECOMMUNICATIONS** - Including items such as Gross\
-        \ Adds, Monthly Revenue Per User, Churn, and more.\n  * **TRANSPORTATION**\
-        \ - Including items such as Revenue Per Unit, Volume Growth, and Operating\
-        \ Ratio.</p>\n"
+        \ Statement line items, such as EPS, Sales, DPS, and more.\n  * **MISCELLANEOUS**\
+        \ - EPS Long Term Growth\n</p> <p> Industry Metrics - \n\n  * **AIRLINES**\
+        \ - Including items such as Revenue Passenger, Total Revenue per ASK, Available\
+        \ Seats, and more.\n  * **BANKS** - Including items such as Net Interest Income,\
+        \ Trading Income, Net Loans, and more. SUPPLEMENTAL\n  * **COMMODITIES** -\
+        \ Including items such as Average Target Price.\n  * **COMPUTER_HARDWARE**\
+        \ - Including items such as Total Addressable Market.\n  * **CONSUMER_SERVICES**\
+        \ - Including items such as Gross Merchandise Volume\n  * **EDUCATION** -\
+        \ Including Items such as Total Student Enrollment\n  * **FINANCIAL_SERVICE_PROVIDER**\
+        \ - Including items such as Annual Subscription Value\n  * **HOME_BUILDERS**\
+        \ - Including items such as Home Sales, Land Sales, Cancellation Rates, and\
+        \ more.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
+        \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
+        \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE**\
+        \ - Including items such as Gross Premiums Written, Underwriting Income, and\
+        \ Claims.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
+        \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
+        \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE**\
+        \ - Including items such as Gross Premiums Written, Underwriting Income, and\
+        \ Claims.\n  * **MARIJUANA** - Including items such as Cost per Gram and Kg\
+        \ of Cannabis Sold.\n  * **MINING** - Including items such as Realized Price\
+        \ and Total Production\n  * **MULTIFINANCIAL** - Including items such as AUM,\
+        \ Net Flows, and Fee Related Earnings.\n  * **OIL_AND_GAS** - Including items\
+        \ such as Downstream Income, Production per Day, and Exploration Expense.\n\
+        \  * **OTHER** - Target Price\n  * **REITS** - Including items such as Funds\
+        \ from Operations, Implied Cap Rate, and LTV.\n  * **RESTAURANTS** - Including\
+        \ items such as Restaurant Margin.\n  * **RETAILERS** - Including items such\
+        \ as Stores Information, Selling Space and Net sales per square foot.\n  *\
+        \ **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue\
+        \ Per User, Churn, and more.\n  * **TRANSPORTATION** - Including items such\
+        \ as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>\n"
       enum:
       - AIRLINES
       - BALANCE_SHEET
@@ -4939,6 +5175,7 @@ components:
       - INSURANCE
       - MARIJUANA
       - MINING
+      - MISCELLANEOUS
       - MULTIFINANCIAL
       - OIL_AND_GAS
       - OTHER

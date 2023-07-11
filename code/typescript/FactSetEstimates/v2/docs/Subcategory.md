@@ -35,6 +35,8 @@
 
 * `MINING` (value: `"MINING"`)
 
+* `MISCELLANEOUS` (value: `"MISCELLANEOUS"`)
+
 * `MULTIFINANCIAL` (value: `"MULTIFINANCIAL"`)
 
 * `OIL_AND_GAS` (value: `"OIL_AND_GAS"`)

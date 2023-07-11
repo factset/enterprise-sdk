@@ -200,7 +200,8 @@ const apiInstance = new RatingsApi();
 const ids = ["AAPL-USA"]; // [String] | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
 const opts = {
   'startDate': 2019-07-30, // String | Start date for point in time of estimates expressed in YYYY-MM-DD format.
-  'endDate': 2020-07-30 // String | End date for point in time of estimates expressed in YYYY-MM-DD format.
+  'endDate': 2020-07-30, // String | End date for point in time of estimates expressed in YYYY-MM-DD format.
+  'includeAll': false // Boolean | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    
 };
 
 // Call api endpoint
@@ -226,6 +227,7 @@ Name | Type | Description  | Notes
  **ids** | [**[String]**](String.md)| Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  | 
  **startDate** | **String**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
  **endDate** | **String**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **includeAll** | **Boolean**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     | [optional] [default to false]
 
 ### Return type
 

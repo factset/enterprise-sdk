@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **relativeFiscalStart** | **Number** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
 **relativeFiscalEnd** | **Number** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
 **periodicity** | [**Periodicity**](Periodicity.md) |  | [optional] 
-**currency** | **String** | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**currency** | **String** | Currency code for adjusting the data. Use input as &#39;ESTIMATE&#39; for values in Estimate currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 
 

@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 <a name="getdetailratings"></a>
 # **GetDetailRatings**
-> DetailRatingsResponse GetDetailRatings (List<string> ids, string startDate = null, string endDate = null)
+> DetailRatingsResponse GetDetailRatings (List<string> ids, string startDate = null, string endDate = null, bool? includeAll = null)
 
 Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
 
@@ -254,11 +254,12 @@ namespace Example
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
             var startDate = "2019-07-30";  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var endDate = "2020-07-30";  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var includeAll = false;  // bool? | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (optional)  (default to false)
 
             try
             {
                 // Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
-                DetailRatingsResponse result = apiInstance.GetDetailRatings(ids, startDate, endDate);
+                DetailRatingsResponse result = apiInstance.GetDetailRatings(ids, startDate, endDate, includeAll);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -279,6 +280,7 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  | 
  **startDate** | **string**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
  **endDate** | **string**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **includeAll** | **bool?**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     | [optional] [default to false]
 
 ### Return type
 [**DetailRatingsResponse**](DetailRatingsResponse.md)

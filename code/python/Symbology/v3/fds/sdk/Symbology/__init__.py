@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "2.3.1"
+__version__ = "2.3.2"
 
 # import ApiClient
 from fds.sdk.Symbology.api_client import ApiClient

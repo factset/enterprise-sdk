@@ -430,7 +430,7 @@ conf = fds.sdk.Symbology.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 3.2.0\n"\
-               "SDK Package Version: 2.3.1".\
+               "SDK Package Version: 2.3.2".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

@@ -272,6 +272,7 @@ public class RatingsApi {
    * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)
    * @return DetailRatingsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -285,8 +286,8 @@ public class RatingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public DetailRatingsResponse getDetailRatings(java.util.List<String> ids, String startDate, String endDate) throws ApiException {
-    return getDetailRatingsWithHttpInfo(ids, startDate, endDate).getData();
+  public DetailRatingsResponse getDetailRatings(java.util.List<String> ids, String startDate, String endDate, Boolean includeAll) throws ApiException {
+    return getDetailRatingsWithHttpInfo(ids, startDate, endDate, includeAll).getData();
   }
 
   /**
@@ -295,6 +296,7 @@ public class RatingsApi {
    * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)
    * @return ApiResponse&lt;DetailRatingsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -308,7 +310,7 @@ public class RatingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DetailRatingsResponse> getDetailRatingsWithHttpInfo(java.util.List<String> ids, String startDate, String endDate) throws ApiException {
+  public ApiResponse<DetailRatingsResponse> getDetailRatingsWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, Boolean includeAll) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -328,6 +330,7 @@ public class RatingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDate", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeAll", includeAll));
 
     
     
