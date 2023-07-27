@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **paginationLimit** | **[String]** |  | [optional] 
 **paginationOffset** | **[String]** |  | [optional] 
 **year** | **[String]** |  | [optional] 
+**trimmed** | **[String]** |  | [optional] 
 
 

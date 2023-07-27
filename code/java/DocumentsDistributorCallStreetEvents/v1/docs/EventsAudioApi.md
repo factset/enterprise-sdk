@@ -11,11 +11,19 @@ Method | HTTP request | Description
 
 ## getDocsDistributorAudioV1HistoryFiles
 
-> EventsAudioHistory getDocsDistributorAudioV1HistoryFiles(paginationLimit, paginationOffset, year)
+> EventsAudioHistory getDocsDistributorAudioV1HistoryFiles(paginationLimit, paginationOffset, year, trimmed)
 
 Retrieve historical audio recordings and related metadata within FactSet coverage.
 
-Returns the historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  Query parameters can be used to filter and narrow down the results.
+
+* Returns the **untrimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.
+
+* Returns the **trimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Dec 31, 2022.
+
+
+
+Query parameters can be used to filter and narrow down the results.
+
 
 ### Example
 
@@ -54,8 +62,9 @@ public class Example {
         Integer paginationLimit = 25; // Integer | Specifies the number of results to return per page. [ Min=0 ; Max=500 ]
         Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.
         Integer year = 2021; // Integer | Specifies the year for which the historical audio recordings and related metadata are to be retrieved.
+        Boolean trimmed = false; // Boolean | Specifies if trimmed/untrimmed historical audio recordings should be returned.
         try {
-            EventsAudioHistory result = apiInstance.getDocsDistributorAudioV1HistoryFiles(paginationLimit, paginationOffset, year);
+            EventsAudioHistory result = apiInstance.getDocsDistributorAudioV1HistoryFiles(paginationLimit, paginationOffset, year, trimmed);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -77,6 +86,7 @@ Name | Type | Description  | Notes
  **paginationLimit** | **Integer**| Specifies the number of results to return per page. [ Min&#x3D;0 ; Max&#x3D;500 ] | [optional] [default to 25]
  **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
  **year** | **Integer**| Specifies the year for which the historical audio recordings and related metadata are to be retrieved. | [optional]
+ **trimmed** | **Boolean**| Specifies if trimmed/untrimmed historical audio recordings should be returned. | [optional] [default to false]
 
 ### Return type
 

@@ -70,10 +70,11 @@ public class EventsAudioApi {
 
   /**
    * Retrieve historical audio recordings and related metadata within FactSet coverage.
-   * Returns the historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  Query parameters can be used to filter and narrow down the results.
+   *  * Returns the **untrimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  * Returns the **trimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Dec 31, 2022.    Query parameters can be used to filter and narrow down the results. 
    * @param paginationLimit Specifies the number of results to return per page. [ Min&#x3D;0 ; Max&#x3D;500 ] (optional, default to 25)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional, default to 0)
    * @param year Specifies the year for which the historical audio recordings and related metadata are to be retrieved. (optional)
+   * @param trimmed Specifies if trimmed/untrimmed historical audio recordings should be returned. (optional, default to false)
    * @return EventsAudioHistory
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -86,16 +87,17 @@ public class EventsAudioApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public EventsAudioHistory getDocsDistributorAudioV1HistoryFiles(Integer paginationLimit, Integer paginationOffset, Integer year) throws ApiException {
-    return getDocsDistributorAudioV1HistoryFilesWithHttpInfo(paginationLimit, paginationOffset, year).getData();
+  public EventsAudioHistory getDocsDistributorAudioV1HistoryFiles(Integer paginationLimit, Integer paginationOffset, Integer year, Boolean trimmed) throws ApiException {
+    return getDocsDistributorAudioV1HistoryFilesWithHttpInfo(paginationLimit, paginationOffset, year, trimmed).getData();
   }
 
   /**
    * Retrieve historical audio recordings and related metadata within FactSet coverage.
-   * Returns the historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  Query parameters can be used to filter and narrow down the results.
+   *  * Returns the **untrimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  * Returns the **trimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Dec 31, 2022.    Query parameters can be used to filter and narrow down the results. 
    * @param paginationLimit Specifies the number of results to return per page. [ Min&#x3D;0 ; Max&#x3D;500 ] (optional, default to 25)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional, default to 0)
    * @param year Specifies the year for which the historical audio recordings and related metadata are to be retrieved. (optional)
+   * @param trimmed Specifies if trimmed/untrimmed historical audio recordings should be returned. (optional, default to false)
    * @return ApiResponse&lt;EventsAudioHistory&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -108,7 +110,7 @@ public class EventsAudioApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EventsAudioHistory> getDocsDistributorAudioV1HistoryFilesWithHttpInfo(Integer paginationLimit, Integer paginationOffset, Integer year) throws ApiException {
+  public ApiResponse<EventsAudioHistory> getDocsDistributorAudioV1HistoryFilesWithHttpInfo(Integer paginationLimit, Integer paginationOffset, Integer year, Boolean trimmed) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -123,6 +125,7 @@ public class EventsAudioApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "year", year));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "trimmed", trimmed));
 
     
     

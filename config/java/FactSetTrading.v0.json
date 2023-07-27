@@ -1,0 +1,39 @@
+{
+  "modelPackage": "com.factset.sdk.FactSetTrading.models",
+  "apiPackage": "com.factset.sdk.FactSetTrading.api",
+  "invokerPackage": "com.factset.sdk.FactSetTrading",
+  "java8": true,
+  "groupId": "com.factset.sdk",
+  "artifactId": "factsettrading",
+  "artifactVersion": "0.23.0",
+  "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
+  "artifactDescription": "FactSet Trading client library for Java",
+  "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
+  "scmDeveloperConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
+  "scmUrl": "http://github.com/FactSet/enterprise-sdk",
+  "developerName": "FactSet Research Systems",
+  "developerEmail": "api@factset.com",
+  "developerOrganization": "FactSet Research Systems",
+  "developerOrganizationUrl": "https://developer.factset.com/",
+  "licenseName": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "serializableModel": true,
+  "fullJavaUtil": true,
+  "withXml": false,
+  "useGzipFeature": false,
+  "hideGenerationTimestamp": true,
+  "caseInsensitiveResponseHeaders": true,
+  "library": "jersey2",
+  "dateLibrary": "java8",
+  "servers":  false,
+  "httpUserAgent": "fds-sdk/java/FactSetTrading/0.23.0",
+  "files": {
+    "LICENSE": {},
+    "auth/FactSetOAuth2ClientAuth.mustache": {
+      "templateType": "SupportingFiles",
+      "folder": "src/main/java/com/factset/sdk/FactSetTrading/auth",
+      "destinationFilename": "FactSetOAuth2ClientAuth.java"
+    }
+  },
+  "useOneOfDiscriminatorLookup": true
+}

@@ -1,0 +1,1179 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Allow clients to trade orders.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: EMS API
+  version: 0.2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-trading-api
+servers:
+- description: Production
+  url: https://api.factset.com/trading/ems/v0
+- description: UAT
+  url: https://api.uat.factset.com/trading/ems/v0
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: These endpoints relate to Order Entry.
+  name: Orders
+paths:
+  /orders/create:
+    post:
+      description: This endpoint takes the list of orders and place them on EMS for
+        execution.
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Multiple Orders:
+                value:
+                  data:
+                    investorId: MyOrganization
+                    orders:
+                    - orderId: OR0000001
+                      instrument:
+                        symbol: GOOGL
+                      side: buy
+                      orderType: market
+                      orderQuantity: 1000
+                      price: 450
+                      currency: USD
+                      handlingInstructions: auto_ord_pub
+                    - orderId: OR0000002
+                      instrument:
+                        symbol: MSFT
+                      side: sell
+                      orderType: limit
+                      orderQuantity: 1000
+                      price: 450
+                      currency: USD
+                      handlingInstructions: auto_ord_pub
+                    - orderId: OR0000003
+                      instrument:
+                        symbol: TSLA
+                      side: buy
+                      orderType: market_on_close
+                      orderQuantity: 1000
+                      price: 450
+                      currency: USD
+                      handlingInstructions: auto_ord_pub
+              Single Order (Minimum Fields):
+                summary: Very basic single order with only required fields.
+                value:
+                  data:
+                    investorId: MyOrganization
+                    orders:
+                    - instrument:
+                        symbol: GOOGL
+                      side: buy
+                      orderType: market
+                      orderQuantity: 1000
+                      price: 450
+                      currency: USD
+              Single Order:
+                value:
+                  data:
+                    investorId: MyOrganization
+                    orders:
+                    - orderId: OR0000004
+                      instrument:
+                        symbol: GOOGL
+                      side: buy
+                      orderType: market
+                      orderQuantity: 1000
+                      price: 450
+                      stopPrice: 500
+                      strikePrice: 60
+                      currency: USD
+                      isCovered: false
+                      maxShow: 30
+                      maxFloor: 20
+                      settlementType: regular
+                      settlementDate: "20211024"
+                      handlingInstructions: auto_ord_pub
+                      locateRequired: false
+                      account: ACCT1
+                      timeInForce:
+                        tif: GTC
+            schema:
+              $ref: '#/components/schemas/EMSOrdersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  accepted:
+                    OR123456789:
+                      symbol: GOOGL
+                      side: buy
+                      orderType: market
+                      orderQuantity: 2500
+                    OR123456790:
+                      symbol: MSFT
+                      side: buy
+                      orderType: market
+                      orderQuantity: 200
+                  rejected:
+                    OR123456791:
+                      symbol: TSLA
+                      side: buy
+                      orderType: market
+                      orderQuantity: 500
+              schema:
+                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+          description: Expected response, returns the list of orders.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid post body parameters.
+        "401":
+          description: Missing or invalid authentication.
+        "403":
+          description: User is forbidden with current credentials
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+        "429":
+          description: Rate limit reached. Wait before sending further requests.
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+        "503":
+          description: Request timed out. Retry the request in sometime.
+      summary: Send orders to EMS for execution.
+      tags:
+      - Orders
+      x-contentType: application/json
+      x-accepts: application/json
+  /orders/replace:
+    post:
+      description: This endpoint takes the list of orders to be replaced on the EMS
+        system.
+      operationId: replace
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EMSReplaceOrdersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  accepted:
+                    OR123456789:
+                      symbol: GOOGL
+                      side: buy
+                      orderType: market
+                      orderQuantity: 2500
+                    OR123456790:
+                      symbol: MSFT
+                      side: buy
+                      orderType: market
+                      orderQuantity: 200
+                  rejected:
+                    OR123456791:
+                      symbol: TSLA
+                      side: buy
+                      orderType: market
+                      orderQuantity: 500
+              schema:
+                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+          description: Expected response, returns the list of order ids.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid post body parameters.
+        "401":
+          description: Missing or invalid authentication.
+        "403":
+          description: User is forbidden with current credentials
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+        "429":
+          description: Rate limit reached. Wait before sending further requests.
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+        "503":
+          description: Request timed out. Retry the request in sometime.
+      summary: Replace the orders on EMS system.
+      tags:
+      - Orders
+      x-contentType: application/json
+      x-accepts: application/json
+  /orders/cancel:
+    post:
+      description: This endpoint takes the list of orders to be cancelled on the EMS
+        system.
+      operationId: cancel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EMSCancelOrdersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  accepted:
+                    OR123456789:
+                      symbol: GOOGL
+                      side: buy
+                      orderType: market
+                      orderQuantity: 2500
+                    OR123456790:
+                      symbol: MSFT
+                      side: buy
+                      orderType: market
+                      orderQuantity: 200
+                  rejected:
+                    OR123456791:
+                      symbol: TSLA
+                      side: buy
+                      orderType: market
+                      orderQuantity: 500
+              schema:
+                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+          description: Expected response, returns the list of order ids.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid post body parameters.
+        "401":
+          description: Missing or invalid authentication.
+        "403":
+          description: User is forbidden with current credentials
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+        "429":
+          description: Rate limit reached. Wait before sending further requests.
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+        "503":
+          description: Request timed out. Retry the request in sometime.
+      summary: Cancel the orders on EMS system.
+      tags:
+      - Orders
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    ClientErrorResponse:
+      properties:
+        errors:
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/Error'
+          nullable: true
+          type: array
+      type: object
+    EMSCancelOrder:
+      example:
+        originalOrderId: originalOrderId
+        inboundDestination: inboundDestination
+      properties:
+        originalOrderId:
+          type: string
+        inboundDestination:
+          description: Inbound destination
+          nullable: true
+          type: string
+      required:
+      - originalOrderId
+      type: object
+    EMSCancelOrders:
+      example:
+        investorId: investorId
+        orders:
+        - originalOrderId: originalOrderId
+          inboundDestination: inboundDestination
+        - originalOrderId: originalOrderId
+          inboundDestination: inboundDestination
+      properties:
+        investorId:
+          nullable: true
+          type: string
+        orders:
+          items:
+            $ref: '#/components/schemas/EMSCancelOrder'
+          nullable: true
+          type: array
+      type: object
+    EMSCancelOrdersRoot:
+      example:
+        data:
+          investorId: investorId
+          orders:
+          - originalOrderId: originalOrderId
+            inboundDestination: inboundDestination
+          - originalOrderId: originalOrderId
+            inboundDestination: inboundDestination
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSCancelOrders'
+      type: object
+    EMSOrder:
+      example:
+        settlementType: regular
+        orderType: market
+        side: buy
+        executionInstructions: not_held
+        orderId: "12322123"
+        effectiveTime: 20210622-12:15:30
+        maxFloor: 100
+        instrument:
+          symbol: TATAMOTORS
+          securityType: securityType
+          maturityMonthYear: maturityMonthYear
+          maturityDay: maturityDay
+          securityExchange: securityExchange
+          securityDescription: securityDescription
+          cfiCode: cfiCode
+          issuer: issuer
+        settlementDate: "20210622"
+        orderQuantity: 350
+        maxShow: 100
+        userDefinedFields:
+          key: userDefinedFields
+        stopPrice: 800
+        price: 800
+        currency: USD
+        prevClosePrice: 100
+        timeInForce:
+          tif: DAY
+          expireTime: expireTime
+          expireDate: expireDate
+        strikePrice: 400
+        isCovered: false
+        handlingInstructions: auto_ord_pub
+        account: Test.ACCT
+        inboundDestination: inboundDestination
+        locateRequired: false
+      properties:
+        orderId:
+          description: Unique id for the order
+          example: "12322123"
+          nullable: true
+          type: string
+        instrument:
+          $ref: '#/components/schemas/Instrument'
+        side:
+          description: Side
+          enum:
+          - buy
+          - sell
+          - sell_short
+          - sell_short_exempt
+          example: buy
+          type: string
+        orderType:
+          description: Type of the order
+          enum:
+          - market
+          - limit
+          - stop
+          - stop_limit
+          - market_on_close
+          - limit_or_better
+          example: market
+          type: string
+        orderQuantity:
+          description: Order quantity
+          example: 350
+          format: double
+          type: number
+        price:
+          description: Order Price
+          example: 800
+          format: double
+          nullable: true
+          type: number
+        stopPrice:
+          description: Stop Price
+          example: 800
+          format: double
+          nullable: true
+          type: number
+        strikePrice:
+          description: Strike Price
+          example: 400
+          format: double
+          nullable: true
+          type: number
+        currency:
+          description: Currency
+          example: USD
+          nullable: true
+          type: string
+        isCovered:
+          description: Currency
+          example: false
+          nullable: true
+          type: boolean
+        maxShow:
+          description: Max Show
+          example: 100
+          format: double
+          nullable: true
+          type: number
+        maxFloor:
+          description: Max Floor
+          example: 100
+          format: double
+          nullable: true
+          type: number
+        prevClosePrice:
+          description: Previous close price
+          example: 100
+          format: double
+          nullable: true
+          type: number
+        settlementType:
+          description: Settlement type
+          example: regular
+          nullable: true
+          type: string
+        settlementDate:
+          description: Settlement date in YYYYMMDD format
+          example: "20210622"
+          nullable: true
+          type: string
+        handlingInstructions:
+          description: Handling instructions
+          enum:
+          - auto_ord_pvt
+          - auto_ord_pub
+          - best_execution
+          example: auto_ord_pub
+          nullable: true
+          type: string
+        executionInstructions:
+          description: Execution instructions
+          enum:
+          - not_held
+          - work
+          - go_along
+          - over_the_day
+          - held
+          - participate_dont_initiate
+          - strict_scale
+          - try_to_scale
+          - stay_on_bidside
+          - stay_on_offerside
+          - no_cross
+          - ok_to_cross
+          - call_first
+          - percent_of_volume
+          - do_not_increase
+          - do_not_reduce
+          - all_or_none
+          - reinstate_on_system_failure
+          - institutions_only
+          - reinstate_on_trading_halt
+          - cancel_on_trading_halt
+          - last_peg
+          - mid_price_peg
+          - non_negotiable
+          - opening_peg
+          - market_peg
+          - cancel_on_system_failure
+          - primary_peg
+          - suspend
+          - fixed_peg_to_local_best_bid
+          - customer_display_instruction
+          - netting
+          - peg_to_vwap
+          - trade_along
+          - try_to_stop
+          - cancel_if_not_best
+          - trailing_stop_peg
+          - strict_limit
+          - ignore_price_validity_checks
+          - peg_to_limit_price
+          - work_to_target_strategy
+          - intermarket_sweep
+          - external_routing_allowed
+          - external_routing_not_allowed
+          - imbalance_only
+          - single_execution_requested_for_block_trade
+          - best_execution
+          example: not_held
+          nullable: true
+          type: string
+        locateRequired:
+          description: Locate Required
+          example: false
+          nullable: true
+          type: boolean
+        effectiveTime:
+          description: Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC
+          example: 20210622-12:15:30
+          nullable: true
+          type: string
+        account:
+          description: Account
+          example: Test.ACCT
+          nullable: true
+          type: string
+        timeInForce:
+          $ref: '#/components/schemas/TimeInForce'
+        inboundDestination:
+          description: Inbound Destination
+          nullable: true
+          type: string
+        userDefinedFields:
+          additionalProperties:
+            type: string
+          description: User defined fields
+          nullable: true
+          type: object
+      required:
+      - instrument
+      - orderType
+      - side
+      type: object
+    EMSOrderMetadata:
+      example:
+        symbol: symbol
+        orderType: market
+        side: buy
+        orderId: orderId
+        warning: warning
+        error: error
+        orderQuantity: 0.8008281904610115
+        info: info
+      properties:
+        symbol:
+          description: Symbol
+          nullable: true
+          type: string
+        side:
+          description: Side
+          enum:
+          - buy
+          - sell
+          - sell_short
+          - sell_short_exempt
+          nullable: true
+          type: string
+        orderType:
+          description: Order Type
+          enum:
+          - market
+          - limit
+          - stop
+          - stop_limit
+          - market_on_close
+          - limit_or_better
+          nullable: true
+          type: string
+        orderQuantity:
+          description: Order Quantity
+          format: double
+          nullable: true
+          type: number
+        error:
+          description: Error message
+          nullable: true
+          type: string
+        info:
+          description: information
+          nullable: true
+          type: string
+        orderId:
+          description: Order Id
+          nullable: true
+          type: string
+        warning:
+          description: Warning
+          nullable: true
+          type: string
+      type: object
+    EMSOrders:
+      example:
+        investorId: DEMO-12345
+        orders:
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: not_held
+          orderId: "12322123"
+          effectiveTime: 20210622-12:15:30
+          maxFloor: 100
+          instrument:
+            symbol: TATAMOTORS
+            securityType: securityType
+            maturityMonthYear: maturityMonthYear
+            maturityDay: maturityDay
+            securityExchange: securityExchange
+            securityDescription: securityDescription
+            cfiCode: cfiCode
+            issuer: issuer
+          settlementDate: "20210622"
+          orderQuantity: 350
+          maxShow: 100
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 800
+          price: 800
+          currency: USD
+          prevClosePrice: 100
+          timeInForce:
+            tif: DAY
+            expireTime: expireTime
+            expireDate: expireDate
+          strikePrice: 400
+          isCovered: false
+          handlingInstructions: auto_ord_pub
+          account: Test.ACCT
+          inboundDestination: inboundDestination
+          locateRequired: false
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: not_held
+          orderId: "12322123"
+          effectiveTime: 20210622-12:15:30
+          maxFloor: 100
+          instrument:
+            symbol: TATAMOTORS
+            securityType: securityType
+            maturityMonthYear: maturityMonthYear
+            maturityDay: maturityDay
+            securityExchange: securityExchange
+            securityDescription: securityDescription
+            cfiCode: cfiCode
+            issuer: issuer
+          settlementDate: "20210622"
+          orderQuantity: 350
+          maxShow: 100
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 800
+          price: 800
+          currency: USD
+          prevClosePrice: 100
+          timeInForce:
+            tif: DAY
+            expireTime: expireTime
+            expireDate: expireDate
+          strikePrice: 400
+          isCovered: false
+          handlingInstructions: auto_ord_pub
+          account: Test.ACCT
+          inboundDestination: inboundDestination
+          locateRequired: false
+      properties:
+        investorId:
+          description: Investor Id
+          example: DEMO-12345
+          nullable: true
+          type: string
+        orders:
+          items:
+            $ref: '#/components/schemas/EMSOrder'
+          type: array
+      required:
+      - orders
+      type: object
+    EMSOrdersCreateResponse:
+      example:
+        rejected:
+          key:
+            symbol: symbol
+            orderType: market
+            side: buy
+            orderId: orderId
+            warning: warning
+            error: error
+            orderQuantity: 0.8008281904610115
+            info: info
+        accepted:
+          key:
+            symbol: symbol
+            orderType: market
+            side: buy
+            orderId: orderId
+            warning: warning
+            error: error
+            orderQuantity: 0.8008281904610115
+            info: info
+      properties:
+        accepted:
+          additionalProperties:
+            $ref: '#/components/schemas/EMSOrderMetadata'
+          nullable: true
+          type: object
+        rejected:
+          additionalProperties:
+            $ref: '#/components/schemas/EMSOrderMetadata'
+          nullable: true
+          type: object
+      type: object
+    EMSOrdersCreateResponseRoot:
+      example:
+        data:
+          rejected:
+            key:
+              symbol: symbol
+              orderType: market
+              side: buy
+              orderId: orderId
+              warning: warning
+              error: error
+              orderQuantity: 0.8008281904610115
+              info: info
+          accepted:
+            key:
+              symbol: symbol
+              orderType: market
+              side: buy
+              orderId: orderId
+              warning: warning
+              error: error
+              orderQuantity: 0.8008281904610115
+              info: info
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSOrdersCreateResponse'
+      required:
+      - data
+      type: object
+    EMSOrdersRoot:
+      example:
+        data:
+          investorId: DEMO-12345
+          orders:
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: not_held
+            orderId: "12322123"
+            effectiveTime: 20210622-12:15:30
+            maxFloor: 100
+            instrument:
+              symbol: TATAMOTORS
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350
+            maxShow: 100
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800
+            price: 800
+            currency: USD
+            prevClosePrice: 100
+            timeInForce:
+              tif: DAY
+              expireTime: expireTime
+              expireDate: expireDate
+            strikePrice: 400
+            isCovered: false
+            handlingInstructions: auto_ord_pub
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: not_held
+            orderId: "12322123"
+            effectiveTime: 20210622-12:15:30
+            maxFloor: 100
+            instrument:
+              symbol: TATAMOTORS
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350
+            maxShow: 100
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800
+            price: 800
+            currency: USD
+            prevClosePrice: 100
+            timeInForce:
+              tif: DAY
+              expireTime: expireTime
+              expireDate: expireDate
+            strikePrice: 400
+            isCovered: false
+            handlingInstructions: auto_ord_pub
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSOrders'
+      type: object
+    EMSReplaceOrder:
+      example:
+        originalOrderId: originalOrderId
+        order:
+          settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: not_held
+          orderId: "12322123"
+          effectiveTime: 20210622-12:15:30
+          maxFloor: 100
+          instrument:
+            symbol: TATAMOTORS
+            securityType: securityType
+            maturityMonthYear: maturityMonthYear
+            maturityDay: maturityDay
+            securityExchange: securityExchange
+            securityDescription: securityDescription
+            cfiCode: cfiCode
+            issuer: issuer
+          settlementDate: "20210622"
+          orderQuantity: 350
+          maxShow: 100
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 800
+          price: 800
+          currency: USD
+          prevClosePrice: 100
+          timeInForce:
+            tif: DAY
+            expireTime: expireTime
+            expireDate: expireDate
+          strikePrice: 400
+          isCovered: false
+          handlingInstructions: auto_ord_pub
+          account: Test.ACCT
+          inboundDestination: inboundDestination
+          locateRequired: false
+      properties:
+        originalOrderId:
+          type: string
+        order:
+          $ref: '#/components/schemas/EMSOrder'
+      required:
+      - order
+      - originalOrderId
+      type: object
+    EMSReplaceOrders:
+      example:
+        investorId: DEMO-12345
+        orders:
+        - originalOrderId: originalOrderId
+          order:
+            settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: not_held
+            orderId: "12322123"
+            effectiveTime: 20210622-12:15:30
+            maxFloor: 100
+            instrument:
+              symbol: TATAMOTORS
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350
+            maxShow: 100
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800
+            price: 800
+            currency: USD
+            prevClosePrice: 100
+            timeInForce:
+              tif: DAY
+              expireTime: expireTime
+              expireDate: expireDate
+            strikePrice: 400
+            isCovered: false
+            handlingInstructions: auto_ord_pub
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+        - originalOrderId: originalOrderId
+          order:
+            settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: not_held
+            orderId: "12322123"
+            effectiveTime: 20210622-12:15:30
+            maxFloor: 100
+            instrument:
+              symbol: TATAMOTORS
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350
+            maxShow: 100
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800
+            price: 800
+            currency: USD
+            prevClosePrice: 100
+            timeInForce:
+              tif: DAY
+              expireTime: expireTime
+              expireDate: expireDate
+            strikePrice: 400
+            isCovered: false
+            handlingInstructions: auto_ord_pub
+            account: Test.ACCT
+            inboundDestination: inboundDestination
+            locateRequired: false
+      properties:
+        investorId:
+          description: Investor Id
+          example: DEMO-12345
+          nullable: true
+          type: string
+        orders:
+          items:
+            $ref: '#/components/schemas/EMSReplaceOrder'
+          nullable: true
+          type: array
+      type: object
+    EMSReplaceOrdersRoot:
+      example:
+        data:
+          investorId: DEMO-12345
+          orders:
+          - originalOrderId: originalOrderId
+            order:
+              settlementType: regular
+              orderType: market
+              side: buy
+              executionInstructions: not_held
+              orderId: "12322123"
+              effectiveTime: 20210622-12:15:30
+              maxFloor: 100
+              instrument:
+                symbol: TATAMOTORS
+                securityType: securityType
+                maturityMonthYear: maturityMonthYear
+                maturityDay: maturityDay
+                securityExchange: securityExchange
+                securityDescription: securityDescription
+                cfiCode: cfiCode
+                issuer: issuer
+              settlementDate: "20210622"
+              orderQuantity: 350
+              maxShow: 100
+              userDefinedFields:
+                key: userDefinedFields
+              stopPrice: 800
+              price: 800
+              currency: USD
+              prevClosePrice: 100
+              timeInForce:
+                tif: DAY
+                expireTime: expireTime
+                expireDate: expireDate
+              strikePrice: 400
+              isCovered: false
+              handlingInstructions: auto_ord_pub
+              account: Test.ACCT
+              inboundDestination: inboundDestination
+              locateRequired: false
+          - originalOrderId: originalOrderId
+            order:
+              settlementType: regular
+              orderType: market
+              side: buy
+              executionInstructions: not_held
+              orderId: "12322123"
+              effectiveTime: 20210622-12:15:30
+              maxFloor: 100
+              instrument:
+                symbol: TATAMOTORS
+                securityType: securityType
+                maturityMonthYear: maturityMonthYear
+                maturityDay: maturityDay
+                securityExchange: securityExchange
+                securityDescription: securityDescription
+                cfiCode: cfiCode
+                issuer: issuer
+              settlementDate: "20210622"
+              orderQuantity: 350
+              maxShow: 100
+              userDefinedFields:
+                key: userDefinedFields
+              stopPrice: 800
+              price: 800
+              currency: USD
+              prevClosePrice: 100
+              timeInForce:
+                tif: DAY
+                expireTime: expireTime
+                expireDate: expireDate
+              strikePrice: 400
+              isCovered: false
+              handlingInstructions: auto_ord_pub
+              account: Test.ACCT
+              inboundDestination: inboundDestination
+              locateRequired: false
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSReplaceOrders'
+      type: object
+    Error:
+      properties:
+        id:
+          description: Identifier for the error
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        detail:
+          description: Explanation specific to the occurrence of the error
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+      type: object
+    ErrorSource:
+      properties:
+        pointer:
+          description: Pointer to the associated entity in the request body
+          nullable: true
+          type: string
+        parameter:
+          description: Indicates which path or URI query parameter caused the error
+          nullable: true
+          type: string
+      type: object
+    Instrument:
+      example:
+        symbol: TATAMOTORS
+        securityType: securityType
+        maturityMonthYear: maturityMonthYear
+        maturityDay: maturityDay
+        securityExchange: securityExchange
+        securityDescription: securityDescription
+        cfiCode: cfiCode
+        issuer: issuer
+      properties:
+        symbol:
+          description: Symbol
+          example: TATAMOTORS
+          type: string
+        securityType:
+          description: Security Type
+          nullable: true
+          type: string
+        cfiCode:
+          description: Cfi Code
+          nullable: true
+          type: string
+        securityExchange:
+          description: Security exchange
+          nullable: true
+          type: string
+        issuer:
+          description: Issuer
+          nullable: true
+          type: string
+        securityDescription:
+          description: Security Description
+          nullable: true
+          type: string
+        maturityMonthYear:
+          description: Maturity month year
+          nullable: true
+          type: string
+        maturityDay:
+          description: Maturity day
+          nullable: true
+          type: string
+      required:
+      - symbol
+      type: object
+    TimeInForce:
+      example:
+        tif: DAY
+        expireTime: expireTime
+        expireDate: expireDate
+      properties:
+        tif:
+          description: 'Time in force: if GTD, then Expire Time or Expire Date is
+            a required field'
+          enum:
+          - DAY
+          - GTC
+          - OPG
+          - IOC
+          - FOK
+          - GTX
+          - GTD
+          - ATC
+          type: string
+        expireDate:
+          description: Expire date in YYYYMMDD format expressed in UTC
+          nullable: true
+          type: string
+        expireTime:
+          description: Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC
+          nullable: true
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

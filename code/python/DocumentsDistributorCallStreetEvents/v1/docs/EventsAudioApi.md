@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Retrieve historical audio recordings and related metadata within FactSet coverage.
 
-Returns the historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  Query parameters can be used to filter and narrow down the results.
+ * Returns the **untrimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  * Returns the **trimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Dec 31, 2022.    Query parameters can be used to filter and narrow down the results. 
 
 ### Example
 
@@ -62,12 +62,14 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional) if omitted the server will use the default value of 0
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     year = 2021 # int | Specifies the year for which the historical audio recordings and related metadata are to be retrieved. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    trimmed = True # bool | Specifies if trimmed/untrimmed historical audio recordings should be returned. (optional) if omitted the server will use the default value of False
 
     try:
         # Retrieve historical audio recordings and related metadata within FactSet coverage.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_docs_distributor_audio_v1_history_files(pagination_limit=pagination_limit, pagination_offset=pagination_offset, year=year)
+        api_response = api_instance.get_docs_distributor_audio_v1_history_files(pagination_limit=pagination_limit, pagination_offset=pagination_offset, year=year, trimmed=trimmed)
 
         pprint(api_response)
 
@@ -83,6 +85,7 @@ Name | Type | Description  | Notes
  **pagination_limit** | **int**| Specifies the number of results to return per page. [ Min&#x3D;0 ; Max&#x3D;500 ] | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] if omitted the server will use the default value of 0
  **year** | **int**| Specifies the year for which the historical audio recordings and related metadata are to be retrieved. | [optional]
+ **trimmed** | **bool**| Specifies if trimmed/untrimmed historical audio recordings should be returned. | [optional] if omitted the server will use the default value of False
 
 ### Return type
 

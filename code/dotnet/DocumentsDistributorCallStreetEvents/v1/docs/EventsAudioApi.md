@@ -11,11 +11,11 @@ Method | HTTP request | Description
 
 <a name="getdocsdistributoraudiov1historyfiles"></a>
 # **GetDocsDistributorAudioV1HistoryFiles**
-> EventsAudioHistory GetDocsDistributorAudioV1HistoryFiles (int? paginationLimit = null, int? paginationOffset = null, int? year = null)
+> EventsAudioHistory GetDocsDistributorAudioV1HistoryFiles (int? paginationLimit = null, int? paginationOffset = null, int? year = null, bool? trimmed = null)
 
 Retrieve historical audio recordings and related metadata within FactSet coverage.
 
-Returns the historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  Query parameters can be used to filter and narrow down the results.
+ * Returns the **untrimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  * Returns the **trimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Dec 31, 2022.    Query parameters can be used to filter and narrow down the results. 
 
 ### Example
 ```csharp
@@ -56,11 +56,12 @@ namespace Example
             var paginationLimit = 25;  // int? | Specifies the number of results to return per page. [ Min=0 ; Max=500 ] (optional)  (default to 25)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
             var year = 2021;  // int? | Specifies the year for which the historical audio recordings and related metadata are to be retrieved. (optional) 
+            var trimmed = false;  // bool? | Specifies if trimmed/untrimmed historical audio recordings should be returned. (optional)  (default to false)
 
             try
             {
                 // Retrieve historical audio recordings and related metadata within FactSet coverage.
-                EventsAudioHistory result = apiInstance.GetDocsDistributorAudioV1HistoryFiles(paginationLimit, paginationOffset, year);
+                EventsAudioHistory result = apiInstance.GetDocsDistributorAudioV1HistoryFiles(paginationLimit, paginationOffset, year, trimmed);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -81,6 +82,7 @@ Name | Type | Description  | Notes
  **paginationLimit** | **int?**| Specifies the number of results to return per page. [ Min&#x3D;0 ; Max&#x3D;500 ] | [optional] [default to 25]
  **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
  **year** | **int?**| Specifies the year for which the historical audio recordings and related metadata are to be retrieved. | [optional] 
+ **trimmed** | **bool?**| Specifies if trimmed/untrimmed historical audio recordings should be returned. | [optional] [default to false]
 
 ### Return type
 [**EventsAudioHistory**](EventsAudioHistory.md)
