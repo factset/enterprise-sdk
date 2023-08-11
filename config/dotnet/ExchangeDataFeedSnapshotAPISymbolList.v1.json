@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList",
-  "packageVersion": "0.21.5",
+  "packageVersion": "0.21.6",
   "packageGuid": "{4c452c4a-6731-5f64-b0e4-04addd42b216}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/ExchangeDataFeedSnapshotAPISymbolList/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ExchangeDataFeedSnapshotAPISymbolList/0.21.5",
+  "httpUserAgent": "fds-sdk/dotnet/ExchangeDataFeedSnapshotAPISymbolList/0.21.6",
   "files": {
     "LICENSE": {}
   },

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.CompanyLogoAPIforDigitalPortals",
-  "packageVersion": "0.10.7",
+  "packageVersion": "0.10.8",
   "packageGuid": "{a6e096bd-86c3-5e5a-b074-2fa702ef4e38}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/CompanyLogoAPIforDigitalPortals/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/CompanyLogoAPIforDigitalPortals/0.10.7",
+  "httpUserAgent": "fds-sdk/dotnet/CompanyLogoAPIforDigitalPortals/0.10.8",
   "files": {
     "LICENSE": {}
   },

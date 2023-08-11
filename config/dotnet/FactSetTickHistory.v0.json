@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetTickHistory",
-  "packageVersion": "0.0.1",
+  "packageVersion": "0.0.2",
   "packageGuid": "{18aaa6ba-2e67-58a1-80ea-4836d6407892}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetTickHistory/v0",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetTickHistory/0.0.1",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetTickHistory/0.0.2",
   "files": {
     "LICENSE": {}
   },

@@ -13,7 +13,7 @@
     <Description>Market Intelligence client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.MarketIntelligence</RootNamespace>
-    <Version>0.21.5</Version>
+    <Version>0.21.6</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.MarketIntelligence.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

@@ -13,7 +13,7 @@
     <Description>Procure to Pay API: SCIM client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.ProcuretoPayAPISCIM</RootNamespace>
-    <Version>0.22.2</Version>
+    <Version>0.22.3</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.ProcuretoPayAPISCIM.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

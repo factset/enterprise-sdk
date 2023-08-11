@@ -33,7 +33,7 @@ namespace FactSet.SDK.Symbology.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.8.8";
+        public const string Version = "0.8.9";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.Symbology.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/Symbology/0.8.8";
+            UserAgent = "fds-sdk/dotnet/Symbology/0.8.9";
             BasePath = "https://api.factset.com/content";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.Symbology.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.0.0\n";
-            report += "    SDK Package Version: 0.8.8\n";
+            report += "    SDK Package Version: 0.8.9\n";
 
             return report;
         }

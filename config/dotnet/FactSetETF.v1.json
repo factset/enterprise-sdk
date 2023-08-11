@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetETF",
-  "packageVersion": "2.0.4",
+  "packageVersion": "2.0.5",
   "packageGuid": "{a7b011d0-5ce6-5f14-a3ba-ed1a9a7f84a7}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetETF/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetETF/2.0.4",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetETF/2.0.5",
   "files": {
     "LICENSE": {}
   },

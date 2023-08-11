@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.IDLookup",
-  "packageVersion": "0.21.5",
+  "packageVersion": "0.21.6",
   "packageGuid": "{ca79e26a-8236-5f5c-908f-3fd251e71553}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/IDLookup/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/IDLookup/0.21.5",
+  "httpUserAgent": "fds-sdk/dotnet/IDLookup/0.21.6",
   "files": {
     "LICENSE": {}
   },

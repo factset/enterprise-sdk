@@ -97,7 +97,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Client
         {
             if (!response.IsSuccessful)
             {
-                throw new ApiException((int) response.StatusCode, response.Content);
+                throw new ApiException((int) response.StatusCode, response.StatusDescription, response.Content);
             }
 
             if (type == typeof(byte[])) // return byte array
@@ -666,7 +666,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Client
                         responseHeaders.Add(header.Name, header.Value?.ToString());
                     }
 
-                    throw new ApiException((int) response.StatusCode, "error", response.ToString(), responseHeaders);
+                    throw new ApiException((int) response.StatusCode, response.StatusDescription, response.Content, responseHeaders);
                 }
 
                 if (typeof(T).Name == "Stream") // for binary response
