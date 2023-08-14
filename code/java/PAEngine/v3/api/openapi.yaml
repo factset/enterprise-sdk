@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: PA Engine API
-  version: "3"
+  version: 3.14.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/pa-engine-api
@@ -5079,13 +5079,22 @@ paths:
       description: "This endpoint runs the PA calculation specified in the POST body\
         \ parameters.\r\nIt can take one or more calculation units as input.\r\n\r\
         \nRemarks:\r\n\r\n*\tAny settings in POST body will act as a one-time override\
-        \ over the settings saved in the PA template.\r\n\r\n*   If we are overriding\
-        \ the grouping with a frequency, we will be overriding the grouping saved\
-        \ to the original component and also overriding \r\n    the default frequency\
-        \ of the Beginning of Period to whatever we pass in the request body.\r\n\
-        \    \r\n*   If we are overriding gouping frequency without overriding the\
-        \ group id it will not be applied to the default groupings saved to the original\
-        \ component."
+        \ over the settings saved in the PA template.\r\n\r\n*   Account identifiers\
+        \ must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be\
+        \ optionally set for every account. \r\n    Possible values for holdings mode\
+        \ are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management\
+        \ System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default\
+        \ holdings mode value is B&H. \r\n\r\n*   If we are overriding the grouping\
+        \ with a frequency, we will be overriding the grouping saved to the original\
+        \ component and also overriding \r\n    the default frequency of the Beginning\
+        \ of Period to whatever we pass in the request body.\r\n    \r\n*   If we\
+        \ are overriding gouping frequency without overriding the group id it will\
+        \ not be applied to the default groupings saved to the original component.\r\
+        \n\r\n*   Componentdetail supports securities, groups, groupsall, and totals\
+        \ levels of granularity. However, if no value is passed, the default value\
+        \ is 'securities'.\r\n    Additionally, while 'groupsall' returns all the\
+        \ group levels in the PA component,\r\n    setting componentdetail to 'groups'\
+        \ only returns the expanded or collapsed group levels within the PA component."
       operationId: postAndCalculate
       parameters:
       - description: Long running deadline in seconds when only one unit is passed
@@ -6073,13 +6082,22 @@ paths:
         \ the PUT body parameters. This also allows creating new PA calculations with\
         \ custom ids.\r\nIt can take one or more calculation units as input.\r\n\r\
         \nRemarks:\r\n\r\n*\tAny settings in PUT body will act as a one-time override\
-        \ over the settings saved in the PA template.\r\n\r\n*   If we are overriding\
-        \ the grouping with a frequency, we will be overriding the grouping saved\
-        \ to the original component and also overriding \r\n    the default frequency\
-        \ of the Beginning of Period to whatever we pass in the request body.\r\n\
-        \    \r\n*   If we are overriding gouping frequency without overriding the\
-        \ group id it will not be applied to the default groupings saved to the original\
-        \ component."
+        \ over the settings saved in the PA template.\r\n\r\n*   Account identifiers\
+        \ must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be\
+        \ optionally set for every account. \r\n    Possible values for holdings mode\
+        \ are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management\
+        \ System), \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default\
+        \ holdings mode value is B&H.\r\n\r\n*   If we are overriding the grouping\
+        \ with a frequency, we will be overriding the grouping saved to the original\
+        \ component and also overriding \r\n    the default frequency of the Beginning\
+        \ of Period to whatever we pass in the request body.\r\n    \r\n*   If we\
+        \ are overriding gouping frequency without overriding the group id it will\
+        \ not be applied to the default groupings saved to the original component.\r\
+        \n\r\n*   Componentdetail supports securities, groups, groupsall, and totals\
+        \ levels of granularity. However, if no value is passed, the default value\
+        \ is 'securities'.\r\n    Additionally, while 'groupsall' returns all the\
+        \ group levels in the PA component,\r\n    setting componentdetail to 'groups'\
+        \ only returns the expanded or collapsed group levels within the PA component."
       operationId: putAndCalculate
       parameters:
       - description: from url, provided from the location header in the Create and
@@ -6596,7 +6614,7 @@ paths:
               explode: false
               schema:
                 description: Key to uniquely identify an Analytics API request. Only
-                  available after -successful authentication.
+                  available after successful authentication.
                 type: string
               style: simple
       summary: Create or Update PA calculation and run it.
@@ -7819,9 +7837,17 @@ paths:
       description: "This endpoint creates new component based off of linked PA template\
         \ or unlinked PA template.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the\
         \ POST body will act as a one-time override over the settings saved in the\
-        \ PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through\
-        \ this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and\
-        \ totals as well but if we don't pass anything that defaults to securities.\r\
+        \ PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension\
+        \ or BENCH: prefix. Holdings mode can be optionally set for every account.\
+        \ \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction\
+        \ based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns)\
+        \ or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\
+        \n*   Multi-horizon frequencies are not supported through this endpoint.\r\
+        \n\r\n*   Componentdetail supports securities, groups, groupsall, and totals\
+        \ levels of granularity. However, if no value is passed, the default value\
+        \ is 'securities'.\r\n    Additionally, while 'groupsall' returns all the\
+        \ group levels in the PA component,\r\n    setting componentdetail to 'groups'\
+        \ only returns the expanded or collapsed group levels within the PA component.\r\
         \n\r\n*   If we are overriding the grouping with a frequency, we will be overriding\
         \ the grouping saved to the original component and also overriding \r\n  \
         \  the default frequency of the Beginning of Period to whatever we pass in\
@@ -8781,15 +8807,23 @@ paths:
       description: "This endpoint allows the user to change the request body from\
         \ an existing templated PA component.\r\n\r\nRemarks:\r\n\r\n*   Any settings\
         \ in the POST body will act as a one-time override over the settings saved\
-        \ in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported\
-        \ through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups,\
-        \ and totals as well but if we don't pass anything that defaults to securities.\r\
-        \n\r\n*   If we are overriding the grouping with a frequency, we will be overriding\
-        \ the grouping saved to the original component and also overriding \r\n  \
-        \  the default frequency of the Beginning of Period to whatever we pass in\
-        \ the request body.\r\n    \r\n*   If we are overriding gouping frequency\
-        \ without overriding the group id it will not be applied to the default groupings\
-        \ saved to the original component."
+        \ in the PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM\
+        \ extension or BENCH: prefix. Holdings mode can be optionally set for every\
+        \ account. \r\n    Possible values for holdings mode are B&H (Buy and Hold),\
+        \ TBR (Transaction based returns), OMS (Order Management System), \r\n   \
+        \ VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode\
+        \ value is B&H. \r\n\r\n*   Multi-horizon frequencies are not supported through\
+        \ this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, groupsall,\
+        \ and totals levels of granularity. However, if no value is passed, the default\
+        \ value is 'securities'.\r\n    Additionally, while 'groupsall' returns all\
+        \ the group levels in the PA component,\r\n    setting componentdetail to\
+        \ 'groups' only returns the expanded or collapsed group levels within the\
+        \ PA component.\r\n\r\n*   If we are overriding the grouping with a frequency,\
+        \ we will be overriding the grouping saved to the original component and also\
+        \ overriding \r\n    the default frequency of the Beginning of Period to whatever\
+        \ we pass in the request body.\r\n    \r\n*   If we are overriding gouping\
+        \ frequency without overriding the group id it will not be applied to the\
+        \ default groupings saved to the original component."
       operationId: updateTemplatedPAComponents
       parameters:
       - description: Unique identifier for a templated PA component
@@ -9411,15 +9445,23 @@ paths:
         .\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\
         \n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*  \
         \ Any settings in the POST body will act as a one-time override over the settings\
-        \ saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported\
+        \ saved in the PA template.\r\n\r\n*   Account identifiers must have .ACCT\
+        \ or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set\
+        \ for every account. \r\n    Possible values for holdings mode are B&H (Buy\
+        \ and Hold), TBR (Transaction based returns), OMS (Order Management System),\
+        \ \r\n    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings\
+        \ mode value is B&H.\r\n\r\n*   Multi-horizon frequencies are not supported\
         \ through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups,\
-        \ and totals as well but if we don't pass anything that defaults to securities.\r\
-        \n\r\n*   If we are overriding the grouping with a frequency, we will be overriding\
-        \ the grouping saved to the original component and also \r\n    overriding\
-        \ the default frequency of the Beginning of Period to whatever we pass in\
-        \ the request body.\r\n    \r\n*   If we are overriding gouping frequency\
-        \ without overriding the group id it will not be applied to the default groupings\
-        \ saved to the original component."
+        \ groupsall, and totals levels of granularity. However, if no value is passed,\
+        \ the default value is 'securities'.\r\n    Additionally, while 'groupsall'\
+        \ returns all the group levels in the PA component,\r\n    setting componentdetail\
+        \ to 'groups' only returns the expanded or collapsed group levels within the\
+        \ PA component.\r\n\r\n*   If we are overriding the grouping with a frequency,\
+        \ we will be overriding the grouping saved to the original component and also\
+        \ \r\n    overriding the default frequency of the Beginning of Period to whatever\
+        \ we pass in the request body.\r\n    \r\n*   If we are overriding gouping\
+        \ frequency without overriding the group id it will not be applied to the\
+        \ default groupings saved to the original component."
       operationId: createUnlinkedPATemplates
       requestBody:
         content:
@@ -10332,9 +10374,17 @@ paths:
         \ override the Locked fields when creating the Component.\r\n\r\n*   Mandatory\
         \ and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the\
         \ POST body will act as a one-time override over the settings saved in the\
-        \ PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through\
-        \ this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and\
-        \ totals as well but if we don't pass anything that defaults to securities.\r\
+        \ PA template.\r\n\r\n*   Account identifiers must have .ACCT or .ACTM extension\
+        \ or BENCH: prefix. Holdings mode can be optionally set for every account.\
+        \ \r\n    Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction\
+        \ based returns), OMS (Order Management System), \r\n    VLT (Vaulted returns)\
+        \ or EXT (External Returns Data). Default holdings mode value is B&H.\r\n\r\
+        \n*   Multi-horizon frequencies are not supported through this endpoint.\r\
+        \n\r\n*   Componentdetail supports securities, groups, groupsall, and totals\
+        \ levels of granularity. However, if no value is passed, the default value\
+        \ is 'securities'.\r\n    Additionally, while 'groupsall' returns all the\
+        \ group levels in the PA component,\r\n    setting componentdetail to 'groups'\
+        \ only returns the expanded or collapsed group levels within the PA component.\r\
         \n\r\n*   If we are overriding the grouping with a frequency, we will be overriding\
         \ the grouping saved to the original component and also overriding \r\n  \
         \  the default frequency of the Beginning of Period to whatever we pass in\
@@ -11257,13 +11307,21 @@ components:
       type: object
     Error:
       example:
+        code: code
         id: id
         detail: detail
         source:
           pointer: pointer
           parameter: parameter
+        title: title
       properties:
         id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
           nullable: true
           type: string
         detail:
@@ -11429,7 +11487,7 @@ components:
           description: User's FactSet account path OR benchmark.
           type: string
         holdingsmode:
-          description: Holdings Mode can be B&H, TBR, OMS or EXT.
+          description: Holdings Mode can be B&H, TBR, OMS, EXT or VLT.
           nullable: true
           type: string
       required:
@@ -12140,7 +12198,7 @@ components:
           $ref: '#/components/schemas/PACalculationDataSources'
         componentdetail:
           description: Component detail type for the PA component. It can be GROUPS
-            or TOTALS or SECURITIES.
+            or GROUPSALL or TOTALS or SECURITIES.
           nullable: true
           type: string
       required:
@@ -12252,18 +12310,25 @@ components:
     CalculationUnitStatus:
       example:
         result: result
+        warnings:
+        - warnings
+        - warnings
         progress: progress
         errors:
-        - id: id
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
-        - id: id
+          title: title
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
+          title: title
         status: Queued
         points: 0
       properties:
@@ -12295,6 +12360,12 @@ components:
           format: int32
           nullable: true
           type: integer
+        warnings:
+          description: The warnings in a calculation unit.
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     CalculationStatus:
       example:
@@ -12302,18 +12373,25 @@ components:
         units:
           key:
             result: result
+            warnings:
+            - warnings
+            - warnings
             progress: progress
             errors:
-            - id: id
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
-            - id: id
+              title: title
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
+              title: title
             status: Queued
             points: 0
         status: Queued
@@ -12366,18 +12444,25 @@ components:
           units:
             key:
               result: result
+              warnings:
+              - warnings
+              - warnings
               progress: progress
               errors:
-              - id: id
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
-              - id: id
+                title: title
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
+                title: title
               status: Queued
               points: 0
           status: Queued
@@ -12609,7 +12694,8 @@ components:
           nullable: true
           type: string
         componentdetail:
-          description: PA Storage type. It can be GROUPS or TOTALS or SECURITIES.
+          description: PA Storage type. It can be GROUPS or GROUPSALL or TOTALS or
+            SECURITIES.
           nullable: true
           type: string
       type: object
@@ -13143,7 +13229,8 @@ components:
           nullable: true
           type: string
         componentdetail:
-          description: PA storage type. It can be GROUPS or TOTALS or SECURITIES.
+          description: PA storage type. It can be GROUPS or GROUPSALL or TOTALS or
+            SECURITIES.
           nullable: true
           type: string
         content:
@@ -13381,7 +13468,8 @@ components:
           nullable: true
           type: string
         componentdetail:
-          description: PA storage type. It can be GROUPS or TOTALS or SECURITIES.
+          description: PA storage type. It can be GROUPS or GROUPSALL or TOTALS or
+            SECURITIES.
           nullable: true
           type: string
         content:
@@ -13554,7 +13642,8 @@ components:
           nullable: true
           type: string
         componentdetail:
-          description: PA storage type. It can be GROUPS or TOTALS or SECURITIES.
+          description: PA storage type. It can be GROUPS or GROUPSALL or TOTALS or
+            SECURITIES.
           nullable: true
           type: string
         content:

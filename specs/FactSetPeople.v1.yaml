@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: FactSet People API
-  version: 1.0.0
+  version: 1.2.0
   description: |
     The FactSet People API exposes FactSet data for individuals and their jobs.
   contact:
@@ -658,93 +658,111 @@ components:
           description: FactSet Entity Identifier for the Person
           type: string
           example: 0DPHLH-E
+          nullable: true
         lastName:
           description: Last Name
           type: string
           example: Snow
           x-fds-fql-formula: FPD_PERSON('LAST_NAME')
+          nullable: true
         factsetName:
           description: Name
           type: string
           example: Philip Snow
           x-fds-fql-formula: FPD_PERSON('NAME')
+          nullable: true
         firstName:
           description: First Name
           type: string
           example: Frederick
           x-fds-fql-formula: FPD_PERSON('FIRST_NAME')
+          nullable: true
         middleName:
           description: Middle Name
           type: string
           example: Philip
           x-fds-fql-formula: FPD_PERSON('MIDDLE_NAME')
+          nullable: true
         formalName:
           description: Formal Name
           type: string
           example: Frederick Philip Snow
           x-fds-fql-formula: FPD_PERSON('FORMAL_NAME')
+          nullable: true
         properName:
           description: Proper Name
           type: string
           example: Snow Frederick Philip CFA
           x-fds-fql-formula: PROPER_NAME
+          nullable: true
         salutation:
           description: Primary Salutation of Name
           type: string
           example: Mr.
           x-fds-fql-formula: FPD_PERSON(SALUTATION)
+          nullable: true
         highestDegree:
           description: The Highest Held Degree Code.
           type: string
           example: GRD
           x-fds-fql-formula: FPD_PERSON('EDU_DEGREE_CODE')
+          nullable: true
         highestDegreeInst:
           description: The Highest Degree Institution Name.
           type: string
           example: Thunderbird School of Global Management
           x-fds-fql-formula: FPD_PERSON('EDU_INST')
+          nullable: true
         suffix:
           description: Suffix of Name
           type: string
           example: CFA
           x-fds-fql-formula: FPD_PERSON('SUFFIX')
+          nullable: true
         age:
           description: Person's age in years.
           type: number
           format: integer
           example: 57
           x-fds-fql-formula: FPD_PERSON('AGE')
+          nullable: true
         gender:
           description: Person's Gender.
           type: string
           example: Male
           x-fds-fql-formula: FPD_PERSON('GENDER')
+          nullable: true
         salary:
           description: Most Recent Salary
           type: number
           format: integer
           example: 525846
           x-fds-fql-formula: FPD_PERSON('SALARY')
+          nullable: true
         totalCompensation:
           description: Most Recent Total Compensation
           type: number
           format: integer
           example: 4719062
           x-fds-fql-formula: FPD_PERSON(TOTAL_COMP)
+          nullable: true
         primaryCompanyId:
           description: Entity identifier of primary `Company` of employment.
           type: string
           example: 0016YD-E
+          nullable: true
         primaryCompanyName:
           description: Name of primary company of employment
           type: string
           example: FactSet Research Systems, Inc.
           x-fds-fql-formula: FPD_PERSON('PRIMARY_CO_NAME')
+          nullable: true
         primaryTitle:
           description: Title at primary `Company` of employment
           type: string
           example: Chief Executive Officer & Director
           x-fds-fql-formula: FPD_PERSON(PRIMARY_TITLE)
+          nullable: true
         biography:
           description: Brief biography of the person requested.
           type: string
@@ -756,6 +774,7 @@ components:
             degree from the University of California, Berkeley and a graduate
             degree from Thunderbird School of Global Management.
           x-fds-fql-formula: FPD_PERSON('BIO')
+          nullable: true
     peopleJobsRequest:
       title: Jobs Request
       type: object
@@ -788,46 +807,55 @@ components:
           type: string
           example: Norwalk
           x-fds-fql-formula: FPD_PERSON_JOBS(CITY)
+          nullable: true
         companyId:
           description: FactSet Identifier for the company.
           type: string
           example: 0016YD-E
+          nullable: true
         companyName:
           description: Name of the company.
           type: string
           example: FactSet Research Systems, Inc.
           x-fds-fql-formula: FPD_PERSON_JOBS(CO_NAME)
+          nullable: true
         jobEndDate:
           description: Ending date for the Job.
           type: string
           format: date
           example: '0001-01-01'
           x-fds-fql-formula: FPD_PERSON_JOBS(EDATE)
+          nullable: true
         jobFunctionCode:
           description: Job function code.
           type: string
           example: CEO
           x-fds-fql-formula: FPD_PERSON_JOBS(JOB_FUNC_CODE)
+          nullable: true
         jobFunctionName:
           description: Description of the job.
           type: string
           example: Chief Executive Officer
           x-fds-fql-formula: FPD_PERSON_JOBS(JOB_FUNC_DESC)
+          nullable: true
         jobStartDate:
           description: Starting date for the Job.
           type: string
           format: date
           example: '2015-07-01'
           x-fds-fql-formula: FPD_PERSON_JOBS(SDATE)
+          nullable: true
         jobTitle:
           description: Job Title
           type: string
           example: Chief Executive Officer & Director
           x-fds-fql-formula: FPD_PERSON_JOBS(TITLE)
+          nullable: true
         personId:
           description: FactSet Entity Identifier for the Person.
           type: string
           example: 0DPHLH-E
+          nullable: true
         requestId:
           description: Original identifier used for the request.
           type: string
@@ -859,47 +887,57 @@ components:
           description: FactSet Identifier for the company requested.
           type: string
           example: 000C7F-E
+          nullable: true
         email:
           description: Email of the person
           type: string
           example: null
+          nullable: true
         name:
           description: FactSet Name of the person
           type: string
           example: Tim Cook
+          nullable: true
         jobFunction1:
           description: Job Function1
           type: string
           example: Chief Executive Officer
           x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+          nullable: true
         jobFunction2:
           description: Job Function2
           type: string
           example: Director/Board Member
           x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+          nullable: true
         jobFunction3:
           description: Job Function3
           type: string
           example: null
+          nullable: true
         jobFunction4:
           description: Job Function4
           type: string
           example: null
           x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+          nullable: true
         mainPhone:
           description: Main Phone Numbers of the executives.
           type: string
           example: 1.408.996.1010
           x-fds-fql-formula: FPD_CO_PEOPLE_PHONE_MAIN
+          nullable: true
         personId:
           description: FactSet Entity Identifier for the Person.
           type: string
           example: 05F520-E
+          nullable: true
         phone:
           description: Phone number of the executives.
           type: string
           example: null
           x-fds-fql-formula: FPD_CO_PEOPLE_PHONE
+          nullable: true
         requestId:
           description: Original identifier used for the request.
           type: string
@@ -909,6 +947,7 @@ components:
           type: string
           example: Chief Executive officer & Director
           x-fds-fql-formula: FPD_CO_PEOPLE_TITLES
+          nullable: true
     companyPositionsRequest:
       title: Company Positions Request
       type: object
@@ -936,19 +975,23 @@ components:
           description: FactSet Identifier for the company.
           type: string
           example: 006XY7-E
+          nullable: true
         personId:
           description: Factset Entity Identifier for the Person
           type: string
           example: 05H8B8-E
+          nullable: true
         name:
           description: FactSet Name of the person
           type: string
           example: Elon Reeve Musk
+          nullable: true
         title:
           description: The requested Position Title
           type: string
           example: Technoking of Tesla
           x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(TITLE)
+          nullable: true
         yearsAtFirm:
           description: >-
             The number of years individual is at firm. For founders, this is
@@ -957,21 +1000,25 @@ components:
           format: double
           example: 17.78
           x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(YRS_FIRM))
+          nullable: true
         age:
           description: The age of the person requested.
           type: number
           format: integer
           example: 48
           x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(AGE))
+          nullable: true
         gender:
           description: The Gender of the person requested.
           type: string
           example: Male
           x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(GENDER))
+          nullable: true
         requestPosition:
           description: The requested position code.
           type: string
           example: CEO
+          nullable: true
         requestId:
           description: Original identifier used for the request.
           type: string
@@ -1003,21 +1050,25 @@ components:
           description: FactSet Name of the person
           type: string
           example: Tim Cook
+          nullable: true
         personId:
           description: Factset Entity Identifier for the Person
           type: string
           example: 05F520-E
+          nullable: true
         title:
           description: The requested Position Title
           type: string
           example: Chief Executive Officer & Director
           x-fds-fql-formula: FPD_CO_COMPENSATION(EXEC_TITLE)
+          nullable: true
         salary:
           description: Salary of the person. Expressed in USD and raw units.
           type: number
           format: integer
           example: 525846
           x-fds-fql-formula: FPD_CO_COMPENSATION(SALARY)
+          nullable: true
         bonus:
           description: >-
             Bonus of the executive during the fiscal year. Expressed in USD and
@@ -1026,18 +1077,21 @@ components:
           format: integer
           example: 48
           x-fds-fql-formula: FPD_CO_COMPENSATION(BONUS)
+          nullable: true
         stockAwards:
           description: Stock awards for the person. Expressed in USD and raw units.
           type: number
           format: integer
           example: null
           x-fds-fql-formula: FPD_CO_COMPENSATION(STOCK_AWARDS)
+          nullable: true
         optionsAwards:
           description: Option Awards for the person. Expressed in USD and raw units.
           type: number
           format: integer
           example: null
           x-fds-fql-formula: FPD_CO_COMPENSATION(OPTION_AWARDS)
+          nullable: true
         otherCompensation:
           description: >-
             All the other compensations which are not explicitly defined as
@@ -1047,6 +1101,7 @@ components:
           format: integer
           example: 11200
           x-fds-fql-formula: FPD_CO_COMPENSATION(ALL_OTHER_COMP)
+          nullable: true
         totalCompensation:
           description: >-
             The sum of all compensation for the requested person as reported by
@@ -1055,6 +1110,7 @@ components:
           format: integer
           example: 4719062
           x-fds-fql-formula: FPD_CO_COMPENSATION(TOTAL_COMP)
+          nullable: true
         nonEquityIncentivePlanComp:
           description: >-
             All the earnings pursuant to awards under non-equity incentive
@@ -1063,6 +1119,7 @@ components:
           format: integer
           example: 10731000
           x-fds-fql-formula: FPD_CO_COMPENSATION(NON_EQ_INCENTIVE_PLAN_COMP)
+          nullable: true
         nonQualifiedCompEarnings:
           description: >-
             All the other nonqualified defined contribution which are not tax
@@ -1070,6 +1127,7 @@ components:
           type: number
           format: integer
           example: null
+          nullable: true
         compensationYear:
           description: >-
             The most recent year of compensation is expressed as 'YYYY' as
@@ -1077,6 +1135,7 @@ components:
           type: string
           example: '2020'
           x-fds-fql-formula: FPD_CO_COMPENSATION(COMP_YEAR)
+          nullable: true
         requestId:
           description: Original identifier used for the request.
           type: string
@@ -1113,71 +1172,90 @@ components:
           format: integer
           example: 2267284
           x-fds-fql-formula: FPD_CO_MB_STATS(AVG_COMP)
+          nullable: true
         averageTenure:
           description: Avergae tenure of the people
           type: number
           format: double
           example: 12.19
           x-fds-fql-formula: FPD_CO_MB_STATS(AVG_TENURE)
+          nullable: true
         medianTenure:
           description: Median tenure
           type: number
           format: double
           example: 0.2
           x-fds-fql-formula: FPD_CO_MB_STATS(MIN_TENURE)
+          nullable: true
         averageAge:
           description: Average of the executives on the management and board
           type: number
           format: double
           example: 58.17
           x-fds-fql-formula: FPD_CO_MB_STATS(AVG_AGE)
+          nullable: true
         maxAge:
           description: Maximum age of the people on Management & Board
           type: number
           format: integer
           example: 68
           x-fds-fql-formula: FPD_CO_MB_STATS(MAX_AGE)
+          nullable: true
         minimumAge:
           description: Minimum age of the person on board
           type: number
           format: integer
           example: 53
           x-fds-fql-formula: FPD_CO_MB_STATS(MIN_AGE)
+          nullable: true
         medianAge:
           description: Median age of the people on board
           type: number
           example: 56
           x-fds-fql-formula: FPD_CO_MB_STATS(MED_AGE)
+          nullable: true
         boardIndependentDirectors:
           description: Independent directors on the board
           type: number
           format: integer
           example: 7
           x-fds-fql-formula: FPD_CO_MB_STATS(BRD,IND,NUM)
+          nullable: true
         femaleBoardMembers:
           description: Number of female members on the board
           type: number
           format: integer
           example: 3
           x-fds-fql-formula: FPD_CO_MB_STATS((BRD,FEMALE_BRD,NUM)
+          nullable: true
+        femaleBoardMembersPercent:
+          description: Percentage of female members on the board
+          type: number
+          format: double
+          example: 37.33
+          x-fds-fql-formula: FPD_CO_MB_STATS((BRD,FEMALE_BRD,PCT)
+          nullable: true
         numberOfMembers:
           description: Number of people on board.
           type: number
           format: integer
           example: 25
           x-fds-fql-formula: FPD_CO_MB_STATS(NUM_MEMBERS)
+          nullable: true
         onOtherBoardsAll:
           description: On Other Boards All
           type: number
           format: integer
           example: 7
           x-fds-fql-formula: FPD_CO_MB_STATS(BRD,OTH_BRD,NUM)
+          nullable: true
         onOtherBoardsCorporate:
           description: On Other Boards Corporate
           type: number
           format: integer
           example: 6
           x-fds-fql-formula: FPD_CO_MB_STATS(BRD,OTH_CORP_BRD,NUM)
+          nullable: true
         mbType:
           description: >-
             Management and Board type, where MB = Management & Board, MGMT =
@@ -1185,6 +1263,7 @@ components:
             input used in the `mbType` query parameter.
           type: string
           example: MB
+          nullable: true
         requestId:
           description: Original identifier used for the request.
           type: string

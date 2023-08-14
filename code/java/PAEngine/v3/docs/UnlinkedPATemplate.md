@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **groups** | [**java.util.List&lt;PACalculationGroup&gt;**](PACalculationGroup.md) | List of groupings for the PA calculation |  [optional]
 **datasources** | [**PACalculationDataSources**](PACalculationDataSources.md) |  |  [optional]
 **currencyisocode** | **String** | Currency ISO code for calculation. |  [optional]
-**componentdetail** | **String** | PA storage type. It can be GROUPS or TOTALS or SECURITIES. |  [optional]
+**componentdetail** | **String** | PA storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES. |  [optional]
 **content** | [**TemplateContentTypes**](TemplateContentTypes.md) |  |  [optional]
 **description** | **String** | Template description. |  [optional]
 **name** | **String** | Template name. |  [optional]

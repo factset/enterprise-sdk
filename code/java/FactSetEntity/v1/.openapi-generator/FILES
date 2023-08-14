@@ -6,6 +6,9 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/CreditParent.md
+docs/CreditParentRequest.md
+docs/CreditParentResponse.md
 docs/EntityReference.md
 docs/EntityReferenceApi.md
 docs/EntityReferenceChi.md
@@ -24,6 +27,7 @@ docs/EntityStructureRequest.md
 docs/EntityStructureResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
+docs/HistoricalCreditParentApi.md
 docs/SecurityType.md
 docs/UltimateEntityStructureRequest.md
 docs/UltimateEntityStructureResponse.md
@@ -52,6 +56,7 @@ src/main/java/com/factset/sdk/FactSetEntity/api/EntityReferenceApi.java
 src/main/java/com/factset/sdk/FactSetEntity/api/EntityReferenceChineseApi.java
 src/main/java/com/factset/sdk/FactSetEntity/api/EntitySecuritiesApi.java
 src/main/java/com/factset/sdk/FactSetEntity/api/EntityStructureApi.java
+src/main/java/com/factset/sdk/FactSetEntity/api/HistoricalCreditParentApi.java
 src/main/java/com/factset/sdk/FactSetEntity/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/FactSetEntity/auth/Authentication.java
 src/main/java/com/factset/sdk/FactSetEntity/auth/FactSetOAuth2ClientAuth.java
@@ -60,6 +65,9 @@ src/main/java/com/factset/sdk/FactSetEntity/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/FactSetEntity/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetEntity/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetEntity/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/FactSetEntity/models/CreditParent.java
+src/main/java/com/factset/sdk/FactSetEntity/models/CreditParentRequest.java
+src/main/java/com/factset/sdk/FactSetEntity/models/CreditParentResponse.java
 src/main/java/com/factset/sdk/FactSetEntity/models/EntityReference.java
 src/main/java/com/factset/sdk/FactSetEntity/models/EntityReferenceChi.java
 src/main/java/com/factset/sdk/FactSetEntity/models/EntityReferenceChiRequest.java

@@ -18,3 +18,4 @@ from fds.sdk.FactSetEntity.api.entity_reference_api import EntityReferenceApi
 from fds.sdk.FactSetEntity.api.entity_reference_chinese_api import EntityReferenceChineseApi
 from fds.sdk.FactSetEntity.api.entity_securities_api import EntitySecuritiesApi
 from fds.sdk.FactSetEntity.api.entity_structure_api import EntityStructureApi
+from fds.sdk.FactSetEntity.api.historical_credit_parent_api import HistoricalCreditParentApi

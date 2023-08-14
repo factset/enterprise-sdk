@@ -5,6 +5,9 @@
 LICENSE
 README.md
 docs/Active.md
+docs/CreditParent.md
+docs/CreditParentRequest.md
+docs/CreditParentResponse.md
 docs/EntityReference.md
 docs/EntityReferenceApi.md
 docs/EntityReferenceChi.md
@@ -23,6 +26,8 @@ docs/EntityStructureRequest.md
 docs/EntityStructureResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
+docs/HcpIds.md
+docs/HistoricalCreditParentApi.md
 docs/Ids.md
 docs/IdsChi.md
 docs/SecurityType.md
@@ -37,12 +42,16 @@ fds/sdk/FactSetEntity/api/entity_reference_api.py
 fds/sdk/FactSetEntity/api/entity_reference_chinese_api.py
 fds/sdk/FactSetEntity/api/entity_securities_api.py
 fds/sdk/FactSetEntity/api/entity_structure_api.py
+fds/sdk/FactSetEntity/api/historical_credit_parent_api.py
 fds/sdk/FactSetEntity/api_client.py
 fds/sdk/FactSetEntity/apis/__init__.py
 fds/sdk/FactSetEntity/configuration.py
 fds/sdk/FactSetEntity/exceptions.py
 fds/sdk/FactSetEntity/model/__init__.py
 fds/sdk/FactSetEntity/model/active.py
+fds/sdk/FactSetEntity/model/credit_parent.py
+fds/sdk/FactSetEntity/model/credit_parent_request.py
+fds/sdk/FactSetEntity/model/credit_parent_response.py
 fds/sdk/FactSetEntity/model/entity_reference.py
 fds/sdk/FactSetEntity/model/entity_reference_chi.py
 fds/sdk/FactSetEntity/model/entity_reference_chi_request.py
@@ -57,6 +66,7 @@ fds/sdk/FactSetEntity/model/entity_structure_request.py
 fds/sdk/FactSetEntity/model/entity_structure_response.py
 fds/sdk/FactSetEntity/model/error_response.py
 fds/sdk/FactSetEntity/model/error_response_sub_errors.py
+fds/sdk/FactSetEntity/model/hcp_ids.py
 fds/sdk/FactSetEntity/model/ids.py
 fds/sdk/FactSetEntity/model/ids_chi.py
 fds/sdk/FactSetEntity/model/security_type.py

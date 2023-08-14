@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.2.0
+  version: 1.4.0
   title: FactSet Entity API
   contact:
     name: FactSet Research Systems
@@ -35,6 +35,8 @@ tags:
     description: >-
       Retrieve the Entities corporate structure, its subsidiaries and related
       entity ids.
+  - name: Entity Reference Chinese
+  - name: Historical Credit Parent
 paths:
   /factset-entity/v1/entity-references:
     get:
@@ -355,6 +357,85 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+  /factset-entity/v1/hist-credit-parent:
+    get:
+      summary: Returns historical credit parents for the requested id(s).
+      description: >
+        Returns the credit parent for requested fixed income ids. Point in time
+        credit parent retrieval is
+
+        also available if an asOfDate is provided. The full credit parent
+        history of a security is returned if
+
+        no asOfDate is provided.
+
+
+        This endpoint uses a seven day calendar to account for changes that
+        occur on all seven days of the week.
+      tags:
+        - Historical Credit Parent
+      operationId: getHistCredParent
+      parameters:
+        - $ref: '#/components/parameters/hcpIds'
+        - $ref: '#/components/parameters/asOfDate'
+      responses:
+        '200':
+          description: Fetches Credit Parents
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creditParentResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Returns historical credit parents for the requested id(s).
+      description: >
+        Returns the credit parent for requested fixed income ids. Point in time
+        credit parent retrieval is
+
+        also available if an asOfDate is provided. The full credit parent
+        history of a security is returned if
+
+        no asOfDate is provided.
+
+
+        This endpoint uses a seven day calendar to account for changes that
+        occur on all seven days of the week.
+      tags:
+        - Historical Credit Parent
+      operationId: postHistCredParent
+      requestBody:
+        required: true
+        description: Request Body to request a list of credit parent objects.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/creditParentRequest'
+      responses:
+        '200':
+          description: Credit parent data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creditParentResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -392,6 +473,42 @@ components:
         - AAPL-US
         - 0FPWZZ-E
         - TSLA-US
+    hcpIds:
+      name: ids
+      in: query
+      description: >
+        The requested security level Market Identifiers. Accepted input
+        identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs,
+        SEDOLs, or FactSet -S Permanent Ids.<p>**Max Ids Limit set to 50 in a
+        single request**</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+              which may lead to exceeding this request line limit of 8KB, its
+              advised for any requests with large request lines to be requested through
+              the respective \"POST\" method.</p>*
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+          example: IBM-US
+        minItems: 1
+        maxItems: 50
+      explode: false
+      example:
+        - CYQYNL-S
+        - G17920AA0
+        - US40434YTB38
+    asOfDate:
+      name: asOfDate
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        The date requested for credit parent calculation. Represented in
+        **YYYY-MM-DD** format. If left blank or not specified, the full credit
+        parent history will be returned.
+      example: '2020-01-01'
     structureIds:
       name: ids
       in: query
@@ -1020,6 +1137,74 @@ components:
             Identifier used in "ids" parameter. When list of identifiers used,
             they will be parsed and resolved individually.
           example: 062T6N-E
+    creditParentRequest:
+      title: Historical Credit Parent Request
+      description: Historical Credit Parent Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/hcpIds'
+        asOfDate:
+          $ref: '#/components/schemas/asOfDate'
+      required:
+        - ids
+    creditParentResponse:
+      type: object
+      title: Historical Credit Parent Response
+      properties:
+        data:
+          description: Array of Credit Parent objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/creditParent'
+    creditParent:
+      title: Credit Parent
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            Unique FactSet-generated identifier representing an entity for the
+            current entity identifier (-E)
+          example: 0028BD-E
+          nullable: true
+        requestId:
+          type: string
+          description: Identifier used in `ids`.
+          example: CYQYNL-S
+        entityProperName:
+          type: string
+          description: The proper name for the credit parent entity.
+          example: BNP Paribas S.A. Class A
+          nullable: true
+        factsetCreditParentId:
+          type: string
+          description: This id represents the credit parent entity id.
+          example: 0028BD-E
+          nullable: true
+        asOfDate:
+          type: string
+          format: date
+          description: >-
+            The effective date of this record in YYYY-MM-DD format. If an
+            asOfDate is not specified in the request, this field will be null in
+            the response.
+          example: '2020-01-01'
+          nullable: true
+        effectiveStartDate:
+          type: string
+          format: date
+          description: The initial effective date of this record in YYYY-MM-DD format.
+          example: '1996-05-28'
+          nullable: true
+        effectiveEndDate:
+          type: string
+          format: date
+          description: >-
+            The last day on which this record is effective date in YYYY-MM-DD
+            format.
+          example: '2001-05-28'
+          nullable: true
     ids:
       title: ids
       description: >
@@ -1048,6 +1233,28 @@ components:
         - FDS-US
         - 0FPWZZ-E
         - TSLA-US
+    hcpIds:
+      title: ids
+      description: >
+        Security identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are
+        accepted input.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 50
+      example:
+        - CYQYNL-S
+        - G17920AA0
+        - US40434YTB38
+    asOfDate:
+      title: asOfDate
+      type: string
+      description: >
+        The date requested for credit parent calculation. Represented in
+        **YYYY-MM-DD** format. If left blank or not specified, the full credit
+        parent history will be returned.
+      example: '2020-06-30'
     securityType:
       title: securityType
       description: >
@@ -1171,7 +1378,9 @@ components:
         The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing
         to respond. Please reach out to FactSet Account Team for assistance with
-        authorization.
+        authorization. For more help, select the **Report Issue** in the top
+        right corner of this Developer Portal specification card and choose
+        Connectivity 401 or 403 Responses.
       content:
         application/json:
           schema:

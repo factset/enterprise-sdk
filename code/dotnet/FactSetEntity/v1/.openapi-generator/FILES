@@ -4,6 +4,9 @@ FactSet.SDK.FactSetEntity.sln
 LICENSE
 README.md
 appveyor.yml
+docs/CreditParent.md
+docs/CreditParentRequest.md
+docs/CreditParentResponse.md
 docs/EntityReference.md
 docs/EntityReferenceApi.md
 docs/EntityReferenceChi.md
@@ -22,6 +25,7 @@ docs/EntityStructureRequest.md
 docs/EntityStructureResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
+docs/HistoricalCreditParentApi.md
 docs/SecurityType.md
 docs/UltimateEntityStructureRequest.md
 docs/UltimateEntityStructureResponse.md
@@ -31,6 +35,7 @@ src/FactSet.SDK.FactSetEntity/Api/EntityReferenceApi.cs
 src/FactSet.SDK.FactSetEntity/Api/EntityReferenceChineseApi.cs
 src/FactSet.SDK.FactSetEntity/Api/EntitySecuritiesApi.cs
 src/FactSet.SDK.FactSetEntity/Api/EntityStructureApi.cs
+src/FactSet.SDK.FactSetEntity/Api/HistoricalCreditParentApi.cs
 src/FactSet.SDK.FactSetEntity/Client/ApiClient.cs
 src/FactSet.SDK.FactSetEntity/Client/ApiException.cs
 src/FactSet.SDK.FactSetEntity/Client/ApiResponse.cs
@@ -49,6 +54,9 @@ src/FactSet.SDK.FactSetEntity/Client/RequestOptions.cs
 src/FactSet.SDK.FactSetEntity/Client/RetryConfiguration.cs
 src/FactSet.SDK.FactSetEntity/FactSet.SDK.FactSetEntity.csproj
 src/FactSet.SDK.FactSetEntity/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.FactSetEntity/Model/CreditParent.cs
+src/FactSet.SDK.FactSetEntity/Model/CreditParentRequest.cs
+src/FactSet.SDK.FactSetEntity/Model/CreditParentResponse.cs
 src/FactSet.SDK.FactSetEntity/Model/EntityReference.cs
 src/FactSet.SDK.FactSetEntity/Model/EntityReferenceChi.cs
 src/FactSet.SDK.FactSetEntity/Model/EntityReferenceChiRequest.cs

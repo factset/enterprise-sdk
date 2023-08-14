@@ -9,7 +9,7 @@ info:
     necessary relationships and connections to create a foundation that tightly correlates disparate sources of
     information to a master entity identifier. Use this API to quickly understand the full entity structure and related securities.
   title: FactSet Entity API
-  version: 1.2.0
+  version: 1.4.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -26,6 +26,8 @@ tags:
 - description: Retrieve the Entities corporate structure, its subsidiaries and related
     entity ids.
   name: Entity Structure
+- name: Entity Reference Chinese
+- name: Historical Credit Parent
 paths:
   /factset-entity/v1/entity-references:
     get:
@@ -104,7 +106,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -192,7 +196,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -313,7 +319,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -402,7 +410,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -534,7 +544,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -623,7 +635,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -755,7 +769,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -844,7 +860,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -950,7 +968,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -1038,7 +1058,9 @@ paths:
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
         "415":
           content:
             application/json:
@@ -1065,6 +1087,222 @@ paths:
       summary: Returns entity reference data in Chinese for an individual entity.
       tags:
       - Entity Reference Chinese
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-entity/v1/hist-credit-parent:
+    get:
+      description: |
+        Returns the credit parent for requested fixed income ids. Point in time credit parent retrieval is
+        also available if an asOfDate is provided. The full credit parent history of a security is returned if
+        no asOfDate is provided.
+
+        This endpoint uses a seven day calendar to account for changes that occur on all seven days of the week.
+      operationId: getHistCredParent
+      parameters:
+      - description: |
+          The requested security level Market Identifiers. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet -S Permanent Ids.<p>**Max Ids Limit set to 50 in a single request**</p>
+            *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+                which may lead to exceeding this request line limit of 8KB, its
+                advised for any requests with large request lines to be requested through
+                the respective \"POST\" method.</p>*
+        example:
+        - CYQYNL-S
+        - G17920AA0
+        - US40434YTB38
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: IBM-US
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned.
+        example: 2020-01-01
+        explode: true
+        in: query
+        name: asOfDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creditParentResponse'
+          description: Fetches Credit Parents
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns historical credit parents for the requested id(s).
+      tags:
+      - Historical Credit Parent
+      x-accepts: application/json
+    post:
+      description: |
+        Returns the credit parent for requested fixed income ids. Point in time credit parent retrieval is
+        also available if an asOfDate is provided. The full credit parent history of a security is returned if
+        no asOfDate is provided.
+
+        This endpoint uses a seven day calendar to account for changes that occur on all seven days of the week.
+      operationId: postHistCredParent
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/creditParentRequest'
+        description: Request Body to request a list of credit parent objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creditParentResponse'
+          description: Credit parent data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization. For more help, select the **Report Issue** in the
+            top right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns historical credit parents for the requested id(s).
+      tags:
+      - Historical Credit Parent
       x-contentType: application/json
       x-accepts: application/json
 components:
@@ -1198,6 +1436,40 @@ components:
         minItems: 1
         type: array
       style: form
+    hcpIds:
+      description: |
+        The requested security level Market Identifiers. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet -S Permanent Ids.<p>**Max Ids Limit set to 50 in a single request**</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+              which may lead to exceeding this request line limit of 8KB, its
+              advised for any requests with large request lines to be requested through
+              the respective \"POST\" method.</p>*
+      example:
+      - CYQYNL-S
+      - G17920AA0
+      - US40434YTB38
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          example: IBM-US
+          type: string
+        maxItems: 50
+        minItems: 1
+        type: array
+      style: form
+    asOfDate:
+      description: |
+        The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned.
+      example: 2020-01-01
+      explode: true
+      in: query
+      name: asOfDate
+      required: false
+      schema:
+        type: string
+      style: form
     structureIds:
       description: |
         The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>
@@ -1328,6 +1600,8 @@ components:
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing to
         respond. Please reach out to FactSet Account Team for assistance with authorization.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
     "415":
       content:
         application/json:
@@ -2143,6 +2417,110 @@ components:
           type: string
       title: Entity Profile
       type: object
+    creditParentRequest:
+      description: Historical Credit Parent Request Body
+      properties:
+        ids:
+          description: |
+            Security identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
+          example:
+          - CYQYNL-S
+          - G17920AA0
+          - US40434YTB38
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          title: ids
+          type: array
+        asOfDate:
+          description: |
+            The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned.
+          example: 2020-06-30
+          title: asOfDate
+          type: string
+      required:
+      - ids
+      title: Historical Credit Parent Request
+      type: object
+    creditParentResponse:
+      example:
+        data:
+        - effectiveEndDate: 2001-05-28T00:00:00.000+0000
+          requestId: CYQYNL-S
+          factsetCreditParentId: 0028BD-E
+          fsymId: 0028BD-E
+          entityProperName: BNP Paribas S.A. Class A
+          effectiveStartDate: 1996-05-28T00:00:00.000+0000
+          asOfDate: 2020-01-01T00:00:00.000+0000
+        - effectiveEndDate: 2001-05-28T00:00:00.000+0000
+          requestId: CYQYNL-S
+          factsetCreditParentId: 0028BD-E
+          fsymId: 0028BD-E
+          entityProperName: BNP Paribas S.A. Class A
+          effectiveStartDate: 1996-05-28T00:00:00.000+0000
+          asOfDate: 2020-01-01T00:00:00.000+0000
+      properties:
+        data:
+          description: Array of Credit Parent objects.
+          items:
+            $ref: '#/components/schemas/creditParent'
+          type: array
+      title: Historical Credit Parent Response
+      type: object
+    creditParent:
+      example:
+        effectiveEndDate: 2001-05-28T00:00:00.000+0000
+        requestId: CYQYNL-S
+        factsetCreditParentId: 0028BD-E
+        fsymId: 0028BD-E
+        entityProperName: BNP Paribas S.A. Class A
+        effectiveStartDate: 1996-05-28T00:00:00.000+0000
+        asOfDate: 2020-01-01T00:00:00.000+0000
+      properties:
+        fsymId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 0028BD-E
+          nullable: true
+          type: string
+        requestId:
+          description: Identifier used in `ids`.
+          example: CYQYNL-S
+          type: string
+        entityProperName:
+          description: The proper name for the credit parent entity.
+          example: BNP Paribas S.A. Class A
+          nullable: true
+          type: string
+        factsetCreditParentId:
+          description: This id represents the credit parent entity id.
+          example: 0028BD-E
+          nullable: true
+          type: string
+        asOfDate:
+          description: The effective date of this record in YYYY-MM-DD format. If
+            an asOfDate is not specified in the request, this field will be null in
+            the response.
+          example: 2020-01-01
+          format: date
+          nullable: true
+          type: string
+        effectiveStartDate:
+          description: The initial effective date of this record in YYYY-MM-DD format.
+          example: 1996-05-28
+          format: date
+          nullable: true
+          type: string
+        effectiveEndDate:
+          description: The last day on which this record is effective date in YYYY-MM-DD
+            format.
+          example: 2001-05-28
+          format: date
+          nullable: true
+          type: string
+      title: Credit Parent
+      type: object
     ids:
       description: |
         Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
@@ -2169,6 +2547,25 @@ components:
       minItems: 1
       title: ids
       type: array
+    hcpIds:
+      description: |
+        Security identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
+      example:
+      - CYQYNL-S
+      - G17920AA0
+      - US40434YTB38
+      items:
+        type: string
+      maxItems: 50
+      minItems: 1
+      title: ids
+      type: array
+    asOfDate:
+      description: |
+        The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned.
+      example: 2020-06-30
+      title: asOfDate
+      type: string
     securityType:
       default: EQ
       description: |

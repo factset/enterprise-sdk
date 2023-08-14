@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **medianAge** | **BigDecimal** | Median age of the people on board |  [optional]
 **boardIndependentDirectors** | **BigDecimal** | Independent directors on the board |  [optional]
 **femaleBoardMembers** | **BigDecimal** | Number of female members on the board |  [optional]
+**femaleBoardMembersPercent** | **Double** | Percentage of female members on the board |  [optional]
 **numberOfMembers** | **BigDecimal** | Number of people on board. |  [optional]
 **onOtherBoardsAll** | **BigDecimal** | On Other Boards All |  [optional]
 **onOtherBoardsCorporate** | **BigDecimal** | On Other Boards Corporate |  [optional]

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **dates** | [**PADateParameters**](PADateParameters.md) |  | [optional] 
 **datasources** | [**PACalculationDataSources**](PACalculationDataSources.md) |  | [optional] 
 **currencyisocode** | **str, none_type** | Currency ISO code for calculation. | [optional] 
-**componentdetail** | **str, none_type** | PA Storage type. It can be GROUPS or TOTALS or SECURITIES. | [optional] 
+**componentdetail** | **str, none_type** | PA Storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

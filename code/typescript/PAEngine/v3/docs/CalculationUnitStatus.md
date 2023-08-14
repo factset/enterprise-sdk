@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **result** | **String** | The result URL of the calculation. | [optional] 
 **progress** | **String** | The progress of the calculation unit. | [optional] 
 **points** | **Number** | The points for the calculation unit. | [optional] 
+**warnings** | **[String]** | The warnings in a calculation unit. | [optional] 
 
 
 

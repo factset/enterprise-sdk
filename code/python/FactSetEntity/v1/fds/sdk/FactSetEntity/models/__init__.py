@@ -10,6 +10,9 @@
 # sys.setrecursionlimit(n)
 
 from fds.sdk.FactSetEntity.model.active import Active
+from fds.sdk.FactSetEntity.model.credit_parent import CreditParent
+from fds.sdk.FactSetEntity.model.credit_parent_request import CreditParentRequest
+from fds.sdk.FactSetEntity.model.credit_parent_response import CreditParentResponse
 from fds.sdk.FactSetEntity.model.entity_reference import EntityReference
 from fds.sdk.FactSetEntity.model.entity_reference_chi import EntityReferenceChi
 from fds.sdk.FactSetEntity.model.entity_reference_chi_request import EntityReferenceChiRequest
@@ -24,6 +27,7 @@ from fds.sdk.FactSetEntity.model.entity_structure_request import EntityStructure
 from fds.sdk.FactSetEntity.model.entity_structure_response import EntityStructureResponse
 from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
 from fds.sdk.FactSetEntity.model.error_response_sub_errors import ErrorResponseSubErrors
+from fds.sdk.FactSetEntity.model.hcp_ids import HcpIds
 from fds.sdk.FactSetEntity.model.ids import Ids
 from fds.sdk.FactSetEntity.model.ids_chi import IdsChi
 from fds.sdk.FactSetEntity.model.security_type import SecurityType

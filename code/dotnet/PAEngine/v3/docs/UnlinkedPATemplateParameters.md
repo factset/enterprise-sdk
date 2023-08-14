@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Groups** | [**List&lt;PACalculationGroup&gt;**](PACalculationGroup.md) | List of groupings for the PA calculation | [optional] 
 **Datasources** | [**PACalculationDataSources**](PACalculationDataSources.md) |  | [optional] 
 **Currencyisocode** | **string** | Currency ISO code for calculation. | [optional] 
-**Componentdetail** | **string** | PA storage type. It can be GROUPS or TOTALS or SECURITIES. | [optional] 
+**Componentdetail** | **string** | PA storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES. | [optional] 
 **Content** | [**TemplateContentTypes**](TemplateContentTypes.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

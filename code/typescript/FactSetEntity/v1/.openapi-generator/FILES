@@ -4,6 +4,9 @@
 .travis.yml
 LICENSE
 README.md
+docs/CreditParent.md
+docs/CreditParentRequest.md
+docs/CreditParentResponse.md
 docs/EntityReference.md
 docs/EntityReferenceApi.md
 docs/EntityReferenceChi.md
@@ -22,6 +25,7 @@ docs/EntityStructureRequest.md
 docs/EntityStructureResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
+docs/HistoricalCreditParentApi.md
 docs/SecurityType.md
 docs/UltimateEntityStructureRequest.md
 docs/UltimateEntityStructureResponse.md
@@ -34,7 +38,11 @@ src/api/EntityReferenceApi.js
 src/api/EntityReferenceChineseApi.js
 src/api/EntitySecuritiesApi.js
 src/api/EntityStructureApi.js
+src/api/HistoricalCreditParentApi.js
 src/index.js
+src/model/CreditParent.js
+src/model/CreditParentRequest.js
+src/model/CreditParentResponse.js
 src/model/EntityReference.js
 src/model/EntityReferenceChi.js
 src/model/EntityReferenceChiRequest.js

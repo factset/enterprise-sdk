@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **currencyisocode** | **str, none_type** | Currency ISO code for calculation. | [optional] 
 **columns** | [**[PACalculationColumn], none_type**](PACalculationColumn.md) | List of columns for the PA calculation. This will take precedence over the columns saved in the PA document. | [optional] 
 **datasources** | [**PACalculationDataSources**](PACalculationDataSources.md) |  | [optional] 
-**componentdetail** | **str, none_type** | Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES. | [optional] 
+**componentdetail** | **str, none_type** | Component detail type for the PA component. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
