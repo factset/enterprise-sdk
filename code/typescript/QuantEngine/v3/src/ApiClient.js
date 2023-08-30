@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/QuantEngine/0.1.1'
+            'User-Agent': 'fds-sdk/javascript/QuantEngine/0.1.2'
         };
 
         /**

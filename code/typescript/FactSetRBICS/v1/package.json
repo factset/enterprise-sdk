@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsetrbics",
-  "version": "0.21.2",
+  "version": "0.21.3",
   "description": "FactSet RBICS client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

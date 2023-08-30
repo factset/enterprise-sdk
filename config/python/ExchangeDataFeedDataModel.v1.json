@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.ExchangeDataFeedDataModel",
   "projectName": "fds.sdk.ExchangeDataFeedDataModel",
-  "packageVersion": "0.20.5",
+  "packageVersion": "0.20.6",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Exchange DataFeed Data Model client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ExchangeDataFeedDataModel/v1",
-  "httpUserAgent": "fds-sdk/python/ExchangeDataFeedDataModel/0.20.5",
+  "httpUserAgent": "fds-sdk/python/ExchangeDataFeedDataModel/0.20.6",
   "files": {
     "LICENSE": {}
   }

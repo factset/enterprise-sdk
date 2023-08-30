@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetProgrammaticEnvironment",
-  "packageVersion": "0.21.6",
+  "packageVersion": "0.21.7",
   "packageGuid": "{042dcae3-8d9a-5280-8b35-54172acd9c98}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetProgrammaticEnvironment/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetProgrammaticEnvironment/0.21.6",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetProgrammaticEnvironment/0.21.7",
   "files": {
     "LICENSE": {}
   },

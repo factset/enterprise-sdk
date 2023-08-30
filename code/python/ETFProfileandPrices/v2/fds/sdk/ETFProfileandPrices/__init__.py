@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.10.7"
+__version__ = "0.10.8"
 
 # import ApiClient
 from fds.sdk.ETFProfileandPrices.api_client import ApiClient

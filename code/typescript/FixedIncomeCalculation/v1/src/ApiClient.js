@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/FixedIncomeCalculation/0.9.0'
+            'User-Agent': 'fds-sdk/javascript/FixedIncomeCalculation/0.9.1'
         };
 
         /**

@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/OptimizationEngineAPIMultiperiod/0.21.2'
+            'User-Agent': 'fds-sdk/javascript/OptimizationEngineAPIMultiperiod/0.21.3'
         };
 
         /**

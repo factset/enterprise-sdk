@@ -13,7 +13,7 @@
     <Description>PA Engine client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.PAEngine</RootNamespace>
-    <Version>0.21.8</Version>
+    <Version>0.21.9</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.PAEngine.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

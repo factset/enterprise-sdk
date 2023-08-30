@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.8.9"
+__version__ = "0.8.10"
 
 # import ApiClient
 from fds.sdk.Publisher.api_client import ApiClient

@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsetportfoliooptimizer",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "FactSet Portfolio Optimizer client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

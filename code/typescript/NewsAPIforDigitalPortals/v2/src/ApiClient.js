@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/NewsAPIforDigitalPortals/0.10.4'
+            'User-Agent': 'fds-sdk/javascript/NewsAPIforDigitalPortals/0.10.5'
         };
 
         /**

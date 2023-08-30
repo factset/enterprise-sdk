@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetFundamentalsReportBuilder",
-  "packageVersion": "1.0.5",
+  "packageVersion": "1.0.6",
   "packageGuid": "{944d055f-8d87-54c1-8ff9-9212844f0690}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetFundamentalsReportBuilder/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetFundamentalsReportBuilder/1.0.5",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetFundamentalsReportBuilder/1.0.6",
   "files": {
     "LICENSE": {}
   },

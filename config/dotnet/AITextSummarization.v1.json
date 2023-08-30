@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.AITextSummarization",
-  "packageVersion": "0.21.6",
+  "packageVersion": "0.21.7",
   "packageGuid": "{a5a41853-b393-5200-8a61-3f61e6797ea5}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/AITextSummarization/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/AITextSummarization/0.21.6",
+  "httpUserAgent": "fds-sdk/dotnet/AITextSummarization/0.21.7",
   "files": {
     "LICENSE": {}
   },

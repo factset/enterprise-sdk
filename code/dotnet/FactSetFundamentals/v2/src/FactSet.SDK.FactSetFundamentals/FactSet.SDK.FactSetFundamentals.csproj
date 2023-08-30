@@ -13,7 +13,7 @@
     <Description>FactSet Fundamentals client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.FactSetFundamentals</RootNamespace>
-    <Version>2.0.1</Version>
+    <Version>2.0.2</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.FactSetFundamentals.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

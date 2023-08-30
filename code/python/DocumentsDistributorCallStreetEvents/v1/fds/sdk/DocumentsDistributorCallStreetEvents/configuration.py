@@ -430,7 +430,7 @@ conf = fds.sdk.DocumentsDistributorCallStreetEvents.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.8.3\n"\
-               "SDK Package Version: 0.21.12".\
+               "SDK Package Version: 0.21.13".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

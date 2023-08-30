@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Symbology",
-  "packageVersion": "0.8.9",
+  "packageVersion": "0.8.10",
   "packageGuid": "{2cab5003-5e9c-509f-b25c-db583c3876e5}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/Symbology/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Symbology/0.8.9",
+  "httpUserAgent": "fds-sdk/dotnet/Symbology/0.8.10",
   "files": {
     "LICENSE": {}
   },

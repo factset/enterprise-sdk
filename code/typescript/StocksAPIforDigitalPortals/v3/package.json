@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-stocksapifordigitalportals",
-  "version": "0.10.7",
+  "version": "0.10.8",
   "description": "Stocks API for Digital Portals client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

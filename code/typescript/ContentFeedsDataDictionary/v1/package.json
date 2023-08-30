@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-contentfeedsdatadictionary",
-  "version": "0.21.3",
+  "version": "0.21.4",
   "description": "Content Feeds Data Dictionary client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

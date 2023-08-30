@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.NaturalLanguageProcessing",
-  "packageVersion": "0.22.5",
+  "packageVersion": "0.22.6",
   "packageGuid": "{b1bead63-a26c-5a76-979f-36b916f155f0}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/NaturalLanguageProcessing/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/NaturalLanguageProcessing/0.22.5",
+  "httpUserAgent": "fds-sdk/dotnet/NaturalLanguageProcessing/0.22.6",
   "files": {
     "LICENSE": {}
   },

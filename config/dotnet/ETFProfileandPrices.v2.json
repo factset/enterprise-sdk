@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ETFProfileandPrices",
-  "packageVersion": "0.10.7",
+  "packageVersion": "0.10.8",
   "packageGuid": "{664b2edb-e75c-5ab7-ad0c-7561dc01a787}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/ETFProfileandPrices/v2",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ETFProfileandPrices/0.10.7",
+  "httpUserAgent": "fds-sdk/dotnet/ETFProfileandPrices/0.10.8",
   "files": {
     "LICENSE": {}
   },

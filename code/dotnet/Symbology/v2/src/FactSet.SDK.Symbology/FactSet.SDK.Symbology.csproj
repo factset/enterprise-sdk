@@ -13,7 +13,7 @@
     <Description>Symbology client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.Symbology</RootNamespace>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.Symbology.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>
