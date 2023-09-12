@@ -145,7 +145,7 @@ public class TemplatedPaComponentsApi {
     
     
     final String[] localVarAccepts = {
-      "text/plain", "application/json", "text/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -234,7 +234,7 @@ public class TemplatedPaComponentsApi {
     
     
     final String[] localVarAccepts = {
-      "text/plain", "application/json", "text/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

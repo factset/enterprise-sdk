@@ -1,7 +1,7 @@
 """
     FactSet Ownership API
 
-    FactSet’s Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all \"holder types\" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>   # noqa: E501
+    FactSet's Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all \"holder types\" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>   # noqa: E501
 
     The version of the OpenAPI document: 1.1.0
     Contact: api@factset.com
@@ -82,19 +82,19 @@ class SecurityHolders(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'holder_id': (str,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
-            'holder_entity_id': (str,),  # noqa: E501
-            'holder_name': (str,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'currency': (str,),  # noqa: E501
-            'investor_type': (str,),  # noqa: E501
-            'holder_type': (str,),  # noqa: E501
-            'adj_holding': (float,),  # noqa: E501
-            'adj_market_value': (float,),  # noqa: E501
-            'weight_close': (float,),  # noqa: E501
-            'percent_outstanding': (float,),  # noqa: E501
-            'source': (str,),  # noqa: E501
+            'holder_id': (str, none_type,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'holder_entity_id': (str, none_type,),  # noqa: E501
+            'holder_name': (str, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'currency': (str, none_type,),  # noqa: E501
+            'investor_type': (str, none_type,),  # noqa: E501
+            'holder_type': (str, none_type,),  # noqa: E501
+            'adj_holding': (float, none_type,),  # noqa: E501
+            'adj_market_value': (float, none_type,),  # noqa: E501
+            'weight_close': (float, none_type,),  # noqa: E501
+            'percent_outstanding': (float, none_type,),  # noqa: E501
+            'source': (str, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -161,19 +161,19 @@ class SecurityHolders(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            holder_id (str): FactSet Ownership Holders ID that corresponds to the requested security holder.. [optional]  # noqa: E501
-            fsym_id (str): FactSet Security Identifier of security requested. This does not represent the FactSet permanent identifier for the holder, but rather the requested id. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.. [optional]  # noqa: E501
-            holder_entity_id (str): FactSet Entity ID that corresponds to the specified holder ID.. [optional]  # noqa: E501
-            holder_name (str): Name of the holder for the requested security identifier.. [optional]  # noqa: E501
-            date (date): Date of the reported holding in YYYY-MM-DD format. For more details regarding date resolution, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
-            currency (str): Currency code. The service will default to the local currency if the currency is not requested. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
-            investor_type (str): FactSet Ownership Institution, Mutual Fund, and Insider/Stakeholder investor types. To learn more about the different investor types, visit [Online Assistant Page #11656](https://my.apps.factset.com/oa/pages/11656).. [optional]  # noqa: E501
-            holder_type (str): Holder Type name of the respective holder object. The name will align to the holderType requested. . [optional]  # noqa: E501
-            adj_holding (float): Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
-            adj_market_value (float): Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
-            weight_close (float): \"Closing weight of the security for the holders of the requested security (percent). To learn more about how ownership weight is calculated please visit [Online Assistant Page #11247](https://my.apps.factset.com/oa/pages/11247).\" . [optional]  # noqa: E501
-            percent_outstanding (float): The percent of the outstanding common shares held by a particular filing institution. To learn more, visit [Online Assistant Page #11041](https://my.apps.factset.com/oa/pages/11041).. [optional]  # noqa: E501
-            source (str): Either the 13F Form or ND-30D report filed where the security holdings data was sourced from. To learn more about source, please visit https://my.apps.factset.com/oa/pages/11260. [optional]  # noqa: E501
+            holder_id (str, none_type): FactSet Ownership Holders ID that corresponds to the requested security holder.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet Security Identifier of security requested. This does not represent the FactSet permanent identifier for the holder, but rather the requested id. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.. [optional]  # noqa: E501
+            holder_entity_id (str, none_type): FactSet Entity ID that corresponds to the specified holder ID.. [optional]  # noqa: E501
+            holder_name (str, none_type): Name of the holder for the requested security identifier.. [optional]  # noqa: E501
+            date (date, none_type): Date of the reported holding in YYYY-MM-DD format. For more details regarding date resolution, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
+            currency (str, none_type): Currency code. The service will default to the local currency if the currency is not requested. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            investor_type (str, none_type): FactSet Ownership Institution, Mutual Fund, and Insider/Stakeholder investor types. To learn more about the different investor types, visit [Online Assistant Page #11656](https://my.apps.factset.com/oa/pages/11656).. [optional]  # noqa: E501
+            holder_type (str, none_type): Holder Type name of the respective holder object. The name will align to the holderType requested. . [optional]  # noqa: E501
+            adj_holding (float, none_type): Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
+            adj_market_value (float, none_type): Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
+            weight_close (float, none_type): \"Closing weight of the security for the holders of the requested security (percent). To learn more about how ownership weight is calculated please visit [Online Assistant Page #11247](https://my.apps.factset.com/oa/pages/11247).\" . [optional]  # noqa: E501
+            percent_outstanding (float, none_type): The percent of the outstanding common shares held by a particular filing institution. To learn more, visit [Online Assistant Page #11041](https://my.apps.factset.com/oa/pages/11041).. [optional]  # noqa: E501
+            source (str, none_type): Either the 13F Form or ND-30D report filed where the security holdings data was sourced from. To learn more about source, please visit https://my.apps.factset.com/oa/pages/11260. [optional]  # noqa: E501
             request_id (str): Security Identifier that was used in the request. . [optional]  # noqa: E501
         """
 
@@ -256,19 +256,19 @@ class SecurityHolders(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            holder_id (str): FactSet Ownership Holders ID that corresponds to the requested security holder.. [optional]  # noqa: E501
-            fsym_id (str): FactSet Security Identifier of security requested. This does not represent the FactSet permanent identifier for the holder, but rather the requested id. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.. [optional]  # noqa: E501
-            holder_entity_id (str): FactSet Entity ID that corresponds to the specified holder ID.. [optional]  # noqa: E501
-            holder_name (str): Name of the holder for the requested security identifier.. [optional]  # noqa: E501
-            date (date): Date of the reported holding in YYYY-MM-DD format. For more details regarding date resolution, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
-            currency (str): Currency code. The service will default to the local currency if the currency is not requested. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
-            investor_type (str): FactSet Ownership Institution, Mutual Fund, and Insider/Stakeholder investor types. To learn more about the different investor types, visit [Online Assistant Page #11656](https://my.apps.factset.com/oa/pages/11656).. [optional]  # noqa: E501
-            holder_type (str): Holder Type name of the respective holder object. The name will align to the holderType requested. . [optional]  # noqa: E501
-            adj_holding (float): Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
-            adj_market_value (float): Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
-            weight_close (float): \"Closing weight of the security for the holders of the requested security (percent). To learn more about how ownership weight is calculated please visit [Online Assistant Page #11247](https://my.apps.factset.com/oa/pages/11247).\" . [optional]  # noqa: E501
-            percent_outstanding (float): The percent of the outstanding common shares held by a particular filing institution. To learn more, visit [Online Assistant Page #11041](https://my.apps.factset.com/oa/pages/11041).. [optional]  # noqa: E501
-            source (str): Either the 13F Form or ND-30D report filed where the security holdings data was sourced from. To learn more about source, please visit https://my.apps.factset.com/oa/pages/11260. [optional]  # noqa: E501
+            holder_id (str, none_type): FactSet Ownership Holders ID that corresponds to the requested security holder.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet Security Identifier of security requested. This does not represent the FactSet permanent identifier for the holder, but rather the requested id. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.. [optional]  # noqa: E501
+            holder_entity_id (str, none_type): FactSet Entity ID that corresponds to the specified holder ID.. [optional]  # noqa: E501
+            holder_name (str, none_type): Name of the holder for the requested security identifier.. [optional]  # noqa: E501
+            date (date, none_type): Date of the reported holding in YYYY-MM-DD format. For more details regarding date resolution, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
+            currency (str, none_type): Currency code. The service will default to the local currency if the currency is not requested. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            investor_type (str, none_type): FactSet Ownership Institution, Mutual Fund, and Insider/Stakeholder investor types. To learn more about the different investor types, visit [Online Assistant Page #11656](https://my.apps.factset.com/oa/pages/11656).. [optional]  # noqa: E501
+            holder_type (str, none_type): Holder Type name of the respective holder object. The name will align to the holderType requested. . [optional]  # noqa: E501
+            adj_holding (float, none_type): Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
+            adj_market_value (float, none_type): Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).. [optional]  # noqa: E501
+            weight_close (float, none_type): \"Closing weight of the security for the holders of the requested security (percent). To learn more about how ownership weight is calculated please visit [Online Assistant Page #11247](https://my.apps.factset.com/oa/pages/11247).\" . [optional]  # noqa: E501
+            percent_outstanding (float, none_type): The percent of the outstanding common shares held by a particular filing institution. To learn more, visit [Online Assistant Page #11041](https://my.apps.factset.com/oa/pages/11041).. [optional]  # noqa: E501
+            source (str, none_type): Either the 13F Form or ND-30D report filed where the security holdings data was sourced from. To learn more about source, please visit https://my.apps.factset.com/oa/pages/11260. [optional]  # noqa: E501
             request_id (str): Security Identifier that was used in the request. . [optional]  # noqa: E501
         """
 

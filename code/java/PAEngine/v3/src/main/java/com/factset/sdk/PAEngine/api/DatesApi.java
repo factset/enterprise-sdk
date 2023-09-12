@@ -59,8 +59,8 @@ public class DatesApi {
    * This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
    * @param enddate End Date (required)
    * @param componentid Component Id (required)
-   * @param account Account (required)
-   * @param startdate Start Date (optional, default to -3AY)
+   * @param account Account ( Account Name ending with .ACCT or .ACTM ) (required)
+   * @param startdate Start Date (optional)
    * @return DateParametersSummaryRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -86,8 +86,8 @@ public class DatesApi {
    * This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
    * @param enddate End Date (required)
    * @param componentid Component Id (required)
-   * @param account Account (required)
-   * @param startdate Start Date (optional, default to -3AY)
+   * @param account Account ( Account Name ending with .ACCT or .ACTM ) (required)
+   * @param startdate Start Date (optional)
    * @return ApiResponse&lt;DateParametersSummaryRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

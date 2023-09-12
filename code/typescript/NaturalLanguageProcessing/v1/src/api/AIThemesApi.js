@@ -13,9 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
-import ErrorsRoot from '../model/ErrorsRoot';
-import ThemeParametersRoot from '../model/ThemeParametersRoot';
-import ThemesRoot from '../model/ThemesRoot';
+import HTTPErrorRoot from '../model/HTTPErrorRoot';
+import TaskRoot from '../model/TaskRoot';
+import ThemeSentimentsRoot from '../model/ThemeSentimentsRoot';
+import ThemesParametersRoot from '../model/ThemesParametersRoot';
 
 /**
 * AIThemes service.
@@ -37,16 +38,16 @@ export default class AIThemesApi {
 
 
     /**
-     * Endpoint to extract themes from text
-     * This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
-     * @param {module:model/ThemeParametersRoot} themeParametersRoot 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ThemesRoot} and HTTP response
+     * Endpoint to begin theme extraction job
+     * Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
+     * @param {module:model/ThemesParametersRoot} themesParametersRoot 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaskRoot} and HTTP response
      */
-    themesWithHttpInfo(themeParametersRoot) {
-      let postBody = themeParametersRoot;
-      // verify the required parameter 'themeParametersRoot' is set
-      if (themeParametersRoot === undefined || themeParametersRoot === null) {
-        throw new Error("Missing the required parameter 'themeParametersRoot' when calling themes");
+    themesExtractThemesWithHttpInfo(themesParametersRoot) {
+      let postBody = themesParametersRoot;
+      // verify the required parameter 'themesParametersRoot' is set
+      if (themesParametersRoot === undefined || themesParametersRoot === null) {
+        throw new Error("Missing the required parameter 'themesParametersRoot' when calling themesExtractThemes");
       }
 
       let pathParams = {
@@ -63,7 +64,7 @@ export default class AIThemesApi {
       let accepts = ['application/json'];
 
 
-      let returnType = ThemesRoot;
+      let returnType = TaskRoot;
 
       return this.apiClient.callApi(
         '/themes', 'POST',
@@ -73,13 +74,115 @@ export default class AIThemesApi {
     }
 
     /**
-     * Endpoint to extract themes from text
-     * This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
-     * @param {module:model/ThemeParametersRoot} themeParametersRoot 
-     * @return { Promise.< module:model/ThemesRoot > } a Promise, with data of type {@link module:model/ThemesRoot }
+     * Endpoint to begin theme extraction job
+     * Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
+     * @param {module:model/ThemesParametersRoot} themesParametersRoot 
+     * @return { Promise.< module:model/TaskRoot > } a Promise, with data of type {@link module:model/TaskRoot }
      */
-    themes(themeParametersRoot) {
-      return this.themesWithHttpInfo(themeParametersRoot)
+    themesExtractThemes(themesParametersRoot) {
+      return this.themesExtractThemesWithHttpInfo(themesParametersRoot)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Endpoint to get the completion status of a themes job
+     * Endpoint to obtain the completion status of the themes task request. The `id` parameter represents the task.
+     * @param {String} id Long running task identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaskRoot} and HTTP response
+     */
+    themesGetStatusWithHttpInfo(id) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling themesGetStatus");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = TaskRoot;
+
+      return this.apiClient.callApi(
+        '/themes/{id}/status', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Endpoint to get the completion status of a themes job
+     * Endpoint to obtain the completion status of the themes task request. The `id` parameter represents the task.
+     * @param {String} id Long running task identifier
+     * @return { Promise.< module:model/TaskRoot > } a Promise, with data of type {@link module:model/TaskRoot }
+     */
+    themesGetStatus(id) {
+      return this.themesGetStatusWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Endpoint to get a theme (and sentiments if requested) job result
+     * Endpoint to obtain the results from the original themes task request. The `id` parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+     * @param {String} id Long running task identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ThemeSentimentsRoot} and HTTP response
+     */
+    themesGetThemesWithHttpInfo(id) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling themesGetThemes");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = ThemeSentimentsRoot;
+
+      return this.apiClient.callApi(
+        '/themes/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Endpoint to get a theme (and sentiments if requested) job result
+     * Endpoint to obtain the results from the original themes task request. The `id` parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+     * @param {String} id Long running task identifier
+     * @return { Promise.< module:model/ThemeSentimentsRoot > } a Promise, with data of type {@link module:model/ThemeSentimentsRoot }
+     */
+    themesGetThemes(id) {
+      return this.themesGetThemesWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -25,10 +25,10 @@ from fds.sdk.NaturalLanguageProcessing.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.NaturalLanguageProcessing.exceptions import ApiException
+from fds.sdk.NaturalLanguageProcessing.model.http_error_root import HTTPErrorRoot
 from fds.sdk.NaturalLanguageProcessing.model.qn_a_answer_parameters_root import QnAAnswerParametersRoot
 from fds.sdk.NaturalLanguageProcessing.model.qn_a_answer_root import QnAAnswerRoot
-from fds.sdk.NaturalLanguageProcessing.model.qn_ahttp_error_root import QnAHTTPErrorRoot
-from fds.sdk.NaturalLanguageProcessing.model.qn_a_task_root import QnATaskRoot
+from fds.sdk.NaturalLanguageProcessing.model.task_root import TaskRoot
 
 
 
@@ -71,7 +71,7 @@ class QnaGetAnswersResponseWrapper:
             )
         return self.response
 
-    def get_response_202(self) -> QnATaskRoot:
+    def get_response_202(self) -> TaskRoot:
         """
         Raises: ApiException: Invalid response getter called.
 
@@ -102,7 +102,7 @@ class QuestionAnswerApi(object):
         self.qna_get_answers_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (QnAAnswerRoot,), 202: (QnATaskRoot,), 401: (QnAHTTPErrorRoot,), 404: (QnAHTTPErrorRoot,), 500: (QnAHTTPErrorRoot,),  },
+                  { 200: (QnAAnswerRoot,), 202: (TaskRoot,), 401: (HTTPErrorRoot,), 404: (HTTPErrorRoot,), 500: (HTTPErrorRoot,),  },
                   QnaGetAnswersResponseWrapper
                 ),
                 'auth': [
@@ -158,7 +158,7 @@ class QuestionAnswerApi(object):
         self.qna_get_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 201: (QnATaskRoot,), 202: (QnATaskRoot,), 401: (QnAHTTPErrorRoot,), 404: (QnAHTTPErrorRoot,), 500: (QnAHTTPErrorRoot,),  },
+                  { 201: (TaskRoot,), 202: (TaskRoot,), 401: (HTTPErrorRoot,), 404: (HTTPErrorRoot,), 500: (HTTPErrorRoot,),  },
                   None
                 ),
                 'auth': [
@@ -214,7 +214,7 @@ class QuestionAnswerApi(object):
         self.qna_post_question_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (QnATaskRoot,), 400: (QnAHTTPErrorRoot,), 401: (QnAHTTPErrorRoot,), 500: (QnAHTTPErrorRoot,),  },
+                  { 202: (TaskRoot,), 400: (HTTPErrorRoot,), 401: (HTTPErrorRoot,), 500: (HTTPErrorRoot,),  },
                   None
                 ),
                 'auth': [
@@ -287,9 +287,9 @@ class QuestionAnswerApi(object):
         id,
         **kwargs
     ) -> QnaGetAnswersResponseWrapper:
-        """Get the answer(s)  # noqa: E501
+        """Endpoint to get the answer(s)  # noqa: E501
 
-        Obtain the results from the original task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
+        Endpoint to obtain the results from the original Q&A task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -333,9 +333,9 @@ class QuestionAnswerApi(object):
         id,
         **kwargs
     ) -> typing.Tuple[QnaGetAnswersResponseWrapper, int, typing.MutableMapping]:
-        """Get the answer(s)  # noqa: E501
+        """Endpoint to get the answer(s)  # noqa: E501
 
-        Obtain the results from the original task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
+        Endpoint to obtain the results from the original Q&A task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -383,9 +383,9 @@ class QuestionAnswerApi(object):
         id,
         **kwargs
     ) -> "ApplyResult[QnaGetAnswersResponseWrapper]":
-        """Get the answer(s)  # noqa: E501
+        """Endpoint to get the answer(s)  # noqa: E501
 
-        Obtain the results from the original task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
+        Endpoint to obtain the results from the original Q&A task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -428,9 +428,9 @@ class QuestionAnswerApi(object):
         id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[QnaGetAnswersResponseWrapper, int, typing.MutableMapping]]":
-        """Get the answer(s)  # noqa: E501
+        """Endpoint to get the answer(s)  # noqa: E501
 
-        Obtain the results from the original task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
+        Endpoint to obtain the results from the original Q&A task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -473,10 +473,10 @@ class QuestionAnswerApi(object):
         self,
         id,
         **kwargs
-    ) -> QnATaskRoot:
-        """Get the completion status  # noqa: E501
+    ) -> TaskRoot:
+        """Endpoint to get the completion status for a Q&A request  # noqa: E501
 
-        Endpoint to obtain the status of the task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.  # noqa: E501
+        Endpoint to obtain the status of the Q&A task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -507,7 +507,7 @@ class QuestionAnswerApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            QnATaskRoot
+            TaskRoot
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -519,10 +519,10 @@ class QuestionAnswerApi(object):
         self,
         id,
         **kwargs
-    ) -> typing.Tuple[QnATaskRoot, int, typing.MutableMapping]:
-        """Get the completion status  # noqa: E501
+    ) -> typing.Tuple[TaskRoot, int, typing.MutableMapping]:
+        """Endpoint to get the completion status for a Q&A request  # noqa: E501
 
-        Endpoint to obtain the status of the task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.  # noqa: E501
+        Endpoint to obtain the status of the Q&A task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -553,7 +553,7 @@ class QuestionAnswerApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            QnATaskRoot
+            TaskRoot
                 Response Object
             int
                 Http Status Code
@@ -569,10 +569,10 @@ class QuestionAnswerApi(object):
         self,
         id,
         **kwargs
-    ) -> "ApplyResult[QnATaskRoot]":
-        """Get the completion status  # noqa: E501
+    ) -> "ApplyResult[TaskRoot]":
+        """Endpoint to get the completion status for a Q&A request  # noqa: E501
 
-        Endpoint to obtain the status of the task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.  # noqa: E501
+        Endpoint to obtain the status of the Q&A task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -603,7 +603,7 @@ class QuestionAnswerApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[QnATaskRoot]
+            ApplyResult[TaskRoot]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
@@ -614,10 +614,10 @@ class QuestionAnswerApi(object):
         self,
         id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[QnATaskRoot, int, typing.MutableMapping]]":
-        """Get the completion status  # noqa: E501
+    ) -> "ApplyResult[typing.Tuple[TaskRoot, int, typing.MutableMapping]]":
+        """Endpoint to get the completion status for a Q&A request  # noqa: E501
 
-        Endpoint to obtain the status of the task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.  # noqa: E501
+        Endpoint to obtain the status of the Q&A task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -648,7 +648,7 @@ class QuestionAnswerApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(QnATaskRoot, int, typing.Dict)]
+            ApplyResult[(TaskRoot, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
@@ -660,10 +660,10 @@ class QuestionAnswerApi(object):
         self,
         qn_a_answer_parameters_root,
         **kwargs
-    ) -> QnATaskRoot:
-        """Post a question for answer(s)  # noqa: E501
+    ) -> TaskRoot:
+        """Endpoint to submit a question for answer(s)  # noqa: E501
 
-        Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.  # noqa: E501
+        Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -694,7 +694,7 @@ class QuestionAnswerApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            QnATaskRoot
+            TaskRoot
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -706,10 +706,10 @@ class QuestionAnswerApi(object):
         self,
         qn_a_answer_parameters_root,
         **kwargs
-    ) -> typing.Tuple[QnATaskRoot, int, typing.MutableMapping]:
-        """Post a question for answer(s)  # noqa: E501
+    ) -> typing.Tuple[TaskRoot, int, typing.MutableMapping]:
+        """Endpoint to submit a question for answer(s)  # noqa: E501
 
-        Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.  # noqa: E501
+        Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -740,7 +740,7 @@ class QuestionAnswerApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            QnATaskRoot
+            TaskRoot
                 Response Object
             int
                 Http Status Code
@@ -756,10 +756,10 @@ class QuestionAnswerApi(object):
         self,
         qn_a_answer_parameters_root,
         **kwargs
-    ) -> "ApplyResult[QnATaskRoot]":
-        """Post a question for answer(s)  # noqa: E501
+    ) -> "ApplyResult[TaskRoot]":
+        """Endpoint to submit a question for answer(s)  # noqa: E501
 
-        Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.  # noqa: E501
+        Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -790,7 +790,7 @@ class QuestionAnswerApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[QnATaskRoot]
+            ApplyResult[TaskRoot]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['qn_a_answer_parameters_root'] = \
@@ -801,10 +801,10 @@ class QuestionAnswerApi(object):
         self,
         qn_a_answer_parameters_root,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[QnATaskRoot, int, typing.MutableMapping]]":
-        """Post a question for answer(s)  # noqa: E501
+    ) -> "ApplyResult[typing.Tuple[TaskRoot, int, typing.MutableMapping]]":
+        """Endpoint to submit a question for answer(s)  # noqa: E501
 
-        Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.  # noqa: E501
+        Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -835,7 +835,7 @@ class QuestionAnswerApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(QnATaskRoot, int, typing.Dict)]
+            ApplyResult[(TaskRoot, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['qn_a_answer_parameters_root'] = \

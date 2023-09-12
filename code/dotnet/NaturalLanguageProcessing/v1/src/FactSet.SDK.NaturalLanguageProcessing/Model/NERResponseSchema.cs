@@ -37,10 +37,12 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
         /// </summary>
         /// <param name="data">data.</param>
         /// <param name="errors">errors.</param>
-        public NERResponseSchema(NEREntityList data = default(NEREntityList), List<NERErrorSchema> errors = default(List<NERErrorSchema>))
+        /// <param name="meta">Any associated metadata.</param>
+        public NERResponseSchema(NEREntityList data = default(NEREntityList), List<Error> errors = default(List<Error>), Object meta = default(Object))
         {
             this.Data = data;
             this.Errors = errors;
+            this.Meta = meta;
         }
 
         /// <summary>
@@ -53,7 +55,14 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
         /// Gets or Sets Errors
         /// </summary>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
-        public List<NERErrorSchema> Errors { get; set; }
+        public List<Error> Errors { get; set; }
+
+        /// <summary>
+        /// Any associated metadata
+        /// </summary>
+        /// <value>Any associated metadata</value>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public Object Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,6 +74,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
             sb.Append("class NERResponseSchema {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
                     this.Errors != null &&
                     input.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -129,6 +144,10 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
                 if (this.Errors != null)
                 {
                     hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                }
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 return hashCode;
             }

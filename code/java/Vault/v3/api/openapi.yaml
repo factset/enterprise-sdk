@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Vault API
-  version: 3.12.0
+  version: 3.14.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/vault-api
@@ -2083,7 +2083,7 @@ paths:
       - explode: true
         in: query
         name: pageNumber
-        required: true
+        required: false
         schema:
           default: 1
           format: int32
@@ -2877,13 +2877,7 @@ paths:
               style: simple
         "400":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -2980,13 +2974,7 @@ paths:
               style: simple
         "404":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: There was no request for the calculation identifier provided,
@@ -4848,7 +4836,7 @@ components:
           type: string
         componentdetail:
           description: Component detail type for the Vault component. It can be GROUPS
-            or TOTALS or SECURITIES.
+            or GROUPSALL or TOTALS or SECURITIES.
           nullable: true
           type: string
       required:

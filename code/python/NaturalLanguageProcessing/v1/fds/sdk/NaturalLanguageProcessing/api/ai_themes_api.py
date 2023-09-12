@@ -25,9 +25,10 @@ from fds.sdk.NaturalLanguageProcessing.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.NaturalLanguageProcessing.exceptions import ApiException
-from fds.sdk.NaturalLanguageProcessing.model.errors_root import ErrorsRoot
-from fds.sdk.NaturalLanguageProcessing.model.theme_parameters_root import ThemeParametersRoot
-from fds.sdk.NaturalLanguageProcessing.model.themes_root import ThemesRoot
+from fds.sdk.NaturalLanguageProcessing.model.http_error_root import HTTPErrorRoot
+from fds.sdk.NaturalLanguageProcessing.model.task_root import TaskRoot
+from fds.sdk.NaturalLanguageProcessing.model.theme_sentiments_root import ThemeSentimentsRoot
+from fds.sdk.NaturalLanguageProcessing.model.themes_parameters_root import ThemesParametersRoot
 
 
 
@@ -45,10 +46,10 @@ class AIThemesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        self.themes_endpoint = _Endpoint(
+        self.themes_extract_themes_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ThemesRoot,), 400: (ErrorsRoot,), 404: (ErrorsRoot,),  },
+                  { 202: (TaskRoot,), 400: (HTTPErrorRoot,), 401: (HTTPErrorRoot,), 500: (HTTPErrorRoot,),  },
                   None
                 ),
                 'auth': [
@@ -56,16 +57,16 @@ class AIThemesApi(object):
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/themes',
-                'operation_id': 'themes',
+                'operation_id': 'themes_extract_themes',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'theme_parameters_root',
+                    'themes_parameters_root',
                 ],
                 'required': [
-                    'theme_parameters_root',
+                    'themes_parameters_root',
                 ],
                 'nullable': [
                 ],
@@ -80,13 +81,13 @@ class AIThemesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'theme_parameters_root':
-                        (ThemeParametersRoot,),
+                    'themes_parameters_root':
+                        (ThemesParametersRoot,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'theme_parameters_root': 'body',
+                    'themes_parameters_root': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -98,6 +99,118 @@ class AIThemesApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+
+        self.themes_get_status_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 201: (TaskRoot,), 202: (TaskRoot,), 404: (HTTPErrorRoot,), 500: (HTTPErrorRoot,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/themes/{id}/status',
+                'operation_id': 'themes_get_status',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.themes_get_themes_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (ThemeSentimentsRoot,), 202: (TaskRoot,), 404: (HTTPErrorRoot,), 500: (HTTPErrorRoot,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/themes/{id}',
+                'operation_id': 'themes_get_themes',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -116,18 +229,18 @@ class AIThemesApi(object):
         kwargs["_host_index"] = kwargs.get("_host_index")
 
 
-    def themes(
+    def themes_extract_themes(
         self,
-        theme_parameters_root,
+        themes_parameters_root,
         **kwargs
-    ) -> ThemesRoot:
-        """Endpoint to extract themes from text  # noqa: E501
+    ) -> TaskRoot:
+        """Endpoint to begin theme extraction job  # noqa: E501
 
-        This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ```   # noqa: E501
+        Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            theme_parameters_root (ThemeParametersRoot):
+            themes_parameters_root (ThemesParametersRoot):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -154,26 +267,26 @@ class AIThemesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ThemesRoot
+            TaskRoot
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['theme_parameters_root'] = \
-            theme_parameters_root
-        return self.themes_endpoint.call_with_http_info(**kwargs)
+        kwargs['themes_parameters_root'] = \
+            themes_parameters_root
+        return self.themes_extract_themes_endpoint.call_with_http_info(**kwargs)
 
-    def themes_with_http_info(
+    def themes_extract_themes_with_http_info(
         self,
-        theme_parameters_root,
+        themes_parameters_root,
         **kwargs
-    ) -> typing.Tuple[ThemesRoot, int, typing.MutableMapping]:
-        """Endpoint to extract themes from text  # noqa: E501
+    ) -> typing.Tuple[TaskRoot, int, typing.MutableMapping]:
+        """Endpoint to begin theme extraction job  # noqa: E501
 
-        This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ```   # noqa: E501
+        Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            theme_parameters_root (ThemeParametersRoot):
+            themes_parameters_root (ThemesParametersRoot):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -200,7 +313,7 @@ class AIThemesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ThemesRoot
+            TaskRoot
                 Response Object
             int
                 Http Status Code
@@ -208,22 +321,22 @@ class AIThemesApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['theme_parameters_root'] = \
-            theme_parameters_root
-        return self.themes_endpoint.call_with_http_info(**kwargs)
+        kwargs['themes_parameters_root'] = \
+            themes_parameters_root
+        return self.themes_extract_themes_endpoint.call_with_http_info(**kwargs)
 
-    def themes_async(
+    def themes_extract_themes_async(
         self,
-        theme_parameters_root,
+        themes_parameters_root,
         **kwargs
-    ) -> "ApplyResult[ThemesRoot]":
-        """Endpoint to extract themes from text  # noqa: E501
+    ) -> "ApplyResult[TaskRoot]":
+        """Endpoint to begin theme extraction job  # noqa: E501
 
-        This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ```   # noqa: E501
+        Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            theme_parameters_root (ThemeParametersRoot):
+            themes_parameters_root (ThemesParametersRoot):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -250,25 +363,25 @@ class AIThemesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[ThemesRoot]
+            ApplyResult[TaskRoot]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['theme_parameters_root'] = \
-            theme_parameters_root
-        return self.themes_endpoint.call_with_http_info(**kwargs)
+        kwargs['themes_parameters_root'] = \
+            themes_parameters_root
+        return self.themes_extract_themes_endpoint.call_with_http_info(**kwargs)
 
-    def themes_with_http_info_async(
+    def themes_extract_themes_with_http_info_async(
         self,
-        theme_parameters_root,
+        themes_parameters_root,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[ThemesRoot, int, typing.MutableMapping]]":
-        """Endpoint to extract themes from text  # noqa: E501
+    ) -> "ApplyResult[typing.Tuple[TaskRoot, int, typing.MutableMapping]]":
+        """Endpoint to begin theme extraction job  # noqa: E501
 
-        This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ```   # noqa: E501
+        Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            theme_parameters_root (ThemeParametersRoot):
+            themes_parameters_root (ThemesParametersRoot):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -295,11 +408,385 @@ class AIThemesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(ThemesRoot, int, typing.Dict)]
+            ApplyResult[(TaskRoot, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['theme_parameters_root'] = \
-            theme_parameters_root
-        return self.themes_endpoint.call_with_http_info(**kwargs)
+        kwargs['themes_parameters_root'] = \
+            themes_parameters_root
+        return self.themes_extract_themes_endpoint.call_with_http_info(**kwargs)
+
+
+    def themes_get_status(
+        self,
+        id,
+        **kwargs
+    ) -> TaskRoot:
+        """Endpoint to get the completion status of a themes job  # noqa: E501
+
+        Endpoint to obtain the completion status of the themes task request. The `id` parameter represents the task.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            id (str): Long running task identifier
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskRoot
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.themes_get_status_endpoint.call_with_http_info(**kwargs)
+
+    def themes_get_status_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[TaskRoot, int, typing.MutableMapping]:
+        """Endpoint to get the completion status of a themes job  # noqa: E501
+
+        Endpoint to obtain the completion status of the themes task request. The `id` parameter represents the task.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): Long running task identifier
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.themes_get_status_endpoint.call_with_http_info(**kwargs)
+
+    def themes_get_status_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[TaskRoot]":
+        """Endpoint to get the completion status of a themes job  # noqa: E501
+
+        Endpoint to obtain the completion status of the themes task request. The `id` parameter represents the task.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): Long running task identifier
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TaskRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.themes_get_status_endpoint.call_with_http_info(**kwargs)
+
+    def themes_get_status_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TaskRoot, int, typing.MutableMapping]]":
+        """Endpoint to get the completion status of a themes job  # noqa: E501
+
+        Endpoint to obtain the completion status of the themes task request. The `id` parameter represents the task.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): Long running task identifier
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TaskRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.themes_get_status_endpoint.call_with_http_info(**kwargs)
+
+
+    def themes_get_themes(
+        self,
+        id,
+        **kwargs
+    ) -> ThemeSentimentsRoot:
+        """Endpoint to get a theme (and sentiments if requested) job result  # noqa: E501
+
+        Endpoint to obtain the results from the original themes task request. The `id` parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            id (str): Long running task identifier
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ThemeSentimentsRoot
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.themes_get_themes_endpoint.call_with_http_info(**kwargs)
+
+    def themes_get_themes_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[ThemeSentimentsRoot, int, typing.MutableMapping]:
+        """Endpoint to get a theme (and sentiments if requested) job result  # noqa: E501
+
+        Endpoint to obtain the results from the original themes task request. The `id` parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): Long running task identifier
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ThemeSentimentsRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.themes_get_themes_endpoint.call_with_http_info(**kwargs)
+
+    def themes_get_themes_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[ThemeSentimentsRoot]":
+        """Endpoint to get a theme (and sentiments if requested) job result  # noqa: E501
+
+        Endpoint to obtain the results from the original themes task request. The `id` parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): Long running task identifier
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[ThemeSentimentsRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.themes_get_themes_endpoint.call_with_http_info(**kwargs)
+
+    def themes_get_themes_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[ThemeSentimentsRoot, int, typing.MutableMapping]]":
+        """Endpoint to get a theme (and sentiments if requested) job result  # noqa: E501
+
+        Endpoint to obtain the results from the original themes task request. The `id` parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): Long running task identifier
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(ThemeSentimentsRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.themes_get_themes_endpoint.call_with_http_info(**kwargs)
 
 

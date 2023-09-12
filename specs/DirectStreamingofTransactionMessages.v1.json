@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "1.1.0"
+    "version": "1.3.0"
   },
   "servers": [
     {
@@ -72,6 +72,13 @@
                 "schema": {
                   "type": "string",
                   "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             }
@@ -200,9 +207,11 @@
         "required": [
           "amount",
           "currencyiso",
+          "description",
           "gross",
           "net",
           "portfolio",
+          "settlementcurrencyiso",
           "settlementdate",
           "settlementvalue",
           "status",
@@ -213,28 +222,43 @@
         ],
         "type": "object",
         "properties": {
+          "parentid": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Unique ID of the placement which spawned this execution",
+            "nullable": true
+          },
           "net": {
             "type": "number",
             "description": "Cash value of the transaction, net of brokerage costs.",
-            "format": "float"
+            "format": "double"
           },
           "gross": {
             "type": "number",
             "description": "Cash value of the transaction, including brokerage costs",
-            "format": "float"
+            "format": "double"
           },
           "settlementvalue": {
             "type": "number",
             "description": "Cash value of the transaction, a value that has been multiplied by an applicable FX rates to convert the a transacti",
-            "format": "float"
+            "format": "double"
           },
           "settlementdate": {
             "type": "string",
             "description": "Settlement date in YYYYMMDD format"
           },
           "settlementcurrencyiso": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
-            "description": "Currency code for Settlement Value",
+            "description": "Currency code for Settlement Value"
+          },
+          "orderid": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Unique ID of the order which originated the record",
             "nullable": true
           },
           "portfolio": {
@@ -242,23 +266,32 @@
             "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
           },
           "transactionid": {
+            "maxLength": 252,
+            "minLength": 0,
             "type": "string",
             "description": "Unique id for the transaction"
           },
           "symbol": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "Symbol corresponding to the traded instrument."
           },
           "description": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
-            "description": "Description",
-            "nullable": true
+            "description": "Description"
           },
           "tradetype": {
+            "maxLength": 8,
+            "minLength": 0,
             "type": "string",
             "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
           },
           "status": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "Status could be any of the following value: ACCT or CNCL.\r\nwhich stands for Accounted and Cancelled respectively."
           },
@@ -269,14 +302,16 @@
           "transactionleaves": {
             "type": "number",
             "description": "Shares that have been ordered and not executed",
-            "format": "float"
+            "format": "double"
           },
           "amount": {
             "type": "number",
             "description": "Quantity of the instrument traded.",
-            "format": "float"
+            "format": "double"
           },
           "currencyiso": {
+            "maxLength": 8,
+            "minLength": 0,
             "type": "string",
             "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
           },
@@ -291,7 +326,9 @@
         "required": [
           "amount",
           "currencyiso",
+          "description",
           "portfolio",
+          "settlementcurrencyiso",
           "status",
           "symbol",
           "tradedate",
@@ -301,8 +338,23 @@
         "type": "object",
         "properties": {
           "settlementcurrencyiso": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
-            "description": "Currency code for Settlement Value",
+            "description": "Currency code for Settlement Value"
+          },
+          "parentid": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Unique ID of the order which spawned this placement",
+            "nullable": true
+          },
+          "orderid": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Unique ID of the order which originated the record",
             "nullable": true
           },
           "portfolio": {
@@ -310,23 +362,32 @@
             "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
           },
           "transactionid": {
+            "maxLength": 252,
+            "minLength": 0,
             "type": "string",
             "description": "Unique id for the transaction"
           },
           "symbol": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "Symbol corresponding to the traded instrument."
           },
           "description": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
-            "description": "Description",
-            "nullable": true
+            "description": "Description"
           },
           "tradetype": {
+            "maxLength": 8,
+            "minLength": 0,
             "type": "string",
             "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
           },
           "status": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "Status could be any of the following value: ACCT or CNCL.\r\nwhich stands for Accounted and Cancelled respectively."
           },
@@ -337,14 +398,16 @@
           "transactionleaves": {
             "type": "number",
             "description": "Shares that have been ordered and not executed",
-            "format": "float"
+            "format": "double"
           },
           "amount": {
             "type": "number",
             "description": "Quantity of the instrument traded.",
-            "format": "float"
+            "format": "double"
           },
           "currencyiso": {
+            "maxLength": 8,
+            "minLength": 0,
             "type": "string",
             "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
           },
@@ -359,6 +422,7 @@
         "required": [
           "amount",
           "currencyiso",
+          "description",
           "portfolio",
           "status",
           "symbol",
@@ -368,28 +432,44 @@
         ],
         "type": "object",
         "properties": {
+          "orderid": {
+            "maxLength": 32,
+            "minLength": 0,
+            "type": "string",
+            "description": "Unique ID of the order which originated the record",
+            "nullable": true
+          },
           "portfolio": {
             "type": "string",
             "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
           },
           "transactionid": {
+            "maxLength": 252,
+            "minLength": 0,
             "type": "string",
             "description": "Unique id for the transaction"
           },
           "symbol": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "Symbol corresponding to the traded instrument."
           },
           "description": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
-            "description": "Description",
-            "nullable": true
+            "description": "Description"
           },
           "tradetype": {
+            "maxLength": 8,
+            "minLength": 0,
             "type": "string",
             "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
           },
           "status": {
+            "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "Status could be any of the following value: ACCT or CNCL.\r\nwhich stands for Accounted and Cancelled respectively."
           },
@@ -400,14 +480,16 @@
           "transactionleaves": {
             "type": "number",
             "description": "Shares that have been ordered and not executed",
-            "format": "float"
+            "format": "double"
           },
           "amount": {
             "type": "number",
             "description": "Quantity of the instrument traded.",
-            "format": "float"
+            "format": "double"
           },
           "currencyiso": {
+            "maxLength": 8,
+            "minLength": 0,
             "type": "string",
             "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
           },
@@ -443,6 +525,55 @@
               "$ref": "#/components/schemas/OrderParameters"
             },
             "description": "List of orders",
+            "nullable": true
+          }
+        }
+      },
+      "ErrorSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string",
+            "nullable": true
+          },
+          "parameter": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "$ref": "#/components/schemas/ErrorSource"
+          }
+        }
+      },
+      "ClientErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            },
             "nullable": true
           }
         }

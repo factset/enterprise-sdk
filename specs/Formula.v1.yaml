@@ -97,7 +97,7 @@ paths:
         - $ref: '#/components/parameters/universe'
         - $ref: '#/components/parameters/universeType_time_series'
         - $ref: '#/components/parameters/formulas_time_series'
-        - $ref: '#/components/parameters/calendar'
+        - $ref: '#/components/parameters/calendar_time_series'
         - $ref: '#/components/parameters/fsymId_time_series'
         - $ref: '#/components/parameters/displayName_time_series'
         - $ref: '#/components/parameters/flatten_time_series'
@@ -357,7 +357,7 @@ paths:
         - $ref: '#/components/parameters/universeType_cross_sectional'
         - $ref: '#/components/parameters/formulas_cross_sectional'
         - $ref: '#/components/parameters/backTestDate'
-        - $ref: '#/components/parameters/calendar'
+        - $ref: '#/components/parameters/calendar_cross_sectional'
         - $ref: '#/components/parameters/fsymId_cross_sectional'
         - $ref: '#/components/parameters/displayName_cross_sectional'
         - $ref: '#/components/parameters/flatten_cross_sectional'
@@ -1196,7 +1196,7 @@ components:
       schema:
         type: string
       explode: false
-    calendar:
+    calendar_time_series:
       name: calendar
       in: query
       schema:
@@ -1223,6 +1223,35 @@ components:
             Uses the local trading calendar for each security. Local exchange
             holidays will be skipped.
           value: LOCAL
+        region:
+          summary: Region Specific
+          description: >-
+            The calendar of a specific region. The example shown here 'NAY' is
+            for the UNITED STATES calendar. You can find the calendar codes for
+            regions on [Online Assistant Page
+            16610](https://my.apps.factset.com/oa/pages/16610#country).
+          value: NAY
+    calendar_cross_sectional:
+      name: calendar
+      in: query
+      schema:
+        type: string
+      description: >-
+        Calendar of data returned. The default value is FIVEDAY which displays
+        Monday through Friday, regardless of whether there were trading
+        holidays.
+      required: false
+      examples:
+        fiveday:
+          summary: FIVEDAY
+          description: >-
+            Displays Monday through Friday, regardless of whether there were
+            trading holidays. This is the default for `calendar`.
+          value: FIVEDAY
+        sevenday:
+          summary: SEVENDAY
+          description: Displays Monday through Sunday.
+          value: SEVENDAY
         region:
           summary: Region Specific
           description: >-

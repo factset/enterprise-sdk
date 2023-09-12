@@ -65,7 +65,7 @@ public class AccountsApi {
   /**
    * Get accounts and sub-directories in a directory
    * This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
-   * @param path The directory to get the accounts and sub-directories in (required)
+   * @param path The directory to get the accounts and sub-directories. (required)
    * @return AccountDirectoriesRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -89,7 +89,7 @@ public class AccountsApi {
   /**
    * Get accounts and sub-directories in a directory
    * This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
-   * @param path The directory to get the accounts and sub-directories in (required)
+   * @param path The directory to get the accounts and sub-directories. (required)
    * @return ApiResponse&lt;AccountDirectoriesRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

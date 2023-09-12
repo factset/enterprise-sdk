@@ -9,17 +9,17 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Quant API
-  version: "3"
+  version: 3.11.0
 externalDocs:
   description: API Documentation
-  url: https://developer.factset.com/api-catalog/
+  url: https://developer.factset.com/api-catalog/quant-engine-api
 servers:
-- url: https://api.factset.com
+- url: https://api.factset.com/analytics/engines/quant/v3
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 paths:
-  /analytics/engines/quant/v3/calculations:
+  /calculations:
     get:
       description: This endpoints returns all calculation requests.
       operationId: getAllCalculations
@@ -27,7 +27,7 @@ paths:
       - explode: true
         in: query
         name: pageNumber
-        required: true
+        required: false
         schema:
           default: 1
           format: int32
@@ -625,6 +625,50 @@ paths:
               schema:
                 type: string
               style: simple
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+            application/x-protobuf:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Request body too large
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
         "415":
           description: Missing/Invalid Content-Type header. Header needs to be set
             to application/json.
@@ -753,7 +797,7 @@ paths:
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/engines/quant/v3/calculations/{id}:
+  /calculations/{id}:
     delete:
       description: This is the endpoint to cancel a previously submitted calculation.
       operationId: cancelCalculationById
@@ -1627,6 +1671,50 @@ paths:
               schema:
                 type: string
               style: simple
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+            application/x-protobuf:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Request body too large
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
         "415":
           description: Missing/Invalid Content-Type header. Header needs to be set
             to application/json.
@@ -1755,7 +1843,7 @@ paths:
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/engines/quant/v3/calculations/{id}/status:
+  /calculations/{id}/status:
     get:
       description: "This is the endpoint to check on the progress of a previously\
         \ requested calculation.\r\nIf the calculation has finished computing, the\
@@ -2082,7 +2170,7 @@ paths:
       tags:
       - QuantCalculations
       x-accepts: application/json
-  /analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result:
+  /calculations/{id}/units/{unitId}/result:
     get:
       description: "This is the endpoint to get the result of a previously requested\
         \ calculation.\r\nIf the calculation has finished computing, the body of the\
@@ -2382,7 +2470,7 @@ paths:
       tags:
       - QuantCalculations
       x-accepts: application/json
-  /analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info:
+  /calculations/{id}/units/{unitId}/info:
     get:
       description: This is the endpoint to get the metadata information of a previously
         requested calculation.
@@ -2694,6 +2782,7 @@ components:
           - Debt
           type: string
         securityExpr:
+          nullable: true
           type: string
       required:
       - universeExpr
@@ -2743,6 +2832,7 @@ components:
         dates:
           items:
             type: string
+          nullable: true
           type: array
       type: object
     QuantDate:
@@ -2757,6 +2847,7 @@ components:
         calendar:
           type: string
         overrideUniversalScreenCalendar:
+          nullable: true
           type: boolean
       required:
       - calendar
@@ -2784,8 +2875,10 @@ components:
         name:
           type: string
         dateOffset:
+          nullable: true
           type: string
         isArrayReturnType:
+          nullable: true
           type: boolean
       required:
       - expr
@@ -2828,6 +2921,7 @@ components:
         name:
           type: string
         dateOffset:
+          nullable: true
           type: string
       required:
       - expr
@@ -2843,6 +2937,7 @@ components:
           - Debt
           type: string
         securityExpr:
+          nullable: true
           type: string
         source:
           enum:
@@ -2899,6 +2994,7 @@ components:
         calendar:
           type: string
         overrideUniversalScreenCalendar:
+          nullable: true
           type: boolean
       required:
       - calendar
@@ -2911,12 +3007,14 @@ components:
         dates:
           items:
             type: string
+          nullable: true
           type: array
         frequency:
           type: string
         calendar:
           type: string
         overrideUniversalScreenCalendar:
+          nullable: true
           type: boolean
       required:
       - calendar
@@ -2929,6 +3027,7 @@ components:
         name:
           type: string
         dateOffset:
+          nullable: true
           type: string
       required:
       - expr
@@ -2941,8 +3040,10 @@ components:
         name:
           type: string
         dateOffset:
+          nullable: true
           type: string
         isArrayReturnType:
+          nullable: true
           type: boolean
       required:
       - expr
@@ -2967,6 +3068,7 @@ components:
           ScreeningExpressionUniverse: '#/components/schemas/QuantScreeningExpressionUniverse'
           IdentifierUniverse: '#/components/schemas/QuantIdentifierUniverse'
         propertyName: source
+      nullable: true
       oneOf:
       - $ref: '#/components/schemas/QuantUniversalScreenUniverse'
       - $ref: '#/components/schemas/QuantScreeningExpressionUniverse'
@@ -2977,6 +3079,7 @@ components:
           FdsDate: '#/components/schemas/QuantFdsDate'
           DateList: '#/components/schemas/QuantDateList'
         propertyName: source
+      nullable: true
       oneOf:
       - $ref: '#/components/schemas/QuantFdsDate'
       - $ref: '#/components/schemas/QuantDateList'
@@ -3013,6 +3116,7 @@ components:
             $ref: '#/components/schemas/OneOfQuantFormulas'
           type: array
         jobDescription:
+          nullable: true
           type: string
       type: object
     QuantCalculationMeta:
@@ -3082,6 +3186,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/QuantCalculationParameters'
           description: List of calculation parameters.
+          nullable: true
           type: object
         meta:
           $ref: '#/components/schemas/QuantCalculationMeta'
@@ -3092,21 +3197,33 @@ components:
         parameter: parameter
       properties:
         pointer:
+          nullable: true
           type: string
         parameter:
+          nullable: true
           type: string
       type: object
     Error:
       example:
+        code: code
         id: id
         detail: detail
         source:
           pointer: pointer
           parameter: parameter
+        title: title
       properties:
         id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
           type: string
         detail:
+          nullable: true
           type: string
         source:
           $ref: '#/components/schemas/ErrorSource'
@@ -3114,18 +3231,25 @@ components:
     CalculationUnitStatus:
       example:
         result: result
+        warnings:
+        - warnings
+        - warnings
         progress: progress
         errors:
-        - id: id
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
-        - id: id
+          title: title
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
+          title: title
         status: Queued
         points: 0
       properties:
@@ -3142,17 +3266,27 @@ components:
           description: The error in a calculation unit.
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
         result:
           description: The result URL of the calculation.
+          nullable: true
           type: string
         progress:
           description: The progress of the calculation unit.
+          nullable: true
           type: string
         points:
           description: The points for the calculation unit.
           format: int32
+          nullable: true
           type: integer
+        warnings:
+          description: The warnings in a calculation unit.
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     CalculationStatus:
       example:
@@ -3160,24 +3294,32 @@ components:
         units:
           key:
             result: result
+            warnings:
+            - warnings
+            - warnings
             progress: progress
             errors:
-            - id: id
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
-            - id: id
+              title: title
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
+              title: title
             status: Queued
             points: 0
         status: Queued
       properties:
         calculationid:
           description: Calculation's identifier
+          nullable: true
           type: string
         status:
           description: Calculation's status
@@ -3191,6 +3333,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatus'
           description: Number of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationUnitStatusMeta:
@@ -3199,6 +3342,7 @@ components:
       properties:
         info:
           description: The Info URL of the calculation.
+          nullable: true
           type: string
       type: object
     CalculationStatusMeta:
@@ -3211,6 +3355,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatusMeta'
           description: Meta of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationStatusRoot:
@@ -3220,18 +3365,25 @@ components:
           units:
             key:
               result: result
+              warnings:
+              - warnings
+              - warnings
               progress: progress
               errors:
-              - id: id
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
-              - id: id
+                title: title
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
+                title: title
               status: Queued
               points: 0
           status: Queued
@@ -3250,7 +3402,8 @@ components:
     ObjectRoot:
       properties:
         data: {}
-        meta: {}
+        meta:
+          nullable: true
       required:
       - data
       type: object
@@ -3259,6 +3412,7 @@ components:
         errors:
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
       type: object
     CalculationsSummary:
@@ -3311,8 +3465,10 @@ components:
           format: int32
           type: integer
         nextPage:
+          nullable: true
           type: string
         previousPage:
+          nullable: true
           type: string
       type: object
     PaginationMeta:

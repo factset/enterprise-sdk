@@ -1,0 +1,905 @@
+openapi: 3.0.3
+info:
+  title: StreetAccount API
+  description: Collection of endpoints for retrieving StreetAccount headlines and filters
+  version: 0.1.0
+  contact:
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+    email: api@factset.com
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://api.factset.com/research/news/v0
+tags:
+  - name: Filters
+    description: Get flattened or structured filters
+  - name: Headlines
+    description: Get headlines for a specified view or specified filters
+  - name: Views
+    description: Create, edit and delete views
+paths:
+  /streetaccount/headlines:
+    post:
+      summary: Retrieve StreetAccount headlines for given filters
+      description: >-
+        This endpoint will pull all headlines produced by StreetAccount and the
+        full story body will be returned by the data set. Filters can be
+        specified via the endpoint below.
+      tags:
+        - Headlines
+      operationId: getStreetAccountHeadlines
+      requestBody:
+        $ref: '#/components/requestBodies/saHeadlinesRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/searchResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /streetaccount/views/{id}/headlines:
+    post:
+      summary: Retrieve StreetAccount headlines for given view
+      description: >-
+        This endpoint allows you to pull all headlines produced by StreetAccount
+        for a saved view. The full story body will be returned by the data set.
+        Views can be created via the ‘Create Views’ endpoint.
+      tags:
+        - Headlines
+      operationId: getStreetAccountHeadlinesByView
+      requestBody:
+        $ref: '#/components/requestBodies/saHeadlinesRequestByView'
+      parameters:
+        - in: path
+          name: id
+          example: SA News View
+          schema:
+            type: string
+          required: true
+          description: view id of the view to return headlines for
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/searchResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /streetaccount/views:
+    get:
+      summary: Retrieves StreetAccount search views
+      description: >-
+        This endpoint allows you to pull the full list of StreetAccount views
+        that have been previously saved.
+      tags:
+        - Views
+      operationId: getStreetAccountViews
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/views'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /streetaccount/views/{id}:
+    post:
+      summary: Creates and saves a StreetAccount view
+      description: >-
+        This endpoint allows you to create a new StreetAccount view. Select
+        watchlists/tickers and filters of your choice to create and save a view.
+      tags:
+        - Views
+      operationId: createStreetAccountView
+      requestBody:
+        $ref: '#/components/requestBodies/createOrEditViewBody'
+      parameters:
+        - in: path
+          name: id
+          example: SA News View
+          schema:
+            type: string
+          required: true
+          description: view id of the view which is the be created
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createEditDeleteViewResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    put:
+      summary: Edits and saves an existing StreetAccount view
+      description: >-
+        This endpoint allows you to edit the criteria used for a previously
+        saved StreetAccount view.
+      tags:
+        - Views
+      operationId: editStreetAccountView
+      requestBody:
+        $ref: '#/components/requestBodies/createOrEditViewBody'
+      parameters:
+        - in: path
+          name: id
+          example: SA News View
+          schema:
+            type: string
+          required: true
+          description: view id of the view to be edited
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createEditDeleteViewResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    delete:
+      summary: Deletes an existing StreetAccount view
+      description: >-
+        This endpoint allows you to delete a previously saved StreetAccount
+        view.
+      tags:
+        - Views
+      operationId: deleteStreetAccountView
+      parameters:
+        - in: path
+          name: id
+          example: SA News View
+          schema:
+            type: string
+          required: true
+          description: view id of the view to be deleted
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createEditDeleteViewResponse'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /streetaccount/filters:
+    get:
+      summary: Retrieve all StreetAccount filters
+      tags:
+        - Filters
+      operationId: getStreetAccountFilters
+      parameters:
+        - in: query
+          name: structured
+          schema:
+            type: boolean
+          required: false
+          allowEmptyValue: true
+          description: >-
+            Pass structured to generate a structured view of the available
+            filters.
+        - in: query
+          name: flattened
+          schema:
+            type: boolean
+          required: false
+          allowEmptyValue: true
+          description: >-
+            Pass flattened to generate a structured view of the available
+            filters.
+      description: >-
+        Add StreetAccount filters (watchlists, company filters, market topics,
+        regions and sectors) to filter down StreetAccount headlines by the
+        relevant categories. Set the structured and/or flattened flag. If
+        structured flag is set, parent and child filter information will be
+        returned. If flattened flag is set, flattened filters will be returned
+        which can be used with the headlines and createView endpoints. Both
+        flags can be set to return both sets of filters.  If no params are
+        provided it will return both
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-news-api
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  requestBodies:
+    saHeadlinesRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/saHeadlinesRequest'
+      description: Filter Body which needs to be sent with request
+    saHeadlinesRequestByView:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/saHeadlinesRequestByView'
+      description: View body which needs to be sent with request
+    createOrEditViewBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createOrEditViewBody'
+      description: Create or Edit View Body which needs to be sent with request
+  schemas:
+    error:
+      type: object
+      properties:
+        meta:
+          type: object
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/errorObject'
+    errorObject:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          type: string
+    saHeadlinesRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            tickers:
+              type: array
+              items:
+                $ref: '#/components/schemas/saHeadlinesRequestTickersObject'
+            categories:
+              type: array
+              items:
+                type: string
+                example: Earnings
+            regions:
+              type: array
+              items:
+                type: string
+                example: United States
+            topics:
+              type: array
+              items:
+                type: string
+                example: Market Summaries
+            sectors:
+              type: array
+              items:
+                type: string
+                example: Gold & Silver
+            isPrimary:
+              type: boolean
+              example: true
+            dateRange:
+              type: string
+              description: >-
+                see list of valid date ranges. Date range is mutually exlusive
+                to start/end time
+              enum:
+                - Today
+                - 2 Days
+                - 1 Week
+                - 1 Month
+                - 3 Months
+                - 6 Months
+                - 1 Year
+                - 3 Years
+                - 5 Years
+                - 10 Years
+                - All Available
+            searchDate:
+              type: object
+              properties:
+                start:
+                  type: string
+                  description: >-
+                    Start time for custom search. startTime must follow the ISO
+                    8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also
+                    supports offsets ±[hh]:[mm]
+                  example: '2022-08-21T12:35:45Z'
+                end:
+                  type: string
+                  description: >-
+                    End time for custom search. If end time is not present end
+                    time is automatically set to the time of the search. endTime
+                    must follow the ISO 8601 standard format,
+                    YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
+                    ±[hh]:[mm]
+                  example: '2022-08-29T08:10:30Z'
+        meta:
+          type: object
+          properties:
+            pagination:
+              type: object
+              description: >-
+                Object defining pagination for the results pageable attribute.
+                Offset-based strategy is used for Pagination.
+              properties:
+                limit:
+                  type: integer
+                  example: 50
+                  default: 500
+                  description: Non-negative maximum number of entries to return.
+                offset:
+                  type: integer
+                  example: 100
+                  default: 0
+                  description: Non-negative number of entries to skip.
+    saHeadlinesRequestTickersObject:
+      type: object
+      properties:
+        name:
+          type: string
+          example: S&P 500
+        value:
+          type: string
+          example: SP50
+        type:
+          type: string
+          example: Index
+          enum:
+            - Index
+            - ETF
+            - Mutual_Fund
+            - Portfolios
+    saHeadlinesRequestByView:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            dateRange:
+              type: string
+              description: >-
+                see list of valid date ranges. Date range is mutually exlusive
+                to start/end time
+              enum:
+                - Today
+                - 2 Days
+                - 1 Week
+                - 1 Month
+                - 3 Months
+                - 6 Months
+                - 1 Year
+                - 3 Years
+                - 5 Years
+                - 10 Years
+                - All Available
+            searchDate:
+              type: object
+              properties:
+                start:
+                  type: string
+                  description: >-
+                    Start time for custom search. startTime must follow the ISO
+                    8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also
+                    supports offsets ±[hh]:[mm]
+                  example: '2022-08-21T12:35:45Z'
+                end:
+                  type: string
+                  description: >-
+                    End time for custom search. If end time is not present end
+                    time is automatically set to the time of the search. endTime
+                    must follow the ISO 8601 standard format,
+                    YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
+                    ±[hh]:[mm]
+                  example: '2022-08-29T08:10:30Z'
+        meta:
+          type: object
+          properties:
+            pagination:
+              type: object
+              description: >-
+                Object defining pagination for the results pageable attribute.
+                Offset-based strategy is used for Pagination.
+              properties:
+                limit:
+                  type: integer
+                  example: 50
+                  default: 500
+                  description: Non-negative maximum number of entries to return.
+                offset:
+                  type: integer
+                  example: 100
+                  default: 0
+                  description: Non-negative number of entries to skip.
+    searchResponse:
+      type: object
+      description: Properties in results objects are based on return values
+      properties:
+        data:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/searchResponseArrayObject'
+        meta:
+          type: object
+          properties:
+            requestGuid:
+              type: string
+            pagination:
+              type: object
+              properties:
+                total:
+                  type: integer
+                  example: 100
+                isEstimatedTotal:
+                  type: boolean
+                  example: false
+    searchResponseArrayObject:
+      type: object
+      properties:
+        docsStoryDateAndTime:
+          type: string
+          example: '2022-09-15T06:48:19Z'
+        docsHeadlines:
+          type: string
+          example: Sample Headline
+        docsId:
+          type: string
+          example: sa_story_3393235
+        docsPrimarySymbols:
+          type: array
+          items:
+            type: string
+            example: AAPL-US
+        docsSymbols:
+          type: array
+          items:
+            type: string
+            example: AAPL-US
+        docsSubjects:
+          type: array
+          items:
+            type: string
+            example: SA_EARNINGS
+        docsStoryBody:
+          type: string
+          example: Sample Body
+        docsReferenceUris:
+          type: string
+          example: Sample URI
+    createOrEditViewBody:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            tickers:
+              type: array
+              items:
+                $ref: '#/components/schemas/createOrEditViewTickers'
+            categories:
+              type: array
+              items:
+                type: string
+                example: Earnings
+            regions:
+              type: array
+              items:
+                type: string
+                example: United States
+            topics:
+              type: array
+              items:
+                type: string
+                example: Market Summaries
+            sectors:
+              type: array
+              items:
+                type: string
+                example: Gold & Silver
+            isPrimary:
+              type: boolean
+              example: true
+            quickAlert:
+              type: boolean
+              example: false
+    createOrEditViewTickers:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Russell 1000
+        value:
+          type: string
+          example: R.1000
+        type:
+          type: string
+          example: Index
+          enum:
+            - Index
+            - ETF
+            - Holder
+            - Mutual_Fund
+            - Portfolios
+    createEditDeleteViewResponse:
+      type: object
+      description: Properties in object are results of the create or save operation
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              example: StreetAccount News Summaries Europe
+            message:
+              type: object
+              properties:
+                view:
+                  type: string
+                  example: View created/edited/deleted sucessfully
+    views:
+      type: object
+      description: StreetAccount views
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/viewsObject'
+    viewsObject:
+      type: object
+      properties:
+        viewName:
+          type: string
+          example: Sample View
+        tickers:
+          type: array
+          items:
+            type: string
+            example: FDS-US
+        categories:
+          type: array
+          items:
+            type: string
+            example: News Media
+        topics:
+          type: array
+          items:
+            type: string
+            example: 'Market Summaries '
+        regions:
+          type: array
+          items:
+            type: string
+            example: United States
+        sectors:
+          type: array
+          items:
+            type: string
+            example: Chemicals - Plastics & Rubber
+        isPrimary:
+          type: boolean
+    FilterResponse:
+      type: object
+      description: Filters Object
+      properties:
+        data:
+          type: object
+          properties:
+            structuredFilters:
+              $ref: '#/components/schemas/structuredFilters'
+            flattenedFilters:
+              $ref: '#/components/schemas/flattenedFilters'
+    flattenedFilters:
+      type: object
+      description: Flattened Filters Object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/flattenedFiltersCategoriesObject'
+        topics:
+          type: array
+          items:
+            $ref: '#/components/schemas/flattenedFiltersTopicsObject'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/flattenedFiltersRegionsObject'
+        sectors:
+          type: array
+          items:
+            $ref: '#/components/schemas/flattenedFiltersSectorsObject'
+        watchlists:
+          type: array
+          items:
+            $ref: '#/components/schemas/flattenedFiltersWatchlistsObject'
+    flattenedFiltersCategoriesObject:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: string
+      example:
+        name: Dividends
+        value:
+          - SA_DIVIDENDS
+    flattenedFiltersTopicsObject:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: string
+      example:
+        name: '13F Summary '
+        value:
+          - SA_13F_SUMMARY
+    flattenedFiltersRegionsObject:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: number
+      example:
+        name: Canada
+        value:
+          - 5
+    flattenedFiltersSectorsObject:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: number
+      example:
+        name: Chemical Manufacturing
+        value:
+          - 106
+    flattenedFiltersWatchlistsObject:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        value:
+          type: string
+      example:
+        name: S&P 500
+        type: Index
+        value: SP50
+    structuredFilters:
+      type: object
+      description: Structured Filters Object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/structuredFiltersCategoriesObject'
+        topics:
+          type: array
+          items:
+            $ref: '#/components/schemas/structuredFiltersTopicsObject'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/structuredFiltersRegionsObject'
+        sectors:
+          type: array
+          items:
+            $ref: '#/components/schemas/structuredFiltersSectorsObject'
+        watchlists:
+          type: array
+          items:
+            $ref: '#/components/schemas/structuredFiltersWatchlistsObject'
+    structuredFiltersCategoriesObject:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/structuredFiltersChildrenObject'
+    structuredFiltersChildrenObject:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: string
+    structuredFiltersTopicsObject:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/structuredFiltersChildrenObject'
+    structuredFiltersRegionsObject:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: array
+          items:
+            type: number
+    structuredFiltersSectorsObject:
+      type: object
+      properties:
+        name:
+          type: string
+        expanded:
+          type: boolean
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/structuredFiltersChildrenObject'
+    structuredFiltersWatchlistsObject:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        value:
+          type: string

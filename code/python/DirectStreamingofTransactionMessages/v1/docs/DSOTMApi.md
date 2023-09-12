@@ -59,11 +59,13 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
     transactions = Transactions(
         executions=[
             ExecutionParameters(
+                parentid="parentid_example",
                 net=3.14,
                 gross=3.14,
                 settlementvalue=3.14,
                 settlementdate="settlementdate_example",
                 settlementcurrencyiso="settlementcurrencyiso_example",
+                orderid="orderid_example",
                 portfolio="portfolio_example",
                 transactionid="transactionid_example",
                 symbol="symbol_example",
@@ -80,6 +82,8 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
         placements=[
             PlacementParameters(
                 settlementcurrencyiso="settlementcurrencyiso_example",
+                parentid="parentid_example",
+                orderid="orderid_example",
                 portfolio="portfolio_example",
                 transactionid="transactionid_example",
                 symbol="symbol_example",
@@ -95,6 +99,7 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
         ],
         orders=[
             OrderParameters(
+                orderid="orderid_example",
                 portfolio="portfolio_example",
                 transactionid="transactionid_example",
                 symbol="symbol_example",
@@ -139,7 +144,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

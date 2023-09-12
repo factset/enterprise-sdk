@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: SPAR Engine API
-  version: 3.13.0
+  version: 3.13.4
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/spar-engine-api
@@ -328,13 +328,13 @@ paths:
         in a given directory.
       operationId: getAccounts
       parameters:
-      - description: The directory to get the accounts and sub-directories in
+      - description: The directory to get the accounts and sub-directories.
         explode: false
         in: path
         name: path
         required: true
         schema:
-          description: The directory to get the accounts and sub-directories in
+          description: The directory to get the accounts and sub-directories.
           example: 'Client:'
           type: string
         style: simple
@@ -941,7 +941,7 @@ paths:
         required: true
         schema:
           description: Document Name
-          example: 'Client:'
+          example: SPAR_DOCUMENTS:Factset Default Document
           type: string
         style: form
       responses:
@@ -1243,6 +1243,7 @@ paths:
         required: true
         schema:
           description: Unique identifier for a SPAR component
+          example: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
           type: string
         style: simple
       responses:
@@ -1755,7 +1756,7 @@ paths:
         required: true
         schema:
           description: The directory to get the documents in
-          example: SPAR_DOCUMENTS:Factset Default Document
+          example: 'Client:'
           type: string
         style: simple
       responses:
@@ -2263,9 +2264,9 @@ paths:
       - explode: true
         in: query
         name: pageNumber
-        required: true
+        required: false
         schema:
-          example: 1
+          default: 1
           format: int32
           type: integer
         style: form
@@ -2583,6 +2584,38 @@ paths:
       requestBody:
         content:
           application/json:
+            example:
+              data:
+                "1":
+                  componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
+                  accounts:
+                  - id: R.1000
+                    returntype: GTR
+                    prefix: RUSSELL
+                  benchmark:
+                    id: R.2000
+                    returntype: GTR
+                    prefix: RUSSELL
+                  dates:
+                    startdate: -2M
+                    enddate: "0"
+                    frequency: Monthly
+                "2":
+                  componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
+                  accounts:
+                  - id: R.1000
+                    returntype: GTR
+                    prefix: RUSSELL
+                  - id: R.2000
+                    returntype: GTR
+                    prefix: RUSSELL
+                  benchmark:
+                    id: R.2000
+                    returntype: GTR
+                    prefix: RUSSELL
+              meta:
+                stachContentorganization: SimplifiedRow
+                format: JsonStach
             schema:
               $ref: '#/components/schemas/SPARCalculationParametersRoot'
         description: Calculation Parameters
@@ -3057,13 +3090,7 @@ paths:
               style: simple
         "400":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -3160,13 +3187,7 @@ paths:
               style: simple
         "404":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: There was no request for the calculation identifier provided,
@@ -3552,6 +3573,38 @@ paths:
       requestBody:
         content:
           application/json:
+            example:
+              data:
+                "1":
+                  componentid: 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D
+                  accounts:
+                  - id: R.1000
+                    returntype: GTR
+                    prefix: RUSSELL
+                  benchmark:
+                    id: R.2000
+                    returntype: GTR
+                    prefix: RUSSELL
+                  dates:
+                    startdate: -4M
+                    enddate: "0"
+                    frequency: Monthly
+                "2":
+                  componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
+                  accounts:
+                  - id: R.1000
+                    returntype: GTR
+                    prefix: RUSSELL
+                  - id: R.2000
+                    returntype: GTR
+                    prefix: RUSSELL
+                  benchmark:
+                    id: R.2000
+                    returntype: GTR
+                    prefix: RUSSELL
+              meta:
+                stachContentorganization: SimplifiedRow
+                format: JsonStach
             schema:
               $ref: '#/components/schemas/SPARCalculationParametersRoot'
         description: Calculation Parameters
@@ -4663,13 +4716,12 @@ components:
             id: id
           - name: name
             id: id
-        meta: '{}'
+        meta: ""
       properties:
         data:
           $ref: '#/components/schemas/SPARAccounts'
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object
@@ -4687,13 +4739,21 @@ components:
       type: object
     Error:
       example:
+        code: code
         id: id
         detail: detail
         source:
           pointer: pointer
           parameter: parameter
+        title: title
       properties:
         id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
           nullable: true
           type: string
         detail:
@@ -4741,13 +4801,12 @@ components:
           accounts:
           - accounts
           - accounts
-        meta: '{}'
+        meta: ""
       properties:
         data:
           $ref: '#/components/schemas/AccountDirectories'
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object
@@ -4811,13 +4870,12 @@ components:
             id: id
           name: name
           id: id
-        meta: '{}'
+        meta: ""
       properties:
         data:
           $ref: '#/components/schemas/SPARBenchmark'
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object
@@ -4841,13 +4899,16 @@ components:
           key:
             name: name
             category: category
+        meta: ""
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/ComponentSummary'
-          description: The keys represent Component Ids
-          nullable: true
           type: object
+        meta:
+          nullable: true
+      required:
+      - data
       type: object
     SPARComponent:
       example:
@@ -4934,7 +4995,7 @@ components:
         data:
           key:
             name: name
-        meta: '{}'
+        meta: ""
       properties:
         data:
           additionalProperties:
@@ -4942,7 +5003,6 @@ components:
           type: object
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object
@@ -4977,13 +5037,12 @@ components:
           directories:
           - directories
           - directories
-        meta: '{}'
+        meta: ""
       properties:
         data:
           $ref: '#/components/schemas/DocumentDirectories'
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object
@@ -5001,7 +5060,7 @@ components:
         data:
           key:
             name: name
-        meta: '{}'
+        meta: ""
       properties:
         data:
           additionalProperties:
@@ -5009,7 +5068,6 @@ components:
           type: object
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object
@@ -5163,16 +5221,20 @@ components:
         - warnings
         progress: progress
         errors:
-        - id: id
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
-        - id: id
+          title: title
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
+          title: title
         status: Queued
         points: 0
       properties:
@@ -5222,16 +5284,20 @@ components:
             - warnings
             progress: progress
             errors:
-            - id: id
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
-            - id: id
+              title: title
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
+              title: title
             status: Queued
             points: 0
         status: Queued
@@ -5289,16 +5355,20 @@ components:
               - warnings
               progress: progress
               errors:
-              - id: id
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
-              - id: id
+                title: title
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
+                title: title
               status: Queued
               points: 0
           status: Queued
@@ -5316,14 +5386,12 @@ components:
       type: object
     ObjectRoot:
       example:
-        data: '{}'
-        meta: '{}'
+        data: ""
+        meta: ""
       properties:
-        data:
-          type: object
+        data: {}
         meta:
           nullable: true
-          type: object
       required:
       - data
       type: object

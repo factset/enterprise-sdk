@@ -11,10 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.NaturalLanguageProcessing.models.HTTPErrorRoot;
 import com.factset.sdk.NaturalLanguageProcessing.models.QnAAnswerParametersRoot;
 import com.factset.sdk.NaturalLanguageProcessing.models.QnAAnswerRoot;
-import com.factset.sdk.NaturalLanguageProcessing.models.QnAHTTPErrorRoot;
-import com.factset.sdk.NaturalLanguageProcessing.models.QnATaskRoot;
+import com.factset.sdk.NaturalLanguageProcessing.models.TaskRoot;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QuestionAnswerApi {
@@ -31,27 +31,27 @@ public class QuestionAnswerApi {
   private static final Map<Integer, GenericType> qnaGetAnswersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     qnaGetAnswersResponseTypeMap.put(200, new GenericType<QnAAnswerRoot>(){});
-    qnaGetAnswersResponseTypeMap.put(202, new GenericType<QnATaskRoot>(){});
-    qnaGetAnswersResponseTypeMap.put(401, new GenericType<QnAHTTPErrorRoot>(){});
-    qnaGetAnswersResponseTypeMap.put(404, new GenericType<QnAHTTPErrorRoot>(){});
-    qnaGetAnswersResponseTypeMap.put(500, new GenericType<QnAHTTPErrorRoot>(){});
+    qnaGetAnswersResponseTypeMap.put(202, new GenericType<TaskRoot>(){});
+    qnaGetAnswersResponseTypeMap.put(401, new GenericType<HTTPErrorRoot>(){});
+    qnaGetAnswersResponseTypeMap.put(404, new GenericType<HTTPErrorRoot>(){});
+    qnaGetAnswersResponseTypeMap.put(500, new GenericType<HTTPErrorRoot>(){});
   }
 
   private static final Map<Integer, GenericType> qnaGetStatusResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    qnaGetStatusResponseTypeMap.put(201, new GenericType<QnATaskRoot>(){});
-    qnaGetStatusResponseTypeMap.put(202, new GenericType<QnATaskRoot>(){});
-    qnaGetStatusResponseTypeMap.put(401, new GenericType<QnAHTTPErrorRoot>(){});
-    qnaGetStatusResponseTypeMap.put(404, new GenericType<QnAHTTPErrorRoot>(){});
-    qnaGetStatusResponseTypeMap.put(500, new GenericType<QnAHTTPErrorRoot>(){});
+    qnaGetStatusResponseTypeMap.put(201, new GenericType<TaskRoot>(){});
+    qnaGetStatusResponseTypeMap.put(202, new GenericType<TaskRoot>(){});
+    qnaGetStatusResponseTypeMap.put(401, new GenericType<HTTPErrorRoot>(){});
+    qnaGetStatusResponseTypeMap.put(404, new GenericType<HTTPErrorRoot>(){});
+    qnaGetStatusResponseTypeMap.put(500, new GenericType<HTTPErrorRoot>(){});
   }
 
   private static final Map<Integer, GenericType> qnaPostQuestionResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    qnaPostQuestionResponseTypeMap.put(202, new GenericType<QnATaskRoot>(){});
-    qnaPostQuestionResponseTypeMap.put(400, new GenericType<QnAHTTPErrorRoot>(){});
-    qnaPostQuestionResponseTypeMap.put(401, new GenericType<QnAHTTPErrorRoot>(){});
-    qnaPostQuestionResponseTypeMap.put(500, new GenericType<QnAHTTPErrorRoot>(){});
+    qnaPostQuestionResponseTypeMap.put(202, new GenericType<TaskRoot>(){});
+    qnaPostQuestionResponseTypeMap.put(400, new GenericType<HTTPErrorRoot>(){});
+    qnaPostQuestionResponseTypeMap.put(401, new GenericType<HTTPErrorRoot>(){});
+    qnaPostQuestionResponseTypeMap.put(500, new GenericType<HTTPErrorRoot>(){});
   }
 
   
@@ -64,7 +64,7 @@ public class QuestionAnswerApi {
    * <ul>
    *   <li>200 : {@code QnAAnswerRoot }<br>OK</li>
    * 
-   *   <li>202 : {@code QnATaskRoot }<br>Accepted</li>
+   *   <li>202 : {@code TaskRoot }<br>Accepted</li>
    * </ul>
    *
    * <p>
@@ -76,7 +76,7 @@ public class QuestionAnswerApi {
    *     QnAAnswerRoot data200 = response.getResponse200();
    *     break;
    *   case 202:
-   *     QnATaskRoot data202 = response.getResponse202();
+   *     TaskRoot data202 = response.getResponse202();
    *     break;
    *  }
    * }</pre>
@@ -100,11 +100,11 @@ public class QuestionAnswerApi {
       return (QnAAnswerRoot) this.response;
     }
     
-    public QnATaskRoot getResponse202() throws ApiException {
+    public TaskRoot getResponse202() throws ApiException {
       if (this.statusCode != 202) {
         throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
       }
-      return (QnATaskRoot) this.response;
+      return (TaskRoot) this.response;
     }
     
 
@@ -158,8 +158,8 @@ public class QuestionAnswerApi {
   }
 
   /**
-   * Get the answer(s)
-   * Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+   * Endpoint to get the answer(s)
+   * Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
    * @param id Identifier from the Question &amp; Answer task and comes from the POST request which created the task (required)
    * @return QnaGetAnswersResponseWrapper
    * @throws ApiException if fails to make API call
@@ -178,8 +178,8 @@ public class QuestionAnswerApi {
   }
 
   /**
-   * Get the answer(s)
-   * Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+   * Endpoint to get the answer(s)
+   * Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
    * @param id Identifier from the Question &amp; Answer task and comes from the POST request which created the task (required)
    * @return ApiResponse&lt;QnaGetAnswersResponseWrapper&gt;
    * @throws ApiException if fails to make API call
@@ -247,10 +247,10 @@ public class QuestionAnswerApi {
 
   }
   /**
-   * Get the completion status
-   * Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+   * Endpoint to get the completion status for a Q&amp;A request
+   * Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
    * @param id Identifier from the Question &amp; Answer task and comes from the POST request which created the task (required)
-   * @return QnATaskRoot
+   * @return TaskRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -262,15 +262,15 @@ public class QuestionAnswerApi {
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
      </table>
    */
-  public QnATaskRoot qnaGetStatus(String id) throws ApiException {
+  public TaskRoot qnaGetStatus(String id) throws ApiException {
     return qnaGetStatusWithHttpInfo(id).getData();
   }
 
   /**
-   * Get the completion status
-   * Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+   * Endpoint to get the completion status for a Q&amp;A request
+   * Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
    * @param id Identifier from the Question &amp; Answer task and comes from the POST request which created the task (required)
-   * @return ApiResponse&lt;QnATaskRoot&gt;
+   * @return ApiResponse&lt;TaskRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -282,7 +282,7 @@ public class QuestionAnswerApi {
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<QnATaskRoot> qnaGetStatusWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<TaskRoot> qnaGetStatusWithHttpInfo(String id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -319,7 +319,7 @@ public class QuestionAnswerApi {
 
     ApiResponse<
         
-        QnATaskRoot
+        TaskRoot
       
     > apiResponse = apiClient.invokeAPI("QuestionAnswerApi.qnaGetStatus", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -329,10 +329,10 @@ public class QuestionAnswerApi {
 
   }
   /**
-   * Post a question for answer(s)
-   * Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+   * Endpoint to submit a question for answer(s)
+   * Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
    * @param qnAAnswerParametersRoot  (required)
-   * @return QnATaskRoot
+   * @return TaskRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -343,15 +343,15 @@ public class QuestionAnswerApi {
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
      </table>
    */
-  public QnATaskRoot qnaPostQuestion(QnAAnswerParametersRoot qnAAnswerParametersRoot) throws ApiException {
+  public TaskRoot qnaPostQuestion(QnAAnswerParametersRoot qnAAnswerParametersRoot) throws ApiException {
     return qnaPostQuestionWithHttpInfo(qnAAnswerParametersRoot).getData();
   }
 
   /**
-   * Post a question for answer(s)
-   * Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+   * Endpoint to submit a question for answer(s)
+   * Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
    * @param qnAAnswerParametersRoot  (required)
-   * @return ApiResponse&lt;QnATaskRoot&gt;
+   * @return ApiResponse&lt;TaskRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -362,7 +362,7 @@ public class QuestionAnswerApi {
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<QnATaskRoot> qnaPostQuestionWithHttpInfo(QnAAnswerParametersRoot qnAAnswerParametersRoot) throws ApiException {
+  public ApiResponse<TaskRoot> qnaPostQuestionWithHttpInfo(QnAAnswerParametersRoot qnAAnswerParametersRoot) throws ApiException {
     Object localVarPostBody = qnAAnswerParametersRoot;
     
     // verify the required parameter 'qnAAnswerParametersRoot' is set
@@ -398,7 +398,7 @@ public class QuestionAnswerApi {
 
     ApiResponse<
         
-        QnATaskRoot
+        TaskRoot
       
     > apiResponse = apiClient.invokeAPI("QuestionAnswerApi.qnaPostQuestion", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

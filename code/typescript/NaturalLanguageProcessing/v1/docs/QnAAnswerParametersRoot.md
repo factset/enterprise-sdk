@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**QnAAnswerParameters**](QnAAnswerParameters.md) |  | 
-**meta** | **Object** |  | [optional] 
+**meta** | **Object** | Any associated metadata | [optional] 
 
 

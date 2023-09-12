@@ -1,6 +1,6 @@
 /*
  * FactSet Ownership API
- * FactSet’s Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all \"holder types\" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p> 
+ * FactSet's Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all \"holder types\" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p> 
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOwnership.JSON;
@@ -56,37 +60,37 @@ public class FundHolding implements Serializable {
   private String requestId;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private String currency;
+  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ADJ_HOLDING = "adjHolding";
-  private Double adjHolding;
+  private JsonNullable<Double> adjHolding = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_ADJ_MARKET_VALUE = "adjMarketValue";
-  private Double adjMarketValue;
+  private JsonNullable<Double> adjMarketValue = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_WEIGHT_CLOSE = "weightClose";
-  private Double weightClose;
+  private JsonNullable<Double> weightClose = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_ISSUE_TYPE = "issueType";
-  private String issueType;
+  private JsonNullable<String> issueType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_SECURITY_ID = "fsymSecurityId";
-  private String fsymSecurityId;
+  private JsonNullable<String> fsymSecurityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_REGIONAL_ID = "fsymRegionalId";
-  private String fsymRegionalId;
+  private JsonNullable<String> fsymRegionalId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SECURITY_NAME = "securityName";
-  private String securityName;
+  private JsonNullable<String> securityName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SECURITY_TICKER = "securityTicker";
-  private String securityTicker;
+  private JsonNullable<String> securityTicker = JsonNullable.<String>undefined();
 
   public FundHolding() { 
   }
@@ -118,7 +122,7 @@ public class FundHolding implements Serializable {
 
 
   public FundHolding fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -128,23 +132,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "K7ZVMR-S", value = "FactSet Security Identifier of Fund. Identifies the security level id of the Fund requested (not-representing the underlying holding). Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public FundHolding date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -154,23 +166,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Sat Jun 30 00:00:00 UTC 2018", value = "Date of the reported holding in YYYY-MM-DD format. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public FundHolding currency(String currency) {
-    this.currency = currency;
+    this.currency = JsonNullable.<String>of(currency);
     return this;
   }
 
@@ -180,23 +200,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency code. The service will default to the funds local currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCurrency() {
-    return currency;
+        return currency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+
+  public JsonNullable<String> getCurrency_JsonNullable() {
+    return currency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
     this.currency = currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = JsonNullable.<String>of(currency);
   }
 
 
   public FundHolding adjHolding(Double adjHolding) {
-    this.adjHolding = adjHolding;
+    this.adjHolding = JsonNullable.<Double>of(adjHolding);
     return this;
   }
 
@@ -206,23 +234,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "60036157", value = "Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).")
-  @JsonProperty(JSON_PROPERTY_ADJ_HOLDING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getAdjHolding() {
-    return adjHolding;
+        return adjHolding.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ADJ_HOLDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdjHolding(Double adjHolding) {
+
+  public JsonNullable<Double> getAdjHolding_JsonNullable() {
+    return adjHolding;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ADJ_HOLDING)
+  public void setAdjHolding_JsonNullable(JsonNullable<Double> adjHolding) {
     this.adjHolding = adjHolding;
+  }
+
+  public void setAdjHolding(Double adjHolding) {
+    this.adjHolding = JsonNullable.<Double>of(adjHolding);
   }
 
 
   public FundHolding adjMarketValue(Double adjMarketValue) {
-    this.adjMarketValue = adjMarketValue;
+    this.adjMarketValue = JsonNullable.<Double>of(adjMarketValue);
     return this;
   }
 
@@ -232,23 +268,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "120078159", value = "Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet's Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).")
-  @JsonProperty(JSON_PROPERTY_ADJ_MARKET_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getAdjMarketValue() {
-    return adjMarketValue;
+        return adjMarketValue.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ADJ_MARKET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdjMarketValue(Double adjMarketValue) {
+
+  public JsonNullable<Double> getAdjMarketValue_JsonNullable() {
+    return adjMarketValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ADJ_MARKET_VALUE)
+  public void setAdjMarketValue_JsonNullable(JsonNullable<Double> adjMarketValue) {
     this.adjMarketValue = adjMarketValue;
+  }
+
+  public void setAdjMarketValue(Double adjMarketValue) {
+    this.adjMarketValue = JsonNullable.<Double>of(adjMarketValue);
   }
 
 
   public FundHolding weightClose(Double weightClose) {
-    this.weightClose = weightClose;
+    this.weightClose = JsonNullable.<Double>of(weightClose);
     return this;
   }
 
@@ -258,23 +302,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1.6639", value = "Closing weight of security in the fund for the requested asset type (percent).")
-  @JsonProperty(JSON_PROPERTY_WEIGHT_CLOSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getWeightClose() {
-    return weightClose;
+        return weightClose.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_WEIGHT_CLOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWeightClose(Double weightClose) {
+
+  public JsonNullable<Double> getWeightClose_JsonNullable() {
+    return weightClose;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WEIGHT_CLOSE)
+  public void setWeightClose_JsonNullable(JsonNullable<Double> weightClose) {
     this.weightClose = weightClose;
+  }
+
+  public void setWeightClose(Double weightClose) {
+    this.weightClose = JsonNullable.<Double>of(weightClose);
   }
 
 
   public FundHolding issueType(String issueType) {
-    this.issueType = issueType;
+    this.issueType = JsonNullable.<String>of(issueType);
     return this;
   }
 
@@ -284,23 +336,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Equity", value = "Issue type of held security. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).")
-  @JsonProperty(JSON_PROPERTY_ISSUE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getIssueType() {
-    return issueType;
+        return issueType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ISSUE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIssueType(String issueType) {
+
+  public JsonNullable<String> getIssueType_JsonNullable() {
+    return issueType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISSUE_TYPE)
+  public void setIssueType_JsonNullable(JsonNullable<String> issueType) {
     this.issueType = issueType;
+  }
+
+  public void setIssueType(String issueType) {
+    this.issueType = JsonNullable.<String>of(issueType);
   }
 
 
   public FundHolding fsymSecurityId(String fsymSecurityId) {
-    this.fsymSecurityId = fsymSecurityId;
+    this.fsymSecurityId = JsonNullable.<String>of(fsymSecurityId);
     return this;
   }
 
@@ -310,23 +370,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "BHM9TN-S", value = "Represents the security id for the underlying holding, not the parent holding. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.")
-  @JsonProperty(JSON_PROPERTY_FSYM_SECURITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymSecurityId() {
-    return fsymSecurityId;
+        return fsymSecurityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_SECURITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymSecurityId(String fsymSecurityId) {
+
+  public JsonNullable<String> getFsymSecurityId_JsonNullable() {
+    return fsymSecurityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_SECURITY_ID)
+  public void setFsymSecurityId_JsonNullable(JsonNullable<String> fsymSecurityId) {
     this.fsymSecurityId = fsymSecurityId;
+  }
+
+  public void setFsymSecurityId(String fsymSecurityId) {
+    this.fsymSecurityId = JsonNullable.<String>of(fsymSecurityId);
   }
 
 
   public FundHolding fsymRegionalId(String fsymRegionalId) {
-    this.fsymRegionalId = fsymRegionalId;
+    this.fsymRegionalId = JsonNullable.<String>of(fsymRegionalId);
     return this;
   }
 
@@ -336,23 +404,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "QLGSL2-R", value = "FactSet Regional Security identifier of the security held in the fund.")
-  @JsonProperty(JSON_PROPERTY_FSYM_REGIONAL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymRegionalId() {
-    return fsymRegionalId;
+        return fsymRegionalId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_REGIONAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymRegionalId(String fsymRegionalId) {
+
+  public JsonNullable<String> getFsymRegionalId_JsonNullable() {
+    return fsymRegionalId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_REGIONAL_ID)
+  public void setFsymRegionalId_JsonNullable(JsonNullable<String> fsymRegionalId) {
     this.fsymRegionalId = fsymRegionalId;
+  }
+
+  public void setFsymRegionalId(String fsymRegionalId) {
+    this.fsymRegionalId = JsonNullable.<String>of(fsymRegionalId);
   }
 
 
   public FundHolding securityName(String securityName) {
-    this.securityName = securityName;
+    this.securityName = JsonNullable.<String>of(securityName);
     return this;
   }
 
@@ -362,23 +438,31 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FACEBOOK INC  CL A", value = "Name of held security.")
-  @JsonProperty(JSON_PROPERTY_SECURITY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSecurityName() {
-    return securityName;
+        return securityName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SECURITY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityName(String securityName) {
+
+  public JsonNullable<String> getSecurityName_JsonNullable() {
+    return securityName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECURITY_NAME)
+  public void setSecurityName_JsonNullable(JsonNullable<String> securityName) {
     this.securityName = securityName;
+  }
+
+  public void setSecurityName(String securityName) {
+    this.securityName = JsonNullable.<String>of(securityName);
   }
 
 
   public FundHolding securityTicker(String securityTicker) {
-    this.securityTicker = securityTicker;
+    this.securityTicker = JsonNullable.<String>of(securityTicker);
     return this;
   }
 
@@ -388,18 +472,26 @@ public class FundHolding implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FB-US", value = "Ticker of held security.")
-  @JsonProperty(JSON_PROPERTY_SECURITY_TICKER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSecurityTicker() {
-    return securityTicker;
+        return securityTicker.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SECURITY_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityTicker(String securityTicker) {
+
+  public JsonNullable<String> getSecurityTicker_JsonNullable() {
+    return securityTicker;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECURITY_TICKER)
+  public void setSecurityTicker_JsonNullable(JsonNullable<String> securityTicker) {
     this.securityTicker = securityTicker;
+  }
+
+  public void setSecurityTicker(String securityTicker) {
+    this.securityTicker = JsonNullable.<String>of(securityTicker);
   }
 
 
@@ -416,22 +508,33 @@ public class FundHolding implements Serializable {
     }
     FundHolding fundHolding = (FundHolding) o;
     return Objects.equals(this.requestId, fundHolding.requestId) &&
-        Objects.equals(this.fsymId, fundHolding.fsymId) &&
-        Objects.equals(this.date, fundHolding.date) &&
-        Objects.equals(this.currency, fundHolding.currency) &&
-        Objects.equals(this.adjHolding, fundHolding.adjHolding) &&
-        Objects.equals(this.adjMarketValue, fundHolding.adjMarketValue) &&
-        Objects.equals(this.weightClose, fundHolding.weightClose) &&
-        Objects.equals(this.issueType, fundHolding.issueType) &&
-        Objects.equals(this.fsymSecurityId, fundHolding.fsymSecurityId) &&
-        Objects.equals(this.fsymRegionalId, fundHolding.fsymRegionalId) &&
-        Objects.equals(this.securityName, fundHolding.securityName) &&
-        Objects.equals(this.securityTicker, fundHolding.securityTicker);
+        equalsNullable(this.fsymId, fundHolding.fsymId) &&
+        equalsNullable(this.date, fundHolding.date) &&
+        equalsNullable(this.currency, fundHolding.currency) &&
+        equalsNullable(this.adjHolding, fundHolding.adjHolding) &&
+        equalsNullable(this.adjMarketValue, fundHolding.adjMarketValue) &&
+        equalsNullable(this.weightClose, fundHolding.weightClose) &&
+        equalsNullable(this.issueType, fundHolding.issueType) &&
+        equalsNullable(this.fsymSecurityId, fundHolding.fsymSecurityId) &&
+        equalsNullable(this.fsymRegionalId, fundHolding.fsymRegionalId) &&
+        equalsNullable(this.securityName, fundHolding.securityName) &&
+        equalsNullable(this.securityTicker, fundHolding.securityTicker);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, fsymId, date, currency, adjHolding, adjMarketValue, weightClose, issueType, fsymSecurityId, fsymRegionalId, securityName, securityTicker);
+    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(currency), hashCodeNullable(adjHolding), hashCodeNullable(adjMarketValue), hashCodeNullable(weightClose), hashCodeNullable(issueType), hashCodeNullable(fsymSecurityId), hashCodeNullable(fsymRegionalId), hashCodeNullable(securityName), hashCodeNullable(securityTicker));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

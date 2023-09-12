@@ -120,7 +120,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new UnlinkedPATemplatesApi();
-const id = "'01234567890123456789012345678901'"; // String | Unique identifier for an unlinked PA template
+const id = 01234567890123456789012345678901; // String | Unique identifier for an unlinked PA template
 
 // Call api endpoint
 apiInstance.deleteUnlinkedPATemplates(id).then(
@@ -140,7 +140,7 @@ apiInstance.deleteUnlinkedPATemplates(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for an unlinked PA template | [default to &#39;01234567890123456789012345678901&#39;]
+ **id** | **String**| Unique identifier for an unlinked PA template | 
 
 ### Return type
 
@@ -331,8 +331,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new UnlinkedPATemplatesApi();
 const opts = {
-  'directory': "'Personal:UninkedPATemplates/'", // String | Get unlinked PA templates in path.
-  'category': "'Weights'" // String | Get unlinked PA templates by category.
+  'directory': Personal:UninkedPATemplates/, // String | Get unlinked PA templates in path.
+  'category': Weights // String | Get unlinked PA templates by category.
 };
 
 // Call api endpoint
@@ -355,8 +355,8 @@ apiInstance.getUnlinkedPATemplates(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **String**| Get unlinked PA templates in path. | [optional] [default to &#39;Personal:UninkedPATemplates/&#39;]
- **category** | **String**| Get unlinked PA templates by category. | [optional] [default to &#39;Weights&#39;]
+ **directory** | **String**| Get unlinked PA templates in path. | [optional] 
+ **category** | **String**| Get unlinked PA templates by category. | [optional] 
 
 ### Return type
 
@@ -406,7 +406,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new UnlinkedPATemplatesApi();
-const id = "'01234567890123456789012345678901'"; // String | Unique identifier for an unlinked PA template
+const id = 01234567890123456789012345678901; // String | Unique identifier for an unlinked PA template
 
 // Call api endpoint
 apiInstance.getUnlinkedPATemplatesById(id).then(
@@ -428,7 +428,7 @@ apiInstance.getUnlinkedPATemplatesById(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for an unlinked PA template | [default to &#39;01234567890123456789012345678901&#39;]
+ **id** | **String**| Unique identifier for an unlinked PA template | 
 
 ### Return type
 
@@ -478,7 +478,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new UnlinkedPATemplatesApi();
-const id = "'01234567890123456789012345678901'"; // String | Unique identifier for an unlinked PA template
+const id = 01234567890123456789012345678901; // String | Unique identifier for an unlinked PA template
 const unlinkedPATemplateUpdateParametersRoot = {"data":{"description":"This is an unlinked PA template that only returns security level data","accounts":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"MSCI_USA:984000","holdingsmode":"B&H"}],"benchmarks":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"DJGX:AMERICAS","holdingsmode":"B&H"}],"columns":[{"id":"BD1720474AB8A80BDD79777F5B9CA594F4151C0554E30F9C916BA73BFAFC1FE0","statistics":["eb9d6d91416e4224bacadc261787e56f"]}],"dates":{"startdate":"20200101","enddate":"20201215","frequency":"Monthly"},"groups":[{"id":"5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA","frequency":"BeginningOfPeriod"}],"datasources":{"portfoliopricingsources":[{"id":"39A1C0C7BD46731552B29D913804EC5F3ED91E6B991AF298DEC88CCA2A9FC6B3"}],"benchmarkpricingsources":[{"id":"9BB2A3142C450AF54A7486C1D37A210A64474B2499A1E4A30E19801B9FC55E8C"}],"useportfoliopricingsourcesforbenchmark":false},"currencyisocode":"USD","componentdetail":"GROUPS","content":{"mandatory":["accounts","benchmarks"],"optional":["columns"],"locked":["groups"]}}}; // UnlinkedPATemplateUpdateParametersRoot | Request Parameters
 
 // Call api endpoint
@@ -501,7 +501,7 @@ apiInstance.updateUnlinkedPATemplates(id, unlinkedPATemplateUpdateParametersRoot
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for an unlinked PA template | [default to &#39;01234567890123456789012345678901&#39;]
+ **id** | **String**| Unique identifier for an unlinked PA template | 
  **unlinkedPATemplateUpdateParametersRoot** | [**UnlinkedPATemplateUpdateParametersRoot**](UnlinkedPATemplateUpdateParametersRoot.md)| Request Parameters | 
 
 ### Return type

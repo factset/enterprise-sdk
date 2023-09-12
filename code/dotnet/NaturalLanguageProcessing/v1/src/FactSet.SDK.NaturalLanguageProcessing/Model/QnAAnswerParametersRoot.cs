@@ -41,7 +41,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
         /// Initializes a new instance of the <see cref="QnAAnswerParametersRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        /// <param name="meta">meta.</param>
+        /// <param name="meta">Any associated metadata.</param>
         public QnAAnswerParametersRoot(QnAAnswerParameters data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
@@ -59,8 +59,9 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
         public QnAAnswerParameters Data { get; set; }
 
         /// <summary>
-        /// Gets or Sets Meta
+        /// Any associated metadata
         /// </summary>
+        /// <value>Any associated metadata</value>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
         public Object Meta { get; set; }
 

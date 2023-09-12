@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **convert_pa_dates_to_absolute_format**
-> DateParametersSummaryRoot convert_pa_dates_to_absolute_format()
+> DateParametersSummaryRoot convert_pa_dates_to_absolute_format(enddate, componentid, account)
 
 Convert PA dates to absolute format
 
@@ -56,13 +56,19 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     api_instance = dates_api.DatesApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    startdate = "-3AY" # str | Start Date (optional) if omitted the server will use the default value of "-3AY"
+    enddate = "-1AY" # str | End Date
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    componentid = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46" # str | Component Id
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    account = "Client:/Folder1/Folder2/AccountName.ACCT" # str | Account ( Account Name ending with .ACCT or .ACTM )
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    startdate = "-3AY" # str | Start Date (optional)
 
     try:
         # Convert PA dates to absolute format
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.convert_pa_dates_to_absolute_format(startdate=startdate)
+        api_response = api_instance.convert_pa_dates_to_absolute_format(enddate, componentid, account, startdate=startdate)
 
         pprint(api_response)
 
@@ -75,10 +81,10 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enddate** | **str**| End Date | defaults to "-1AY"
- **componentid** | **str**| Component Id | defaults to "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935"
- **account** | **str**| Account | defaults to "Client:Foo/Bar/myaccount.acct"
- **startdate** | **str**| Start Date | [optional] if omitted the server will use the default value of "-3AY"
+ **enddate** | **str**| End Date |
+ **componentid** | **str**| Component Id |
+ **account** | **str**| Account ( Account Name ending with .ACCT or .ACTM ) |
+ **startdate** | **str**| Start Date | [optional]
 
 ### Return type
 

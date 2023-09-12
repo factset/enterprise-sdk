@@ -43,7 +43,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ComponentsApi();
-const id = "'782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53'"; // String | Unique identifier for a PA component
+const id = 801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46; // String | Unique identifier for a PA component
 
 // Call api endpoint
 apiInstance.getPAComponentById(id).then(
@@ -65,7 +65,7 @@ apiInstance.getPAComponentById(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a PA component | [default to &#39;782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53&#39;]
+ **id** | **String**| Unique identifier for a PA component | 
 
 ### Return type
 
@@ -115,7 +115,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ComponentsApi();
-const document = "'Client:Foo'"; // String | Document Name
+const document = PA3_DOCUMENTS:DEFAULT; // String | Document Name
 
 // Call api endpoint
 apiInstance.getPAComponents(document).then(
@@ -137,7 +137,7 @@ apiInstance.getPAComponents(document).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **String**| Document Name | [default to &#39;Client:Foo&#39;]
+ **document** | **String**| Document Name | 
 
 ### Return type
 

@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.NaturalLanguageProcessing.models.Error;
 import com.factset.sdk.NaturalLanguageProcessing.models.NEREntityList;
-import com.factset.sdk.NaturalLanguageProcessing.models.NERErrorSchema;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,7 +36,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
  */
 @JsonPropertyOrder({
   NERResponseSchema.JSON_PROPERTY_DATA,
-  NERResponseSchema.JSON_PROPERTY_ERRORS
+  NERResponseSchema.JSON_PROPERTY_ERRORS,
+  NERResponseSchema.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NERResponseSchema implements Serializable {
@@ -46,7 +47,10 @@ public class NERResponseSchema implements Serializable {
   private NEREntityList data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private java.util.List<NERErrorSchema> errors = null;
+  private java.util.List<Error> errors = null;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private Object meta;
 
   public NERResponseSchema() { 
   }
@@ -77,12 +81,12 @@ public class NERResponseSchema implements Serializable {
   }
 
 
-  public NERResponseSchema errors(java.util.List<NERErrorSchema> errors) {
+  public NERResponseSchema errors(java.util.List<Error> errors) {
     this.errors = errors;
     return this;
   }
 
-  public NERResponseSchema addErrorsItem(NERErrorSchema errorsItem) {
+  public NERResponseSchema addErrorsItem(Error errorsItem) {
     if (this.errors == null) {
       this.errors = new java.util.ArrayList<>();
     }
@@ -99,15 +103,41 @@ public class NERResponseSchema implements Serializable {
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<NERErrorSchema> getErrors() {
+  public java.util.List<Error> getErrors() {
     return errors;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrors(java.util.List<NERErrorSchema> errors) {
+  public void setErrors(java.util.List<Error> errors) {
     this.errors = errors;
+  }
+
+
+  public NERResponseSchema meta(Object meta) {
+    this.meta = meta;
+    return this;
+  }
+
+   /**
+   * Any associated metadata
+   * @return meta
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Any associated metadata")
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Object getMeta() {
+    return meta;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMeta(Object meta) {
+    this.meta = meta;
   }
 
 
@@ -124,12 +154,13 @@ public class NERResponseSchema implements Serializable {
     }
     NERResponseSchema neRResponseSchema = (NERResponseSchema) o;
     return Objects.equals(this.data, neRResponseSchema.data) &&
-        Objects.equals(this.errors, neRResponseSchema.errors);
+        Objects.equals(this.errors, neRResponseSchema.errors) &&
+        Objects.equals(this.meta, neRResponseSchema.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, errors);
+    return Objects.hash(data, errors, meta);
   }
 
   @Override
@@ -138,6 +169,7 @@ public class NERResponseSchema implements Serializable {
     sb.append("class NERResponseSchema {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

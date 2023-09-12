@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import Error from './Error';
 import NEREntityList from './NEREntityList';
-import NERErrorSchema from './NERErrorSchema';
 
 /**
  * The NERResponseSchema model module.
@@ -52,7 +52,10 @@ class NERResponseSchema {
                 obj['data'] = NEREntityList.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('errors')) {
-                obj['errors'] = ApiClient.convertToType(data['errors'], [NERErrorSchema]);
+                obj['errors'] = ApiClient.convertToType(data['errors'], [Error]);
+            }
+            if (data.hasOwnProperty('meta')) {
+                obj['meta'] = ApiClient.convertToType(data['meta'], Object);
             }
         }
         return obj;
@@ -67,9 +70,15 @@ class NERResponseSchema {
 NERResponseSchema.prototype['data'] = undefined;
 
 /**
- * @member {Array.<module:model/NERErrorSchema>} errors
+ * @member {Array.<module:model/Error>} errors
  */
 NERResponseSchema.prototype['errors'] = undefined;
+
+/**
+ * Any associated metadata
+ * @member {Object} meta
+ */
+NERResponseSchema.prototype['meta'] = undefined;
 
 
 

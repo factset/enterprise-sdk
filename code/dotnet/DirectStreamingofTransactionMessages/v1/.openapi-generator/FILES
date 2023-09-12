@@ -4,7 +4,10 @@ FactSet.SDK.DirectStreamingofTransactionMessages.sln
 LICENSE
 README.md
 appveyor.yml
+docs/ClientErrorResponse.md
 docs/DSOTMApi.md
+docs/Error.md
+docs/ErrorSource.md
 docs/ExecutionParameters.md
 docs/OrderParameters.md
 docs/PlacementParameters.md
@@ -29,6 +32,9 @@ src/FactSet.SDK.DirectStreamingofTransactionMessages/Client/RequestOptions.cs
 src/FactSet.SDK.DirectStreamingofTransactionMessages/Client/RetryConfiguration.cs
 src/FactSet.SDK.DirectStreamingofTransactionMessages/FactSet.SDK.DirectStreamingofTransactionMessages.csproj
 src/FactSet.SDK.DirectStreamingofTransactionMessages/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.DirectStreamingofTransactionMessages/Model/ClientErrorResponse.cs
+src/FactSet.SDK.DirectStreamingofTransactionMessages/Model/Error.cs
+src/FactSet.SDK.DirectStreamingofTransactionMessages/Model/ErrorSource.cs
 src/FactSet.SDK.DirectStreamingofTransactionMessages/Model/ExecutionParameters.cs
 src/FactSet.SDK.DirectStreamingofTransactionMessages/Model/OrderParameters.cs
 src/FactSet.SDK.DirectStreamingofTransactionMessages/Model/PlacementParameters.cs

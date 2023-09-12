@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.FactSetTickHistory"
-VERSION = "0.30.1"
+VERSION = "0.30.2"
 # To install the library, run the following
 #
 # python setup.py install

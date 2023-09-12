@@ -179,7 +179,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a linked PA template | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for a linked PA template |
 
 ### Return type
 
@@ -192,7 +192,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -273,7 +273,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **String**| Get linked PA templates in path. | [optional] [default to Personal:LinkedPATemplates/]
+ **directory** | **String**| Get linked PA templates in path. | [optional]
  **documentDirectory** | **String**| Get linked PA templates for documents in document path | [optional]
  **documentName** | **String**| Get linked PA templates for documents by document name | [optional]
 
@@ -367,7 +367,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a linked PA template | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for a linked PA template |
 
 ### Return type
 
@@ -473,7 +473,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a linked PA template | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for a linked PA template |
  **linkedPATemplateUpdateParametersRoot** | [**LinkedPATemplateUpdateParametersRoot**](LinkedPATemplateUpdateParametersRoot.md)| Request Parameters |
 
 ### Return type

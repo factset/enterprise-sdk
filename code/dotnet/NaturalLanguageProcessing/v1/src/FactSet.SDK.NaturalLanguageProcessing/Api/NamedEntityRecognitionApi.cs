@@ -104,7 +104,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> NerEntitiesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(NERResponseSchema) },
-            { (HttpStatusCode)400, typeof(NERValidationError) },
+            { (HttpStatusCode)400, typeof(NERResponseSchema) },
         };
 
         # endregion Response Type Disctionaries

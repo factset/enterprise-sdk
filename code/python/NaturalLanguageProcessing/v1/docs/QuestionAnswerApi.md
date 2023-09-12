@@ -4,18 +4,18 @@ All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**qna_get_answers**](QuestionAnswerApi.md#qna_get_answers) | **GET** /qna/answers/{id} | Get the answer(s)
-[**qna_get_status**](QuestionAnswerApi.md#qna_get_status) | **GET** /qna/answers/{id}/status | Get the completion status
-[**qna_post_question**](QuestionAnswerApi.md#qna_post_question) | **POST** /qna/answers | Post a question for answer(s)
+[**qna_get_answers**](QuestionAnswerApi.md#qna_get_answers) | **GET** /qna/answers/{id} | Endpoint to get the answer(s)
+[**qna_get_status**](QuestionAnswerApi.md#qna_get_status) | **GET** /qna/answers/{id}/status | Endpoint to get the completion status for a Q&amp;A request
+[**qna_post_question**](QuestionAnswerApi.md#qna_post_question) | **POST** /qna/answers | Endpoint to submit a question for answer(s)
 
 
 
 # **qna_get_answers**
 > QnAAnswerRoot qna_get_answers(id)
 
-Get the answer(s)
+Endpoint to get the answer(s)
 
-Obtain the results from the original task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+Endpoint to obtain the results from the original Q&A task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
 
 ### Example
 
@@ -61,7 +61,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     id = "id_example" # str | Identifier from the Question & Answer task and comes from the POST request which created the task
 
     try:
-        # Get the answer(s)
+        # Endpoint to get the answer(s)
         # example passing only required values which don't have defaults set
         api_response_wrapper = api_instance.qna_get_answers(id)
 
@@ -112,11 +112,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **qna_get_status**
-> QnATaskRoot qna_get_status(id)
+> TaskRoot qna_get_status(id)
 
-Get the completion status
+Endpoint to get the completion status for a Q&A request
 
-Endpoint to obtain the status of the task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.
+Endpoint to obtain the status of the Q&A task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.
 
 ### Example
 
@@ -162,7 +162,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     id = "id_example" # str | Identifier from the Question & Answer task and comes from the POST request which created the task
 
     try:
-        # Get the completion status
+        # Endpoint to get the completion status for a Q&A request
         # example passing only required values which don't have defaults set
         api_response = api_instance.qna_get_status(id)
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QnATaskRoot**](QnATaskRoot.md)
+[**TaskRoot**](TaskRoot.md)
 
 ### Authorization
 
@@ -206,11 +206,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **qna_post_question**
-> QnATaskRoot qna_post_question(qn_a_answer_parameters_root)
+> TaskRoot qna_post_question(qn_a_answer_parameters_root)
 
-Post a question for answer(s)
+Endpoint to submit a question for answer(s)
 
-Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
 
 ### Example
 
@@ -288,7 +288,7 @@ Don't miss their talk "Gaming in the voice-first era," and make sure you stick a
     ) # QnAAnswerParametersRoot | 
 
     try:
-        # Post a question for answer(s)
+        # Endpoint to submit a question for answer(s)
         # example passing only required values which don't have defaults set
         api_response = api_instance.qna_post_question(qn_a_answer_parameters_root)
 
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QnATaskRoot**](QnATaskRoot.md)
+[**TaskRoot**](TaskRoot.md)
 
 ### Authorization
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getentitymatch"></a>
 # **GetEntityMatch**
-> EntityMatchesResponse GetEntityMatch (string name, string country = null, string state = null, string url = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, bool? includeParent = null, string bic = null, string bbgTicker = null, string cik = null, string crd = null, string cusip = null, string duns = null, string ein = null, string rssd = null, string fitch = null, string isin = null, string lei = null, string bbgFigi = null, string md = null, string ticker = null, string spr = null, string sedol = null, string tickerExchange = null, string tickerRegion = null, string ukch = null, string valoren = null, string wkn = null)
+> EntityMatchesResponse GetEntityMatch (string name, string country = null, string state = null, string url = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, bool? includeParent = null, string bbgFigi = null, string bbgTicker = null, string bic = null, string cik = null, string crd = null, string cusip = null, string duns = null, string ein = null, string factsetId = null, string fitch = null, string gvkey = null, string gvkeyIid = null, string isin = null, string jcn = null, string lei = null, string lxid = null, string md = null, string redCode = null, string rssd = null, string sedol = null, string spr = null, string ticker = null, string tickerExchange = null, string tickerRegion = null, string ukch = null, string valoren = null, string wkn = null)
 
 Get Entity Candidates and Matches for a single name and attributes.
 
@@ -62,32 +62,38 @@ namespace Example
             var includeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |- --|- --|- --|- --|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  (optional) 
             var excludeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |- --|- --|- --|- --| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional) 
             var includeParent = false;  // bool? | Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional)  (default to false)
-            var bic = "bic_example";  // string | Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional) 
-            var bbgTicker = "bbgTicker_example";  // string | Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type (optional) 
-            var cik = "cik_example";  // string | Input identifiers for the CIK - Edgar Central Index Keys symbol type (optional) 
-            var crd = "crd_example";  // string | Input identifiers for the CRD - Central Registration Depository symbol type (optional) 
-            var cusip = "cusip_example";  // string | Input identifiers for the CUSIP symbol type (optional) 
-            var duns = "duns_example";  // string | Input identifiers for the DUNS - Dun & Bradstreet Data Universal Numbering System symbol type (optional) 
-            var ein = "ein_example";  // string | Input identifiers for the EIN - Employer Identification Number symbol type (optional) 
-            var rssd = "rssd_example";  // string | Input identifiers for the RSSD - Federal Reserve RSSD symbol type (optional) 
-            var fitch = "fitch_example";  // string | Input identifiers for the Fitch - Fitch Ratings symbol type (optional) 
-            var isin = "isin_example";  // string | Input identifiers for the ISIN - International Securities Identification Number symbol type (optional) 
-            var lei = "lei_example";  // string | Input identifiers for the LEI - Legal Entity Identifier symbol type (optional) 
-            var bbgFigi = "bbgFigi_example";  // string | Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type (optional) 
-            var md = "md_example";  // string | Input identifiers for the Moody's Ratings Identifier type (optional) 
-            var ticker = "ticker_example";  // string | Input identifiers for the Price Ticker symbol type (optional) 
-            var spr = "spr_example";  // string | Input identifiers for the S&PRating - S&P Ratings Identifier symbol type (optional) 
-            var sedol = "sedol_example";  // string | Input identifiers for the SEDOL symbol type (optional) 
-            var tickerExchange = "tickerExchange_example";  // string | Input identifiers for the TickerExchange (optional) 
+            var bbgFigi = "BBG009S39JY5";  // string | Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type. (optional) 
+            var bbgTicker = "BloombergId";  // string | Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type. (optional) 
+            var bic = "BICCode";  // string | Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional) 
+            var cik = "CIK";  // string | Input identifiers for the CIK - Edgar Central Index Keys symbol type. (optional) 
+            var crd = "CRD";  // string | Input identifiers for the CRD - Central Registration Depository symbol type. (optional) 
+            var cusip = "CUSIP";  // string | Input identifiers for the CUSIP symbol type. (optional) 
+            var duns = "Dun&Bradstreet";  // string | Input identifiers for the DUNS - Dun & Bradstreet Data Universal Numbering System symbol type. (optional) 
+            var ein = "EmployerIdentificationNumber";  // string | Input identifiers for the EIN - Employer Identification Number symbol type. (optional) 
+            var factsetId = "FactSetIdentifier";  // string | Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. (optional) 
+            var fitch = "FitchCreditRating";  // string | Input identifiers for the Fitch - Fitch Ratings symbol type. (optional) 
+            var gvkey = "GVKey";  // string | Input identifiers for the type GVKEY - Compustat Global Company Key symbol type. (optional) 
+            var gvkeyIid = "GVKeyIssueIdentifier";  // string | Input identifiers for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier symbol type. (optional) 
+            var isin = "ISIN";  // string | Input identifiers for the ISIN - International Securities Identification Number symbol type. (optional) 
+            var jcn = "JCN";  // string | Input identifiers for the type JCN - Japanese Corporate Number symbol type. (optional) 
+            var lei = "LegalEntityIdentifier";  // string | Input identifiers for the LEI - Legal Entity Identifier symbol type (optional) 
+            var lxid = "LXID";  // string | Input identifiers for the type LXID - Markit Syndicated Loan Identifier symbol type. (optional) 
+            var md = "MoodysIssuer";  // string | Input identifiers for the Moody's Ratings Identifier type. (optional) 
+            var redCode = "RedCode";  // string | Input identifiers for the type Red Code - Markit Reference Entity Identifier symbol type. (optional) 
+            var rssd = "FederalReserveRSSDIdentifier";  // string | Input identifiers for the RSSD - Federal Reserve RSSD symbol typ. (optional) 
+            var sedol = "SEDOL";  // string | Input identifiers for the SEDOL symbol type. (optional) 
+            var spr = "SPRating";  // string | Input identifiers for the Price Ticker symbol type. (optional) 
+            var ticker = "PriceTicker";  // string | Input identifiers for the Price Ticker symbol type. (optional) 
+            var tickerExchange = "TickerExch";  // string | Input identifiers for the TickerExchange. (optional) 
             var tickerRegion = "TickerRegion";  // string | Input identifiers for the TickerRegion. (optional) 
-            var ukch = "UKCompanyHouse";  // string | Input identifiers for the UKCH - UK Company House symbol type (optional) 
-            var valoren = "valoren_example";  // string | Input identifiers for the Valoren (\"Valor\") symbol type (optional) 
-            var wkn = "wkn_example";  // string | Input identifiers for the WKN - German Securities symbol type (optional) 
+            var ukch = "UKCompanyHouse";  // string | Input identifiers for the UKCH - UK Company House symbol type. (optional) 
+            var valoren = "VALOR";  // string | Input identifiers for the Valoren (\"Valor\") symbol type. (optional) 
+            var wkn = "WKN";  // string | Input identifiers for the WKN - German Securities symbol type. (optional) 
 
             try
             {
                 // Get Entity Candidates and Matches for a single name and attributes.
-                EntityMatchesResponse result = apiInstance.GetEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bic, bbgTicker, cik, crd, cusip, duns, ein, rssd, fitch, isin, lei, bbgFigi, md, ticker, spr, sedol, tickerExchange, tickerRegion, ukch, valoren, wkn);
+                EntityMatchesResponse result = apiInstance.GetEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, cusip, duns, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -114,27 +120,33 @@ Name | Type | Description  | Notes
  **includeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |- --|- --|- --|- --|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  | [optional] 
  **excludeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |- --|- --|- --|- --| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  | [optional] 
  **includeParent** | **bool?**| Flag to include parent entities in the list of candidates. This parameter does not influence the match result. | [optional] [default to false]
+ **bbgFigi** | **string**| Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type. | [optional] 
+ **bbgTicker** | **string**| Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type. | [optional] 
  **bic** | **string**| Input identifiers for the BICCode - Bank Indentification Code symbol Type. | [optional] 
- **bbgTicker** | **string**| Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type | [optional] 
- **cik** | **string**| Input identifiers for the CIK - Edgar Central Index Keys symbol type | [optional] 
- **crd** | **string**| Input identifiers for the CRD - Central Registration Depository symbol type | [optional] 
- **cusip** | **string**| Input identifiers for the CUSIP symbol type | [optional] 
- **duns** | **string**| Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type | [optional] 
- **ein** | **string**| Input identifiers for the EIN - Employer Identification Number symbol type | [optional] 
- **rssd** | **string**| Input identifiers for the RSSD - Federal Reserve RSSD symbol type | [optional] 
- **fitch** | **string**| Input identifiers for the Fitch - Fitch Ratings symbol type | [optional] 
- **isin** | **string**| Input identifiers for the ISIN - International Securities Identification Number symbol type | [optional] 
+ **cik** | **string**| Input identifiers for the CIK - Edgar Central Index Keys symbol type. | [optional] 
+ **crd** | **string**| Input identifiers for the CRD - Central Registration Depository symbol type. | [optional] 
+ **cusip** | **string**| Input identifiers for the CUSIP symbol type. | [optional] 
+ **duns** | **string**| Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type. | [optional] 
+ **ein** | **string**| Input identifiers for the EIN - Employer Identification Number symbol type. | [optional] 
+ **factsetId** | **string**| Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. | [optional] 
+ **fitch** | **string**| Input identifiers for the Fitch - Fitch Ratings symbol type. | [optional] 
+ **gvkey** | **string**| Input identifiers for the type GVKEY - Compustat Global Company Key symbol type. | [optional] 
+ **gvkeyIid** | **string**| Input identifiers for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier symbol type. | [optional] 
+ **isin** | **string**| Input identifiers for the ISIN - International Securities Identification Number symbol type. | [optional] 
+ **jcn** | **string**| Input identifiers for the type JCN - Japanese Corporate Number symbol type. | [optional] 
  **lei** | **string**| Input identifiers for the LEI - Legal Entity Identifier symbol type | [optional] 
- **bbgFigi** | **string**| Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type | [optional] 
- **md** | **string**| Input identifiers for the Moody&#39;s Ratings Identifier type | [optional] 
- **ticker** | **string**| Input identifiers for the Price Ticker symbol type | [optional] 
- **spr** | **string**| Input identifiers for the S&amp;PRating - S&amp;P Ratings Identifier symbol type | [optional] 
- **sedol** | **string**| Input identifiers for the SEDOL symbol type | [optional] 
- **tickerExchange** | **string**| Input identifiers for the TickerExchange | [optional] 
+ **lxid** | **string**| Input identifiers for the type LXID - Markit Syndicated Loan Identifier symbol type. | [optional] 
+ **md** | **string**| Input identifiers for the Moody&#39;s Ratings Identifier type. | [optional] 
+ **redCode** | **string**| Input identifiers for the type Red Code - Markit Reference Entity Identifier symbol type. | [optional] 
+ **rssd** | **string**| Input identifiers for the RSSD - Federal Reserve RSSD symbol typ. | [optional] 
+ **sedol** | **string**| Input identifiers for the SEDOL symbol type. | [optional] 
+ **spr** | **string**| Input identifiers for the Price Ticker symbol type. | [optional] 
+ **ticker** | **string**| Input identifiers for the Price Ticker symbol type. | [optional] 
+ **tickerExchange** | **string**| Input identifiers for the TickerExchange. | [optional] 
  **tickerRegion** | **string**| Input identifiers for the TickerRegion. | [optional] 
- **ukch** | **string**| Input identifiers for the UKCH - UK Company House symbol type | [optional] 
- **valoren** | **string**| Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type | [optional] 
- **wkn** | **string**| Input identifiers for the WKN - German Securities symbol type | [optional] 
+ **ukch** | **string**| Input identifiers for the UKCH - UK Company House symbol type. | [optional] 
+ **valoren** | **string**| Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type. | [optional] 
+ **wkn** | **string**| Input identifiers for the WKN - German Securities symbol type. | [optional] 
 
 ### Return type
 [**EntityMatchesResponse**](EntityMatchesResponse.md)

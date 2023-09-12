@@ -29,10 +29,10 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get the answer(s)
+        /// Endpoint to get the answer(s)
         /// </summary>
         /// <remarks>
-        /// Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
@@ -40,57 +40,57 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         QuestionAnswerApi.QnaGetAnswersResponseWrapper QnaGetAnswers(string id);
 
         /// <summary>
-        /// Get the answer(s)
+        /// Endpoint to get the answer(s)
         /// </summary>
         /// <remarks>
-        /// Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
         /// <returns>ApiResponse of QuestionAnswerApi.QnaGetAnswersResponseWrapper</returns>
         ApiResponse<QuestionAnswerApi.QnaGetAnswersResponseWrapper> QnaGetAnswersWithHttpInfo(string id);
         /// <summary>
-        /// Get the completion status
+        /// Endpoint to get the completion status for a Q&amp;A request
         /// </summary>
         /// <remarks>
-        /// Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+        /// Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
-        /// <returns>QnATaskRoot</returns>
-        QnATaskRoot QnaGetStatus(string id);
+        /// <returns>TaskRoot</returns>
+        TaskRoot QnaGetStatus(string id);
 
         /// <summary>
-        /// Get the completion status
+        /// Endpoint to get the completion status for a Q&amp;A request
         /// </summary>
         /// <remarks>
-        /// Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+        /// Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
-        /// <returns>ApiResponse of QnATaskRoot</returns>
-        ApiResponse<QnATaskRoot> QnaGetStatusWithHttpInfo(string id);
+        /// <returns>ApiResponse of TaskRoot</returns>
+        ApiResponse<TaskRoot> QnaGetStatusWithHttpInfo(string id);
         /// <summary>
-        /// Post a question for answer(s)
+        /// Endpoint to submit a question for answer(s)
         /// </summary>
         /// <remarks>
-        /// Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+        /// Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="qnAAnswerParametersRoot"></param>
-        /// <returns>QnATaskRoot</returns>
-        QnATaskRoot QnaPostQuestion(QnAAnswerParametersRoot qnAAnswerParametersRoot);
+        /// <returns>TaskRoot</returns>
+        TaskRoot QnaPostQuestion(QnAAnswerParametersRoot qnAAnswerParametersRoot);
 
         /// <summary>
-        /// Post a question for answer(s)
+        /// Endpoint to submit a question for answer(s)
         /// </summary>
         /// <remarks>
-        /// Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+        /// Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="qnAAnswerParametersRoot"></param>
-        /// <returns>ApiResponse of QnATaskRoot</returns>
-        ApiResponse<QnATaskRoot> QnaPostQuestionWithHttpInfo(QnAAnswerParametersRoot qnAAnswerParametersRoot);
+        /// <returns>ApiResponse of TaskRoot</returns>
+        ApiResponse<TaskRoot> QnaPostQuestionWithHttpInfo(QnAAnswerParametersRoot qnAAnswerParametersRoot);
         #endregion Synchronous Operations
     }
 
@@ -101,10 +101,10 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get the answer(s)
+        /// Endpoint to get the answer(s)
         /// </summary>
         /// <remarks>
-        /// Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
@@ -113,10 +113,10 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         System.Threading.Tasks.Task<QuestionAnswerApi.QnaGetAnswersResponseWrapper> QnaGetAnswersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get the answer(s)
+        /// Endpoint to get the answer(s)
         /// </summary>
         /// <remarks>
-        /// Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
@@ -124,51 +124,51 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         /// <returns>Task of ApiResponse (QuestionAnswerApi.QnaGetAnswersResponseWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<QuestionAnswerApi.QnaGetAnswersResponseWrapper>> QnaGetAnswersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get the completion status
+        /// Endpoint to get the completion status for a Q&amp;A request
         /// </summary>
         /// <remarks>
-        /// Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+        /// Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of QnATaskRoot</returns>
-        System.Threading.Tasks.Task<QnATaskRoot> QnaGetStatusAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TaskRoot</returns>
+        System.Threading.Tasks.Task<TaskRoot> QnaGetStatusAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get the completion status
+        /// Endpoint to get the completion status for a Q&amp;A request
         /// </summary>
         /// <remarks>
-        /// Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+        /// Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (QnATaskRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QnATaskRoot>> QnaGetStatusWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TaskRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskRoot>> QnaGetStatusWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Post a question for answer(s)
+        /// Endpoint to submit a question for answer(s)
         /// </summary>
         /// <remarks>
-        /// Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+        /// Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="qnAAnswerParametersRoot"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of QnATaskRoot</returns>
-        System.Threading.Tasks.Task<QnATaskRoot> QnaPostQuestionAsync(QnAAnswerParametersRoot qnAAnswerParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TaskRoot</returns>
+        System.Threading.Tasks.Task<TaskRoot> QnaPostQuestionAsync(QnAAnswerParametersRoot qnAAnswerParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Post a question for answer(s)
+        /// Endpoint to submit a question for answer(s)
         /// </summary>
         /// <remarks>
-        /// Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+        /// Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="qnAAnswerParametersRoot"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (QnATaskRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QnATaskRoot>> QnaPostQuestionWithHttpInfoAsync(QnAAnswerParametersRoot qnAAnswerParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TaskRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskRoot>> QnaPostQuestionWithHttpInfoAsync(QnAAnswerParametersRoot qnAAnswerParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -192,27 +192,27 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> QnaGetAnswersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(QnAAnswerRoot) },
-            { (HttpStatusCode)202, typeof(QnATaskRoot) },
-            { (HttpStatusCode)401, typeof(QnAHTTPErrorRoot) },
-            { (HttpStatusCode)404, typeof(QnAHTTPErrorRoot) },
-            { (HttpStatusCode)500, typeof(QnAHTTPErrorRoot) },
+            { (HttpStatusCode)202, typeof(TaskRoot) },
+            { (HttpStatusCode)401, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)404, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)500, typeof(HTTPErrorRoot) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> QnaGetStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)201, typeof(QnATaskRoot) },
-            { (HttpStatusCode)202, typeof(QnATaskRoot) },
-            { (HttpStatusCode)401, typeof(QnAHTTPErrorRoot) },
-            { (HttpStatusCode)404, typeof(QnAHTTPErrorRoot) },
-            { (HttpStatusCode)500, typeof(QnAHTTPErrorRoot) },
+            { (HttpStatusCode)201, typeof(TaskRoot) },
+            { (HttpStatusCode)202, typeof(TaskRoot) },
+            { (HttpStatusCode)401, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)404, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)500, typeof(HTTPErrorRoot) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> QnaPostQuestionResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)202, typeof(QnATaskRoot) },
-            { (HttpStatusCode)400, typeof(QnAHTTPErrorRoot) },
-            { (HttpStatusCode)401, typeof(QnAHTTPErrorRoot) },
-            { (HttpStatusCode)500, typeof(QnAHTTPErrorRoot) },
+            { (HttpStatusCode)202, typeof(TaskRoot) },
+            { (HttpStatusCode)400, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)401, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)500, typeof(HTTPErrorRoot) },
         };
 
         # endregion Response Type Disctionaries
@@ -233,7 +233,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         /// 
         /// <item>
         /// <description>
-        /// 202 : QnATaskRoot<br />
+        /// 202 : TaskRoot<br />
         /// Accepted
         /// </description>
         /// </item>
@@ -248,7 +248,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         ///     QnAAnswerRoot data200 = response.getResponse200();
         ///     break;
         ///   case 202:
-        ///     QnATaskRoot data202 = response.getResponse202();
+        ///     TaskRoot data202 = response.getResponse202();
         ///     break;
         ///  }
         /// </code>
@@ -296,7 +296,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
             /// <summary>
             /// Accepted
             /// </summary>
-            public QnATaskRoot Response202
+            public TaskRoot Response202
             {
                 get
                 {
@@ -304,7 +304,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
                     {
                         throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(500, "Invalid response getter called. Response202 can't return a " + StatusCode + " response");
                     }
-                    return (QnATaskRoot) Response;
+                    return (TaskRoot) Response;
                 }
             }
             
@@ -417,7 +417,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Get the answer(s) Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// Endpoint to get the answer(s) Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
@@ -429,7 +429,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Get the answer(s) Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// Endpoint to get the answer(s) Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
@@ -504,7 +504,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Get the answer(s) Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// Endpoint to get the answer(s) Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
@@ -517,7 +517,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Get the answer(s) Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// Endpoint to get the answer(s) Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
@@ -596,24 +596,24 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Get the completion status Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+        /// Endpoint to get the completion status for a Q&amp;A request Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
-        /// <returns>QnATaskRoot</returns>
-        public QnATaskRoot QnaGetStatus(string id)
+        /// <returns>TaskRoot</returns>
+        public TaskRoot QnaGetStatus(string id)
         {
             var localVarResponse = QnaGetStatusWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the completion status Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+        /// Endpoint to get the completion status for a Q&amp;A request Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
-        /// <returns>ApiResponse of QnATaskRoot</returns>
-        public ApiResponse<QnATaskRoot> QnaGetStatusWithHttpInfo(string id)
+        /// <returns>ApiResponse of TaskRoot</returns>
+        public ApiResponse<TaskRoot> QnaGetStatusWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -669,7 +669,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            QnATaskRoot>("/qna/answers/{id}/status", localVarRequestOptions, this.Configuration);
+            TaskRoot>("/qna/answers/{id}/status", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("QnaGetStatus", localVarResponse);
@@ -682,27 +682,27 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Get the completion status Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+        /// Endpoint to get the completion status for a Q&amp;A request Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of QnATaskRoot</returns>
-        public async System.Threading.Tasks.Task<QnATaskRoot>QnaGetStatusAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TaskRoot</returns>
+        public async System.Threading.Tasks.Task<TaskRoot>QnaGetStatusAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await QnaGetStatusWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the completion status Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+        /// Endpoint to get the completion status for a Q&amp;A request Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier from the Question &amp; Answer task and comes from the POST request which created the task</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (QnATaskRoot)</returns>
+        /// <returns>Task of ApiResponse (TaskRoot)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<QnATaskRoot>> QnaGetStatusWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<TaskRoot>> QnaGetStatusWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -758,7 +758,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
             localVarRequestOptions.ResponseTypeDictionary = QnaGetStatusResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<QnATaskRoot>("/qna/answers/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TaskRoot>("/qna/answers/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -773,24 +773,24 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Post a question for answer(s) Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+        /// Endpoint to submit a question for answer(s) Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="qnAAnswerParametersRoot"></param>
-        /// <returns>QnATaskRoot</returns>
-        public QnATaskRoot QnaPostQuestion(QnAAnswerParametersRoot qnAAnswerParametersRoot)
+        /// <returns>TaskRoot</returns>
+        public TaskRoot QnaPostQuestion(QnAAnswerParametersRoot qnAAnswerParametersRoot)
         {
             var localVarResponse = QnaPostQuestionWithHttpInfo(qnAAnswerParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Post a question for answer(s) Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+        /// Endpoint to submit a question for answer(s) Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="qnAAnswerParametersRoot"></param>
-        /// <returns>ApiResponse of QnATaskRoot</returns>
-        public ApiResponse<QnATaskRoot> QnaPostQuestionWithHttpInfo(QnAAnswerParametersRoot qnAAnswerParametersRoot)
+        /// <returns>ApiResponse of TaskRoot</returns>
+        public ApiResponse<TaskRoot> QnaPostQuestionWithHttpInfo(QnAAnswerParametersRoot qnAAnswerParametersRoot)
         {
             // verify the required parameter 'qnAAnswerParametersRoot' is set
             if (qnAAnswerParametersRoot == null)
@@ -847,7 +847,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            QnATaskRoot>("/qna/answers", localVarRequestOptions, this.Configuration);
+            TaskRoot>("/qna/answers", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("QnaPostQuestion", localVarResponse);
@@ -860,27 +860,27 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Post a question for answer(s) Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+        /// Endpoint to submit a question for answer(s) Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="qnAAnswerParametersRoot"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of QnATaskRoot</returns>
-        public async System.Threading.Tasks.Task<QnATaskRoot>QnaPostQuestionAsync(QnAAnswerParametersRoot qnAAnswerParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TaskRoot</returns>
+        public async System.Threading.Tasks.Task<TaskRoot>QnaPostQuestionAsync(QnAAnswerParametersRoot qnAAnswerParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await QnaPostQuestionWithHttpInfoAsync(qnAAnswerParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Post a question for answer(s) Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+        /// Endpoint to submit a question for answer(s) Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="qnAAnswerParametersRoot"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (QnATaskRoot)</returns>
+        /// <returns>Task of ApiResponse (TaskRoot)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<QnATaskRoot>> QnaPostQuestionWithHttpInfoAsync(QnAAnswerParametersRoot qnAAnswerParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<TaskRoot>> QnaPostQuestionWithHttpInfoAsync(QnAAnswerParametersRoot qnAAnswerParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'qnAAnswerParametersRoot' is set
             if (qnAAnswerParametersRoot == null)
@@ -937,7 +937,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
             localVarRequestOptions.ResponseTypeDictionary = QnaPostQuestionResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<QnATaskRoot>("/qna/answers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TaskRoot>("/qna/answers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

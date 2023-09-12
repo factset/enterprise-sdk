@@ -1,17 +1,17 @@
 # fds.sdk.QuantEngine.QuantCalculationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/quant/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_calculation_by_id**](QuantCalculationsApi.md#cancel_calculation_by_id) | **DELETE** /analytics/engines/quant/v3/calculations/{id} | Cancel Quant calculation by id
-[**get_all_calculations**](QuantCalculationsApi.md#get_all_calculations) | **GET** /analytics/engines/quant/v3/calculations | Get all calculations
-[**get_calculation_parameters**](QuantCalculationsApi.md#get_calculation_parameters) | **GET** /analytics/engines/quant/v3/calculations/{id} | Get Quant Engine calculation parameters by id
-[**get_calculation_status_by_id**](QuantCalculationsApi.md#get_calculation_status_by_id) | **GET** /analytics/engines/quant/v3/calculations/{id}/status | Get Quant Engine calculation status by id
-[**get_calculation_unit_info_by_id**](QuantCalculationsApi.md#get_calculation_unit_info_by_id) | **GET** /analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info | Get Quant Engine calculation metadata information by id
-[**get_calculation_unit_result_by_id**](QuantCalculationsApi.md#get_calculation_unit_result_by_id) | **GET** /analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result | Get Quant Engine calculation result by id
-[**post_and_calculate**](QuantCalculationsApi.md#post_and_calculate) | **POST** /analytics/engines/quant/v3/calculations | Create and Run Quant Engine calculation
-[**put_and_calculate**](QuantCalculationsApi.md#put_and_calculate) | **PUT** /analytics/engines/quant/v3/calculations/{id} | Create or update Quant Engine calculation and run it.
+[**cancel_calculation_by_id**](QuantCalculationsApi.md#cancel_calculation_by_id) | **DELETE** /calculations/{id} | Cancel Quant calculation by id
+[**get_all_calculations**](QuantCalculationsApi.md#get_all_calculations) | **GET** /calculations | Get all calculations
+[**get_calculation_parameters**](QuantCalculationsApi.md#get_calculation_parameters) | **GET** /calculations/{id} | Get Quant Engine calculation parameters by id
+[**get_calculation_status_by_id**](QuantCalculationsApi.md#get_calculation_status_by_id) | **GET** /calculations/{id}/status | Get Quant Engine calculation status by id
+[**get_calculation_unit_info_by_id**](QuantCalculationsApi.md#get_calculation_unit_info_by_id) | **GET** /calculations/{id}/units/{unitId}/info | Get Quant Engine calculation metadata information by id
+[**get_calculation_unit_result_by_id**](QuantCalculationsApi.md#get_calculation_unit_result_by_id) | **GET** /calculations/{id}/units/{unitId}/result | Get Quant Engine calculation result by id
+[**post_and_calculate**](QuantCalculationsApi.md#post_and_calculate) | **POST** /calculations | Create and Run Quant Engine calculation
+[**put_and_calculate**](QuantCalculationsApi.md#put_and_calculate) | **PUT** /calculations/{id} | Create or update Quant Engine calculation and run it.
 
 
 
@@ -157,11 +157,14 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    page_number = 1 # int |  (optional) if omitted the server will use the default value of 1
 
     try:
         # Get all calculations
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_all_calculations()
+        # and optional values
+        api_response = api_instance.get_all_calculations(page_number=page_number)
 
         pprint(api_response)
 
@@ -174,7 +177,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_number** | **int**|  | defaults to 1
+ **page_number** | **int**|  | [optional] if omitted the server will use the default value of 1
 
 ### Return type
 
@@ -721,6 +724,7 @@ Name | Type | Description  | Notes
 **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **404** | One or more calculation settings were unavailable. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**413** | Request body too large |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **429** | Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  * Retry-After - Time to wait in seconds before making a new request as the rate limit has reached. <br>  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
@@ -856,6 +860,7 @@ Name | Type | Description  | Notes
 **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **404** | One or more calculation settings were unavailable. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **409** | Duplicate calculation exists with same parameters. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**413** | Request body too large |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **429** | Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  * Retry-After - Time to wait in seconds before making a new request as the rate limit has reached. <br>  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |

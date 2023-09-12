@@ -51,8 +51,8 @@ public class Example {
 
         DatesApi apiInstance = new DatesApi(defaultClient);
         String enddate = "-1AY"; // String | End Date
-        String componentid = "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935"; // String | Component Id
-        String account = "Client:Foo/Bar/myaccount.acct"; // String | Account
+        String componentid = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46"; // String | Component Id
+        String account = "Client:/Folder1/Folder2/AccountName.ACCT"; // String | Account ( Account Name ending with .ACCT or .ACTM )
         String startdate = "-3AY"; // String | Start Date
         try {
             DateParametersSummaryRoot result = apiInstance.convertPADatesToAbsoluteFormat(enddate, componentid, account, startdate);
@@ -74,10 +74,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enddate** | **String**| End Date | [default to -1AY]
- **componentid** | **String**| Component Id | [default to 7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935]
- **account** | **String**| Account | [default to Client:Foo/Bar/myaccount.acct]
- **startdate** | **String**| Start Date | [optional] [default to -3AY]
+ **enddate** | **String**| End Date |
+ **componentid** | **String**| Component Id |
+ **account** | **String**| Account ( Account Name ending with .ACCT or .ACTM ) |
+ **startdate** | **String**| Start Date | [optional]
 
 ### Return type
 

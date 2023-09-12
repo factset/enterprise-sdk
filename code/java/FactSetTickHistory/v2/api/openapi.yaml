@@ -74,6 +74,9 @@ paths:
           \ either the `tickers` or `isins` parameter. \n  \n<P> Maximum 10 ISINs\
           \ per request.</p>   \n \n"
         examples:
+          noId:
+            summary: '---'
+            value: []
           oneId:
             summary: One identifier
             value:
@@ -1092,6 +1095,9 @@ components:
         \ the `tickers` or `isins` parameter. \n  \n<P> Maximum 10 ISINs per request.</p>\
         \   \n \n"
       examples:
+        noId:
+          summary: '---'
+          value: []
         oneId:
           summary: One identifier
           value:

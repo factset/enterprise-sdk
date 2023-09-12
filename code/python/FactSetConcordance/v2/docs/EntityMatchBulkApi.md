@@ -178,47 +178,59 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     priority_column = "Priority" # str | Header Name of the column in the inputfile that contains the priority for the client id.  (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    bic_column = "bic_column_example" # str | Header Name of the column in the input file for the BICCode, `bank indentification code` symbol type  (optional)
+    bbg_figi_column = "BloombergId" # str | Header Name of the column in the input file for the type `Bloomberg Listing/Regional/Security ID`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    bbg_ticker_column = "bbg_ticker_column_example" # str | Header Name of the column in the input file for the Bloomberg `Listing and Regional Ticker` symbol type (optional)
+    bbg_ticker_column = "BloombergTicker" # str | Header Name of the column in the input file for the type Bloomberg `Listing and Regional Ticker`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    cik_column = "cik_column_example" # str | Header Name of the column in the input file for the CIK, `Edgar Central Index Keys` symbol type (optional)
+    bic_column = "BICCode" # str | Header Name of the column in the input file for the type BICCode, `bank indentification code`.  (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    crd_column = "crd_column_example" # str | Header Name of the column in the input file for the CRD, `Central Registration Depository` symbol type (optional)
+    cik_column = "CIK" # str | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys` (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    cusip_column = "cusip_column_example" # str | Header Name of the column in the input file for the `CUSIP` symbol type (optional)
+    crd_column = "CRD" # str | Header Name of the column in the input file for the type CRD, `Central Registration Depository`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    duns_column = "duns_column_example" # str | Header Name of the column in the input file for the DUNS, `Dun&Bradstreet` symbol type (optional)
+    cusip_column = "CUSIP" # str | Header Name of the column in the input file for the type `CUSIP` (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ein_column = "ein_column_example" # str | Header Name of the column in the input file for the EIN, `EmployerIdentificationNumber` symbol type (optional)
+    duns_column = "Dun&Bradstreet" # str | Header Name of the column in the input file for the type DUNS, `Dun&Bradstreet`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    rssd_column = "rssd_column_example" # str | Header Name of the column in the input file for the RSSD, `FederalReserveRSSDIdentifier` symbol type (optional)
+    ein_column = "EmployerIdentificationNumber" # str | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    fitch_column = "fitch_column_example" # str | Header Name of the column in the input file for the FitchCreditRating, `Fitch Ratings Identifier` symbol type (optional)
+    factset_id_column = "FactSetIdentifier" # str | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    isin_column = "isin_column_example" # str | Header Name of the column in the input file for the `ISIN`symbol type (optional)
+    fitch_column = "FitchCreditRating" # str | Header Name of the column in the input file for the type FitchCreditRating, `Fitch Ratings Identifier`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    lei_column = "lei_column_example" # str | Header Name of the column in the input file for the LEI, `LegalEntityIdentifier` symbol type (optional)
+    gvkey_column = "GVKey" # str | Header Name of the column in the input file for the type GVKEY - `Compustat Global Company Key`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    bbg_figi_column = "bbg_figi_column_example" # str | Header Name of the column in the input file for the `Bloomberg Listing/Regional/Security ID` symbol type (optional)
+    gvkey_iid_column = "GVKeyIssueIdentifier" # str | Header Name of the column in the input file for the type GVKEY+IID - `Compustat Global Company Key and Issue Identifier`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    md_column = "md_column_example" # str | Header Name of the column in the input file for the MoodysIssuer, `Moody's Ratings Identifier` symbol type (optional)
+    isin_column = "ISIN" # str | Header Name of the column in the input file for the type `ISIN`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ticker_column = "ticker_column_example" # str | Header Name of the column in the input file for the `PriceTicker` symbol type (optional)
+    jcn_column = "JCN" # str | Header Name of the column in the input file for the type JCN - `Japanese Corporate Number`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    spr_column = "spr_column_example" # str | Header Name of the column in the input file for the S&PRating, `S&P Ratings Identifier` symbol type (optional)
+    lei_column = "LegalEntityIdentifier" # str | Header Name of the column in the input file for the type LEI, `LegalEntityIdentifier`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    sedol_column = "sedol_column_example" # str | Header Name of the column in the input file for the `SEDOL` symbol type (optional)
+    lxid_column = "LXID" # str | Header Name of the column in the input file for the type LXID - `Markit Syndicated Loan Identifier`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ticker_exchange_column = "ticker_exchange_column_example" # str | Header Name of the column in the input file for the `TickerExchange` symbol type (optional)
+    md_column = "MoodysIssuer" # str | Header Name of the column in the input file for the type MoodysIssuer, `Moody's Ratings Identifier`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ticker_region_column = "ticker_region_column_example" # str | Header Name of the column in the input file for the `TickerRegion` symbol type (optional)
+    red_code_column = "RedCode" # str | Header Name of the column in the input file for the type Red Code - `Markit Reference Entity Identifier`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ukch_column = "ukch_column_example" # str | Header Name of the column in the input file for the `UKCompanyHouse` symbol type (optional)
+    rssd_column = "FederalReserveRSSDIdentifier" # str | Header Name of the column in the input file for the type RSSD, `FederalReserveRSSDIdentifier`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    valoren_column = "valoren_column_example" # str | Header Name of the column in the input file for the VALOR, `Valoren (\\\"Valor\\\") Identification` symbol type (optional)
+    sedol_column = "SEDOL" # str | Header Name of the column in the input file for the type `SEDOL`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    wkn_column = "wkn_column_example" # str | Header Name of the column in the input file for the WKN, `German Securities Identification` symbol type (optional)
+    spr_column = "SPRating" # str | Header Name of the column in the input file for the type S&PRating, `S&P Ratings Identifier`. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    ticker_column = "PriceTicker" # str | Header Name of the column in the input file for the type `PriceTicker`. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    ticker_exchange_column = "TickerExch" # str | Header Name of the column in the input file for the type `TickerExchange`. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    ticker_region_column = "TickerRegion" # str | Header Name of the column in the input file for the type `TickerRegion`. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    ukch_column = "UKCompanyHouse" # str | Header Name of the column in the input file for the type `UKCompanyHouse`. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    valoren_column = "VALOR" # str | Header Name of the column in the input file for the type VALOR, `Valoren (\\\"Valor\\\") Identification`. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    wkn_column = "WKN" # str | Header Name of the column in the input file for the type WKN, `German Securities Identification`. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_entity_type = [
         "PUB",
@@ -240,7 +252,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Input a file with names and attributes, creating a taskId.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bic_column=bic_column, bbg_ticker_column=bbg_ticker_column, cik_column=cik_column, crd_column=crd_column, cusip_column=cusip_column, duns_column=duns_column, ein_column=ein_column, rssd_column=rssd_column, fitch_column=fitch_column, isin_column=isin_column, lei_column=lei_column, bbg_figi_column=bbg_figi_column, md_column=md_column, ticker_column=ticker_column, spr_column=spr_column, sedol_column=sedol_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type)
+        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bbg_figi_column=bbg_figi_column, bbg_ticker_column=bbg_ticker_column, bic_column=bic_column, cik_column=cik_column, crd_column=crd_column, cusip_column=cusip_column, duns_column=duns_column, ein_column=ein_column, factset_id_column=factset_id_column, fitch_column=fitch_column, gvkey_column=gvkey_column, gvkey_iid_column=gvkey_iid_column, isin_column=isin_column, jcn_column=jcn_column, lei_column=lei_column, lxid_column=lxid_column, md_column=md_column, red_code_column=red_code_column, rssd_column=rssd_column, sedol_column=sedol_column, spr_column=spr_column, ticker_column=ticker_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type)
 
         pprint(api_response)
 
@@ -262,27 +274,33 @@ Name | Type | Description  | Notes
  **url_column** | **str**| Header Name of the column in the input file that contains the Entity&#39;s URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  | [optional]
  **state_column** | **str**| Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  | [optional]
  **priority_column** | **str**| Header Name of the column in the inputfile that contains the priority for the client id.  | [optional]
- **bic_column** | **str**| Header Name of the column in the input file for the BICCode, &#x60;bank indentification code&#x60; symbol type  | [optional]
- **bbg_ticker_column** | **str**| Header Name of the column in the input file for the Bloomberg &#x60;Listing and Regional Ticker&#x60; symbol type | [optional]
- **cik_column** | **str**| Header Name of the column in the input file for the CIK, &#x60;Edgar Central Index Keys&#x60; symbol type | [optional]
- **crd_column** | **str**| Header Name of the column in the input file for the CRD, &#x60;Central Registration Depository&#x60; symbol type | [optional]
- **cusip_column** | **str**| Header Name of the column in the input file for the &#x60;CUSIP&#x60; symbol type | [optional]
- **duns_column** | **str**| Header Name of the column in the input file for the DUNS, &#x60;Dun&amp;Bradstreet&#x60; symbol type | [optional]
- **ein_column** | **str**| Header Name of the column in the input file for the EIN, &#x60;EmployerIdentificationNumber&#x60; symbol type | [optional]
- **rssd_column** | **str**| Header Name of the column in the input file for the RSSD, &#x60;FederalReserveRSSDIdentifier&#x60; symbol type | [optional]
- **fitch_column** | **str**| Header Name of the column in the input file for the FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60; symbol type | [optional]
- **isin_column** | **str**| Header Name of the column in the input file for the &#x60;ISIN&#x60;symbol type | [optional]
- **lei_column** | **str**| Header Name of the column in the input file for the LEI, &#x60;LegalEntityIdentifier&#x60; symbol type | [optional]
- **bbg_figi_column** | **str**| Header Name of the column in the input file for the &#x60;Bloomberg Listing/Regional/Security ID&#x60; symbol type | [optional]
- **md_column** | **str**| Header Name of the column in the input file for the MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60; symbol type | [optional]
- **ticker_column** | **str**| Header Name of the column in the input file for the &#x60;PriceTicker&#x60; symbol type | [optional]
- **spr_column** | **str**| Header Name of the column in the input file for the S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60; symbol type | [optional]
- **sedol_column** | **str**| Header Name of the column in the input file for the &#x60;SEDOL&#x60; symbol type | [optional]
- **ticker_exchange_column** | **str**| Header Name of the column in the input file for the &#x60;TickerExchange&#x60; symbol type | [optional]
- **ticker_region_column** | **str**| Header Name of the column in the input file for the &#x60;TickerRegion&#x60; symbol type | [optional]
- **ukch_column** | **str**| Header Name of the column in the input file for the &#x60;UKCompanyHouse&#x60; symbol type | [optional]
- **valoren_column** | **str**| Header Name of the column in the input file for the VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60; symbol type | [optional]
- **wkn_column** | **str**| Header Name of the column in the input file for the WKN, &#x60;German Securities Identification&#x60; symbol type | [optional]
+ **bbg_figi_column** | **str**| Header Name of the column in the input file for the type &#x60;Bloomberg Listing/Regional/Security ID&#x60;. | [optional]
+ **bbg_ticker_column** | **str**| Header Name of the column in the input file for the type Bloomberg &#x60;Listing and Regional Ticker&#x60;. | [optional]
+ **bic_column** | **str**| Header Name of the column in the input file for the type BICCode, &#x60;bank indentification code&#x60;.  | [optional]
+ **cik_column** | **str**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional]
+ **crd_column** | **str**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional]
+ **cusip_column** | **str**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional]
+ **duns_column** | **str**| Header Name of the column in the input file for the type DUNS, &#x60;Dun&amp;Bradstreet&#x60;. | [optional]
+ **ein_column** | **str**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional]
+ **factset_id_column** | **str**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional]
+ **fitch_column** | **str**| Header Name of the column in the input file for the type FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60;. | [optional]
+ **gvkey_column** | **str**| Header Name of the column in the input file for the type GVKEY - &#x60;Compustat Global Company Key&#x60;. | [optional]
+ **gvkey_iid_column** | **str**| Header Name of the column in the input file for the type GVKEY+IID - &#x60;Compustat Global Company Key and Issue Identifier&#x60;. | [optional]
+ **isin_column** | **str**| Header Name of the column in the input file for the type &#x60;ISIN&#x60;. | [optional]
+ **jcn_column** | **str**| Header Name of the column in the input file for the type JCN - &#x60;Japanese Corporate Number&#x60;. | [optional]
+ **lei_column** | **str**| Header Name of the column in the input file for the type LEI, &#x60;LegalEntityIdentifier&#x60;. | [optional]
+ **lxid_column** | **str**| Header Name of the column in the input file for the type LXID - &#x60;Markit Syndicated Loan Identifier&#x60;. | [optional]
+ **md_column** | **str**| Header Name of the column in the input file for the type MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60;. | [optional]
+ **red_code_column** | **str**| Header Name of the column in the input file for the type Red Code - &#x60;Markit Reference Entity Identifier&#x60;. | [optional]
+ **rssd_column** | **str**| Header Name of the column in the input file for the type RSSD, &#x60;FederalReserveRSSDIdentifier&#x60;. | [optional]
+ **sedol_column** | **str**| Header Name of the column in the input file for the type &#x60;SEDOL&#x60;. | [optional]
+ **spr_column** | **str**| Header Name of the column in the input file for the type S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60;. | [optional]
+ **ticker_column** | **str**| Header Name of the column in the input file for the type &#x60;PriceTicker&#x60;. | [optional]
+ **ticker_exchange_column** | **str**| Header Name of the column in the input file for the type &#x60;TickerExchange&#x60;. | [optional]
+ **ticker_region_column** | **str**| Header Name of the column in the input file for the type &#x60;TickerRegion&#x60;. | [optional]
+ **ukch_column** | **str**| Header Name of the column in the input file for the type &#x60;UKCompanyHouse&#x60;. | [optional]
+ **valoren_column** | **str**| Header Name of the column in the input file for the type VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60;. | [optional]
+ **wkn_column** | **str**| Header Name of the column in the input file for the type WKN, &#x60;German Securities Identification&#x60;. | [optional]
  **include_entity_type** | **[str]**| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **exclude_entity_type** | **[str]**| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **include_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]

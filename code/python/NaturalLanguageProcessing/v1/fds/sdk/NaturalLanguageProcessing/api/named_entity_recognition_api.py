@@ -27,7 +27,6 @@ from fds.sdk.NaturalLanguageProcessing.model_utils import (  # noqa: F401
 from fds.sdk.NaturalLanguageProcessing.exceptions import ApiException
 from fds.sdk.NaturalLanguageProcessing.model.ner_input_schema import NERInputSchema
 from fds.sdk.NaturalLanguageProcessing.model.ner_response_schema import NERResponseSchema
-from fds.sdk.NaturalLanguageProcessing.model.ner_validation_error import NERValidationError
 
 
 
@@ -48,7 +47,7 @@ class NamedEntityRecognitionApi(object):
         self.ner_entities_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (NERResponseSchema,), 400: (NERValidationError,),  },
+                  { 200: (NERResponseSchema,), 400: (NERResponseSchema,),  },
                   None
                 ),
                 'auth': [

@@ -56,7 +56,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = documents_api.DocumentsApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    path = "SPAR_DOCUMENTS:Factset Default Document" # str | The directory to get the documents in
+    path = "Client:" # str | The directory to get the documents in
 
     try:
         # Gets SPAR3 documents and sub-directories in a directory

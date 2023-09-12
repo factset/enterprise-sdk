@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.NaturalLanguageProcessing.models.ErrorSource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,74 +31,177 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
 
 
 /**
- * HTTPError
+ * Schema that defines HTTP error(s).
  */
+@ApiModel(description = "Schema that defines HTTP error(s).")
 @JsonPropertyOrder({
+  HTTPError.JSON_PROPERTY_CODE,
   HTTPError.JSON_PROPERTY_DETAIL,
-  HTTPError.JSON_PROPERTY_MESSAGE
+  HTTPError.JSON_PROPERTY_ID,
+  HTTPError.JSON_PROPERTY_SOURCE,
+  HTTPError.JSON_PROPERTY_TITLE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HTTPError implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DETAIL = "detail";
-  private Object detail;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
+  public static final String JSON_PROPERTY_DETAIL = "detail";
+  private String detail;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private java.util.UUID id;
+
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private ErrorSource source;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
 
   public HTTPError() { 
   }
 
-  public HTTPError detail(Object detail) {
+  @JsonCreator
+  public HTTPError(
+    @JsonProperty(value=JSON_PROPERTY_CODE, required=true) String code, 
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) java.util.UUID id, 
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
+  ) {
+    this();
+    this.code = code;
+    this.id = id;
+    this.title = title;
+  }
+
+  public HTTPError code(String code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * HTTP Status Code
+   * @return code
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "HTTP Status Code")
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getCode() {
+    return code;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
+  public HTTPError detail(String detail) {
     this.detail = detail;
     return this;
   }
 
    /**
-   * Get detail
+   * Error detail (if any)
    * @return detail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Error detail (if any)")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Object getDetail() {
+  public String getDetail() {
     return detail;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDetail(Object detail) {
+  public void setDetail(String detail) {
     this.detail = detail;
   }
 
 
-  public HTTPError message(String message) {
-    this.message = message;
+  public HTTPError id(java.util.UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * The unique identifier detailing the error(s)
+   * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The unique identifier detailing the error(s)")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getMessage() {
-    return message;
+  public java.util.UUID getId() {
+    return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setId(java.util.UUID id) {
+    this.id = id;
+  }
+
+
+  public HTTPError source(ErrorSource source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
-    this.message = message;
+
+  public ErrorSource getSource() {
+    return source;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSource(ErrorSource source) {
+    this.source = source;
+  }
+
+
+  public HTTPError title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * Error title
+   * @return title
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Error title")
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -113,21 +217,27 @@ public class HTTPError implements Serializable {
       return false;
     }
     HTTPError htTPError = (HTTPError) o;
-    return Objects.equals(this.detail, htTPError.detail) &&
-        Objects.equals(this.message, htTPError.message);
+    return Objects.equals(this.code, htTPError.code) &&
+        Objects.equals(this.detail, htTPError.detail) &&
+        Objects.equals(this.id, htTPError.id) &&
+        Objects.equals(this.source, htTPError.source) &&
+        Objects.equals(this.title, htTPError.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, message);
+    return Objects.hash(code, detail, id, source, title);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HTTPError {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

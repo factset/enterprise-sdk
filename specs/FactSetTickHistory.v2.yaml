@@ -750,6 +750,9 @@ components:
           minItems: 1
           maxItems: 10
       examples:
+        noId:
+          summary: '---'
+          value: []
         oneId:
           summary: One identifier
           value:

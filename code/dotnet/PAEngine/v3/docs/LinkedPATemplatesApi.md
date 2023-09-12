@@ -154,7 +154,7 @@ namespace Example
 
             var apiInstance = new LinkedPATemplatesApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for a linked PA template
 
             try
             {
@@ -176,7 +176,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a linked PA template | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for a linked PA template | 
 
 ### Return type
 void (empty response body)
@@ -188,7 +188,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -251,7 +251,7 @@ namespace Example
 
             var apiInstance = new LinkedPATemplatesApi(config);
 
-            var directory = "\"Personal:LinkedPATemplates/\"";  // string | Get linked PA templates in path. (optional)  (default to "Personal:LinkedPATemplates/")
+            var directory = "Personal:LinkedPATemplates/";  // string | Get linked PA templates in path. (optional) 
             var documentDirectory = "documentDirectory_example";  // string | Get linked PA templates for documents in document path (optional) 
             var documentName = "documentName_example";  // string | Get linked PA templates for documents by document name (optional) 
 
@@ -276,7 +276,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **string**| Get linked PA templates in path. | [optional] [default to &quot;Personal:LinkedPATemplates/&quot;]
+ **directory** | **string**| Get linked PA templates in path. | [optional] 
  **documentDirectory** | **string**| Get linked PA templates for documents in document path | [optional] 
  **documentName** | **string**| Get linked PA templates for documents by document name | [optional] 
 
@@ -353,7 +353,7 @@ namespace Example
 
             var apiInstance = new LinkedPATemplatesApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for a linked PA template
 
             try
             {
@@ -376,7 +376,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a linked PA template | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for a linked PA template | 
 
 ### Return type
 [**LinkedPATemplateRoot**](LinkedPATemplateRoot.md)
@@ -451,7 +451,7 @@ namespace Example
 
             var apiInstance = new LinkedPATemplatesApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for a linked PA template
             var linkedPATemplateUpdateParametersRoot = new LinkedPATemplateUpdateParametersRoot(); // LinkedPATemplateUpdateParametersRoot | Request Parameters
 
             try
@@ -475,7 +475,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a linked PA template | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for a linked PA template | 
  **linkedPATemplateUpdateParametersRoot** | [**LinkedPATemplateUpdateParametersRoot**](LinkedPATemplateUpdateParametersRoot.md)| Request Parameters | 
 
 ### Return type

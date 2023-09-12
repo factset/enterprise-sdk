@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_pa_column_by_id**
-> ColumnRoot get_pa_column_by_id()
+> ColumnRoot get_pa_column_by_id(id)
 
 Get PA column settings
 
@@ -56,11 +56,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = columns_api.ColumnsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "2DBD317E3C235BC96E2FF8CA36CE036AF2F7F55525479B524AE78FD7D6BBC4A7" # str | Unique identifier for a column
 
     try:
         # Get PA column settings
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_pa_column_by_id()
+        api_response = api_instance.get_pa_column_by_id(id)
 
         pprint(api_response)
 
@@ -73,7 +75,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a column | defaults to "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5"
+ **id** | **str**| Unique identifier for a column |
 
 ### Return type
 
@@ -153,11 +155,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     api_instance = columns_api.ColumnsApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    name = "" # str | Column name (optional) if omitted the server will use the default value of ""
+    name = "Security Name" # str | Column name (optional) if omitted the server will use the default value of ""
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     category = "" # str | Column category (optional) if omitted the server will use the default value of ""
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    directory = "" # str | The directory to get the columns in (optional) if omitted the server will use the default value of ""
+    directory = "Client" # str | The directory to get the columns in (optional) if omitted the server will use the default value of ""
 
     try:
         # Get PA columns

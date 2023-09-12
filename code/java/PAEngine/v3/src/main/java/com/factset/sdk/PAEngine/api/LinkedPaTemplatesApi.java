@@ -235,7 +235,7 @@ public class LinkedPaTemplatesApi {
     
     
     final String[] localVarAccepts = {
-      "text/plain", "application/json", "text/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -259,7 +259,7 @@ public class LinkedPaTemplatesApi {
   /**
    * Get linked PA templates
    * This endpoint returns the list of linked PA templates in given path.
-   * @param directory Get linked PA templates in path. (optional, default to Personal:LinkedPATemplates/)
+   * @param directory Get linked PA templates in path. (optional)
    * @param documentDirectory Get linked PA templates for documents in document path (optional)
    * @param documentName Get linked PA templates for documents by document name (optional)
    * @return LinkedPATemplateSummaryRoot
@@ -285,7 +285,7 @@ public class LinkedPaTemplatesApi {
   /**
    * Get linked PA templates
    * This endpoint returns the list of linked PA templates in given path.
-   * @param directory Get linked PA templates in path. (optional, default to Personal:LinkedPATemplates/)
+   * @param directory Get linked PA templates in path. (optional)
    * @param documentDirectory Get linked PA templates for documents in document path (optional)
    * @param documentName Get linked PA templates for documents by document name (optional)
    * @return ApiResponse&lt;LinkedPATemplateSummaryRoot&gt;

@@ -4,7 +4,10 @@
 .travis.yml
 LICENSE
 README.md
+docs/ClientErrorResponse.md
 docs/DSOTMApi.md
+docs/Error.md
+docs/ErrorSource.md
 docs/ExecutionParameters.md
 docs/OrderParameters.md
 docs/PlacementParameters.md
@@ -18,6 +21,9 @@ fds/sdk/DirectStreamingofTransactionMessages/apis/__init__.py
 fds/sdk/DirectStreamingofTransactionMessages/configuration.py
 fds/sdk/DirectStreamingofTransactionMessages/exceptions.py
 fds/sdk/DirectStreamingofTransactionMessages/model/__init__.py
+fds/sdk/DirectStreamingofTransactionMessages/model/client_error_response.py
+fds/sdk/DirectStreamingofTransactionMessages/model/error.py
+fds/sdk/DirectStreamingofTransactionMessages/model/error_source.py
 fds/sdk/DirectStreamingofTransactionMessages/model/execution_parameters.py
 fds/sdk/DirectStreamingofTransactionMessages/model/order_parameters.py
 fds/sdk/DirectStreamingofTransactionMessages/model/placement_parameters.py

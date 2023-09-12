@@ -13,32 +13,29 @@
 
 import ApiClient from './ApiClient';
 import Error from './model/Error';
-import ErrorsRoot from './model/ErrorsRoot';
+import ErrorSource from './model/ErrorSource';
 import HTTPError from './model/HTTPError';
+import HTTPErrorRoot from './model/HTTPErrorRoot';
 import NEREntity from './model/NEREntity';
 import NEREntityList from './model/NEREntityList';
-import NERErrorSchema from './model/NERErrorSchema';
 import NERInputDataSchema from './model/NERInputDataSchema';
 import NERInputSchema from './model/NERInputSchema';
 import NEROrganization from './model/NEROrganization';
 import NERResponseSchema from './model/NERResponseSchema';
-import NERValidationError from './model/NERValidationError';
 import QnAAnswer from './model/QnAAnswer';
 import QnAAnswerParameters from './model/QnAAnswerParameters';
 import QnAAnswerParametersRoot from './model/QnAAnswerParametersRoot';
 import QnAAnswerRoot from './model/QnAAnswerRoot';
-import QnAErrorSource from './model/QnAErrorSource';
-import QnAHTTPError from './model/QnAHTTPError';
-import QnAHTTPErrorRoot from './model/QnAHTTPErrorRoot';
-import QnATask from './model/QnATask';
-import QnATaskRoot from './model/QnATaskRoot';
+import SummarizationHTTPError from './model/SummarizationHTTPError';
 import SummarizationRequest from './model/SummarizationRequest';
 import SummarizationResult from './model/SummarizationResult';
 import SummarizationResultID from './model/SummarizationResultID';
-import Theme from './model/Theme';
-import ThemeParameters from './model/ThemeParameters';
-import ThemeParametersRoot from './model/ThemeParametersRoot';
-import ThemesRoot from './model/ThemesRoot';
+import Task from './model/Task';
+import TaskRoot from './model/TaskRoot';
+import ThemeSentiment from './model/ThemeSentiment';
+import ThemeSentimentsRoot from './model/ThemeSentimentsRoot';
+import ThemesParameters from './model/ThemesParameters';
+import ThemesParametersRoot from './model/ThemesParametersRoot';
 import ValidationError from './model/ValidationError';
 import ValidationErrorDetail from './model/ValidationErrorDetail';
 import ValidationErrorDetailLocation from './model/ValidationErrorDetailLocation';
@@ -94,16 +91,22 @@ export {
     Error,
 
     /**
-     * The ErrorsRoot model constructor.
-     * @property {module:model/ErrorsRoot}
+     * The ErrorSource model constructor.
+     * @property {module:model/ErrorSource}
      */
-    ErrorsRoot,
+    ErrorSource,
 
     /**
      * The HTTPError model constructor.
      * @property {module:model/HTTPError}
      */
     HTTPError,
+
+    /**
+     * The HTTPErrorRoot model constructor.
+     * @property {module:model/HTTPErrorRoot}
+     */
+    HTTPErrorRoot,
 
     /**
      * The NEREntity model constructor.
@@ -116,12 +119,6 @@ export {
      * @property {module:model/NEREntityList}
      */
     NEREntityList,
-
-    /**
-     * The NERErrorSchema model constructor.
-     * @property {module:model/NERErrorSchema}
-     */
-    NERErrorSchema,
 
     /**
      * The NERInputDataSchema model constructor.
@@ -148,12 +145,6 @@ export {
     NERResponseSchema,
 
     /**
-     * The NERValidationError model constructor.
-     * @property {module:model/NERValidationError}
-     */
-    NERValidationError,
-
-    /**
      * The QnAAnswer model constructor.
      * @property {module:model/QnAAnswer}
      */
@@ -178,34 +169,10 @@ export {
     QnAAnswerRoot,
 
     /**
-     * The QnAErrorSource model constructor.
-     * @property {module:model/QnAErrorSource}
+     * The SummarizationHTTPError model constructor.
+     * @property {module:model/SummarizationHTTPError}
      */
-    QnAErrorSource,
-
-    /**
-     * The QnAHTTPError model constructor.
-     * @property {module:model/QnAHTTPError}
-     */
-    QnAHTTPError,
-
-    /**
-     * The QnAHTTPErrorRoot model constructor.
-     * @property {module:model/QnAHTTPErrorRoot}
-     */
-    QnAHTTPErrorRoot,
-
-    /**
-     * The QnATask model constructor.
-     * @property {module:model/QnATask}
-     */
-    QnATask,
-
-    /**
-     * The QnATaskRoot model constructor.
-     * @property {module:model/QnATaskRoot}
-     */
-    QnATaskRoot,
+    SummarizationHTTPError,
 
     /**
      * The SummarizationRequest model constructor.
@@ -226,28 +193,40 @@ export {
     SummarizationResultID,
 
     /**
-     * The Theme model constructor.
-     * @property {module:model/Theme}
+     * The Task model constructor.
+     * @property {module:model/Task}
      */
-    Theme,
+    Task,
 
     /**
-     * The ThemeParameters model constructor.
-     * @property {module:model/ThemeParameters}
+     * The TaskRoot model constructor.
+     * @property {module:model/TaskRoot}
      */
-    ThemeParameters,
+    TaskRoot,
 
     /**
-     * The ThemeParametersRoot model constructor.
-     * @property {module:model/ThemeParametersRoot}
+     * The ThemeSentiment model constructor.
+     * @property {module:model/ThemeSentiment}
      */
-    ThemeParametersRoot,
+    ThemeSentiment,
 
     /**
-     * The ThemesRoot model constructor.
-     * @property {module:model/ThemesRoot}
+     * The ThemeSentimentsRoot model constructor.
+     * @property {module:model/ThemeSentimentsRoot}
      */
-    ThemesRoot,
+    ThemeSentimentsRoot,
+
+    /**
+     * The ThemesParameters model constructor.
+     * @property {module:model/ThemesParameters}
+     */
+    ThemesParameters,
+
+    /**
+     * The ThemesParametersRoot model constructor.
+     * @property {module:model/ThemesParametersRoot}
+     */
+    ThemesParametersRoot,
 
     /**
      * The ValidationError model constructor.

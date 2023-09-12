@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**NEREntityList**](NEREntityList.md) |  | [optional] 
-**errors** | [**[NERErrorSchema]**](NERErrorSchema.md) |  | [optional] 
+**errors** | [**[Error]**](Error.md) |  | [optional] 
+**meta** | **Object** | Any associated metadata | [optional] 
 
 

@@ -1,7 +1,7 @@
 /*
  * FactSet Ownership API
  *
- * FactSet’s Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all \"holder types\" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p> 
+ * FactSet's Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all \"holder types\" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p> 
  *
  * The version of the OpenAPI document: 1.1.0
  * Contact: api@factset.com
@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetOwnership.Model
         /// <param name="fsymRegionalId">FactSet Regional Security identifier of the security held in the fund..</param>
         /// <param name="securityName">Name of held security..</param>
         /// <param name="securityTicker">Ticker of held security..</param>
-        public FundHolding(string requestId = default(string), string fsymId = default(string), DateTime date = default(DateTime), string currency = default(string), double adjHolding = default(double), double adjMarketValue = default(double), double weightClose = default(double), string issueType = default(string), string fsymSecurityId = default(string), string fsymRegionalId = default(string), string securityName = default(string), string securityTicker = default(string))
+        public FundHolding(string requestId = default(string), string fsymId = default(string), DateTime? date = default(DateTime?), string currency = default(string), double? adjHolding = default(double?), double? adjMarketValue = default(double?), double? weightClose = default(double?), string issueType = default(string), string fsymSecurityId = default(string), string fsymRegionalId = default(string), string securityName = default(string), string securityTicker = default(string))
         {
             this.RequestId = requestId;
             this.FsymId = fsymId;
@@ -74,78 +74,78 @@ namespace FactSet.SDK.FactSetOwnership.Model
         /// FactSet Security Identifier of Fund. Identifies the security level id of the Fund requested (not-representing the underlying holding). Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.
         /// </summary>
         /// <value>FactSet Security Identifier of Fund. Identifies the security level id of the Fund requested (not-representing the underlying holding). Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Date of the reported holding in YYYY-MM-DD format. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
         /// </summary>
         /// <value>Date of the reported holding in YYYY-MM-DD format. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Currency code. The service will default to the funds local currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         /// </summary>
         /// <value>Currency code. The service will default to the funds local currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
         /// </summary>
         /// <value>Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).</value>
-        [DataMember(Name = "adjHolding", EmitDefaultValue = false)]
-        public double AdjHolding { get; set; }
+        [DataMember(Name = "adjHolding", EmitDefaultValue = true)]
+        public double? AdjHolding { get; set; }
 
         /// <summary>
         /// Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
         /// </summary>
         /// <value>Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).</value>
-        [DataMember(Name = "adjMarketValue", EmitDefaultValue = false)]
-        public double AdjMarketValue { get; set; }
+        [DataMember(Name = "adjMarketValue", EmitDefaultValue = true)]
+        public double? AdjMarketValue { get; set; }
 
         /// <summary>
         /// Closing weight of security in the fund for the requested asset type (percent).
         /// </summary>
         /// <value>Closing weight of security in the fund for the requested asset type (percent).</value>
-        [DataMember(Name = "weightClose", EmitDefaultValue = false)]
-        public double WeightClose { get; set; }
+        [DataMember(Name = "weightClose", EmitDefaultValue = true)]
+        public double? WeightClose { get; set; }
 
         /// <summary>
         /// Issue type of held security. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
         /// </summary>
         /// <value>Issue type of held security. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).</value>
-        [DataMember(Name = "issueType", EmitDefaultValue = false)]
+        [DataMember(Name = "issueType", EmitDefaultValue = true)]
         public string IssueType { get; set; }
 
         /// <summary>
         /// Represents the security id for the underlying holding, not the parent holding. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.
         /// </summary>
         /// <value>Represents the security id for the underlying holding, not the parent holding. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier.</value>
-        [DataMember(Name = "fsymSecurityId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymSecurityId", EmitDefaultValue = true)]
         public string FsymSecurityId { get; set; }
 
         /// <summary>
         /// FactSet Regional Security identifier of the security held in the fund.
         /// </summary>
         /// <value>FactSet Regional Security identifier of the security held in the fund.</value>
-        [DataMember(Name = "fsymRegionalId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymRegionalId", EmitDefaultValue = true)]
         public string FsymRegionalId { get; set; }
 
         /// <summary>
         /// Name of held security.
         /// </summary>
         /// <value>Name of held security.</value>
-        [DataMember(Name = "securityName", EmitDefaultValue = false)]
+        [DataMember(Name = "securityName", EmitDefaultValue = true)]
         public string SecurityName { get; set; }
 
         /// <summary>
         /// Ticker of held security.
         /// </summary>
         /// <value>Ticker of held security.</value>
-        [DataMember(Name = "securityTicker", EmitDefaultValue = false)]
+        [DataMember(Name = "securityTicker", EmitDefaultValue = true)]
         public string SecurityTicker { get; set; }
 
         /// <summary>
@@ -225,15 +225,18 @@ namespace FactSet.SDK.FactSetOwnership.Model
                 ) && 
                 (
                     this.AdjHolding == input.AdjHolding ||
-                    this.AdjHolding.Equals(input.AdjHolding)
+                    (this.AdjHolding != null &&
+                    this.AdjHolding.Equals(input.AdjHolding))
                 ) && 
                 (
                     this.AdjMarketValue == input.AdjMarketValue ||
-                    this.AdjMarketValue.Equals(input.AdjMarketValue)
+                    (this.AdjMarketValue != null &&
+                    this.AdjMarketValue.Equals(input.AdjMarketValue))
                 ) && 
                 (
                     this.WeightClose == input.WeightClose ||
-                    this.WeightClose.Equals(input.WeightClose)
+                    (this.WeightClose != null &&
+                    this.WeightClose.Equals(input.WeightClose))
                 ) && 
                 (
                     this.IssueType == input.IssueType ||
@@ -287,9 +290,18 @@ namespace FactSet.SDK.FactSetOwnership.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.AdjHolding.GetHashCode();
-                hashCode = (hashCode * 59) + this.AdjMarketValue.GetHashCode();
-                hashCode = (hashCode * 59) + this.WeightClose.GetHashCode();
+                if (this.AdjHolding != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdjHolding.GetHashCode();
+                }
+                if (this.AdjMarketValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdjMarketValue.GetHashCode();
+                }
+                if (this.WeightClose != null)
+                {
+                    hashCode = (hashCode * 59) + this.WeightClose.GetHashCode();
+                }
                 if (this.IssueType != null)
                 {
                     hashCode = (hashCode * 59) + this.IssueType.GetHashCode();

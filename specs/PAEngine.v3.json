@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.14.0"
+    "version": "3.14.1"
   },
   "servers": [
     {
@@ -37,7 +37,7 @@
             "schema": {
               "type": "string",
               "description": "The directory to get the accounts and sub-directories in",
-              "default": "Client:Foo/Bar"
+              "example": "Client:"
             }
           }
         ],
@@ -349,7 +349,8 @@
             "schema": {
               "type": "string",
               "description": "Column name",
-              "default": ""
+              "default": "",
+              "example": "Security Name"
             }
           },
           {
@@ -369,7 +370,8 @@
             "schema": {
               "type": "string",
               "description": "The directory to get the columns in",
-              "default": ""
+              "default": "",
+              "example": "Client"
             }
           }
         ],
@@ -601,7 +603,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for a column",
-              "default": "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5"
+              "example": "2DBD317E3C235BC96E2FF8CA36CE036AF2F7F55525479B524AE78FD7D6BBC4A7"
             }
           }
         ],
@@ -1133,7 +1135,7 @@
             "schema": {
               "type": "string",
               "description": "Document Name",
-              "default": "Client:Foo"
+              "example": "PA3_DOCUMENTS:DEFAULT"
             }
           }
         ],
@@ -1446,7 +1448,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for a PA component",
-              "default": "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53"
+              "example": "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46"
             }
           }
         ],
@@ -1970,7 +1972,7 @@
             "schema": {
               "type": "string",
               "description": "Start Date",
-              "default": "-3AY"
+              "example": "-3AY"
             }
           },
           {
@@ -1981,7 +1983,7 @@
             "schema": {
               "type": "string",
               "description": "End Date",
-              "default": "-1AY"
+              "example": "-1AY"
             }
           },
           {
@@ -1992,18 +1994,18 @@
             "schema": {
               "type": "string",
               "description": "Component Id",
-              "default": "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935"
+              "example": "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46"
             }
           },
           {
             "name": "account",
             "in": "query",
-            "description": "Account",
+            "description": "Account ( Account Name ending with .ACCT or .ACTM )",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Account",
-              "default": "Client:Foo/Bar/myaccount.acct"
+              "description": "Account ( Account Name ending with .ACCT or .ACTM )",
+              "example": "Client:/Folder1/Folder2/AccountName.ACCT"
             }
           }
         ],
@@ -2316,7 +2318,7 @@
             "schema": {
               "type": "string",
               "description": "The directory to get the documents and sub-directories in",
-              "default": "Client:folder1/folder2"
+              "example": "Client:"
             }
           }
         ],
@@ -3593,7 +3595,7 @@
             "schema": {
               "type": "string",
               "description": "Get linked PA templates in path.",
-              "default": "Personal:LinkedPATemplates/"
+              "example": "Personal:LinkedPATemplates/"
             }
           },
           {
@@ -3924,7 +3926,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for a linked PA template",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],
@@ -4265,7 +4267,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for a linked PA template",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],
@@ -4344,17 +4346,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -4454,17 +4446,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -4589,7 +4571,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for a linked PA template",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],
@@ -5411,7 +5393,6 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -5772,7 +5753,7 @@
                     ],
                     "dates": {
                       "startdate": "20210101",
-                      "enddate": "20220331",
+                      "enddate": "20210231",
                       "frequency": "Monthly"
                     },
                     "currencyisocode": "USD"
@@ -6648,17 +6629,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -6758,17 +6729,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -7895,17 +7856,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TemplatedPAComponentPostSummaryRoot"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TemplatedPAComponentPostSummaryRoot"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TemplatedPAComponentPostSummaryRoot"
                 }
@@ -7949,17 +7900,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -8177,7 +8118,7 @@
             "schema": {
               "type": "string",
               "description": "Get templated PA components in path",
-              "default": "Personal:TemplatedPAComponents/"
+              "example": "Personal:TemplatedPAComponents/"
             }
           }
         ],
@@ -8446,7 +8387,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for a templated PA component",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],
@@ -8825,7 +8766,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for a templated PA component",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],
@@ -9136,7 +9077,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for a templated PA component",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],
@@ -9215,17 +9156,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -9325,17 +9256,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -9800,7 +9721,7 @@
             "schema": {
               "type": "string",
               "description": "Get unlinked PA templates in path.",
-              "default": "Personal:UninkedPATemplates/"
+              "example": "Personal:UninkedPATemplates/"
             }
           },
           {
@@ -9810,7 +9731,7 @@
             "schema": {
               "type": "string",
               "description": "Get unlinked PA templates by category.",
-              "default": "Weights"
+              "example": "Weights"
             }
           }
         ],
@@ -10079,7 +10000,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for an unlinked PA template",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],
@@ -10472,7 +10393,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for an unlinked PA template",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],
@@ -10776,7 +10697,7 @@
             "schema": {
               "type": "string",
               "description": "Unique identifier for an unlinked PA template",
-              "default": "01234567890123456789012345678901"
+              "example": "01234567890123456789012345678901"
             }
           }
         ],

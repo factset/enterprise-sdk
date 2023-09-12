@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -185,7 +185,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a templated PA component | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for a templated PA component |
 
 ### Return type
 
@@ -198,7 +198,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -277,7 +277,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a templated PA component | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for a templated PA component |
 
 ### Return type
 
@@ -369,7 +369,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **String**| Get templated PA components in path | [default to Personal:TemplatedPAComponents/]
+ **directory** | **String**| Get templated PA components in path |
 
 ### Return type
 
@@ -480,7 +480,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a templated PA component | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for a templated PA component |
  **templatedPAComponentUpdateParametersRoot** | [**TemplatedPAComponentUpdateParametersRoot**](TemplatedPAComponentUpdateParametersRoot.md)| Request Parameters |
 
 ### Return type

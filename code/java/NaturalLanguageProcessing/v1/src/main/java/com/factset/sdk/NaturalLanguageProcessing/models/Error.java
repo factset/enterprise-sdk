@@ -35,7 +35,8 @@ import com.factset.sdk.NaturalLanguageProcessing.JSON;
 @JsonPropertyOrder({
   Error.JSON_PROPERTY_ID,
   Error.JSON_PROPERTY_TITLE,
-  Error.JSON_PROPERTY_DETAIL
+  Error.JSON_PROPERTY_DETAIL,
+  Error.JSON_PROPERTY_CODE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Error implements Serializable {
@@ -49,6 +50,9 @@ public class Error implements Serializable {
 
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
+
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
   public Error() { 
   }
@@ -131,6 +135,32 @@ public class Error implements Serializable {
   }
 
 
+  public Error code(String code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCode() {
+    return code;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
   /**
    * Return true if this Error object is equal to o.
    */
@@ -145,12 +175,13 @@ public class Error implements Serializable {
     Error error = (Error) o;
     return Objects.equals(this.id, error.id) &&
         Objects.equals(this.title, error.title) &&
-        Objects.equals(this.detail, error.detail);
+        Objects.equals(this.detail, error.detail) &&
+        Objects.equals(this.code, error.code);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, detail);
+    return Objects.hash(id, title, detail, code);
   }
 
   @Override
@@ -160,6 +191,7 @@ public class Error implements Serializable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**{str: (QuantCalculationParameters,)}**](QuantCalculationParameters.md) | List of calculation parameters. | [optional] 
+**data** | [**{str: (QuantCalculationParameters,)}, none_type**](QuantCalculationParameters.md) | List of calculation parameters. | [optional] 
 **meta** | [**QuantCalculationMeta**](QuantCalculationMeta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

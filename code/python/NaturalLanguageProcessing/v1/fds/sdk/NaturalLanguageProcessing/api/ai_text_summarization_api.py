@@ -26,6 +26,7 @@ from fds.sdk.NaturalLanguageProcessing.model_utils import (  # noqa: F401
 )
 from fds.sdk.NaturalLanguageProcessing.exceptions import ApiException
 from fds.sdk.NaturalLanguageProcessing.model.http_error import HTTPError
+from fds.sdk.NaturalLanguageProcessing.model.summarization_http_error import SummarizationHTTPError
 from fds.sdk.NaturalLanguageProcessing.model.summarization_request import SummarizationRequest
 from fds.sdk.NaturalLanguageProcessing.model.summarization_result import SummarizationResult
 from fds.sdk.NaturalLanguageProcessing.model.summarization_result_id import SummarizationResultID
@@ -50,7 +51,7 @@ class AITextSummarizationApi(object):
         self.summarization_headline_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 201: (SummarizationResultID,), 400: (ValidationError,), 401: (HTTPError,), 500: (HTTPError,),  },
+                  { 201: (SummarizationResultID,), 400: (ValidationError,), 401: (SummarizationHTTPError,), 500: (SummarizationHTTPError,),  },
                   None
                 ),
                 'auth': [
@@ -105,7 +106,7 @@ class AITextSummarizationApi(object):
         self.summarization_headline_and_summary_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 201: (SummarizationResultID,), 400: (ValidationError,), 401: (HTTPError,), 500: (HTTPError,),  },
+                  { 201: (SummarizationResultID,), 400: (ValidationError,), 401: (SummarizationHTTPError,), 500: (SummarizationHTTPError,),  },
                   None
                 ),
                 'auth': [
@@ -216,7 +217,7 @@ class AITextSummarizationApi(object):
         self.summarization_summary_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 201: (SummarizationResultID,), 400: (ValidationError,), 401: (HTTPError,), 500: (HTTPError,),  },
+                  { 201: (SummarizationResultID,), 400: (ValidationError,), 401: (SummarizationHTTPError,), 500: (SummarizationHTTPError,),  },
                   None
                 ),
                 'auth': [

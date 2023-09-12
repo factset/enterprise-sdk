@@ -29,26 +29,68 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Endpoint to extract themes from text
+        /// Endpoint to begin theme extraction job
         /// </summary>
         /// <remarks>
-        /// This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+        /// Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="themeParametersRoot"></param>
-        /// <returns>ThemesRoot</returns>
-        ThemesRoot Themes(ThemeParametersRoot themeParametersRoot);
+        /// <param name="themesParametersRoot"></param>
+        /// <returns>TaskRoot</returns>
+        TaskRoot ThemesExtractThemes(ThemesParametersRoot themesParametersRoot);
 
         /// <summary>
-        /// Endpoint to extract themes from text
+        /// Endpoint to begin theme extraction job
         /// </summary>
         /// <remarks>
-        /// This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+        /// Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="themeParametersRoot"></param>
-        /// <returns>ApiResponse of ThemesRoot</returns>
-        ApiResponse<ThemesRoot> ThemesWithHttpInfo(ThemeParametersRoot themeParametersRoot);
+        /// <param name="themesParametersRoot"></param>
+        /// <returns>ApiResponse of TaskRoot</returns>
+        ApiResponse<TaskRoot> ThemesExtractThemesWithHttpInfo(ThemesParametersRoot themesParametersRoot);
+        /// <summary>
+        /// Endpoint to get the completion status of a themes job
+        /// </summary>
+        /// <remarks>
+        /// Endpoint to obtain the completion status of the themes task request. The &#x60;id&#x60; parameter represents the task.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <returns>TaskRoot</returns>
+        TaskRoot ThemesGetStatus(string id);
+
+        /// <summary>
+        /// Endpoint to get the completion status of a themes job
+        /// </summary>
+        /// <remarks>
+        /// Endpoint to obtain the completion status of the themes task request. The &#x60;id&#x60; parameter represents the task.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <returns>ApiResponse of TaskRoot</returns>
+        ApiResponse<TaskRoot> ThemesGetStatusWithHttpInfo(string id);
+        /// <summary>
+        /// Endpoint to get a theme (and sentiments if requested) job result
+        /// </summary>
+        /// <remarks>
+        /// Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <returns>ThemeSentimentsRoot</returns>
+        ThemeSentimentsRoot ThemesGetThemes(string id);
+
+        /// <summary>
+        /// Endpoint to get a theme (and sentiments if requested) job result
+        /// </summary>
+        /// <remarks>
+        /// Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <returns>ApiResponse of ThemeSentimentsRoot</returns>
+        ApiResponse<ThemeSentimentsRoot> ThemesGetThemesWithHttpInfo(string id);
         #endregion Synchronous Operations
     }
 
@@ -59,28 +101,74 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Endpoint to extract themes from text
+        /// Endpoint to begin theme extraction job
         /// </summary>
         /// <remarks>
-        /// This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+        /// Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="themeParametersRoot"></param>
+        /// <param name="themesParametersRoot"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ThemesRoot</returns>
-        System.Threading.Tasks.Task<ThemesRoot> ThemesAsync(ThemeParametersRoot themeParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TaskRoot</returns>
+        System.Threading.Tasks.Task<TaskRoot> ThemesExtractThemesAsync(ThemesParametersRoot themesParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Endpoint to extract themes from text
+        /// Endpoint to begin theme extraction job
         /// </summary>
         /// <remarks>
-        /// This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+        /// Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
         /// </remarks>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="themeParametersRoot"></param>
+        /// <param name="themesParametersRoot"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ThemesRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ThemesRoot>> ThemesWithHttpInfoAsync(ThemeParametersRoot themeParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TaskRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskRoot>> ThemesExtractThemesWithHttpInfoAsync(ThemesParametersRoot themesParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Endpoint to get the completion status of a themes job
+        /// </summary>
+        /// <remarks>
+        /// Endpoint to obtain the completion status of the themes task request. The &#x60;id&#x60; parameter represents the task.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskRoot</returns>
+        System.Threading.Tasks.Task<TaskRoot> ThemesGetStatusAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Endpoint to get the completion status of a themes job
+        /// </summary>
+        /// <remarks>
+        /// Endpoint to obtain the completion status of the themes task request. The &#x60;id&#x60; parameter represents the task.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskRoot>> ThemesGetStatusWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Endpoint to get a theme (and sentiments if requested) job result
+        /// </summary>
+        /// <remarks>
+        /// Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ThemeSentimentsRoot</returns>
+        System.Threading.Tasks.Task<ThemeSentimentsRoot> ThemesGetThemesAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Endpoint to get a theme (and sentiments if requested) job result
+        /// </summary>
+        /// <remarks>
+        /// Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ThemeSentimentsRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ThemeSentimentsRoot>> ThemesGetThemesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -101,11 +189,28 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
 
         # region Response Type Disctionaries
         
-        private static readonly Dictionary<HttpStatusCode, System.Type> ThemesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> ThemesExtractThemesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(ThemesRoot) },
-            { (HttpStatusCode)400, typeof(ErrorsRoot) },
-            { (HttpStatusCode)404, typeof(ErrorsRoot) },
+            { (HttpStatusCode)202, typeof(TaskRoot) },
+            { (HttpStatusCode)400, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)401, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)500, typeof(HTTPErrorRoot) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> ThemesGetStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(TaskRoot) },
+            { (HttpStatusCode)202, typeof(TaskRoot) },
+            { (HttpStatusCode)404, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)500, typeof(HTTPErrorRoot) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> ThemesGetThemesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ThemeSentimentsRoot) },
+            { (HttpStatusCode)202, typeof(TaskRoot) },
+            { (HttpStatusCode)404, typeof(HTTPErrorRoot) },
+            { (HttpStatusCode)500, typeof(HTTPErrorRoot) },
         };
 
         # endregion Response Type Disctionaries
@@ -218,29 +323,29 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Endpoint to extract themes from text This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+        /// Endpoint to begin theme extraction job Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="themeParametersRoot"></param>
-        /// <returns>ThemesRoot</returns>
-        public ThemesRoot Themes(ThemeParametersRoot themeParametersRoot)
+        /// <param name="themesParametersRoot"></param>
+        /// <returns>TaskRoot</returns>
+        public TaskRoot ThemesExtractThemes(ThemesParametersRoot themesParametersRoot)
         {
-            var localVarResponse = ThemesWithHttpInfo(themeParametersRoot);
+            var localVarResponse = ThemesExtractThemesWithHttpInfo(themesParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Endpoint to extract themes from text This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+        /// Endpoint to begin theme extraction job Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="themeParametersRoot"></param>
-        /// <returns>ApiResponse of ThemesRoot</returns>
-        public ApiResponse<ThemesRoot> ThemesWithHttpInfo(ThemeParametersRoot themeParametersRoot)
+        /// <param name="themesParametersRoot"></param>
+        /// <returns>ApiResponse of TaskRoot</returns>
+        public ApiResponse<TaskRoot> ThemesExtractThemesWithHttpInfo(ThemesParametersRoot themesParametersRoot)
         {
-            // verify the required parameter 'themeParametersRoot' is set
-            if (themeParametersRoot == null)
+            // verify the required parameter 'themesParametersRoot' is set
+            if (themesParametersRoot == null)
             {
-                throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(400, "Missing required parameter 'themeParametersRoot' when calling AIThemesApi->Themes");
+                throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(400, "Missing required parameter 'themesParametersRoot' when calling AIThemesApi->ThemesExtractThemes");
             }
 
             FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions();
@@ -266,7 +371,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = themeParametersRoot;
+            localVarRequestOptions.Data = themesParametersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -288,14 +393,14 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            localVarRequestOptions.ResponseTypeDictionary = ThemesResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = ThemesExtractThemesResponseTypeDictionary;
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            ThemesRoot>("/themes", localVarRequestOptions, this.Configuration);
+            TaskRoot>("/themes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Themes", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ThemesExtractThemes", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -305,32 +410,32 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// Endpoint to extract themes from text This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+        /// Endpoint to begin theme extraction job Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="themeParametersRoot"></param>
+        /// <param name="themesParametersRoot"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ThemesRoot</returns>
-        public async System.Threading.Tasks.Task<ThemesRoot>ThemesAsync(ThemeParametersRoot themeParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TaskRoot</returns>
+        public async System.Threading.Tasks.Task<TaskRoot>ThemesExtractThemesAsync(ThemesParametersRoot themesParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await ThemesWithHttpInfoAsync(themeParametersRoot, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ThemesExtractThemesWithHttpInfoAsync(themesParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Endpoint to extract themes from text This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+        /// Endpoint to begin theme extraction job Endpoint to extract themes from provided text. Optionally, can include sentiment for each theme extracted. Please check the schema(s) for each of the status codes for more details.
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="themeParametersRoot"></param>
+        /// <param name="themesParametersRoot"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ThemesRoot)</returns>
+        /// <returns>Task of ApiResponse (TaskRoot)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<ThemesRoot>> ThemesWithHttpInfoAsync(ThemeParametersRoot themeParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<TaskRoot>> ThemesExtractThemesWithHttpInfoAsync(ThemesParametersRoot themesParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'themeParametersRoot' is set
-            if (themeParametersRoot == null)
+            // verify the required parameter 'themesParametersRoot' is set
+            if (themesParametersRoot == null)
             {
-                throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(400, "Missing required parameter 'themeParametersRoot' when calling AIThemesApi->Themes");
+                throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(400, "Missing required parameter 'themesParametersRoot' when calling AIThemesApi->ThemesExtractThemes");
             }
 
 
@@ -357,7 +462,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = themeParametersRoot;
+            localVarRequestOptions.Data = themesParametersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -379,14 +484,368 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
             }
 
 
-            localVarRequestOptions.ResponseTypeDictionary = ThemesResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = ThemesExtractThemesResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ThemesRoot>("/themes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TaskRoot>("/themes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Themes", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ThemesExtractThemes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Endpoint to get the completion status of a themes job Endpoint to obtain the completion status of the themes task request. The &#x60;id&#x60; parameter represents the task.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <returns>TaskRoot</returns>
+        public TaskRoot ThemesGetStatus(string id)
+        {
+            var localVarResponse = ThemesGetStatusWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Endpoint to get the completion status of a themes job Endpoint to obtain the completion status of the themes task request. The &#x60;id&#x60; parameter represents the task.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <returns>ApiResponse of TaskRoot</returns>
+        public ApiResponse<TaskRoot> ThemesGetStatusWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(400, "Missing required parameter 'id' when calling AIThemesApi->ThemesGetStatus");
+            }
+
+            FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = ThemesGetStatusResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            TaskRoot>("/themes/{id}/status", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ThemesGetStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Endpoint to get the completion status of a themes job Endpoint to obtain the completion status of the themes task request. The &#x60;id&#x60; parameter represents the task.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskRoot</returns>
+        public async System.Threading.Tasks.Task<TaskRoot>ThemesGetStatusAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await ThemesGetStatusWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Endpoint to get the completion status of a themes job Endpoint to obtain the completion status of the themes task request. The &#x60;id&#x60; parameter represents the task.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskRoot)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<TaskRoot>> ThemesGetStatusWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(400, "Missing required parameter 'id' when calling AIThemesApi->ThemesGetStatus");
+            }
+
+
+            FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = ThemesGetStatusResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TaskRoot>("/themes/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ThemesGetStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Endpoint to get a theme (and sentiments if requested) job result Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <returns>ThemeSentimentsRoot</returns>
+        public ThemeSentimentsRoot ThemesGetThemes(string id)
+        {
+            var localVarResponse = ThemesGetThemesWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Endpoint to get a theme (and sentiments if requested) job result Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <returns>ApiResponse of ThemeSentimentsRoot</returns>
+        public ApiResponse<ThemeSentimentsRoot> ThemesGetThemesWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(400, "Missing required parameter 'id' when calling AIThemesApi->ThemesGetThemes");
+            }
+
+            FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = ThemesGetThemesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ThemeSentimentsRoot>("/themes/{id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ThemesGetThemes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Endpoint to get a theme (and sentiments if requested) job result Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ThemeSentimentsRoot</returns>
+        public async System.Threading.Tasks.Task<ThemeSentimentsRoot>ThemesGetThemesAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await ThemesGetThemesWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Endpoint to get a theme (and sentiments if requested) job result Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Long running task identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ThemeSentimentsRoot)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<ThemeSentimentsRoot>> ThemesGetThemesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.NaturalLanguageProcessing.Client.ApiException(400, "Missing required parameter 'id' when calling AIThemesApi->ThemesGetThemes");
+            }
+
+
+            FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NaturalLanguageProcessing.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NaturalLanguageProcessing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = ThemesGetThemesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ThemeSentimentsRoot>("/themes/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ThemesGetThemes", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

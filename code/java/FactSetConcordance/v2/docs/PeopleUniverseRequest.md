@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **limit** | **Integer** | Limits the number of records in the response. |  [optional]
 **mapStatus** | [**java.util.List&lt;MapStatusEnum&gt;**](#java.util.List&lt;MapStatusEnum&gt;) | Filter by the People Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping.  |  [optional]
 **clientId** | **java.util.List&lt;String&gt;** | fetch only the mappings that has client id included in the specified list. |  [optional]
+**sort** | **java.util.List&lt;String&gt;** | fetch according to sort orders |  [optional]
 
 
 

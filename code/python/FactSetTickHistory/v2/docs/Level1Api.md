@@ -271,7 +271,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     factset_exchange_code = "AUS" # str | <p>This parameter is used to filter the results based on the FactSet specific regional or composite exchange code.</p> **NOTE**:Does not support multiple factsetExchangeCodes (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    isins = ["US3030751057"] # [str] | <P> Specifies the ISIN of the record. </p>    Please enter either the `tickers` or `isins` parameter.     <P> Maximum 10 ISINs per request.</p>       (optional)
+    isins = [] # [str] | <P> Specifies the ISIN of the record. </p>    Please enter either the `tickers` or `isins` parameter.     <P> Maximum 10 ISINs per request.</p>       (optional)
 
     try:
         # Returns the coverage for the requested ticker/isin along with other response fields for Level1 data.

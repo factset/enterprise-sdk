@@ -6,7 +6,7 @@ info:
     name: FactSet Research Systems
     email: api@factset.com
   description: >
-    FactSet’s Fund Ownership API gives access to both **Holdings** and
+    FactSet's Fund Ownership API gives access to both **Holdings** and
     **Holders** data.<p> Factset's Holdings endpoints gives access to all the
     underlying securities and their position detils held within a given fund.
     Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds,
@@ -406,6 +406,7 @@ components:
             FactSet are allocated a security-level permanent identifier.
           type: string
           example: K7ZVMR-S
+          nullable: true
         date:
           description: >-
             Date of the reported holding in YYYY-MM-DD format. For more details,
@@ -414,6 +415,7 @@ components:
           type: string
           format: date
           example: '2018-06-30'
+          nullable: true
         currency:
           description: >-
             Currency code. The service will default to the funds local currency.
@@ -421,6 +423,7 @@ components:
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
+          nullable: true
         adjHolding:
           description: >-
             Adjusted number of shares held. All positions and prices are
@@ -434,6 +437,7 @@ components:
           type: number
           format: double
           example: 60036157
+          nullable: true
         adjMarketValue:
           description: >-
             Adjusted market values of shares held. Market Value. All positions
@@ -447,6 +451,7 @@ components:
           type: number
           format: double
           example: 120078159
+          nullable: true
         weightClose:
           description: >-
             Closing weight of security in the fund for the requested asset type
@@ -454,12 +459,14 @@ components:
           type: number
           format: double
           example: 1.6639
+          nullable: true
         issueType:
           description: >-
             Issue type of held security. For more details, visit [Online
             Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
           type: string
           example: Equity
+          nullable: true
         fsymSecurityId:
           description: >-
             Represents the security id for the underlying holding, not the
@@ -469,20 +476,24 @@ components:
             identifier.
           type: string
           example: BHM9TN-S
+          nullable: true
         fsymRegionalId:
           description: >-
             FactSet Regional Security identifier of the security held in the
             fund.
           type: string
           example: QLGSL2-R
+          nullable: true
         securityName:
           description: Name of held security.
           type: string
           example: FACEBOOK INC  CL A
+          nullable: true
         securityTicker:
           description: Ticker of held security.
           type: string
           example: FB-US
+          nullable: true
     securityHolders:
       title: Security Holders
       description: Security Holders response object
@@ -494,6 +505,7 @@ components:
             security holder.
           type: string
           example: M4004630
+          nullable: true
         fsymId:
           description: >-
             FactSet Security Identifier of security requested. This does not
@@ -504,14 +516,17 @@ components:
             permanent identifier.
           type: string
           example: SQFMK3-R
+          nullable: true
         holderEntityId:
           description: FactSet Entity ID that corresponds to the specified holder ID.
           type: string
           example: 07JGQN-E
+          nullable: true
         holderName:
           description: Name of the holder for the requested security identifier.
           type: string
           example: Vanguard Total Stock Market Index Fund
+          nullable: true
         date:
           description: >-
             Date of the reported holding in YYYY-MM-DD format. For more details
@@ -520,6 +535,7 @@ components:
           type: string
           format: date
           example: '2020-06-30'
+          nullable: true
         currency:
           description: >-
             Currency code. The service will default to the local currency if the
@@ -528,6 +544,7 @@ components:
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
+          nullable: true
         investorType:
           description: >-
             FactSet Ownership Institution, Mutual Fund, and Insider/Stakeholder
@@ -536,12 +553,14 @@ components:
             #11656](https://my.apps.factset.com/oa/pages/11656).
           type: string
           example: Open-End Fund
+          nullable: true
         holderType:
           description: >-
             Holder Type name of the respective holder object. The name will
             align to the holderType requested. 
           type: string
           example: Mutual Fund
+          nullable: true
         adjHolding:
           description: >-
             Adjusted number of shares held. All positions and prices are
@@ -555,6 +574,7 @@ components:
           type: number
           format: double
           example: 1066876
+          nullable: true
         adjMarketValue:
           description: >-
             Adjusted market values of shares held. Market Value. All positions
@@ -568,6 +588,7 @@ components:
           type: number
           format: double
           example: 373833350.4
+          nullable: true
         weightClose:
           description: >
             "Closing weight of the security for the holders of the requested
@@ -577,6 +598,7 @@ components:
           type: number
           format: double
           example: 0.0356
+          nullable: true
         percentOutstanding:
           description: >-
             The percent of the outstanding common shares held by a particular
@@ -585,6 +607,7 @@ components:
           type: number
           format: double
           example: 2.808
+          nullable: true
         source:
           description: >-
             Either the 13F Form or ND-30D report filed where the security
@@ -592,6 +615,7 @@ components:
             visit https://my.apps.factset.com/oa/pages/11260
           type: string
           example: US Fund (N-30D)
+          nullable: true
         requestId:
           description: |
             Security Identifier that was used in the request.
@@ -1235,7 +1259,6 @@ components:
         date: '2020-06-30'
         topn: 1
         holderType: F
-        changePeriod: 1M
         currency: USD
     top5InsidersRequest:
       summary: >-

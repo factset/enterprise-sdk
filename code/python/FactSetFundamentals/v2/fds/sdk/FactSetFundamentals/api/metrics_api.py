@@ -44,6 +44,131 @@ class MetricsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+        self.get_fds_fundamentals_metrics_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (MetricsResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/metrics',
+                'operation_id': 'get_fds_fundamentals_metrics',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'category',
+                    'subcategory',
+                    'metric_data_type',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                    'category',
+                    'subcategory',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('category',): {
+
+                        "INCOME_STATEMENT": "INCOME_STATEMENT",
+                        "BALANCE_SHEET": "BALANCE_SHEET",
+                        "CASH_FLOW": "CASH_FLOW",
+                        "RATIOS": "RATIOS",
+                        "FINANCIAL_SERVICES": "FINANCIAL_SERVICES",
+                        "INDUSTRY_METRICS": "INDUSTRY_METRICS",
+                        "PENSION_AND_POSTRETIREMENT": "PENSION_AND_POSTRETIREMENT",
+                        "MARKET_DATA": "MARKET_DATA",
+                        "MISCELLANEOUS": "MISCELLANEOUS",
+                        "DATES": "DATES"
+                    },
+                    ('subcategory',): {
+
+                        "ASSETS": "ASSETS",
+                        "BALANCE_SHEET": "BALANCE_SHEET",
+                        "HEALTHCARE": "HEALTHCARE",
+                        "LIABILITIES": "LIABILITIES",
+                        "PER_SHARE": "PER_SHARE",
+                        "SHAREHOLDERS_EQUITY": "SHAREHOLDERS_EQUITY",
+                        "SUPPLEMENTAL": "SUPPLEMENTAL",
+                        "CASH_FLOW": "CASH_FLOW",
+                        "CHANGE_IN_CASH": "CHANGE_IN_CASH",
+                        "FINANCING": "FINANCING",
+                        "INVESTING": "INVESTING",
+                        "OPERATING": "OPERATING",
+                        "DATES": "DATES",
+                        "INCOME_STATEMENT": "INCOME_STATEMENT",
+                        "NON-OPERATING": "NON-OPERATING",
+                        "RETAIL": "RETAIL",
+                        "AIRLINES": "AIRLINES",
+                        "BANK": "BANK",
+                        "BANKING": "BANKING",
+                        "HOTELS_AND_GAMING": "HOTELS_AND_GAMING",
+                        "METALS_AND_MINING": "METALS_AND_MINING",
+                        "OIL_AND_GAS": "OIL_AND_GAS",
+                        "PHARMACEUTICAL": "PHARMACEUTICAL",
+                        "REIT": "REIT",
+                        "MARKET_DATA": "MARKET_DATA",
+                        "CLASSIFICATION": "CLASSIFICATION",
+                        "CORPORATE_DATA": "CORPORATE_DATA",
+                        "FINANCIAL_RECORDS": "FINANCIAL_RECORDS",
+                        "INDICATOR": "INDICATOR",
+                        "EMPLOYEES_AND_MANAGEMENT": "EMPLOYEES_AND_MANAGEMENT",
+                        "PENSION_AND_POSTRETIREMENT": "PENSION_AND_POSTRETIREMENT",
+                        "FINANCIAL": "FINANCIAL",
+                        "GROWTH_RATE": "GROWTH_RATE",
+                        "LIQUIDITY": "LIQUIDITY",
+                        "PROFITABILITY": "PROFITABILITY",
+                        "SIZE": "SIZE",
+                        "VALUATION": "VALUATION",
+                        "OTHER": "OTHER",
+                        "HOMEBUILDING": "HOMEBUILDING",
+                        "NET_INCOME": "NET_INCOME",
+                        "TELECOM": "TELECOM",
+                        "UTILITY": "UTILITY",
+                        "INSURANCE": "INSURANCE"
+                    },
+                },
+                'openapi_types': {
+                    'category':
+                        (str,),
+                    'subcategory':
+                        (str,),
+                    'metric_data_type':
+                        (str,),
+                },
+                'attribute_map': {
+                    'category': 'category',
+                    'subcategory': 'subcategory',
+                    'metric_data_type': 'metricDataType',
+                },
+                'location_map': {
+                    'category': 'query',
+                    'subcategory': 'query',
+                    'metric_data_type': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
 
     @staticmethod
     def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
@@ -56,5 +181,184 @@ class MetricsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
+
+    def get_fds_fundamentals_metrics(
+        self,
+        **kwargs
+    ) -> MetricsResponse:
+        """Returns available FactSet Fundamental metrics and ratios.  # noqa: E501
+
+        Returns list of available FF_* metrics that can be used in the `metrics` parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the `OApageID` or `OAurl` response items to launch the available methodology page.**   # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+
+        Keyword Args:
+            category (str): Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** = Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** = Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** = Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** = Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** = Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** = General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** = Corporation Data, Financial Records details, Indicators.   * **DATES** = Relevant Dates . [optional]
+            subcategory (str): Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES . [optional]
+            metric_data_type (str): Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            MetricsResponse
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_fds_fundamentals_metrics_endpoint.call_with_http_info(**kwargs)
+
+    def get_fds_fundamentals_metrics_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[MetricsResponse, int, typing.MutableMapping]:
+        """Returns available FactSet Fundamental metrics and ratios.  # noqa: E501
+
+        Returns list of available FF_* metrics that can be used in the `metrics` parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the `OApageID` or `OAurl` response items to launch the available methodology page.**   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            category (str): Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** = Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** = Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** = Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** = Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** = Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** = General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** = Corporation Data, Financial Records details, Indicators.   * **DATES** = Relevant Dates . [optional]
+            subcategory (str): Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES . [optional]
+            metric_data_type (str): Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            MetricsResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_fds_fundamentals_metrics_endpoint.call_with_http_info(**kwargs)
+
+    def get_fds_fundamentals_metrics_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[MetricsResponse]":
+        """Returns available FactSet Fundamental metrics and ratios.  # noqa: E501
+
+        Returns list of available FF_* metrics that can be used in the `metrics` parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the `OApageID` or `OAurl` response items to launch the available methodology page.**   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            category (str): Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** = Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** = Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** = Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** = Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** = Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** = General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** = Corporation Data, Financial Records details, Indicators.   * **DATES** = Relevant Dates . [optional]
+            subcategory (str): Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES . [optional]
+            metric_data_type (str): Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[MetricsResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_fds_fundamentals_metrics_endpoint.call_with_http_info(**kwargs)
+
+    def get_fds_fundamentals_metrics_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[MetricsResponse, int, typing.MutableMapping]]":
+        """Returns available FactSet Fundamental metrics and ratios.  # noqa: E501
+
+        Returns list of available FF_* metrics that can be used in the `metrics` parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the `OApageID` or `OAurl` response items to launch the available methodology page.**   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            category (str): Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** = Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** = Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** = Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** = Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** = Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** = General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** = Corporation Data, Financial Records details, Indicators.   * **DATES** = Relevant Dates . [optional]
+            subcategory (str): Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES . [optional]
+            metric_data_type (str): Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(MetricsResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.get_fds_fundamentals_metrics_endpoint.call_with_http_info(**kwargs)
 
 

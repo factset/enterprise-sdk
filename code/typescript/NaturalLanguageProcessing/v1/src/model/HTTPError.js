@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ErrorSource from './ErrorSource';
 
 /**
  * The HTTPError model module.
@@ -20,11 +21,15 @@ import ApiClient from '../ApiClient';
 class HTTPError {
     /**
      * Constructs a new <code>HTTPError</code>.
+     * Schema that defines HTTP error(s).
      * @alias module:model/HTTPError
+     * @param code {String} HTTP Status Code
+     * @param id {String} The unique identifier detailing the error(s)
+     * @param title {String} Error title
      */
-    constructor() { 
+    constructor(code, id, title) { 
         
-        HTTPError.initialize(this);
+        HTTPError.initialize(this, code, id, title);
     }
 
     /**
@@ -32,7 +37,10 @@ class HTTPError {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, code, id, title) { 
+        obj['code'] = code;
+        obj['id'] = id;
+        obj['title'] = title;
     }
 
     /**
@@ -46,11 +54,20 @@ class HTTPError {
         if (data) {
             obj = obj || new HTTPError();
 
-            if (data.hasOwnProperty('detail')) {
-                obj['detail'] = ApiClient.convertToType(data['detail'], Object);
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
-                obj['message'] = ApiClient.convertToType(data['message'], 'String');
+            if (data.hasOwnProperty('detail')) {
+                obj['detail'] = ApiClient.convertToType(data['detail'], 'String');
+            }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('source')) {
+                obj['source'] = ErrorSource.constructFromObject(data['source']);
+            }
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
         }
         return obj;
@@ -60,14 +77,33 @@ class HTTPError {
 }
 
 /**
- * @member {Object} detail
+ * HTTP Status Code
+ * @member {String} code
+ */
+HTTPError.prototype['code'] = undefined;
+
+/**
+ * Error detail (if any)
+ * @member {String} detail
  */
 HTTPError.prototype['detail'] = undefined;
 
 /**
- * @member {String} message
+ * The unique identifier detailing the error(s)
+ * @member {String} id
  */
-HTTPError.prototype['message'] = undefined;
+HTTPError.prototype['id'] = undefined;
+
+/**
+ * @member {module:model/ErrorSource} source
+ */
+HTTPError.prototype['source'] = undefined;
+
+/**
+ * Error title
+ * @member {String} title
+ */
+HTTPError.prototype['title'] = undefined;
 
 
 

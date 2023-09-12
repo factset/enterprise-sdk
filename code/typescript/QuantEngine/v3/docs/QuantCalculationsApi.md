@@ -1,17 +1,17 @@
 # quantengine.QuantCalculationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/quant/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelCalculationById**](QuantCalculationsApi.md#cancelCalculationById) | **DELETE** /analytics/engines/quant/v3/calculations/{id} | Cancel Quant calculation by id
-[**getAllCalculations**](QuantCalculationsApi.md#getAllCalculations) | **GET** /analytics/engines/quant/v3/calculations | Get all calculations
-[**getCalculationParameters**](QuantCalculationsApi.md#getCalculationParameters) | **GET** /analytics/engines/quant/v3/calculations/{id} | Get Quant Engine calculation parameters by id
-[**getCalculationStatusById**](QuantCalculationsApi.md#getCalculationStatusById) | **GET** /analytics/engines/quant/v3/calculations/{id}/status | Get Quant Engine calculation status by id
-[**getCalculationUnitInfoById**](QuantCalculationsApi.md#getCalculationUnitInfoById) | **GET** /analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info | Get Quant Engine calculation metadata information by id
-[**getCalculationUnitResultById**](QuantCalculationsApi.md#getCalculationUnitResultById) | **GET** /analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result | Get Quant Engine calculation result by id
-[**postAndCalculate**](QuantCalculationsApi.md#postAndCalculate) | **POST** /analytics/engines/quant/v3/calculations | Create and Run Quant Engine calculation
-[**putAndCalculate**](QuantCalculationsApi.md#putAndCalculate) | **PUT** /analytics/engines/quant/v3/calculations/{id} | Create or update Quant Engine calculation and run it.
+[**cancelCalculationById**](QuantCalculationsApi.md#cancelCalculationById) | **DELETE** /calculations/{id} | Cancel Quant calculation by id
+[**getAllCalculations**](QuantCalculationsApi.md#getAllCalculations) | **GET** /calculations | Get all calculations
+[**getCalculationParameters**](QuantCalculationsApi.md#getCalculationParameters) | **GET** /calculations/{id} | Get Quant Engine calculation parameters by id
+[**getCalculationStatusById**](QuantCalculationsApi.md#getCalculationStatusById) | **GET** /calculations/{id}/status | Get Quant Engine calculation status by id
+[**getCalculationUnitInfoById**](QuantCalculationsApi.md#getCalculationUnitInfoById) | **GET** /calculations/{id}/units/{unitId}/info | Get Quant Engine calculation metadata information by id
+[**getCalculationUnitResultById**](QuantCalculationsApi.md#getCalculationUnitResultById) | **GET** /calculations/{id}/units/{unitId}/result | Get Quant Engine calculation result by id
+[**postAndCalculate**](QuantCalculationsApi.md#postAndCalculate) | **POST** /calculations | Create and Run Quant Engine calculation
+[**putAndCalculate**](QuantCalculationsApi.md#putAndCalculate) | **PUT** /calculations/{id} | Create or update Quant Engine calculation and run it.
 
 
 
@@ -87,7 +87,7 @@ null (empty response body)
 
 ## getAllCalculations
 
-> CalculationsSummaryRoot getAllCalculations(pageNumber)
+> CalculationsSummaryRoot getAllCalculations(opts)
 
 Get all calculations
 
@@ -119,10 +119,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new QuantCalculationsApi();
-const pageNumber = 1; // Number | 
+const opts = {
+  'pageNumber': 1 // Number | 
+};
 
 // Call api endpoint
-apiInstance.getAllCalculations(pageNumber).then(
+apiInstance.getAllCalculations(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -141,7 +143,7 @@ apiInstance.getAllCalculations(pageNumber).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageNumber** | **Number**|  | [default to 1]
+ **pageNumber** | **Number**|  | [optional] [default to 1]
 
 ### Return type
 

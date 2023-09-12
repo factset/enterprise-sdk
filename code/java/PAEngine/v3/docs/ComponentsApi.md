@@ -51,7 +51,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ComponentsApi apiInstance = new ComponentsApi(defaultClient);
-        String id = "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53"; // String | Unique identifier for a PA component
+        String id = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46"; // String | Unique identifier for a PA component
         try {
             PAComponentRoot result = apiInstance.getPAComponentById(id);
             System.out.println(result);
@@ -72,7 +72,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a PA component | [default to 782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53]
+ **id** | **String**| Unique identifier for a PA component |
 
 ### Return type
 
@@ -143,7 +143,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ComponentsApi apiInstance = new ComponentsApi(defaultClient);
-        String document = "Client:Foo"; // String | Document Name
+        String document = "PA3_DOCUMENTS:DEFAULT"; // String | Document Name
         try {
             ComponentSummaryRoot result = apiInstance.getPAComponents(document);
             System.out.println(result);
@@ -164,7 +164,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **String**| Document Name | [default to Client:Foo]
+ **document** | **String**| Document Name |
 
 ### Return type
 

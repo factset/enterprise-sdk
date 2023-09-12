@@ -155,7 +155,7 @@ namespace Example
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for an unlinked PA template
 
             try
             {
@@ -177,7 +177,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for an unlinked PA template | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for an unlinked PA template | 
 
 ### Return type
 void (empty response body)
@@ -442,8 +442,8 @@ namespace Example
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
 
-            var directory = "\"Personal:UninkedPATemplates/\"";  // string | Get unlinked PA templates in path. (optional)  (default to "Personal:UninkedPATemplates/")
-            var category = "\"Weights\"";  // string | Get unlinked PA templates by category. (optional)  (default to "Weights")
+            var directory = "Personal:UninkedPATemplates/";  // string | Get unlinked PA templates in path. (optional) 
+            var category = "Weights";  // string | Get unlinked PA templates by category. (optional) 
 
             try
             {
@@ -466,8 +466,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **string**| Get unlinked PA templates in path. | [optional] [default to &quot;Personal:UninkedPATemplates/&quot;]
- **category** | **string**| Get unlinked PA templates by category. | [optional] [default to &quot;Weights&quot;]
+ **directory** | **string**| Get unlinked PA templates in path. | [optional] 
+ **category** | **string**| Get unlinked PA templates by category. | [optional] 
 
 ### Return type
 [**UnlinkedPATemplateSummaryRoot**](UnlinkedPATemplateSummaryRoot.md)
@@ -541,7 +541,7 @@ namespace Example
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for an unlinked PA template
 
             try
             {
@@ -564,7 +564,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for an unlinked PA template | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for an unlinked PA template | 
 
 ### Return type
 [**UnlinkedPATemplateRoot**](UnlinkedPATemplateRoot.md)
@@ -639,7 +639,7 @@ namespace Example
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for an unlinked PA template
             var unlinkedPATemplateUpdateParametersRoot = new UnlinkedPATemplateUpdateParametersRoot(); // UnlinkedPATemplateUpdateParametersRoot | Request Parameters
 
             try
@@ -663,7 +663,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for an unlinked PA template | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for an unlinked PA template | 
  **unlinkedPATemplateUpdateParametersRoot** | [**UnlinkedPATemplateUpdateParametersRoot**](UnlinkedPATemplateUpdateParametersRoot.md)| Request Parameters | 
 
 ### Return type

@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_linked_pa_templates**
-> delete_linked_pa_templates()
+> delete_linked_pa_templates(id)
 
 Delete a linked PA template.
 
@@ -175,11 +175,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for a linked PA template
 
     try:
         # Delete a linked PA template.
         # example passing only required values which don't have defaults set
-        api_instance.delete_linked_pa_templates()
+        api_instance.delete_linked_pa_templates(id)
 
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -191,7 +193,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a linked PA template | defaults to "01234567890123456789012345678901"
+ **id** | **str**| Unique identifier for a linked PA template |
 
 ### Return type
 
@@ -204,7 +206,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -271,7 +273,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    directory = "Personal:LinkedPATemplates/" # str | Get linked PA templates in path. (optional) if omitted the server will use the default value of "Personal:LinkedPATemplates/"
+    directory = "Personal:LinkedPATemplates/" # str | Get linked PA templates in path. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     document_directory = "documentDirectory_example" # str | Get linked PA templates for documents in document path (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
@@ -294,7 +296,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **str**| Get linked PA templates in path. | [optional] if omitted the server will use the default value of "Personal:LinkedPATemplates/"
+ **directory** | **str**| Get linked PA templates in path. | [optional]
  **document_directory** | **str**| Get linked PA templates for documents in document path | [optional]
  **document_name** | **str**| Get linked PA templates for documents by document name | [optional]
 
@@ -329,7 +331,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_linked_pa_templates_by_id**
-> LinkedPATemplateRoot get_linked_pa_templates_by_id()
+> LinkedPATemplateRoot get_linked_pa_templates_by_id(id)
 
 Get linked PA template by id
 
@@ -375,11 +377,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for a linked PA template
 
     try:
         # Get linked PA template by id
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_linked_pa_templates_by_id()
+        api_response = api_instance.get_linked_pa_templates_by_id(id)
 
         pprint(api_response)
 
@@ -392,7 +396,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a linked PA template | defaults to "01234567890123456789012345678901"
+ **id** | **str**| Unique identifier for a linked PA template |
 
 ### Return type
 
@@ -425,7 +429,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_linked_pa_templates**
-> LinkedPATemplatePostSummaryRoot update_linked_pa_templates(linked_pa_template_update_parameters_root)
+> LinkedPATemplatePostSummaryRoot update_linked_pa_templates(id, linked_pa_template_update_parameters_root)
 
 Update a linked PA template
 
@@ -472,6 +476,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for a linked PA template
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     linked_pa_template_update_parameters_root = LinkedPATemplateUpdateParametersRoot(
         data=LinkedPATemplateUpdateParameters(
             parent_component_id="parent_component_id_example",
@@ -494,7 +500,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     try:
         # Update a linked PA template
         # example passing only required values which don't have defaults set
-        api_response = api_instance.update_linked_pa_templates(linked_pa_template_update_parameters_root)
+        api_response = api_instance.update_linked_pa_templates(id, linked_pa_template_update_parameters_root)
 
         pprint(api_response)
 
@@ -507,8 +513,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique identifier for a linked PA template |
  **linked_pa_template_update_parameters_root** | [**LinkedPATemplateUpdateParametersRoot**](LinkedPATemplateUpdateParametersRoot.md)| Request Parameters |
- **id** | **str**| Unique identifier for a linked PA template | defaults to "01234567890123456789012345678901"
 
 ### Return type
 

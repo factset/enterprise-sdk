@@ -438,8 +438,8 @@ public class UnlinkedPaTemplatesApi {
   /**
    * Get unlinked PA templates
    * This endpoint returns the list of unlinked PA templates.
-   * @param directory Get unlinked PA templates in path. (optional, default to Personal:UninkedPATemplates/)
-   * @param category Get unlinked PA templates by category. (optional, default to Weights)
+   * @param directory Get unlinked PA templates in path. (optional)
+   * @param category Get unlinked PA templates by category. (optional)
    * @return UnlinkedPATemplateSummaryRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -462,8 +462,8 @@ public class UnlinkedPaTemplatesApi {
   /**
    * Get unlinked PA templates
    * This endpoint returns the list of unlinked PA templates.
-   * @param directory Get unlinked PA templates in path. (optional, default to Personal:UninkedPATemplates/)
-   * @param category Get unlinked PA templates by category. (optional, default to Weights)
+   * @param directory Get unlinked PA templates in path. (optional)
+   * @param category Get unlinked PA templates by category. (optional)
    * @return ApiResponse&lt;UnlinkedPATemplateSummaryRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

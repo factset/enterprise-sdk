@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.13.0"
+    "version": "3.13.4"
   },
   "servers": [
     {
@@ -344,11 +344,11 @@
           {
             "name": "path",
             "in": "path",
-            "description": "The directory to get the accounts and sub-directories in",
+            "description": "The directory to get the accounts and sub-directories.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The directory to get the accounts and sub-directories in",
+              "description": "The directory to get the accounts and sub-directories.",
               "example": "Client:"
             }
           }
@@ -975,7 +975,7 @@
             "schema": {
               "type": "string",
               "description": "Document Name",
-              "example": "Client:"
+              "example": "SPAR_DOCUMENTS:Factset Default Document"
             }
           }
         ],
@@ -1287,7 +1287,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Unique identifier for a SPAR component"
+              "description": "Unique identifier for a SPAR component",
+              "example": "067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D"
             }
           }
         ],
@@ -1812,7 +1813,7 @@
             "schema": {
               "type": "string",
               "description": "The directory to get the documents in",
-              "example": "SPAR_DOCUMENTS:Factset Default Document"
+              "example": "Client:"
             }
           }
         ],
@@ -2352,6 +2353,54 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SPARCalculationParametersRoot"
+              },
+              "example": {
+                "data": {
+                  "1": {
+                    "componentid": "067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D",
+                    "accounts": [
+                      {
+                        "id": "R.1000",
+                        "returntype": "GTR",
+                        "prefix": "RUSSELL"
+                      }
+                    ],
+                    "benchmark": {
+                      "id": "R.2000",
+                      "returntype": "GTR",
+                      "prefix": "RUSSELL"
+                    },
+                    "dates": {
+                      "startdate": "-2M",
+                      "enddate": "0",
+                      "frequency": "Monthly"
+                    }
+                  },
+                  "2": {
+                    "componentid": "E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02",
+                    "accounts": [
+                      {
+                        "id": "R.1000",
+                        "returntype": "GTR",
+                        "prefix": "RUSSELL"
+                      },
+                      {
+                        "id": "R.2000",
+                        "returntype": "GTR",
+                        "prefix": "RUSSELL"
+                      }
+                    ],
+                    "benchmark": {
+                      "id": "R.2000",
+                      "returntype": "GTR",
+                      "prefix": "RUSSELL"
+                    }
+                  }
+                },
+                "meta": {
+                  "stachContentorganization": "SimplifiedRow",
+                  "format": "JsonStach"
+                }
               }
             }
           }
@@ -2797,11 +2846,10 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1
+              "default": 1
             }
           }
         ],
@@ -3139,6 +3187,54 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SPARCalculationParametersRoot"
+              },
+              "example": {
+                "data": {
+                  "1": {
+                    "componentid": "067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D",
+                    "accounts": [
+                      {
+                        "id": "R.1000",
+                        "returntype": "GTR",
+                        "prefix": "RUSSELL"
+                      }
+                    ],
+                    "benchmark": {
+                      "id": "R.2000",
+                      "returntype": "GTR",
+                      "prefix": "RUSSELL"
+                    },
+                    "dates": {
+                      "startdate": "-4M",
+                      "enddate": "0",
+                      "frequency": "Monthly"
+                    }
+                  },
+                  "2": {
+                    "componentid": "E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02",
+                    "accounts": [
+                      {
+                        "id": "R.1000",
+                        "returntype": "GTR",
+                        "prefix": "RUSSELL"
+                      },
+                      {
+                        "id": "R.2000",
+                        "returntype": "GTR",
+                        "prefix": "RUSSELL"
+                      }
+                    ],
+                    "benchmark": {
+                      "id": "R.2000",
+                      "returntype": "GTR",
+                      "prefix": "RUSSELL"
+                    }
+                  }
+                },
+                "meta": {
+                  "stachContentorganization": "SimplifiedRow",
+                  "format": "JsonStach"
+                }
               }
             }
           }
@@ -3985,17 +4081,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -4095,17 +4181,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -4817,7 +4893,6 @@
             "$ref": "#/components/schemas/SPARAccounts"
           },
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }
@@ -4839,6 +4914,14 @@
         "type": "object",
         "properties": {
           "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
             "type": "string",
             "nullable": true
           },
@@ -4894,7 +4977,6 @@
             "$ref": "#/components/schemas/AccountDirectories"
           },
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }
@@ -4955,7 +5037,6 @@
             "$ref": "#/components/schemas/SPARBenchmark"
           },
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }
@@ -4976,14 +5057,18 @@
         }
       },
       "ComponentSummaryRoot": {
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/ComponentSummary"
-            },
-            "description": "The keys represent Component Ids",
+            }
+          },
+          "meta": {
             "nullable": true
           }
         }
@@ -5060,7 +5145,6 @@
             }
           },
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }
@@ -5096,7 +5180,6 @@
             "$ref": "#/components/schemas/DocumentDirectories"
           },
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }
@@ -5124,7 +5207,6 @@
             }
           },
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }
@@ -5368,11 +5450,8 @@
         ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object"
-          },
+          "data": {},
           "meta": {
-            "type": "object",
             "nullable": true
           }
         }

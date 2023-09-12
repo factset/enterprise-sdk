@@ -43,7 +43,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ComponentsApi();
-const id = "id_example"; // String | Unique identifier for a SPAR component
+const id = 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D; // String | Unique identifier for a SPAR component
 
 // Call api endpoint
 apiInstance.getSPARComponentById(id).then(
@@ -115,7 +115,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ComponentsApi();
-const document = Client:; // String | Document Name
+const document = SPAR_DOCUMENTS:Factset Default Document; // String | Document Name
 
 // Call api endpoint
 apiInstance.getSPARComponents(document).then(

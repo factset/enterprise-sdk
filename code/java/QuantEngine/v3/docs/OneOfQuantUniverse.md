@@ -7,6 +7,8 @@
 * [QuantScreeningExpressionUniverse](QuantScreeningExpressionUniverse.md)
 * [QuantUniversalScreenUniverse](QuantUniversalScreenUniverse.md)
 
+NOTE: this class is nullable.
+
 ## Example
 ```java
 // Import classes:

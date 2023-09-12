@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**{String: ComponentSummary}**](ComponentSummary.md) | The keys represent Component Ids | [optional] 
+**data** | [**{String: ComponentSummary}**](ComponentSummary.md) |  | 
+**meta** | **Object** |  | [optional] 
 
 

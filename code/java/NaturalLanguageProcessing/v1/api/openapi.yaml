@@ -24,126 +24,157 @@ tags:
 paths:
   /themes:
     post:
-      description: |
-        This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text.
-        Example Output:
-        ```json
-        {
-          "data": [
-          {
-            "themeText": "home entertainment results",
-            "themeScore": 0.92
-          },
-          {
-            "themeText": ".....",
-            "themeScore": .....
-          }]
-        }
-        ```
-      operationId: themes
+      description: Endpoint to extract themes from provided text. Optionally, can
+        include sentiment for each theme extracted. Please check the schema(s) for
+        each of the status codes for more details.
+      operationId: themesExtractThemes
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ThemeParametersRoot'
+              $ref: '#/components/schemas/ThemesParametersRoot'
         required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskRoot'
+          description: Accepted
+          headers:
+            Location:
+              $ref: '#/components/headers/Location'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPErrorRoot'
+          description: The browser (or proxy) sent a request that this server could
+            not understand.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPErrorRoot'
+          description: The server could not verify that you are authorized to access
+            the URL requested. You either supplied the wrong credentials (e.g. a bad
+            password), or your browser doesn't understand how to supply the credentials
+            required.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPErrorRoot'
+          description: The server encountered an internal error and was unable to
+            complete your request. Either the server is overloaded or there is an
+            error in the application.
+      summary: Endpoint to begin theme extraction job
+      tags:
+      - AI Themes
+      x-contentType: application/json
+      x-accepts: application/json
+  /themes/{id}:
+    get:
+      description: Endpoint to obtain the results from the original themes task request.
+        The `id` parameter represents the identifier of the task generated from the
+        POST request which created the task. Once the task is complete, the result
+        can be fetched with this endpoint.
+      operationId: themesGetThemes
+      parameters:
+      - description: Long running task identifier
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ThemesRoot'
-          description: Expected response, generated themes
-          headers:
-            X-FactSet-Api-Request-Key:
-              description: Key to uniquely identify an API request.
-              example: cb87799eadc14d9fba25c09fb639171d
-              explode: false
-              schema:
-                description: Key to uniquely identify an API request.
-                type: string
-              style: simple
-        "400":
+                $ref: '#/components/schemas/ThemeSentimentsRoot'
+          description: OK
+        "202":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorsRoot'
-          description: The browser (or proxy) sent a request that this server could
-            not understand.
+                $ref: '#/components/schemas/TaskRoot'
+          description: Accepted
           headers:
-            X-FactSet-Api-Request-Key:
-              description: Key to uniquely identify an API request.
-              explode: false
-              schema:
-                description: Key to uniquely identify an API request.
-                type: string
-              style: simple
-        "401":
-          description: The server could not verify that you are authorized to access
-            the URL requested. You either supplied the wrong credentials (e.g. a bad
-            password), or your browser doesn't understand how to supply the credentials
-            required.
-          headers:
-            X-FactSet-Api-Request-Key:
-              description: Key to uniquely identify an API request.
-              explode: false
-              schema:
-                description: Key to uniquely identify an API request.
-                type: string
-              style: simple
-        "403":
-          description: You don't have the permission to access the requested resource.
-            It is either read-protected or not readable by the server.
-          headers:
-            X-FactSet-Api-Request-Key:
-              description: Key to uniquely identify an API request.
-              explode: false
-              schema:
-                description: Key to uniquely identify an API request.
-                type: string
-              style: simple
+            Location:
+              $ref: '#/components/headers/Location'
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorsRoot'
-          description: The requested URL was not found on the server. If you entered
-            the URL manually please check your spelling and try again.
-          headers:
-            X-FactSet-Api-Request-Key:
-              description: Key to uniquely identify an API request.
-              explode: false
-              schema:
-                description: Key to uniquely identify an API request.
-                type: string
-              style: simple
+                $ref: '#/components/schemas/HTTPErrorRoot'
+          description: 'description: The requested URL was not found on the server.
+            If you entered the URL manually please check your spelling and try again.'
         "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The server encountered an internal error and was unable to
             complete your request. Either the server is overloaded or there is an
             error in the application.
-          headers:
-            X-FactSet-Api-Request-Key:
-              description: Key to uniquely identify an API request.
-              explode: false
-              schema:
-                description: Key to uniquely identify an API request.
-                type: string
-              style: simple
-        "503":
-          description: The server is temporarily unable to service your request due
-            to maintenance downtime or capacity problems. Please try again later.
-          headers:
-            X-FactSet-Api-Request-Key:
-              description: Key to uniquely identify an API request.
-              explode: false
-              schema:
-                description: Key to uniquely identify an API request.
-                type: string
-              style: simple
-      summary: Endpoint to extract themes from text
+      summary: Endpoint to get a theme (and sentiments if requested) job result
       tags:
       - AI Themes
-      x-contentType: application/json
+      x-accepts: application/json
+  /themes/{id}/status:
+    get:
+      description: Endpoint to obtain the completion status of the themes task request.
+        The `id` parameter represents the task.
+      operationId: themesGetStatus
+      parameters:
+      - description: Long running task identifier
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskRoot'
+          description: Created
+          headers:
+            Location:
+              $ref: '#/components/headers/Location'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskRoot'
+          description: Accepted
+          headers:
+            Location:
+              $ref: '#/components/headers/Location'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPErrorRoot'
+          description: 'description: The requested URL was not found on the server.
+            If you entered the URL manually please check your spelling and try again.'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPErrorRoot'
+          description: The server encountered an internal error and was unable to
+            complete your request. Either the server is overloaded or there is an
+            error in the application.
+      summary: Endpoint to get the completion status of a themes job
+      tags:
+      - AI Themes
       x-accepts: application/json
   /summarization/headline:
     post:
@@ -172,13 +203,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
+                $ref: '#/components/schemas/SummarizationHTTPError'
           description: Access Denied
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
+                $ref: '#/components/schemas/SummarizationHTTPError'
           description: Internal Server Error
       summary: Endpoint to generate a headline from text
       tags:
@@ -213,13 +244,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
+                $ref: '#/components/schemas/SummarizationHTTPError'
           description: Access Denied
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
+                $ref: '#/components/schemas/SummarizationHTTPError'
           description: Internal Server Error
       summary: Endpoint to summarize and generate a headline from text
       tags:
@@ -253,13 +284,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
+                $ref: '#/components/schemas/SummarizationHTTPError'
           description: Access Denied
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
+                $ref: '#/components/schemas/SummarizationHTTPError'
           description: Internal Server Error
       summary: Endpoint to summarize text
       tags:
@@ -288,7 +319,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NERValidationError'
+                $ref: '#/components/schemas/NERResponseSchema'
           description: Validation error
       summary: Endpoint to detect entities from text
       tags:
@@ -345,10 +376,10 @@ paths:
       x-accepts: application/json
   /qna/answers:
     post:
-      description: Create a task submission by providing plain text and question(s).
-        The underlying model will answer the question. The created task needs to be
-        polled to obtain the results. Please check the schema(s) for each of the status
-        codes for more details about the task.
+      description: Endpoint to create a task submission by providing plain text and
+        question(s). The underlying model will answer the question. The created task
+        needs to be polled to obtain the results. Please check the schema(s) for each
+        of the status codes for more details about the task.
       operationId: qnaPostQuestion
       parameters: []
       requestBody:
@@ -362,7 +393,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnATaskRoot'
+                $ref: '#/components/schemas/TaskRoot'
           description: Accepted
           headers:
             Location:
@@ -377,14 +408,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The browser (or proxy) sent a request that this server could
             not understand.
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The server could not verify that you are authorized to access
             the URL requested. You either supplied the wrong credentials (e.g. a bad
             password), or your browser doesn't understand how to supply the credentials
@@ -393,21 +424,21 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The server encountered an internal error and was unable to
             complete your request. Either the server is overloaded or there is an
             error in the application.
-      summary: Post a question for answer(s)
+      summary: Endpoint to submit a question for answer(s)
       tags:
       - Question & Answer
       x-contentType: application/json
       x-accepts: application/json
   /qna/answers/{id}:
     get:
-      description: Obtain the results from the original task request. The `id` parameter
-        represents the identifier from the task and comes from the POST request which
-        created the task. Once the task is complete, the result can be fetched with
-        this endpoint.
+      description: Endpoint to obtain the results from the original Q&A task request.
+        The `id` parameter represents the identifier from the task and comes from
+        the POST request which created the task. Once the task is complete, the result
+        can be fetched with this endpoint.
       operationId: qnaGetAnswers
       parameters:
       - description: Identifier from the Question & Answer task and comes from the
@@ -430,7 +461,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnATaskRoot'
+                $ref: '#/components/schemas/TaskRoot'
           description: Accepted
           headers:
             Location:
@@ -445,7 +476,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The server could not verify that you are authorized to access
             the URL requested. You either supplied the wrong credentials (e.g. a bad
             password), or your browser doesn't understand how to supply the credentials
@@ -454,27 +485,27 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The requested URL was not found on the server. If you entered
             the URL manually please check your spelling and try again.
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The server encountered an internal error and was unable to
             complete your request. Either the server is overloaded or there is an
             error in the application.
-      summary: Get the answer(s)
+      summary: Endpoint to get the answer(s)
       tags:
       - Question & Answer
       x-factset-different-success-responses: true
       x-accepts: application/json
   /qna/answers/{id}/status:
     get:
-      description: Endpoint to obtain the status of the task request. The `id` parameter
-        represents the identifier of the task created and comes from the POST request
-        which created the task.
+      description: Endpoint to obtain the status of the Q&A task request. The `id`
+        parameter represents the identifier of the task created and comes from the
+        POST request which created the task.
       operationId: qnaGetStatus
       parameters:
       - description: Identifier from the Question & Answer task and comes from the
@@ -491,7 +522,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnATaskRoot'
+                $ref: '#/components/schemas/TaskRoot'
           description: Created
           headers:
             Location:
@@ -506,7 +537,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnATaskRoot'
+                $ref: '#/components/schemas/TaskRoot'
           description: Accepted
           headers:
             Location:
@@ -521,7 +552,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The server could not verify that you are authorized to access
             the URL requested. You either supplied the wrong credentials (e.g. a bad
             password), or your browser doesn't understand how to supply the credentials
@@ -530,22 +561,80 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The requested URL was not found on the server. If you entered
             the URL manually please check your spelling and try again.
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QnAHTTPErrorRoot'
+                $ref: '#/components/schemas/HTTPErrorRoot'
           description: The server encountered an internal error and was unable to
             complete your request. Either the server is overloaded or there is an
             error in the application.
-      summary: Get the completion status
+      summary: Endpoint to get the completion status for a Q&A request
       tags:
       - Question & Answer
       x-accepts: application/json
 components:
+  headers:
+    Location:
+      description: The `Location` response header indicates the URL to redirect a
+        page to.
+      explode: false
+      schema:
+        type: string
+      style: simple
+  parameters:
+    id:
+      description: Long running task identifier
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+  responses:
+    "202":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TaskRoot'
+      description: Accepted
+      headers:
+        Location:
+          $ref: '#/components/headers/Location'
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPErrorRoot'
+      description: The browser (or proxy) sent a request that this server could not
+        understand.
+    "401":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPErrorRoot'
+      description: The server could not verify that you are authorized to access the
+        URL requested. You either supplied the wrong credentials (e.g. a bad password),
+        or your browser doesn't understand how to supply the credentials required.
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPErrorRoot'
+      description: 'description: The requested URL was not found on the server. If
+        you entered the URL manually please check your spelling and try again.'
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPErrorRoot'
+      description: The server encountered an internal error and was unable to complete
+        your request. Either the server is overloaded or there is an error in the
+        application.
   schemas:
     QnAAnswer:
       description: Schema that defines the answer with a confidence score.
@@ -684,6 +773,7 @@ components:
         data:
           $ref: '#/components/schemas/QnAAnswerParameters'
         meta:
+          description: Any associated metadata
           type: object
       required:
       - data
@@ -709,7 +799,7 @@ components:
       required:
       - data
       type: object
-    QnAErrorSource:
+    ErrorSource:
       description: Schema that defines the source of the error.
       properties:
         parameter:
@@ -723,7 +813,7 @@ components:
       - parameter
       - pointer
       type: object
-    QnAHTTPError:
+    HTTPError:
       description: Schema that defines HTTP error(s).
       properties:
         code:
@@ -737,7 +827,7 @@ components:
           format: uuid
           type: string
         source:
-          $ref: '#/components/schemas/QnAErrorSource'
+          $ref: '#/components/schemas/ErrorSource'
         title:
           description: Error title
           type: string
@@ -746,75 +836,16 @@ components:
       - id
       - title
       type: object
-    QnAHTTPErrorRoot:
+    HTTPErrorRoot:
       description: Schema that defines HTTP error(s).
       properties:
         errors:
           description: List of errors
           items:
-            $ref: '#/components/schemas/QnAHTTPError'
+            $ref: '#/components/schemas/HTTPError'
           type: array
       required:
       - errors
-      type: object
-    QnATask:
-      description: Schema that represents a long-running process/task.
-      example:
-        startedAt: 2000-01-23T04:56:07.000+00:00
-        id: ca509a4a-2ec9-4770-817a-f1caac18c95c
-        status: queued
-      properties:
-        id:
-          description: The task identifier
-          example: ca509a4a-2ec9-4770-817a-f1caac18c95c
-          format: uuid
-          type: string
-        startedAt:
-          description: The date time the task started (UTC).
-          format: date-time
-          type: string
-        status:
-          description: |2-
-
-            Completion status of the task.
-
-            The detailed description of each of the statuses is as follows:
-            |Status|Description|
-            |--------|--------|
-            |queued|The task did not start yet.|
-            |created|The task is completed and the underlying resource is created.|
-            |failed|The task has failed and consequently the creation of the resource failed.|
-            |executing|The task is executing.|
-            |cancelled|The task is cancelled and the creation of the underlying resource was cancelled before it could finish.|
-          enum:
-          - queued
-          - created
-          - failed
-          - executing
-          - cancelled
-          example: queued
-          type: string
-      required:
-      - id
-      - startedAt
-      - status
-      type: object
-    QnATaskRoot:
-      description: Schema that envelopes `QnATask` and include additional `meta` (if
-        available).
-      example:
-        data:
-          startedAt: 2000-01-23T04:56:07.000+00:00
-          id: ca509a4a-2ec9-4770-817a-f1caac18c95c
-          status: queued
-        meta: '{}'
-      properties:
-        data:
-          $ref: '#/components/schemas/QnATask'
-        meta:
-          type: object
-      required:
-      - data
       type: object
     SummarizationRequest:
       example:
@@ -945,9 +976,128 @@ components:
           title: ID
           type: string
       type: object
-    ThemeParameters:
-      additionalProperties: false
+    Task:
+      description: Schema that represents a long-running process/task.
       example:
+        startedAt: 2000-01-23T04:56:07.000+00:00
+        id: ca509a4a-2ec9-4770-817a-f1caac18c95c
+        status: queued
+      properties:
+        id:
+          description: The task identifier
+          example: ca509a4a-2ec9-4770-817a-f1caac18c95c
+          format: uuid
+          type: string
+        startedAt:
+          description: The date time the task started (UTC).
+          format: date-time
+          type: string
+        status:
+          description: |2-
+
+            Completion status of the task.
+
+            The detailed description of each of the statuses is as follows:
+            |Status|Description|
+            |--------|--------|
+            |queued|The task did not start yet.|
+            |created|The task is completed and the underlying resource is created.|
+            |failed|The task has failed and consequently the creation of the resource failed.|
+            |executing|The task is executing.|
+            |cancelled|The task is cancelled and the creation of the underlying resource was cancelled before it could finish.|
+          enum:
+          - queued
+          - created
+          - failed
+          - executing
+          - cancelled
+          example: queued
+          type: string
+      required:
+      - id
+      - startedAt
+      - status
+      type: object
+    TaskRoot:
+      description: Schema that envelopes `Task` and include additional `meta` (if
+        available).
+      example:
+        data:
+          startedAt: 2000-01-23T04:56:07.000+00:00
+          id: ca509a4a-2ec9-4770-817a-f1caac18c95c
+          status: queued
+        meta: '{}'
+      properties:
+        data:
+          $ref: '#/components/schemas/Task'
+        meta:
+          description: Any associated metadata
+          type: object
+      required:
+      - data
+      type: object
+    ThemeSentiment:
+      description: Schema that defines the extracted theme and the corresponding sentiments
+      example:
+        sentiment: positive
+        sentimentScore: 0.9900231957
+        themeScore: 0.88
+        themeText: home entertainment results
+      properties:
+        sentiment:
+          description: The sentiment of the theme.
+          enum:
+          - positive
+          - negative
+          - neutral
+          example: positive
+          type: string
+        sentimentScore:
+          description: Confidence score of the sentiment
+          example: 0.9900231957
+          type: number
+        themeScore:
+          description: The confidence score associated to the theme
+          example: 0.88
+          type: number
+        themeText:
+          description: The extracted theme as text
+          example: home entertainment results
+          type: string
+      required:
+      - themeScore
+      - themeText
+      type: object
+    ThemeSentimentsRoot:
+      description: Schema that envelopes the `ThemeSentiment` and include additional
+        `meta` (if available).
+      example:
+        data:
+        - sentiment: positive
+          sentimentScore: 0.9900231957
+          themeScore: 0.88
+          themeText: home entertainment results
+        - sentiment: positive
+          sentimentScore: 0.9900231957
+          themeScore: 0.88
+          themeText: home entertainment results
+        meta: '{}'
+      properties:
+        data:
+          description: List of themes and their respective sentiments
+          items:
+            $ref: '#/components/schemas/ThemeSentiment'
+          type: array
+        meta:
+          description: Any associated metadata
+          type: object
+      required:
+      - data
+      type: object
+    ThemesParameters:
+      description: Schema that defines the parameters needed to extract themes.
+      example:
+        includeSentiments: false
         text: 'Studio Entertainment: At Studio Entertainment, operating income decreased
           in the quarter due to lower theatrical distribution and home entertainment
           results. Worldwide theatrical results continued to be adversely impacted
@@ -965,8 +1115,12 @@ components:
           International Channels, lower results were due to lower affiliate and advertising
           revenues, partially offset by a decrease in cost.'
       properties:
+        includeSentiments:
+          description: Boolean flag indicating inclusion of sentiment for each theme.
+          example: false
+          type: boolean
         text:
-          description: Text from which themes will be extracted
+          description: The text input that provides the context
           example: 'Studio Entertainment: At Studio Entertainment, operating income
             decreased in the quarter due to lower theatrical distribution and home
             entertainment results. Worldwide theatrical results continued to be adversely
@@ -984,14 +1138,19 @@ components:
             Investor Day on December 10 At our International Channels, lower results
             were due to lower affiliate and advertising revenues, partially offset
             by a decrease in cost.'
+          maxLength: 10000
+          minLength: 1
           type: string
       required:
+      - includeSentiments
       - text
       type: object
-    ThemeParametersRoot:
-      additionalProperties: false
+    ThemesParametersRoot:
+      description: Schema that envelopes the `ThemesParameters` and include additional
+        `meta` (if available).
       example:
         data:
+          includeSentiments: false
           text: 'Studio Entertainment: At Studio Entertainment, operating income decreased
             in the quarter due to lower theatrical distribution and home entertainment
             results. Worldwide theatrical results continued to be adversely impacted
@@ -1012,14 +1171,20 @@ components:
         meta: '{}'
       properties:
         data:
-          $ref: '#/components/schemas/ThemeParameters'
+          $ref: '#/components/schemas/ThemesParameters'
         meta:
+          description: Any associated metadata
           type: object
       required:
       - data
       type: object
     Error:
       additionalProperties: false
+      example:
+        code: code
+        id: id
+        detail: detail
+        title: title
       properties:
         id:
           type: string
@@ -1027,52 +1192,10 @@ components:
           type: string
         detail:
           type: string
-      type: object
-    ErrorsRoot:
-      additionalProperties: false
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/Error'
-          type: array
-      type: object
-    ThemesRoot:
-      additionalProperties: false
-      example:
-        data:
-        - themeScore: 0.92
-          themeText: home entertainment results
-        - themeScore: 0.92
-          themeText: home entertainment results
-        meta: '{}'
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/Theme'
-          type: array
-        meta:
-          type: object
-      required:
-      - data
-      type: object
-    Theme:
-      example:
-        themeScore: 0.92
-        themeText: home entertainment results
-      properties:
-        themeText:
-          description: Extracted theme text
-          example: home entertainment results
+        code:
           type: string
-        themeScore:
-          description: Extracted theme score
-          example: 0.92
-          type: number
-      required:
-      - themeScore
-      - themeText
       type: object
-    HTTPError:
+    SummarizationHTTPError:
       properties:
         detail:
           type: object
@@ -1118,29 +1241,26 @@ components:
               name: FactSet Research Systems
               entityId: 0016YD-E
             type: NE_ORG
+        meta: '{}'
         errors:
-        - code: INTERNAL_TIMEOUT
-          id: 123e4567-e89b-12d3-a456-426614174000
-          title: A subservice of NER experienced a delay. We have returned the data
-            obtained prior to the timeout.
-        - code: INTERNAL_TIMEOUT
-          id: 123e4567-e89b-12d3-a456-426614174000
-          title: A subservice of NER experienced a delay. We have returned the data
-            obtained prior to the timeout.
+        - code: code
+          id: id
+          detail: detail
+          title: title
+        - code: code
+          id: id
+          detail: detail
+          title: title
       properties:
         data:
           $ref: '#/components/schemas/NEREntityList'
         errors:
           items:
-            $ref: '#/components/schemas/NERErrorSchema'
+            $ref: '#/components/schemas/Error'
           type: array
-      type: object
-    NERValidationError:
-      properties:
-        detail:
-          $ref: '#/components/schemas/ValidationError_detail'
-        message:
-          type: string
+        meta:
+          description: Any associated metadata
+          type: object
       type: object
     NEREntity:
       example:
@@ -1214,30 +1334,6 @@ components:
       - startChar
       - text
       - type
-      type: object
-    NERErrorSchema:
-      example:
-        code: INTERNAL_TIMEOUT
-        id: 123e4567-e89b-12d3-a456-426614174000
-        title: A subservice of NER experienced a delay. We have returned the data
-          obtained prior to the timeout.
-      properties:
-        code:
-          description: NER-specific error code of the problem
-          example: INTERNAL_TIMEOUT
-          title: Error Code
-          type: string
-        id:
-          description: Unique ID for the occurance of the problem
-          example: 123e4567-e89b-12d3-a456-426614174000
-          title: ID
-          type: string
-        title:
-          description: A short summary of the problem
-          example: A subservice of NER experienced a delay. We have returned the data
-            obtained prior to the timeout.
-          title: Title
-          type: string
       type: object
     NERInputDataSchema:
       example:

@@ -4,7 +4,10 @@
 .travis.yml
 LICENSE
 README.md
+docs/ClientErrorResponse.md
 docs/DSOTMApi.md
+docs/Error.md
+docs/ErrorSource.md
 docs/ExecutionParameters.md
 docs/OrderParameters.md
 docs/PlacementParameters.md
@@ -15,6 +18,9 @@ package.json
 src/ApiClient.js
 src/api/DSOTMApi.js
 src/index.js
+src/model/ClientErrorResponse.js
+src/model/Error.js
+src/model/ErrorSource.js
 src/model/ExecutionParameters.js
 src/model/OrderParameters.js
 src/model/PlacementParameters.js

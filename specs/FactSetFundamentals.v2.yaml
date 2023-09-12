@@ -304,7 +304,6 @@ paths:
     get:
       summary: Returns available FactSet Fundamental metrics and ratios.
       operationId: getFdsFundamentalsMetrics
-      x-factset-sdk-ignore: true
       tags:
         - Metrics
       description: >

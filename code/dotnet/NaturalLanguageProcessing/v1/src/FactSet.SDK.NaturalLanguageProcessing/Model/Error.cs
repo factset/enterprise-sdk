@@ -38,11 +38,13 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
         /// <param name="id">id.</param>
         /// <param name="title">title.</param>
         /// <param name="detail">detail.</param>
-        public Error(string id = default(string), string title = default(string), string detail = default(string))
+        /// <param name="code">code.</param>
+        public Error(string id = default(string), string title = default(string), string detail = default(string), string code = default(string))
         {
             this.Id = id;
             this.Title = title;
             this.Detail = detail;
+            this.Code = code;
         }
 
         /// <summary>
@@ -64,6 +66,12 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
         public string Detail { get; set; }
 
         /// <summary>
+        /// Gets or Sets Code
+        /// </summary>
+        [DataMember(Name = "code", EmitDefaultValue = false)]
+        public string Code { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,6 +82,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +132,11 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
                     this.Detail == input.Detail ||
                     (this.Detail != null &&
                     this.Detail.Equals(input.Detail))
+                ) && 
+                (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 );
         }
 
@@ -146,6 +160,10 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
                 if (this.Detail != null)
                 {
                     hashCode = (hashCode * 59) + this.Detail.GetHashCode();
+                }
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
                 return hashCode;
             }

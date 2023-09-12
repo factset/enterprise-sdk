@@ -92,7 +92,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -110,7 +110,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_calculations**
-> CalculationsSummaryRoot get_all_calculations(page_number)
+> CalculationsSummaryRoot get_all_calculations()
 
 Get all calculations
 
@@ -157,12 +157,13 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = spar_calculations_api.SPARCalculationsApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    page_number = 1 # int | 
+    page_number = 1 # int |  (optional) if omitted the server will use the default value of 1
 
     try:
         # Get all calculations
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_all_calculations(page_number)
+        # and optional values
+        api_response = api_instance.get_all_calculations(page_number=page_number)
 
         pprint(api_response)
 
@@ -175,7 +176,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_number** | **int**|  |
+ **page_number** | **int**|  | [optional] if omitted the server will use the default value of 1
 
 ### Return type
 

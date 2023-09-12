@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_accounts**
-> AccountDirectoriesRoot get_accounts()
+> AccountDirectoriesRoot get_accounts(path)
 
 Get accounts and sub-directories in a directory
 
@@ -55,11 +55,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = accounts_api.AccountsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    path = "Client:" # str | The directory to get the accounts and sub-directories in
 
     try:
         # Get accounts and sub-directories in a directory
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_accounts()
+        api_response = api_instance.get_accounts(path)
 
         pprint(api_response)
 
@@ -72,7 +74,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| The directory to get the accounts and sub-directories in | defaults to "Client:Foo/Bar"
+ **path** | **str**| The directory to get the accounts and sub-directories in |
 
 ### Return type
 

@@ -118,7 +118,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new LinkedPATemplatesApi();
-const id = "'01234567890123456789012345678901'"; // String | Unique identifier for a linked PA template
+const id = 01234567890123456789012345678901; // String | Unique identifier for a linked PA template
 
 // Call api endpoint
 apiInstance.deleteLinkedPATemplates(id).then(
@@ -138,7 +138,7 @@ apiInstance.deleteLinkedPATemplates(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a linked PA template | [default to &#39;01234567890123456789012345678901&#39;]
+ **id** | **String**| Unique identifier for a linked PA template | 
 
 ### Return type
 
@@ -151,7 +151,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## getLinkedPATemplates
@@ -189,7 +189,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new LinkedPATemplatesApi();
 const opts = {
-  'directory': "'Personal:LinkedPATemplates/'", // String | Get linked PA templates in path.
+  'directory': Personal:LinkedPATemplates/, // String | Get linked PA templates in path.
   'documentDirectory': "documentDirectory_example", // String | Get linked PA templates for documents in document path
   'documentName': "documentName_example" // String | Get linked PA templates for documents by document name
 };
@@ -214,7 +214,7 @@ apiInstance.getLinkedPATemplates(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **String**| Get linked PA templates in path. | [optional] [default to &#39;Personal:LinkedPATemplates/&#39;]
+ **directory** | **String**| Get linked PA templates in path. | [optional] 
  **documentDirectory** | **String**| Get linked PA templates for documents in document path | [optional] 
  **documentName** | **String**| Get linked PA templates for documents by document name | [optional] 
 
@@ -266,7 +266,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new LinkedPATemplatesApi();
-const id = "'01234567890123456789012345678901'"; // String | Unique identifier for a linked PA template
+const id = 01234567890123456789012345678901; // String | Unique identifier for a linked PA template
 
 // Call api endpoint
 apiInstance.getLinkedPATemplatesById(id).then(
@@ -288,7 +288,7 @@ apiInstance.getLinkedPATemplatesById(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a linked PA template | [default to &#39;01234567890123456789012345678901&#39;]
+ **id** | **String**| Unique identifier for a linked PA template | 
 
 ### Return type
 
@@ -338,7 +338,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new LinkedPATemplatesApi();
-const id = "'01234567890123456789012345678901'"; // String | Unique identifier for a linked PA template
+const id = 01234567890123456789012345678901; // String | Unique identifier for a linked PA template
 const linkedPATemplateUpdateParametersRoot = {"data":{"parentComponentId":"801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46","description":"This is a linked PA template that only returns security level data","content":{"mandatory":["accounts","benchmarks"],"optional":["groups","columns"],"locked":["componentdetail"]}}}; // LinkedPATemplateUpdateParametersRoot | Request Parameters
 
 // Call api endpoint
@@ -361,7 +361,7 @@ apiInstance.updateLinkedPATemplates(id, linkedPATemplateUpdateParametersRoot).th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a linked PA template | [default to &#39;01234567890123456789012345678901&#39;]
+ **id** | **String**| Unique identifier for a linked PA template | 
  **linkedPATemplateUpdateParametersRoot** | [**LinkedPATemplateUpdateParametersRoot**](LinkedPATemplateUpdateParametersRoot.md)| Request Parameters | 
 
 ### Return type

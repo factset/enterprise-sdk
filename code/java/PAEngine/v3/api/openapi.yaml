@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: PA Engine API
-  version: 3.14.0
+  version: 3.14.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/pa-engine-api
@@ -31,8 +31,8 @@ paths:
         name: path
         required: true
         schema:
-          default: Client:Foo/Bar
           description: The directory to get the accounts and sub-directories in
+          example: 'Client:'
           type: string
         style: simple
       responses:
@@ -336,6 +336,7 @@ paths:
         schema:
           default: ""
           description: Column name
+          example: Security Name
           type: string
         style: form
       - description: Column category
@@ -356,6 +357,7 @@ paths:
         schema:
           default: ""
           description: The directory to get the columns in
+          example: Client
           type: string
         style: form
       responses:
@@ -583,8 +585,8 @@ paths:
         name: id
         required: true
         schema:
-          default: 2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5
           description: Unique identifier for a column
+          example: 2DBD317E3C235BC96E2FF8CA36CE036AF2F7F55525479B524AE78FD7D6BBC4A7
           type: string
         style: simple
       responses:
@@ -1104,8 +1106,8 @@ paths:
         name: document
         required: true
         schema:
-          default: Client:Foo
           description: Document Name
+          example: PA3_DOCUMENTS:DEFAULT
           type: string
         style: form
       responses:
@@ -1406,8 +1408,8 @@ paths:
         name: id
         required: true
         schema:
-          default: 782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53
           description: Unique identifier for a PA component
+          example: 801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46
           type: string
         style: simple
       responses:
@@ -1921,8 +1923,8 @@ paths:
         name: startdate
         required: false
         schema:
-          default: -3AY
           description: Start Date
+          example: -3AY
           type: string
         style: form
       - description: End Date
@@ -1931,8 +1933,8 @@ paths:
         name: enddate
         required: true
         schema:
-          default: -1AY
           description: End Date
+          example: -1AY
           type: string
         style: form
       - description: Component Id
@@ -1941,18 +1943,18 @@ paths:
         name: componentid
         required: true
         schema:
-          default: 7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935
           description: Component Id
+          example: 801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46
           type: string
         style: form
-      - description: Account
+      - description: Account ( Account Name ending with .ACCT or .ACTM )
         explode: true
         in: query
         name: account
         required: true
         schema:
-          default: Client:Foo/Bar/myaccount.acct
-          description: Account
+          description: Account ( Account Name ending with .ACCT or .ACTM )
+          example: Client:/Folder1/Folder2/AccountName.ACCT
           type: string
         style: form
       responses:
@@ -2255,8 +2257,8 @@ paths:
         name: path
         required: true
         schema:
-          default: Client:folder1/folder2
           description: The directory to get the documents and sub-directories in
+          example: 'Client:'
           type: string
         style: simple
       responses:
@@ -3197,8 +3199,8 @@ paths:
         name: directory
         required: false
         schema:
-          default: Personal:LinkedPATemplates/
           description: Get linked PA templates in path.
+          example: Personal:LinkedPATemplates/
           type: string
         style: form
       - description: Get linked PA templates for documents in document path
@@ -3839,8 +3841,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for a linked PA template
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       responses:
@@ -3883,13 +3885,7 @@ paths:
               style: simple
         "400":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid data provided. Please check the request parameters
@@ -3987,13 +3983,7 @@ paths:
               style: simple
         "404":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Template not found.
@@ -4149,8 +4139,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for a linked PA template
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       responses:
@@ -4460,8 +4450,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for a linked PA template
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       requestBody:
@@ -4782,7 +4772,7 @@ paths:
       - explode: true
         in: query
         name: pageNumber
-        required: true
+        required: false
         schema:
           default: 1
           format: int32
@@ -5621,13 +5611,7 @@ paths:
               style: simple
         "400":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -5724,13 +5708,7 @@ paths:
               style: simple
         "404":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: There was no request for the calculation identifier provided,
@@ -6143,7 +6121,7 @@ paths:
                     holdingsmode: B&H
                   dates:
                     startdate: "20210101"
-                    enddate: "20220331"
+                    enddate: "20210231"
                     frequency: Monthly
                   currencyisocode: USD
                 "2":
@@ -7582,8 +7560,8 @@ paths:
         name: directory
         required: true
         schema:
-          default: Personal:TemplatedPAComponents/
           description: Get templated PA components in path
+          example: Personal:TemplatedPAComponents/
           type: string
         style: form
       responses:
@@ -7896,13 +7874,7 @@ paths:
       responses:
         "201":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/TemplatedPAComponentPostSummaryRoot'
             application/json:
-              schema:
-                $ref: '#/components/schemas/TemplatedPAComponentPostSummaryRoot'
-            text/json:
               schema:
                 $ref: '#/components/schemas/TemplatedPAComponentPostSummaryRoot'
           description: Expected response, templated PA component created successfully.
@@ -7943,13 +7915,7 @@ paths:
               style: simple
         "400":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid data provided. Please check the request parameters
@@ -8201,8 +8167,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for a templated PA component
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       responses:
@@ -8245,13 +8211,7 @@ paths:
               style: simple
         "400":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid data provided. Please check the request parameters
@@ -8349,13 +8309,7 @@ paths:
               style: simple
         "404":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Component not found.
@@ -8511,8 +8465,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for a templated PA component
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       responses:
@@ -8832,8 +8786,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for a templated PA component
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       requestBody:
@@ -9173,8 +9127,8 @@ paths:
         name: directory
         required: false
         schema:
-          default: Personal:UninkedPATemplates/
           description: Get unlinked PA templates in path.
+          example: Personal:UninkedPATemplates/
           type: string
         style: form
       - description: Get unlinked PA templates by category.
@@ -9183,8 +9137,8 @@ paths:
         name: category
         required: false
         schema:
-          default: Weights
           description: Get unlinked PA templates by category.
+          example: Weights
           type: string
         style: form
       responses:
@@ -9773,8 +9727,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for an unlinked PA template
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       responses:
@@ -10071,8 +10025,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for an unlinked PA template
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       responses:
@@ -10399,8 +10353,8 @@ paths:
         name: id
         required: true
         schema:
-          default: "01234567890123456789012345678901"
           description: Unique identifier for an unlinked PA template
+          example: "01234567890123456789012345678901"
           type: string
         style: simple
       requestBody:

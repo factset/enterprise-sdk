@@ -53,7 +53,7 @@ namespace Example
 
             var apiInstance = new ComponentsApi(config);
 
-            var id = "\"782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53\"";  // string | Unique identifier for a PA component (default to "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53")
+            var id = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46";  // string | Unique identifier for a PA component
 
             try
             {
@@ -76,7 +76,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a PA component | [default to &quot;782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53&quot;]
+ **id** | **string**| Unique identifier for a PA component | 
 
 ### Return type
 [**PAComponentRoot**](PAComponentRoot.md)
@@ -151,7 +151,7 @@ namespace Example
 
             var apiInstance = new ComponentsApi(config);
 
-            var document = "\"Client:Foo\"";  // string | Document Name (default to "Client:Foo")
+            var document = "PA3_DOCUMENTS:DEFAULT";  // string | Document Name
 
             try
             {
@@ -174,7 +174,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **string**| Document Name | [default to &quot;Client:Foo&quot;]
+ **document** | **string**| Document Name | 
 
 ### Return type
 [**ComponentSummaryRoot**](ComponentSummaryRoot.md)

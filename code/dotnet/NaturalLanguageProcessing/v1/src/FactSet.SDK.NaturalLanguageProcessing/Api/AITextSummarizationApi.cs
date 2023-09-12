@@ -237,16 +237,16 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         {
             { (HttpStatusCode)201, typeof(SummarizationResultID) },
             { (HttpStatusCode)400, typeof(ValidationError) },
-            { (HttpStatusCode)401, typeof(HTTPError) },
-            { (HttpStatusCode)500, typeof(HTTPError) },
+            { (HttpStatusCode)401, typeof(SummarizationHTTPError) },
+            { (HttpStatusCode)500, typeof(SummarizationHTTPError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> SummarizationHeadlineAndSummaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(SummarizationResultID) },
             { (HttpStatusCode)400, typeof(ValidationError) },
-            { (HttpStatusCode)401, typeof(HTTPError) },
-            { (HttpStatusCode)500, typeof(HTTPError) },
+            { (HttpStatusCode)401, typeof(SummarizationHTTPError) },
+            { (HttpStatusCode)500, typeof(SummarizationHTTPError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> SummarizationResultResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -262,8 +262,8 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         {
             { (HttpStatusCode)201, typeof(SummarizationResultID) },
             { (HttpStatusCode)400, typeof(ValidationError) },
-            { (HttpStatusCode)401, typeof(HTTPError) },
-            { (HttpStatusCode)500, typeof(HTTPError) },
+            { (HttpStatusCode)401, typeof(SummarizationHTTPError) },
+            { (HttpStatusCode)500, typeof(SummarizationHTTPError) },
         };
 
         # endregion Response Type Disctionaries

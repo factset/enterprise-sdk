@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_unlinked_pa_templates**
-> delete_unlinked_pa_templates()
+> delete_unlinked_pa_templates(id)
 
 Delete unlinked PA template
 
@@ -222,11 +222,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template
 
     try:
         # Delete unlinked PA template
         # example passing only required values which don't have defaults set
-        api_instance.delete_unlinked_pa_templates()
+        api_instance.delete_unlinked_pa_templates(id)
 
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -238,7 +240,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for an unlinked PA template | defaults to "01234567890123456789012345678901"
+ **id** | **str**| Unique identifier for an unlinked PA template |
 
 ### Return type
 
@@ -507,9 +509,9 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    directory = "Personal:UninkedPATemplates/" # str | Get unlinked PA templates in path. (optional) if omitted the server will use the default value of "Personal:UninkedPATemplates/"
+    directory = "Personal:UninkedPATemplates/" # str | Get unlinked PA templates in path. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    category = "Weights" # str | Get unlinked PA templates by category. (optional) if omitted the server will use the default value of "Weights"
+    category = "Weights" # str | Get unlinked PA templates by category. (optional)
 
     try:
         # Get unlinked PA templates
@@ -528,8 +530,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **str**| Get unlinked PA templates in path. | [optional] if omitted the server will use the default value of "Personal:UninkedPATemplates/"
- **category** | **str**| Get unlinked PA templates by category. | [optional] if omitted the server will use the default value of "Weights"
+ **directory** | **str**| Get unlinked PA templates in path. | [optional]
+ **category** | **str**| Get unlinked PA templates by category. | [optional]
 
 ### Return type
 
@@ -561,7 +563,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_unlinked_pa_templates_by_id**
-> UnlinkedPATemplateRoot get_unlinked_pa_templates_by_id()
+> UnlinkedPATemplateRoot get_unlinked_pa_templates_by_id(id)
 
 Get unlinked PA template details by id
 
@@ -607,11 +609,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template
 
     try:
         # Get unlinked PA template details by id
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_unlinked_pa_templates_by_id()
+        api_response = api_instance.get_unlinked_pa_templates_by_id(id)
 
         pprint(api_response)
 
@@ -624,7 +628,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for an unlinked PA template | defaults to "01234567890123456789012345678901"
+ **id** | **str**| Unique identifier for an unlinked PA template |
 
 ### Return type
 
@@ -657,7 +661,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_unlinked_pa_templates**
-> UnlinkedPATemplatePostSummaryRoot update_unlinked_pa_templates(unlinked_pa_template_update_parameters_root)
+> UnlinkedPATemplatePostSummaryRoot update_unlinked_pa_templates(id, unlinked_pa_template_update_parameters_root)
 
 Update unlinked PA template
 
@@ -703,6 +707,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     unlinked_pa_template_update_parameters_root = UnlinkedPATemplateUpdateParametersRoot(
         data=UnlinkedPATemplateUpdateParameters(
@@ -771,7 +777,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     try:
         # Update unlinked PA template
         # example passing only required values which don't have defaults set
-        api_response = api_instance.update_unlinked_pa_templates(unlinked_pa_template_update_parameters_root)
+        api_response = api_instance.update_unlinked_pa_templates(id, unlinked_pa_template_update_parameters_root)
 
         pprint(api_response)
 
@@ -784,8 +790,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique identifier for an unlinked PA template |
  **unlinked_pa_template_update_parameters_root** | [**UnlinkedPATemplateUpdateParametersRoot**](UnlinkedPATemplateUpdateParametersRoot.md)| Request Parameters |
- **id** | **str**| Unique identifier for an unlinked PA template | defaults to "01234567890123456789012345678901"
 
 ### Return type
 

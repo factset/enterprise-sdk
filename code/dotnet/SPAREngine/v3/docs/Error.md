@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [optional] 
+**Code** | **string** |  | [optional] 
+**Title** | **string** |  | [optional] 
 **Detail** | **string** |  | [optional] 
 **Source** | [**ErrorSource**](ErrorSource.md) |  | [optional] 
 

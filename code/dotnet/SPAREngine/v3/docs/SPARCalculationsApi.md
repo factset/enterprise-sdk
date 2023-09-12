@@ -92,7 +92,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -111,7 +111,7 @@ void (empty response body)
 
 <a name="getallcalculations"></a>
 # **GetAllCalculations**
-> CalculationsSummaryRoot GetAllCalculations (int pageNumber)
+> CalculationsSummaryRoot GetAllCalculations (int? pageNumber = null)
 
 Get all calculations
 
@@ -153,7 +153,7 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
 
-            var pageNumber = 1;  // int | 
+            var pageNumber = 1;  // int? |  (optional)  (default to 1)
 
             try
             {
@@ -176,7 +176,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageNumber** | **int**|  | 
+ **pageNumber** | **int?**|  | [optional] [default to 1]
 
 ### Return type
 [**CalculationsSummaryRoot**](CalculationsSummaryRoot.md)

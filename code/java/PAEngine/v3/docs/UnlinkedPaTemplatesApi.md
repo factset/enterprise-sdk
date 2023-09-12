@@ -195,7 +195,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for an unlinked PA template | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for an unlinked PA template |
 
 ### Return type
 
@@ -466,8 +466,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **String**| Get unlinked PA templates in path. | [optional] [default to Personal:UninkedPATemplates/]
- **category** | **String**| Get unlinked PA templates by category. | [optional] [default to Weights]
+ **directory** | **String**| Get unlinked PA templates in path. | [optional]
+ **category** | **String**| Get unlinked PA templates by category. | [optional]
 
 ### Return type
 
@@ -558,7 +558,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for an unlinked PA template | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for an unlinked PA template |
 
 ### Return type
 
@@ -679,7 +679,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for an unlinked PA template | [default to 01234567890123456789012345678901]
+ **id** | **String**| Unique identifier for an unlinked PA template |
  **unlinkedPATemplateUpdateParametersRoot** | [**UnlinkedPATemplateUpdateParametersRoot**](UnlinkedPATemplateUpdateParametersRoot.md)| Request Parameters |
 
 ### Return type

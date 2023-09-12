@@ -6,7 +6,10 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/ClientErrorResponse.md
 docs/DsotmApi.md
+docs/Error.md
+docs/ErrorSource.md
 docs/ExecutionParameters.md
 docs/OrderParameters.md
 docs/PlacementParameters.md
@@ -40,6 +43,9 @@ src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/auth/HttpBear
 src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/auth/OAuth.java
 src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/models/ClientErrorResponse.java
+src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/models/Error.java
+src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/models/ErrorSource.java
 src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/models/ExecutionParameters.java
 src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/models/OrderParameters.java
 src/main/java/com/factset/sdk/DirectStreamingofTransactionMessages/models/PlacementParameters.java

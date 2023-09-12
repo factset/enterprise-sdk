@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.NaturalLanguageProcessing.models.HTTPError;
+import com.factset.sdk.NaturalLanguageProcessing.models.SummarizationHTTPError;
 import com.factset.sdk.NaturalLanguageProcessing.models.SummarizationRequest;
 import com.factset.sdk.NaturalLanguageProcessing.models.SummarizationResult;
 import com.factset.sdk.NaturalLanguageProcessing.models.SummarizationResultID;
@@ -33,16 +34,16 @@ public class AiTextSummarizationApi {
   static {
     summarizationHeadlineResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
     summarizationHeadlineResponseTypeMap.put(400, new GenericType<ValidationError>(){});
-    summarizationHeadlineResponseTypeMap.put(401, new GenericType<HTTPError>(){});
-    summarizationHeadlineResponseTypeMap.put(500, new GenericType<HTTPError>(){});
+    summarizationHeadlineResponseTypeMap.put(401, new GenericType<SummarizationHTTPError>(){});
+    summarizationHeadlineResponseTypeMap.put(500, new GenericType<SummarizationHTTPError>(){});
   }
 
   private static final Map<Integer, GenericType> summarizationHeadlineAndSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     summarizationHeadlineAndSummaryResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
     summarizationHeadlineAndSummaryResponseTypeMap.put(400, new GenericType<ValidationError>(){});
-    summarizationHeadlineAndSummaryResponseTypeMap.put(401, new GenericType<HTTPError>(){});
-    summarizationHeadlineAndSummaryResponseTypeMap.put(500, new GenericType<HTTPError>(){});
+    summarizationHeadlineAndSummaryResponseTypeMap.put(401, new GenericType<SummarizationHTTPError>(){});
+    summarizationHeadlineAndSummaryResponseTypeMap.put(500, new GenericType<SummarizationHTTPError>(){});
   }
 
   private static final Map<Integer, GenericType> summarizationResultResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -58,8 +59,8 @@ public class AiTextSummarizationApi {
   static {
     summarizationSummaryResponseTypeMap.put(201, new GenericType<SummarizationResultID>(){});
     summarizationSummaryResponseTypeMap.put(400, new GenericType<ValidationError>(){});
-    summarizationSummaryResponseTypeMap.put(401, new GenericType<HTTPError>(){});
-    summarizationSummaryResponseTypeMap.put(500, new GenericType<HTTPError>(){});
+    summarizationSummaryResponseTypeMap.put(401, new GenericType<SummarizationHTTPError>(){});
+    summarizationSummaryResponseTypeMap.put(500, new GenericType<SummarizationHTTPError>(){});
   }
 
   

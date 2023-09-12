@@ -11,7 +11,6 @@ docs/EntityMappingDeleteRequest.md
 docs/EntityMappingDeleteResponse.md
 docs/EntityMappingRequest.md
 docs/EntityMappingResponse.md
-docs/EntityMappingsApi.md
 docs/EntityMatch.md
 docs/EntityMatchApi.md
 docs/EntityMatchBulkApi.md
@@ -28,6 +27,7 @@ docs/EntityUniverseStatisticsResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/MapStatus.md
+docs/MappingsApi.md
 docs/PeopleDecisions.md
 docs/PeopleDecisionsResponse.md
 docs/PeopleMapping.md
@@ -64,9 +64,9 @@ git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
-src/api/EntityMappingsApi.js
 src/api/EntityMatchApi.js
 src/api/EntityMatchBulkApi.js
+src/api/MappingsApi.js
 src/api/PeopleMappingApi.js
 src/api/PeopleMatchApi.js
 src/api/PeopleMatchBulkApi.js

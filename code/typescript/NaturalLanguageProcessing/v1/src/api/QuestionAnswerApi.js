@@ -13,10 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
+import HTTPErrorRoot from '../model/HTTPErrorRoot';
 import QnAAnswerParametersRoot from '../model/QnAAnswerParametersRoot';
 import QnAAnswerRoot from '../model/QnAAnswerRoot';
-import QnAHTTPErrorRoot from '../model/QnAHTTPErrorRoot';
-import QnATaskRoot from '../model/QnATaskRoot';
+import TaskRoot from '../model/TaskRoot';
 
 /**
 * QuestionAnswer service.
@@ -38,8 +38,8 @@ export default class QuestionAnswerApi {
 
 
     /**
-     * Get the answer(s)
-     * Obtain the results from the original task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+     * Endpoint to get the answer(s)
+     * Endpoint to obtain the results from the original Q&A task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
      * @param {String} id Identifier from the Question & Answer task and comes from the POST request which created the task
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/QnAAnswerRoot} and HTTP response
      */
@@ -74,8 +74,8 @@ export default class QuestionAnswerApi {
     }
 
     /**
-     * Get the answer(s)
-     * Obtain the results from the original task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+     * Endpoint to get the answer(s)
+     * Endpoint to obtain the results from the original Q&A task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
      * @param {String} id Identifier from the Question & Answer task and comes from the POST request which created the task
      * @return { Promise.< QnaGetAnswersResponseWrapper > } a Promise, with data of type {@link QnaGetAnswersResponseWrapper }
      */
@@ -88,10 +88,10 @@ export default class QuestionAnswerApi {
 
 
     /**
-     * Get the completion status
-     * Endpoint to obtain the status of the task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.
+     * Endpoint to get the completion status for a Q&A request
+     * Endpoint to obtain the status of the Q&A task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.
      * @param {String} id Identifier from the Question & Answer task and comes from the POST request which created the task
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/QnATaskRoot} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaskRoot} and HTTP response
      */
     qnaGetStatusWithHttpInfo(id) {
       let postBody = null;
@@ -115,7 +115,7 @@ export default class QuestionAnswerApi {
       let accepts = ['application/json'];
 
 
-      let returnType = QnATaskRoot;
+      let returnType = TaskRoot;
 
       return this.apiClient.callApi(
         '/qna/answers/{id}/status', 'GET',
@@ -125,10 +125,10 @@ export default class QuestionAnswerApi {
     }
 
     /**
-     * Get the completion status
-     * Endpoint to obtain the status of the task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.
+     * Endpoint to get the completion status for a Q&A request
+     * Endpoint to obtain the status of the Q&A task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.
      * @param {String} id Identifier from the Question & Answer task and comes from the POST request which created the task
-     * @return { Promise.< module:model/QnATaskRoot > } a Promise, with data of type {@link module:model/QnATaskRoot }
+     * @return { Promise.< module:model/TaskRoot > } a Promise, with data of type {@link module:model/TaskRoot }
      */
     qnaGetStatus(id) {
       return this.qnaGetStatusWithHttpInfo(id)
@@ -139,10 +139,10 @@ export default class QuestionAnswerApi {
 
 
     /**
-     * Post a question for answer(s)
-     * Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+     * Endpoint to submit a question for answer(s)
+     * Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
      * @param {module:model/QnAAnswerParametersRoot} qnAAnswerParametersRoot 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/QnATaskRoot} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaskRoot} and HTTP response
      */
     qnaPostQuestionWithHttpInfo(qnAAnswerParametersRoot) {
       let postBody = qnAAnswerParametersRoot;
@@ -165,7 +165,7 @@ export default class QuestionAnswerApi {
       let accepts = ['application/json'];
 
 
-      let returnType = QnATaskRoot;
+      let returnType = TaskRoot;
 
       return this.apiClient.callApi(
         '/qna/answers', 'POST',
@@ -175,10 +175,10 @@ export default class QuestionAnswerApi {
     }
 
     /**
-     * Post a question for answer(s)
-     * Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+     * Endpoint to submit a question for answer(s)
+     * Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
      * @param {module:model/QnAAnswerParametersRoot} qnAAnswerParametersRoot 
-     * @return { Promise.< module:model/QnATaskRoot > } a Promise, with data of type {@link module:model/QnATaskRoot }
+     * @return { Promise.< module:model/TaskRoot > } a Promise, with data of type {@link module:model/TaskRoot }
      */
     qnaPostQuestion(qnAAnswerParametersRoot) {
       return this.qnaPostQuestionWithHttpInfo(qnAAnswerParametersRoot)
@@ -193,10 +193,10 @@ export default class QuestionAnswerApi {
 
 const QnaGetAnswersResponseWrapperTypeMap = {
   200: QnAAnswerRoot,
-  202: QnATaskRoot,
-  401: QnAHTTPErrorRoot,
-  404: QnAHTTPErrorRoot,
-  500: QnAHTTPErrorRoot,
+  202: TaskRoot,
+  401: HTTPErrorRoot,
+  404: HTTPErrorRoot,
+  500: HTTPErrorRoot,
 
   _createResponseWrapper(statusCode, response) {
     return new QnaGetAnswersResponseWrapper(statusCode, response);
@@ -214,7 +214,7 @@ const QnaGetAnswersResponseWrapperTypeMap = {
  * <ul>
  *   <li>200 : {@code QnAAnswerRoot }<br>OK</li>
  * 
- *   <li>202 : {@code QnATaskRoot }<br>Accepted</li>
+ *   <li>202 : {@code TaskRoot }<br>Accepted</li>
  * </ul>
  *
  * </p>
@@ -226,7 +226,7 @@ const QnaGetAnswersResponseWrapperTypeMap = {
  *     QnAAnswerRoot data200 = response.getResponse200();
  *     break;
  *   case 202:
- *     QnATaskRoot data202 = response.getResponse202();
+ *     TaskRoot data202 = response.getResponse202();
  *     break;
  *  }
  * }</pre>
@@ -265,7 +265,7 @@ export class QnaGetAnswersResponseWrapper {
   }
   
   /**
-   * @returns { QnATaskRoot }
+   * @returns { TaskRoot }
    */
   getResponse202() {
     if (this.statusCode !== 202) {

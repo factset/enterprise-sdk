@@ -57,7 +57,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     api_instance = accounts_api.AccountsApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    path = "Client:" # str | The directory to get the accounts and sub-directories in
+    path = "Client:" # str | The directory to get the accounts and sub-directories.
 
     try:
         # Get accounts and sub-directories in a directory
@@ -75,7 +75,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| The directory to get the accounts and sub-directories in |
+ **path** | **str**| The directory to get the accounts and sub-directories. |
 
 ### Return type
 

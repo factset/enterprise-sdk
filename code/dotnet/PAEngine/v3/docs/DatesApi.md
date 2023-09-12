@@ -52,10 +52,10 @@ namespace Example
 
             var apiInstance = new DatesApi(config);
 
-            var enddate = "\"-1AY\"";  // string | End Date (default to "-1AY")
-            var componentid = "\"7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935\"";  // string | Component Id (default to "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935")
-            var account = "\"Client:Foo/Bar/myaccount.acct\"";  // string | Account (default to "Client:Foo/Bar/myaccount.acct")
-            var startdate = "\"-3AY\"";  // string | Start Date (optional)  (default to "-3AY")
+            var enddate = "-1AY";  // string | End Date
+            var componentid = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46";  // string | Component Id
+            var account = "Client:/Folder1/Folder2/AccountName.ACCT";  // string | Account ( Account Name ending with .ACCT or .ACTM )
+            var startdate = "-3AY";  // string | Start Date (optional) 
 
             try
             {
@@ -78,10 +78,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enddate** | **string**| End Date | [default to &quot;-1AY&quot;]
- **componentid** | **string**| Component Id | [default to &quot;7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935&quot;]
- **account** | **string**| Account | [default to &quot;Client:Foo/Bar/myaccount.acct&quot;]
- **startdate** | **string**| Start Date | [optional] [default to &quot;-3AY&quot;]
+ **enddate** | **string**| End Date | 
+ **componentid** | **string**| Component Id | 
+ **account** | **string**| Account ( Account Name ending with .ACCT or .ACTM ) | 
+ **startdate** | **string**| Start Date | [optional] 
 
 ### Return type
 [**DateParametersSummaryRoot**](DateParametersSummaryRoot.md)

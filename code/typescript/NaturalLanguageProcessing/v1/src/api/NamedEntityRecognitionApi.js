@@ -15,7 +15,6 @@
 import ApiClient from "../ApiClient";
 import NERInputSchema from '../model/NERInputSchema';
 import NERResponseSchema from '../model/NERResponseSchema';
-import NERValidationError from '../model/NERValidationError';
 
 /**
 * NamedEntityRecognition service.

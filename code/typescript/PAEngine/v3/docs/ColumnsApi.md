@@ -43,7 +43,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ColumnsApi();
-const id = "'2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5'"; // String | Unique identifier for a column
+const id = 2DBD317E3C235BC96E2FF8CA36CE036AF2F7F55525479B524AE78FD7D6BBC4A7; // String | Unique identifier for a column
 
 // Call api endpoint
 apiInstance.getPAColumnById(id).then(
@@ -65,7 +65,7 @@ apiInstance.getPAColumnById(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a column | [default to &#39;2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5&#39;]
+ **id** | **String**| Unique identifier for a column | 
 
 ### Return type
 
@@ -116,9 +116,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ColumnsApi();
 const opts = {
-  'name': "''", // String | Column name
+  'name': Security Name, // String | Column name
   'category': "''", // String | Column category
-  'directory': "''" // String | The directory to get the columns in
+  'directory': Client // String | The directory to get the columns in
 };
 
 // Call api endpoint

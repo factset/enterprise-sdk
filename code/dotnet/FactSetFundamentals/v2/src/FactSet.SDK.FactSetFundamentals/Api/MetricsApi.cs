@@ -28,6 +28,31 @@ namespace FactSet.SDK.FactSetFundamentals.Api
     public interface IMetricsApiSync : IApiAccessor
     {
         #region Synchronous Operations
+        /// <summary>
+        /// Returns available FactSet Fundamental metrics and ratios.
+        /// </summary>
+        /// <remarks>
+        /// Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
+        /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
+        /// <param name="metricDataType">Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned  (optional)</param>
+        /// <returns>MetricsResponse</returns>
+        MetricsResponse GetFdsFundamentalsMetrics(string category = default(string), string subcategory = default(string), string metricDataType = default(string));
+
+        /// <summary>
+        /// Returns available FactSet Fundamental metrics and ratios.
+        /// </summary>
+        /// <remarks>
+        /// Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
+        /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
+        /// <param name="metricDataType">Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned  (optional)</param>
+        /// <returns>ApiResponse of MetricsResponse</returns>
+        ApiResponse<MetricsResponse> GetFdsFundamentalsMetricsWithHttpInfo(string category = default(string), string subcategory = default(string), string metricDataType = default(string));
         #endregion Synchronous Operations
     }
 
@@ -37,6 +62,33 @@ namespace FactSet.SDK.FactSetFundamentals.Api
     public interface IMetricsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Returns available FactSet Fundamental metrics and ratios.
+        /// </summary>
+        /// <remarks>
+        /// Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
+        /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
+        /// <param name="metricDataType">Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned  (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MetricsResponse</returns>
+        System.Threading.Tasks.Task<MetricsResponse> GetFdsFundamentalsMetricsAsync(string category = default(string), string subcategory = default(string), string metricDataType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Returns available FactSet Fundamental metrics and ratios.
+        /// </summary>
+        /// <remarks>
+        /// Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
+        /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
+        /// <param name="metricDataType">Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned  (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MetricsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MetricsResponse>> GetFdsFundamentalsMetricsWithHttpInfoAsync(string category = default(string), string subcategory = default(string), string metricDataType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -57,6 +109,16 @@ namespace FactSet.SDK.FactSetFundamentals.Api
 
         # region Response Type Disctionaries
         
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsFundamentalsMetricsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(MetricsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
         # endregion Response Type Disctionaries
 
         # region Api Response Objects
@@ -164,6 +226,201 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Returns available FactSet Fundamental metrics and ratios. Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
+        /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
+        /// <param name="metricDataType">Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned  (optional)</param>
+        /// <returns>MetricsResponse</returns>
+        public MetricsResponse GetFdsFundamentalsMetrics(string category = default(string), string subcategory = default(string), string metricDataType = default(string))
+        {
+            var localVarResponse = GetFdsFundamentalsMetricsWithHttpInfo(category, subcategory, metricDataType);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns available FactSet Fundamental metrics and ratios. Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
+        /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
+        /// <param name="metricDataType">Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned  (optional)</param>
+        /// <returns>ApiResponse of MetricsResponse</returns>
+        public ApiResponse<MetricsResponse> GetFdsFundamentalsMetricsWithHttpInfo(string category = default(string), string subcategory = default(string), string metricDataType = default(string))
+        {
+            FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (category != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "category", category));
+            }
+            if (subcategory != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "subcategory", subcategory));
+            }
+            if (metricDataType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "metricDataType", metricDataType));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsMetricsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            MetricsResponse>("/metrics", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFdsFundamentalsMetrics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns available FactSet Fundamental metrics and ratios. Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
+        /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
+        /// <param name="metricDataType">Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned  (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MetricsResponse</returns>
+        public async System.Threading.Tasks.Task<MetricsResponse>GetFdsFundamentalsMetricsAsync(string category = default(string), string subcategory = default(string), string metricDataType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFdsFundamentalsMetricsWithHttpInfoAsync(category, subcategory, metricDataType, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns available FactSet Fundamental metrics and ratios. Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for time-series data with periodicity. Some items in this list are non-time series. **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing-related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
+        /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
+        /// <param name="metricDataType">Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned  (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MetricsResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<MetricsResponse>> GetFdsFundamentalsMetricsWithHttpInfoAsync(string category = default(string), string subcategory = default(string), string metricDataType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (category != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "category", category));
+            }
+            if (subcategory != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "subcategory", subcategory));
+            }
+            if (metricDataType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "metricDataType", metricDataType));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsMetricsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MetricsResponse>("/metrics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFdsFundamentalsMetrics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
     }

@@ -4,7 +4,7 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
   description: |
-    FactSet’s Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all "holder types" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>
+    FactSet's Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all "holder types" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>
   title: FactSet Ownership API
   version: 1.1.0
 servers:
@@ -977,7 +977,6 @@ components:
         date: 2020-06-30
         topn: 1
         holderType: F
-        changePeriod: 1M
         currency: USD
     top5InsidersRequest:
       description: Requesting the latest available top 5 insiders and stakeholders
@@ -1436,18 +1435,21 @@ components:
             All equity and fixed income securities that exist on FactSet are allocated
             a security-level permanent identifier.
           example: K7ZVMR-S
+          nullable: true
           type: string
         date:
           description: 'Date of the reported holding in YYYY-MM-DD format. For more
             details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).'
           example: 2018-06-30
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency code. The service will default to the funds local
             currency. For a list of currency ISO codes, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         adjHolding:
           description: 'Adjusted number of shares held. All positions and prices are
@@ -1458,6 +1460,7 @@ components:
             change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).'
           example: 60036157
           format: double
+          nullable: true
           type: number
         adjMarketValue:
           description: 'Adjusted market values of shares held. Market Value. All positions
@@ -1469,17 +1472,20 @@ components:
             Page #11262](https://oa.apps.factset.com/pages/11262).'
           example: 120078159
           format: double
+          nullable: true
           type: number
         weightClose:
           description: Closing weight of security in the fund for the requested asset
             type (percent).
           example: 1.6639
           format: double
+          nullable: true
           type: number
         issueType:
           description: 'Issue type of held security. For more details, visit [Online
             Assistant Page #11262](https://oa.apps.factset.com/pages/11262).'
           example: Equity
+          nullable: true
           type: string
         fsymSecurityId:
           description: Represents the security id for the underlying holding, not
@@ -1487,19 +1493,23 @@ components:
             an -S suffix (XXXXXX-S). All equity and fixed income securities that exist
             on FactSet are allocated a security-level permanent identifier.
           example: BHM9TN-S
+          nullable: true
           type: string
         fsymRegionalId:
           description: FactSet Regional Security identifier of the security held in
             the fund.
           example: QLGSL2-R
+          nullable: true
           type: string
         securityName:
           description: Name of held security.
           example: FACEBOOK INC  CL A
+          nullable: true
           type: string
         securityTicker:
           description: Ticker of held security.
           example: FB-US
+          nullable: true
           type: string
       title: Fund Holding
       type: object
@@ -1525,6 +1535,7 @@ components:
           description: FactSet Ownership Holders ID that corresponds to the requested
             security holder.
           example: M4004630
+          nullable: true
           type: string
         fsymId:
           description: FactSet Security Identifier of security requested. This does
@@ -1533,38 +1544,45 @@ components:
             an -S suffix (XXXXXX-S). All equity and fixed income securities that exist
             on FactSet are allocated a security-level permanent identifier.
           example: SQFMK3-R
+          nullable: true
           type: string
         holderEntityId:
           description: FactSet Entity ID that corresponds to the specified holder
             ID.
           example: 07JGQN-E
+          nullable: true
           type: string
         holderName:
           description: Name of the holder for the requested security identifier.
           example: Vanguard Total Stock Market Index Fund
+          nullable: true
           type: string
         date:
           description: 'Date of the reported holding in YYYY-MM-DD format. For more
             details regarding date resolution, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).'
           example: 2020-06-30
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency code. The service will default to the local currency
             if the currency is not requested. For a list of currency ISO codes, visit
             [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         investorType:
           description: 'FactSet Ownership Institution, Mutual Fund, and Insider/Stakeholder
             investor types. To learn more about the different investor types, visit
             [Online Assistant Page #11656](https://my.apps.factset.com/oa/pages/11656).'
           example: Open-End Fund
+          nullable: true
           type: string
         holderType:
           description: 'Holder Type name of the respective holder object. The name
             will align to the holderType requested. '
           example: Mutual Fund
+          nullable: true
           type: string
         adjHolding:
           description: 'Adjusted number of shares held. All positions and prices are
@@ -1575,6 +1593,7 @@ components:
             change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).'
           example: 1066876
           format: double
+          nullable: true
           type: number
         adjMarketValue:
           description: 'Adjusted market values of shares held. Market Value. All positions
@@ -1586,24 +1605,28 @@ components:
             Page #11262](https://oa.apps.factset.com/pages/11262).'
           example: 373833350.4
           format: double
+          nullable: true
           type: number
         weightClose:
           description: |
             "Closing weight of the security for the holders of the requested security (percent). To learn more about how ownership weight is calculated please visit [Online Assistant Page #11247](https://my.apps.factset.com/oa/pages/11247)."
           example: 0.0356
           format: double
+          nullable: true
           type: number
         percentOutstanding:
           description: 'The percent of the outstanding common shares held by a particular
             filing institution. To learn more, visit [Online Assistant Page #11041](https://my.apps.factset.com/oa/pages/11041).'
           example: 2.808
           format: double
+          nullable: true
           type: number
         source:
           description: Either the 13F Form or ND-30D report filed where the security
             holdings data was sourced from. To learn more about source, please visit
             https://my.apps.factset.com/oa/pages/11260
           example: US Fund (N-30D)
+          nullable: true
           type: string
         requestId:
           description: |

@@ -4,9 +4,9 @@ All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**QnaGetAnswers**](QuestionAnswerApi.md#qnagetanswers) | **GET** /qna/answers/{id} | Get the answer(s)
-[**QnaGetStatus**](QuestionAnswerApi.md#qnagetstatus) | **GET** /qna/answers/{id}/status | Get the completion status
-[**QnaPostQuestion**](QuestionAnswerApi.md#qnapostquestion) | **POST** /qna/answers | Post a question for answer(s)
+[**QnaGetAnswers**](QuestionAnswerApi.md#qnagetanswers) | **GET** /qna/answers/{id} | Endpoint to get the answer(s)
+[**QnaGetStatus**](QuestionAnswerApi.md#qnagetstatus) | **GET** /qna/answers/{id}/status | Endpoint to get the completion status for a Q&amp;A request
+[**QnaPostQuestion**](QuestionAnswerApi.md#qnapostquestion) | **POST** /qna/answers | Endpoint to submit a question for answer(s)
 
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 # **QnaGetAnswers**
 > QnAAnswerRoot QnaGetAnswers (string id)
 
-Get the answer(s)
+Endpoint to get the answer(s)
 
-Obtain the results from the original task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+Endpoint to obtain the results from the original Q&A task request. The `id` parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
 
 ### Example
 ```csharp
@@ -59,7 +59,7 @@ namespace Example
 
             try
             {
-                // Get the answer(s)
+                // Endpoint to get the answer(s)
                 QuestionAnswerApi.QnaGetAnswersResponseWrapper result = apiInstance.QnaGetAnswers(id);
 
                 switch (result.StatusCode)
@@ -119,11 +119,11 @@ QnaGetAnswersResponseWrapper
 
 <a name="qnagetstatus"></a>
 # **QnaGetStatus**
-> QnATaskRoot QnaGetStatus (string id)
+> TaskRoot QnaGetStatus (string id)
 
-Get the completion status
+Endpoint to get the completion status for a Q&A request
 
-Endpoint to obtain the status of the task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.
+Endpoint to obtain the status of the Q&A task request. The `id` parameter represents the identifier of the task created and comes from the POST request which created the task.
 
 ### Example
 ```csharp
@@ -165,8 +165,8 @@ namespace Example
 
             try
             {
-                // Get the completion status
-                QnATaskRoot result = apiInstance.QnaGetStatus(id);
+                // Endpoint to get the completion status for a Q&A request
+                TaskRoot result = apiInstance.QnaGetStatus(id);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
  **id** | **string**| Identifier from the Question &amp; Answer task and comes from the POST request which created the task | 
 
 ### Return type
-[**QnATaskRoot**](QnATaskRoot.md)
+[**TaskRoot**](TaskRoot.md)
 
 ### Authorization
 
@@ -213,11 +213,11 @@ Name | Type | Description  | Notes
 
 <a name="qnapostquestion"></a>
 # **QnaPostQuestion**
-> QnATaskRoot QnaPostQuestion (QnAAnswerParametersRoot qnAAnswerParametersRoot)
+> TaskRoot QnaPostQuestion (QnAAnswerParametersRoot qnAAnswerParametersRoot)
 
-Post a question for answer(s)
+Endpoint to submit a question for answer(s)
 
-Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
 
 ### Example
 ```csharp
@@ -259,8 +259,8 @@ namespace Example
 
             try
             {
-                // Post a question for answer(s)
-                QnATaskRoot result = apiInstance.QnaPostQuestion(qnAAnswerParametersRoot);
+                // Endpoint to submit a question for answer(s)
+                TaskRoot result = apiInstance.QnaPostQuestion(qnAAnswerParametersRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
  **qnAAnswerParametersRoot** | [**QnAAnswerParametersRoot**](QnAAnswerParametersRoot.md)|  | 
 
 ### Return type
-[**QnATaskRoot**](QnATaskRoot.md)
+[**TaskRoot**](TaskRoot.md)
 
 ### Authorization
 

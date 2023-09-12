@@ -53,7 +53,7 @@ namespace Example
 
             var apiInstance = new AccountsApi(config);
 
-            var path = "Client:";  // string | The directory to get the accounts and sub-directories in
+            var path = "Client:";  // string | The directory to get the accounts and sub-directories.
 
             try
             {
@@ -76,7 +76,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the accounts and sub-directories in | 
+ **path** | **string**| The directory to get the accounts and sub-directories. | 
 
 ### Return type
 [**AccountDirectoriesRoot**](AccountDirectoriesRoot.md)

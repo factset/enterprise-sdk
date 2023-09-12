@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import HTTPError from '../model/HTTPError';
+import SummarizationHTTPError from '../model/SummarizationHTTPError';
 import SummarizationRequest from '../model/SummarizationRequest';
 import SummarizationResult from '../model/SummarizationResult';
 import SummarizationResultID from '../model/SummarizationResultID';

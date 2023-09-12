@@ -53,7 +53,7 @@ namespace Example
 
             var apiInstance = new ColumnsApi(config);
 
-            var id = "\"2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5\"";  // string | Unique identifier for a column (default to "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5")
+            var id = "2DBD317E3C235BC96E2FF8CA36CE036AF2F7F55525479B524AE78FD7D6BBC4A7";  // string | Unique identifier for a column
 
             try
             {
@@ -76,7 +76,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a column | [default to &quot;2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5&quot;]
+ **id** | **string**| Unique identifier for a column | 
 
 ### Return type
 [**ColumnRoot**](ColumnRoot.md)

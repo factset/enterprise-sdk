@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_templated_pa_components**
-> delete_templated_pa_components()
+> delete_templated_pa_components(id)
 
 Delete templated PA component
 
@@ -212,11 +212,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component
 
     try:
         # Delete templated PA component
         # example passing only required values which don't have defaults set
-        api_instance.delete_templated_pa_components()
+        api_instance.delete_templated_pa_components(id)
 
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -228,7 +230,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a templated PA component | defaults to "01234567890123456789012345678901"
+ **id** | **str**| Unique identifier for a templated PA component |
 
 ### Return type
 
@@ -241,7 +243,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -261,7 +263,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_templated_pa_component_by_id**
-> TemplatedPAComponentRoot get_templated_pa_component_by_id()
+> TemplatedPAComponentRoot get_templated_pa_component_by_id(id)
 
 Get templated PA component by id
 
@@ -307,11 +309,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component
 
     try:
         # Get templated PA component by id
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_templated_pa_component_by_id()
+        api_response = api_instance.get_templated_pa_component_by_id(id)
 
         pprint(api_response)
 
@@ -324,7 +328,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a templated PA component | defaults to "01234567890123456789012345678901"
+ **id** | **str**| Unique identifier for a templated PA component |
 
 ### Return type
 
@@ -357,7 +361,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_templated_pa_components_in_path**
-> TemplatedPAComponentSummaryRoot get_templated_pa_components_in_path()
+> TemplatedPAComponentSummaryRoot get_templated_pa_components_in_path(directory)
 
 Get templated PA components in path
 
@@ -403,11 +407,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    directory = "Personal:TemplatedPAComponents/" # str | Get templated PA components in path
 
     try:
         # Get templated PA components in path
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_templated_pa_components_in_path()
+        api_response = api_instance.get_templated_pa_components_in_path(directory)
 
         pprint(api_response)
 
@@ -420,7 +426,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **str**| Get templated PA components in path | defaults to "Personal:TemplatedPAComponents/"
+ **directory** | **str**| Get templated PA components in path |
 
 ### Return type
 
@@ -452,7 +458,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_templated_pa_components**
-> TemplatedPAComponentPostSummaryRoot update_templated_pa_components(templated_pa_component_update_parameters_root)
+> TemplatedPAComponentPostSummaryRoot update_templated_pa_components(id, templated_pa_component_update_parameters_root)
 
 Update templated PA component
 
@@ -498,6 +504,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     templated_pa_component_update_parameters_root = TemplatedPAComponentUpdateParametersRoot(
         data=TemplatedPAComponentUpdateParameters(
@@ -558,7 +566,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     try:
         # Update templated PA component
         # example passing only required values which don't have defaults set
-        api_response = api_instance.update_templated_pa_components(templated_pa_component_update_parameters_root)
+        api_response = api_instance.update_templated_pa_components(id, templated_pa_component_update_parameters_root)
 
         pprint(api_response)
 
@@ -571,8 +579,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique identifier for a templated PA component |
  **templated_pa_component_update_parameters_root** | [**TemplatedPAComponentUpdateParametersRoot**](TemplatedPAComponentUpdateParametersRoot.md)| Request Parameters |
- **id** | **str**| Unique identifier for a templated PA component | defaults to "01234567890123456789012345678901"
 
 ### Return type
 

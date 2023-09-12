@@ -75,6 +75,7 @@ public class QuantCalculationsApi {
     postAndCalculateResponseTypeMap.put(202, new GenericType<CalculationStatusRoot>(){});
     postAndCalculateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     postAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+    postAndCalculateResponseTypeMap.put(413, new GenericType<ClientErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> putAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -85,11 +86,12 @@ public class QuantCalculationsApi {
     putAndCalculateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     putAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
     putAndCalculateResponseTypeMap.put(409, new GenericType<ClientErrorResponse>(){});
+    putAndCalculateResponseTypeMap.put(413, new GenericType<ClientErrorResponse>(){});
   }
 
   
  /**
-   * Wrapper to support POST /analytics/engines/quant/v3/calculations returning different types
+   * Wrapper to support POST /calculations returning different types
    * per status code.
    *
    * <p>
@@ -183,7 +185,7 @@ public class QuantCalculationsApi {
 
 
  /**
-   * Wrapper to support PUT /analytics/engines/quant/v3/calculations/{id} returning different types
+   * Wrapper to support PUT /calculations/{id} returning different types
    * per status code.
    *
    * <p>
@@ -344,7 +346,7 @@ public class QuantCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/quant/v3/calculations/{id}"
+    String localVarPath = "/calculations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -382,7 +384,7 @@ public class QuantCalculationsApi {
   /**
    * Get all calculations
    * This endpoints returns all calculation requests.
-   * @param pageNumber  (required)
+   * @param pageNumber  (optional, default to 1)
    * @return CalculationsSummaryRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -406,7 +408,7 @@ public class QuantCalculationsApi {
   /**
    * Get all calculations
    * This endpoints returns all calculation requests.
-   * @param pageNumber  (required)
+   * @param pageNumber  (optional, default to 1)
    * @return ApiResponse&lt;CalculationsSummaryRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -426,13 +428,8 @@ public class QuantCalculationsApi {
   public ApiResponse<CalculationsSummaryRoot> getAllCalculationsWithHttpInfo(Integer pageNumber) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'pageNumber' is set
-    if (pageNumber == null) {
-      throw new ApiException(400, "Missing the required parameter 'pageNumber' when calling getAllCalculations");
-    }
-    
     // create path and map variables
-    String localVarPath = "/analytics/engines/quant/v3/calculations";
+    String localVarPath = "/calculations";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -518,7 +515,7 @@ public class QuantCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/quant/v3/calculations/{id}"
+    String localVarPath = "/calculations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -606,7 +603,7 @@ public class QuantCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/quant/v3/calculations/{id}/status"
+    String localVarPath = "/calculations/{id}/status"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -699,7 +696,7 @@ public class QuantCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info"
+    String localVarPath = "/calculations/{id}/units/{unitId}/info"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
       .replaceAll("\\{" + "unitId" + "\\}", apiClient.escapeString(unitId.toString()));
 
@@ -793,7 +790,7 @@ public class QuantCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result"
+    String localVarPath = "/calculations/{id}/units/{unitId}/result"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
       .replaceAll("\\{" + "unitId" + "\\}", apiClient.escapeString(unitId.toString()));
 
@@ -848,6 +845,7 @@ public class QuantCalculationsApi {
        <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 404 </td><td> One or more calculation settings were unavailable. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
+       <tr><td> 413 </td><td> Request body too large </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  * Retry-After - Time to wait in seconds before making a new request as the rate limit has reached. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
@@ -875,6 +873,7 @@ public class QuantCalculationsApi {
        <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 404 </td><td> One or more calculation settings were unavailable. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
+       <tr><td> 413 </td><td> Request body too large </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  * Retry-After - Time to wait in seconds before making a new request as the rate limit has reached. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
@@ -885,7 +884,7 @@ public class QuantCalculationsApi {
     Object localVarPostBody = quantCalculationParametersRoot;
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/quant/v3/calculations";
+    String localVarPath = "/calculations";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -949,6 +948,7 @@ public class QuantCalculationsApi {
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 404 </td><td> One or more calculation settings were unavailable. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 409 </td><td> Duplicate calculation exists with same parameters. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
+       <tr><td> 413 </td><td> Request body too large </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  * Retry-After - Time to wait in seconds before making a new request as the rate limit has reached. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
@@ -978,6 +978,7 @@ public class QuantCalculationsApi {
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 404 </td><td> One or more calculation settings were unavailable. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 409 </td><td> Duplicate calculation exists with same parameters. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
+       <tr><td> 413 </td><td> Request body too large </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  * Retry-After - Time to wait in seconds before making a new request as the rate limit has reached. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
@@ -993,7 +994,7 @@ public class QuantCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/quant/v3/calculations/{id}"
+    String localVarPath = "/calculations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params

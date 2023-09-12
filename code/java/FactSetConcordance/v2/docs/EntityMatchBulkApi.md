@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## getEntityTaskForList
 
-> EntityTaskResponse getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bicColumn, bbgTickerColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, rssdColumn, fitchColumn, isinColumn, leiColumn, bbgFigiColumn, mdColumn, tickerColumn, sprColumn, sedolColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType)
+> EntityTaskResponse getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType)
 
 Input a file with names and attributes, creating a taskId.
 
@@ -157,33 +157,39 @@ public class Example {
         String urlColumn = "urlColumn_example"; // String | Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match. 
         String stateColumn = "stateColumn_example"; // String | Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported. 
         String priorityColumn = "priorityColumn_example"; // String | Header Name of the column in the inputfile that contains the priority for the client id. 
-        String bicColumn = "bicColumn_example"; // String | Header Name of the column in the input file for the BICCode, `bank indentification code` symbol type 
-        String bbgTickerColumn = "bbgTickerColumn_example"; // String | Header Name of the column in the input file for the Bloomberg `Listing and Regional Ticker` symbol type
-        String cikColumn = "cikColumn_example"; // String | Header Name of the column in the input file for the CIK, `Edgar Central Index Keys` symbol type
-        String crdColumn = "crdColumn_example"; // String | Header Name of the column in the input file for the CRD, `Central Registration Depository` symbol type
-        String cusipColumn = "cusipColumn_example"; // String | Header Name of the column in the input file for the `CUSIP` symbol type
-        String dunsColumn = "dunsColumn_example"; // String | Header Name of the column in the input file for the DUNS, `Dun&Bradstreet` symbol type
-        String einColumn = "einColumn_example"; // String | Header Name of the column in the input file for the EIN, `EmployerIdentificationNumber` symbol type
-        String rssdColumn = "rssdColumn_example"; // String | Header Name of the column in the input file for the RSSD, `FederalReserveRSSDIdentifier` symbol type
-        String fitchColumn = "fitchColumn_example"; // String | Header Name of the column in the input file for the FitchCreditRating, `Fitch Ratings Identifier` symbol type
-        String isinColumn = "isinColumn_example"; // String | Header Name of the column in the input file for the `ISIN`symbol type
-        String leiColumn = "leiColumn_example"; // String | Header Name of the column in the input file for the LEI, `LegalEntityIdentifier` symbol type
-        String bbgFigiColumn = "bbgFigiColumn_example"; // String | Header Name of the column in the input file for the `Bloomberg Listing/Regional/Security ID` symbol type
-        String mdColumn = "mdColumn_example"; // String | Header Name of the column in the input file for the MoodysIssuer, `Moody's Ratings Identifier` symbol type
-        String tickerColumn = "tickerColumn_example"; // String | Header Name of the column in the input file for the `PriceTicker` symbol type
-        String sprColumn = "sprColumn_example"; // String | Header Name of the column in the input file for the S&PRating, `S&P Ratings Identifier` symbol type
-        String sedolColumn = "sedolColumn_example"; // String | Header Name of the column in the input file for the `SEDOL` symbol type
-        String tickerExchangeColumn = "tickerExchangeColumn_example"; // String | Header Name of the column in the input file for the `TickerExchange` symbol type
-        String tickerRegionColumn = "tickerRegionColumn_example"; // String | Header Name of the column in the input file for the `TickerRegion` symbol type
-        String ukchColumn = "ukchColumn_example"; // String | Header Name of the column in the input file for the `UKCompanyHouse` symbol type
-        String valorenColumn = "valorenColumn_example"; // String | Header Name of the column in the input file for the VALOR, `Valoren (\\\"Valor\\\") Identification` symbol type
-        String wknColumn = "wknColumn_example"; // String | Header Name of the column in the input file for the WKN, `German Securities Identification` symbol type
+        String bbgFigiColumn = "bbgFigiColumn_example"; // String | Header Name of the column in the input file for the type `Bloomberg Listing/Regional/Security ID`.
+        String bbgTickerColumn = "bbgTickerColumn_example"; // String | Header Name of the column in the input file for the type Bloomberg `Listing and Regional Ticker`.
+        String bicColumn = "bicColumn_example"; // String | Header Name of the column in the input file for the type BICCode, `bank indentification code`. 
+        String cikColumn = "cikColumn_example"; // String | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys`
+        String crdColumn = "crdColumn_example"; // String | Header Name of the column in the input file for the type CRD, `Central Registration Depository`.
+        String cusipColumn = "cusipColumn_example"; // String | Header Name of the column in the input file for the type `CUSIP`
+        String dunsColumn = "dunsColumn_example"; // String | Header Name of the column in the input file for the type DUNS, `Dun&Bradstreet`.
+        String einColumn = "einColumn_example"; // String | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`.
+        String factsetIdColumn = "factsetIdColumn_example"; // String | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`.
+        String fitchColumn = "fitchColumn_example"; // String | Header Name of the column in the input file for the type FitchCreditRating, `Fitch Ratings Identifier`.
+        String gvkeyColumn = "gvkeyColumn_example"; // String | Header Name of the column in the input file for the type GVKEY - `Compustat Global Company Key`.
+        String gvkeyIidColumn = "gvkeyIidColumn_example"; // String | Header Name of the column in the input file for the type GVKEY+IID - `Compustat Global Company Key and Issue Identifier`.
+        String isinColumn = "isinColumn_example"; // String | Header Name of the column in the input file for the type `ISIN`.
+        String jcnColumn = "jcnColumn_example"; // String | Header Name of the column in the input file for the type JCN - `Japanese Corporate Number`.
+        String leiColumn = "leiColumn_example"; // String | Header Name of the column in the input file for the type LEI, `LegalEntityIdentifier`.
+        String lxidColumn = "lxidColumn_example"; // String | Header Name of the column in the input file for the type LXID - `Markit Syndicated Loan Identifier`.
+        String mdColumn = "mdColumn_example"; // String | Header Name of the column in the input file for the type MoodysIssuer, `Moody's Ratings Identifier`.
+        String redCodeColumn = "redCodeColumn_example"; // String | Header Name of the column in the input file for the type Red Code - `Markit Reference Entity Identifier`.
+        String rssdColumn = "rssdColumn_example"; // String | Header Name of the column in the input file for the type RSSD, `FederalReserveRSSDIdentifier`.
+        String sedolColumn = "sedolColumn_example"; // String | Header Name of the column in the input file for the type `SEDOL`.
+        String sprColumn = "sprColumn_example"; // String | Header Name of the column in the input file for the type S&PRating, `S&P Ratings Identifier`.
+        String tickerColumn = "tickerColumn_example"; // String | Header Name of the column in the input file for the type `PriceTicker`.
+        String tickerExchangeColumn = "tickerExchangeColumn_example"; // String | Header Name of the column in the input file for the type `TickerExchange`.
+        String tickerRegionColumn = "tickerRegionColumn_example"; // String | Header Name of the column in the input file for the type `TickerRegion`.
+        String ukchColumn = "ukchColumn_example"; // String | Header Name of the column in the input file for the type `UKCompanyHouse`.
+        String valorenColumn = "valorenColumn_example"; // String | Header Name of the column in the input file for the type VALOR, `Valoren (\\\"Valor\\\") Identification`.
+        String wknColumn = "wknColumn_example"; // String | Header Name of the column in the input file for the type WKN, `German Securities Identification`.
         java.util.List<String> includeEntityType = Arrays.asList(); // java.util.List<String> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
         java.util.List<String> excludeEntityType = Arrays.asList(); // java.util.List<String> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.** 
         java.util.List<String> includeEntitySubType = Arrays.asList(); // java.util.List<String> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
         java.util.List<String> excludeEntitySubType = Arrays.asList(); // java.util.List<String> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
         try {
-            EntityTaskResponse result = apiInstance.getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bicColumn, bbgTickerColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, rssdColumn, fitchColumn, isinColumn, leiColumn, bbgFigiColumn, mdColumn, tickerColumn, sprColumn, sedolColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
+            EntityTaskResponse result = apiInstance.getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -211,27 +217,33 @@ Name | Type | Description  | Notes
  **urlColumn** | **String**| Header Name of the column in the input file that contains the Entity&#39;s URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  | [optional]
  **stateColumn** | **String**| Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  | [optional]
  **priorityColumn** | **String**| Header Name of the column in the inputfile that contains the priority for the client id.  | [optional]
- **bicColumn** | **String**| Header Name of the column in the input file for the BICCode, &#x60;bank indentification code&#x60; symbol type  | [optional]
- **bbgTickerColumn** | **String**| Header Name of the column in the input file for the Bloomberg &#x60;Listing and Regional Ticker&#x60; symbol type | [optional]
- **cikColumn** | **String**| Header Name of the column in the input file for the CIK, &#x60;Edgar Central Index Keys&#x60; symbol type | [optional]
- **crdColumn** | **String**| Header Name of the column in the input file for the CRD, &#x60;Central Registration Depository&#x60; symbol type | [optional]
- **cusipColumn** | **String**| Header Name of the column in the input file for the &#x60;CUSIP&#x60; symbol type | [optional]
- **dunsColumn** | **String**| Header Name of the column in the input file for the DUNS, &#x60;Dun&amp;Bradstreet&#x60; symbol type | [optional]
- **einColumn** | **String**| Header Name of the column in the input file for the EIN, &#x60;EmployerIdentificationNumber&#x60; symbol type | [optional]
- **rssdColumn** | **String**| Header Name of the column in the input file for the RSSD, &#x60;FederalReserveRSSDIdentifier&#x60; symbol type | [optional]
- **fitchColumn** | **String**| Header Name of the column in the input file for the FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60; symbol type | [optional]
- **isinColumn** | **String**| Header Name of the column in the input file for the &#x60;ISIN&#x60;symbol type | [optional]
- **leiColumn** | **String**| Header Name of the column in the input file for the LEI, &#x60;LegalEntityIdentifier&#x60; symbol type | [optional]
- **bbgFigiColumn** | **String**| Header Name of the column in the input file for the &#x60;Bloomberg Listing/Regional/Security ID&#x60; symbol type | [optional]
- **mdColumn** | **String**| Header Name of the column in the input file for the MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60; symbol type | [optional]
- **tickerColumn** | **String**| Header Name of the column in the input file for the &#x60;PriceTicker&#x60; symbol type | [optional]
- **sprColumn** | **String**| Header Name of the column in the input file for the S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60; symbol type | [optional]
- **sedolColumn** | **String**| Header Name of the column in the input file for the &#x60;SEDOL&#x60; symbol type | [optional]
- **tickerExchangeColumn** | **String**| Header Name of the column in the input file for the &#x60;TickerExchange&#x60; symbol type | [optional]
- **tickerRegionColumn** | **String**| Header Name of the column in the input file for the &#x60;TickerRegion&#x60; symbol type | [optional]
- **ukchColumn** | **String**| Header Name of the column in the input file for the &#x60;UKCompanyHouse&#x60; symbol type | [optional]
- **valorenColumn** | **String**| Header Name of the column in the input file for the VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60; symbol type | [optional]
- **wknColumn** | **String**| Header Name of the column in the input file for the WKN, &#x60;German Securities Identification&#x60; symbol type | [optional]
+ **bbgFigiColumn** | **String**| Header Name of the column in the input file for the type &#x60;Bloomberg Listing/Regional/Security ID&#x60;. | [optional]
+ **bbgTickerColumn** | **String**| Header Name of the column in the input file for the type Bloomberg &#x60;Listing and Regional Ticker&#x60;. | [optional]
+ **bicColumn** | **String**| Header Name of the column in the input file for the type BICCode, &#x60;bank indentification code&#x60;.  | [optional]
+ **cikColumn** | **String**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional]
+ **crdColumn** | **String**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional]
+ **cusipColumn** | **String**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional]
+ **dunsColumn** | **String**| Header Name of the column in the input file for the type DUNS, &#x60;Dun&amp;Bradstreet&#x60;. | [optional]
+ **einColumn** | **String**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional]
+ **factsetIdColumn** | **String**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional]
+ **fitchColumn** | **String**| Header Name of the column in the input file for the type FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60;. | [optional]
+ **gvkeyColumn** | **String**| Header Name of the column in the input file for the type GVKEY - &#x60;Compustat Global Company Key&#x60;. | [optional]
+ **gvkeyIidColumn** | **String**| Header Name of the column in the input file for the type GVKEY+IID - &#x60;Compustat Global Company Key and Issue Identifier&#x60;. | [optional]
+ **isinColumn** | **String**| Header Name of the column in the input file for the type &#x60;ISIN&#x60;. | [optional]
+ **jcnColumn** | **String**| Header Name of the column in the input file for the type JCN - &#x60;Japanese Corporate Number&#x60;. | [optional]
+ **leiColumn** | **String**| Header Name of the column in the input file for the type LEI, &#x60;LegalEntityIdentifier&#x60;. | [optional]
+ **lxidColumn** | **String**| Header Name of the column in the input file for the type LXID - &#x60;Markit Syndicated Loan Identifier&#x60;. | [optional]
+ **mdColumn** | **String**| Header Name of the column in the input file for the type MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60;. | [optional]
+ **redCodeColumn** | **String**| Header Name of the column in the input file for the type Red Code - &#x60;Markit Reference Entity Identifier&#x60;. | [optional]
+ **rssdColumn** | **String**| Header Name of the column in the input file for the type RSSD, &#x60;FederalReserveRSSDIdentifier&#x60;. | [optional]
+ **sedolColumn** | **String**| Header Name of the column in the input file for the type &#x60;SEDOL&#x60;. | [optional]
+ **sprColumn** | **String**| Header Name of the column in the input file for the type S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60;. | [optional]
+ **tickerColumn** | **String**| Header Name of the column in the input file for the type &#x60;PriceTicker&#x60;. | [optional]
+ **tickerExchangeColumn** | **String**| Header Name of the column in the input file for the type &#x60;TickerExchange&#x60;. | [optional]
+ **tickerRegionColumn** | **String**| Header Name of the column in the input file for the type &#x60;TickerRegion&#x60;. | [optional]
+ **ukchColumn** | **String**| Header Name of the column in the input file for the type &#x60;UKCompanyHouse&#x60;. | [optional]
+ **valorenColumn** | **String**| Header Name of the column in the input file for the type VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60;. | [optional]
+ **wknColumn** | **String**| Header Name of the column in the input file for the type WKN, &#x60;German Securities Identification&#x60;. | [optional]
  **includeEntityType** | **List&lt;String&gt;**| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **excludeEntityType** | **List&lt;String&gt;**| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **includeEntitySubType** | **List&lt;String&gt;**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]

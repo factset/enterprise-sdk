@@ -31,10 +31,10 @@ from fds.sdk.NaturalLanguageProcessing.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.NaturalLanguageProcessing.model.error import Error
     from fds.sdk.NaturalLanguageProcessing.model.ner_entity_list import NEREntityList
-    from fds.sdk.NaturalLanguageProcessing.model.ner_error_schema import NERErrorSchema
+    globals()['Error'] = Error
     globals()['NEREntityList'] = NEREntityList
-    globals()['NERErrorSchema'] = NERErrorSchema
 
 
 class NERResponseSchema(ModelNormal):
@@ -91,7 +91,8 @@ class NERResponseSchema(ModelNormal):
         lazy_import()
         return {
             'data': (NEREntityList,),  # noqa: E501
-            'errors': ([NERErrorSchema],),  # noqa: E501
+            'errors': ([Error],),  # noqa: E501
+            'meta': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class NERResponseSchema(ModelNormal):
     attribute_map = {
         'data': 'data',  # noqa: E501
         'errors': 'errors',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,7 +148,8 @@ class NERResponseSchema(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (NEREntityList): [optional]  # noqa: E501
-            errors ([NERErrorSchema]): [optional]  # noqa: E501
+            errors ([Error]): [optional]  # noqa: E501
+            meta ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Any associated metadata. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,7 +232,8 @@ class NERResponseSchema(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (NEREntityList): [optional]  # noqa: E501
-            errors ([NERErrorSchema]): [optional]  # noqa: E501
+            errors ([Error]): [optional]  # noqa: E501
+            meta ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Any associated metadata. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

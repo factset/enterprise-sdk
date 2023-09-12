@@ -6,6 +6,8 @@
 * [QuantDateList](QuantDateList.md)
 * [QuantFdsDate](QuantFdsDate.md)
 
+NOTE: this class is nullable.
+
 ## Example
 ```java
 // Import classes:

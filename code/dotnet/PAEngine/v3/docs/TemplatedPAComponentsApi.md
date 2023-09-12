@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -154,7 +154,7 @@ namespace Example
 
             var apiInstance = new TemplatedPAComponentsApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for a templated PA component
 
             try
             {
@@ -176,7 +176,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a templated PA component | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for a templated PA component | 
 
 ### Return type
 void (empty response body)
@@ -188,7 +188,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -251,7 +251,7 @@ namespace Example
 
             var apiInstance = new TemplatedPAComponentsApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for a templated PA component
 
             try
             {
@@ -274,7 +274,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a templated PA component | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for a templated PA component | 
 
 ### Return type
 [**TemplatedPAComponentRoot**](TemplatedPAComponentRoot.md)
@@ -349,7 +349,7 @@ namespace Example
 
             var apiInstance = new TemplatedPAComponentsApi(config);
 
-            var directory = "\"Personal:TemplatedPAComponents/\"";  // string | Get templated PA components in path (default to "Personal:TemplatedPAComponents/")
+            var directory = "Personal:TemplatedPAComponents/";  // string | Get templated PA components in path
 
             try
             {
@@ -372,7 +372,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **directory** | **string**| Get templated PA components in path | [default to &quot;Personal:TemplatedPAComponents/&quot;]
+ **directory** | **string**| Get templated PA components in path | 
 
 ### Return type
 [**TemplatedPAComponentSummaryRoot**](TemplatedPAComponentSummaryRoot.md)
@@ -446,7 +446,7 @@ namespace Example
 
             var apiInstance = new TemplatedPAComponentsApi(config);
 
-            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
+            var id = "01234567890123456789012345678901";  // string | Unique identifier for a templated PA component
             var templatedPAComponentUpdateParametersRoot = new TemplatedPAComponentUpdateParametersRoot(); // TemplatedPAComponentUpdateParametersRoot | Request Parameters
 
             try
@@ -470,7 +470,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Unique identifier for a templated PA component | [default to &quot;01234567890123456789012345678901&quot;]
+ **id** | **string**| Unique identifier for a templated PA component | 
  **templatedPAComponentUpdateParametersRoot** | [**TemplatedPAComponentUpdateParametersRoot**](TemplatedPAComponentUpdateParametersRoot.md)| Request Parameters | 
 
 ### Return type

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.DirectStreamingofTransactionMessages.models.ClientErrorResponse;
 import com.factset.sdk.DirectStreamingofTransactionMessages.models.Transactions;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -106,7 +107,7 @@ public class DsotmApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

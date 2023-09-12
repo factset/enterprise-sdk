@@ -1,9 +1,8 @@
 openapi: 3.0.0
 info:
-  version: 2.6.0
+  version: 2.7.0
   title: FactSet Concordance API
   description: >
-
 
 
     The FactSet Concordance API enables Application Developers and Data
@@ -40,7 +39,7 @@ tags:
       retrieve decisions once mapped.
   - name: Universes
     description: Create, View, and Manage Universes where mappings are saved.
-  - name: Entity Mappings
+  - name: Mappings
     description: >-
       View all Saved Mappings in a Universe or update and save mappings made of
       ClientIds and Names to FactSet Entity Ids
@@ -76,22 +75,28 @@ paths:
         - $ref: '#/components/parameters/includeEntitySubType'
         - $ref: '#/components/parameters/excludeEntitySubType'
         - $ref: '#/components/parameters/addParent'
-        - $ref: '#/components/parameters/bic'
+        - $ref: '#/components/parameters/bbgFigi'
         - $ref: '#/components/parameters/bbgTicker'
+        - $ref: '#/components/parameters/bic'
         - $ref: '#/components/parameters/cik'
         - $ref: '#/components/parameters/crd'
         - $ref: '#/components/parameters/cusip'
         - $ref: '#/components/parameters/duns'
         - $ref: '#/components/parameters/ein'
-        - $ref: '#/components/parameters/rssd'
+        - $ref: '#/components/parameters/factsetId'
         - $ref: '#/components/parameters/fitch'
+        - $ref: '#/components/parameters/gvkey'
+        - $ref: '#/components/parameters/gvkeyIid'
         - $ref: '#/components/parameters/isin'
+        - $ref: '#/components/parameters/jcn'
         - $ref: '#/components/parameters/lei'
-        - $ref: '#/components/parameters/bbgFigi'
+        - $ref: '#/components/parameters/lxid'
         - $ref: '#/components/parameters/md'
-        - $ref: '#/components/parameters/ticker'
-        - $ref: '#/components/parameters/spr'
+        - $ref: '#/components/parameters/redCode'
+        - $ref: '#/components/parameters/rssd'
         - $ref: '#/components/parameters/sedol'
+        - $ref: '#/components/parameters/spr'
+        - $ref: '#/components/parameters/ticker'
         - $ref: '#/components/parameters/tickerExchange'
         - $ref: '#/components/parameters/tickerRegion'
         - $ref: '#/components/parameters/ukch'
@@ -233,111 +238,170 @@ paths:
                     priority for the client id.
                   type: string
                   example: Priority
-                bicColumn:
-                  description: >
-                    Header Name of the column in the input file for the BICCode,
-                    `bank indentification code` symbol type
-                  type: string
-                bbgTickerColumn:
-                  description: >-
-                    Header Name of the column in the input file for the
-                    Bloomberg `Listing and Regional Ticker` symbol type
-                  type: string
-                cikColumn:
-                  description: >-
-                    Header Name of the column in the input file for the CIK,
-                    `Edgar Central Index Keys` symbol type
-                  type: string
-                crdColumn:
-                  description: >-
-                    Header Name of the column in the input file for the CRD,
-                    `Central Registration Depository` symbol type
-                  type: string
-                cusipColumn:
-                  description: >-
-                    Header Name of the column in the input file for the `CUSIP`
-                    symbol type
-                  type: string
-                dunsColumn:
-                  description: >-
-                    Header Name of the column in the input file for the DUNS,
-                    `Dun&Bradstreet` symbol type
-                  type: string
-                einColumn:
-                  description: >-
-                    Header Name of the column in the input file for the EIN,
-                    `EmployerIdentificationNumber` symbol type
-                  type: string
-                rssdColumn:
-                  description: >-
-                    Header Name of the column in the input file for the RSSD,
-                    `FederalReserveRSSDIdentifier` symbol type
-                  type: string
-                fitchColumn:
-                  description: >-
-                    Header Name of the column in the input file for the
-                    FitchCreditRating, `Fitch Ratings Identifier` symbol type
-                  type: string
-                isinColumn:
-                  description: >-
-                    Header Name of the column in the input file for the
-                    `ISIN`symbol type
-                  type: string
-                leiColumn:
-                  description: >-
-                    Header Name of the column in the input file for the LEI,
-                    `LegalEntityIdentifier` symbol type
-                  type: string
                 bbgFigiColumn:
                   description: >-
-                    Header Name of the column in the input file for the
-                    `Bloomberg Listing/Regional/Security ID` symbol type
+                    Header Name of the column in the input file for the type
+                    `Bloomberg Listing/Regional/Security ID`.
                   type: string
+                  example: BloombergId
+                bbgTickerColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    Bloomberg `Listing and Regional Ticker`.
+                  type: string
+                  example: BloombergTicker
+                bicColumn:
+                  description: >
+                    Header Name of the column in the input file for the type
+                    BICCode, `bank indentification code`.
+                  type: string
+                  example: BICCode
+                cikColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    CIK, `Edgar Central Index Keys`
+                  type: string
+                  example: CIK
+                crdColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    CRD, `Central Registration Depository`.
+                  type: string
+                  example: CRD
+                cusipColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    `CUSIP`
+                  type: string
+                  example: CUSIP
+                dunsColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    DUNS, `Dun&Bradstreet`.
+                  type: string
+                  example: Dun&Bradstreet
+                einColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    EIN, `EmployerIdentificationNumber`.
+                  type: string
+                  example: EmployerIdentificationNumber
+                factsetIdColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    FactSet Identifier - `FactSet -E,-S,-R, -L Permanent
+                    Identifier`.
+                  type: string
+                  example: FactSetIdentifier
+                fitchColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    FitchCreditRating, `Fitch Ratings Identifier`.
+                  type: string
+                  example: FitchCreditRating
+                gvkeyColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    GVKEY - `Compustat Global Company Key`.
+                  type: string
+                  example: GVKey
+                gvkeyIidColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    GVKEY+IID - `Compustat Global Company Key and Issue
+                    Identifier`.
+                  type: string
+                  example: GVKeyIssueIdentifier
+                isinColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    `ISIN`.
+                  type: string
+                  example: ISIN
+                jcnColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type JCN
+                    - `Japanese Corporate Number`.
+                  type: string
+                  example: JCN
+                leiColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    LEI, `LegalEntityIdentifier`.
+                  type: string
+                  example: LegalEntityIdentifier
+                lxidColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    LXID - `Markit Syndicated Loan Identifier`.
+                  type: string
+                  example: LXID
                 mdColumn:
                   description: >-
-                    Header Name of the column in the input file for the
-                    MoodysIssuer, `Moody's Ratings Identifier` symbol type
+                    Header Name of the column in the input file for the type
+                    MoodysIssuer, `Moody's Ratings Identifier`.
                   type: string
-                tickerColumn:
+                  example: MoodysIssuer
+                redCodeColumn:
                   description: >-
-                    Header Name of the column in the input file for the
-                    `PriceTicker` symbol type
+                    Header Name of the column in the input file for the type Red
+                    Code - `Markit Reference Entity Identifier`.
                   type: string
-                sprColumn:
+                  example: RedCode
+                rssdColumn:
                   description: >-
-                    Header Name of the column in the input file for the
-                    S&PRating, `S&P Ratings Identifier` symbol type
+                    Header Name of the column in the input file for the type
+                    RSSD, `FederalReserveRSSDIdentifier`.
                   type: string
+                  example: FederalReserveRSSDIdentifier
                 sedolColumn:
                   description: >-
-                    Header Name of the column in the input file for the `SEDOL`
-                    symbol type
+                    Header Name of the column in the input file for the type
+                    `SEDOL`.
                   type: string
+                  example: SEDOL
+                sprColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    S&PRating, `S&P Ratings Identifier`.
+                  type: string
+                  example: SPRating
+                tickerColumn:
+                  description: >-
+                    Header Name of the column in the input file for the type
+                    `PriceTicker`.
+                  type: string
+                  example: PriceTicker
                 tickerExchangeColumn:
                   description: >-
-                    Header Name of the column in the input file for the
-                    `TickerExchange` symbol type
+                    Header Name of the column in the input file for the type
+                    `TickerExchange`.
                   type: string
+                  example: TickerExch
                 tickerRegionColumn:
                   description: >-
-                    Header Name of the column in the input file for the
-                    `TickerRegion` symbol type
+                    Header Name of the column in the input file for the type
+                    `TickerRegion`.
                   type: string
+                  example: TickerRegion
                 ukchColumn:
                   description: >-
-                    Header Name of the column in the input file for the
-                    `UKCompanyHouse` symbol type
+                    Header Name of the column in the input file for the type
+                    `UKCompanyHouse`.
                   type: string
+                  example: UKCompanyHouse
                 valorenColumn:
                   description: >-
-                    Header Name of the column in the input file for the VALOR,
-                    `Valoren ("Valor") Identification` symbol type
+                    Header Name of the column in the input file for the type
+                    VALOR, `Valoren ("Valor") Identification`.
                   type: string
+                  example: VALOR
                 wknColumn:
                   description: >-
-                    Header Name of the column in the input file for the WKN,
-                    `German Securities Identification` symbol type
+                    Header Name of the column in the input file for the type
+                    WKN, `German Securities Identification`.
                   type: string
+                  example: WKN
                 includeEntityType:
                   description: >
                     Three-character FactSet entity type code used to filter
@@ -515,7 +579,7 @@ paths:
       description: |
         Retrieves all entity mappings within a requested universe.
       tags:
-        - Entity Mappings
+        - Mappings
       operationId: getEntityUniverse
       parameters:
         - $ref: '#/components/parameters/universeIdRequired'
@@ -545,7 +609,7 @@ paths:
         Retrieves all entity mappings that were saved in a given universe.
         Supports filtering by a large number of `clientId`s
       tags:
-        - Entity Mappings
+        - Mappings
       operationId: getEntityUniverseForList
       requestBody:
         $ref: '#/components/requestBodies/EntityUniverseRequest'
@@ -697,7 +761,7 @@ paths:
         all exiting values are overwritten in the database with the values
         passed in the request. clientId and clientName are required.
       tags:
-        - Entity Mappings
+        - Mappings
       operationId: getEntityMappingForList
       requestBody:
         $ref: '#/components/requestBodies/EntityMappingRequestV2'
@@ -747,7 +811,7 @@ paths:
         all exiting values are overwritten in the database with the values
         passed in the request. clientId and universeId are required.
       tags:
-        - Entity Mappings
+        - Mappings
       operationId: getEntityMappingDeleteForList
       requestBody:
         $ref: '#/components/requestBodies/EntityMappingDeleteRequestV2'
@@ -1306,114 +1370,131 @@ components:
       in: query
       schema:
         type: string
+        example: BICCode
     bbgTicker:
       description: >-
         Input identifiers for the Bloomberg Listing and Regional Ticker symbol
-        Type
+        Type.
       name: bbgTicker
       in: query
       schema:
         type: string
+        example: BloombergId
     cik:
-      description: Input identifiers for the CIK - Edgar Central Index Keys symbol type
+      description: Input identifiers for the CIK - Edgar Central Index Keys symbol type.
       name: cik
       in: query
       schema:
         type: string
+        example: CIK
     crd:
       description: >-
         Input identifiers for the CRD - Central Registration Depository symbol
-        type
+        type.
       name: crd
       in: query
       schema:
         type: string
+        example: CRD
     cusip:
-      description: Input identifiers for the CUSIP symbol type
+      description: Input identifiers for the CUSIP symbol type.
       name: cusip
       in: query
       schema:
         type: string
+        example: CUSIP
     duns:
       description: >-
         Input identifiers for the DUNS - Dun & Bradstreet Data Universal
-        Numbering System symbol type
+        Numbering System symbol type.
       name: duns
       in: query
       schema:
         type: string
+        example: Dun&Bradstreet
     ein:
       description: >-
         Input identifiers for the EIN - Employer Identification Number symbol
-        type
+        type.
       name: ein
       in: query
       schema:
         type: string
+        example: EmployerIdentificationNumber
     rssd:
-      description: Input identifiers for the RSSD - Federal Reserve RSSD symbol type
+      description: Input identifiers for the RSSD - Federal Reserve RSSD symbol typ.
       name: rssd
       in: query
       schema:
         type: string
+        example: FederalReserveRSSDIdentifier
     fitch:
-      description: Input identifiers for the Fitch - Fitch Ratings symbol type
+      description: Input identifiers for the Fitch - Fitch Ratings symbol type.
       name: fitch
       in: query
       schema:
         type: string
+        example: FitchCreditRating
     isin:
       description: >-
         Input identifiers for the ISIN - International Securities Identification
-        Number symbol type
+        Number symbol type.
       name: isin
       in: query
       schema:
         type: string
+        example: ISIN
     lei:
       description: Input identifiers for the LEI - Legal Entity Identifier symbol type
       name: lei
       in: query
       schema:
         type: string
+        example: LegalEntityIdentifier
     bbgFigi:
       description: >-
         Input identifiers for the Bloomberg Listing/Regional/Security ID symbol
-        type
+        type.
       name: bbgFigi
       in: query
       schema:
         type: string
+        example: BBG009S39JY5
     md:
-      description: Input identifiers for the Moody's Ratings Identifier type
+      description: Input identifiers for the Moody's Ratings Identifier type.
       name: md
       in: query
       schema:
         type: string
+        example: MoodysIssuer
     ticker:
-      description: Input identifiers for the Price Ticker symbol type
+      description: Input identifiers for the Price Ticker symbol type.
       name: ticker
       in: query
       schema:
         type: string
+        example: PriceTicker
     spr:
-      description: Input identifiers for the S&PRating - S&P Ratings Identifier symbol type
+      description: Input identifiers for the Price Ticker symbol type.
       name: spr
       in: query
       schema:
         type: string
+        example: SPRating
     sedol:
-      description: Input identifiers for the SEDOL symbol type
+      description: Input identifiers for the SEDOL symbol type.
       name: sedol
       in: query
       schema:
         type: string
+        example: SEDOL
     tickerExchange:
-      description: Input identifiers for the TickerExchange
+      description: Input identifiers for the TickerExchange.
       name: tickerExchange
       in: query
       schema:
         type: string
+        example: TickerExch
     tickerRegion:
       description: Input identifiers for the TickerRegion.
       name: tickerRegion
@@ -1422,24 +1503,80 @@ components:
         type: string
         example: TickerRegion
     ukch:
-      description: Input identifiers for the UKCH - UK Company House symbol type
+      description: Input identifiers for the UKCH - UK Company House symbol type.
       name: ukch
       in: query
       schema:
         type: string
         example: UKCompanyHouse
     valoren:
-      description: Input identifiers for the Valoren ("Valor") symbol type
+      description: Input identifiers for the Valoren ("Valor") symbol type.
       name: valoren
       in: query
       schema:
         type: string
+        example: VALOR
     wkn:
-      description: Input identifiers for the WKN - German Securities symbol type
+      description: Input identifiers for the WKN - German Securities symbol type.
       name: wkn
       in: query
       schema:
         type: string
+        example: WKN
+    jcn:
+      description: >-
+        Input identifiers for the type JCN - Japanese Corporate Number symbol
+        type.
+      name: jcn
+      in: query
+      schema:
+        type: string
+        example: JCN
+    gvkeyIid:
+      description: >-
+        Input identifiers for the type GVKEY+IID - Compustat Global Company Key
+        and Issue Identifier symbol type.
+      name: gvkeyIid
+      in: query
+      schema:
+        type: string
+        example: GVKeyIssueIdentifier
+    gvkey:
+      description: >-
+        Input identifiers for the type GVKEY - Compustat Global Company Key
+        symbol type.
+      name: gvkey
+      in: query
+      schema:
+        type: string
+        example: GVKey
+    lxid:
+      description: >-
+        Input identifiers for the type LXID - Markit Syndicated Loan Identifier
+        symbol type.
+      name: lxid
+      in: query
+      schema:
+        type: string
+        example: LXID
+    redCode:
+      description: >-
+        Input identifiers for the type Red Code - Markit Reference Entity
+        Identifier symbol type.
+      name: redCode
+      in: query
+      schema:
+        type: string
+        example: RedCode
+    factsetId:
+      description: >-
+        Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L
+        Permanent Identifier symbol type.
+      name: factsetId
+      in: query
+      schema:
+        type: string
+        example: FactSetIdentifier
     taskDecisionId:
       name: taskId
       description: >-
@@ -2146,14 +2283,18 @@ components:
                   - MEDIUM
                   - LOW
                 example: HIGH
-              bic:
-                description: Name for type BICCode, bank indentification code
+              bbgFigi:
+                description: Name for the type Bloomberg Listing/Regional/Security ID.
                 type: string
-                example: ABXXHKH1
+                example: BBG009S39JY5
               bbgTicker:
                 description: Name for the type Bloomberg Listing and Regional Ticker.
                 type: string
                 example: GOOGL UW
+              bic:
+                description: Name for type BICCode, bank indentification code
+                type: string
+                example: ABXXHKH1
               cik:
                 description: Name for the type CIK, Edgar Central Index Keys
                 type: string
@@ -2169,47 +2310,71 @@ components:
               duns:
                 description: Name for the type DUNS, Dun&Bradstreet.
                 type: string
-                example: 621513451
+                example: 687741991
               ein:
                 description: Name for the type EmployerIdentificationNumber, EIN.
                 type: string
                 example: 953540776
-              rssd:
-                description: Name for the type FederalReserveRSSDIdentifier, RSSD.
+              factsetId:
+                description: >-
+                  Name for the type FactSet Identifier, FactSet -E,-S,-R, -L
+                  Permanent Identifier.
                 type: string
-                example: 1139297
+                example: 0013TZ-E
               fitch:
                 description: Name for the type FitchCreditRating, Fitch Ratings Identifier.
                 type: string
                 example: 47504
+              gvkey:
+                description: Name for the type GVKEY, Compustat Global Company Key.
+                type: string
+                example: 107481
+              gvkeyIid:
+                description: >-
+                  Name for the type GVKEY+IID, Compustat Global Company Key and
+                  Issue Identifier.
+                type: string
+                example: 107481001
               isin:
                 description: Name for the type ISIN.
                 type: string
                 example: US02079K305
+              jcn:
+                description: Name for the type JCN , Japanese Corporate Number.
+                type: string
+                example: 3120001077477
               lei:
                 description: Name for the type LegalEntityIdentifier, LEI.
                 type: string
                 example: 549300A6K7JX8EX2QZ33
-              bbgFigi:
-                description: Name for the type Bloomberg Listing/Regional/Security ID.
+              lxid:
+                description: Name for the type LXID, Markit Syndicated Loan Identifier.
                 type: string
-                example: BBG009S39JY5
+                example: LX113630
               md:
                 description: Name for the type MoodysIssuer, Moody's Ratings Identifier.
                 type: string
                 example: 823736553
-              ticker:
-                description: Name for the type PriceTicker.
+              redCode:
+                description: Name for the type RedCode, Markit Reference Entity Identifier.
                 type: string
-                example: PriceTicker
-              spr:
-                description: Name for the type S&PRating, S&P Ratings Identifier.
+                example: 4C933G
+              rssd:
+                description: Name for the type FederalReserveRSSDIdentifier, RSSD.
                 type: string
-                example: 301939
+                example: 1139297
               sedol:
                 description: Name for the type SEDOL.
                 type: string
                 example: BYZ5YB6
+              spr:
+                description: Name for the type S&PRating, S&P Ratings Identifier.
+                type: string
+                example: 301939
+              ticker:
+                description: Name for the type PriceTicker.
+                type: string
+                example: PriceTicker
               tickerExchange:
                 description: Name for the type TickerExch.
                 type: string
@@ -2409,104 +2574,146 @@ components:
           description: URL corresponding to the entity name.
           type: string
           example: www.factset.com
-        clientBic:
+        clientBbgFigi:
           description: >-
-            User provided input for the - BICCode, bank indentification code
-            symbol type
+            User provided input for Bloomberg Listing/Regional/Security ID
+            symbol type.
           type: string
-          example: ABXXHKH1
+          example: BBG009S39JY5
         clientBbgTicker:
-          description: User provided input for Bloomberg Listing and Regional Ticker
+          description: >-
+            User provided input for Bloomberg Listing and Regional Ticker symbol
+            type.
           type: string
           example: GOOGL UW
+        clientBic:
+          description: >-
+            User provided input for BICCode, bank indentification code symbol
+            type.
+          type: string
+          example: ABXXHKH1
         clientCik:
-          description: User provided input CIK, Edgar Central Index Keys symbol type
+          description: User provided input for CIK, Edgar Central Index Keys symbol type.
           type: string
           example: 100331
         clientCrd:
           description: >-
-            User provided input -  CRD, Central Registration Depository symbol
-            type
+            User provided input for CRD, Central Registration Depository symbol
+            type.
           type: string
           example: 149722
         clientCusip:
-          description: User provided input for CUSIP symbol type
+          description: User provided input for CUSIP symbol type.
           type: string
           example: 02079K305
         clientDuns:
-          description: User provided input for DUNS, Dun&Bradstreet symbol type'
+          description: User provided input for DUNS, Dun&Bradstreet symbol type.
           type: string
-          example: 621513451
+          example: 687741991
         clientEin:
           description: >-
-            User provided input for  EmployerIdentificationNumber, EIN symbol
-            type'
+            User provided input for EmployerIdentificationNumber, EIN symbol
+            type.
           type: string
           example: 953540776
-        clientRssd:
+        clientFactsetId:
           description: >-
-            User provided input for FederalReserveRSSDIdentifier, RSSD symbol
-            type'
+            User provided input for FactSet Identifier, FactSet -E,-S,-R, -L
+            Permanent Identifier symbol type.
           type: string
-          example: 1139297
+          example: 0013TZ-E
         clientFitch:
           description: >-
-            User provided input for  FitchCreditRating, Fitch Ratings Identifier
-            symbol type
+            User provided input for FitchCreditRating, Fitch Ratings Identifier
+            symbol type.
           type: string
           example: 47504
+        clientGvkeyIid:
+          description: >-
+            User provided input for GVKEY+IID, Compustat Global Company Key and
+            Issue Identifier symbol type.
+          type: string
+          example: 107481001
+        clientGvkey:
+          description: >-
+            User provided input for GVKEY, Compustat Global Company Key symbol
+            type.
+          type: string
+          example: 107481
         clientIsin:
-          description: User provided input for ISIN symbol type
+          description: User provided input for ISIN symbol type.
           type: string
           example: US02079K305
+        clientJcn:
+          description: User provided input for JCN , Japanese Corporate Number symbol type.
+          type: string
+          example: 3120001077477
         clientLei:
-          description: User provided input for LegalEntityIdentifier, LEI symbol type
+          description: User provided input for LegalEntityIdentifier, LEI symbol type.
           type: string
           example: 549300A6K7JX8EX2QZ33
-        clientBbgFigi:
+        clientLxid:
           description: >-
-            User provided input for Bloomberg Listing/Regional/Security ID
-            symbol type
+            User provided input for LXID, Markit Syndicated Loan Identifier
+            symbol type.
           type: string
-          example: BBG009S39JY5
+          example: LX113630
         clientMd:
-          description: User provided input for MoodysIssuer, Moody''s Ratings symbol type
+          description: >-
+            User provided input for MoodysIssuer, Moody's Ratings Identifier
+            symbol type.
           type: string
           example: 823736553
         clientTicker:
-          description: User provided input for PriceTicker identifiers
+          description: User provided input for PriceTicker symbol type.
           type: string
           example: PriceTicker
         clientPriority:
           description: Name of the priority column as provided by the user.
           type: string
           example: HIGH
-        clientSpr:
-          description: User provided input for S&PRatings Identifiers
+        clientRedCode:
+          description: >-
+            User provided input for RedCode, Markit Reference Entity Identifier
+            symbol type.
           type: string
-          example: 301939
+          example: 4C933G
+        clientRssd:
+          description: >-
+            User provided input for FederalReserveRSSDIdentifier, RSSD symbol
+            type.
+          type: string
+          example: 1139297
         clientSedol:
-          description: User provided input for SEDOL identifiers
+          description: User provided input for SEDOL symbol type.
           type: string
           example: BYZ5YB6
+        clientSpr:
+          description: User provided input for S&PRating, S&P Ratings Identifier.
+          type: string
+          example: 301939
         clientTickerExchange:
-          description: User provided input for TickerExch identifiers
+          description: User provided input for TickerExch symbol type.
           type: string
           example: GOOGL-NAS
         clientTickerRegion:
-          description: User provided input for TickerRegion identifiers
+          description: User provided input for TickerRegion symbol type
           type: string
           example: GOOGL-US
         clientUkch:
-          description: User provided input for UKCompanyHouse identifiers
+          description: User provided input for UKCompanyHouse symbol type
           type: string
           example: CE012494
         clientValoren:
-          description: User provided input for Valoren ("Valor") symbol type
+          description: >-
+            User provided input for VALOR, Valoren ("Valor") Identification
+            symbol type.
           type: string
           example: 685558
         clientWkn:
-          description: User provided input for  WKN, German Securities symbol type
+          description: >-
+            User provided input for WKN, German Securities Identification symbol
+            type.
           type: string
           example: A0MU9T
     PeopleMappingRequest:
@@ -2631,6 +2838,14 @@ components:
           example:
             - abc-123
             - dfg-456
+        sort:
+          description: fetch according to sort orders
+          type: array
+          items:
+            type: string
+          example:
+            - clientId:asc
+            - clientName:desc
     CreateUniverseRequest:
       type: object
       required:
@@ -2709,6 +2924,14 @@ components:
           example:
             - abc-123
             - dfg-456
+        sort:
+          description: fetch according to sort orders
+          type: array
+          items:
+            type: string
+          example:
+            - clientId:asc
+            - clientPersonName:desc
     SnowflakeEntityMatchRequest:
       title: Snowflake Company Match Request
       type: object
@@ -2747,10 +2970,7 @@ components:
           items:
             type: array
             items:
-              oneOf:
-                - integer
-                - string
-                - object
+              type: object
             description: One entity mapping to save
             minItems: 4
             example:
@@ -3048,6 +3268,12 @@ components:
               clientUrl: www.ibm.com
               clientValoren: null
               clientWkn: null
+              clientJcn: null
+              clientGvkeyIid: null
+              clientGvkey: null
+              clientLxid: null
+              clientRedCode: null
+              clientFactsetId: null
               createdTime: '2023-01-31T18:21:28.853822+00:00'
               entityId: 000N1N-E
               entityName: International Business Machines Corp.
@@ -3082,6 +3308,12 @@ components:
               clientUrl: null
               clientValoren: null
               clientWkn: null
+              clientJcn: null
+              clientGvkeyIid: null
+              clientGvkey: null
+              clientLxid: null
+              clientRedCode: null
+              clientFactsetId: null
               createdTime: '2023-01-31T18:21:28.853822+00:00'
               entityId: null
               entityName: null
@@ -3206,32 +3438,12 @@ components:
           type: string
           example: abc-123
           nullable: true
-        clientName:
-          description: Name of the entity to match as specified in the request
-          type: string
-          example: factset
-          nullable: true
-        clientCountry:
-          description: ISO2 country code specified in the request.
-          type: string
-          example: US
-          nullable: true
-        clientState:
-          description: State code specified in the request.
-          type: string
-          example: CT
-          nullable: true
-        clientUrl:
-          description: URL specified in the request.
-          type: string
-          example: www.factset.com
-          nullable: true
-        clientBic:
+        clientBbgFigi:
           description: >-
-            Name of the column as provided by the user - BICCode, bank
-            indentification code
+            Name of the column as provided by the user -  Bloomberg
+            Listing/Regional/Security ID.
           type: string
-          example: BICCode
+          example: BloombergId
           nullable: true
         clientBbgTicker:
           description: >-
@@ -3240,12 +3452,24 @@ components:
           type: string
           example: GOOGL UW
           nullable: true
+        clientBic:
+          description: >-
+            Name of the column as provided by the user - BICCode, bank
+            indentification code
+          type: string
+          example: BICCode
+          nullable: true
         clientCik:
           description: >-
             Name of the column as provided by the user -  CIK, Edgar Central
             Index Keys
           type: string
           example: 100331
+          nullable: true
+        clientCountry:
+          description: ISO2 country code specified in the request.
+          type: string
+          example: US
           nullable: true
         clientCrd:
           description: >-
@@ -3262,7 +3486,7 @@ components:
         clientDuns:
           description: Name of the column as provided by the user -  DUNS, Dun&Bradstreet.
           type: string
-          example: 621513451
+          example: 687741991
           nullable: true
         clientEin:
           description: >-
@@ -3271,12 +3495,12 @@ components:
           type: string
           example: 953540776
           nullable: true
-        clientRssd:
+        clientFactsetId:
           description: >-
-            Name of the column as provided by the user - 
-            FederalReserveRSSDIdentifier, RSSD.
+            Name of the column as provided by the user -  FactSet Identifier,
+            FactSet -E,-S,-R, -L Permanent Identifier.
           type: string
-          example: 1139297
+          example: 0013TZ-E
           nullable: true
         clientFitch:
           description: >-
@@ -3285,10 +3509,31 @@ components:
           type: string
           example: 47504
           nullable: true
+        clientGvkey:
+          description: >-
+            Name of the column as provided by the user -  GVKEY, Compustat
+            Global Company Key.
+          type: string
+          example: 107481
+          nullable: true
+        clientGvkeyIid:
+          description: >-
+            Name of the column as provided by the user -  GVKEY+IID, Compustat
+            Global Company Key and Issue Identifier.
+          type: string
+          example: 107481001
+          nullable: true
         clientIsin:
           description: Name of the column as provided by the user -  ISIN.
           type: string
           example: ISIN
+          nullable: true
+        clientJcn:
+          description: >-
+            Name of the column as provided by the user -  JCN , Japanese
+            Corporate Number.
+          type: string
+          example: 3120001077477
           nullable: true
         clientLei:
           description: >-
@@ -3297,12 +3542,12 @@ components:
           type: string
           example: 549300A6K7JX8EX2QZ33
           nullable: true
-        clientBbgFigi:
+        clientLxid:
           description: >-
-            Name of the column as provided by the user -  Bloomberg
-            Listing/Regional/Security ID.
+            Name of the column as provided by the user -  LXID, Markit
+            Syndicated Loan Identifier.
           type: string
-          example: BloombergId
+          example: LX113630
           nullable: true
         clientMd:
           description: >-
@@ -3311,15 +3556,34 @@ components:
           type: string
           example: 823736553
           nullable: true
-        clientTicker:
-          description: Name of the column as provided by the user -  PriceTicker.
+        clientName:
+          description: Name of the entity to match as specified in the request
           type: string
-          example: PriceTicker
+          example: factset
           nullable: true
         clientPriority:
           description: Name of the priority column as provided by the user.
           type: string
           example: HIGH
+          nullable: true
+        clientRedCode:
+          description: >-
+            Name of the column as provided by the user -  RedCode, Markit
+            Reference Entity Identifier.
+          type: string
+          example: 4C933G
+          nullable: true
+        clientRssd:
+          description: >-
+            Name of the column as provided by the user - 
+            FederalReserveRSSDIdentifier, RSSD.
+          type: string
+          example: 1139297
+          nullable: true
+        clientSedol:
+          description: Name of the column as provided by the user -  SEDOL.
+          type: string
+          example: SEDOL
           nullable: true
         clientSpr:
           description: >-
@@ -3328,10 +3592,15 @@ components:
           type: string
           example: 301939
           nullable: true
-        clientSedol:
-          description: Name of the column as provided by the user -  SEDOL.
+        clientState:
+          description: State code specified in the request.
           type: string
-          example: SEDOL
+          example: CT
+          nullable: true
+        clientTicker:
+          description: Name of the column as provided by the user -  PriceTicker.
+          type: string
+          example: PriceTicker
           nullable: true
         clientTickerExchange:
           description: Name of the column as provided by the user -  TickerExch.
@@ -3347,6 +3616,11 @@ components:
           description: Name of the column as provided by the user -  UKCompanyHouse
           type: string
           example: CE012494
+          nullable: true
+        clientUrl:
+          description: URL specified in the request.
+          type: string
+          example: www.factset.com
           nullable: true
         clientValoren:
           description: >-
@@ -3585,12 +3859,12 @@ components:
           type: string
           example: Priority
           nullable: true
-        bicColumn:
+        bbgFigiColumn:
           description: >-
-            Header Name of the column in the input file for the type BICCode,
-            bank indentification code.
+            Header Name of the column in the input file for the type Bloomberg
+            Listing/Regional/Security ID.
           type: string
-          example: BICCode
+          example: BloombergId
           nullable: true
         bbgTickerColumn:
           description: >-
@@ -3598,6 +3872,13 @@ components:
             Listing and Regional Ticker.
           type: string
           example: BloombergTicker
+          nullable: true
+        bicColumn:
+          description: >-
+            Header Name of the column in the input file for the type BICCode,
+            bank indentification code.
+          type: string
+          example: BICCode
           nullable: true
         cikColumn:
           description: >-
@@ -3632,12 +3913,12 @@ components:
           type: string
           example: EmployerIdentificationNumber
           nullable: true
-        rssdColumn:
+        factsetIdColumn:
           description: >-
-            Header Name of the column in the input file for the type
-            FederalReserveRSSDIdentifier, RSSD.
+            Header Name of the column in the input file for the type FactSet
+            Identifier - `FactSet -E,-S,-R, -L Permanent Identifier.
           type: string
-          example: FederalReserveRSSDIdentifier
+          example: FactSet Identifier
           nullable: true
         fitchColumn:
           description: >-
@@ -3646,10 +3927,31 @@ components:
           type: string
           example: FitchCreditRating
           nullable: true
+        gvkeyColumn:
+          description: >-
+            Header Name of the column in the input file for the type GVKEY -
+            Compustat Global Company Key.
+          type: string
+          example: GVKey
+          nullable: true
+        gvkeyIidColumn:
+          description: >-
+            Header Name of the column in the input file for the type GVKEY+IID -
+            Compustat Global Company Key and Issue Identifier.
+          type: string
+          example: GVKey+Iid
+          nullable: true
         isinColumn:
           description: Header Name of the column in the input file for the type ISIN.
           type: string
           example: ISIN
+          nullable: true
+        jcnColumn:
+          description: >-
+            Header Name of the column in the input file for the type JCN -
+            Japanese Corporate Number.
+          type: string
+          example: JCN
           nullable: true
         leiColumn:
           description: >-
@@ -3658,12 +3960,12 @@ components:
           type: string
           example: LegalEntityIdentifier
           nullable: true
-        bbgFigiColumn:
+        lxidColumn:
           description: >-
-            Header Name of the column in the input file for the type Bloomberg
-            Listing/Regional/Security ID.
+            Header Name of the column in the input file for the type LXID -
+            Markit Syndicated Loan Identifier.
           type: string
-          example: BloombergId
+          example: LXID
           nullable: true
         mdColumn:
           description: >-
@@ -3672,12 +3974,24 @@ components:
           type: string
           example: MoodysIssuer
           nullable: true
-        tickerColumn:
+        redCodeColumn:
+          description: >-
+            Header Name of the column in the input file for the type Red Code -
+            Markit Reference Entity Identifier.
+          type: string
+          example: Red Code
+          nullable: true
+        rssdColumn:
           description: >-
             Header Name of the column in the input file for the type
-            PriceTicker.
+            FederalReserveRSSDIdentifier, RSSD.
           type: string
-          example: PriceTicker
+          example: FederalReserveRSSDIdentifier
+          nullable: true
+        sedolColumn:
+          description: Header Name of the column in the input file for the type SEDOL.
+          type: string
+          example: SEDOL
           nullable: true
         sprColumn:
           description: >-
@@ -3686,10 +4000,12 @@ components:
           type: string
           example: SPRating
           nullable: true
-        sedolColumn:
-          description: Header Name of the column in the input file for the type SEDOL.
+        tickerColumn:
+          description: >-
+            Header Name of the column in the input file for the type
+            PriceTicker.
           type: string
-          example: SEDOL
+          example: PriceTicker
           nullable: true
         tickerExchangeColumn:
           description: Header Name of the column in the input file for the type TickerExch.
@@ -3964,7 +4280,7 @@ components:
             Name as provided by the user for the type DUNS - Dun & Bradstreet
             Data Universal Numbering System.
           type: string
-          example: 621513451
+          example: 687741991
           nullable: true
         clientEin:
           description: >-
@@ -3973,12 +4289,33 @@ components:
           type: string
           example: 953540776
           nullable: true
+        clientFactsetId:
+          description: >-
+            Name as provided by the user for the type FactSet Identifier,
+            FactSet -E,-S,-R, -L Permanent Identifier.
+          type: string
+          example: 0013TZ-E
+          nullable: true
         clientFitch:
           description: >-
             Name as provided by the user for the type Fitch - Fitch Ratings
             Identifier.
           type: string
           example: 47504
+          nullable: true
+        clientGvkey:
+          description: >-
+            Name as provided by the user for the type GVKEY, Compustat Global
+            Company Key.
+          type: string
+          example: 107481
+          nullable: true
+        clientGvkeyIid:
+          description: >-
+            Name as provided by the user for the type GVKEY+IID, Compustat
+            Global Company Key and Issue Identifier.
+          type: string
+          example: 107481001
           nullable: true
         clientIsin:
           description: >-
@@ -3987,6 +4324,13 @@ components:
           type: string
           example: US02079K305
           nullable: true
+        clientJcn:
+          description: >-
+            Name as provided by the user for the type JCN , Japanese Corporate
+            Number.
+          type: string
+          example: 3120001077477
+          nullable: true
         clientLei:
           description: >-
             Name as provided by the user for the type LEI - Legal Entity
@@ -3994,12 +4338,26 @@ components:
           type: string
           example: 549300A6K7JX8EX2QZ33
           nullable: true
+        clientLxid:
+          description: >-
+            Name as provided by the user for the type LXID, Markit Syndicated
+            Loan Identifier.
+          type: string
+          example: LX113630
+          nullable: true
         clientMd:
           description: >-
             Name as provided by the user for the type Moody's ratings
             identifier.
           type: string
           example: 823736553
+          nullable: true
+        clientRedCode:
+          description: >-
+            Name as provided by the user for the type RedCode, Markit Reference
+            Entity Identifier.
+          type: string
+          example: 4C933G
           nullable: true
         clientRssd:
           description: >-
@@ -5105,14 +5463,20 @@ components:
             clientCountry: US
             clientCrd: 149722
             clientCusip: 02079K305
-            clientDuns: 621513451
+            clientDuns: 687741991
             clientEin: 953540776
+            clientFactsetId: 0013TZ-E
             clientFitch: 47504
+            clientGvkey: 107481
+            clientGvkeyIid: 107481001
             clientIsin: US02079K305
+            clientJcn: 3120001077477
             clientLei: 549300A6K7JX8EX2QZ33
+            clientLxid: LX113630
             clientMd: 823736553
             clientName: Amazon
             clientPriority: HIGH
+            clientRedCode: 4C933G
             clientRssd: 1139297
             clientSedol: BYZ5YB6
             clientSpr: 301939
@@ -5165,22 +5529,28 @@ components:
             countryColumn: country
             stateColumn: state
             urlColumn: url
-            bicColumn: bicColumn
+            bbgFigiColumn: bbgFigiColumn
             bbgTickerColumn: bbgTickerColumn
+            bicColumn: bicColumn
             cikColumn: cikColumn
             crdColumn: crdColumn
             cusipColumn: cusipColumn
             dunsColumn: dunsColumn
             einColumn: einColumn
-            rssdColumn: rssdColumn
+            factsetIdColumn: factsetIdColumn
             fitchColumn: fitchColumn
+            gvkeyColumn: gvkeyColumn
+            gvkeyIidColumn: gvkeyIidColumn
             isinColumn: isinColumn
+            jcnColumn: jcnColumn
             leiColumn: leiColumn
-            bbgFigiColumn: bbgFigiColumn
+            lxidColumn: lxidColumn
             mdColumn: mdColumn
-            tickerColumn: tickerColumn
-            sprColumn: sprColumn
+            redCodeColumn: redCodeColumn
+            rssdColumn: rssdColumn
             sedolColumn: sedolColumn
+            sprColumn: sprColumn
+            tickerColumn: tickerColumn
             tickerExchangeColumn: tickerExchangeColumn
             tickerRegionColumn: tickerRegionColumn
             ukchColumn: ukchColumn
@@ -5270,22 +5640,28 @@ components:
           taskAction: processfile
           status: PENDING
           inputFile: test_427608.csv
-          bicColumn: bicColumn
+          bbgFigiColumn: bbgFigiColumn
           bbgTickerColumn: bbgTickerColumn
+          bicColumn: bicColumn
           cikColumn: cikColumn
           crdColumn: crdColumn
           cusipColumn: cusipColumn
           dunsColumn: dunsColumn
           einColumn: einColumn
-          rssdColumn: rssdColumn
+          factsetIdColumn: factsetIdColumn
           fitchColumn: fitchColumn
+          gvkeyColumn: gvkeyColumn
+          gvkeyIidColumn: gvkeyIidColumn
           isinColumn: isinColumn
+          jcnColumn: jcnColumn
           leiColumn: leiColumn
-          bbgFigiColumn: bbgFigiColumn
+          lxidColumn: lxidColumn
           mdColumn: mdColumn
-          tickerColumn: tickerColumn
-          sprColumn: sprColumn
+          redCodeColumn: redCodeColumn
+          rssdColumn: rssdColumn
           sedolColumn: sedolColumn
+          sprColumn: sprColumn
+          tickerColumn: tickerColumn
           tickerExchangeColumn: tickerExchangeColumn
           tickerRegionColumn: tickerRegionColumn
           ukchColumn: ukchColumn
@@ -5566,14 +5942,21 @@ components:
             clientCountry: US
             clientCrd: 149722
             clientCusip: 02079K305
-            clientDuns: 621513451
+            clientDuns: 687741991
             clientEin: 953540776
+            clientFactsetId: 0013TZ-E
             clientFitch: 47504
+            clientGvkey: 107481
+            clientGvkeyIid: 107481001
+            clientId: abc-123
             clientIsin: US02079K305
+            clientJcn: 3120001077477
             clientLei: 549300A6K7JX8EX2QZ33
+            clientLxid: LX113630
             clientMd: 823736553
             clientName: Amazon
             clientPriority: HIGH
+            clientRedCode: 4C933G
             clientRssd: 1139297
             clientSedol: BYZ5YB6
             clientSpr: 301939
@@ -5585,33 +5968,32 @@ components:
             clientUrl: www.amazon.com
             clientValoren: 685558
             clientWkn: A0MU9T
-            rowIndex: 0
-            matchFlag: null
-            entityId: 0016YD-E
-            entityName: FactSet Research Systems, Inc.
-            url: www.factset.com
-            mapStatus: MAPPED
-            similarityScore: 1
             confidenceScore: 1
             countryCode: US
             countryName: United States
-            stateProvinceCode: CT
-            stateName: Connecticut
-            sicCode: 7374
+            entityId: 0016YD-E
+            entityName: FactSet Research Systems, Inc.
+            entitySubTypeCode: CP
             entityTypeCode: PUB
             entityTypeDescription: Public Company
-            entitySubTypeCode: CP
-            locationCity: Norwalk
-            regionName: North America
             factsetIndustryCode: 3305
             factsetIndustryName: Data Processing Services
             factsetSectorCode: 3300
             factsetSectorName: Technology Services
-            parentName: null,
-            parentMatchFlag: null
-            clientId: abc-123
-            nameMatchString: factset
+            locationCity: Norwalk
+            mapStatus: MAPPED
+            matchFlag: null
             nameMatchSource: Domain Name
+            nameMatchString: factset
+            parentMatchFlag: null
+            parentName: null,
+            regionName: North America
+            rowIndex: 0
+            sicCode: 7374
+            similarityScore: 1
+            stateName: Connecticut
+            stateProvinceCode: CT
+            url: www.factset.com
     NotFound:
       description: 404 - Not Found
       value:

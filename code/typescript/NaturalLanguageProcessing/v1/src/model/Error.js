@@ -55,6 +55,9 @@ class Error {
             if (data.hasOwnProperty('detail')) {
                 obj['detail'] = ApiClient.convertToType(data['detail'], 'String');
             }
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            }
         }
         return obj;
     }
@@ -76,6 +79,11 @@ Error.prototype['title'] = undefined;
  * @member {String} detail
  */
 Error.prototype['detail'] = undefined;
+
+/**
+ * @member {String} code
+ */
+Error.prototype['code'] = undefined;
 
 
 

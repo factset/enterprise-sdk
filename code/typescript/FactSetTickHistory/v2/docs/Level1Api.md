@@ -205,7 +205,7 @@ const apiInstance = new Level1Api();
 const opts = {
   'tickers': ["CBA"], // [String] | <P> The requested list of one or more tickers.</p>   The `tickers` and `isins`  parameters provide two different ways to specify the identifiers for data retrieved. Please enter either the tickers or isins parameter.   <P> Maximum 10 tickers per request</p>     
   'factsetExchangeCode': AUS, // String | <p>This parameter is used to filter the results based on the FactSet specific regional or composite exchange code.</p> **NOTE**:Does not support multiple factsetExchangeCodes
-  'isins': ["US3030751057"] // [String] | <P> Specifies the ISIN of the record. </p>    Please enter either the `tickers` or `isins` parameter.     <P> Maximum 10 ISINs per request.</p>      
+  'isins': [] // [String] | <P> Specifies the ISIN of the record. </p>    Please enter either the `tickers` or `isins` parameter.     <P> Maximum 10 ISINs per request.</p>      
 };
 
 // Call api endpoint

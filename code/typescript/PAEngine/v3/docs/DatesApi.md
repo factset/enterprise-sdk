@@ -42,11 +42,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DatesApi();
-const enddate = "'-1AY'"; // String | End Date
-const componentid = "'7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935'"; // String | Component Id
-const account = "'Client:Foo/Bar/myaccount.acct'"; // String | Account
+const enddate = -1AY; // String | End Date
+const componentid = 801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46; // String | Component Id
+const account = Client:/Folder1/Folder2/AccountName.ACCT; // String | Account ( Account Name ending with .ACCT or .ACTM )
 const opts = {
-  'startdate': "'-3AY'" // String | Start Date
+  'startdate': -3AY // String | Start Date
 };
 
 // Call api endpoint
@@ -69,10 +69,10 @@ apiInstance.convertPADatesToAbsoluteFormat(enddate, componentid, account, opts).
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enddate** | **String**| End Date | [default to &#39;-1AY&#39;]
- **componentid** | **String**| Component Id | [default to &#39;7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935&#39;]
- **account** | **String**| Account | [default to &#39;Client:Foo/Bar/myaccount.acct&#39;]
- **startdate** | **String**| Start Date | [optional] [default to &#39;-3AY&#39;]
+ **enddate** | **String**| End Date | 
+ **componentid** | **String**| Component Id | 
+ **account** | **String**| Account ( Account Name ending with .ACCT or .ACTM ) | 
+ **startdate** | **String**| Start Date | [optional] 
 
 ### Return type
 

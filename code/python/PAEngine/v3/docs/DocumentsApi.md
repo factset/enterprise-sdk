@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_pa3_documents**
-> DocumentDirectoriesRoot get_pa3_documents()
+> DocumentDirectoriesRoot get_pa3_documents(path)
 
 Get PA3 documents and sub-directories in a directory
 
@@ -55,11 +55,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    path = "Client:" # str | The directory to get the documents and sub-directories in
 
     try:
         # Get PA3 documents and sub-directories in a directory
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_pa3_documents()
+        api_response = api_instance.get_pa3_documents(path)
 
         pprint(api_response)
 
@@ -72,7 +74,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| The directory to get the documents and sub-directories in | defaults to "Client:folder1/folder2"
+ **path** | **str**| The directory to get the documents and sub-directories in |
 
 ### Return type
 

@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 <a name="getentitytaskforlist"></a>
 # **GetEntityTaskForList**
-> EntityTaskResponse GetEntityTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = null, string urlColumn = null, string stateColumn = null, string priorityColumn = null, string bicColumn = null, string bbgTickerColumn = null, string cikColumn = null, string crdColumn = null, string cusipColumn = null, string dunsColumn = null, string einColumn = null, string rssdColumn = null, string fitchColumn = null, string isinColumn = null, string leiColumn = null, string bbgFigiColumn = null, string mdColumn = null, string tickerColumn = null, string sprColumn = null, string sedolColumn = null, string tickerExchangeColumn = null, string tickerRegionColumn = null, string ukchColumn = null, string valorenColumn = null, string wknColumn = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null)
+> EntityTaskResponse GetEntityTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = null, string urlColumn = null, string stateColumn = null, string priorityColumn = null, string bbgFigiColumn = null, string bbgTickerColumn = null, string bicColumn = null, string cikColumn = null, string crdColumn = null, string cusipColumn = null, string dunsColumn = null, string einColumn = null, string factsetIdColumn = null, string fitchColumn = null, string gvkeyColumn = null, string gvkeyIidColumn = null, string isinColumn = null, string jcnColumn = null, string leiColumn = null, string lxidColumn = null, string mdColumn = null, string redCodeColumn = null, string rssdColumn = null, string sedolColumn = null, string sprColumn = null, string tickerColumn = null, string tickerExchangeColumn = null, string tickerRegionColumn = null, string ukchColumn = null, string valorenColumn = null, string wknColumn = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null)
 
 Input a file with names and attributes, creating a taskId.
 
@@ -162,27 +162,33 @@ namespace Example
             var urlColumn = "urlColumn_example";  // string | Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  (optional) 
             var stateColumn = "stateColumn_example";  // string | Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  (optional) 
             var priorityColumn = "priorityColumn_example";  // string | Header Name of the column in the inputfile that contains the priority for the client id.  (optional) 
-            var bicColumn = "bicColumn_example";  // string | Header Name of the column in the input file for the BICCode, `bank indentification code` symbol type  (optional) 
-            var bbgTickerColumn = "bbgTickerColumn_example";  // string | Header Name of the column in the input file for the Bloomberg `Listing and Regional Ticker` symbol type (optional) 
-            var cikColumn = "cikColumn_example";  // string | Header Name of the column in the input file for the CIK, `Edgar Central Index Keys` symbol type (optional) 
-            var crdColumn = "crdColumn_example";  // string | Header Name of the column in the input file for the CRD, `Central Registration Depository` symbol type (optional) 
-            var cusipColumn = "cusipColumn_example";  // string | Header Name of the column in the input file for the `CUSIP` symbol type (optional) 
-            var dunsColumn = "dunsColumn_example";  // string | Header Name of the column in the input file for the DUNS, `Dun&Bradstreet` symbol type (optional) 
-            var einColumn = "einColumn_example";  // string | Header Name of the column in the input file for the EIN, `EmployerIdentificationNumber` symbol type (optional) 
-            var rssdColumn = "rssdColumn_example";  // string | Header Name of the column in the input file for the RSSD, `FederalReserveRSSDIdentifier` symbol type (optional) 
-            var fitchColumn = "fitchColumn_example";  // string | Header Name of the column in the input file for the FitchCreditRating, `Fitch Ratings Identifier` symbol type (optional) 
-            var isinColumn = "isinColumn_example";  // string | Header Name of the column in the input file for the `ISIN`symbol type (optional) 
-            var leiColumn = "leiColumn_example";  // string | Header Name of the column in the input file for the LEI, `LegalEntityIdentifier` symbol type (optional) 
-            var bbgFigiColumn = "bbgFigiColumn_example";  // string | Header Name of the column in the input file for the `Bloomberg Listing/Regional/Security ID` symbol type (optional) 
-            var mdColumn = "mdColumn_example";  // string | Header Name of the column in the input file for the MoodysIssuer, `Moody's Ratings Identifier` symbol type (optional) 
-            var tickerColumn = "tickerColumn_example";  // string | Header Name of the column in the input file for the `PriceTicker` symbol type (optional) 
-            var sprColumn = "sprColumn_example";  // string | Header Name of the column in the input file for the S&PRating, `S&P Ratings Identifier` symbol type (optional) 
-            var sedolColumn = "sedolColumn_example";  // string | Header Name of the column in the input file for the `SEDOL` symbol type (optional) 
-            var tickerExchangeColumn = "tickerExchangeColumn_example";  // string | Header Name of the column in the input file for the `TickerExchange` symbol type (optional) 
-            var tickerRegionColumn = "tickerRegionColumn_example";  // string | Header Name of the column in the input file for the `TickerRegion` symbol type (optional) 
-            var ukchColumn = "ukchColumn_example";  // string | Header Name of the column in the input file for the `UKCompanyHouse` symbol type (optional) 
-            var valorenColumn = "valorenColumn_example";  // string | Header Name of the column in the input file for the VALOR, `Valoren (\\\"Valor\\\") Identification` symbol type (optional) 
-            var wknColumn = "wknColumn_example";  // string | Header Name of the column in the input file for the WKN, `German Securities Identification` symbol type (optional) 
+            var bbgFigiColumn = "bbgFigiColumn_example";  // string | Header Name of the column in the input file for the type `Bloomberg Listing/Regional/Security ID`. (optional) 
+            var bbgTickerColumn = "bbgTickerColumn_example";  // string | Header Name of the column in the input file for the type Bloomberg `Listing and Regional Ticker`. (optional) 
+            var bicColumn = "bicColumn_example";  // string | Header Name of the column in the input file for the type BICCode, `bank indentification code`.  (optional) 
+            var cikColumn = "cikColumn_example";  // string | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys` (optional) 
+            var crdColumn = "crdColumn_example";  // string | Header Name of the column in the input file for the type CRD, `Central Registration Depository`. (optional) 
+            var cusipColumn = "cusipColumn_example";  // string | Header Name of the column in the input file for the type `CUSIP` (optional) 
+            var dunsColumn = "dunsColumn_example";  // string | Header Name of the column in the input file for the type DUNS, `Dun&Bradstreet`. (optional) 
+            var einColumn = "einColumn_example";  // string | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`. (optional) 
+            var factsetIdColumn = "factsetIdColumn_example";  // string | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`. (optional) 
+            var fitchColumn = "fitchColumn_example";  // string | Header Name of the column in the input file for the type FitchCreditRating, `Fitch Ratings Identifier`. (optional) 
+            var gvkeyColumn = "gvkeyColumn_example";  // string | Header Name of the column in the input file for the type GVKEY - `Compustat Global Company Key`. (optional) 
+            var gvkeyIidColumn = "gvkeyIidColumn_example";  // string | Header Name of the column in the input file for the type GVKEY+IID - `Compustat Global Company Key and Issue Identifier`. (optional) 
+            var isinColumn = "isinColumn_example";  // string | Header Name of the column in the input file for the type `ISIN`. (optional) 
+            var jcnColumn = "jcnColumn_example";  // string | Header Name of the column in the input file for the type JCN - `Japanese Corporate Number`. (optional) 
+            var leiColumn = "leiColumn_example";  // string | Header Name of the column in the input file for the type LEI, `LegalEntityIdentifier`. (optional) 
+            var lxidColumn = "lxidColumn_example";  // string | Header Name of the column in the input file for the type LXID - `Markit Syndicated Loan Identifier`. (optional) 
+            var mdColumn = "mdColumn_example";  // string | Header Name of the column in the input file for the type MoodysIssuer, `Moody's Ratings Identifier`. (optional) 
+            var redCodeColumn = "redCodeColumn_example";  // string | Header Name of the column in the input file for the type Red Code - `Markit Reference Entity Identifier`. (optional) 
+            var rssdColumn = "rssdColumn_example";  // string | Header Name of the column in the input file for the type RSSD, `FederalReserveRSSDIdentifier`. (optional) 
+            var sedolColumn = "sedolColumn_example";  // string | Header Name of the column in the input file for the type `SEDOL`. (optional) 
+            var sprColumn = "sprColumn_example";  // string | Header Name of the column in the input file for the type S&PRating, `S&P Ratings Identifier`. (optional) 
+            var tickerColumn = "tickerColumn_example";  // string | Header Name of the column in the input file for the type `PriceTicker`. (optional) 
+            var tickerExchangeColumn = "tickerExchangeColumn_example";  // string | Header Name of the column in the input file for the type `TickerExchange`. (optional) 
+            var tickerRegionColumn = "tickerRegionColumn_example";  // string | Header Name of the column in the input file for the type `TickerRegion`. (optional) 
+            var ukchColumn = "ukchColumn_example";  // string | Header Name of the column in the input file for the type `UKCompanyHouse`. (optional) 
+            var valorenColumn = "valorenColumn_example";  // string | Header Name of the column in the input file for the type VALOR, `Valoren (\\\"Valor\\\") Identification`. (optional) 
+            var wknColumn = "wknColumn_example";  // string | Header Name of the column in the input file for the type WKN, `German Securities Identification`. (optional) 
             var includeEntityType = new List<string>(); // List<string> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional) 
             var excludeEntityType = new List<string>(); // List<string> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.**  (optional) 
             var includeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional) 
@@ -191,7 +197,7 @@ namespace Example
             try
             {
                 // Input a file with names and attributes, creating a taskId.
-                EntityTaskResponse result = apiInstance.GetEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bicColumn, bbgTickerColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, rssdColumn, fitchColumn, isinColumn, leiColumn, bbgFigiColumn, mdColumn, tickerColumn, sprColumn, sedolColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
+                EntityTaskResponse result = apiInstance.GetEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -218,27 +224,33 @@ Name | Type | Description  | Notes
  **urlColumn** | **string**| Header Name of the column in the input file that contains the Entity&#39;s URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  | [optional] 
  **stateColumn** | **string**| Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  | [optional] 
  **priorityColumn** | **string**| Header Name of the column in the inputfile that contains the priority for the client id.  | [optional] 
- **bicColumn** | **string**| Header Name of the column in the input file for the BICCode, &#x60;bank indentification code&#x60; symbol type  | [optional] 
- **bbgTickerColumn** | **string**| Header Name of the column in the input file for the Bloomberg &#x60;Listing and Regional Ticker&#x60; symbol type | [optional] 
- **cikColumn** | **string**| Header Name of the column in the input file for the CIK, &#x60;Edgar Central Index Keys&#x60; symbol type | [optional] 
- **crdColumn** | **string**| Header Name of the column in the input file for the CRD, &#x60;Central Registration Depository&#x60; symbol type | [optional] 
- **cusipColumn** | **string**| Header Name of the column in the input file for the &#x60;CUSIP&#x60; symbol type | [optional] 
- **dunsColumn** | **string**| Header Name of the column in the input file for the DUNS, &#x60;Dun&amp;Bradstreet&#x60; symbol type | [optional] 
- **einColumn** | **string**| Header Name of the column in the input file for the EIN, &#x60;EmployerIdentificationNumber&#x60; symbol type | [optional] 
- **rssdColumn** | **string**| Header Name of the column in the input file for the RSSD, &#x60;FederalReserveRSSDIdentifier&#x60; symbol type | [optional] 
- **fitchColumn** | **string**| Header Name of the column in the input file for the FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60; symbol type | [optional] 
- **isinColumn** | **string**| Header Name of the column in the input file for the &#x60;ISIN&#x60;symbol type | [optional] 
- **leiColumn** | **string**| Header Name of the column in the input file for the LEI, &#x60;LegalEntityIdentifier&#x60; symbol type | [optional] 
- **bbgFigiColumn** | **string**| Header Name of the column in the input file for the &#x60;Bloomberg Listing/Regional/Security ID&#x60; symbol type | [optional] 
- **mdColumn** | **string**| Header Name of the column in the input file for the MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60; symbol type | [optional] 
- **tickerColumn** | **string**| Header Name of the column in the input file for the &#x60;PriceTicker&#x60; symbol type | [optional] 
- **sprColumn** | **string**| Header Name of the column in the input file for the S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60; symbol type | [optional] 
- **sedolColumn** | **string**| Header Name of the column in the input file for the &#x60;SEDOL&#x60; symbol type | [optional] 
- **tickerExchangeColumn** | **string**| Header Name of the column in the input file for the &#x60;TickerExchange&#x60; symbol type | [optional] 
- **tickerRegionColumn** | **string**| Header Name of the column in the input file for the &#x60;TickerRegion&#x60; symbol type | [optional] 
- **ukchColumn** | **string**| Header Name of the column in the input file for the &#x60;UKCompanyHouse&#x60; symbol type | [optional] 
- **valorenColumn** | **string**| Header Name of the column in the input file for the VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60; symbol type | [optional] 
- **wknColumn** | **string**| Header Name of the column in the input file for the WKN, &#x60;German Securities Identification&#x60; symbol type | [optional] 
+ **bbgFigiColumn** | **string**| Header Name of the column in the input file for the type &#x60;Bloomberg Listing/Regional/Security ID&#x60;. | [optional] 
+ **bbgTickerColumn** | **string**| Header Name of the column in the input file for the type Bloomberg &#x60;Listing and Regional Ticker&#x60;. | [optional] 
+ **bicColumn** | **string**| Header Name of the column in the input file for the type BICCode, &#x60;bank indentification code&#x60;.  | [optional] 
+ **cikColumn** | **string**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional] 
+ **crdColumn** | **string**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional] 
+ **cusipColumn** | **string**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional] 
+ **dunsColumn** | **string**| Header Name of the column in the input file for the type DUNS, &#x60;Dun&amp;Bradstreet&#x60;. | [optional] 
+ **einColumn** | **string**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional] 
+ **factsetIdColumn** | **string**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional] 
+ **fitchColumn** | **string**| Header Name of the column in the input file for the type FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60;. | [optional] 
+ **gvkeyColumn** | **string**| Header Name of the column in the input file for the type GVKEY - &#x60;Compustat Global Company Key&#x60;. | [optional] 
+ **gvkeyIidColumn** | **string**| Header Name of the column in the input file for the type GVKEY+IID - &#x60;Compustat Global Company Key and Issue Identifier&#x60;. | [optional] 
+ **isinColumn** | **string**| Header Name of the column in the input file for the type &#x60;ISIN&#x60;. | [optional] 
+ **jcnColumn** | **string**| Header Name of the column in the input file for the type JCN - &#x60;Japanese Corporate Number&#x60;. | [optional] 
+ **leiColumn** | **string**| Header Name of the column in the input file for the type LEI, &#x60;LegalEntityIdentifier&#x60;. | [optional] 
+ **lxidColumn** | **string**| Header Name of the column in the input file for the type LXID - &#x60;Markit Syndicated Loan Identifier&#x60;. | [optional] 
+ **mdColumn** | **string**| Header Name of the column in the input file for the type MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60;. | [optional] 
+ **redCodeColumn** | **string**| Header Name of the column in the input file for the type Red Code - &#x60;Markit Reference Entity Identifier&#x60;. | [optional] 
+ **rssdColumn** | **string**| Header Name of the column in the input file for the type RSSD, &#x60;FederalReserveRSSDIdentifier&#x60;. | [optional] 
+ **sedolColumn** | **string**| Header Name of the column in the input file for the type &#x60;SEDOL&#x60;. | [optional] 
+ **sprColumn** | **string**| Header Name of the column in the input file for the type S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60;. | [optional] 
+ **tickerColumn** | **string**| Header Name of the column in the input file for the type &#x60;PriceTicker&#x60;. | [optional] 
+ **tickerExchangeColumn** | **string**| Header Name of the column in the input file for the type &#x60;TickerExchange&#x60;. | [optional] 
+ **tickerRegionColumn** | **string**| Header Name of the column in the input file for the type &#x60;TickerRegion&#x60;. | [optional] 
+ **ukchColumn** | **string**| Header Name of the column in the input file for the type &#x60;UKCompanyHouse&#x60;. | [optional] 
+ **valorenColumn** | **string**| Header Name of the column in the input file for the type VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60;. | [optional] 
+ **wknColumn** | **string**| Header Name of the column in the input file for the type WKN, &#x60;German Securities Identification&#x60;. | [optional] 
  **includeEntityType** | [**List&lt;string&gt;**](string.md)| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
  **excludeEntityType** | [**List&lt;string&gt;**](string.md)| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
  **includeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 

@@ -81,12 +81,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## getAllCalculations
 
-> CalculationsSummaryRoot getAllCalculations(pageNumber)
+> CalculationsSummaryRoot getAllCalculations(opts)
 
 Get all calculations
 
@@ -118,10 +118,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VaultCalculationsApi();
-const pageNumber = 1; // Number | 
+const opts = {
+  'pageNumber': 1 // Number | 
+};
 
 // Call api endpoint
-apiInstance.getAllCalculations(pageNumber).then(
+apiInstance.getAllCalculations(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -140,7 +142,7 @@ apiInstance.getAllCalculations(pageNumber).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageNumber** | **Number**|  | [default to 1]
+ **pageNumber** | **Number**|  | [optional] [default to 1]
 
 ### Return type
 

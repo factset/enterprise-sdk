@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_pa_component_by_id**
-> PAComponentRoot get_pa_component_by_id()
+> PAComponentRoot get_pa_component_by_id(id)
 
 Get PA component by id
 
@@ -56,11 +56,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    id = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46" # str | Unique identifier for a PA component
 
     try:
         # Get PA component by id
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_pa_component_by_id()
+        api_response = api_instance.get_pa_component_by_id(id)
 
         pprint(api_response)
 
@@ -73,7 +75,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique identifier for a PA component | defaults to "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53"
+ **id** | **str**| Unique identifier for a PA component |
 
 ### Return type
 
@@ -106,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pa_components**
-> ComponentSummaryRoot get_pa_components()
+> ComponentSummaryRoot get_pa_components(document)
 
 Get PA components
 
@@ -152,11 +154,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    document = "PA3_DOCUMENTS:DEFAULT" # str | Document Name
 
     try:
         # Get PA components
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_pa_components()
+        api_response = api_instance.get_pa_components(document)
 
         pprint(api_response)
 
@@ -169,7 +173,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **str**| Document Name | defaults to "Client:Foo"
+ **document** | **str**| Document Name |
 
 ### Return type
 

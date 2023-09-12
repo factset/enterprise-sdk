@@ -12,15 +12,15 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3"
+    "version": "3.11.0"
   },
   "servers": [
     {
-      "url": "https://api.factset.com"
+      "url": "https://api.factset.com/analytics/engines/quant/v3"
     }
   ],
   "paths": {
-    "/analytics/engines/quant/v3/calculations": {
+    "/calculations": {
       "post": {
         "tags": [
           "QuantCalculations"
@@ -357,6 +357,55 @@
               }
             }
           },
+          "413": {
+            "description": "Request body too large",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
           "415": {
             "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
             "headers": {
@@ -489,7 +538,6 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -789,7 +837,7 @@
         }
       }
     },
-    "/analytics/engines/quant/v3/calculations/{id}": {
+    "/calculations/{id}": {
       "put": {
         "tags": [
           "QuantCalculations"
@@ -1138,6 +1186,55 @@
           },
           "409": {
             "description": "Duplicate calculation exists with same parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request body too large",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet's request key header.",
@@ -1837,7 +1934,7 @@
         }
       }
     },
-    "/analytics/engines/quant/v3/calculations/{id}/status": {
+    "/calculations/{id}/status": {
       "get": {
         "tags": [
           "QuantCalculations"
@@ -2166,7 +2263,7 @@
         }
       }
     },
-    "/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result": {
+    "/calculations/{id}/units/{unitId}/result": {
       "get": {
         "tags": [
           "QuantCalculations"
@@ -2480,7 +2577,7 @@
         }
       }
     },
-    "/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info": {
+    "/calculations/{id}/units/{unitId}/info": {
       "get": {
         "tags": [
           "QuantCalculations"
@@ -2820,7 +2917,8 @@
             "type": "string"
           },
           "securityExpr": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -2895,7 +2993,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "nullable": true
           }
         }
       },
@@ -2921,7 +3020,8 @@
             "type": "string"
           },
           "overrideUniversalScreenCalendar": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           }
         }
       },
@@ -2964,10 +3064,12 @@
             "type": "string"
           },
           "dateOffset": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "isArrayReturnType": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           }
         }
       },
@@ -3035,7 +3137,8 @@
             "type": "string"
           },
           "dateOffset": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -3057,7 +3160,8 @@
             "type": "string"
           },
           "securityExpr": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "source": {
             "enum": [
@@ -3140,7 +3244,8 @@
             "type": "string"
           },
           "overrideUniversalScreenCalendar": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           }
         }
       },
@@ -3155,7 +3260,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "nullable": true
           },
           "frequency": {
             "type": "string"
@@ -3164,7 +3270,8 @@
             "type": "string"
           },
           "overrideUniversalScreenCalendar": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           }
         }
       },
@@ -3182,7 +3289,8 @@
             "type": "string"
           },
           "dateOffset": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -3200,10 +3308,12 @@
             "type": "string"
           },
           "dateOffset": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "isArrayReturnType": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           }
         }
       },
@@ -3237,6 +3347,7 @@
             "$ref": "#/components/schemas/QuantIdentifierUniverse"
           }
         ],
+        "nullable": true,
         "discriminator": {
           "propertyName": "source",
           "mapping": {
@@ -3255,6 +3366,7 @@
             "$ref": "#/components/schemas/QuantDateList"
           }
         ],
+        "nullable": true,
         "discriminator": {
           "propertyName": "source",
           "mapping": {
@@ -3307,7 +3419,8 @@
             "$ref": "#/components/schemas/OneOfQuantFormulasArray"
           },
           "jobDescription": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -3372,7 +3485,8 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/QuantCalculationParameters"
             },
-            "description": "List of calculation parameters."
+            "description": "List of calculation parameters.",
+            "nullable": true
           },
           "meta": {
             "$ref": "#/components/schemas/QuantCalculationMeta"
@@ -3383,10 +3497,12 @@
         "type": "object",
         "properties": {
           "pointer": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parameter": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -3394,10 +3510,20 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
           },
           "detail": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
@@ -3423,20 +3549,32 @@
             "items": {
               "$ref": "#/components/schemas/Error"
             },
-            "description": "The error in a calculation unit."
+            "description": "The error in a calculation unit.",
+            "nullable": true
           },
           "result": {
             "type": "string",
-            "description": "The result URL of the calculation."
+            "description": "The result URL of the calculation.",
+            "nullable": true
           },
           "progress": {
             "type": "string",
-            "description": "The progress of the calculation unit."
+            "description": "The progress of the calculation unit.",
+            "nullable": true
           },
           "points": {
             "type": "integer",
             "description": "The points for the calculation unit.",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The warnings in a calculation unit.",
+            "nullable": true
           }
         }
       },
@@ -3445,7 +3583,8 @@
         "properties": {
           "calculationid": {
             "type": "string",
-            "description": "Calculation's identifier"
+            "description": "Calculation's identifier",
+            "nullable": true
           },
           "status": {
             "enum": [
@@ -3462,7 +3601,8 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatus"
             },
-            "description": "Number of calculation units in batch."
+            "description": "Number of calculation units in batch.",
+            "nullable": true
           }
         }
       },
@@ -3471,7 +3611,8 @@
         "properties": {
           "info": {
             "type": "string",
-            "description": "The Info URL of the calculation."
+            "description": "The Info URL of the calculation.",
+            "nullable": true
           }
         }
       },
@@ -3483,7 +3624,8 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatusMeta"
             },
-            "description": "Meta of calculation units in batch."
+            "description": "Meta of calculation units in batch.",
+            "nullable": true
           }
         }
       },
@@ -3508,7 +3650,9 @@
         "type": "object",
         "properties": {
           "data": {},
-          "meta": {}
+          "meta": {
+            "nullable": true
+          }
         }
       },
       "ClientErrorResponse": {
@@ -3518,7 +3662,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Error"
-            }
+            },
+            "nullable": true
           }
         }
       },
@@ -3572,10 +3717,12 @@
             "format": "int32"
           },
           "nextPage": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "previousPage": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -3628,6 +3775,6 @@
   ],
   "externalDocs": {
     "description": "API Documentation",
-    "url": "https://developer.factset.com/api-catalog/"
+    "url": "https://developer.factset.com/api-catalog/quant-engine-api"
   }
 }

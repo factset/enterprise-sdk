@@ -79,6 +79,7 @@ class Error(ModelNormal):
             'id': (str,),  # noqa: E501
             'title': (str,),  # noqa: E501
             'detail': (str,),  # noqa: E501
+            'code': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -90,6 +91,7 @@ class Error(ModelNormal):
         'id': 'id',  # noqa: E501
         'title': 'title',  # noqa: E501
         'detail': 'detail',  # noqa: E501
+        'code': 'code',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +138,7 @@ class Error(ModelNormal):
             id (str): [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
             detail (str): [optional]  # noqa: E501
+            code (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,6 +223,7 @@ class Error(ModelNormal):
             id (str): [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
             detail (str): [optional]  # noqa: E501
+            code (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

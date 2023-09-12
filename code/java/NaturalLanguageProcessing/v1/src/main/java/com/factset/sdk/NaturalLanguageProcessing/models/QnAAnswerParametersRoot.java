@@ -91,11 +91,11 @@ public class QnAAnswerParametersRoot implements Serializable {
   }
 
    /**
-   * Get meta
+   * Any associated metadata
    * @return meta
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Any associated metadata")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

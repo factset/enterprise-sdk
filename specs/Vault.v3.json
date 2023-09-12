@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.12.0"
+    "version": "3.14.1"
   },
   "servers": [
     {
@@ -2611,7 +2611,6 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -3799,17 +3798,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -3909,17 +3898,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -4977,7 +4956,7 @@
           },
           "componentdetail": {
             "type": "string",
-            "description": "Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES.",
+            "description": "Component detail type for the Vault component. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.",
             "nullable": true
           }
         }

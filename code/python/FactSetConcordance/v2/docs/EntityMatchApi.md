@@ -83,53 +83,65 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_parent = False # bool | Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional) if omitted the server will use the default value of False
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    bic = "bic_example" # str | Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
+    bbg_figi = "BBG009S39JY5" # str | Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    bbg_ticker = "bbgTicker_example" # str | Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type (optional)
+    bbg_ticker = "BloombergId" # str | Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    cik = "cik_example" # str | Input identifiers for the CIK - Edgar Central Index Keys symbol type (optional)
+    bic = "BICCode" # str | Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    crd = "crd_example" # str | Input identifiers for the CRD - Central Registration Depository symbol type (optional)
+    cik = "CIK" # str | Input identifiers for the CIK - Edgar Central Index Keys symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    cusip = "cusip_example" # str | Input identifiers for the CUSIP symbol type (optional)
+    crd = "CRD" # str | Input identifiers for the CRD - Central Registration Depository symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    duns = "duns_example" # str | Input identifiers for the DUNS - Dun & Bradstreet Data Universal Numbering System symbol type (optional)
+    cusip = "CUSIP" # str | Input identifiers for the CUSIP symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ein = "ein_example" # str | Input identifiers for the EIN - Employer Identification Number symbol type (optional)
+    duns = "Dun&Bradstreet" # str | Input identifiers for the DUNS - Dun & Bradstreet Data Universal Numbering System symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    rssd = "rssd_example" # str | Input identifiers for the RSSD - Federal Reserve RSSD symbol type (optional)
+    ein = "EmployerIdentificationNumber" # str | Input identifiers for the EIN - Employer Identification Number symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    fitch = "fitch_example" # str | Input identifiers for the Fitch - Fitch Ratings symbol type (optional)
+    factset_id = "FactSetIdentifier" # str | Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    isin = "isin_example" # str | Input identifiers for the ISIN - International Securities Identification Number symbol type (optional)
+    fitch = "FitchCreditRating" # str | Input identifiers for the Fitch - Fitch Ratings symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    lei = "lei_example" # str | Input identifiers for the LEI - Legal Entity Identifier symbol type (optional)
+    gvkey = "GVKey" # str | Input identifiers for the type GVKEY - Compustat Global Company Key symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    bbg_figi = "bbgFigi_example" # str | Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type (optional)
+    gvkey_iid = "GVKeyIssueIdentifier" # str | Input identifiers for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    md = "md_example" # str | Input identifiers for the Moody's Ratings Identifier type (optional)
+    isin = "ISIN" # str | Input identifiers for the ISIN - International Securities Identification Number symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ticker = "ticker_example" # str | Input identifiers for the Price Ticker symbol type (optional)
+    jcn = "JCN" # str | Input identifiers for the type JCN - Japanese Corporate Number symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    spr = "spr_example" # str | Input identifiers for the S&PRating - S&P Ratings Identifier symbol type (optional)
+    lei = "LegalEntityIdentifier" # str | Input identifiers for the LEI - Legal Entity Identifier symbol type (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    sedol = "sedol_example" # str | Input identifiers for the SEDOL symbol type (optional)
+    lxid = "LXID" # str | Input identifiers for the type LXID - Markit Syndicated Loan Identifier symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ticker_exchange = "tickerExchange_example" # str | Input identifiers for the TickerExchange (optional)
+    md = "MoodysIssuer" # str | Input identifiers for the Moody's Ratings Identifier type. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    red_code = "RedCode" # str | Input identifiers for the type Red Code - Markit Reference Entity Identifier symbol type. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    rssd = "FederalReserveRSSDIdentifier" # str | Input identifiers for the RSSD - Federal Reserve RSSD symbol typ. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    sedol = "SEDOL" # str | Input identifiers for the SEDOL symbol type. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    spr = "SPRating" # str | Input identifiers for the Price Ticker symbol type. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    ticker = "PriceTicker" # str | Input identifiers for the Price Ticker symbol type. (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    ticker_exchange = "TickerExch" # str | Input identifiers for the TickerExchange. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ticker_region = "TickerRegion" # str | Input identifiers for the TickerRegion. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ukch = "UKCompanyHouse" # str | Input identifiers for the UKCH - UK Company House symbol type (optional)
+    ukch = "UKCompanyHouse" # str | Input identifiers for the UKCH - UK Company House symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    valoren = "valoren_example" # str | Input identifiers for the Valoren (\"Valor\") symbol type (optional)
+    valoren = "VALOR" # str | Input identifiers for the Valoren (\"Valor\") symbol type. (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    wkn = "wkn_example" # str | Input identifiers for the WKN - German Securities symbol type (optional)
+    wkn = "WKN" # str | Input identifiers for the WKN - German Securities symbol type. (optional)
 
     try:
         # Get Entity Candidates and Matches for a single name and attributes.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_entity_match(name, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent, bic=bic, bbg_ticker=bbg_ticker, cik=cik, crd=crd, cusip=cusip, duns=duns, ein=ein, rssd=rssd, fitch=fitch, isin=isin, lei=lei, bbg_figi=bbg_figi, md=md, ticker=ticker, spr=spr, sedol=sedol, ticker_exchange=ticker_exchange, ticker_region=ticker_region, ukch=ukch, valoren=valoren, wkn=wkn)
+        api_response = api_instance.get_entity_match(name, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent, bbg_figi=bbg_figi, bbg_ticker=bbg_ticker, bic=bic, cik=cik, crd=crd, cusip=cusip, duns=duns, ein=ein, factset_id=factset_id, fitch=fitch, gvkey=gvkey, gvkey_iid=gvkey_iid, isin=isin, jcn=jcn, lei=lei, lxid=lxid, md=md, red_code=red_code, rssd=rssd, sedol=sedol, spr=spr, ticker=ticker, ticker_exchange=ticker_exchange, ticker_region=ticker_region, ukch=ukch, valoren=valoren, wkn=wkn)
 
         pprint(api_response)
 
@@ -151,27 +163,33 @@ Name | Type | Description  | Notes
  **include_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |---|---|---|---|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  | [optional]
  **exclude_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  | [optional]
  **include_parent** | **bool**| Flag to include parent entities in the list of candidates. This parameter does not influence the match result. | [optional] if omitted the server will use the default value of False
+ **bbg_figi** | **str**| Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type. | [optional]
+ **bbg_ticker** | **str**| Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type. | [optional]
  **bic** | **str**| Input identifiers for the BICCode - Bank Indentification Code symbol Type. | [optional]
- **bbg_ticker** | **str**| Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type | [optional]
- **cik** | **str**| Input identifiers for the CIK - Edgar Central Index Keys symbol type | [optional]
- **crd** | **str**| Input identifiers for the CRD - Central Registration Depository symbol type | [optional]
- **cusip** | **str**| Input identifiers for the CUSIP symbol type | [optional]
- **duns** | **str**| Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type | [optional]
- **ein** | **str**| Input identifiers for the EIN - Employer Identification Number symbol type | [optional]
- **rssd** | **str**| Input identifiers for the RSSD - Federal Reserve RSSD symbol type | [optional]
- **fitch** | **str**| Input identifiers for the Fitch - Fitch Ratings symbol type | [optional]
- **isin** | **str**| Input identifiers for the ISIN - International Securities Identification Number symbol type | [optional]
+ **cik** | **str**| Input identifiers for the CIK - Edgar Central Index Keys symbol type. | [optional]
+ **crd** | **str**| Input identifiers for the CRD - Central Registration Depository symbol type. | [optional]
+ **cusip** | **str**| Input identifiers for the CUSIP symbol type. | [optional]
+ **duns** | **str**| Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type. | [optional]
+ **ein** | **str**| Input identifiers for the EIN - Employer Identification Number symbol type. | [optional]
+ **factset_id** | **str**| Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. | [optional]
+ **fitch** | **str**| Input identifiers for the Fitch - Fitch Ratings symbol type. | [optional]
+ **gvkey** | **str**| Input identifiers for the type GVKEY - Compustat Global Company Key symbol type. | [optional]
+ **gvkey_iid** | **str**| Input identifiers for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier symbol type. | [optional]
+ **isin** | **str**| Input identifiers for the ISIN - International Securities Identification Number symbol type. | [optional]
+ **jcn** | **str**| Input identifiers for the type JCN - Japanese Corporate Number symbol type. | [optional]
  **lei** | **str**| Input identifiers for the LEI - Legal Entity Identifier symbol type | [optional]
- **bbg_figi** | **str**| Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type | [optional]
- **md** | **str**| Input identifiers for the Moody&#39;s Ratings Identifier type | [optional]
- **ticker** | **str**| Input identifiers for the Price Ticker symbol type | [optional]
- **spr** | **str**| Input identifiers for the S&amp;PRating - S&amp;P Ratings Identifier symbol type | [optional]
- **sedol** | **str**| Input identifiers for the SEDOL symbol type | [optional]
- **ticker_exchange** | **str**| Input identifiers for the TickerExchange | [optional]
+ **lxid** | **str**| Input identifiers for the type LXID - Markit Syndicated Loan Identifier symbol type. | [optional]
+ **md** | **str**| Input identifiers for the Moody&#39;s Ratings Identifier type. | [optional]
+ **red_code** | **str**| Input identifiers for the type Red Code - Markit Reference Entity Identifier symbol type. | [optional]
+ **rssd** | **str**| Input identifiers for the RSSD - Federal Reserve RSSD symbol typ. | [optional]
+ **sedol** | **str**| Input identifiers for the SEDOL symbol type. | [optional]
+ **spr** | **str**| Input identifiers for the Price Ticker symbol type. | [optional]
+ **ticker** | **str**| Input identifiers for the Price Ticker symbol type. | [optional]
+ **ticker_exchange** | **str**| Input identifiers for the TickerExchange. | [optional]
  **ticker_region** | **str**| Input identifiers for the TickerRegion. | [optional]
- **ukch** | **str**| Input identifiers for the UKCH - UK Company House symbol type | [optional]
- **valoren** | **str**| Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type | [optional]
- **wkn** | **str**| Input identifiers for the WKN - German Securities symbol type | [optional]
+ **ukch** | **str**| Input identifiers for the UKCH - UK Company House symbol type. | [optional]
+ **valoren** | **str**| Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type. | [optional]
+ **wkn** | **str**| Input identifiers for the WKN - German Securities symbol type. | [optional]
 
 ### Return type
 
@@ -257,22 +275,28 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
                 state="CT",
                 url="www.amazon.com",
                 priority="HIGH",
-                bic="ABXXHKH1",
+                bbg_figi="BBG009S39JY5",
                 bbg_ticker="GOOGL UW",
+                bic="ABXXHKH1",
                 cik="100331",
                 crd="149722",
                 cusip="02079K305",
-                duns="621513451",
+                duns="687741991",
                 ein="953540776",
-                rssd="1139297",
+                factset_id="0013TZ-E",
                 fitch="47504",
+                gvkey="107481",
+                gvkey_iid="107481001",
                 isin="US02079K305",
+                jcn="3120001077477",
                 lei="549300A6K7JX8EX2QZ33",
-                bbg_figi="BBG009S39JY5",
+                lxid="LX113630",
                 md="823736553",
-                ticker="PriceTicker",
-                spr="301939",
+                red_code="4C933G",
+                rssd="1139297",
                 sedol="BYZ5YB6",
+                spr="301939",
+                ticker="PriceTicker",
                 ticker_exchange="GOOGL-NAS",
                 ticker_region="GOOGL-US",
                 ukch="CE012494",

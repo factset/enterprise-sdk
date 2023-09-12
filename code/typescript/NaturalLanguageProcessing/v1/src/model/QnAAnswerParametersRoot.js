@@ -69,6 +69,7 @@ class QnAAnswerParametersRoot {
 QnAAnswerParametersRoot.prototype['data'] = undefined;
 
 /**
+ * Any associated metadata
  * @member {Object} meta
  */
 QnAAnswerParametersRoot.prototype['meta'] = undefined;

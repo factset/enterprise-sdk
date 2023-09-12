@@ -80,27 +80,33 @@ public class EntityMatchApi {
    * @param includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |---|---|---|---|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  (optional)
    * @param excludeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional)
    * @param includeParent Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional, default to false)
+   * @param bbgFigi Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type. (optional)
+   * @param bbgTicker Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type. (optional)
    * @param bic Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
-   * @param bbgTicker Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type (optional)
-   * @param cik Input identifiers for the CIK - Edgar Central Index Keys symbol type (optional)
-   * @param crd Input identifiers for the CRD - Central Registration Depository symbol type (optional)
-   * @param cusip Input identifiers for the CUSIP symbol type (optional)
-   * @param duns Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type (optional)
-   * @param ein Input identifiers for the EIN - Employer Identification Number symbol type (optional)
-   * @param rssd Input identifiers for the RSSD - Federal Reserve RSSD symbol type (optional)
-   * @param fitch Input identifiers for the Fitch - Fitch Ratings symbol type (optional)
-   * @param isin Input identifiers for the ISIN - International Securities Identification Number symbol type (optional)
+   * @param cik Input identifiers for the CIK - Edgar Central Index Keys symbol type. (optional)
+   * @param crd Input identifiers for the CRD - Central Registration Depository symbol type. (optional)
+   * @param cusip Input identifiers for the CUSIP symbol type. (optional)
+   * @param duns Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type. (optional)
+   * @param ein Input identifiers for the EIN - Employer Identification Number symbol type. (optional)
+   * @param factsetId Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. (optional)
+   * @param fitch Input identifiers for the Fitch - Fitch Ratings symbol type. (optional)
+   * @param gvkey Input identifiers for the type GVKEY - Compustat Global Company Key symbol type. (optional)
+   * @param gvkeyIid Input identifiers for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier symbol type. (optional)
+   * @param isin Input identifiers for the ISIN - International Securities Identification Number symbol type. (optional)
+   * @param jcn Input identifiers for the type JCN - Japanese Corporate Number symbol type. (optional)
    * @param lei Input identifiers for the LEI - Legal Entity Identifier symbol type (optional)
-   * @param bbgFigi Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type (optional)
-   * @param md Input identifiers for the Moody&#39;s Ratings Identifier type (optional)
-   * @param ticker Input identifiers for the Price Ticker symbol type (optional)
-   * @param spr Input identifiers for the S&amp;PRating - S&amp;P Ratings Identifier symbol type (optional)
-   * @param sedol Input identifiers for the SEDOL symbol type (optional)
-   * @param tickerExchange Input identifiers for the TickerExchange (optional)
+   * @param lxid Input identifiers for the type LXID - Markit Syndicated Loan Identifier symbol type. (optional)
+   * @param md Input identifiers for the Moody&#39;s Ratings Identifier type. (optional)
+   * @param redCode Input identifiers for the type Red Code - Markit Reference Entity Identifier symbol type. (optional)
+   * @param rssd Input identifiers for the RSSD - Federal Reserve RSSD symbol typ. (optional)
+   * @param sedol Input identifiers for the SEDOL symbol type. (optional)
+   * @param spr Input identifiers for the Price Ticker symbol type. (optional)
+   * @param ticker Input identifiers for the Price Ticker symbol type. (optional)
+   * @param tickerExchange Input identifiers for the TickerExchange. (optional)
    * @param tickerRegion Input identifiers for the TickerRegion. (optional)
-   * @param ukch Input identifiers for the UKCH - UK Company House symbol type (optional)
-   * @param valoren Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type (optional)
-   * @param wkn Input identifiers for the WKN - German Securities symbol type (optional)
+   * @param ukch Input identifiers for the UKCH - UK Company House symbol type. (optional)
+   * @param valoren Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type. (optional)
+   * @param wkn Input identifiers for the WKN - German Securities symbol type. (optional)
    * @return EntityMatchesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -114,8 +120,8 @@ public class EntityMatchApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public EntityMatchesResponse getEntityMatch(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bic, String bbgTicker, String cik, String crd, String cusip, String duns, String ein, String rssd, String fitch, String isin, String lei, String bbgFigi, String md, String ticker, String spr, String sedol, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn) throws ApiException {
-    return getEntityMatchWithHttpInfo(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bic, bbgTicker, cik, crd, cusip, duns, ein, rssd, fitch, isin, lei, bbgFigi, md, ticker, spr, sedol, tickerExchange, tickerRegion, ukch, valoren, wkn).getData();
+  public EntityMatchesResponse getEntityMatch(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bbgFigi, String bbgTicker, String bic, String cik, String crd, String cusip, String duns, String ein, String factsetId, String fitch, String gvkey, String gvkeyIid, String isin, String jcn, String lei, String lxid, String md, String redCode, String rssd, String sedol, String spr, String ticker, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn) throws ApiException {
+    return getEntityMatchWithHttpInfo(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, cusip, duns, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn).getData();
   }
 
   /**
@@ -130,27 +136,33 @@ public class EntityMatchApi {
    * @param includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |---|---|---|---|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  (optional)
    * @param excludeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional)
    * @param includeParent Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional, default to false)
+   * @param bbgFigi Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type. (optional)
+   * @param bbgTicker Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type. (optional)
    * @param bic Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
-   * @param bbgTicker Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type (optional)
-   * @param cik Input identifiers for the CIK - Edgar Central Index Keys symbol type (optional)
-   * @param crd Input identifiers for the CRD - Central Registration Depository symbol type (optional)
-   * @param cusip Input identifiers for the CUSIP symbol type (optional)
-   * @param duns Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type (optional)
-   * @param ein Input identifiers for the EIN - Employer Identification Number symbol type (optional)
-   * @param rssd Input identifiers for the RSSD - Federal Reserve RSSD symbol type (optional)
-   * @param fitch Input identifiers for the Fitch - Fitch Ratings symbol type (optional)
-   * @param isin Input identifiers for the ISIN - International Securities Identification Number symbol type (optional)
+   * @param cik Input identifiers for the CIK - Edgar Central Index Keys symbol type. (optional)
+   * @param crd Input identifiers for the CRD - Central Registration Depository symbol type. (optional)
+   * @param cusip Input identifiers for the CUSIP symbol type. (optional)
+   * @param duns Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type. (optional)
+   * @param ein Input identifiers for the EIN - Employer Identification Number symbol type. (optional)
+   * @param factsetId Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. (optional)
+   * @param fitch Input identifiers for the Fitch - Fitch Ratings symbol type. (optional)
+   * @param gvkey Input identifiers for the type GVKEY - Compustat Global Company Key symbol type. (optional)
+   * @param gvkeyIid Input identifiers for the type GVKEY+IID - Compustat Global Company Key and Issue Identifier symbol type. (optional)
+   * @param isin Input identifiers for the ISIN - International Securities Identification Number symbol type. (optional)
+   * @param jcn Input identifiers for the type JCN - Japanese Corporate Number symbol type. (optional)
    * @param lei Input identifiers for the LEI - Legal Entity Identifier symbol type (optional)
-   * @param bbgFigi Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type (optional)
-   * @param md Input identifiers for the Moody&#39;s Ratings Identifier type (optional)
-   * @param ticker Input identifiers for the Price Ticker symbol type (optional)
-   * @param spr Input identifiers for the S&amp;PRating - S&amp;P Ratings Identifier symbol type (optional)
-   * @param sedol Input identifiers for the SEDOL symbol type (optional)
-   * @param tickerExchange Input identifiers for the TickerExchange (optional)
+   * @param lxid Input identifiers for the type LXID - Markit Syndicated Loan Identifier symbol type. (optional)
+   * @param md Input identifiers for the Moody&#39;s Ratings Identifier type. (optional)
+   * @param redCode Input identifiers for the type Red Code - Markit Reference Entity Identifier symbol type. (optional)
+   * @param rssd Input identifiers for the RSSD - Federal Reserve RSSD symbol typ. (optional)
+   * @param sedol Input identifiers for the SEDOL symbol type. (optional)
+   * @param spr Input identifiers for the Price Ticker symbol type. (optional)
+   * @param ticker Input identifiers for the Price Ticker symbol type. (optional)
+   * @param tickerExchange Input identifiers for the TickerExchange. (optional)
    * @param tickerRegion Input identifiers for the TickerRegion. (optional)
-   * @param ukch Input identifiers for the UKCH - UK Company House symbol type (optional)
-   * @param valoren Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type (optional)
-   * @param wkn Input identifiers for the WKN - German Securities symbol type (optional)
+   * @param ukch Input identifiers for the UKCH - UK Company House symbol type. (optional)
+   * @param valoren Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type. (optional)
+   * @param wkn Input identifiers for the WKN - German Securities symbol type. (optional)
    * @return ApiResponse&lt;EntityMatchesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -164,7 +176,7 @@ public class EntityMatchApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EntityMatchesResponse> getEntityMatchWithHttpInfo(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bic, String bbgTicker, String cik, String crd, String cusip, String duns, String ein, String rssd, String fitch, String isin, String lei, String bbgFigi, String md, String ticker, String spr, String sedol, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn) throws ApiException {
+  public ApiResponse<EntityMatchesResponse> getEntityMatchWithHttpInfo(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bbgFigi, String bbgTicker, String bic, String cik, String crd, String cusip, String duns, String ein, String factsetId, String fitch, String gvkey, String gvkeyIid, String isin, String jcn, String lei, String lxid, String md, String redCode, String rssd, String sedol, String spr, String ticker, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'name' is set
@@ -190,22 +202,28 @@ public class EntityMatchApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "includeEntitySubType", includeEntitySubType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "excludeEntitySubType", excludeEntitySubType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeParent", includeParent));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "bic", bic));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "bbgFigi", bbgFigi));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "bbgTicker", bbgTicker));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "bic", bic));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "cik", cik));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "crd", crd));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "cusip", cusip));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "duns", duns));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ein", ein));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rssd", rssd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "factsetId", factsetId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitch", fitch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "gvkey", gvkey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "gvkeyIid", gvkeyIid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "isin", isin));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "jcn", jcn));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "lei", lei));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "bbgFigi", bbgFigi));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "lxid", lxid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "md", md));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ticker", ticker));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "spr", spr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "redCode", redCode));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rssd", rssd));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sedol", sedol));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "spr", spr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ticker", ticker));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tickerExchange", tickerExchange));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tickerRegion", tickerRegion));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ukch", ukch));

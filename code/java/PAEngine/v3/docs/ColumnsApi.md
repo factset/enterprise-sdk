@@ -51,7 +51,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ColumnsApi apiInstance = new ColumnsApi(defaultClient);
-        String id = "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5"; // String | Unique identifier for a column
+        String id = "2DBD317E3C235BC96E2FF8CA36CE036AF2F7F55525479B524AE78FD7D6BBC4A7"; // String | Unique identifier for a column
         try {
             ColumnRoot result = apiInstance.getPAColumnById(id);
             System.out.println(result);
@@ -72,7 +72,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier for a column | [default to 2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5]
+ **id** | **String**| Unique identifier for a column |
 
 ### Return type
 

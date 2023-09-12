@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.NaturalLanguageProcessing.Client.OpenAP
 namespace FactSet.SDK.NaturalLanguageProcessing.Model
 {
     /// <summary>
-    /// HTTPError
+    /// Schema that defines HTTP error(s).
     /// </summary>
     [DataContract(Name = "HTTPError")]
     public partial class HTTPError : IEquatable<HTTPError>, IValidatableObject
@@ -35,25 +35,66 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HTTPError" /> class.
         /// </summary>
-        /// <param name="detail">detail.</param>
-        /// <param name="message">message.</param>
-        public HTTPError(Object detail = default(Object), string message = default(string))
+        [JsonConstructorAttribute]
+        protected HTTPError() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HTTPError" /> class.
+        /// </summary>
+        /// <param name="code">HTTP Status Code (required).</param>
+        /// <param name="detail">Error detail (if any).</param>
+        /// <param name="id">The unique identifier detailing the error(s) (required).</param>
+        /// <param name="source">source.</param>
+        /// <param name="title">Error title (required).</param>
+        public HTTPError(string code, Guid id, string title,string detail = default(string), ErrorSource source = default(ErrorSource))
         {
+            // to ensure "code" is required (not null)
+            if (code == null) {
+                throw new ArgumentNullException("code is a required property for HTTPError and cannot be null");
+            }
+            this.Code = code;
+            this.Id = id;
+            // to ensure "title" is required (not null)
+            if (title == null) {
+                throw new ArgumentNullException("title is a required property for HTTPError and cannot be null");
+            }
+            this.Title = title;
             this.Detail = detail;
-            this.Message = message;
+            this.Source = source;
         }
 
         /// <summary>
-        /// Gets or Sets Detail
+        /// HTTP Status Code
         /// </summary>
-        [DataMember(Name = "detail", EmitDefaultValue = false)]
-        public Object Detail { get; set; }
+        /// <value>HTTP Status Code</value>
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
+        public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Error detail (if any)
         /// </summary>
-        [DataMember(Name = "message", EmitDefaultValue = false)]
-        public string Message { get; set; }
+        /// <value>Error detail (if any)</value>
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
+        public string Detail { get; set; }
+
+        /// <summary>
+        /// The unique identifier detailing the error(s)
+        /// </summary>
+        /// <value>The unique identifier detailing the error(s)</value>
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", EmitDefaultValue = false)]
+        public ErrorSource Source { get; set; }
+
+        /// <summary>
+        /// Error title
+        /// </summary>
+        /// <value>Error title</value>
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = false)]
+        public string Title { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,8 +104,11 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class HTTPError {\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,14 +145,29 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
             }
             return 
                 (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
                     this.Detail == input.Detail ||
                     (this.Detail != null &&
                     this.Detail.Equals(input.Detail))
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 );
         }
 
@@ -121,13 +180,25 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 if (this.Detail != null)
                 {
                     hashCode = (hashCode * 59) + this.Detail.GetHashCode();
                 }
-                if (this.Message != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Source != null)
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 return hashCode;
             }

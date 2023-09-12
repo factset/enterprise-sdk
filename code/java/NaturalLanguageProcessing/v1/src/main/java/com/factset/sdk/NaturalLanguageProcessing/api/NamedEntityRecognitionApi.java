@@ -13,7 +13,6 @@ import java.util.Objects;
 
 import com.factset.sdk.NaturalLanguageProcessing.models.NERInputSchema;
 import com.factset.sdk.NaturalLanguageProcessing.models.NERResponseSchema;
-import com.factset.sdk.NaturalLanguageProcessing.models.NERValidationError;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NamedEntityRecognitionApi {
@@ -30,7 +29,7 @@ public class NamedEntityRecognitionApi {
   private static final Map<Integer, GenericType> nerEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     nerEntitiesResponseTypeMap.put(200, new GenericType<NERResponseSchema>(){});
-    nerEntitiesResponseTypeMap.put(400, new GenericType<NERValidationError>(){});
+    nerEntitiesResponseTypeMap.put(400, new GenericType<NERResponseSchema>(){});
   }
 
   

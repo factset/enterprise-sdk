@@ -383,6 +383,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         limit=10,
         map_status=["MAPPED"],
         client_id=["abc-123","dfg-456"],
+        sort=["clientId:asc","clientPersonName:desc"],
     ) # PeopleUniverseRequest | A request to fetch all entities of a given universe
 
     try:

@@ -4,9 +4,9 @@ All URIs are relative to *https://api.factset.com/cognitive/nlp/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**qnaGetAnswers**](QuestionAnswerApi.md#qnaGetAnswers) | **GET** /qna/answers/{id} | Get the answer(s)
-[**qnaGetStatus**](QuestionAnswerApi.md#qnaGetStatus) | **GET** /qna/answers/{id}/status | Get the completion status
-[**qnaPostQuestion**](QuestionAnswerApi.md#qnaPostQuestion) | **POST** /qna/answers | Post a question for answer(s)
+[**qnaGetAnswers**](QuestionAnswerApi.md#qnaGetAnswers) | **GET** /qna/answers/{id} | Endpoint to get the answer(s)
+[**qnaGetStatus**](QuestionAnswerApi.md#qnaGetStatus) | **GET** /qna/answers/{id}/status | Endpoint to get the completion status for a Q&amp;A request
+[**qnaPostQuestion**](QuestionAnswerApi.md#qnaPostQuestion) | **POST** /qna/answers | Endpoint to submit a question for answer(s)
 
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 
 > QnAAnswerRoot qnaGetAnswers(id)
 
-Get the answer(s)
+Endpoint to get the answer(s)
 
-Obtain the results from the original task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
+Endpoint to obtain the results from the original Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier from the task and comes from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
 
 ### Example
 
@@ -59,7 +59,7 @@ apiInstance.qnaGetAnswers(id).then(
              break;
 
           case 202:
-             // QnATaskRoot
+             // TaskRoot
              console.log(data.getResponse202());
              break;
 
@@ -97,11 +97,11 @@ Name | Type | Description  | Notes
 
 ## qnaGetStatus
 
-> QnATaskRoot qnaGetStatus(id)
+> TaskRoot qnaGetStatus(id)
 
-Get the completion status
+Endpoint to get the completion status for a Q&amp;A request
 
-Endpoint to obtain the status of the task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
+Endpoint to obtain the status of the Q&amp;A task request. The &#x60;id&#x60; parameter represents the identifier of the task created and comes from the POST request which created the task.
 
 ### Example
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QnATaskRoot**](QnATaskRoot.md)
+[**TaskRoot**](TaskRoot.md)
 
 ### Authorization
 
@@ -169,11 +169,11 @@ Name | Type | Description  | Notes
 
 ## qnaPostQuestion
 
-> QnATaskRoot qnaPostQuestion(qnAAnswerParametersRoot)
+> TaskRoot qnaPostQuestion(qnAAnswerParametersRoot)
 
-Post a question for answer(s)
+Endpoint to submit a question for answer(s)
 
-Create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
+Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
 
 ### Example
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QnATaskRoot**](QnATaskRoot.md)
+[**TaskRoot**](TaskRoot.md)
 
 ### Authorization
 

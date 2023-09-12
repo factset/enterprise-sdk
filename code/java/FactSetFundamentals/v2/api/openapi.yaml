@@ -1207,7 +1207,6 @@ paths:
       summary: Returns available FactSet Fundamental metrics and ratios.
       tags:
       - Metrics
-      x-factset-sdk-ignore: true
       x-accepts: application/json
   /batch-status:
     get:
