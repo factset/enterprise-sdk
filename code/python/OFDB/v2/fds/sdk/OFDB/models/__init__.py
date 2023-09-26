@@ -17,6 +17,9 @@ from fds.sdk.OFDB.model.add_symbols import AddSymbols
 from fds.sdk.OFDB.model.add_symbols_content import AddSymbolsContent
 from fds.sdk.OFDB.model.add_symbols_data import AddSymbolsData
 from fds.sdk.OFDB.model.bulk_delete import BulkDelete
+from fds.sdk.OFDB.model.bulk_delete_array import BulkDeleteArray
+from fds.sdk.OFDB.model.bulk_delete_array_item import BulkDeleteArrayItem
+from fds.sdk.OFDB.model.bulk_delete_array_item_nested import BulkDeleteArrayItemNested
 from fds.sdk.OFDB.model.bulk_delete_data import BulkDeleteData
 from fds.sdk.OFDB.model.create_database import CreateDatabase
 from fds.sdk.OFDB.model.create_database_data import CreateDatabaseData
@@ -34,6 +37,8 @@ from fds.sdk.OFDB.model.inline_response2005 import InlineResponse2005
 from fds.sdk.OFDB.model.inline_response2006 import InlineResponse2006
 from fds.sdk.OFDB.model.inline_response2006_data import InlineResponse2006Data
 from fds.sdk.OFDB.model.inline_response200_data import InlineResponse200Data
+from fds.sdk.OFDB.model.inline_response201 import InlineResponse201
+from fds.sdk.OFDB.model.inline_response201_data import InlineResponse201Data
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response202_data import InlineResponse202Data
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400

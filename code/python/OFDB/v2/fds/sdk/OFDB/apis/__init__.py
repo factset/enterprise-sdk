@@ -18,4 +18,5 @@ from fds.sdk.OFDB.api.add_api import AddApi
 from fds.sdk.OFDB.api.create_api import CreateApi
 from fds.sdk.OFDB.api.delete_api import DeleteApi
 from fds.sdk.OFDB.api.get_api import GetApi
+from fds.sdk.OFDB.api.long_running_api import LongRunningApi
 from fds.sdk.OFDB.api.update_api import UpdateApi

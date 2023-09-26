@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## addDates
 
-> SuccessPostResponse addDates(path, addDates)
+> InlineResponse202 addDates(path, addDates)
 
 
 
@@ -55,7 +55,7 @@ public class Example {
         String path = "path_example"; // String | Encode database path
         AddDates addDates = new AddDates(); // AddDates | Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
         try {
-            SuccessPostResponse result = apiInstance.addDates(path, addDates);
+            InlineResponse202 result = apiInstance.addDates(path, addDates);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessPostResponse**](SuccessPostResponse.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -93,8 +93,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | Path not found |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -107,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## addFields
 
-> SuccessPostResponse addFields(path, addFields)
+> InlineResponse202 addFields(path, addFields)
 
 
 
@@ -150,7 +149,7 @@ public class Example {
         String path = "path_example"; // String | Encode database path
         AddFields addFields = new AddFields(); // AddFields | Data for creating fields in the database.
         try {
-            SuccessPostResponse result = apiInstance.addFields(path, addFields);
+            InlineResponse202 result = apiInstance.addFields(path, addFields);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -174,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessPostResponse**](SuccessPostResponse.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -188,8 +187,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | Path not found |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -201,7 +199,7 @@ Name | Type | Description  | Notes
 
 ## addSymbols
 
-> SuccessPostResponse addSymbols(path, addSymbols)
+> InlineResponse202 addSymbols(path, addSymbols)
 
 
 
@@ -244,7 +242,7 @@ public class Example {
         String path = "path_example"; // String | Encode database path
         AddSymbols addSymbols = new AddSymbols(); // AddSymbols | Data for creating symbol in the database
         try {
-            SuccessPostResponse result = apiInstance.addSymbols(path, addSymbols);
+            InlineResponse202 result = apiInstance.addSymbols(path, addSymbols);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -268,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessPostResponse**](SuccessPostResponse.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -282,8 +280,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **404** | Path not found |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

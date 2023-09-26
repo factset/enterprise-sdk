@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## getAudit
 
-> InlineResponse200 getAudit(path)
+> InlineResponse202 getAudit(path)
 
 
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## getData
 
-> InlineResponse2006 getData(path, opts)
+> InlineResponse202 getData(path, opts)
 
 
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ## getDates
 
-> InlineResponse2005 getDates(path, opts)
+> InlineResponse202 getDates(path, opts)
 
 
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## getFields
 
-> InlineResponse2002 getFields(path)
+> InlineResponse202 getFields(path)
 
 
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ## getStats
 
-> InlineResponse2001 getStats(path)
+> InlineResponse202 getStats(path)
 
 
 
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ## getSymbols
 
-> InlineResponse2004 getSymbols(path, opts)
+> InlineResponse202 getSymbols(path, opts)
 
 
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

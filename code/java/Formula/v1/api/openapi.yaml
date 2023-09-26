@@ -30,7 +30,7 @@ info:
 
     You can download the FactSet Formula API Specification File in .yaml. using the "Download Spec" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs.
   title: FactSet Formula API
-  version: 1.5.0
+  version: 1.7.0
 servers:
 - description: Production
   url: https://api.factset.com/formula-api
@@ -2155,8 +2155,12 @@ paths:
                   $ref: '#/components/examples/BatchStatusQueuedResponse'
                 Batch Status Executing:
                   $ref: '#/components/examples/BatchStatusExecutingResponse'
-                Batch Status Failed:
-                  $ref: '#/components/examples/BatchStatusFailedResponse'
+                Batch Status Failed - Timeout:
+                  $ref: '#/components/examples/BatchStatusFailedResponseTimeout'
+                Batch Status Failed - Memory Limit:
+                  $ref: '#/components/examples/BatchStatusFailedResponseMemoryLimit'
+                Batch Status Failed - Other:
+                  $ref: '#/components/examples/BatchStatusFailedResponseOther'
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch Request has not finished and the result has NOT been
@@ -2223,8 +2227,12 @@ paths:
                   $ref: '#/components/examples/BatchStatusQueuedResponse'
                 Batch Status Executing:
                   $ref: '#/components/examples/BatchStatusExecutingResponse'
-                Batch Status Failed:
-                  $ref: '#/components/examples/BatchStatusFailedResponse'
+                Batch Status Failed - Timeout:
+                  $ref: '#/components/examples/BatchStatusFailedResponseTimeout'
+                Batch Status Failed - Memory Limit:
+                  $ref: '#/components/examples/BatchStatusFailedResponseMemoryLimit'
+                Batch Status Failed - Other:
+                  $ref: '#/components/examples/BatchStatusFailedResponseOther'
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch Request has not finished and the result has NOT been
@@ -3806,10 +3814,10 @@ components:
           startTime: 2021-06-29T18:34:52.168Z
           endTime: 2021-06-29T18:34:55.402Z
           error: null
-    BatchStatusFailedResponse:
-      description: Batch Status Failed Response. The example response shows the result
-        of checking the status of a batch request that took longer than 20 minutes
-        to calculate and timed out.
+    BatchStatusFailedResponseTimeout:
+      description: Batch Status Failed Response - Timeout. The example response shows
+        the result of checking the status of a batch request that took longer than
+        20 minutes to calculate and timed out.
       value:
         data:
           id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
@@ -3817,6 +3825,28 @@ components:
           startTime: 2021-06-29T18:34:52.168Z
           endTime: 2021-06-29T18:44:55.402Z
           error: timeout
+    BatchStatusFailedResponseMemoryLimit:
+      description: Batch Status Failed Response - MemoryLimit. The example response
+        shows the result of checking the status of a batch request that exceeded the
+        memory limit.
+      value:
+        data:
+          id: 0a0452e2-3937-441d-b376-f2733a938587
+          status: FAILED
+          startTime: 2023-09-15T00:07:46.501947
+          endTime: 2023-09-15T00:08:53.936218
+          error: The request size is too large. Try again with a smaller request.
+    BatchStatusFailedResponseOther:
+      description: Batch Status Failed Response - Other. The example response shows
+        the result of checking the status of a batch request that failed unexpectedly.
+        If you encounter this error, please contact FactSet support.
+      value:
+        data:
+          id: 43839790-a64e-452a-b8f0-fc26117bd9f4
+          status: FAILED
+          startTime: 2023-09-20T13:37:13.653411
+          endTime: 2023-09-20T13:38:25.841134
+          error: Something went wrong. Contact FactSet for support.
   headers:
     api-version:
       description: the full semantic version of the API.

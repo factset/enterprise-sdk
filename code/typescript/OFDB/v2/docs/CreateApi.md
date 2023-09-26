@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## createDatabase
 
-> CreateDatabase createDatabase(opts)
+> InlineResponse202 createDatabase(opts)
 
 
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateDatabase**](CreateDatabase.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

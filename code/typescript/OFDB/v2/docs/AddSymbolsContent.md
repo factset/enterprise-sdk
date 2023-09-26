@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **date** | **Number** |  | [optional] 
-**field1** | **String** |  | [optional] 
+**field** | **String** |  | [optional] 
 
 

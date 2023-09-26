@@ -18,7 +18,6 @@ import com.factset.sdk.OFDB.models.InlineResponse404;
 import com.factset.sdk.OFDB.models.InlineResponse406;
 import com.factset.sdk.OFDB.models.InlineResponse413;
 import com.factset.sdk.OFDB.models.InlineResponse429;
-import com.factset.sdk.OFDB.models.SuccessPostResponse;
 import com.factset.sdk.OFDB.models.UpdateDate;
 import com.factset.sdk.OFDB.models.UpdateDates;
 import com.factset.sdk.OFDB.models.UpdateSymbol;
@@ -38,7 +37,6 @@ public class UpdateApi {
   
   private static final Map<Integer, GenericType> updateDateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    updateDateResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     updateDateResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     updateDateResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     updateDateResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -50,7 +48,6 @@ public class UpdateApi {
 
   private static final Map<Integer, GenericType> updateDatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    updateDatesResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     updateDatesResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     updateDatesResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     updateDatesResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -62,7 +59,6 @@ public class UpdateApi {
 
   private static final Map<Integer, GenericType> updateSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    updateSymbolResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     updateSymbolResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     updateSymbolResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     updateSymbolResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -74,7 +70,6 @@ public class UpdateApi {
 
   private static final Map<Integer, GenericType> updateSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    updateSymbolsResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     updateSymbolsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     updateSymbolsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     updateSymbolsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -111,13 +106,12 @@ public class UpdateApi {
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
    * @param updateDate Required data for updating date in the database (required)
-   * @return SuccessPostResponse
+   * @return InlineResponse202
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -128,7 +122,7 @@ public class UpdateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse updateDate(String path, Integer date, UpdateDate updateDate) throws ApiException {
+  public InlineResponse202 updateDate(String path, Integer date, UpdateDate updateDate) throws ApiException {
     return updateDateWithHttpInfo(path, date, updateDate).getData();
   }
 
@@ -138,13 +132,12 @@ public class UpdateApi {
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
    * @param updateDate Required data for updating date in the database (required)
-   * @return ApiResponse&lt;SuccessPostResponse&gt;
+   * @return ApiResponse&lt;InlineResponse202&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -155,7 +148,7 @@ public class UpdateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> updateDateWithHttpInfo(String path, Integer date, UpdateDate updateDate) throws ApiException {
+  public ApiResponse<InlineResponse202> updateDateWithHttpInfo(String path, Integer date, UpdateDate updateDate) throws ApiException {
     Object localVarPostBody = updateDate;
     
     // verify the required parameter 'path' is set
@@ -203,7 +196,7 @@ public class UpdateApi {
 
     ApiResponse<
         
-        SuccessPostResponse
+        InlineResponse202
       
     > apiResponse = apiClient.invokeAPI("UpdateApi.updateDate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -217,13 +210,12 @@ public class UpdateApi {
    * Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
    * @param path Encode database path (required)
    * @param updateDates Required data for updating date in the database (required)
-   * @return SuccessPostResponse
+   * @return InlineResponse202
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -234,7 +226,7 @@ public class UpdateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse updateDates(String path, UpdateDates updateDates) throws ApiException {
+  public InlineResponse202 updateDates(String path, UpdateDates updateDates) throws ApiException {
     return updateDatesWithHttpInfo(path, updateDates).getData();
   }
 
@@ -243,13 +235,12 @@ public class UpdateApi {
    * Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
    * @param path Encode database path (required)
    * @param updateDates Required data for updating date in the database (required)
-   * @return ApiResponse&lt;SuccessPostResponse&gt;
+   * @return ApiResponse&lt;InlineResponse202&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -260,7 +251,7 @@ public class UpdateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> updateDatesWithHttpInfo(String path, UpdateDates updateDates) throws ApiException {
+  public ApiResponse<InlineResponse202> updateDatesWithHttpInfo(String path, UpdateDates updateDates) throws ApiException {
     Object localVarPostBody = updateDates;
     
     // verify the required parameter 'path' is set
@@ -302,7 +293,7 @@ public class UpdateApi {
 
     ApiResponse<
         
-        SuccessPostResponse
+        InlineResponse202
       
     > apiResponse = apiClient.invokeAPI("UpdateApi.updateDates", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -317,13 +308,12 @@ public class UpdateApi {
    * @param path Encode database path (required)
    * @param symbol Symbol with in the ofdb (required)
    * @param updateSymbol Data for updating symbol in the database (required)
-   * @return SuccessPostResponse
+   * @return InlineResponse202
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -334,7 +324,7 @@ public class UpdateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse updateSymbol(String path, String symbol, UpdateSymbol updateSymbol) throws ApiException {
+  public InlineResponse202 updateSymbol(String path, String symbol, UpdateSymbol updateSymbol) throws ApiException {
     return updateSymbolWithHttpInfo(path, symbol, updateSymbol).getData();
   }
 
@@ -344,13 +334,12 @@ public class UpdateApi {
    * @param path Encode database path (required)
    * @param symbol Symbol with in the ofdb (required)
    * @param updateSymbol Data for updating symbol in the database (required)
-   * @return ApiResponse&lt;SuccessPostResponse&gt;
+   * @return ApiResponse&lt;InlineResponse202&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -361,7 +350,7 @@ public class UpdateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> updateSymbolWithHttpInfo(String path, String symbol, UpdateSymbol updateSymbol) throws ApiException {
+  public ApiResponse<InlineResponse202> updateSymbolWithHttpInfo(String path, String symbol, UpdateSymbol updateSymbol) throws ApiException {
     Object localVarPostBody = updateSymbol;
     
     // verify the required parameter 'path' is set
@@ -409,7 +398,7 @@ public class UpdateApi {
 
     ApiResponse<
         
-        SuccessPostResponse
+        InlineResponse202
       
     > apiResponse = apiClient.invokeAPI("UpdateApi.updateSymbol", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -423,13 +412,12 @@ public class UpdateApi {
    * Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)
    * @param path Encode database path (required)
    * @param updateSymbols Data for updating symbol in the database (required)
-   * @return SuccessPostResponse
+   * @return InlineResponse202
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -440,7 +428,7 @@ public class UpdateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse updateSymbols(String path, UpdateSymbols updateSymbols) throws ApiException {
+  public InlineResponse202 updateSymbols(String path, UpdateSymbols updateSymbols) throws ApiException {
     return updateSymbolsWithHttpInfo(path, updateSymbols).getData();
   }
 
@@ -449,13 +437,12 @@ public class UpdateApi {
    * Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)
    * @param path Encode database path (required)
    * @param updateSymbols Data for updating symbol in the database (required)
-   * @return ApiResponse&lt;SuccessPostResponse&gt;
+   * @return ApiResponse&lt;InlineResponse202&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -466,7 +453,7 @@ public class UpdateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> updateSymbolsWithHttpInfo(String path, UpdateSymbols updateSymbols) throws ApiException {
+  public ApiResponse<InlineResponse202> updateSymbolsWithHttpInfo(String path, UpdateSymbols updateSymbols) throws ApiException {
     Object localVarPostBody = updateSymbols;
     
     // verify the required parameter 'path' is set
@@ -508,7 +495,7 @@ public class UpdateApi {
 
     ApiResponse<
         
-        SuccessPostResponse
+        InlineResponse202
       
     > apiResponse = apiClient.invokeAPI("UpdateApi.updateSymbols", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

@@ -1,0 +1,256 @@
+openapi: 3.0.3
+info:
+  title: Investment Banking Office Refresh API
+  description: >-
+    Service for refreshing models with refreshable FactSet objects (e.g., =FDS
+    codes)
+  version: 0.1.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+  - url: https://api.factset.com/office-refresh/v0
+paths:
+  /refresh:
+    post:
+      summary: Upload a model
+      description: >-
+        Upload a model (e.g., an Excel workbook in Open Office XML format) for
+        FactSet to refresh.
+      tags:
+        - ModelRefresh
+      operationId: postWorkbook
+      parameters:
+        - name: nowHandlingEnabled
+          description: Option to handle =NOW codes.
+          in: query
+          schema:
+            type: boolean
+        - name: refreshAutoFilters
+          description: Option to refresh codes in autofilters.
+          in: query
+          schema:
+            type: boolean
+        - name: resizeArrays
+          description: Option to resize arrays
+          in: query
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            schema:
+              $ref: '#/components/schemas/SpreadsheetFile'
+        required: true
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+          headers:
+            Location:
+              description: Absolute URL to check status of the request.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  /refresh/{id}/status:
+    get:
+      summary: Get the status of the refresh job with the given resource ID
+      description: Check the status of the given job by ID
+      operationId: getStatusById
+      tags:
+        - ModelRefresh
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '201':
+          description: Created (the calculated workbook is ready to be retrieved)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+          headers:
+            Location:
+              description: Absolute URL to the calculated file
+              schema:
+                type: string
+        '202':
+          description: Accepted (resource not ready yet)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+          headers:
+            Location:
+              description: Absolute URL to check status of the request.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  /refresh/{id}:
+    get:
+      summary: Retrieve a calculated file by resource ID.
+      description: If the requested job is complete, the calculated file will be returned.
+      tags:
+        - ModelRefresh
+      operationId: getFileById
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+        - name: outputFileName
+          description: >-
+            Optional name for returned output file as set in the
+            Content-Disposition response header.
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response; body will contain calculated file
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/SpreadsheetFile'
+        '202':
+          description: Accepted (resource not ready yet)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+          headers:
+            Location:
+              description: Absolute URL to check status of the request.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+      x-factset-different-success-responses: true
+components:
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Resource ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    SpreadsheetFile:
+      description: An Open Office XML spreadsheet file.
+      type: string
+      format: binary
+    Error:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+    Errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    JobStatus:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+            status:
+              type: string
+              description: the status of the job
+              enum:
+                - queued
+                - executing
+                - created
+                - failed
+                - cancelled
+            error:
+              $ref: '#/components/schemas/Error'
+  responses:
+    '429':
+      description: Limit Exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: ModelRefresh

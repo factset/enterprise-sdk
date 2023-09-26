@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **String** |  | [optional] 
-**field1** | **Number** |  | [optional] 
+**field** | **Number** |  | [optional] 
 
 

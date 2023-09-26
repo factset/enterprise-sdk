@@ -8,7 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **String** |  |  [optional]
-**field1** | **Integer** |  |  [optional]
+**field** | **Integer** |  |  [optional]
 
 
 ## Implemented Interfaces

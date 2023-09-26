@@ -13,6 +13,9 @@ docs/AddSymbols.md
 docs/AddSymbolsContent.md
 docs/AddSymbolsData.md
 docs/BulkDelete.md
+docs/BulkDeleteArray.md
+docs/BulkDeleteArrayItem.md
+docs/BulkDeleteArrayItemNested.md
 docs/BulkDeleteData.md
 docs/CreateApi.md
 docs/CreateDatabase.md
@@ -33,6 +36,8 @@ docs/InlineResponse2005.md
 docs/InlineResponse2006.md
 docs/InlineResponse2006Data.md
 docs/InlineResponse200Data.md
+docs/InlineResponse201.md
+docs/InlineResponse201Data.md
 docs/InlineResponse202.md
 docs/InlineResponse202Data.md
 docs/InlineResponse400.md
@@ -48,6 +53,7 @@ docs/InlineResponse413.md
 docs/InlineResponse413Errors.md
 docs/InlineResponse429.md
 docs/InlineResponse429Errors.md
+docs/LongRunningApi.md
 docs/SuccessPostResponse.md
 docs/SuccessPostResponseData.md
 docs/Symbols.md
@@ -68,6 +74,7 @@ fds/sdk/OFDB/api/add_api.py
 fds/sdk/OFDB/api/create_api.py
 fds/sdk/OFDB/api/delete_api.py
 fds/sdk/OFDB/api/get_api.py
+fds/sdk/OFDB/api/long_running_api.py
 fds/sdk/OFDB/api/update_api.py
 fds/sdk/OFDB/api_client.py
 fds/sdk/OFDB/apis/__init__.py
@@ -82,6 +89,9 @@ fds/sdk/OFDB/model/add_symbols.py
 fds/sdk/OFDB/model/add_symbols_content.py
 fds/sdk/OFDB/model/add_symbols_data.py
 fds/sdk/OFDB/model/bulk_delete.py
+fds/sdk/OFDB/model/bulk_delete_array.py
+fds/sdk/OFDB/model/bulk_delete_array_item.py
+fds/sdk/OFDB/model/bulk_delete_array_item_nested.py
 fds/sdk/OFDB/model/bulk_delete_data.py
 fds/sdk/OFDB/model/create_database.py
 fds/sdk/OFDB/model/create_database_data.py
@@ -99,6 +109,8 @@ fds/sdk/OFDB/model/inline_response2005.py
 fds/sdk/OFDB/model/inline_response2006.py
 fds/sdk/OFDB/model/inline_response2006_data.py
 fds/sdk/OFDB/model/inline_response200_data.py
+fds/sdk/OFDB/model/inline_response201.py
+fds/sdk/OFDB/model/inline_response201_data.py
 fds/sdk/OFDB/model/inline_response202.py
 fds/sdk/OFDB/model/inline_response202_data.py
 fds/sdk/OFDB/model/inline_response400.py

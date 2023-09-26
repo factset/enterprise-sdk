@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## updateDate
 
-> SuccessPostResponse updateDate(path, date, updateDate)
+> InlineResponse202 updateDate(path, date, updateDate)
 
 
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessPostResponse**](SuccessPostResponse.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## updateDates
 
-> SuccessPostResponse updateDates(path, updateDates)
+> InlineResponse202 updateDates(path, updateDates)
 
 
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessPostResponse**](SuccessPostResponse.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## updateSymbol
 
-> SuccessPostResponse updateSymbol(path, symbol, updateSymbol)
+> InlineResponse202 updateSymbol(path, symbol, updateSymbol)
 
 
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessPostResponse**](SuccessPostResponse.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ## updateSymbols
 
-> SuccessPostResponse updateSymbols(path, updateSymbols)
+> InlineResponse202 updateSymbols(path, updateSymbols)
 
 
 
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessPostResponse**](SuccessPostResponse.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

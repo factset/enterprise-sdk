@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.factset.sdk.OFDB.models.CreateDatabase;
 import com.factset.sdk.OFDB.models.DatabaseSchema;
 import com.factset.sdk.OFDB.models.InlineResponse202;
 import com.factset.sdk.OFDB.models.InlineResponse400;
@@ -34,7 +33,6 @@ public class CreateApi {
   
   private static final Map<Integer, GenericType> createDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    createDatabaseResponseTypeMap.put(201, new GenericType<CreateDatabase>(){});
     createDatabaseResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     createDatabaseResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     createDatabaseResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -68,13 +66,12 @@ public class CreateApi {
    * 
    * Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
    * @param databaseSchema  (optional)
-   * @return CreateDatabase
+   * @return InlineResponse202
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Creates and responds with ofdb path </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -84,7 +81,7 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public CreateDatabase createDatabase(DatabaseSchema databaseSchema) throws ApiException {
+  public InlineResponse202 createDatabase(DatabaseSchema databaseSchema) throws ApiException {
     return createDatabaseWithHttpInfo(databaseSchema).getData();
   }
 
@@ -92,13 +89,12 @@ public class CreateApi {
    * 
    * Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
    * @param databaseSchema  (optional)
-   * @return ApiResponse&lt;CreateDatabase&gt;
+   * @return ApiResponse&lt;InlineResponse202&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Creates and responds with ofdb path </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -108,7 +104,7 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<CreateDatabase> createDatabaseWithHttpInfo(DatabaseSchema databaseSchema) throws ApiException {
+  public ApiResponse<InlineResponse202> createDatabaseWithHttpInfo(DatabaseSchema databaseSchema) throws ApiException {
     Object localVarPostBody = databaseSchema;
     
     // create path and map variables
@@ -139,7 +135,7 @@ public class CreateApi {
 
     ApiResponse<
         
-        CreateDatabase
+        InlineResponse202
       
     > apiResponse = apiClient.invokeAPI("CreateApi.createDatabase", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

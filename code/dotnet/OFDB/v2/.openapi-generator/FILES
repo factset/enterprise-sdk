@@ -13,6 +13,8 @@ docs/AddSymbols.md
 docs/AddSymbolsContent.md
 docs/AddSymbolsData.md
 docs/BulkDelete.md
+docs/BulkDeleteArrayItem.md
+docs/BulkDeleteArrayItemNested.md
 docs/BulkDeleteData.md
 docs/CreateApi.md
 docs/CreateDatabase.md
@@ -31,6 +33,8 @@ docs/InlineResponse2005.md
 docs/InlineResponse2006.md
 docs/InlineResponse2006Data.md
 docs/InlineResponse200Data.md
+docs/InlineResponse201.md
+docs/InlineResponse201Data.md
 docs/InlineResponse202.md
 docs/InlineResponse202Data.md
 docs/InlineResponse400.md
@@ -46,6 +50,7 @@ docs/InlineResponse413.md
 docs/InlineResponse413Errors.md
 docs/InlineResponse429.md
 docs/InlineResponse429Errors.md
+docs/LongRunningApi.md
 docs/SuccessPostResponse.md
 docs/SuccessPostResponseData.md
 docs/UpdateApi.md
@@ -63,6 +68,7 @@ src/FactSet.SDK.OFDB/Api/AddApi.cs
 src/FactSet.SDK.OFDB/Api/CreateApi.cs
 src/FactSet.SDK.OFDB/Api/DeleteApi.cs
 src/FactSet.SDK.OFDB/Api/GetApi.cs
+src/FactSet.SDK.OFDB/Api/LongRunningApi.cs
 src/FactSet.SDK.OFDB/Api/UpdateApi.cs
 src/FactSet.SDK.OFDB/Client/ApiClient.cs
 src/FactSet.SDK.OFDB/Client/ApiException.cs
@@ -90,6 +96,8 @@ src/FactSet.SDK.OFDB/Model/AddSymbols.cs
 src/FactSet.SDK.OFDB/Model/AddSymbolsContent.cs
 src/FactSet.SDK.OFDB/Model/AddSymbolsData.cs
 src/FactSet.SDK.OFDB/Model/BulkDelete.cs
+src/FactSet.SDK.OFDB/Model/BulkDeleteArrayItem.cs
+src/FactSet.SDK.OFDB/Model/BulkDeleteArrayItemNested.cs
 src/FactSet.SDK.OFDB/Model/BulkDeleteData.cs
 src/FactSet.SDK.OFDB/Model/CreateDatabase.cs
 src/FactSet.SDK.OFDB/Model/CreateDatabaseData.cs
@@ -105,6 +113,8 @@ src/FactSet.SDK.OFDB/Model/InlineResponse2005.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse2006.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse2006Data.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse200Data.cs
+src/FactSet.SDK.OFDB/Model/InlineResponse201.cs
+src/FactSet.SDK.OFDB/Model/InlineResponse201Data.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse202.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse202Data.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse400.cs
