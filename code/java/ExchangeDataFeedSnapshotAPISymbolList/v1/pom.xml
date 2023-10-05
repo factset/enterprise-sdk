@@ -5,7 +5,7 @@
     <artifactId>exchangedatafeedsnapshotapisymbollist</artifactId>
     <packaging>jar</packaging>
     <name>exchangedatafeedsnapshotapisymbollist</name>
-    <version>0.21.6</version>
+    <version>0.21.7</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Exchange DataFeed Snapshot API - Symbol List client library for Java</description>
     <scm>
@@ -17,7 +17,7 @@
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
             <distribution>repo</distribution>
         </license>
     </licenses>

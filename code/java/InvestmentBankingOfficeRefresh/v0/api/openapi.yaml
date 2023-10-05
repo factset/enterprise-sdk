@@ -93,6 +93,7 @@ paths:
       summary: Upload a model
       tags:
       - ModelRefresh
+      x-factset-sdk-main-example: true
       x-contentType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
       x-accepts: application/json
   /refresh/{id}/status:
@@ -326,4 +327,5 @@ components:
     FactSetApiKey:
       scheme: basic
       type: http
+x-factset-sdk-has-main-example: true
 

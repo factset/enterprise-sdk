@@ -3,7 +3,7 @@ info:
   version: 1.0.0
   license:
     name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    url: https://www.apache.org/licenses/LICENSE-2.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -11,7 +11,7 @@ info:
   description: >-
     FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to
     real-time and delayed global exchange data. Proprietary technology
-    normalizes over 200 global exchanges and 150+ data fields. Asset types
+    normalizes over 300 global exchanges and 150+ data fields. Asset types
     integrated include equities, futures, options, warrants, fixed income,
     mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge
     technology ensures reliability and provides scalability that allow
@@ -1131,7 +1131,9 @@ components:
         Error:
           description: error value
           example: 0
-          type: integer
+          type: array
+          items:
+            $ref: '#/components/schemas/errorResponse'
         symbol1:
           description: first symbol from `ids` or `chain`
           type: array

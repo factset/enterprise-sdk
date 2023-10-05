@@ -1,7 +1,7 @@
 /*
  * Exchange DataFeed Snapshot
  *
- * FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 200 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>
+ * FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 300 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: api@factset.com
@@ -39,7 +39,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
         /// <param name="symbol1">first symbol from &#x60;ids&#x60; or &#x60;chain&#x60;.</param>
         /// <param name="host">host name.</param>
         /// <param name="symbol2">second symbol from &#x60;ids&#x60; or &#x60;chain&#x60; list.</param>
-        public DFSnapshotResponse(int error = default(int), List<Fields> symbol1 = default(List<Fields>), string host = default(string), string symbol2 = default(string))
+        public DFSnapshotResponse(List<ErrorResponse> error = default(List<ErrorResponse>), List<Fields> symbol1 = default(List<Fields>), string host = default(string), string symbol2 = default(string))
         {
             this.Error = error;
             this.Symbol1 = symbol1;
@@ -52,7 +52,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
         /// </summary>
         /// <value>error value</value>
         [DataMember(Name = "Error", EmitDefaultValue = false)]
-        public int Error { get; set; }
+        public List<ErrorResponse> Error { get; set; }
 
         /// <summary>
         /// first symbol from &#x60;ids&#x60; or &#x60;chain&#x60;
@@ -124,7 +124,9 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
             return 
                 (
                     this.Error == input.Error ||
-                    this.Error.Equals(input.Error)
+                    this.Error != null &&
+                    input.Error != null &&
+                    this.Error.SequenceEqual(input.Error)
                 ) && 
                 (
                     this.Symbol1 == input.Symbol1 ||
@@ -153,7 +155,10 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Error.GetHashCode();
+                if (this.Error != null)
+                {
+                    hashCode = (hashCode * 59) + this.Error.GetHashCode();
+                }
                 if (this.Symbol1 != null)
                 {
                     hashCode = (hashCode * 59) + this.Symbol1.GetHashCode();

@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.runs_api import RunsApi
+#   from .api.jobs_api import JobsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,5 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from fds.sdk.PortfolioReportingBatcher.api.jobs_api import JobsApi
 from fds.sdk.PortfolioReportingBatcher.api.runs_api import RunsApi

@@ -1,6 +1,6 @@
 /*
  * Exchange DataFeed Snapshot
- * FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 200 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>
+ * FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 300 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: api@factset.com
@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.models.ErrorResponse;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.models.Fields;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -45,7 +46,7 @@ public class DFSnapshotResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ERROR = "Error";
-  private Integer error;
+  private java.util.List<ErrorResponse> error = null;
 
   public static final String JSON_PROPERTY_SYMBOL1 = "symbol1";
   private java.util.List<Fields> symbol1 = null;
@@ -59,8 +60,16 @@ public class DFSnapshotResponse implements Serializable {
   public DFSnapshotResponse() { 
   }
 
-  public DFSnapshotResponse error(Integer error) {
+  public DFSnapshotResponse error(java.util.List<ErrorResponse> error) {
     this.error = error;
+    return this;
+  }
+
+  public DFSnapshotResponse addErrorItem(ErrorResponse errorItem) {
+    if (this.error == null) {
+      this.error = new java.util.ArrayList<>();
+    }
+    this.error.add(errorItem);
     return this;
   }
 
@@ -73,14 +82,14 @@ public class DFSnapshotResponse implements Serializable {
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getError() {
+  public java.util.List<ErrorResponse> getError() {
     return error;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setError(Integer error) {
+  public void setError(java.util.List<ErrorResponse> error) {
     this.error = error;
   }
 

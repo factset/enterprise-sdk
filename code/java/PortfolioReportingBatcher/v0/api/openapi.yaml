@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Portfolio Reporting Batcher
-  version: 0.1.0
+  version: 0.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api
@@ -23,9 +23,294 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
+- description: These endpoints relate to PRB jobs
+  name: Jobs
 - description: These endpoints refer to specific runs for a PRB job
   name: Runs
 paths:
+  /jobs/{type}/{name}:
+    get:
+      description: Use this endpoint to fetch the documents, tasks, accounts, and/or
+        runs for the PRB job given in the path. Please note jobs with type PD will
+        not return tasks nor accounts so this will be ignored if given as part of
+        the array of attributes in the request.
+      operationId: getDetailsForJob
+      parameters:
+      - description: The jobs type
+        explode: false
+        in: path
+        name: type
+        required: true
+        schema:
+          $ref: '#/components/schemas/jobTypes'
+        style: simple
+      - description: The jobs name
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The attribute parameter accepts a list of the given enums, separated
+          by commas. Each of them returns the respective data associated with the
+          job. Runs returns the run history of the job.
+        explode: true
+        in: query
+        name: attribute
+        required: false
+        schema:
+          items:
+            enum:
+            - documents
+            - tasks
+            - accounts
+            - runs
+            type: string
+          maxItems: 4
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                PA:
+                  value:
+                    data:
+                      documents:
+                        my_task_1:
+                        - Client:/equity/long_short/my PA document
+                        my_task_2:
+                        - Client:/equity/long_short/my other PA document
+                        - Client:/equity/long_only/my PA document
+                      tasks:
+                      - my_task_1
+                      - my_task_2
+                      accounts:
+                        my_task_1:
+                        - portfolioId: client:/some_path/some_portfolio.actm
+                          isSplit: true
+                          includeParent: true
+                          level: "1"
+                          latestComponentsOnly: true
+                        my_task_2:
+                        - portfolioId: client:/some_other_path/some__other_portfolio.acct
+                          isSplit: true
+                          includeParent: true
+                          level: all
+                          latestComponentsOnly: true
+                      runs:
+                      - statusDescription: job has completed with success
+                        status: created
+                        prbStatus: success
+                        submitTime: 2019-08-24T14:15:22Z
+                        startTime: 2019-08-24T14:15:22Z
+                        endTime: 2019-08-24T14:15:22Z
+                        runDuration: 0
+                        isApiTriggered: true
+                        id: "565642"
+                PD:
+                  value:
+                    data:
+                      documents:
+                        default:
+                        - Client:/equity/long_short/my document1
+                      runs:
+                      - statusDescription: job has completed with success
+                        status: created
+                        prbStatus: success
+                        submitTime: 2019-08-24T14:15:22Z
+                        startTime: 2019-08-24T14:15:22Z
+                        endTime: 2019-08-24T14:15:22Z
+                        runDuration: 1235
+                        isApiTriggered: true
+                        id: "3456"
+                PI:
+                  value:
+                    data:
+                      documents:
+                        my_task_1:
+                        - Client:/equity/long_short/my PA document
+                      tasks:
+                      - my_task_1
+                      accounts:
+                        my_task_1:
+                        - portfolioId: client:/some_path/some_portfolio.actm
+                      runs:
+                      - statusDescription: job has completed with success
+                        status: created
+                        prbStatus: success
+                        submitTime: 2019-08-24T14:15:22Z
+                        startTime: 2019-08-24T14:15:22Z
+                        endTime: 2019-08-24T14:15:22Z
+                        runDuration: 4567
+                        isApiTriggered: true
+                        id: "1234"
+              schema:
+                $ref: '#/components/schemas/jobDetailsResponse'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Get details for the given PRB job
+      tags:
+      - Jobs
+      x-accepts: application/json
   /runs:
     post:
       description: Use this endpoint with with POST method to trigger PRB jobs.
@@ -644,6 +929,54 @@ components:
   requestBodies: {}
   responses: {}
   schemas:
+    accountsForJob:
+      additionalProperties:
+        description: An array of the details of the account/s under the task/s in
+          the object key/s
+        items:
+          $ref: '#/components/schemas/accountsForJobAddProp'
+        type: array
+      description: Please note for PI jobs you will only see portfolioId
+      example:
+        my_task_1:
+        - includeParent: true
+          isSplit: true
+          latestComponentsOnly: true
+          level: string
+          portfolioId: string
+      title: accountsForJob
+      type: object
+    accountsForJobAddProp:
+      description: The details of the account under the task in the object key
+      properties:
+        includeParent:
+          description: Indicates whether or not the parent portfolio is included as
+            a separate portfolio when isSplit is true
+          nullable: true
+          type: boolean
+        isSplit:
+          description: Indicates whether the portfolio's components if any would be
+            treated as individual portfolios when the job is run
+          nullable: true
+          type: boolean
+        latestComponentsOnly:
+          description: When selected, the ACTM/CSTM will be split and will only return
+            components that are still held in the ACTM. I.e., when the end date is
+            "Latest," it will not return components where the end date occurs before
+            Latest.
+          nullable: true
+          type: boolean
+        level:
+          description: The number of levels when isSplit is true that the job will
+            expand down to for a composite portfolio (CSTM or ACTM). "1" means only
+            the first level will be expanded. "all" will be the value if all levels
+            are expanded down.
+          nullable: true
+          type: string
+        portfolioId:
+          description: The full file path including portfolio name and type
+          type: string
+      type: object
     calendar:
       default: fiveDay
       description: Used for ADF jobs only
@@ -661,6 +994,22 @@ components:
           items:
             $ref: '#/components/schemas/error'
           type: array
+      type: object
+    documentsForJob:
+      additionalProperties:
+        description: The tasks under each document
+        items:
+          type: string
+        type: array
+      description: Shows the documents for each job where relevant with a collection
+        of tasks under each document
+      example:
+        my_task_1:
+        - Client:/equity/long_short/my PA document
+        my_task_2:
+        - Client:/equity/long_only/my PA document
+        - Client:/equity/long_short/my other PA document
+      title: documentsForJob
       type: object
     error:
       description: Full details of any error
@@ -718,6 +1067,50 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/idStatus_data'
+      type: object
+    jobDetailsResponse:
+      description: Provides the requested details for the specified job and if no
+        attributes are provided, full details will be given
+      example:
+        data:
+          documents:
+            my_task_1:
+            - Client:/equity/long_short/my PA document
+            my_task_2:
+            - Client:/equity/long_only/my PA document
+            - Client:/equity/long_short/my other PA document
+          accounts:
+            my_task_1:
+            - includeParent: true
+              isSplit: true
+              latestComponentsOnly: true
+              level: string
+              portfolioId: string
+          runs:
+          - endTime: 2019-08-24T14:15:22Z
+            id: "2365478"
+            isApiTriggered: true
+            prbStatus: success
+            runDuration: 6000
+            startTime: 2019-08-24T14:15:22Z
+            status: created
+            statusDescription: job has completed with success
+            submitTime: 2019-08-24T14:15:22Z
+          - endTime: 2019-08-24T14:15:22Z
+            id: "2365478"
+            isApiTriggered: true
+            prbStatus: success
+            runDuration: 6000
+            startTime: 2019-08-24T14:15:22Z
+            status: created
+            statusDescription: job has completed with success
+            submitTime: 2019-08-24T14:15:22Z
+          tasks:
+          - my_task_1
+      properties:
+        data:
+          $ref: '#/components/schemas/jobDetailsResponse_data'
+      title: jobDetailsResponse
       type: object
     jobOverrides:
       description: If this object is provided, the settings given here will override
@@ -794,6 +1187,53 @@ components:
       example: running
       title: prbStatus
       type: string
+    runsForJob:
+      description: Provides full details of when the job has been run
+      example:
+        endTime: 2019-08-24T14:15:22Z
+        id: "2365478"
+        isApiTriggered: true
+        prbStatus: success
+        runDuration: 6000
+        startTime: 2019-08-24T14:15:22Z
+        status: created
+        statusDescription: job has completed with success
+        submitTime: 2019-08-24T14:15:22Z
+      properties:
+        endTime:
+          description: The date and time the job was finished processing
+          format: date-time
+          type: string
+        id:
+          description: The ID of the run
+          type: string
+        isApiTriggered:
+          description: Indicates whether the job was triggered via the PRB API
+          type: boolean
+        prbStatus:
+          $ref: '#/components/schemas/prbStatus'
+        runDuration:
+          description: Number of seconds between startTime and endTime
+          type: number
+        startTime:
+          description: The date and time the job started running after being submitted
+            and potentially waiting in any queue
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/status'
+        statusDescription:
+          description: Further details on the job's status
+          example: job has completed with success
+          maxLength: 500
+          title: statusDescription
+          type: string
+        submitTime:
+          description: The date and time the job was submitted
+          format: date-time
+          type: string
+      title: runsForJob
+      type: object
     startJob:
       description: Details required to start a job
       example:
@@ -855,6 +1295,16 @@ components:
       maxLength: 500
       title: statusDescription
       type: string
+    tasksForJob:
+      description: A list of tasks for the given job
+      example:
+      - my_task_1
+      items:
+        example: my_task_1
+        type: string
+      maxItems: 200
+      title: tasksForJob
+      type: array
     idStatus_data:
       description: Details about the instance of the job run specified via id
       example:
@@ -885,6 +1335,93 @@ components:
           maxLength: 500
           title: statusDescription
           type: string
+      type: object
+    jobDetailsResponse_data:
+      description: The main object in the jobDetailsResponse schema
+      example:
+        documents:
+          my_task_1:
+          - Client:/equity/long_short/my PA document
+          my_task_2:
+          - Client:/equity/long_only/my PA document
+          - Client:/equity/long_short/my other PA document
+        accounts:
+          my_task_1:
+          - includeParent: true
+            isSplit: true
+            latestComponentsOnly: true
+            level: string
+            portfolioId: string
+        runs:
+        - endTime: 2019-08-24T14:15:22Z
+          id: "2365478"
+          isApiTriggered: true
+          prbStatus: success
+          runDuration: 6000
+          startTime: 2019-08-24T14:15:22Z
+          status: created
+          statusDescription: job has completed with success
+          submitTime: 2019-08-24T14:15:22Z
+        - endTime: 2019-08-24T14:15:22Z
+          id: "2365478"
+          isApiTriggered: true
+          prbStatus: success
+          runDuration: 6000
+          startTime: 2019-08-24T14:15:22Z
+          status: created
+          statusDescription: job has completed with success
+          submitTime: 2019-08-24T14:15:22Z
+        tasks:
+        - my_task_1
+      properties:
+        accounts:
+          additionalProperties:
+            description: An array of the details of the account/s under the task/s
+              in the object key/s
+            items:
+              $ref: '#/components/schemas/accountsForJobAddProp'
+            type: array
+          description: Please note for PI jobs you will only see portfolioId
+          example:
+            my_task_1:
+            - includeParent: true
+              isSplit: true
+              latestComponentsOnly: true
+              level: string
+              portfolioId: string
+          title: accountsForJob
+          type: object
+        documents:
+          additionalProperties:
+            description: The tasks under each document
+            items:
+              type: string
+            type: array
+          description: Shows the documents for each job where relevant with a collection
+            of tasks under each document
+          example:
+            my_task_1:
+            - Client:/equity/long_short/my PA document
+            my_task_2:
+            - Client:/equity/long_only/my PA document
+            - Client:/equity/long_short/my other PA document
+          title: documentsForJob
+          type: object
+        runs:
+          description: An array of information for each run
+          items:
+            $ref: '#/components/schemas/runsForJob'
+          type: array
+        tasks:
+          description: A list of tasks for the given job
+          example:
+          - my_task_1
+          items:
+            example: my_task_1
+            type: string
+          maxItems: 200
+          title: tasksForJob
+          type: array
       type: object
     jobOverrides_dates:
       description: Used only for jobs where type is ADF

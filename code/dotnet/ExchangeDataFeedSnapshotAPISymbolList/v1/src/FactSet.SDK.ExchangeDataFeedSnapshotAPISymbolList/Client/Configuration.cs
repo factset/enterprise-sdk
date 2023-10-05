@@ -1,7 +1,7 @@
 /*
  * Exchange DataFeed Snapshot
  *
- * FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 200 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>
+ * FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 300 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: api@factset.com
@@ -33,7 +33,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.7";
+        public const string Version = "0.21.8";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/ExchangeDataFeedSnapshotAPISymbolList/0.21.7";
+            UserAgent = "fds-sdk/dotnet/ExchangeDataFeedSnapshotAPISymbolList/0.21.8";
             BasePath = "https://api-sandbox.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.21.7\n";
+            report += "    SDK Package Version: 0.21.8\n";
 
             return report;
         }

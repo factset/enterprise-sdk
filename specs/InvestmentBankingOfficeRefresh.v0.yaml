@@ -17,6 +17,7 @@ externalDocs:
   url: https://developer.factset.com/api-catalog/
 servers:
   - url: https://api.factset.com/office-refresh/v0
+x-factset-sdk-has-main-example: true
 paths:
   /refresh:
     post:
@@ -24,6 +25,7 @@ paths:
       description: >-
         Upload a model (e.g., an Excel workbook in Open Office XML format) for
         FactSet to refresh.
+      x-factset-sdk-main-example: true
       tags:
         - ModelRefresh
       operationId: postWorkbook

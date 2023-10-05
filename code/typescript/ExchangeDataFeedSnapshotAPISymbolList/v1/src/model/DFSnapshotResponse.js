@@ -1,6 +1,6 @@
 /**
  * Exchange DataFeed Snapshot
- * FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 200 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>
+ * FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 300 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: api@factset.com
@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ErrorResponse from './ErrorResponse';
 import Fields from './Fields';
 
 /**
@@ -49,7 +50,7 @@ class DFSnapshotResponse {
             obj = obj || new DFSnapshotResponse();
 
             if (data.hasOwnProperty('Error')) {
-                obj['Error'] = ApiClient.convertToType(data['Error'], 'Number');
+                obj['Error'] = ApiClient.convertToType(data['Error'], [ErrorResponse]);
             }
             if (data.hasOwnProperty('symbol1')) {
                 obj['symbol1'] = ApiClient.convertToType(data['symbol1'], [Fields]);
@@ -69,7 +70,7 @@ class DFSnapshotResponse {
 
 /**
  * error value
- * @member {Number} Error
+ * @member {Array.<module:model/ErrorResponse>} Error
  */
 DFSnapshotResponse.prototype['Error'] = undefined;
 

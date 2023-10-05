@@ -1,7 +1,7 @@
 """
     Exchange DataFeed Snapshot
 
-    FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 200 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>  # noqa: E501
+    FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 300 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>  # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
     Contact: api@factset.com
@@ -31,7 +31,9 @@ from fds.sdk.ExchangeDataFeedSnapshotAPISymbolList.exceptions import ApiAttribut
 
 
 def lazy_import():
+    from fds.sdk.ExchangeDataFeedSnapshotAPISymbolList.model.error_response import ErrorResponse
     from fds.sdk.ExchangeDataFeedSnapshotAPISymbolList.model.fields import Fields
+    globals()['ErrorResponse'] = ErrorResponse
     globals()['Fields'] = Fields
 
 
@@ -88,7 +90,7 @@ class DFSnapshotResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'error': (int,),  # noqa: E501
+            'error': ([ErrorResponse],),  # noqa: E501
             'symbol1': ([Fields],),  # noqa: E501
             'host': (str,),  # noqa: E501
             'symbol2': (str,),  # noqa: E501
@@ -147,7 +149,7 @@ class DFSnapshotResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            error (int): error value. [optional]  # noqa: E501
+            error ([ErrorResponse]): error value. [optional]  # noqa: E501
             symbol1 ([Fields]): first symbol from `ids` or `chain`. [optional]  # noqa: E501
             host (str): host name. [optional]  # noqa: E501
             symbol2 (str): second symbol from `ids` or `chain` list. [optional]  # noqa: E501
@@ -232,7 +234,7 @@ class DFSnapshotResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            error (int): error value. [optional]  # noqa: E501
+            error ([ErrorResponse]): error value. [optional]  # noqa: E501
             symbol1 ([Fields]): first symbol from `ids` or `chain`. [optional]  # noqa: E501
             host (str): host name. [optional]  # noqa: E501
             symbol2 (str): second symbol from `ids` or `chain` list. [optional]  # noqa: E501

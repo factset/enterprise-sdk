@@ -6,6 +6,7 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/AccountsForJobAddProp.md
 docs/Calendar.md
 docs/ClientErrorResponse.md
 docs/Error.md
@@ -13,12 +14,16 @@ docs/ErrorSource.md
 docs/Frequency.md
 docs/IdStatus.md
 docs/IdStatusData.md
+docs/JobDetailsResponse.md
+docs/JobDetailsResponseData.md
 docs/JobOverrides.md
 docs/JobOverridesCombinationsRoot.md
 docs/JobOverridesDates.md
 docs/JobTypes.md
+docs/JobsApi.md
 docs/PrbStatus.md
 docs/RunsApi.md
+docs/RunsForJob.md
 docs/StartJob.md
 docs/StartJobRoot.md
 docs/StartJobRunResponse.md
@@ -44,6 +49,7 @@ src/main/java/com/factset/sdk/PortfolioReportingBatcher/RFC3339DateFormat.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/ServerConfiguration.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/ServerVariable.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/StringUtil.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/api/JobsApi.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/api/RunsApi.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/auth/Authentication.java
@@ -53,6 +59,7 @@ src/main/java/com/factset/sdk/PortfolioReportingBatcher/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/auth/OAuth.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/AccountsForJobAddProp.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/Calendar.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/ClientErrorResponse.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/Error.java
@@ -60,11 +67,14 @@ src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/ErrorSource.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/Frequency.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/IdStatus.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/IdStatusData.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobDetailsResponse.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobDetailsResponseData.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverrides.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverridesCombinationsRoot.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobOverridesDates.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/JobTypes.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/PrbStatus.java
+src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/RunsForJob.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/StartJob.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/StartJobRoot.java
 src/main/java/com/factset/sdk/PortfolioReportingBatcher/models/StartJobRunResponse.java
