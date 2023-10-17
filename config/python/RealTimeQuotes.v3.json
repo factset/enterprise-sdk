@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.RealTimeQuotes",
+  "projectName": "fds.sdk.RealTimeQuotes",
+  "packageVersion": "0.12.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Real-Time Quotes client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/RealTimeQuotes/v3",
+  "httpUserAgent": "fds-sdk/python/RealTimeQuotes/0.12.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

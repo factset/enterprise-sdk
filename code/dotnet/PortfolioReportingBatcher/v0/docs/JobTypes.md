@@ -1,5 +1,5 @@
 # FactSet.SDK.PortfolioReportingBatcher.Model.JobTypes
-PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, Portfolio Vault - Vault
+PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, Portfolio Vault - vault
 
 ## Properties
 

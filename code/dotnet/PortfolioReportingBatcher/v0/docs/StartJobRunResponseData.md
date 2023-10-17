@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The run ID for the job that has been triggered which is used in the /runs/{id}/status endpoint | 
 **JobName** | **string** | Name of the job | 
-**PrbStatus** | [**PrbStatus**](PrbStatus.md) |  | 
 **Status** | [**Status**](Status.md) |  | 
 **JobType** | [**JobTypes**](JobTypes.md) |  | 
 

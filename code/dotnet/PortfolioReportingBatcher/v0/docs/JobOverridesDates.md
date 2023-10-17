@@ -1,5 +1,5 @@
 # FactSet.SDK.PortfolioReportingBatcher.Model.JobOverridesDates
-Used only for jobs where type is ADF
+Used only for jobs where type is ADF. If using dates override, please provide both start date and end date.
 
 ## Properties
 

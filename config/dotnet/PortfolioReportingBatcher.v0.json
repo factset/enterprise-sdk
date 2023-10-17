@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.PortfolioReportingBatcher",
-  "packageVersion": "0.20.1",
+  "packageVersion": "0.21.0",
   "packageGuid": "{f4bc2dfd-80c2-5ba1-b71b-84040fa590e6}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/PortfolioReportingBatcher/v0",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/PortfolioReportingBatcher/0.20.1",
+  "httpUserAgent": "fds-sdk/dotnet/PortfolioReportingBatcher/0.21.0",
   "files": {
     "LICENSE": {}
   },

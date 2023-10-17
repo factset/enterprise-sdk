@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-realtimequotes",
+  "projectVersion": "0.12.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Real-Time Quotes client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "realtimequotes",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/RealTimeQuotes/0.12.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}
