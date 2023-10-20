@@ -5,7 +5,7 @@
     <artifactId>fixedincomecalculation</artifactId>
     <packaging>jar</packaging>
     <name>fixedincomecalculation</name>
-    <version>0.23.1</version>
+    <version>1.0.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Fixed Income Calculation client library for Java</description>
     <scm>
