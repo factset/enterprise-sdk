@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsettermsandconditions",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "FactSet Terms and Conditions client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

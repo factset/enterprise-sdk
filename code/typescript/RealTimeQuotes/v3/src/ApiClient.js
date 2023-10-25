@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/RealTimeQuotes/0.12.0'
+            'User-Agent': 'fds-sdk/javascript/RealTimeQuotes/0.12.1'
         };
 
         /**

@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-axiomafixedincomeoptimizer",
-  "version": "0.21.3",
+  "version": "0.21.4",
   "description": "Axioma Fixed Income Optimizer client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

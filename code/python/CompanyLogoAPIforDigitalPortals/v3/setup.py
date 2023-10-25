@@ -15,7 +15,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.CompanyLogoAPIforDigitalPortals"
-VERSION = "0.10.9"
+VERSION = "0.10.10"
 # To install the library, run the following
 #
 # python setup.py install

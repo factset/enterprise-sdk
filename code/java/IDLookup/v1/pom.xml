@@ -5,7 +5,7 @@
     <artifactId>idlookup</artifactId>
     <packaging>jar</packaging>
     <name>idlookup</name>
-    <version>0.21.6</version>
+    <version>0.21.7</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>ID Lookup client library for Java</description>
     <scm>

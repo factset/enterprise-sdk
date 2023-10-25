@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/FactSetEntity/1.1.1'
+            'User-Agent': 'fds-sdk/javascript/FactSetEntity/1.1.2'
         };
 
         /**

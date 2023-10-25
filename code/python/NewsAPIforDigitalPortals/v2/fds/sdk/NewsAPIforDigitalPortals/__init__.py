@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.10.9"
+__version__ = "0.10.10"
 
 # import ApiClient
 from fds.sdk.NewsAPIforDigitalPortals.api_client import ApiClient

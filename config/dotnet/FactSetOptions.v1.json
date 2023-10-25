@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetOptions",
-  "packageVersion": "1.0.7",
+  "packageVersion": "1.0.8",
   "packageGuid": "{e01c7bb2-a0ad-5d29-a626-97929ff00226}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetOptions/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetOptions/1.0.7",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetOptions/1.0.8",
   "files": {
     "LICENSE": {}
   },

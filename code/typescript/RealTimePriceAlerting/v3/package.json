@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-realtimepricealerting",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Real-Time Price Alerting client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

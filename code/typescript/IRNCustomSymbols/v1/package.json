@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-irncustomsymbols",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "IRN Custom Symbols client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

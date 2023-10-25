@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetGeoRev",
-  "packageVersion": "1.0.6",
+  "packageVersion": "1.0.7",
   "packageGuid": "{956b4719-1787-562f-954c-2a7ea6eebbec}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetGeoRev/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetGeoRev/1.0.6",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetGeoRev/1.0.7",
   "files": {
     "LICENSE": {}
   },

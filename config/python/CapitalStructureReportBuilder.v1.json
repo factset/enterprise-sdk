@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.CapitalStructureReportBuilder",
   "projectName": "fds.sdk.CapitalStructureReportBuilder",
-  "packageVersion": "1.0.6",
+  "packageVersion": "1.0.7",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Capital Structure Report Builder client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/CapitalStructureReportBuilder/v1",
-  "httpUserAgent": "fds-sdk/python/CapitalStructureReportBuilder/1.0.6",
+  "httpUserAgent": "fds-sdk/python/CapitalStructureReportBuilder/1.0.7",
   "files": {
     "LICENSE": {}
   }

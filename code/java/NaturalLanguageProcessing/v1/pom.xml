@@ -5,7 +5,7 @@
     <artifactId>naturallanguageprocessing</artifactId>
     <packaging>jar</packaging>
     <name>naturallanguageprocessing</name>
-    <version>0.23.0</version>
+    <version>0.23.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Natural Language Processing client library for Java</description>
     <scm>

@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-portfolioreportingbatcher",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "description": "Portfolio Reporting Batcher client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

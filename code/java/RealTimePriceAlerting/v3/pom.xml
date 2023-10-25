@@ -5,7 +5,7 @@
     <artifactId>realtimepricealerting</artifactId>
     <packaging>jar</packaging>
     <name>realtimepricealerting</name>
-    <version>0.11.0</version>
+    <version>0.11.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Real-Time Price Alerting client library for Java</description>
     <scm>

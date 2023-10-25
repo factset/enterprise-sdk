@@ -13,7 +13,7 @@
     <Description>Open:FactSet Partners - Documents client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.OpenFactSetPartnersDocuments</RootNamespace>
-    <Version>3.0.3</Version>
+    <Version>3.0.4</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.OpenFactSetPartnersDocuments.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

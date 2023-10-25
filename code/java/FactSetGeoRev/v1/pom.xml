@@ -5,7 +5,7 @@
     <artifactId>factsetgeorev</artifactId>
     <packaging>jar</packaging>
     <name>factsetgeorev</name>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet GeoRev client library for Java</description>
     <scm>

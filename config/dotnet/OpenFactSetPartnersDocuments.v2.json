@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.OpenFactSetPartnersDocuments",
-  "packageVersion": "3.0.3",
+  "packageVersion": "3.0.4",
   "packageGuid": "{2b46eaa2-e832-5f94-bab1-a296d5909c7c}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/OpenFactSetPartnersDocuments/v2",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/OpenFactSetPartnersDocuments/3.0.3",
+  "httpUserAgent": "fds-sdk/dotnet/OpenFactSetPartnersDocuments/3.0.4",
   "files": {
     "LICENSE": {}
   },

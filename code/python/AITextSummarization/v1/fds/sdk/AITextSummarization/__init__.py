@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.21.7"
+__version__ = "0.21.8"
 
 # import ApiClient
 from fds.sdk.AITextSummarization.api_client import ApiClient

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.IRNCustomSymbols",
-  "packageVersion": "2.0.6",
+  "packageVersion": "2.0.7",
   "packageGuid": "{acc15bdc-43fd-52a8-a624-a831de7f847e}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/IRNCustomSymbols/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/IRNCustomSymbols/2.0.6",
+  "httpUserAgent": "fds-sdk/dotnet/IRNCustomSymbols/2.0.7",
   "files": {
     "LICENSE": {}
   },

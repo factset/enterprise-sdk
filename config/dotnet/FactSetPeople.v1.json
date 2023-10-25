@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetPeople",
-  "packageVersion": "1.0.6",
+  "packageVersion": "1.0.7",
   "packageGuid": "{f4de5cef-02e3-58c8-9357-cebce37390de}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetPeople/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetPeople/1.0.6",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetPeople/1.0.7",
   "files": {
     "LICENSE": {}
   },

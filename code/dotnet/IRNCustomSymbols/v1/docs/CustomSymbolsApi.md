@@ -43,6 +43,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -133,6 +135,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -223,6 +227,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -313,6 +319,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -403,6 +411,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -501,6 +511,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -590,6 +602,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");

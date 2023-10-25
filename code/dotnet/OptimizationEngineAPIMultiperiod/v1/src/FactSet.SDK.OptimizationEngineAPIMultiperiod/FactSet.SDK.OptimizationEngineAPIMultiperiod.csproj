@@ -13,7 +13,7 @@
     <Description>Optimization Engine API (Multi-period) client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.OptimizationEngineAPIMultiperiod</RootNamespace>
-    <Version>0.21.7</Version>
+    <Version>0.21.8</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.OptimizationEngineAPIMultiperiod.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

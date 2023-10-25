@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.22.5"
+__version__ = "0.22.6"
 
 # import ApiClient
 from fds.sdk.ProcuretoPayAPISCIM.api_client import ApiClient

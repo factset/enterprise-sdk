@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/Signals/0.22.3'
+            'User-Agent': 'fds-sdk/javascript/Signals/0.22.4'
         };
 
         /**

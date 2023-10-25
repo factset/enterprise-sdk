@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/0.1.3'
+            'User-Agent': 'fds-sdk/javascript/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/0.1.4'
         };
 
         /**

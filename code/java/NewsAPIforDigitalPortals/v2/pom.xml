@@ -5,7 +5,7 @@
     <artifactId>newsapifordigitalportals</artifactId>
     <packaging>jar</packaging>
     <name>newsapifordigitalportals</name>
-    <version>0.10.8</version>
+    <version>0.10.9</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>News API for Digital Portals client library for Java</description>
     <scm>

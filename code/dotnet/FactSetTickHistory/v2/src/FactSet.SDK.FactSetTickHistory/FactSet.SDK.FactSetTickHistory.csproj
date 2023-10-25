@@ -13,7 +13,7 @@
     <Description>FactSet Tick History client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.FactSetTickHistory</RootNamespace>
-    <Version>0.30.2</Version>
+    <Version>0.30.3</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.FactSetTickHistory.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

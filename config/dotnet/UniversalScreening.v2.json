@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.UniversalScreening",
-  "packageVersion": "1.0.6",
+  "packageVersion": "1.0.7",
   "packageGuid": "{71f49d57-829c-5e1d-9354-8fd8c927a4c1}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/UniversalScreening/v2",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/UniversalScreening/1.0.6",
+  "httpUserAgent": "fds-sdk/dotnet/UniversalScreening/1.0.7",
   "files": {
     "LICENSE": {}
   },

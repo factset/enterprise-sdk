@@ -5,7 +5,7 @@
     <artifactId>factsetfundamentals</artifactId>
     <packaging>jar</packaging>
     <name>factsetfundamentals</name>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Fundamentals client library for Java</description>
     <scm>

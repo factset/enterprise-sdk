@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.ETFProfileandPrices",
   "projectName": "fds.sdk.ETFProfileandPrices",
-  "packageVersion": "0.10.8",
+  "packageVersion": "0.10.9",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "ETF Profile and Prices client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ETFProfileandPrices/v2",
-  "httpUserAgent": "fds-sdk/python/ETFProfileandPrices/0.10.8",
+  "httpUserAgent": "fds-sdk/python/ETFProfileandPrices/0.10.9",
   "files": {
     "LICENSE": {}
   }

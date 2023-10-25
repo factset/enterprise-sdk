@@ -33,7 +33,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.8.10";
+        public const string Version = "0.8.11";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/AxiomaEquityOptimizer/0.8.10";
+            UserAgent = "fds-sdk/dotnet/AxiomaEquityOptimizer/0.8.11";
             BasePath = "http://localhost";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1\n";
-            report += "    SDK Package Version: 0.8.10\n";
+            report += "    SDK Package Version: 0.8.11\n";
 
             return report;
         }

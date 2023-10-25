@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/DocumentsDistributorCallStreetEvents/0.21.9'
+            'User-Agent': 'fds-sdk/javascript/DocumentsDistributorCallStreetEvents/0.21.10'
         };
 
         /**

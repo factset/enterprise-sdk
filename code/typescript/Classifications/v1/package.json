@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-classifications",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Classifications client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

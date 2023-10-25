@@ -33,7 +33,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.13";
+        public const string Version = "0.21.14";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/DocumentsDistributorCallStreetEvents/0.21.13";
+            UserAgent = "fds-sdk/dotnet/DocumentsDistributorCallStreetEvents/0.21.14";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.8.3\n";
-            report += "    SDK Package Version: 0.21.13\n";
+            report += "    SDK Package Version: 0.21.14\n";
 
             return report;
         }

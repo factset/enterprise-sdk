@@ -13,7 +13,7 @@
     <Description>Real-Time Quotes client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.RealTimeQuotes</RootNamespace>
-    <Version>0.12.0</Version>
+    <Version>0.12.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.RealTimeQuotes.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

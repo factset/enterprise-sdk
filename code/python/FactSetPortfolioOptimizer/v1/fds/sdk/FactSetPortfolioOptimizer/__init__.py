@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.8.10"
+__version__ = "0.8.11"
 
 # import ApiClient
 from fds.sdk.FactSetPortfolioOptimizer.api_client import ApiClient

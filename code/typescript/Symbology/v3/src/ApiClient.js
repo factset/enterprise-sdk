@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/Symbology/2.3.3'
+            'User-Agent': 'fds-sdk/javascript/Symbology/2.3.4'
         };
 
         /**

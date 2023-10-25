@@ -32,7 +32,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.8";
+        public const string Version = "0.21.9";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,7 +104,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/DocumentsDistributorDocuments/0.21.8";
+            UserAgent = "fds-sdk/dotnet/DocumentsDistributorDocuments/0.21.9";
             BasePath = "https://api.factset.com/bulk-documents";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -460,7 +460,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.21.8\n";
+            report += "    SDK Package Version: 0.21.9\n";
 
             return report;
         }

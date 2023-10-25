@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.22.7"
+__version__ = "0.22.8"
 
 # import ApiClient
 from fds.sdk.FactSetTickHistory.api_client import ApiClient

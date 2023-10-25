@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "directstreamingoftransactionmessages",
-  "artifactVersion": "0.23.0",
+  "artifactVersion": "0.23.1",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Direct Streaming of Transaction Messages client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/DirectStreamingofTransactionMessages/0.23.0",
+  "httpUserAgent": "fds-sdk/java/DirectStreamingofTransactionMessages/0.23.1",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {
