@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "factsetconcordance",
-  "artifactVersion": "0.24.1",
+  "artifactVersion": "0.24.2",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "FactSet Concordance client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/FactSetConcordance/0.24.1",
+  "httpUserAgent": "fds-sdk/java/FactSetConcordance/0.24.2",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

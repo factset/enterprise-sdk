@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "stocksapifordigitalportals",
-  "artifactVersion": "0.10.11",
+  "artifactVersion": "0.10.12",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Stocks API for Digital Portals client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/StocksAPIforDigitalPortals/0.10.11",
+  "httpUserAgent": "fds-sdk/java/StocksAPIforDigitalPortals/0.10.12",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

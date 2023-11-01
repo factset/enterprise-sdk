@@ -122,7 +122,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/OpenFactSetPartnersDocuments/3.0.3");
+    setUserAgent("fds-sdk/java/OpenFactSetPartnersDocuments/3.0.4");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

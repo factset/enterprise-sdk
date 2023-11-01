@@ -5,7 +5,7 @@
     <artifactId>realtimequotes</artifactId>
     <packaging>jar</packaging>
     <name>realtimequotes</name>
-    <version>0.12.1</version>
+    <version>0.12.2</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Real-Time Quotes client library for Java</description>
     <scm>
@@ -349,7 +349,7 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <sdk-utils-version>1.0.1</sdk-utils-version>
+        <sdk-utils-version>1.1.0</sdk-utils-version>
         <swagger-annotations-version>1.6.3</swagger-annotations-version>
         <jersey-version>2.36</jersey-version>
         <jackson-version>2.15.0</jackson-version>

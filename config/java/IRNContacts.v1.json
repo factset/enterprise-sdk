@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "irncontacts",
-  "artifactVersion": "1.0.7",
+  "artifactVersion": "1.0.8",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "IRN Contacts client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/IRNContacts/1.0.7",
+  "httpUserAgent": "fds-sdk/java/IRNContacts/1.0.8",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {
