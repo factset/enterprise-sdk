@@ -34,8 +34,9 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * ErrorSource
+ * Error Source
  */
+@ApiModel(description = "Error Source")
 @JsonPropertyOrder({
   ErrorSource.JSON_PROPERTY_POINTER,
   ErrorSource.JSON_PROPERTY_PARAMETER

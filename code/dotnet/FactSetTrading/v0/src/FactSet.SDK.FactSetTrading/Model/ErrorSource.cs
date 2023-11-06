@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTrading.Client.OpenAPIDateConver
 namespace FactSet.SDK.FactSetTrading.Model
 {
     /// <summary>
-    /// ErrorSource
+    /// Error Source
     /// </summary>
     [DataContract(Name = "ErrorSource")]
     public partial class ErrorSource : IEquatable<ErrorSource>, IValidatableObject

@@ -21,8 +21,9 @@ import EMSOrder from './EMSOrder';
 class EMSOrders {
     /**
      * Constructs a new <code>EMSOrders</code>.
+     * EMS Orders
      * @alias module:model/EMSOrders
-     * @param orders {Array.<module:model/EMSOrder>} 
+     * @param orders {Array.<module:model/EMSOrder>} List of orders
      */
     constructor(orders) { 
         
@@ -69,6 +70,7 @@ class EMSOrders {
 EMSOrders.prototype['investorId'] = undefined;
 
 /**
+ * List of orders
  * @member {Array.<module:model/EMSOrder>} orders
  */
 EMSOrders.prototype['orders'] = undefined;

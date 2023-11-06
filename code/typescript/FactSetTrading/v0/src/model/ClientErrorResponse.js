@@ -21,6 +21,7 @@ import Error from './Error';
 class ClientErrorResponse {
     /**
      * Constructs a new <code>ClientErrorResponse</code>.
+     * Client Error Response
      * @alias module:model/ClientErrorResponse
      */
     constructor() { 

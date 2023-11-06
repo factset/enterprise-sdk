@@ -163,7 +163,7 @@ class EMSOrder(ModelNormal):
             'instrument': (Instrument,),  # noqa: E501
             'side': (str,),  # noqa: E501
             'order_type': (str,),  # noqa: E501
-            'order_id': (str, none_type,),  # noqa: E501
+            'client_order_id': (str, none_type,),  # noqa: E501
             'order_quantity': (float,),  # noqa: E501
             'price': (float, none_type,),  # noqa: E501
             'stop_price': (float, none_type,),  # noqa: E501
@@ -194,7 +194,7 @@ class EMSOrder(ModelNormal):
         'instrument': 'instrument',  # noqa: E501
         'side': 'side',  # noqa: E501
         'order_type': 'orderType',  # noqa: E501
-        'order_id': 'orderId',  # noqa: E501
+        'client_order_id': 'clientOrderId',  # noqa: E501
         'order_quantity': 'orderQuantity',  # noqa: E501
         'price': 'price',  # noqa: E501
         'stop_price': 'stopPrice',  # noqa: E501
@@ -228,7 +228,7 @@ class EMSOrder(ModelNormal):
 
         Args:
             instrument (Instrument):
-            side (str): Side
+            side (str): Side of the order.
             order_type (str): Type of the order
 
         Keyword Args:
@@ -262,25 +262,25 @@ class EMSOrder(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            order_id (str, none_type): Unique id for the order. [optional]  # noqa: E501
-            order_quantity (float): Order quantity. [optional]  # noqa: E501
-            price (float, none_type): Order Price. [optional]  # noqa: E501
-            stop_price (float, none_type): Stop Price. [optional]  # noqa: E501
-            strike_price (float, none_type): Strike Price. [optional]  # noqa: E501
-            currency (str, none_type): Currency. [optional]  # noqa: E501
-            is_covered (bool, none_type): Currency. [optional]  # noqa: E501
-            max_show (float, none_type): Max Show. [optional]  # noqa: E501
-            max_floor (float, none_type): Max Floor. [optional]  # noqa: E501
-            prev_close_price (float, none_type): Previous close price. [optional]  # noqa: E501
-            settlement_type (str, none_type): Settlement type. [optional]  # noqa: E501
-            settlement_date (str, none_type): Settlement date in YYYYMMDD format. [optional]  # noqa: E501
-            handling_instructions (str, none_type): Handling instructions. [optional]  # noqa: E501
-            execution_instructions (str, none_type): Execution instructions. [optional]  # noqa: E501
-            locate_required (bool, none_type): Locate Required. [optional]  # noqa: E501
+            client_order_id (str, none_type): Unique id for the order. [optional]  # noqa: E501
+            order_quantity (float): Number of shares/Quantity.. [optional]  # noqa: E501
+            price (float, none_type): Order price per share. [optional]  # noqa: E501
+            stop_price (float, none_type): Stop-loss price to buy/sell stock at market.. [optional]  # noqa: E501
+            strike_price (float, none_type): Strike Price for an Option.. [optional]  # noqa: E501
+            currency (str, none_type): Currency used for price in ISO format.. [optional]  # noqa: E501
+            is_covered (bool, none_type): Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order. [optional]  # noqa: E501
+            max_show (float, none_type): Maximum number of shares within an order to be shown to other customers.. [optional]  # noqa: E501
+            max_floor (float, none_type): Maximum number of shares within an order to be shown on the exchange floor at any given time.. [optional]  # noqa: E501
+            prev_close_price (float, none_type): Previous closing price of security.. [optional]  # noqa: E501
+            settlement_type (str, none_type): Order settlement period.. [optional]  # noqa: E501
+            settlement_date (str, none_type): Settlement date of trade settlement in YYYYMMDD format. [optional]  # noqa: E501
+            handling_instructions (str, none_type): Instructions for order handling on Broker trading floor.. [optional]  # noqa: E501
+            execution_instructions (str, none_type): Instructions for order handling on exchange trading floor.. [optional]  # noqa: E501
+            locate_required (bool, none_type): Indicates whether the broker is to locate the stock in conjunction with a short sell order.. [optional]  # noqa: E501
             effective_time (str, none_type): Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC. [optional]  # noqa: E501
-            account (str, none_type): Account. [optional]  # noqa: E501
+            account (str, none_type): Account for the basket, parent basket or position.. [optional]  # noqa: E501
             time_in_force (TimeInForce): [optional]  # noqa: E501
-            inbound_destination (str, none_type): Inbound Destination. [optional]  # noqa: E501
+            inbound_destination (str, none_type): To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.. [optional]  # noqa: E501
             user_defined_fields ({str: (str,)}, none_type): User defined fields. [optional]  # noqa: E501
         """
 
@@ -337,7 +337,7 @@ class EMSOrder(ModelNormal):
 
         Args:
             instrument (Instrument):
-            side (str): Side
+            side (str): Side of the order.
             order_type (str): Type of the order
 
         Keyword Args:
@@ -371,25 +371,25 @@ class EMSOrder(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            order_id (str, none_type): Unique id for the order. [optional]  # noqa: E501
-            order_quantity (float): Order quantity. [optional]  # noqa: E501
-            price (float, none_type): Order Price. [optional]  # noqa: E501
-            stop_price (float, none_type): Stop Price. [optional]  # noqa: E501
-            strike_price (float, none_type): Strike Price. [optional]  # noqa: E501
-            currency (str, none_type): Currency. [optional]  # noqa: E501
-            is_covered (bool, none_type): Currency. [optional]  # noqa: E501
-            max_show (float, none_type): Max Show. [optional]  # noqa: E501
-            max_floor (float, none_type): Max Floor. [optional]  # noqa: E501
-            prev_close_price (float, none_type): Previous close price. [optional]  # noqa: E501
-            settlement_type (str, none_type): Settlement type. [optional]  # noqa: E501
-            settlement_date (str, none_type): Settlement date in YYYYMMDD format. [optional]  # noqa: E501
-            handling_instructions (str, none_type): Handling instructions. [optional]  # noqa: E501
-            execution_instructions (str, none_type): Execution instructions. [optional]  # noqa: E501
-            locate_required (bool, none_type): Locate Required. [optional]  # noqa: E501
+            client_order_id (str, none_type): Unique id for the order. [optional]  # noqa: E501
+            order_quantity (float): Number of shares/Quantity.. [optional]  # noqa: E501
+            price (float, none_type): Order price per share. [optional]  # noqa: E501
+            stop_price (float, none_type): Stop-loss price to buy/sell stock at market.. [optional]  # noqa: E501
+            strike_price (float, none_type): Strike Price for an Option.. [optional]  # noqa: E501
+            currency (str, none_type): Currency used for price in ISO format.. [optional]  # noqa: E501
+            is_covered (bool, none_type): Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order. [optional]  # noqa: E501
+            max_show (float, none_type): Maximum number of shares within an order to be shown to other customers.. [optional]  # noqa: E501
+            max_floor (float, none_type): Maximum number of shares within an order to be shown on the exchange floor at any given time.. [optional]  # noqa: E501
+            prev_close_price (float, none_type): Previous closing price of security.. [optional]  # noqa: E501
+            settlement_type (str, none_type): Order settlement period.. [optional]  # noqa: E501
+            settlement_date (str, none_type): Settlement date of trade settlement in YYYYMMDD format. [optional]  # noqa: E501
+            handling_instructions (str, none_type): Instructions for order handling on Broker trading floor.. [optional]  # noqa: E501
+            execution_instructions (str, none_type): Instructions for order handling on exchange trading floor.. [optional]  # noqa: E501
+            locate_required (bool, none_type): Indicates whether the broker is to locate the stock in conjunction with a short sell order.. [optional]  # noqa: E501
             effective_time (str, none_type): Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC. [optional]  # noqa: E501
-            account (str, none_type): Account. [optional]  # noqa: E501
+            account (str, none_type): Account for the basket, parent basket or position.. [optional]  # noqa: E501
             time_in_force (TimeInForce): [optional]  # noqa: E501
-            inbound_destination (str, none_type): Inbound Destination. [optional]  # noqa: E501
+            inbound_destination (str, none_type): To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.. [optional]  # noqa: E501
             user_defined_fields ({str: (str,)}, none_type): User defined fields. [optional]  # noqa: E501
         """
 

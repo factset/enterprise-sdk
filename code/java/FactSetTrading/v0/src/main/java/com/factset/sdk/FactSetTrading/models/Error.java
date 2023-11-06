@@ -37,6 +37,7 @@ import com.factset.sdk.FactSetTrading.JSON;
 /**
  * Error
  */
+@ApiModel(description = "Error")
 @JsonPropertyOrder({
   Error.JSON_PROPERTY_ID,
   Error.JSON_PROPERTY_CODE,
@@ -106,11 +107,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get code
+   * Code
    * @return code
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Code")
   @JsonIgnore
 
   public String getCode() {
@@ -140,11 +141,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get title
+   * Title
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Title")
   @JsonIgnore
 
   public String getTitle() {

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="cancel"></a>
 # **Cancel**
-> EMSOrdersCreateResponseRoot Cancel (EMSCancelOrdersRoot eMSCancelOrdersRoot = null)
+> EMSOrdersResponseRoot Cancel (EMSCancelOrdersRoot eMSCancelOrdersRoot = null)
 
 Cancel the orders on EMS system.
 
@@ -61,7 +61,7 @@ namespace Example
             try
             {
                 // Cancel the orders on EMS system.
-                EMSOrdersCreateResponseRoot result = apiInstance.Cancel(eMSCancelOrdersRoot);
+                EMSOrdersResponseRoot result = apiInstance.Cancel(eMSCancelOrdersRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
  **eMSCancelOrdersRoot** | [**EMSCancelOrdersRoot**](EMSCancelOrdersRoot.md)|  | [optional] 
 
 ### Return type
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response, returns the list of order ids. |  -  |
 | **400** | Invalid post body parameters. |  -  |
 | **401** | Missing or invalid authentication. |  -  |
-| **403** | User is forbidden with current credentials |  -  |
+| **403** | User is forbidden with current credentials. |  -  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 | **429** | Rate limit reached. Wait before sending further requests. |  -  |
 | **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 <a name="create"></a>
 # **Create**
-> EMSOrdersCreateResponseRoot Create (EMSOrdersRoot eMSOrdersRoot = null)
+> EMSOrdersResponseRoot Create (EMSOrdersRoot eMSOrdersRoot = null)
 
 Send orders to EMS for execution.
 
@@ -160,7 +160,7 @@ namespace Example
             try
             {
                 // Send orders to EMS for execution.
-                EMSOrdersCreateResponseRoot result = apiInstance.Create(eMSOrdersRoot);
+                EMSOrdersResponseRoot result = apiInstance.Create(eMSOrdersRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
  **eMSOrdersRoot** | [**EMSOrdersRoot**](EMSOrdersRoot.md)|  | [optional] 
 
 ### Return type
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response, returns the list of orders. |  -  |
 | **400** | Invalid post body parameters. |  -  |
 | **401** | Missing or invalid authentication. |  -  |
-| **403** | User is forbidden with current credentials |  -  |
+| **403** | User is forbidden with current credentials. |  -  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 | **429** | Rate limit reached. Wait before sending further requests. |  -  |
 | **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 <a name="replace"></a>
 # **Replace**
-> EMSOrdersCreateResponseRoot Replace (EMSReplaceOrdersRoot eMSReplaceOrdersRoot = null)
+> EMSOrdersResponseRoot Replace (EMSReplaceOrdersRoot eMSReplaceOrdersRoot = null)
 
 Replace the orders on EMS system.
 
@@ -259,7 +259,7 @@ namespace Example
             try
             {
                 // Replace the orders on EMS system.
-                EMSOrdersCreateResponseRoot result = apiInstance.Replace(eMSReplaceOrdersRoot);
+                EMSOrdersResponseRoot result = apiInstance.Replace(eMSReplaceOrdersRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
  **eMSReplaceOrdersRoot** | [**EMSReplaceOrdersRoot**](EMSReplaceOrdersRoot.md)|  | [optional] 
 
 ### Return type
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response, returns the list of order ids. |  -  |
 | **400** | Invalid post body parameters. |  -  |
 | **401** | Missing or invalid authentication. |  -  |
-| **403** | User is forbidden with current credentials |  -  |
+| **403** | User is forbidden with current credentials. |  -  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 | **429** | Rate limit reached. Wait before sending further requests. |  -  |
 | **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |

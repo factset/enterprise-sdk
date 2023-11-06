@@ -27,15 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTrading.Client.OpenAPIDateConver
 namespace FactSet.SDK.FactSetTrading.Model
 {
     /// <summary>
-    /// EMSOrderMetadata
+    /// EMS Order Metadata
     /// </summary>
     [DataContract(Name = "EMSOrderMetadata")]
     public partial class EMSOrderMetadata : IEquatable<EMSOrderMetadata>, IValidatableObject
     {
         /// <summary>
-        /// Side
+        /// Side of the order.
         /// </summary>
-        /// <value>Side</value>
+        /// <value>Side of the order.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SideEnum
         {
@@ -67,15 +67,15 @@ namespace FactSet.SDK.FactSetTrading.Model
 
 
         /// <summary>
-        /// Side
+        /// Side of the order.
         /// </summary>
-        /// <value>Side</value>
+        /// <value>Side of the order.</value>
         [DataMember(Name = "side", EmitDefaultValue = true)]
         public SideEnum? Side { get; set; }
         /// <summary>
-        /// Order Type
+        /// Type of the order
         /// </summary>
-        /// <value>Order Type</value>
+        /// <value>Type of the order</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OrderTypeEnum
         {
@@ -119,23 +119,23 @@ namespace FactSet.SDK.FactSetTrading.Model
 
 
         /// <summary>
-        /// Order Type
+        /// Type of the order
         /// </summary>
-        /// <value>Order Type</value>
+        /// <value>Type of the order</value>
         [DataMember(Name = "orderType", EmitDefaultValue = true)]
         public OrderTypeEnum? OrderType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EMSOrderMetadata" /> class.
         /// </summary>
-        /// <param name="symbol">Symbol.</param>
-        /// <param name="side">Side.</param>
-        /// <param name="orderType">Order Type.</param>
-        /// <param name="orderQuantity">Order Quantity.</param>
+        /// <param name="symbol">Ticker symbol.</param>
+        /// <param name="side">Side of the order..</param>
+        /// <param name="orderType">Type of the order.</param>
+        /// <param name="orderQuantity">Number of shares/Quantity..</param>
         /// <param name="error">Error message.</param>
-        /// <param name="info">information.</param>
-        /// <param name="orderId">Order Id.</param>
+        /// <param name="info">Information.</param>
+        /// <param name="clientOrderId">Client Order Id.</param>
         /// <param name="warning">Warning.</param>
-        public EMSOrderMetadata(string symbol = default(string), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), double? orderQuantity = default(double?), string error = default(string), string info = default(string), string orderId = default(string), string warning = default(string))
+        public EMSOrderMetadata(string symbol = default(string), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), double? orderQuantity = default(double?), string error = default(string), string info = default(string), string clientOrderId = default(string), string warning = default(string))
         {
             this.Symbol = symbol;
             this.Side = side;
@@ -143,21 +143,21 @@ namespace FactSet.SDK.FactSetTrading.Model
             this.OrderQuantity = orderQuantity;
             this.Error = error;
             this.Info = info;
-            this.OrderId = orderId;
+            this.ClientOrderId = clientOrderId;
             this.Warning = warning;
         }
 
         /// <summary>
-        /// Symbol
+        /// Ticker symbol
         /// </summary>
-        /// <value>Symbol</value>
+        /// <value>Ticker symbol</value>
         [DataMember(Name = "symbol", EmitDefaultValue = true)]
         public string Symbol { get; set; }
 
         /// <summary>
-        /// Order Quantity
+        /// Number of shares/Quantity.
         /// </summary>
-        /// <value>Order Quantity</value>
+        /// <value>Number of shares/Quantity.</value>
         [DataMember(Name = "orderQuantity", EmitDefaultValue = true)]
         public double? OrderQuantity { get; set; }
 
@@ -169,18 +169,18 @@ namespace FactSet.SDK.FactSetTrading.Model
         public string Error { get; set; }
 
         /// <summary>
-        /// information
+        /// Information
         /// </summary>
-        /// <value>information</value>
+        /// <value>Information</value>
         [DataMember(Name = "info", EmitDefaultValue = true)]
         public string Info { get; set; }
 
         /// <summary>
-        /// Order Id
+        /// Client Order Id
         /// </summary>
-        /// <value>Order Id</value>
-        [DataMember(Name = "orderId", EmitDefaultValue = true)]
-        public string OrderId { get; set; }
+        /// <value>Client Order Id</value>
+        [DataMember(Name = "clientOrderId", EmitDefaultValue = true)]
+        public string ClientOrderId { get; set; }
 
         /// <summary>
         /// Warning
@@ -203,7 +203,7 @@ namespace FactSet.SDK.FactSetTrading.Model
             sb.Append("  OrderQuantity: ").Append(OrderQuantity).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Info: ").Append(Info).Append("\n");
-            sb.Append("  OrderId: ").Append(OrderId).Append("\n");
+            sb.Append("  ClientOrderId: ").Append(ClientOrderId).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -269,9 +269,9 @@ namespace FactSet.SDK.FactSetTrading.Model
                     this.Info.Equals(input.Info))
                 ) && 
                 (
-                    this.OrderId == input.OrderId ||
-                    (this.OrderId != null &&
-                    this.OrderId.Equals(input.OrderId))
+                    this.ClientOrderId == input.ClientOrderId ||
+                    (this.ClientOrderId != null &&
+                    this.ClientOrderId.Equals(input.ClientOrderId))
                 ) && 
                 (
                     this.Warning == input.Warning ||
@@ -307,9 +307,9 @@ namespace FactSet.SDK.FactSetTrading.Model
                 {
                     hashCode = (hashCode * 59) + this.Info.GetHashCode();
                 }
-                if (this.OrderId != null)
+                if (this.ClientOrderId != null)
                 {
-                    hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ClientOrderId.GetHashCode();
                 }
                 if (this.Warning != null)
                 {

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## cancel
 
-> EMSOrdersCreateResponseRoot cancel(emSCancelOrdersRoot)
+> EMSOrdersResponseRoot cancel(emSCancelOrdersRoot)
 
 Cancel the orders on EMS system.
 
@@ -56,7 +56,7 @@ public class Example {
         OrdersApi apiInstance = new OrdersApi(defaultClient);
         EMSCancelOrdersRoot emSCancelOrdersRoot = new EMSCancelOrdersRoot(); // EMSCancelOrdersRoot | 
         try {
-            EMSOrdersCreateResponseRoot result = apiInstance.cancel(emSCancelOrdersRoot);
+            EMSOrdersResponseRoot result = apiInstance.cancel(emSCancelOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response, returns the list of order ids. |  -  |
 | **400** | Invalid post body parameters. |  -  |
 | **401** | Missing or invalid authentication. |  -  |
-| **403** | User is forbidden with current credentials |  -  |
+| **403** | User is forbidden with current credentials. |  -  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 | **429** | Rate limit reached. Wait before sending further requests. |  -  |
 | **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ## create
 
-> EMSOrdersCreateResponseRoot create(emSOrdersRoot)
+> EMSOrdersResponseRoot create(emSOrdersRoot)
 
 Send orders to EMS for execution.
 
@@ -149,7 +149,7 @@ public class Example {
         OrdersApi apiInstance = new OrdersApi(defaultClient);
         EMSOrdersRoot emSOrdersRoot = new EMSOrdersRoot(); // EMSOrdersRoot | 
         try {
-            EMSOrdersCreateResponseRoot result = apiInstance.create(emSOrdersRoot);
+            EMSOrdersResponseRoot result = apiInstance.create(emSOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response, returns the list of orders. |  -  |
 | **400** | Invalid post body parameters. |  -  |
 | **401** | Missing or invalid authentication. |  -  |
-| **403** | User is forbidden with current credentials |  -  |
+| **403** | User is forbidden with current credentials. |  -  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 | **429** | Rate limit reached. Wait before sending further requests. |  -  |
 | **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ## replace
 
-> EMSOrdersCreateResponseRoot replace(emSReplaceOrdersRoot)
+> EMSOrdersResponseRoot replace(emSReplaceOrdersRoot)
 
 Replace the orders on EMS system.
 
@@ -242,7 +242,7 @@ public class Example {
         OrdersApi apiInstance = new OrdersApi(defaultClient);
         EMSReplaceOrdersRoot emSReplaceOrdersRoot = new EMSReplaceOrdersRoot(); // EMSReplaceOrdersRoot | 
         try {
-            EMSOrdersCreateResponseRoot result = apiInstance.replace(emSReplaceOrdersRoot);
+            EMSOrdersResponseRoot result = apiInstance.replace(emSReplaceOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response, returns the list of order ids. |  -  |
 | **400** | Invalid post body parameters. |  -  |
 | **401** | Missing or invalid authentication. |  -  |
-| **403** | User is forbidden with current credentials |  -  |
+| **403** | User is forbidden with current credentials. |  -  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 | **429** | Rate limit reached. Wait before sending further requests. |  -  |
 | **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |

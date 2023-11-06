@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTrading.Client.OpenAPIDateConver
 namespace FactSet.SDK.FactSetTrading.Model
 {
     /// <summary>
-    /// EMSReplaceOrders
+    /// EMS Replace Orders
     /// </summary>
     [DataContract(Name = "EMSReplaceOrders")]
     public partial class EMSReplaceOrders : IEquatable<EMSReplaceOrders>, IValidatableObject
@@ -36,7 +36,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// Initializes a new instance of the <see cref="EMSReplaceOrders" /> class.
         /// </summary>
         /// <param name="investorId">Investor Id.</param>
-        /// <param name="orders">orders.</param>
+        /// <param name="orders">List of orders to replace.</param>
         public EMSReplaceOrders(string investorId = default(string), List<EMSReplaceOrder> orders = default(List<EMSReplaceOrder>))
         {
             this.InvestorId = investorId;
@@ -51,8 +51,9 @@ namespace FactSet.SDK.FactSetTrading.Model
         public string InvestorId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Orders
+        /// List of orders to replace
         /// </summary>
+        /// <value>List of orders to replace</value>
         [DataMember(Name = "orders", EmitDefaultValue = true)]
         public List<EMSReplaceOrder> Orders { get; set; }
 

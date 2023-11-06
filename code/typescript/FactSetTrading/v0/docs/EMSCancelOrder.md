@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**originalOrderId** | **String** |  | 
-**inboundDestination** | **String** | Inbound destination | [optional] 
+**originalClientOrderId** | **String** | Unique identifier of the original order, generated in Create. | 
+**inboundDestination** | **String** | To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure. | [optional] 
 
 

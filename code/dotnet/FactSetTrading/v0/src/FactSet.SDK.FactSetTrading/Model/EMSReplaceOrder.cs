@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTrading.Client.OpenAPIDateConver
 namespace FactSet.SDK.FactSetTrading.Model
 {
     /// <summary>
-    /// EMSReplaceOrder
+    /// EMS Replace Order
     /// </summary>
     [DataContract(Name = "EMSReplaceOrder")]
     public partial class EMSReplaceOrder : IEquatable<EMSReplaceOrder>, IValidatableObject
@@ -40,15 +40,15 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EMSReplaceOrder" /> class.
         /// </summary>
-        /// <param name="originalOrderId">originalOrderId (required).</param>
+        /// <param name="originalClientOrderId">Unique identifier of the original order, generated in Create. (required).</param>
         /// <param name="order">order (required).</param>
-        public EMSReplaceOrder(string originalOrderId, EMSOrder order)
+        public EMSReplaceOrder(string originalClientOrderId, EMSOrder order)
         {
-            // to ensure "originalOrderId" is required (not null)
-            if (originalOrderId == null) {
-                throw new ArgumentNullException("originalOrderId is a required property for EMSReplaceOrder and cannot be null");
+            // to ensure "originalClientOrderId" is required (not null)
+            if (originalClientOrderId == null) {
+                throw new ArgumentNullException("originalClientOrderId is a required property for EMSReplaceOrder and cannot be null");
             }
-            this.OriginalOrderId = originalOrderId;
+            this.OriginalClientOrderId = originalClientOrderId;
             // to ensure "order" is required (not null)
             if (order == null) {
                 throw new ArgumentNullException("order is a required property for EMSReplaceOrder and cannot be null");
@@ -57,10 +57,11 @@ namespace FactSet.SDK.FactSetTrading.Model
         }
 
         /// <summary>
-        /// Gets or Sets OriginalOrderId
+        /// Unique identifier of the original order, generated in Create.
         /// </summary>
-        [DataMember(Name = "originalOrderId", IsRequired = true, EmitDefaultValue = false)]
-        public string OriginalOrderId { get; set; }
+        /// <value>Unique identifier of the original order, generated in Create.</value>
+        [DataMember(Name = "originalClientOrderId", IsRequired = true, EmitDefaultValue = false)]
+        public string OriginalClientOrderId { get; set; }
 
         /// <summary>
         /// Gets or Sets Order
@@ -76,7 +77,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class EMSReplaceOrder {\n");
-            sb.Append("  OriginalOrderId: ").Append(OriginalOrderId).Append("\n");
+            sb.Append("  OriginalClientOrderId: ").Append(OriginalClientOrderId).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -114,9 +115,9 @@ namespace FactSet.SDK.FactSetTrading.Model
             }
             return 
                 (
-                    this.OriginalOrderId == input.OriginalOrderId ||
-                    (this.OriginalOrderId != null &&
-                    this.OriginalOrderId.Equals(input.OriginalOrderId))
+                    this.OriginalClientOrderId == input.OriginalClientOrderId ||
+                    (this.OriginalClientOrderId != null &&
+                    this.OriginalClientOrderId.Equals(input.OriginalClientOrderId))
                 ) && 
                 (
                     this.Order == input.Order ||
@@ -134,9 +135,9 @@ namespace FactSet.SDK.FactSetTrading.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.OriginalOrderId != null)
+                if (this.OriginalClientOrderId != null)
                 {
-                    hashCode = (hashCode * 59) + this.OriginalOrderId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalClientOrderId.GetHashCode();
                 }
                 if (this.Order != null)
                 {

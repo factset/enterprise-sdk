@@ -20,8 +20,9 @@ import ApiClient from '../ApiClient';
 class Instrument {
     /**
      * Constructs a new <code>Instrument</code>.
+     * Instrument
      * @alias module:model/Instrument
-     * @param symbol {String} Symbol
+     * @param symbol {String} Ticker symbol
      */
     constructor(symbol) { 
         
@@ -72,6 +73,12 @@ class Instrument {
             if (data.hasOwnProperty('maturityDay')) {
                 obj['maturityDay'] = ApiClient.convertToType(data['maturityDay'], 'String');
             }
+            if (data.hasOwnProperty('putOrCall')) {
+                obj['putOrCall'] = ApiClient.convertToType(data['putOrCall'], 'String');
+            }
+            if (data.hasOwnProperty('underlyingSecurityType')) {
+                obj['underlyingSecurityType'] = ApiClient.convertToType(data['underlyingSecurityType'], 'String');
+            }
         }
         return obj;
     }
@@ -80,31 +87,31 @@ class Instrument {
 }
 
 /**
- * Symbol
+ * Ticker symbol
  * @member {String} symbol
  */
 Instrument.prototype['symbol'] = undefined;
 
 /**
- * Security Type
+ * Indicates type of security.
  * @member {String} securityType
  */
 Instrument.prototype['securityType'] = undefined;
 
 /**
- * Cfi Code
+ * Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.
  * @member {String} cfiCode
  */
 Instrument.prototype['cfiCode'] = undefined;
 
 /**
- * Security exchange
+ * Market used to help identify a security.
  * @member {String} securityExchange
  */
 Instrument.prototype['securityExchange'] = undefined;
 
 /**
- * Issuer
+ * Company name of security issuer.
  * @member {String} issuer
  */
 Instrument.prototype['issuer'] = undefined;
@@ -116,19 +123,52 @@ Instrument.prototype['issuer'] = undefined;
 Instrument.prototype['securityDescription'] = undefined;
 
 /**
- * Maturity month year
+ * Month and Year of the maturity.
  * @member {String} maturityMonthYear
  */
 Instrument.prototype['maturityMonthYear'] = undefined;
 
 /**
- * Maturity day
+ * Day of month used in conjunction with maturityMonthYear to specify the maturity date
  * @member {String} maturityDay
  */
 Instrument.prototype['maturityDay'] = undefined;
 
+/**
+ * Indicates whether an Option is for a put or call.
+ * @member {module:model/Instrument.PutOrCallEnum} putOrCall
+ */
+Instrument.prototype['putOrCall'] = undefined;
+
+/**
+ * Underlying security’s SecurityType.
+ * @member {String} underlyingSecurityType
+ */
+Instrument.prototype['underlyingSecurityType'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>putOrCall</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Instrument['PutOrCallEnum'] = {
+
+    /**
+     * value: "put"
+     * @const
+     */
+    "put": "put",
+
+    /**
+     * value: "call"
+     * @const
+     */
+    "call": "call"
+};
 
 
 

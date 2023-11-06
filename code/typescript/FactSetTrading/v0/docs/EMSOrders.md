@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **investorId** | **String** | Investor Id | [optional] 
-**orders** | [**[EMSOrder]**](EMSOrder.md) |  | 
+**orders** | [**[EMSOrder]**](EMSOrder.md) | List of orders | 
 
 

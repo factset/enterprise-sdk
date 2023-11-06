@@ -22,9 +22,10 @@ import TimeInForce from './TimeInForce';
 class EMSOrder {
     /**
      * Constructs a new <code>EMSOrder</code>.
+     * EMS Order
      * @alias module:model/EMSOrder
      * @param instrument {module:model/Instrument} 
-     * @param side {module:model/EMSOrder.SideEnum} Side
+     * @param side {module:model/EMSOrder.SideEnum} Side of the order.
      * @param orderType {module:model/EMSOrder.OrderTypeEnum} Type of the order
      */
     constructor(instrument, side, orderType) { 
@@ -54,8 +55,8 @@ class EMSOrder {
         if (data) {
             obj = obj || new EMSOrder();
 
-            if (data.hasOwnProperty('orderId')) {
-                obj['orderId'] = ApiClient.convertToType(data['orderId'], 'String');
+            if (data.hasOwnProperty('clientOrderId')) {
+                obj['clientOrderId'] = ApiClient.convertToType(data['clientOrderId'], 'String');
             }
             if (data.hasOwnProperty('instrument')) {
                 obj['instrument'] = Instrument.constructFromObject(data['instrument']);
@@ -132,9 +133,9 @@ class EMSOrder {
 
 /**
  * Unique id for the order
- * @member {String} orderId
+ * @member {String} clientOrderId
  */
-EMSOrder.prototype['orderId'] = undefined;
+EMSOrder.prototype['clientOrderId'] = undefined;
 
 /**
  * @member {module:model/Instrument} instrument
@@ -142,7 +143,7 @@ EMSOrder.prototype['orderId'] = undefined;
 EMSOrder.prototype['instrument'] = undefined;
 
 /**
- * Side
+ * Side of the order.
  * @member {module:model/EMSOrder.SideEnum} side
  */
 EMSOrder.prototype['side'] = undefined;
@@ -154,85 +155,85 @@ EMSOrder.prototype['side'] = undefined;
 EMSOrder.prototype['orderType'] = undefined;
 
 /**
- * Order quantity
+ * Number of shares/Quantity.
  * @member {Number} orderQuantity
  */
 EMSOrder.prototype['orderQuantity'] = undefined;
 
 /**
- * Order Price
+ * Order price per share
  * @member {Number} price
  */
 EMSOrder.prototype['price'] = undefined;
 
 /**
- * Stop Price
+ * Stop-loss price to buy/sell stock at market.
  * @member {Number} stopPrice
  */
 EMSOrder.prototype['stopPrice'] = undefined;
 
 /**
- * Strike Price
+ * Strike Price for an Option.
  * @member {Number} strikePrice
  */
 EMSOrder.prototype['strikePrice'] = undefined;
 
 /**
- * Currency
+ * Currency used for price in ISO format.
  * @member {String} currency
  */
 EMSOrder.prototype['currency'] = undefined;
 
 /**
- * Currency
+ * Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order
  * @member {Boolean} isCovered
  */
 EMSOrder.prototype['isCovered'] = undefined;
 
 /**
- * Max Show
+ * Maximum number of shares within an order to be shown to other customers.
  * @member {Number} maxShow
  */
 EMSOrder.prototype['maxShow'] = undefined;
 
 /**
- * Max Floor
+ * Maximum number of shares within an order to be shown on the exchange floor at any given time.
  * @member {Number} maxFloor
  */
 EMSOrder.prototype['maxFloor'] = undefined;
 
 /**
- * Previous close price
+ * Previous closing price of security.
  * @member {Number} prevClosePrice
  */
 EMSOrder.prototype['prevClosePrice'] = undefined;
 
 /**
- * Settlement type
+ * Order settlement period.
  * @member {String} settlementType
  */
 EMSOrder.prototype['settlementType'] = undefined;
 
 /**
- * Settlement date in YYYYMMDD format
+ * Settlement date of trade settlement in YYYYMMDD format
  * @member {String} settlementDate
  */
 EMSOrder.prototype['settlementDate'] = undefined;
 
 /**
- * Handling instructions
+ * Instructions for order handling on Broker trading floor.
  * @member {module:model/EMSOrder.HandlingInstructionsEnum} handlingInstructions
  */
 EMSOrder.prototype['handlingInstructions'] = undefined;
 
 /**
- * Execution instructions
+ * Instructions for order handling on exchange trading floor.
  * @member {module:model/EMSOrder.ExecutionInstructionsEnum} executionInstructions
  */
 EMSOrder.prototype['executionInstructions'] = undefined;
 
 /**
- * Locate Required
+ * Indicates whether the broker is to locate the stock in conjunction with a short sell order.
  * @member {Boolean} locateRequired
  */
 EMSOrder.prototype['locateRequired'] = undefined;
@@ -244,7 +245,7 @@ EMSOrder.prototype['locateRequired'] = undefined;
 EMSOrder.prototype['effectiveTime'] = undefined;
 
 /**
- * Account
+ * Account for the basket, parent basket or position.
  * @member {String} account
  */
 EMSOrder.prototype['account'] = undefined;
@@ -255,7 +256,7 @@ EMSOrder.prototype['account'] = undefined;
 EMSOrder.prototype['timeInForce'] = undefined;
 
 /**
- * Inbound Destination
+ * To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.
  * @member {String} inboundDestination
  */
 EMSOrder.prototype['inboundDestination'] = undefined;

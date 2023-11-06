@@ -2,33 +2,34 @@
 
 # EMSOrder
 
+EMS Order
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderId** | **String** | Unique id for the order |  [optional]
+**clientOrderId** | **String** | Unique id for the order |  [optional]
 **instrument** | [**Instrument**](Instrument.md) |  | 
-**side** | [**SideEnum**](#SideEnum) | Side | 
+**side** | [**SideEnum**](#SideEnum) | Side of the order. | 
 **orderType** | [**OrderTypeEnum**](#OrderTypeEnum) | Type of the order | 
-**orderQuantity** | **Double** | Order quantity |  [optional]
-**price** | **Double** | Order Price |  [optional]
-**stopPrice** | **Double** | Stop Price |  [optional]
-**strikePrice** | **Double** | Strike Price |  [optional]
-**currency** | **String** | Currency |  [optional]
-**isCovered** | **Boolean** | Currency |  [optional]
-**maxShow** | **Double** | Max Show |  [optional]
-**maxFloor** | **Double** | Max Floor |  [optional]
-**prevClosePrice** | **Double** | Previous close price |  [optional]
-**settlementType** | **String** | Settlement type |  [optional]
-**settlementDate** | **String** | Settlement date in YYYYMMDD format |  [optional]
-**handlingInstructions** | [**HandlingInstructionsEnum**](#HandlingInstructionsEnum) | Handling instructions |  [optional]
-**executionInstructions** | [**ExecutionInstructionsEnum**](#ExecutionInstructionsEnum) | Execution instructions |  [optional]
-**locateRequired** | **Boolean** | Locate Required |  [optional]
+**orderQuantity** | **Double** | Number of shares/Quantity. |  [optional]
+**price** | **Double** | Order price per share |  [optional]
+**stopPrice** | **Double** | Stop-loss price to buy/sell stock at market. |  [optional]
+**strikePrice** | **Double** | Strike Price for an Option. |  [optional]
+**currency** | **String** | Currency used for price in ISO format. |  [optional]
+**isCovered** | **Boolean** | Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order |  [optional]
+**maxShow** | **Double** | Maximum number of shares within an order to be shown to other customers. |  [optional]
+**maxFloor** | **Double** | Maximum number of shares within an order to be shown on the exchange floor at any given time. |  [optional]
+**prevClosePrice** | **Double** | Previous closing price of security. |  [optional]
+**settlementType** | **String** | Order settlement period. |  [optional]
+**settlementDate** | **String** | Settlement date of trade settlement in YYYYMMDD format |  [optional]
+**handlingInstructions** | [**HandlingInstructionsEnum**](#HandlingInstructionsEnum) | Instructions for order handling on Broker trading floor. |  [optional]
+**executionInstructions** | [**ExecutionInstructionsEnum**](#ExecutionInstructionsEnum) | Instructions for order handling on exchange trading floor. |  [optional]
+**locateRequired** | **Boolean** | Indicates whether the broker is to locate the stock in conjunction with a short sell order. |  [optional]
 **effectiveTime** | **String** | Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC |  [optional]
-**account** | **String** | Account |  [optional]
+**account** | **String** | Account for the basket, parent basket or position. |  [optional]
 **timeInForce** | [**TimeInForce**](TimeInForce.md) |  |  [optional]
-**inboundDestination** | **String** | Inbound Destination |  [optional]
+**inboundDestination** | **String** | To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure. |  [optional]
 **userDefinedFields** | **Map&lt;String, String&gt;** | User defined fields |  [optional]
 
 

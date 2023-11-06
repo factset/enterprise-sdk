@@ -34,8 +34,9 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * EMSOrderMetadata
+ * EMS Order Metadata
  */
+@ApiModel(description = "EMS Order Metadata")
 @JsonPropertyOrder({
   EMSOrderMetadata.JSON_PROPERTY_SYMBOL,
   EMSOrderMetadata.JSON_PROPERTY_SIDE,
@@ -43,7 +44,7 @@ import com.factset.sdk.FactSetTrading.JSON;
   EMSOrderMetadata.JSON_PROPERTY_ORDER_QUANTITY,
   EMSOrderMetadata.JSON_PROPERTY_ERROR,
   EMSOrderMetadata.JSON_PROPERTY_INFO,
-  EMSOrderMetadata.JSON_PROPERTY_ORDER_ID,
+  EMSOrderMetadata.JSON_PROPERTY_CLIENT_ORDER_ID,
   EMSOrderMetadata.JSON_PROPERTY_WARNING
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -54,7 +55,7 @@ public class EMSOrderMetadata implements Serializable {
   private JsonNullable<String> symbol = JsonNullable.<String>undefined();
 
   /**
-   * Side
+   * Side of the order.
    */
   public enum SideEnum {
     BUY("buy"),
@@ -96,7 +97,7 @@ public class EMSOrderMetadata implements Serializable {
   private JsonNullable<SideEnum> side = JsonNullable.<SideEnum>undefined();
 
   /**
-   * Order Type
+   * Type of the order
    */
   public enum OrderTypeEnum {
     MARKET("market"),
@@ -150,8 +151,8 @@ public class EMSOrderMetadata implements Serializable {
   public static final String JSON_PROPERTY_INFO = "info";
   private JsonNullable<String> info = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ORDER_ID = "orderId";
-  private JsonNullable<String> orderId = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_CLIENT_ORDER_ID = "clientOrderId";
+  private JsonNullable<String> clientOrderId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_WARNING = "warning";
   private JsonNullable<String> warning = JsonNullable.<String>undefined();
@@ -165,11 +166,11 @@ public class EMSOrderMetadata implements Serializable {
   }
 
    /**
-   * Symbol
+   * Ticker symbol
    * @return symbol
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Symbol")
+  @ApiModelProperty(value = "Ticker symbol")
   @JsonIgnore
 
   public String getSymbol() {
@@ -199,11 +200,11 @@ public class EMSOrderMetadata implements Serializable {
   }
 
    /**
-   * Side
+   * Side of the order.
    * @return side
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Side")
+  @ApiModelProperty(value = "Side of the order.")
   @JsonIgnore
 
   public SideEnum getSide() {
@@ -233,11 +234,11 @@ public class EMSOrderMetadata implements Serializable {
   }
 
    /**
-   * Order Type
+   * Type of the order
    * @return orderType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Order Type")
+  @ApiModelProperty(value = "Type of the order")
   @JsonIgnore
 
   public OrderTypeEnum getOrderType() {
@@ -267,11 +268,11 @@ public class EMSOrderMetadata implements Serializable {
   }
 
    /**
-   * Order Quantity
+   * Number of shares/Quantity.
    * @return orderQuantity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Order Quantity")
+  @ApiModelProperty(value = "Number of shares/Quantity.")
   @JsonIgnore
 
   public Double getOrderQuantity() {
@@ -335,11 +336,11 @@ public class EMSOrderMetadata implements Serializable {
   }
 
    /**
-   * information
+   * Information
    * @return info
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "information")
+  @ApiModelProperty(value = "Information")
   @JsonIgnore
 
   public String getInfo() {
@@ -363,37 +364,37 @@ public class EMSOrderMetadata implements Serializable {
   }
 
 
-  public EMSOrderMetadata orderId(String orderId) {
-    this.orderId = JsonNullable.<String>of(orderId);
+  public EMSOrderMetadata clientOrderId(String clientOrderId) {
+    this.clientOrderId = JsonNullable.<String>of(clientOrderId);
     return this;
   }
 
    /**
-   * Order Id
-   * @return orderId
+   * Client Order Id
+   * @return clientOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Order Id")
+  @ApiModelProperty(value = "Client Order Id")
   @JsonIgnore
 
-  public String getOrderId() {
-        return orderId.orElse(null);
+  public String getClientOrderId() {
+        return clientOrderId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ORDER_ID)
+  @JsonProperty(JSON_PROPERTY_CLIENT_ORDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getOrderId_JsonNullable() {
-    return orderId;
+  public JsonNullable<String> getClientOrderId_JsonNullable() {
+    return clientOrderId;
   }
   
-  @JsonProperty(JSON_PROPERTY_ORDER_ID)
-  public void setOrderId_JsonNullable(JsonNullable<String> orderId) {
-    this.orderId = orderId;
+  @JsonProperty(JSON_PROPERTY_CLIENT_ORDER_ID)
+  public void setClientOrderId_JsonNullable(JsonNullable<String> clientOrderId) {
+    this.clientOrderId = clientOrderId;
   }
 
-  public void setOrderId(String orderId) {
-    this.orderId = JsonNullable.<String>of(orderId);
+  public void setClientOrderId(String clientOrderId) {
+    this.clientOrderId = JsonNullable.<String>of(clientOrderId);
   }
 
 
@@ -449,7 +450,7 @@ public class EMSOrderMetadata implements Serializable {
         equalsNullable(this.orderQuantity, emSOrderMetadata.orderQuantity) &&
         equalsNullable(this.error, emSOrderMetadata.error) &&
         equalsNullable(this.info, emSOrderMetadata.info) &&
-        equalsNullable(this.orderId, emSOrderMetadata.orderId) &&
+        equalsNullable(this.clientOrderId, emSOrderMetadata.clientOrderId) &&
         equalsNullable(this.warning, emSOrderMetadata.warning);
   }
 
@@ -459,7 +460,7 @@ public class EMSOrderMetadata implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(symbol), hashCodeNullable(side), hashCodeNullable(orderType), hashCodeNullable(orderQuantity), hashCodeNullable(error), hashCodeNullable(info), hashCodeNullable(orderId), hashCodeNullable(warning));
+    return Objects.hash(hashCodeNullable(symbol), hashCodeNullable(side), hashCodeNullable(orderType), hashCodeNullable(orderQuantity), hashCodeNullable(error), hashCodeNullable(info), hashCodeNullable(clientOrderId), hashCodeNullable(warning));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -479,7 +480,7 @@ public class EMSOrderMetadata implements Serializable {
     sb.append("    orderQuantity: ").append(toIndentedString(orderQuantity)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    info: ").append(toIndentedString(info)).append("\n");
-    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    clientOrderId: ").append(toIndentedString(clientOrderId)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -11,8 +11,8 @@ docs/EMSCancelOrdersRoot.md
 docs/EMSOrder.md
 docs/EMSOrderMetadata.md
 docs/EMSOrders.md
-docs/EMSOrdersCreateResponse.md
-docs/EMSOrdersCreateResponseRoot.md
+docs/EMSOrdersResponse.md
+docs/EMSOrdersResponseRoot.md
 docs/EMSOrdersRoot.md
 docs/EMSReplaceOrder.md
 docs/EMSReplaceOrders.md
@@ -35,8 +35,8 @@ src/model/EMSCancelOrdersRoot.js
 src/model/EMSOrder.js
 src/model/EMSOrderMetadata.js
 src/model/EMSOrders.js
-src/model/EMSOrdersCreateResponse.js
-src/model/EMSOrdersCreateResponseRoot.js
+src/model/EMSOrdersResponse.js
+src/model/EMSOrdersResponseRoot.js
 src/model/EMSOrdersRoot.js
 src/model/EMSReplaceOrder.js
 src/model/EMSReplaceOrders.js

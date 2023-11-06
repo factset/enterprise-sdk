@@ -34,18 +34,19 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * EMSCancelOrder
+ * EMS Cancel Order
  */
+@ApiModel(description = "EMS Cancel Order")
 @JsonPropertyOrder({
-  EMSCancelOrder.JSON_PROPERTY_ORIGINAL_ORDER_ID,
+  EMSCancelOrder.JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID,
   EMSCancelOrder.JSON_PROPERTY_INBOUND_DESTINATION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EMSCancelOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ORIGINAL_ORDER_ID = "originalOrderId";
-  private String originalOrderId;
+  public static final String JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID = "originalClientOrderId";
+  private String originalClientOrderId;
 
   public static final String JSON_PROPERTY_INBOUND_DESTINATION = "inboundDestination";
   private JsonNullable<String> inboundDestination = JsonNullable.<String>undefined();
@@ -55,35 +56,35 @@ public class EMSCancelOrder implements Serializable {
 
   @JsonCreator
   public EMSCancelOrder(
-    @JsonProperty(value=JSON_PROPERTY_ORIGINAL_ORDER_ID, required=true) String originalOrderId
+    @JsonProperty(value=JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID, required=true) String originalClientOrderId
   ) {
     this();
-    this.originalOrderId = originalOrderId;
+    this.originalClientOrderId = originalClientOrderId;
   }
 
-  public EMSCancelOrder originalOrderId(String originalOrderId) {
-    this.originalOrderId = originalOrderId;
+  public EMSCancelOrder originalClientOrderId(String originalClientOrderId) {
+    this.originalClientOrderId = originalClientOrderId;
     return this;
   }
 
    /**
-   * Get originalOrderId
-   * @return originalOrderId
+   * Unique identifier of the original order, generated in Create.
+   * @return originalClientOrderId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_ORDER_ID)
+  @ApiModelProperty(required = true, value = "Unique identifier of the original order, generated in Create.")
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getOriginalOrderId() {
-    return originalOrderId;
+  public String getOriginalClientOrderId() {
+    return originalClientOrderId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_ORDER_ID)
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOriginalOrderId(String originalOrderId) {
-    this.originalOrderId = originalOrderId;
+  public void setOriginalClientOrderId(String originalClientOrderId) {
+    this.originalClientOrderId = originalClientOrderId;
   }
 
 
@@ -93,11 +94,11 @@ public class EMSCancelOrder implements Serializable {
   }
 
    /**
-   * Inbound destination
+   * To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.
    * @return inboundDestination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Inbound destination")
+  @ApiModelProperty(value = "To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.")
   @JsonIgnore
 
   public String getInboundDestination() {
@@ -133,7 +134,7 @@ public class EMSCancelOrder implements Serializable {
       return false;
     }
     EMSCancelOrder emSCancelOrder = (EMSCancelOrder) o;
-    return Objects.equals(this.originalOrderId, emSCancelOrder.originalOrderId) &&
+    return Objects.equals(this.originalClientOrderId, emSCancelOrder.originalClientOrderId) &&
         equalsNullable(this.inboundDestination, emSCancelOrder.inboundDestination);
   }
 
@@ -143,7 +144,7 @@ public class EMSCancelOrder implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(originalOrderId, hashCodeNullable(inboundDestination));
+    return Objects.hash(originalClientOrderId, hashCodeNullable(inboundDestination));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -157,7 +158,7 @@ public class EMSCancelOrder implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EMSCancelOrder {\n");
-    sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");
+    sb.append("    originalClientOrderId: ").append(toIndentedString(originalClientOrderId)).append("\n");
     sb.append("    inboundDestination: ").append(toIndentedString(inboundDestination)).append("\n");
     sb.append("}");
     return sb.toString();

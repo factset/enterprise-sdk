@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetTrading",
-  "packageVersion": "0.23.3",
+  "packageVersion": "0.23.4",
   "packageGuid": "{bda92720-460a-5e1b-8abf-aaf43bb055ab}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetTrading/v0",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetTrading/0.23.3",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetTrading/0.23.4",
   "files": {
     "LICENSE": {}
   },

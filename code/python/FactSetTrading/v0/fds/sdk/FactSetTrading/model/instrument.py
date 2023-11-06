@@ -56,6 +56,11 @@ class Instrument(ModelNormal):
     """
 
     allowed_values = {
+        ('put_or_call',): {
+            'None': None,
+            'PUT': "put",
+            'CALL': "call",
+        },
     }
 
     validations = {
@@ -90,6 +95,8 @@ class Instrument(ModelNormal):
             'security_description': (str, none_type,),  # noqa: E501
             'maturity_month_year': (str, none_type,),  # noqa: E501
             'maturity_day': (str, none_type,),  # noqa: E501
+            'put_or_call': (str, none_type,),  # noqa: E501
+            'underlying_security_type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +113,8 @@ class Instrument(ModelNormal):
         'security_description': 'securityDescription',  # noqa: E501
         'maturity_month_year': 'maturityMonthYear',  # noqa: E501
         'maturity_day': 'maturityDay',  # noqa: E501
+        'put_or_call': 'putOrCall',  # noqa: E501
+        'underlying_security_type': 'underlyingSecurityType',  # noqa: E501
     }
 
     read_only_vars = {
@@ -119,7 +128,7 @@ class Instrument(ModelNormal):
         """Instrument - a model defined in OpenAPI
 
         Args:
-            symbol (str): Symbol
+            symbol (str): Ticker symbol
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -152,13 +161,15 @@ class Instrument(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            security_type (str, none_type): Security Type. [optional]  # noqa: E501
-            cfi_code (str, none_type): Cfi Code. [optional]  # noqa: E501
-            security_exchange (str, none_type): Security exchange. [optional]  # noqa: E501
-            issuer (str, none_type): Issuer. [optional]  # noqa: E501
+            security_type (str, none_type): Indicates type of security.. [optional]  # noqa: E501
+            cfi_code (str, none_type): Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.. [optional]  # noqa: E501
+            security_exchange (str, none_type): Market used to help identify a security.. [optional]  # noqa: E501
+            issuer (str, none_type): Company name of security issuer.. [optional]  # noqa: E501
             security_description (str, none_type): Security Description. [optional]  # noqa: E501
-            maturity_month_year (str, none_type): Maturity month year. [optional]  # noqa: E501
-            maturity_day (str, none_type): Maturity day. [optional]  # noqa: E501
+            maturity_month_year (str, none_type): Month and Year of the maturity.. [optional]  # noqa: E501
+            maturity_day (str, none_type): Day of month used in conjunction with maturityMonthYear to specify the maturity date. [optional]  # noqa: E501
+            put_or_call (str, none_type): Indicates whether an Option is for a put or call.. [optional]  # noqa: E501
+            underlying_security_type (str, none_type): Underlying security’s SecurityType.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -211,7 +222,7 @@ class Instrument(ModelNormal):
         """Instrument - a model defined in OpenAPI
 
         Args:
-            symbol (str): Symbol
+            symbol (str): Ticker symbol
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -244,13 +255,15 @@ class Instrument(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            security_type (str, none_type): Security Type. [optional]  # noqa: E501
-            cfi_code (str, none_type): Cfi Code. [optional]  # noqa: E501
-            security_exchange (str, none_type): Security exchange. [optional]  # noqa: E501
-            issuer (str, none_type): Issuer. [optional]  # noqa: E501
+            security_type (str, none_type): Indicates type of security.. [optional]  # noqa: E501
+            cfi_code (str, none_type): Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.. [optional]  # noqa: E501
+            security_exchange (str, none_type): Market used to help identify a security.. [optional]  # noqa: E501
+            issuer (str, none_type): Company name of security issuer.. [optional]  # noqa: E501
             security_description (str, none_type): Security Description. [optional]  # noqa: E501
-            maturity_month_year (str, none_type): Maturity month year. [optional]  # noqa: E501
-            maturity_day (str, none_type): Maturity day. [optional]  # noqa: E501
+            maturity_month_year (str, none_type): Month and Year of the maturity.. [optional]  # noqa: E501
+            maturity_day (str, none_type): Day of month used in conjunction with maturityMonthYear to specify the maturity date. [optional]  # noqa: E501
+            put_or_call (str, none_type): Indicates whether an Option is for a put or call.. [optional]  # noqa: E501
+            underlying_security_type (str, none_type): Underlying security’s SecurityType.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

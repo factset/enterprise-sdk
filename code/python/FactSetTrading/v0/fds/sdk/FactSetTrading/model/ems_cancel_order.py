@@ -82,7 +82,7 @@ class EMSCancelOrder(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'original_order_id': (str,),  # noqa: E501
+            'original_client_order_id': (str,),  # noqa: E501
             'inbound_destination': (str, none_type,),  # noqa: E501
         }
 
@@ -92,7 +92,7 @@ class EMSCancelOrder(ModelNormal):
 
 
     attribute_map = {
-        'original_order_id': 'originalOrderId',  # noqa: E501
+        'original_client_order_id': 'originalClientOrderId',  # noqa: E501
         'inbound_destination': 'inboundDestination',  # noqa: E501
     }
 
@@ -103,11 +103,11 @@ class EMSCancelOrder(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, original_order_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, original_client_order_id, *args, **kwargs):  # noqa: E501
         """EMSCancelOrder - a model defined in OpenAPI
 
         Args:
-            original_order_id (str):
+            original_client_order_id (str): Unique identifier of the original order, generated in Create.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,7 +140,7 @@ class EMSCancelOrder(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            inbound_destination (str, none_type): Inbound destination. [optional]  # noqa: E501
+            inbound_destination (str, none_type): To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,7 +168,7 @@ class EMSCancelOrder(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.original_order_id = original_order_id
+        self.original_client_order_id = original_client_order_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,11 +189,11 @@ class EMSCancelOrder(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, original_order_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, original_client_order_id, *args, **kwargs):  # noqa: E501
         """EMSCancelOrder - a model defined in OpenAPI
 
         Args:
-            original_order_id (str):
+            original_client_order_id (str): Unique identifier of the original order, generated in Create.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,7 +226,7 @@ class EMSCancelOrder(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            inbound_destination (str, none_type): Inbound destination. [optional]  # noqa: E501
+            inbound_destination (str, none_type): To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,7 +252,7 @@ class EMSCancelOrder(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.original_order_id = original_order_id
+        self.original_client_order_id = original_client_order_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

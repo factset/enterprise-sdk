@@ -46,7 +46,7 @@
                       "investorId": "MyOrganization",
                       "orders": [
                         {
-                          "orderId": "OR0000001",
+                          "clientOrderId": "OR0000001",
                           "instrument": {
                             "symbol": "GOOGL"
                           },
@@ -58,7 +58,7 @@
                           "handlingInstructions": "auto_ord_pub"
                         },
                         {
-                          "orderId": "OR0000002",
+                          "clientOrderId": "OR0000002",
                           "instrument": {
                             "symbol": "MSFT"
                           },
@@ -70,7 +70,7 @@
                           "handlingInstructions": "auto_ord_pub"
                         },
                         {
-                          "orderId": "OR0000003",
+                          "clientOrderId": "OR0000003",
                           "instrument": {
                             "symbol": "TSLA"
                           },
@@ -111,7 +111,7 @@
                       "investorId": "MyOrganization",
                       "orders": [
                         {
-                          "orderId": "OR0000004",
+                          "clientOrderId": "OR0000004",
                           "instrument": {
                             "symbol": "GOOGL"
                           },
@@ -137,6 +137,29 @@
                       ]
                     }
                   }
+                },
+                "Single order with derivatives (futures/options)": {
+                  "value": {
+                    "data": {
+                      "investorId": "MyOrganization",
+                      "orders": [
+                        {
+                          "instrument": {
+                            "symbol": "GOOGL",
+                            "putOrCall": "call",
+                            "underlyingSecurityType": "Equity"
+                          },
+                          "side": "buy",
+                          "orderType": "market",
+                          "orderQuantity": 1000,
+                          "price": 450,
+                          "currency": "USD",
+                          "handlingInstructions": "auto_ord_pub",
+                          "account": "ACCT1"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -148,7 +171,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
+                  "$ref": "#/components/schemas/EMSOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -193,7 +216,7 @@
             "description": "Missing or invalid authentication."
           },
           "403": {
-            "description": "User is forbidden with current credentials"
+            "description": "User is forbidden with current credentials."
           },
           "415": {
             "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
@@ -233,7 +256,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
+                  "$ref": "#/components/schemas/EMSOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -278,7 +301,7 @@
             "description": "Missing or invalid authentication."
           },
           "403": {
-            "description": "User is forbidden with current credentials"
+            "description": "User is forbidden with current credentials."
           },
           "415": {
             "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
@@ -318,7 +341,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
+                  "$ref": "#/components/schemas/EMSOrdersResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -363,7 +386,7 @@
             "description": "Missing or invalid authentication."
           },
           "403": {
-            "description": "User is forbidden with current credentials"
+            "description": "User is forbidden with current credentials."
           },
           "415": {
             "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
@@ -394,39 +417,46 @@
             "description": "List of errors",
             "nullable": true
           }
-        }
+        },
+        "description": "Client Error Response"
       },
       "EMSCancelOrder": {
         "required": [
-          "originalOrderId"
+          "originalClientOrderId"
         ],
         "type": "object",
         "properties": {
-          "originalOrderId": {
-            "type": "string"
+          "originalClientOrderId": {
+            "type": "string",
+            "description": "Unique identifier of the original order, generated in Create."
           },
           "inboundDestination": {
             "type": "string",
-            "description": "Inbound destination",
+            "description": "To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.",
             "nullable": true
           }
-        }
+        },
+        "description": "EMS Cancel Order"
       },
       "EMSCancelOrders": {
         "type": "object",
         "properties": {
           "investorId": {
             "type": "string",
-            "nullable": true
+            "description": "Investor Id",
+            "nullable": true,
+            "example": "DEMO-12345"
           },
           "orders": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EMSCancelOrder"
             },
+            "description": "List of orders to cancel",
             "nullable": true
           }
-        }
+        },
+        "description": "EMS Cancel Orders"
       },
       "EMSCancelOrdersRoot": {
         "type": "object",
@@ -444,7 +474,7 @@
         ],
         "type": "object",
         "properties": {
-          "orderId": {
+          "clientOrderId": {
             "type": "string",
             "description": "Unique id for the order",
             "nullable": true,
@@ -461,7 +491,7 @@
               "sell_short_exempt"
             ],
             "type": "string",
-            "description": "Side",
+            "description": "Side of the order.",
             "example": "buy"
           },
           "orderType": {
@@ -479,73 +509,73 @@
           },
           "orderQuantity": {
             "type": "number",
-            "description": "Order quantity",
+            "description": "Number of shares/Quantity.",
             "format": "double",
             "example": 350
           },
           "price": {
             "type": "number",
-            "description": "Order Price",
+            "description": "Order price per share",
             "format": "double",
             "nullable": true,
             "example": 800
           },
           "stopPrice": {
             "type": "number",
-            "description": "Stop Price",
+            "description": "Stop-loss price to buy/sell stock at market.",
             "format": "double",
             "nullable": true,
             "example": 800
           },
           "strikePrice": {
             "type": "number",
-            "description": "Strike Price",
+            "description": "Strike Price for an Option.",
             "format": "double",
             "nullable": true,
             "example": 400
           },
           "currency": {
             "type": "string",
-            "description": "Currency",
+            "description": "Currency used for price in ISO format.",
             "nullable": true,
             "example": "USD"
           },
           "isCovered": {
             "type": "boolean",
-            "description": "Currency",
+            "description": "Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order",
             "nullable": true,
             "example": false
           },
           "maxShow": {
             "type": "number",
-            "description": "Max Show",
+            "description": "Maximum number of shares within an order to be shown to other customers.",
             "format": "double",
             "nullable": true,
             "example": 100
           },
           "maxFloor": {
             "type": "number",
-            "description": "Max Floor",
+            "description": "Maximum number of shares within an order to be shown on the exchange floor at any given time.",
             "format": "double",
             "nullable": true,
             "example": 100
           },
           "prevClosePrice": {
             "type": "number",
-            "description": "Previous close price",
+            "description": "Previous closing price of security.",
             "format": "double",
             "nullable": true,
             "example": 100
           },
           "settlementType": {
             "type": "string",
-            "description": "Settlement type",
+            "description": "Order settlement period.",
             "nullable": true,
             "example": "regular"
           },
           "settlementDate": {
             "type": "string",
-            "description": "Settlement date in YYYYMMDD format",
+            "description": "Settlement date of trade settlement in YYYYMMDD format",
             "nullable": true,
             "example": "20210622"
           },
@@ -556,7 +586,7 @@
               "best_execution"
             ],
             "type": "string",
-            "description": "Handling instructions",
+            "description": "Instructions for order handling on Broker trading floor.",
             "nullable": true,
             "example": "auto_ord_pub"
           },
@@ -611,13 +641,13 @@
               "best_execution"
             ],
             "type": "string",
-            "description": "Execution instructions",
+            "description": "Instructions for order handling on exchange trading floor.",
             "nullable": true,
             "example": "not_held"
           },
           "locateRequired": {
             "type": "boolean",
-            "description": "Locate Required",
+            "description": "Indicates whether the broker is to locate the stock in conjunction with a short sell order.",
             "nullable": true,
             "example": false
           },
@@ -629,7 +659,7 @@
           },
           "account": {
             "type": "string",
-            "description": "Account",
+            "description": "Account for the basket, parent basket or position.",
             "nullable": true,
             "example": "Test.ACCT"
           },
@@ -638,7 +668,7 @@
           },
           "inboundDestination": {
             "type": "string",
-            "description": "Inbound Destination",
+            "description": "To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.",
             "nullable": true
           },
           "userDefinedFields": {
@@ -649,14 +679,15 @@
             "description": "User defined fields",
             "nullable": true
           }
-        }
+        },
+        "description": "EMS Order"
       },
       "EMSOrderMetadata": {
         "type": "object",
         "properties": {
           "symbol": {
             "type": "string",
-            "description": "Symbol",
+            "description": "Ticker symbol",
             "nullable": true
           },
           "side": {
@@ -667,7 +698,7 @@
               "sell_short_exempt"
             ],
             "type": "string",
-            "description": "Side",
+            "description": "Side of the order.",
             "nullable": true
           },
           "orderType": {
@@ -680,12 +711,12 @@
               "limit_or_better"
             ],
             "type": "string",
-            "description": "Order Type",
+            "description": "Type of the order",
             "nullable": true
           },
           "orderQuantity": {
             "type": "number",
-            "description": "Order Quantity",
+            "description": "Number of shares/Quantity.",
             "format": "double",
             "nullable": true
           },
@@ -696,12 +727,12 @@
           },
           "info": {
             "type": "string",
-            "description": "information",
+            "description": "Information",
             "nullable": true
           },
-          "orderId": {
+          "clientOrderId": {
             "type": "string",
-            "description": "Order Id",
+            "description": "Client Order Id",
             "nullable": true
           },
           "warning": {
@@ -709,7 +740,8 @@
             "description": "Warning",
             "nullable": true
           }
-        }
+        },
+        "description": "EMS Order Metadata"
       },
       "EMSOrders": {
         "required": [
@@ -727,11 +759,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EMSOrder"
-            }
+            },
+            "description": "List of orders"
           }
-        }
+        },
+        "description": "EMS Orders"
       },
-      "EMSOrdersCreateResponse": {
+      "EMSOrdersResponse": {
         "type": "object",
         "properties": {
           "accepted": {
@@ -739,6 +773,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/EMSOrderMetadata"
             },
+            "description": "Accepted Orders",
             "nullable": true
           },
           "rejected": {
@@ -746,20 +781,23 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/EMSOrderMetadata"
             },
+            "description": "Rejected Orders",
             "nullable": true
           }
-        }
+        },
+        "description": "EMS Orders Response"
       },
-      "EMSOrdersCreateResponseRoot": {
+      "EMSOrdersResponseRoot": {
         "required": [
           "data"
         ],
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/EMSOrdersCreateResponse"
+            "$ref": "#/components/schemas/EMSOrdersResponse"
           }
-        }
+        },
+        "description": "EMS Response"
       },
       "EMSOrdersRoot": {
         "type": "object",
@@ -772,17 +810,19 @@
       "EMSReplaceOrder": {
         "required": [
           "order",
-          "originalOrderId"
+          "originalClientOrderId"
         ],
         "type": "object",
         "properties": {
-          "originalOrderId": {
-            "type": "string"
+          "originalClientOrderId": {
+            "type": "string",
+            "description": "Unique identifier of the original order, generated in Create."
           },
           "order": {
             "$ref": "#/components/schemas/EMSOrder"
           }
-        }
+        },
+        "description": "EMS Replace Order"
       },
       "EMSReplaceOrders": {
         "type": "object",
@@ -798,9 +838,11 @@
             "items": {
               "$ref": "#/components/schemas/EMSReplaceOrder"
             },
+            "description": "List of orders to replace",
             "nullable": true
           }
-        }
+        },
+        "description": "EMS Replace Orders"
       },
       "EMSReplaceOrdersRoot": {
         "type": "object",
@@ -820,10 +862,12 @@
           },
           "code": {
             "type": "string",
+            "description": "Code",
             "nullable": true
           },
           "title": {
             "type": "string",
+            "description": "Title",
             "nullable": true
           },
           "detail": {
@@ -834,7 +878,8 @@
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
           }
-        }
+        },
+        "description": "Error"
       },
       "ErrorSource": {
         "type": "object",
@@ -849,7 +894,8 @@
             "description": "Indicates which path or URI query parameter caused the error",
             "nullable": true
           }
-        }
+        },
+        "description": "Error Source"
       },
       "Instrument": {
         "required": [
@@ -859,27 +905,27 @@
         "properties": {
           "symbol": {
             "type": "string",
-            "description": "Symbol",
+            "description": "Ticker symbol",
             "example": "TATAMOTORS"
           },
           "securityType": {
             "type": "string",
-            "description": "Security Type",
+            "description": "Indicates type of security.",
             "nullable": true
           },
           "cfiCode": {
             "type": "string",
-            "description": "Cfi Code",
+            "description": "Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.",
             "nullable": true
           },
           "securityExchange": {
             "type": "string",
-            "description": "Security exchange",
+            "description": "Market used to help identify a security.",
             "nullable": true
           },
           "issuer": {
             "type": "string",
-            "description": "Issuer",
+            "description": "Company name of security issuer.",
             "nullable": true
           },
           "securityDescription": {
@@ -889,15 +935,30 @@
           },
           "maturityMonthYear": {
             "type": "string",
-            "description": "Maturity month year",
+            "description": "Month and Year of the maturity.",
             "nullable": true
           },
           "maturityDay": {
             "type": "string",
-            "description": "Maturity day",
+            "description": "Day of month used in conjunction with maturityMonthYear to specify the maturity date",
+            "nullable": true
+          },
+          "putOrCall": {
+            "enum": [
+              "put",
+              "call"
+            ],
+            "type": "string",
+            "description": "Indicates whether an Option is for a put or call.",
+            "nullable": true
+          },
+          "underlyingSecurityType": {
+            "type": "string",
+            "description": "Underlying security’s SecurityType.",
             "nullable": true
           }
-        }
+        },
+        "description": "Instrument"
       },
       "TimeInForce": {
         "type": "object",
@@ -914,7 +975,8 @@
               "ATC"
             ],
             "type": "string",
-            "description": "Time in force: if GTD, then Expire Time or Expire Date is a required field"
+            "description": "Time in force: if GTD, then Expire Time or Expire Date is a required field",
+            "default": "DAY"
           },
           "expireDate": {
             "type": "string",
@@ -926,7 +988,8 @@
             "description": "Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC",
             "nullable": true
           }
-        }
+        },
+        "description": "Time in Force"
       }
     },
     "securitySchemes": {

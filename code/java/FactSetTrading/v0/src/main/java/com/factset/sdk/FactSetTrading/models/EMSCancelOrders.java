@@ -35,8 +35,9 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * EMSCancelOrders
+ * EMS Cancel Orders
  */
+@ApiModel(description = "EMS Cancel Orders")
 @JsonPropertyOrder({
   EMSCancelOrders.JSON_PROPERTY_INVESTOR_ID,
   EMSCancelOrders.JSON_PROPERTY_ORDERS
@@ -60,11 +61,11 @@ public class EMSCancelOrders implements Serializable {
   }
 
    /**
-   * Get investorId
+   * Investor Id
    * @return investorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "DEMO-12345", value = "Investor Id")
   @JsonIgnore
 
   public String getInvestorId() {
@@ -106,11 +107,11 @@ public class EMSCancelOrders implements Serializable {
   }
 
    /**
-   * Get orders
+   * List of orders to cancel
    * @return orders
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of orders to cancel")
   @JsonIgnore
 
   public java.util.List<EMSCancelOrder> getOrders() {

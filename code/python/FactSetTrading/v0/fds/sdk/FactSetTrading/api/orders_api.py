@@ -27,7 +27,7 @@ from fds.sdk.FactSetTrading.model_utils import (  # noqa: F401
 from fds.sdk.FactSetTrading.exceptions import ApiException
 from fds.sdk.FactSetTrading.model.client_error_response import ClientErrorResponse
 from fds.sdk.FactSetTrading.model.ems_cancel_orders_root import EMSCancelOrdersRoot
-from fds.sdk.FactSetTrading.model.ems_orders_create_response_root import EMSOrdersCreateResponseRoot
+from fds.sdk.FactSetTrading.model.ems_orders_response_root import EMSOrdersResponseRoot
 from fds.sdk.FactSetTrading.model.ems_orders_root import EMSOrdersRoot
 from fds.sdk.FactSetTrading.model.ems_replace_orders_root import EMSReplaceOrdersRoot
 
@@ -50,7 +50,7 @@ class OrdersApi(object):
         self.cancel_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (EMSOrdersCreateResponseRoot,), 400: (ClientErrorResponse,),  },
+                  { 200: (EMSOrdersResponseRoot,), 400: (ClientErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -105,7 +105,7 @@ class OrdersApi(object):
         self.create_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (EMSOrdersCreateResponseRoot,), 400: (ClientErrorResponse,),  },
+                  { 200: (EMSOrdersResponseRoot,), 400: (ClientErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -160,7 +160,7 @@ class OrdersApi(object):
         self.replace_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (EMSOrdersCreateResponseRoot,), 400: (ClientErrorResponse,),  },
+                  { 200: (EMSOrdersResponseRoot,), 400: (ClientErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -229,7 +229,7 @@ class OrdersApi(object):
     def cancel(
         self,
         **kwargs
-    ) -> EMSOrdersCreateResponseRoot:
+    ) -> EMSOrdersResponseRoot:
         """Cancel the orders on EMS system.  # noqa: E501
 
         This endpoint takes the list of orders to be cancelled on the EMS system.  # noqa: E501
@@ -262,7 +262,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            EMSOrdersCreateResponseRoot
+            EMSOrdersResponseRoot
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -271,7 +271,7 @@ class OrdersApi(object):
     def cancel_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[EMSOrdersCreateResponseRoot, int, typing.MutableMapping]:
+    ) -> typing.Tuple[EMSOrdersResponseRoot, int, typing.MutableMapping]:
         """Cancel the orders on EMS system.  # noqa: E501
 
         This endpoint takes the list of orders to be cancelled on the EMS system.  # noqa: E501
@@ -304,7 +304,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            EMSOrdersCreateResponseRoot
+            EMSOrdersResponseRoot
                 Response Object
             int
                 Http Status Code
@@ -317,7 +317,7 @@ class OrdersApi(object):
     def cancel_async(
         self,
         **kwargs
-    ) -> "ApplyResult[EMSOrdersCreateResponseRoot]":
+    ) -> "ApplyResult[EMSOrdersResponseRoot]":
         """Cancel the orders on EMS system.  # noqa: E501
 
         This endpoint takes the list of orders to be cancelled on the EMS system.  # noqa: E501
@@ -350,7 +350,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[EMSOrdersCreateResponseRoot]
+            ApplyResult[EMSOrdersResponseRoot]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.cancel_endpoint.call_with_http_info(**kwargs)
@@ -358,7 +358,7 @@ class OrdersApi(object):
     def cancel_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[EMSOrdersCreateResponseRoot, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[EMSOrdersResponseRoot, int, typing.MutableMapping]]":
         """Cancel the orders on EMS system.  # noqa: E501
 
         This endpoint takes the list of orders to be cancelled on the EMS system.  # noqa: E501
@@ -391,7 +391,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(EMSOrdersCreateResponseRoot, int, typing.Dict)]
+            ApplyResult[(EMSOrdersResponseRoot, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.cancel_endpoint.call_with_http_info(**kwargs)
@@ -400,7 +400,7 @@ class OrdersApi(object):
     def create(
         self,
         **kwargs
-    ) -> EMSOrdersCreateResponseRoot:
+    ) -> EMSOrdersResponseRoot:
         """Send orders to EMS for execution.  # noqa: E501
 
         This endpoint takes the list of orders and place them on EMS for execution.  # noqa: E501
@@ -433,7 +433,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            EMSOrdersCreateResponseRoot
+            EMSOrdersResponseRoot
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -442,7 +442,7 @@ class OrdersApi(object):
     def create_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[EMSOrdersCreateResponseRoot, int, typing.MutableMapping]:
+    ) -> typing.Tuple[EMSOrdersResponseRoot, int, typing.MutableMapping]:
         """Send orders to EMS for execution.  # noqa: E501
 
         This endpoint takes the list of orders and place them on EMS for execution.  # noqa: E501
@@ -475,7 +475,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            EMSOrdersCreateResponseRoot
+            EMSOrdersResponseRoot
                 Response Object
             int
                 Http Status Code
@@ -488,7 +488,7 @@ class OrdersApi(object):
     def create_async(
         self,
         **kwargs
-    ) -> "ApplyResult[EMSOrdersCreateResponseRoot]":
+    ) -> "ApplyResult[EMSOrdersResponseRoot]":
         """Send orders to EMS for execution.  # noqa: E501
 
         This endpoint takes the list of orders and place them on EMS for execution.  # noqa: E501
@@ -521,7 +521,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[EMSOrdersCreateResponseRoot]
+            ApplyResult[EMSOrdersResponseRoot]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.create_endpoint.call_with_http_info(**kwargs)
@@ -529,7 +529,7 @@ class OrdersApi(object):
     def create_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[EMSOrdersCreateResponseRoot, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[EMSOrdersResponseRoot, int, typing.MutableMapping]]":
         """Send orders to EMS for execution.  # noqa: E501
 
         This endpoint takes the list of orders and place them on EMS for execution.  # noqa: E501
@@ -562,7 +562,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(EMSOrdersCreateResponseRoot, int, typing.Dict)]
+            ApplyResult[(EMSOrdersResponseRoot, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.create_endpoint.call_with_http_info(**kwargs)
@@ -571,7 +571,7 @@ class OrdersApi(object):
     def replace(
         self,
         **kwargs
-    ) -> EMSOrdersCreateResponseRoot:
+    ) -> EMSOrdersResponseRoot:
         """Replace the orders on EMS system.  # noqa: E501
 
         This endpoint takes the list of orders to be replaced on the EMS system.  # noqa: E501
@@ -604,7 +604,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            EMSOrdersCreateResponseRoot
+            EMSOrdersResponseRoot
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -613,7 +613,7 @@ class OrdersApi(object):
     def replace_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[EMSOrdersCreateResponseRoot, int, typing.MutableMapping]:
+    ) -> typing.Tuple[EMSOrdersResponseRoot, int, typing.MutableMapping]:
         """Replace the orders on EMS system.  # noqa: E501
 
         This endpoint takes the list of orders to be replaced on the EMS system.  # noqa: E501
@@ -646,7 +646,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            EMSOrdersCreateResponseRoot
+            EMSOrdersResponseRoot
                 Response Object
             int
                 Http Status Code
@@ -659,7 +659,7 @@ class OrdersApi(object):
     def replace_async(
         self,
         **kwargs
-    ) -> "ApplyResult[EMSOrdersCreateResponseRoot]":
+    ) -> "ApplyResult[EMSOrdersResponseRoot]":
         """Replace the orders on EMS system.  # noqa: E501
 
         This endpoint takes the list of orders to be replaced on the EMS system.  # noqa: E501
@@ -692,7 +692,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[EMSOrdersCreateResponseRoot]
+            ApplyResult[EMSOrdersResponseRoot]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.replace_endpoint.call_with_http_info(**kwargs)
@@ -700,7 +700,7 @@ class OrdersApi(object):
     def replace_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[EMSOrdersCreateResponseRoot, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[EMSOrdersResponseRoot, int, typing.MutableMapping]]":
         """Replace the orders on EMS system.  # noqa: E501
 
         This endpoint takes the list of orders to be replaced on the EMS system.  # noqa: E501
@@ -733,7 +733,7 @@ class OrdersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(EMSOrdersCreateResponseRoot, int, typing.Dict)]
+            ApplyResult[(EMSOrdersResponseRoot, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.replace_endpoint.call_with_http_info(**kwargs)

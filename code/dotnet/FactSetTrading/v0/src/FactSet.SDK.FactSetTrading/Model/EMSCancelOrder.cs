@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTrading.Client.OpenAPIDateConver
 namespace FactSet.SDK.FactSetTrading.Model
 {
     /// <summary>
-    /// EMSCancelOrder
+    /// EMS Cancel Order
     /// </summary>
     [DataContract(Name = "EMSCancelOrder")]
     public partial class EMSCancelOrder : IEquatable<EMSCancelOrder>, IValidatableObject
@@ -40,28 +40,29 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EMSCancelOrder" /> class.
         /// </summary>
-        /// <param name="originalOrderId">originalOrderId (required).</param>
-        /// <param name="inboundDestination">Inbound destination.</param>
-        public EMSCancelOrder(string originalOrderId,string inboundDestination = default(string))
+        /// <param name="originalClientOrderId">Unique identifier of the original order, generated in Create. (required).</param>
+        /// <param name="inboundDestination">To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure..</param>
+        public EMSCancelOrder(string originalClientOrderId,string inboundDestination = default(string))
         {
-            // to ensure "originalOrderId" is required (not null)
-            if (originalOrderId == null) {
-                throw new ArgumentNullException("originalOrderId is a required property for EMSCancelOrder and cannot be null");
+            // to ensure "originalClientOrderId" is required (not null)
+            if (originalClientOrderId == null) {
+                throw new ArgumentNullException("originalClientOrderId is a required property for EMSCancelOrder and cannot be null");
             }
-            this.OriginalOrderId = originalOrderId;
+            this.OriginalClientOrderId = originalClientOrderId;
             this.InboundDestination = inboundDestination;
         }
 
         /// <summary>
-        /// Gets or Sets OriginalOrderId
+        /// Unique identifier of the original order, generated in Create.
         /// </summary>
-        [DataMember(Name = "originalOrderId", IsRequired = true, EmitDefaultValue = false)]
-        public string OriginalOrderId { get; set; }
+        /// <value>Unique identifier of the original order, generated in Create.</value>
+        [DataMember(Name = "originalClientOrderId", IsRequired = true, EmitDefaultValue = false)]
+        public string OriginalClientOrderId { get; set; }
 
         /// <summary>
-        /// Inbound destination
+        /// To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.
         /// </summary>
-        /// <value>Inbound destination</value>
+        /// <value>To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.</value>
         [DataMember(Name = "inboundDestination", EmitDefaultValue = true)]
         public string InboundDestination { get; set; }
 
@@ -73,7 +74,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class EMSCancelOrder {\n");
-            sb.Append("  OriginalOrderId: ").Append(OriginalOrderId).Append("\n");
+            sb.Append("  OriginalClientOrderId: ").Append(OriginalClientOrderId).Append("\n");
             sb.Append("  InboundDestination: ").Append(InboundDestination).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -111,9 +112,9 @@ namespace FactSet.SDK.FactSetTrading.Model
             }
             return 
                 (
-                    this.OriginalOrderId == input.OriginalOrderId ||
-                    (this.OriginalOrderId != null &&
-                    this.OriginalOrderId.Equals(input.OriginalOrderId))
+                    this.OriginalClientOrderId == input.OriginalClientOrderId ||
+                    (this.OriginalClientOrderId != null &&
+                    this.OriginalClientOrderId.Equals(input.OriginalClientOrderId))
                 ) && 
                 (
                     this.InboundDestination == input.InboundDestination ||
@@ -131,9 +132,9 @@ namespace FactSet.SDK.FactSetTrading.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.OriginalOrderId != null)
+                if (this.OriginalClientOrderId != null)
                 {
-                    hashCode = (hashCode * 59) + this.OriginalOrderId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalClientOrderId.GetHashCode();
                 }
                 if (this.InboundDestination != null)
                 {

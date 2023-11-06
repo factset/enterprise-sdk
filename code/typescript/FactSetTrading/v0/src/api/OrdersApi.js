@@ -15,7 +15,7 @@
 import ApiClient from "../ApiClient";
 import ClientErrorResponse from '../model/ClientErrorResponse';
 import EMSCancelOrdersRoot from '../model/EMSCancelOrdersRoot';
-import EMSOrdersCreateResponseRoot from '../model/EMSOrdersCreateResponseRoot';
+import EMSOrdersResponseRoot from '../model/EMSOrdersResponseRoot';
 import EMSOrdersRoot from '../model/EMSOrdersRoot';
 import EMSReplaceOrdersRoot from '../model/EMSReplaceOrdersRoot';
 
@@ -43,7 +43,7 @@ export default class OrdersApi {
      * This endpoint takes the list of orders to be cancelled on the EMS system.
      * @param {Object} opts Optional parameters
      * @param {module:model/EMSCancelOrdersRoot} opts.eMSCancelOrdersRoot 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EMSOrdersCreateResponseRoot} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EMSOrdersResponseRoot} and HTTP response
      */
     cancelWithHttpInfo(opts) {
       opts = opts || {};
@@ -63,7 +63,7 @@ export default class OrdersApi {
       let accepts = ['application/json'];
 
 
-      let returnType = EMSOrdersCreateResponseRoot;
+      let returnType = EMSOrdersResponseRoot;
 
       return this.apiClient.callApi(
         '/orders/cancel', 'POST',
@@ -77,7 +77,7 @@ export default class OrdersApi {
      * This endpoint takes the list of orders to be cancelled on the EMS system.
      * @param {Object} opts Optional parameters
      * @param {module:model/EMSCancelOrdersRoot} opts.eMSCancelOrdersRoot 
-     * @return { Promise.< module:model/EMSOrdersCreateResponseRoot > } a Promise, with data of type {@link module:model/EMSOrdersCreateResponseRoot }
+     * @return { Promise.< module:model/EMSOrdersResponseRoot > } a Promise, with data of type {@link module:model/EMSOrdersResponseRoot }
      */
     cancel(opts) {
       return this.cancelWithHttpInfo(opts)
@@ -92,7 +92,7 @@ export default class OrdersApi {
      * This endpoint takes the list of orders and place them on EMS for execution.
      * @param {Object} opts Optional parameters
      * @param {module:model/EMSOrdersRoot} opts.eMSOrdersRoot 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EMSOrdersCreateResponseRoot} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EMSOrdersResponseRoot} and HTTP response
      */
     createWithHttpInfo(opts) {
       opts = opts || {};
@@ -112,7 +112,7 @@ export default class OrdersApi {
       let accepts = ['application/json'];
 
 
-      let returnType = EMSOrdersCreateResponseRoot;
+      let returnType = EMSOrdersResponseRoot;
 
       return this.apiClient.callApi(
         '/orders/create', 'POST',
@@ -126,7 +126,7 @@ export default class OrdersApi {
      * This endpoint takes the list of orders and place them on EMS for execution.
      * @param {Object} opts Optional parameters
      * @param {module:model/EMSOrdersRoot} opts.eMSOrdersRoot 
-     * @return { Promise.< module:model/EMSOrdersCreateResponseRoot > } a Promise, with data of type {@link module:model/EMSOrdersCreateResponseRoot }
+     * @return { Promise.< module:model/EMSOrdersResponseRoot > } a Promise, with data of type {@link module:model/EMSOrdersResponseRoot }
      */
     create(opts) {
       return this.createWithHttpInfo(opts)
@@ -141,7 +141,7 @@ export default class OrdersApi {
      * This endpoint takes the list of orders to be replaced on the EMS system.
      * @param {Object} opts Optional parameters
      * @param {module:model/EMSReplaceOrdersRoot} opts.eMSReplaceOrdersRoot 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EMSOrdersCreateResponseRoot} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EMSOrdersResponseRoot} and HTTP response
      */
     replaceWithHttpInfo(opts) {
       opts = opts || {};
@@ -161,7 +161,7 @@ export default class OrdersApi {
       let accepts = ['application/json'];
 
 
-      let returnType = EMSOrdersCreateResponseRoot;
+      let returnType = EMSOrdersResponseRoot;
 
       return this.apiClient.callApi(
         '/orders/replace', 'POST',
@@ -175,7 +175,7 @@ export default class OrdersApi {
      * This endpoint takes the list of orders to be replaced on the EMS system.
      * @param {Object} opts Optional parameters
      * @param {module:model/EMSReplaceOrdersRoot} opts.eMSReplaceOrdersRoot 
-     * @return { Promise.< module:model/EMSOrdersCreateResponseRoot > } a Promise, with data of type {@link module:model/EMSOrdersCreateResponseRoot }
+     * @return { Promise.< module:model/EMSOrdersResponseRoot > } a Promise, with data of type {@link module:model/EMSOrdersResponseRoot }
      */
     replace(opts) {
       return this.replaceWithHttpInfo(opts)

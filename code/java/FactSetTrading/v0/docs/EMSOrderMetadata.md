@@ -2,18 +2,19 @@
 
 # EMSOrderMetadata
 
+EMS Order Metadata
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **String** | Symbol |  [optional]
-**side** | [**SideEnum**](#SideEnum) | Side |  [optional]
-**orderType** | [**OrderTypeEnum**](#OrderTypeEnum) | Order Type |  [optional]
-**orderQuantity** | **Double** | Order Quantity |  [optional]
+**symbol** | **String** | Ticker symbol |  [optional]
+**side** | [**SideEnum**](#SideEnum) | Side of the order. |  [optional]
+**orderType** | [**OrderTypeEnum**](#OrderTypeEnum) | Type of the order |  [optional]
+**orderQuantity** | **Double** | Number of shares/Quantity. |  [optional]
 **error** | **String** | Error message |  [optional]
-**info** | **String** | information |  [optional]
-**orderId** | **String** | Order Id |  [optional]
+**info** | **String** | Information |  [optional]
+**clientOrderId** | **String** | Client Order Id |  [optional]
 **warning** | **String** | Warning |  [optional]
 
 

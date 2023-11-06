@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ErrorSource {
     /**
      * Constructs a new <code>ErrorSource</code>.
+     * Error Source
      * @alias module:model/ErrorSource
      */
     constructor() { 

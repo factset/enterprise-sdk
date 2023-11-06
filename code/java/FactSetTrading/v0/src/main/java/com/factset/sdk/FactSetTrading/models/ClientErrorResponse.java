@@ -35,8 +35,9 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * ClientErrorResponse
+ * Client Error Response
  */
+@ApiModel(description = "Client Error Response")
 @JsonPropertyOrder({
   ClientErrorResponse.JSON_PROPERTY_ERRORS
 })

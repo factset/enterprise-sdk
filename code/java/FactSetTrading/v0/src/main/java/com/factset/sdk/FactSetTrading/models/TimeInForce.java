@@ -34,8 +34,9 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * TimeInForce
+ * Time in Force
  */
+@ApiModel(description = "Time in Force")
 @JsonPropertyOrder({
   TimeInForce.JSON_PROPERTY_TIF,
   TimeInForce.JSON_PROPERTY_EXPIRE_DATE,
@@ -93,7 +94,7 @@ public class TimeInForce implements Serializable {
   }
 
   public static final String JSON_PROPERTY_TIF = "tif";
-  private TifEnum tif;
+  private TifEnum tif = TifEnum.DAY;
 
   public static final String JSON_PROPERTY_EXPIRE_DATE = "expireDate";
   private JsonNullable<String> expireDate = JsonNullable.<String>undefined();

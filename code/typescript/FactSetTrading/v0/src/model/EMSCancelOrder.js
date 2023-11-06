@@ -20,12 +20,13 @@ import ApiClient from '../ApiClient';
 class EMSCancelOrder {
     /**
      * Constructs a new <code>EMSCancelOrder</code>.
+     * EMS Cancel Order
      * @alias module:model/EMSCancelOrder
-     * @param originalOrderId {String} 
+     * @param originalClientOrderId {String} Unique identifier of the original order, generated in Create.
      */
-    constructor(originalOrderId) { 
+    constructor(originalClientOrderId) { 
         
-        EMSCancelOrder.initialize(this, originalOrderId);
+        EMSCancelOrder.initialize(this, originalClientOrderId);
     }
 
     /**
@@ -33,8 +34,8 @@ class EMSCancelOrder {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, originalOrderId) { 
-        obj['originalOrderId'] = originalOrderId;
+    static initialize(obj, originalClientOrderId) { 
+        obj['originalClientOrderId'] = originalClientOrderId;
     }
 
     /**
@@ -48,8 +49,8 @@ class EMSCancelOrder {
         if (data) {
             obj = obj || new EMSCancelOrder();
 
-            if (data.hasOwnProperty('originalOrderId')) {
-                obj['originalOrderId'] = ApiClient.convertToType(data['originalOrderId'], 'String');
+            if (data.hasOwnProperty('originalClientOrderId')) {
+                obj['originalClientOrderId'] = ApiClient.convertToType(data['originalClientOrderId'], 'String');
             }
             if (data.hasOwnProperty('inboundDestination')) {
                 obj['inboundDestination'] = ApiClient.convertToType(data['inboundDestination'], 'String');
@@ -62,12 +63,13 @@ class EMSCancelOrder {
 }
 
 /**
- * @member {String} originalOrderId
+ * Unique identifier of the original order, generated in Create.
+ * @member {String} originalClientOrderId
  */
-EMSCancelOrder.prototype['originalOrderId'] = undefined;
+EMSCancelOrder.prototype['originalClientOrderId'] = undefined;
 
 /**
- * Inbound destination
+ * To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.
  * @member {String} inboundDestination
  */
 EMSCancelOrder.prototype['inboundDestination'] = undefined;

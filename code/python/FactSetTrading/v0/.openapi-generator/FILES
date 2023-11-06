@@ -11,8 +11,8 @@ docs/EMSCancelOrdersRoot.md
 docs/EMSOrder.md
 docs/EMSOrderMetadata.md
 docs/EMSOrders.md
-docs/EMSOrdersCreateResponse.md
-docs/EMSOrdersCreateResponseRoot.md
+docs/EMSOrdersResponse.md
+docs/EMSOrdersResponseRoot.md
 docs/EMSOrdersRoot.md
 docs/EMSReplaceOrder.md
 docs/EMSReplaceOrders.md
@@ -38,8 +38,8 @@ fds/sdk/FactSetTrading/model/ems_cancel_orders_root.py
 fds/sdk/FactSetTrading/model/ems_order.py
 fds/sdk/FactSetTrading/model/ems_order_metadata.py
 fds/sdk/FactSetTrading/model/ems_orders.py
-fds/sdk/FactSetTrading/model/ems_orders_create_response.py
-fds/sdk/FactSetTrading/model/ems_orders_create_response_root.py
+fds/sdk/FactSetTrading/model/ems_orders_response.py
+fds/sdk/FactSetTrading/model/ems_orders_response_root.py
 fds/sdk/FactSetTrading/model/ems_orders_root.py
 fds/sdk/FactSetTrading/model/ems_replace_order.py
 fds/sdk/FactSetTrading/model/ems_replace_orders.py

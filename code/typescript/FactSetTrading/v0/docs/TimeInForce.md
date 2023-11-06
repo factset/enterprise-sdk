@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tif** | **String** | Time in force: if GTD, then Expire Time or Expire Date is a required field | [optional] 
+**tif** | **String** | Time in force: if GTD, then Expire Time or Expire Date is a required field | [optional] [default to &#39;DAY&#39;]
 **expireDate** | **String** | Expire date in YYYYMMDD format expressed in UTC | [optional] 
 **expireTime** | **String** | Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC | [optional] 
 

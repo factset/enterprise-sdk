@@ -2,6 +2,7 @@
 
 # ClientErrorResponse
 
+Client Error Response
 
 ## Properties
 

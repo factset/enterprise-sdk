@@ -144,7 +144,7 @@ class EMSReplaceOrders(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             investor_id (str, none_type): Investor Id. [optional]  # noqa: E501
-            orders ([EMSReplaceOrder], none_type): [optional]  # noqa: E501
+            orders ([EMSReplaceOrder], none_type): List of orders to replace. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class EMSReplaceOrders(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             investor_id (str, none_type): Investor Id. [optional]  # noqa: E501
-            orders ([EMSReplaceOrder], none_type): [optional]  # noqa: E501
+            orders ([EMSReplaceOrder], none_type): List of orders to replace. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

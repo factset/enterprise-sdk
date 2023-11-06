@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class TimeInForce {
     /**
      * Constructs a new <code>TimeInForce</code>.
+     * Time in Force
      * @alias module:model/TimeInForce
      */
     constructor() { 
@@ -65,8 +66,9 @@ class TimeInForce {
 /**
  * Time in force: if GTD, then Expire Time or Expire Date is a required field
  * @member {module:model/TimeInForce.TifEnum} tif
+ * @default 'DAY'
  */
-TimeInForce.prototype['tif'] = undefined;
+TimeInForce.prototype['tif'] = 'DAY';
 
 /**
  * Expire date in YYYYMMDD format expressed in UTC

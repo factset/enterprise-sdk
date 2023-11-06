@@ -113,7 +113,7 @@ class EMSOrders(ModelNormal):
         """EMSOrders - a model defined in OpenAPI
 
         Args:
-            orders ([EMSOrder]):
+            orders ([EMSOrder]): List of orders
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class EMSOrders(ModelNormal):
         """EMSOrders - a model defined in OpenAPI
 
         Args:
-            orders ([EMSOrder]):
+            orders ([EMSOrder]): List of orders
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

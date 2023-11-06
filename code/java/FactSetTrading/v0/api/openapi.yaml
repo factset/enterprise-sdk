@@ -39,7 +39,7 @@ paths:
                   data:
                     investorId: MyOrganization
                     orders:
-                    - orderId: OR0000001
+                    - clientOrderId: OR0000001
                       instrument:
                         symbol: GOOGL
                       side: buy
@@ -48,7 +48,7 @@ paths:
                       price: 450
                       currency: USD
                       handlingInstructions: auto_ord_pub
-                    - orderId: OR0000002
+                    - clientOrderId: OR0000002
                       instrument:
                         symbol: MSFT
                       side: sell
@@ -57,7 +57,7 @@ paths:
                       price: 450
                       currency: USD
                       handlingInstructions: auto_ord_pub
-                    - orderId: OR0000003
+                    - clientOrderId: OR0000003
                       instrument:
                         symbol: TSLA
                       side: buy
@@ -84,7 +84,7 @@ paths:
                   data:
                     investorId: MyOrganization
                     orders:
-                    - orderId: OR0000004
+                    - clientOrderId: OR0000004
                       instrument:
                         symbol: GOOGL
                       side: buy
@@ -104,6 +104,22 @@ paths:
                       account: ACCT1
                       timeInForce:
                         tif: GTC
+              Single order with derivatives (futures/options):
+                value:
+                  data:
+                    investorId: MyOrganization
+                    orders:
+                    - instrument:
+                        symbol: GOOGL
+                        putOrCall: call
+                        underlyingSecurityType: Equity
+                      side: buy
+                      orderType: market
+                      orderQuantity: 1000
+                      price: 450
+                      currency: USD
+                      handlingInstructions: auto_ord_pub
+                      account: ACCT1
             schema:
               $ref: '#/components/schemas/EMSOrdersRoot'
       responses:
@@ -130,7 +146,7 @@ paths:
                       orderType: market
                       orderQuantity: 500
               schema:
-                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+                $ref: '#/components/schemas/EMSOrdersResponseRoot'
           description: Expected response, returns the list of orders.
         "400":
           content:
@@ -141,7 +157,7 @@ paths:
         "401":
           description: Missing or invalid authentication.
         "403":
-          description: User is forbidden with current credentials
+          description: User is forbidden with current credentials.
         "415":
           description: Missing/Invalid Content-Type header. Header needs to be set
             to application/json.
@@ -191,7 +207,7 @@ paths:
                       orderType: market
                       orderQuantity: 500
               schema:
-                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+                $ref: '#/components/schemas/EMSOrdersResponseRoot'
           description: Expected response, returns the list of order ids.
         "400":
           content:
@@ -202,7 +218,7 @@ paths:
         "401":
           description: Missing or invalid authentication.
         "403":
-          description: User is forbidden with current credentials
+          description: User is forbidden with current credentials.
         "415":
           description: Missing/Invalid Content-Type header. Header needs to be set
             to application/json.
@@ -252,7 +268,7 @@ paths:
                       orderType: market
                       orderQuantity: 500
               schema:
-                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+                $ref: '#/components/schemas/EMSOrdersResponseRoot'
           description: Expected response, returns the list of order ids.
         "400":
           content:
@@ -263,7 +279,7 @@ paths:
         "401":
           description: Missing or invalid authentication.
         "403":
-          description: User is forbidden with current credentials
+          description: User is forbidden with current credentials.
         "415":
           description: Missing/Invalid Content-Type header. Header needs to be set
             to application/json.
@@ -282,6 +298,7 @@ paths:
 components:
   schemas:
     ClientErrorResponse:
+      description: Client Error Response
       properties:
         errors:
           description: List of errors
@@ -291,32 +308,40 @@ components:
           type: array
       type: object
     EMSCancelOrder:
+      description: EMS Cancel Order
       example:
-        originalOrderId: originalOrderId
+        originalClientOrderId: originalClientOrderId
         inboundDestination: inboundDestination
       properties:
-        originalOrderId:
+        originalClientOrderId:
+          description: Unique identifier of the original order, generated in Create.
           type: string
         inboundDestination:
-          description: Inbound destination
+          description: To facilitate integration with translators that transform orders
+            into a format compatible with the internal order routing and execution
+            infrastructure.
           nullable: true
           type: string
       required:
-      - originalOrderId
+      - originalClientOrderId
       type: object
     EMSCancelOrders:
+      description: EMS Cancel Orders
       example:
-        investorId: investorId
+        investorId: DEMO-12345
         orders:
-        - originalOrderId: originalOrderId
+        - originalClientOrderId: originalClientOrderId
           inboundDestination: inboundDestination
-        - originalOrderId: originalOrderId
+        - originalClientOrderId: originalClientOrderId
           inboundDestination: inboundDestination
       properties:
         investorId:
+          description: Investor Id
+          example: DEMO-12345
           nullable: true
           type: string
         orders:
+          description: List of orders to cancel
           items:
             $ref: '#/components/schemas/EMSCancelOrder'
           nullable: true
@@ -325,27 +350,30 @@ components:
     EMSCancelOrdersRoot:
       example:
         data:
-          investorId: investorId
+          investorId: DEMO-12345
           orders:
-          - originalOrderId: originalOrderId
+          - originalClientOrderId: originalClientOrderId
             inboundDestination: inboundDestination
-          - originalOrderId: originalOrderId
+          - originalClientOrderId: originalClientOrderId
             inboundDestination: inboundDestination
       properties:
         data:
           $ref: '#/components/schemas/EMSCancelOrders'
       type: object
     EMSOrder:
+      description: EMS Order
       example:
         settlementType: regular
         orderType: market
         side: buy
         executionInstructions: not_held
-        orderId: "12322123"
         effectiveTime: 20210622-12:15:30
+        clientOrderId: "12322123"
         maxFloor: 100
         instrument:
           symbol: TATAMOTORS
+          putOrCall: put
+          underlyingSecurityType: underlyingSecurityType
           securityType: securityType
           maturityMonthYear: maturityMonthYear
           maturityDay: maturityDay
@@ -373,7 +401,7 @@ components:
         inboundDestination: inboundDestination
         locateRequired: false
       properties:
-        orderId:
+        clientOrderId:
           description: Unique id for the order
           example: "12322123"
           nullable: true
@@ -381,7 +409,7 @@ components:
         instrument:
           $ref: '#/components/schemas/Instrument'
         side:
-          description: Side
+          description: Side of the order.
           enum:
           - buy
           - sell
@@ -401,68 +429,72 @@ components:
           example: market
           type: string
         orderQuantity:
-          description: Order quantity
+          description: Number of shares/Quantity.
           example: 350
           format: double
           type: number
         price:
-          description: Order Price
+          description: Order price per share
           example: 800
           format: double
           nullable: true
           type: number
         stopPrice:
-          description: Stop Price
+          description: Stop-loss price to buy/sell stock at market.
           example: 800
           format: double
           nullable: true
           type: number
         strikePrice:
-          description: Strike Price
+          description: Strike Price for an Option.
           example: 400
           format: double
           nullable: true
           type: number
         currency:
-          description: Currency
+          description: Currency used for price in ISO format.
           example: USD
           nullable: true
           type: string
         isCovered:
-          description: Currency
+          description: Signifies if a specific order is a covered order. A covered
+            order is one that involves an investment strategy with the capability
+            to limit the potential loss of the order
           example: false
           nullable: true
           type: boolean
         maxShow:
-          description: Max Show
+          description: Maximum number of shares within an order to be shown to other
+            customers.
           example: 100
           format: double
           nullable: true
           type: number
         maxFloor:
-          description: Max Floor
+          description: Maximum number of shares within an order to be shown on the
+            exchange floor at any given time.
           example: 100
           format: double
           nullable: true
           type: number
         prevClosePrice:
-          description: Previous close price
+          description: Previous closing price of security.
           example: 100
           format: double
           nullable: true
           type: number
         settlementType:
-          description: Settlement type
+          description: Order settlement period.
           example: regular
           nullable: true
           type: string
         settlementDate:
-          description: Settlement date in YYYYMMDD format
+          description: Settlement date of trade settlement in YYYYMMDD format
           example: "20210622"
           nullable: true
           type: string
         handlingInstructions:
-          description: Handling instructions
+          description: Instructions for order handling on Broker trading floor.
           enum:
           - auto_ord_pvt
           - auto_ord_pub
@@ -471,7 +503,7 @@ components:
           nullable: true
           type: string
         executionInstructions:
-          description: Execution instructions
+          description: Instructions for order handling on exchange trading floor.
           enum:
           - not_held
           - work
@@ -524,7 +556,8 @@ components:
           nullable: true
           type: string
         locateRequired:
-          description: Locate Required
+          description: Indicates whether the broker is to locate the stock in conjunction
+            with a short sell order.
           example: false
           nullable: true
           type: boolean
@@ -534,14 +567,16 @@ components:
           nullable: true
           type: string
         account:
-          description: Account
+          description: Account for the basket, parent basket or position.
           example: Test.ACCT
           nullable: true
           type: string
         timeInForce:
           $ref: '#/components/schemas/TimeInForce'
         inboundDestination:
-          description: Inbound Destination
+          description: To facilitate integration with translators that transform orders
+            into a format compatible with the internal order routing and execution
+            infrastructure.
           nullable: true
           type: string
         userDefinedFields:
@@ -556,22 +591,23 @@ components:
       - side
       type: object
     EMSOrderMetadata:
+      description: EMS Order Metadata
       example:
         symbol: symbol
         orderType: market
         side: buy
-        orderId: orderId
+        clientOrderId: clientOrderId
         warning: warning
         error: error
         orderQuantity: 0.8008281904610115
         info: info
       properties:
         symbol:
-          description: Symbol
+          description: Ticker symbol
           nullable: true
           type: string
         side:
-          description: Side
+          description: Side of the order.
           enum:
           - buy
           - sell
@@ -580,7 +616,7 @@ components:
           nullable: true
           type: string
         orderType:
-          description: Order Type
+          description: Type of the order
           enum:
           - market
           - limit
@@ -591,7 +627,7 @@ components:
           nullable: true
           type: string
         orderQuantity:
-          description: Order Quantity
+          description: Number of shares/Quantity.
           format: double
           nullable: true
           type: number
@@ -600,11 +636,11 @@ components:
           nullable: true
           type: string
         info:
-          description: information
+          description: Information
           nullable: true
           type: string
-        orderId:
-          description: Order Id
+        clientOrderId:
+          description: Client Order Id
           nullable: true
           type: string
         warning:
@@ -613,6 +649,7 @@ components:
           type: string
       type: object
     EMSOrders:
+      description: EMS Orders
       example:
         investorId: DEMO-12345
         orders:
@@ -620,11 +657,13 @@ components:
           orderType: market
           side: buy
           executionInstructions: not_held
-          orderId: "12322123"
           effectiveTime: 20210622-12:15:30
+          clientOrderId: "12322123"
           maxFloor: 100
           instrument:
             symbol: TATAMOTORS
+            putOrCall: put
+            underlyingSecurityType: underlyingSecurityType
             securityType: securityType
             maturityMonthYear: maturityMonthYear
             maturityDay: maturityDay
@@ -655,11 +694,13 @@ components:
           orderType: market
           side: buy
           executionInstructions: not_held
-          orderId: "12322123"
           effectiveTime: 20210622-12:15:30
+          clientOrderId: "12322123"
           maxFloor: 100
           instrument:
             symbol: TATAMOTORS
+            putOrCall: put
+            underlyingSecurityType: underlyingSecurityType
             securityType: securityType
             maturityMonthYear: maturityMonthYear
             maturityDay: maturityDay
@@ -693,20 +734,22 @@ components:
           nullable: true
           type: string
         orders:
+          description: List of orders
           items:
             $ref: '#/components/schemas/EMSOrder'
           type: array
       required:
       - orders
       type: object
-    EMSOrdersCreateResponse:
+    EMSOrdersResponse:
+      description: EMS Orders Response
       example:
         rejected:
           key:
             symbol: symbol
             orderType: market
             side: buy
-            orderId: orderId
+            clientOrderId: clientOrderId
             warning: warning
             error: error
             orderQuantity: 0.8008281904610115
@@ -716,7 +759,7 @@ components:
             symbol: symbol
             orderType: market
             side: buy
-            orderId: orderId
+            clientOrderId: clientOrderId
             warning: warning
             error: error
             orderQuantity: 0.8008281904610115
@@ -725,15 +768,18 @@ components:
         accepted:
           additionalProperties:
             $ref: '#/components/schemas/EMSOrderMetadata'
+          description: Accepted Orders
           nullable: true
           type: object
         rejected:
           additionalProperties:
             $ref: '#/components/schemas/EMSOrderMetadata'
+          description: Rejected Orders
           nullable: true
           type: object
       type: object
-    EMSOrdersCreateResponseRoot:
+    EMSOrdersResponseRoot:
+      description: EMS Response
       example:
         data:
           rejected:
@@ -741,7 +787,7 @@ components:
               symbol: symbol
               orderType: market
               side: buy
-              orderId: orderId
+              clientOrderId: clientOrderId
               warning: warning
               error: error
               orderQuantity: 0.8008281904610115
@@ -751,14 +797,14 @@ components:
               symbol: symbol
               orderType: market
               side: buy
-              orderId: orderId
+              clientOrderId: clientOrderId
               warning: warning
               error: error
               orderQuantity: 0.8008281904610115
               info: info
       properties:
         data:
-          $ref: '#/components/schemas/EMSOrdersCreateResponse'
+          $ref: '#/components/schemas/EMSOrdersResponse'
       required:
       - data
       type: object
@@ -771,11 +817,13 @@ components:
             orderType: market
             side: buy
             executionInstructions: not_held
-            orderId: "12322123"
             effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
             maxFloor: 100
             instrument:
               symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
               securityType: securityType
               maturityMonthYear: maturityMonthYear
               maturityDay: maturityDay
@@ -806,11 +854,13 @@ components:
             orderType: market
             side: buy
             executionInstructions: not_held
-            orderId: "12322123"
             effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
             maxFloor: 100
             instrument:
               symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
               securityType: securityType
               maturityMonthYear: maturityMonthYear
               maturityDay: maturityDay
@@ -842,18 +892,21 @@ components:
           $ref: '#/components/schemas/EMSOrders'
       type: object
     EMSReplaceOrder:
+      description: EMS Replace Order
       example:
-        originalOrderId: originalOrderId
+        originalClientOrderId: originalClientOrderId
         order:
           settlementType: regular
           orderType: market
           side: buy
           executionInstructions: not_held
-          orderId: "12322123"
           effectiveTime: 20210622-12:15:30
+          clientOrderId: "12322123"
           maxFloor: 100
           instrument:
             symbol: TATAMOTORS
+            putOrCall: put
+            underlyingSecurityType: underlyingSecurityType
             securityType: securityType
             maturityMonthYear: maturityMonthYear
             maturityDay: maturityDay
@@ -881,29 +934,33 @@ components:
           inboundDestination: inboundDestination
           locateRequired: false
       properties:
-        originalOrderId:
+        originalClientOrderId:
+          description: Unique identifier of the original order, generated in Create.
           type: string
         order:
           $ref: '#/components/schemas/EMSOrder'
       required:
       - order
-      - originalOrderId
+      - originalClientOrderId
       type: object
     EMSReplaceOrders:
+      description: EMS Replace Orders
       example:
         investorId: DEMO-12345
         orders:
-        - originalOrderId: originalOrderId
+        - originalClientOrderId: originalClientOrderId
           order:
             settlementType: regular
             orderType: market
             side: buy
             executionInstructions: not_held
-            orderId: "12322123"
             effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
             maxFloor: 100
             instrument:
               symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
               securityType: securityType
               maturityMonthYear: maturityMonthYear
               maturityDay: maturityDay
@@ -930,17 +987,19 @@ components:
             account: Test.ACCT
             inboundDestination: inboundDestination
             locateRequired: false
-        - originalOrderId: originalOrderId
+        - originalClientOrderId: originalClientOrderId
           order:
             settlementType: regular
             orderType: market
             side: buy
             executionInstructions: not_held
-            orderId: "12322123"
             effectiveTime: 20210622-12:15:30
+            clientOrderId: "12322123"
             maxFloor: 100
             instrument:
               symbol: TATAMOTORS
+              putOrCall: put
+              underlyingSecurityType: underlyingSecurityType
               securityType: securityType
               maturityMonthYear: maturityMonthYear
               maturityDay: maturityDay
@@ -974,6 +1033,7 @@ components:
           nullable: true
           type: string
         orders:
+          description: List of orders to replace
           items:
             $ref: '#/components/schemas/EMSReplaceOrder'
           nullable: true
@@ -984,17 +1044,19 @@ components:
         data:
           investorId: DEMO-12345
           orders:
-          - originalOrderId: originalOrderId
+          - originalClientOrderId: originalClientOrderId
             order:
               settlementType: regular
               orderType: market
               side: buy
               executionInstructions: not_held
-              orderId: "12322123"
               effectiveTime: 20210622-12:15:30
+              clientOrderId: "12322123"
               maxFloor: 100
               instrument:
                 symbol: TATAMOTORS
+                putOrCall: put
+                underlyingSecurityType: underlyingSecurityType
                 securityType: securityType
                 maturityMonthYear: maturityMonthYear
                 maturityDay: maturityDay
@@ -1021,17 +1083,19 @@ components:
               account: Test.ACCT
               inboundDestination: inboundDestination
               locateRequired: false
-          - originalOrderId: originalOrderId
+          - originalClientOrderId: originalClientOrderId
             order:
               settlementType: regular
               orderType: market
               side: buy
               executionInstructions: not_held
-              orderId: "12322123"
               effectiveTime: 20210622-12:15:30
+              clientOrderId: "12322123"
               maxFloor: 100
               instrument:
                 symbol: TATAMOTORS
+                putOrCall: put
+                underlyingSecurityType: underlyingSecurityType
                 securityType: securityType
                 maturityMonthYear: maturityMonthYear
                 maturityDay: maturityDay
@@ -1063,15 +1127,18 @@ components:
           $ref: '#/components/schemas/EMSReplaceOrders'
       type: object
     Error:
+      description: Error
       properties:
         id:
           description: Identifier for the error
           nullable: true
           type: string
         code:
+          description: Code
           nullable: true
           type: string
         title:
+          description: Title
           nullable: true
           type: string
         detail:
@@ -1082,6 +1149,7 @@ components:
           $ref: '#/components/schemas/ErrorSource'
       type: object
     ErrorSource:
+      description: Error Source
       properties:
         pointer:
           description: Pointer to the associated entity in the request body
@@ -1093,8 +1161,11 @@ components:
           type: string
       type: object
     Instrument:
+      description: Instrument
       example:
         symbol: TATAMOTORS
+        putOrCall: put
+        underlyingSecurityType: underlyingSecurityType
         securityType: securityType
         maturityMonthYear: maturityMonthYear
         maturityDay: maturityDay
@@ -1104,23 +1175,24 @@ components:
         issuer: issuer
       properties:
         symbol:
-          description: Symbol
+          description: Ticker symbol
           example: TATAMOTORS
           type: string
         securityType:
-          description: Security Type
+          description: Indicates type of security.
           nullable: true
           type: string
         cfiCode:
-          description: Cfi Code
+          description: Classification of Financial Instruments. Indicates the type
+            of security using ISO 0962 standard.
           nullable: true
           type: string
         securityExchange:
-          description: Security exchange
+          description: Market used to help identify a security.
           nullable: true
           type: string
         issuer:
-          description: Issuer
+          description: Company name of security issuer.
           nullable: true
           type: string
         securityDescription:
@@ -1128,23 +1200,37 @@ components:
           nullable: true
           type: string
         maturityMonthYear:
-          description: Maturity month year
+          description: Month and Year of the maturity.
           nullable: true
           type: string
         maturityDay:
-          description: Maturity day
+          description: Day of month used in conjunction with maturityMonthYear to
+            specify the maturity date
+          nullable: true
+          type: string
+        putOrCall:
+          description: Indicates whether an Option is for a put or call.
+          enum:
+          - put
+          - call
+          nullable: true
+          type: string
+        underlyingSecurityType:
+          description: Underlying security’s SecurityType.
           nullable: true
           type: string
       required:
       - symbol
       type: object
     TimeInForce:
+      description: Time in Force
       example:
         tif: DAY
         expireTime: expireTime
         expireDate: expireDate
       properties:
         tif:
+          default: DAY
           description: 'Time in force: if GTD, then Expire Time or Expire Date is
             a required field'
           enum:

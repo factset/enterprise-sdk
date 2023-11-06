@@ -21,13 +21,14 @@ import EMSOrder from './EMSOrder';
 class EMSReplaceOrder {
     /**
      * Constructs a new <code>EMSReplaceOrder</code>.
+     * EMS Replace Order
      * @alias module:model/EMSReplaceOrder
-     * @param originalOrderId {String} 
+     * @param originalClientOrderId {String} Unique identifier of the original order, generated in Create.
      * @param order {module:model/EMSOrder} 
      */
-    constructor(originalOrderId, order) { 
+    constructor(originalClientOrderId, order) { 
         
-        EMSReplaceOrder.initialize(this, originalOrderId, order);
+        EMSReplaceOrder.initialize(this, originalClientOrderId, order);
     }
 
     /**
@@ -35,8 +36,8 @@ class EMSReplaceOrder {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, originalOrderId, order) { 
-        obj['originalOrderId'] = originalOrderId;
+    static initialize(obj, originalClientOrderId, order) { 
+        obj['originalClientOrderId'] = originalClientOrderId;
         obj['order'] = order;
     }
 
@@ -51,8 +52,8 @@ class EMSReplaceOrder {
         if (data) {
             obj = obj || new EMSReplaceOrder();
 
-            if (data.hasOwnProperty('originalOrderId')) {
-                obj['originalOrderId'] = ApiClient.convertToType(data['originalOrderId'], 'String');
+            if (data.hasOwnProperty('originalClientOrderId')) {
+                obj['originalClientOrderId'] = ApiClient.convertToType(data['originalClientOrderId'], 'String');
             }
             if (data.hasOwnProperty('order')) {
                 obj['order'] = EMSOrder.constructFromObject(data['order']);
@@ -65,9 +66,10 @@ class EMSReplaceOrder {
 }
 
 /**
- * @member {String} originalOrderId
+ * Unique identifier of the original order, generated in Create.
+ * @member {String} originalClientOrderId
  */
-EMSReplaceOrder.prototype['originalOrderId'] = undefined;
+EMSReplaceOrder.prototype['originalClientOrderId'] = undefined;
 
 /**
  * @member {module:model/EMSOrder} order

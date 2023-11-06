@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **cancel**
-> EMSOrdersCreateResponseRoot cancel()
+> EMSOrdersResponseRoot cancel()
 
 Cancel the orders on EMS system.
 
@@ -62,10 +62,10 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ems_cancel_orders_root = EMSCancelOrdersRoot(
         data=EMSCancelOrders(
-            investor_id="investor_id_example",
+            investor_id="DEMO-12345",
             orders=[
                 EMSCancelOrder(
-                    original_order_id="original_order_id_example",
+                    original_client_order_id="original_client_order_id_example",
                     inbound_destination="inbound_destination_example",
                 ),
             ],
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 **200** | Expected response, returns the list of order ids. |  -  |
 **400** | Invalid post body parameters. |  -  |
 **401** | Missing or invalid authentication. |  -  |
-**403** | User is forbidden with current credentials |  -  |
+**403** | User is forbidden with current credentials. |  -  |
 **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 **429** | Rate limit reached. Wait before sending further requests. |  -  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create**
-> EMSOrdersCreateResponseRoot create()
+> EMSOrdersResponseRoot create()
 
 Send orders to EMS for execution.
 
@@ -175,7 +175,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
             investor_id="DEMO-12345",
             orders=[
                 EMSOrder(
-                    order_id="12322123",
+                    client_order_id="12322123",
                     instrument=Instrument(
                         symbol="TATAMOTORS",
                         security_type="security_type_example",
@@ -185,6 +185,8 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                         security_description="security_description_example",
                         maturity_month_year="maturity_month_year_example",
                         maturity_day="maturity_day_example",
+                        put_or_call="put",
+                        underlying_security_type="underlying_security_type_example",
                     ),
                     side="buy",
                     order_type="market",
@@ -239,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -258,7 +260,7 @@ Name | Type | Description  | Notes
 **200** | Expected response, returns the list of orders. |  -  |
 **400** | Invalid post body parameters. |  -  |
 **401** | Missing or invalid authentication. |  -  |
-**403** | User is forbidden with current credentials |  -  |
+**403** | User is forbidden with current credentials. |  -  |
 **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 **429** | Rate limit reached. Wait before sending further requests. |  -  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |
@@ -267,7 +269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace**
-> EMSOrdersCreateResponseRoot replace()
+> EMSOrdersResponseRoot replace()
 
 Replace the orders on EMS system.
 
@@ -321,9 +323,9 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
             investor_id="DEMO-12345",
             orders=[
                 EMSReplaceOrder(
-                    original_order_id="original_order_id_example",
+                    original_client_order_id="original_client_order_id_example",
                     order=EMSOrder(
-                        order_id="12322123",
+                        client_order_id="12322123",
                         instrument=Instrument(
                             symbol="TATAMOTORS",
                             security_type="security_type_example",
@@ -333,6 +335,8 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                             security_description="security_description_example",
                             maturity_month_year="maturity_month_year_example",
                             maturity_day="maturity_day_example",
+                            put_or_call="put",
+                            underlying_security_type="underlying_security_type_example",
                         ),
                         side="buy",
                         order_type="market",
@@ -388,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -407,7 +411,7 @@ Name | Type | Description  | Notes
 **200** | Expected response, returns the list of order ids. |  -  |
 **400** | Invalid post body parameters. |  -  |
 **401** | Missing or invalid authentication. |  -  |
-**403** | User is forbidden with current credentials |  -  |
+**403** | User is forbidden with current credentials. |  -  |
 **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  -  |
 **429** | Rate limit reached. Wait before sending further requests. |  -  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  -  |

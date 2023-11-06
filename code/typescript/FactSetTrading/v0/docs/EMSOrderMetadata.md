@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **String** | Symbol | [optional] 
-**side** | **String** | Side | [optional] 
-**orderType** | **String** | Order Type | [optional] 
-**orderQuantity** | **Number** | Order Quantity | [optional] 
+**symbol** | **String** | Ticker symbol | [optional] 
+**side** | **String** | Side of the order. | [optional] 
+**orderType** | **String** | Type of the order | [optional] 
+**orderQuantity** | **Number** | Number of shares/Quantity. | [optional] 
 **error** | **String** | Error message | [optional] 
-**info** | **String** | information | [optional] 
-**orderId** | **String** | Order Id | [optional] 
+**info** | **String** | Information | [optional] 
+**clientOrderId** | **String** | Client Order Id | [optional] 
 **warning** | **String** | Warning | [optional] 
 
 

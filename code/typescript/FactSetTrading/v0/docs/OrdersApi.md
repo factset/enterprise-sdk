@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## cancel
 
-> EMSOrdersCreateResponseRoot cancel(opts)
+> EMSOrdersResponseRoot cancel(opts)
 
 Cancel the orders on EMS system.
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## create
 
-> EMSOrdersCreateResponseRoot create(opts)
+> EMSOrdersResponseRoot create(opts)
 
 Send orders to EMS for execution.
 
@@ -123,7 +123,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new OrdersApi();
 const opts = {
-  'eMSOrdersRoot': {"data":{"investorId":"MyOrganization","orders":[{"orderId":"OR0000001","instrument":{"symbol":"GOOGL"},"side":"buy","orderType":"market","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"orderId":"OR0000002","instrument":{"symbol":"MSFT"},"side":"sell","orderType":"limit","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"orderId":"OR0000003","instrument":{"symbol":"TSLA"},"side":"buy","orderType":"market_on_close","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"}]}} // EMSOrdersRoot | 
+  'eMSOrdersRoot': {"data":{"investorId":"MyOrganization","orders":[{"clientOrderId":"OR0000001","instrument":{"symbol":"GOOGL"},"side":"buy","orderType":"market","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"clientOrderId":"OR0000002","instrument":{"symbol":"MSFT"},"side":"sell","orderType":"limit","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"clientOrderId":"OR0000003","instrument":{"symbol":"TSLA"},"side":"buy","orderType":"market_on_close","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"}]}} // EMSOrdersRoot | 
 };
 
 // Call api endpoint
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## replace
 
-> EMSOrdersCreateResponseRoot replace(opts)
+> EMSOrdersResponseRoot replace(opts)
 
 Replace the orders on EMS system.
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersResponseRoot**](EMSOrdersResponseRoot.md)
 
 ### Authorization
 

@@ -149,7 +149,7 @@ class TimeInForce(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tif (str): Time in force: if GTD, then Expire Time or Expire Date is a required field. [optional]  # noqa: E501
+            tif (str): Time in force: if GTD, then Expire Time or Expire Date is a required field. [optional] if omitted the server will use the default value of "DAY"  # noqa: E501
             expire_date (str, none_type): Expire date in YYYYMMDD format expressed in UTC. [optional]  # noqa: E501
             expire_time (str, none_type): Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC. [optional]  # noqa: E501
         """
@@ -233,7 +233,7 @@ class TimeInForce(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tif (str): Time in force: if GTD, then Expire Time or Expire Date is a required field. [optional]  # noqa: E501
+            tif (str): Time in force: if GTD, then Expire Time or Expire Date is a required field. [optional] if omitted the server will use the default value of "DAY"  # noqa: E501
             expire_date (str, none_type): Expire date in YYYYMMDD format expressed in UTC. [optional]  # noqa: E501
             expire_time (str, none_type): Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC. [optional]  # noqa: E501
         """

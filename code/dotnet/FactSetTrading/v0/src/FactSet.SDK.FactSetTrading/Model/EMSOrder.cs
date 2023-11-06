@@ -27,15 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTrading.Client.OpenAPIDateConver
 namespace FactSet.SDK.FactSetTrading.Model
 {
     /// <summary>
-    /// EMSOrder
+    /// EMS Order
     /// </summary>
     [DataContract(Name = "EMSOrder")]
     public partial class EMSOrder : IEquatable<EMSOrder>, IValidatableObject
     {
         /// <summary>
-        /// Side
+        /// Side of the order.
         /// </summary>
-        /// <value>Side</value>
+        /// <value>Side of the order.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SideEnum
         {
@@ -67,9 +67,9 @@ namespace FactSet.SDK.FactSetTrading.Model
 
 
         /// <summary>
-        /// Side
+        /// Side of the order.
         /// </summary>
-        /// <value>Side</value>
+        /// <value>Side of the order.</value>
         [DataMember(Name = "side", IsRequired = true, EmitDefaultValue = false)]
         public SideEnum Side { get; set; }
         /// <summary>
@@ -125,9 +125,9 @@ namespace FactSet.SDK.FactSetTrading.Model
         [DataMember(Name = "orderType", IsRequired = true, EmitDefaultValue = false)]
         public OrderTypeEnum OrderType { get; set; }
         /// <summary>
-        /// Handling instructions
+        /// Instructions for order handling on Broker trading floor.
         /// </summary>
-        /// <value>Handling instructions</value>
+        /// <value>Instructions for order handling on Broker trading floor.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum HandlingInstructionsEnum
         {
@@ -153,15 +153,15 @@ namespace FactSet.SDK.FactSetTrading.Model
 
 
         /// <summary>
-        /// Handling instructions
+        /// Instructions for order handling on Broker trading floor.
         /// </summary>
-        /// <value>Handling instructions</value>
+        /// <value>Instructions for order handling on Broker trading floor.</value>
         [DataMember(Name = "handlingInstructions", EmitDefaultValue = true)]
         public HandlingInstructionsEnum? HandlingInstructions { get; set; }
         /// <summary>
-        /// Execution instructions
+        /// Instructions for order handling on exchange trading floor.
         /// </summary>
-        /// <value>Execution instructions</value>
+        /// <value>Instructions for order handling on exchange trading floor.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ExecutionInstructionsEnum
         {
@@ -451,9 +451,9 @@ namespace FactSet.SDK.FactSetTrading.Model
 
 
         /// <summary>
-        /// Execution instructions
+        /// Instructions for order handling on exchange trading floor.
         /// </summary>
-        /// <value>Execution instructions</value>
+        /// <value>Instructions for order handling on exchange trading floor.</value>
         [DataMember(Name = "executionInstructions", EmitDefaultValue = true)]
         public ExecutionInstructionsEnum? ExecutionInstructions { get; set; }
         /// <summary>
@@ -464,30 +464,30 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EMSOrder" /> class.
         /// </summary>
-        /// <param name="orderId">Unique id for the order.</param>
+        /// <param name="clientOrderId">Unique id for the order.</param>
         /// <param name="instrument">instrument (required).</param>
-        /// <param name="side">Side (required).</param>
+        /// <param name="side">Side of the order. (required).</param>
         /// <param name="orderType">Type of the order (required).</param>
-        /// <param name="orderQuantity">Order quantity.</param>
-        /// <param name="price">Order Price.</param>
-        /// <param name="stopPrice">Stop Price.</param>
-        /// <param name="strikePrice">Strike Price.</param>
-        /// <param name="currency">Currency.</param>
-        /// <param name="isCovered">Currency.</param>
-        /// <param name="maxShow">Max Show.</param>
-        /// <param name="maxFloor">Max Floor.</param>
-        /// <param name="prevClosePrice">Previous close price.</param>
-        /// <param name="settlementType">Settlement type.</param>
-        /// <param name="settlementDate">Settlement date in YYYYMMDD format.</param>
-        /// <param name="handlingInstructions">Handling instructions.</param>
-        /// <param name="executionInstructions">Execution instructions.</param>
-        /// <param name="locateRequired">Locate Required.</param>
+        /// <param name="orderQuantity">Number of shares/Quantity..</param>
+        /// <param name="price">Order price per share.</param>
+        /// <param name="stopPrice">Stop-loss price to buy/sell stock at market..</param>
+        /// <param name="strikePrice">Strike Price for an Option..</param>
+        /// <param name="currency">Currency used for price in ISO format..</param>
+        /// <param name="isCovered">Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order.</param>
+        /// <param name="maxShow">Maximum number of shares within an order to be shown to other customers..</param>
+        /// <param name="maxFloor">Maximum number of shares within an order to be shown on the exchange floor at any given time..</param>
+        /// <param name="prevClosePrice">Previous closing price of security..</param>
+        /// <param name="settlementType">Order settlement period..</param>
+        /// <param name="settlementDate">Settlement date of trade settlement in YYYYMMDD format.</param>
+        /// <param name="handlingInstructions">Instructions for order handling on Broker trading floor..</param>
+        /// <param name="executionInstructions">Instructions for order handling on exchange trading floor..</param>
+        /// <param name="locateRequired">Indicates whether the broker is to locate the stock in conjunction with a short sell order..</param>
         /// <param name="effectiveTime">Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC.</param>
-        /// <param name="account">Account.</param>
+        /// <param name="account">Account for the basket, parent basket or position..</param>
         /// <param name="timeInForce">timeInForce.</param>
-        /// <param name="inboundDestination">Inbound Destination.</param>
+        /// <param name="inboundDestination">To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure..</param>
         /// <param name="userDefinedFields">User defined fields.</param>
-        public EMSOrder(Instrument instrument, SideEnum side, OrderTypeEnum orderType,string orderId = default(string), double orderQuantity = default(double), double? price = default(double?), double? stopPrice = default(double?), double? strikePrice = default(double?), string currency = default(string), bool? isCovered = default(bool?), double? maxShow = default(double?), double? maxFloor = default(double?), double? prevClosePrice = default(double?), string settlementType = default(string), string settlementDate = default(string), HandlingInstructionsEnum? handlingInstructions = default(HandlingInstructionsEnum?), ExecutionInstructionsEnum? executionInstructions = default(ExecutionInstructionsEnum?), bool? locateRequired = default(bool?), string effectiveTime = default(string), string account = default(string), TimeInForce timeInForce = default(TimeInForce), string inboundDestination = default(string), Dictionary<string, string> userDefinedFields = default(Dictionary<string, string>))
+        public EMSOrder(Instrument instrument, SideEnum side, OrderTypeEnum orderType,string clientOrderId = default(string), double orderQuantity = default(double), double? price = default(double?), double? stopPrice = default(double?), double? strikePrice = default(double?), string currency = default(string), bool? isCovered = default(bool?), double? maxShow = default(double?), double? maxFloor = default(double?), double? prevClosePrice = default(double?), string settlementType = default(string), string settlementDate = default(string), HandlingInstructionsEnum? handlingInstructions = default(HandlingInstructionsEnum?), ExecutionInstructionsEnum? executionInstructions = default(ExecutionInstructionsEnum?), bool? locateRequired = default(bool?), string effectiveTime = default(string), string account = default(string), TimeInForce timeInForce = default(TimeInForce), string inboundDestination = default(string), Dictionary<string, string> userDefinedFields = default(Dictionary<string, string>))
         {
             // to ensure "instrument" is required (not null)
             if (instrument == null) {
@@ -496,7 +496,7 @@ namespace FactSet.SDK.FactSetTrading.Model
             this.Instrument = instrument;
             this.Side = side;
             this.OrderType = orderType;
-            this.OrderId = orderId;
+            this.ClientOrderId = clientOrderId;
             this.OrderQuantity = orderQuantity;
             this.Price = price;
             this.StopPrice = stopPrice;
@@ -522,8 +522,8 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// Unique id for the order
         /// </summary>
         /// <value>Unique id for the order</value>
-        [DataMember(Name = "orderId", EmitDefaultValue = true)]
-        public string OrderId { get; set; }
+        [DataMember(Name = "clientOrderId", EmitDefaultValue = true)]
+        public string ClientOrderId { get; set; }
 
         /// <summary>
         /// Gets or Sets Instrument
@@ -532,86 +532,86 @@ namespace FactSet.SDK.FactSetTrading.Model
         public Instrument Instrument { get; set; }
 
         /// <summary>
-        /// Order quantity
+        /// Number of shares/Quantity.
         /// </summary>
-        /// <value>Order quantity</value>
+        /// <value>Number of shares/Quantity.</value>
         [DataMember(Name = "orderQuantity", EmitDefaultValue = false)]
         public double OrderQuantity { get; set; }
 
         /// <summary>
-        /// Order Price
+        /// Order price per share
         /// </summary>
-        /// <value>Order Price</value>
+        /// <value>Order price per share</value>
         [DataMember(Name = "price", EmitDefaultValue = true)]
         public double? Price { get; set; }
 
         /// <summary>
-        /// Stop Price
+        /// Stop-loss price to buy/sell stock at market.
         /// </summary>
-        /// <value>Stop Price</value>
+        /// <value>Stop-loss price to buy/sell stock at market.</value>
         [DataMember(Name = "stopPrice", EmitDefaultValue = true)]
         public double? StopPrice { get; set; }
 
         /// <summary>
-        /// Strike Price
+        /// Strike Price for an Option.
         /// </summary>
-        /// <value>Strike Price</value>
+        /// <value>Strike Price for an Option.</value>
         [DataMember(Name = "strikePrice", EmitDefaultValue = true)]
         public double? StrikePrice { get; set; }
 
         /// <summary>
-        /// Currency
+        /// Currency used for price in ISO format.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency used for price in ISO format.</value>
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency
+        /// Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order</value>
         [DataMember(Name = "isCovered", EmitDefaultValue = true)]
         public bool? IsCovered { get; set; }
 
         /// <summary>
-        /// Max Show
+        /// Maximum number of shares within an order to be shown to other customers.
         /// </summary>
-        /// <value>Max Show</value>
+        /// <value>Maximum number of shares within an order to be shown to other customers.</value>
         [DataMember(Name = "maxShow", EmitDefaultValue = true)]
         public double? MaxShow { get; set; }
 
         /// <summary>
-        /// Max Floor
+        /// Maximum number of shares within an order to be shown on the exchange floor at any given time.
         /// </summary>
-        /// <value>Max Floor</value>
+        /// <value>Maximum number of shares within an order to be shown on the exchange floor at any given time.</value>
         [DataMember(Name = "maxFloor", EmitDefaultValue = true)]
         public double? MaxFloor { get; set; }
 
         /// <summary>
-        /// Previous close price
+        /// Previous closing price of security.
         /// </summary>
-        /// <value>Previous close price</value>
+        /// <value>Previous closing price of security.</value>
         [DataMember(Name = "prevClosePrice", EmitDefaultValue = true)]
         public double? PrevClosePrice { get; set; }
 
         /// <summary>
-        /// Settlement type
+        /// Order settlement period.
         /// </summary>
-        /// <value>Settlement type</value>
+        /// <value>Order settlement period.</value>
         [DataMember(Name = "settlementType", EmitDefaultValue = true)]
         public string SettlementType { get; set; }
 
         /// <summary>
-        /// Settlement date in YYYYMMDD format
+        /// Settlement date of trade settlement in YYYYMMDD format
         /// </summary>
-        /// <value>Settlement date in YYYYMMDD format</value>
+        /// <value>Settlement date of trade settlement in YYYYMMDD format</value>
         [DataMember(Name = "settlementDate", EmitDefaultValue = true)]
         public string SettlementDate { get; set; }
 
         /// <summary>
-        /// Locate Required
+        /// Indicates whether the broker is to locate the stock in conjunction with a short sell order.
         /// </summary>
-        /// <value>Locate Required</value>
+        /// <value>Indicates whether the broker is to locate the stock in conjunction with a short sell order.</value>
         [DataMember(Name = "locateRequired", EmitDefaultValue = true)]
         public bool? LocateRequired { get; set; }
 
@@ -623,9 +623,9 @@ namespace FactSet.SDK.FactSetTrading.Model
         public string EffectiveTime { get; set; }
 
         /// <summary>
-        /// Account
+        /// Account for the basket, parent basket or position.
         /// </summary>
-        /// <value>Account</value>
+        /// <value>Account for the basket, parent basket or position.</value>
         [DataMember(Name = "account", EmitDefaultValue = true)]
         public string Account { get; set; }
 
@@ -636,9 +636,9 @@ namespace FactSet.SDK.FactSetTrading.Model
         public TimeInForce TimeInForce { get; set; }
 
         /// <summary>
-        /// Inbound Destination
+        /// To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.
         /// </summary>
-        /// <value>Inbound Destination</value>
+        /// <value>To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.</value>
         [DataMember(Name = "inboundDestination", EmitDefaultValue = true)]
         public string InboundDestination { get; set; }
 
@@ -657,7 +657,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class EMSOrder {\n");
-            sb.Append("  OrderId: ").Append(OrderId).Append("\n");
+            sb.Append("  ClientOrderId: ").Append(ClientOrderId).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  OrderType: ").Append(OrderType).Append("\n");
@@ -716,9 +716,9 @@ namespace FactSet.SDK.FactSetTrading.Model
             }
             return 
                 (
-                    this.OrderId == input.OrderId ||
-                    (this.OrderId != null &&
-                    this.OrderId.Equals(input.OrderId))
+                    this.ClientOrderId == input.ClientOrderId ||
+                    (this.ClientOrderId != null &&
+                    this.ClientOrderId.Equals(input.ClientOrderId))
                 ) && 
                 (
                     this.Instrument == input.Instrument ||
@@ -837,9 +837,9 @@ namespace FactSet.SDK.FactSetTrading.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.OrderId != null)
+                if (this.ClientOrderId != null)
                 {
-                    hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ClientOrderId.GetHashCode();
                 }
                 if (this.Instrument != null)
                 {

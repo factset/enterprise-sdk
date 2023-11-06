@@ -4,28 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderId** | **String** | Unique id for the order | [optional] 
+**clientOrderId** | **String** | Unique id for the order | [optional] 
 **instrument** | [**Instrument**](Instrument.md) |  | 
-**side** | **String** | Side | 
+**side** | **String** | Side of the order. | 
 **orderType** | **String** | Type of the order | 
-**orderQuantity** | **Number** | Order quantity | [optional] 
-**price** | **Number** | Order Price | [optional] 
-**stopPrice** | **Number** | Stop Price | [optional] 
-**strikePrice** | **Number** | Strike Price | [optional] 
-**currency** | **String** | Currency | [optional] 
-**isCovered** | **Boolean** | Currency | [optional] 
-**maxShow** | **Number** | Max Show | [optional] 
-**maxFloor** | **Number** | Max Floor | [optional] 
-**prevClosePrice** | **Number** | Previous close price | [optional] 
-**settlementType** | **String** | Settlement type | [optional] 
-**settlementDate** | **String** | Settlement date in YYYYMMDD format | [optional] 
-**handlingInstructions** | **String** | Handling instructions | [optional] 
-**executionInstructions** | **String** | Execution instructions | [optional] 
-**locateRequired** | **Boolean** | Locate Required | [optional] 
+**orderQuantity** | **Number** | Number of shares/Quantity. | [optional] 
+**price** | **Number** | Order price per share | [optional] 
+**stopPrice** | **Number** | Stop-loss price to buy/sell stock at market. | [optional] 
+**strikePrice** | **Number** | Strike Price for an Option. | [optional] 
+**currency** | **String** | Currency used for price in ISO format. | [optional] 
+**isCovered** | **Boolean** | Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order | [optional] 
+**maxShow** | **Number** | Maximum number of shares within an order to be shown to other customers. | [optional] 
+**maxFloor** | **Number** | Maximum number of shares within an order to be shown on the exchange floor at any given time. | [optional] 
+**prevClosePrice** | **Number** | Previous closing price of security. | [optional] 
+**settlementType** | **String** | Order settlement period. | [optional] 
+**settlementDate** | **String** | Settlement date of trade settlement in YYYYMMDD format | [optional] 
+**handlingInstructions** | **String** | Instructions for order handling on Broker trading floor. | [optional] 
+**executionInstructions** | **String** | Instructions for order handling on exchange trading floor. | [optional] 
+**locateRequired** | **Boolean** | Indicates whether the broker is to locate the stock in conjunction with a short sell order. | [optional] 
 **effectiveTime** | **String** | Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC | [optional] 
-**account** | **String** | Account | [optional] 
+**account** | **String** | Account for the basket, parent basket or position. | [optional] 
 **timeInForce** | [**TimeInForce**](TimeInForce.md) |  | [optional] 
-**inboundDestination** | **String** | Inbound Destination | [optional] 
+**inboundDestination** | **String** | To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure. | [optional] 
 **userDefinedFields** | **{String: String}** | User defined fields | [optional] 
 
 

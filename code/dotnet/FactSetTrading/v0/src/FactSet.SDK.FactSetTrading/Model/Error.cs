@@ -36,8 +36,8 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
         /// <param name="id">Identifier for the error.</param>
-        /// <param name="code">code.</param>
-        /// <param name="title">title.</param>
+        /// <param name="code">Code.</param>
+        /// <param name="title">Title.</param>
         /// <param name="detail">Explanation specific to the occurrence of the error.</param>
         /// <param name="source">source.</param>
         public Error(string id = default(string), string code = default(string), string title = default(string), string detail = default(string), ErrorSource source = default(ErrorSource))
@@ -57,14 +57,16 @@ namespace FactSet.SDK.FactSetTrading.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Code
         /// </summary>
+        /// <value>Code</value>
         [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// Title
         /// </summary>
+        /// <value>Title</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 

@@ -16,8 +16,8 @@ from fds.sdk.FactSetTrading.model.ems_cancel_orders_root import EMSCancelOrdersR
 from fds.sdk.FactSetTrading.model.ems_order import EMSOrder
 from fds.sdk.FactSetTrading.model.ems_order_metadata import EMSOrderMetadata
 from fds.sdk.FactSetTrading.model.ems_orders import EMSOrders
-from fds.sdk.FactSetTrading.model.ems_orders_create_response import EMSOrdersCreateResponse
-from fds.sdk.FactSetTrading.model.ems_orders_create_response_root import EMSOrdersCreateResponseRoot
+from fds.sdk.FactSetTrading.model.ems_orders_response import EMSOrdersResponse
+from fds.sdk.FactSetTrading.model.ems_orders_response_root import EMSOrdersResponseRoot
 from fds.sdk.FactSetTrading.model.ems_orders_root import EMSOrdersRoot
 from fds.sdk.FactSetTrading.model.ems_replace_order import EMSReplaceOrder
 from fds.sdk.FactSetTrading.model.ems_replace_orders import EMSReplaceOrders

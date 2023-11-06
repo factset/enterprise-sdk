@@ -21,6 +21,7 @@ import EMSCancelOrder from './EMSCancelOrder';
 class EMSCancelOrders {
     /**
      * Constructs a new <code>EMSCancelOrders</code>.
+     * EMS Cancel Orders
      * @alias module:model/EMSCancelOrders
      */
     constructor() { 
@@ -61,11 +62,13 @@ class EMSCancelOrders {
 }
 
 /**
+ * Investor Id
  * @member {String} investorId
  */
 EMSCancelOrders.prototype['investorId'] = undefined;
 
 /**
+ * List of orders to cancel
  * @member {Array.<module:model/EMSCancelOrder>} orders
  */
 EMSCancelOrders.prototype['orders'] = undefined;

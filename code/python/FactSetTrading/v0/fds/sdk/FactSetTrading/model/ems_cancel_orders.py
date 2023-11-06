@@ -143,8 +143,8 @@ class EMSCancelOrders(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            investor_id (str, none_type): [optional]  # noqa: E501
-            orders ([EMSCancelOrder], none_type): [optional]  # noqa: E501
+            investor_id (str, none_type): Investor Id. [optional]  # noqa: E501
+            orders ([EMSCancelOrder], none_type): List of orders to cancel. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,8 +226,8 @@ class EMSCancelOrders(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            investor_id (str, none_type): [optional]  # noqa: E501
-            orders ([EMSCancelOrder], none_type): [optional]  # noqa: E501
+            investor_id (str, none_type): Investor Id. [optional]  # noqa: E501
+            orders ([EMSCancelOrder], none_type): List of orders to cancel. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

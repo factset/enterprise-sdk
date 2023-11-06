@@ -11,8 +11,8 @@ docs/EMSCancelOrdersRoot.md
 docs/EMSOrder.md
 docs/EMSOrderMetadata.md
 docs/EMSOrders.md
-docs/EMSOrdersCreateResponse.md
-docs/EMSOrdersCreateResponseRoot.md
+docs/EMSOrdersResponse.md
+docs/EMSOrdersResponseRoot.md
 docs/EMSOrdersRoot.md
 docs/EMSReplaceOrder.md
 docs/EMSReplaceOrders.md
@@ -49,8 +49,8 @@ src/FactSet.SDK.FactSetTrading/Model/EMSCancelOrdersRoot.cs
 src/FactSet.SDK.FactSetTrading/Model/EMSOrder.cs
 src/FactSet.SDK.FactSetTrading/Model/EMSOrderMetadata.cs
 src/FactSet.SDK.FactSetTrading/Model/EMSOrders.cs
-src/FactSet.SDK.FactSetTrading/Model/EMSOrdersCreateResponse.cs
-src/FactSet.SDK.FactSetTrading/Model/EMSOrdersCreateResponseRoot.cs
+src/FactSet.SDK.FactSetTrading/Model/EMSOrdersResponse.cs
+src/FactSet.SDK.FactSetTrading/Model/EMSOrdersResponseRoot.cs
 src/FactSet.SDK.FactSetTrading/Model/EMSOrdersRoot.cs
 src/FactSet.SDK.FactSetTrading/Model/EMSReplaceOrder.cs
 src/FactSet.SDK.FactSetTrading/Model/EMSReplaceOrders.cs

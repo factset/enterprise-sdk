@@ -13,8 +13,8 @@ docs/EMSCancelOrdersRoot.md
 docs/EMSOrder.md
 docs/EMSOrderMetadata.md
 docs/EMSOrders.md
-docs/EMSOrdersCreateResponse.md
-docs/EMSOrdersCreateResponseRoot.md
+docs/EMSOrdersResponse.md
+docs/EMSOrdersResponseRoot.md
 docs/EMSOrdersRoot.md
 docs/EMSReplaceOrder.md
 docs/EMSReplaceOrders.md
@@ -60,8 +60,8 @@ src/main/java/com/factset/sdk/FactSetTrading/models/EMSCancelOrdersRoot.java
 src/main/java/com/factset/sdk/FactSetTrading/models/EMSOrder.java
 src/main/java/com/factset/sdk/FactSetTrading/models/EMSOrderMetadata.java
 src/main/java/com/factset/sdk/FactSetTrading/models/EMSOrders.java
-src/main/java/com/factset/sdk/FactSetTrading/models/EMSOrdersCreateResponse.java
-src/main/java/com/factset/sdk/FactSetTrading/models/EMSOrdersCreateResponseRoot.java
+src/main/java/com/factset/sdk/FactSetTrading/models/EMSOrdersResponse.java
+src/main/java/com/factset/sdk/FactSetTrading/models/EMSOrdersResponseRoot.java
 src/main/java/com/factset/sdk/FactSetTrading/models/EMSOrdersRoot.java
 src/main/java/com/factset/sdk/FactSetTrading/models/EMSReplaceOrder.java
 src/main/java/com/factset/sdk/FactSetTrading/models/EMSReplaceOrders.java

@@ -36,6 +36,7 @@ import com.factset.sdk.FactSetTrading.JSON;
 /**
  * Instrument
  */
+@ApiModel(description = "Instrument")
 @JsonPropertyOrder({
   Instrument.JSON_PROPERTY_SYMBOL,
   Instrument.JSON_PROPERTY_SECURITY_TYPE,
@@ -44,7 +45,9 @@ import com.factset.sdk.FactSetTrading.JSON;
   Instrument.JSON_PROPERTY_ISSUER,
   Instrument.JSON_PROPERTY_SECURITY_DESCRIPTION,
   Instrument.JSON_PROPERTY_MATURITY_MONTH_YEAR,
-  Instrument.JSON_PROPERTY_MATURITY_DAY
+  Instrument.JSON_PROPERTY_MATURITY_DAY,
+  Instrument.JSON_PROPERTY_PUT_OR_CALL,
+  Instrument.JSON_PROPERTY_UNDERLYING_SECURITY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Instrument implements Serializable {
@@ -74,6 +77,47 @@ public class Instrument implements Serializable {
   public static final String JSON_PROPERTY_MATURITY_DAY = "maturityDay";
   private JsonNullable<String> maturityDay = JsonNullable.<String>undefined();
 
+  /**
+   * Indicates whether an Option is for a put or call.
+   */
+  public enum PutOrCallEnum {
+    PUT("put"),
+    
+    CALL("call");
+
+    private String value;
+
+    PutOrCallEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PutOrCallEnum fromValue(String value) {
+      for (PutOrCallEnum b : PutOrCallEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_PUT_OR_CALL = "putOrCall";
+  private JsonNullable<PutOrCallEnum> putOrCall = JsonNullable.<PutOrCallEnum>undefined();
+
+  public static final String JSON_PROPERTY_UNDERLYING_SECURITY_TYPE = "underlyingSecurityType";
+  private JsonNullable<String> underlyingSecurityType = JsonNullable.<String>undefined();
+
   public Instrument() { 
   }
 
@@ -91,11 +135,11 @@ public class Instrument implements Serializable {
   }
 
    /**
-   * Symbol
+   * Ticker symbol
    * @return symbol
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "TATAMOTORS", required = true, value = "Symbol")
+  @ApiModelProperty(example = "TATAMOTORS", required = true, value = "Ticker symbol")
   @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -117,11 +161,11 @@ public class Instrument implements Serializable {
   }
 
    /**
-   * Security Type
+   * Indicates type of security.
    * @return securityType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Security Type")
+  @ApiModelProperty(value = "Indicates type of security.")
   @JsonIgnore
 
   public String getSecurityType() {
@@ -151,11 +195,11 @@ public class Instrument implements Serializable {
   }
 
    /**
-   * Cfi Code
+   * Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.
    * @return cfiCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Cfi Code")
+  @ApiModelProperty(value = "Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.")
   @JsonIgnore
 
   public String getCfiCode() {
@@ -185,11 +229,11 @@ public class Instrument implements Serializable {
   }
 
    /**
-   * Security exchange
+   * Market used to help identify a security.
    * @return securityExchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Security exchange")
+  @ApiModelProperty(value = "Market used to help identify a security.")
   @JsonIgnore
 
   public String getSecurityExchange() {
@@ -219,11 +263,11 @@ public class Instrument implements Serializable {
   }
 
    /**
-   * Issuer
+   * Company name of security issuer.
    * @return issuer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Issuer")
+  @ApiModelProperty(value = "Company name of security issuer.")
   @JsonIgnore
 
   public String getIssuer() {
@@ -287,11 +331,11 @@ public class Instrument implements Serializable {
   }
 
    /**
-   * Maturity month year
+   * Month and Year of the maturity.
    * @return maturityMonthYear
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maturity month year")
+  @ApiModelProperty(value = "Month and Year of the maturity.")
   @JsonIgnore
 
   public String getMaturityMonthYear() {
@@ -321,11 +365,11 @@ public class Instrument implements Serializable {
   }
 
    /**
-   * Maturity day
+   * Day of month used in conjunction with maturityMonthYear to specify the maturity date
    * @return maturityDay
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maturity day")
+  @ApiModelProperty(value = "Day of month used in conjunction with maturityMonthYear to specify the maturity date")
   @JsonIgnore
 
   public String getMaturityDay() {
@@ -349,6 +393,74 @@ public class Instrument implements Serializable {
   }
 
 
+  public Instrument putOrCall(PutOrCallEnum putOrCall) {
+    this.putOrCall = JsonNullable.<PutOrCallEnum>of(putOrCall);
+    return this;
+  }
+
+   /**
+   * Indicates whether an Option is for a put or call.
+   * @return putOrCall
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether an Option is for a put or call.")
+  @JsonIgnore
+
+  public PutOrCallEnum getPutOrCall() {
+        return putOrCall.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PUT_OR_CALL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<PutOrCallEnum> getPutOrCall_JsonNullable() {
+    return putOrCall;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PUT_OR_CALL)
+  public void setPutOrCall_JsonNullable(JsonNullable<PutOrCallEnum> putOrCall) {
+    this.putOrCall = putOrCall;
+  }
+
+  public void setPutOrCall(PutOrCallEnum putOrCall) {
+    this.putOrCall = JsonNullable.<PutOrCallEnum>of(putOrCall);
+  }
+
+
+  public Instrument underlyingSecurityType(String underlyingSecurityType) {
+    this.underlyingSecurityType = JsonNullable.<String>of(underlyingSecurityType);
+    return this;
+  }
+
+   /**
+   * Underlying security’s SecurityType.
+   * @return underlyingSecurityType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Underlying security’s SecurityType.")
+  @JsonIgnore
+
+  public String getUnderlyingSecurityType() {
+        return underlyingSecurityType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_UNDERLYING_SECURITY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getUnderlyingSecurityType_JsonNullable() {
+    return underlyingSecurityType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNDERLYING_SECURITY_TYPE)
+  public void setUnderlyingSecurityType_JsonNullable(JsonNullable<String> underlyingSecurityType) {
+    this.underlyingSecurityType = underlyingSecurityType;
+  }
+
+  public void setUnderlyingSecurityType(String underlyingSecurityType) {
+    this.underlyingSecurityType = JsonNullable.<String>of(underlyingSecurityType);
+  }
+
+
   /**
    * Return true if this Instrument object is equal to o.
    */
@@ -368,7 +480,9 @@ public class Instrument implements Serializable {
         equalsNullable(this.issuer, instrument.issuer) &&
         equalsNullable(this.securityDescription, instrument.securityDescription) &&
         equalsNullable(this.maturityMonthYear, instrument.maturityMonthYear) &&
-        equalsNullable(this.maturityDay, instrument.maturityDay);
+        equalsNullable(this.maturityDay, instrument.maturityDay) &&
+        equalsNullable(this.putOrCall, instrument.putOrCall) &&
+        equalsNullable(this.underlyingSecurityType, instrument.underlyingSecurityType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -377,7 +491,7 @@ public class Instrument implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(symbol, hashCodeNullable(securityType), hashCodeNullable(cfiCode), hashCodeNullable(securityExchange), hashCodeNullable(issuer), hashCodeNullable(securityDescription), hashCodeNullable(maturityMonthYear), hashCodeNullable(maturityDay));
+    return Objects.hash(symbol, hashCodeNullable(securityType), hashCodeNullable(cfiCode), hashCodeNullable(securityExchange), hashCodeNullable(issuer), hashCodeNullable(securityDescription), hashCodeNullable(maturityMonthYear), hashCodeNullable(maturityDay), hashCodeNullable(putOrCall), hashCodeNullable(underlyingSecurityType));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -399,6 +513,8 @@ public class Instrument implements Serializable {
     sb.append("    securityDescription: ").append(toIndentedString(securityDescription)).append("\n");
     sb.append("    maturityMonthYear: ").append(toIndentedString(maturityMonthYear)).append("\n");
     sb.append("    maturityDay: ").append(toIndentedString(maturityDay)).append("\n");
+    sb.append("    putOrCall: ").append(toIndentedString(putOrCall)).append("\n");
+    sb.append("    underlyingSecurityType: ").append(toIndentedString(underlyingSecurityType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

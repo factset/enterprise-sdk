@@ -33,6 +33,34 @@ namespace FactSet.SDK.FactSetTrading.Model
     public partial class Instrument : IEquatable<Instrument>, IValidatableObject
     {
         /// <summary>
+        /// Indicates whether an Option is for a put or call.
+        /// </summary>
+        /// <value>Indicates whether an Option is for a put or call.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PutOrCallEnum
+        {
+            /// <summary>
+            /// Enum Put for value: put
+            /// </summary>
+            [EnumMember(Value = "put")]
+            Put = 1,
+
+            /// <summary>
+            /// Enum Call for value: call
+            /// </summary>
+            [EnumMember(Value = "call")]
+            Call = 2
+
+        }
+
+
+        /// <summary>
+        /// Indicates whether an Option is for a put or call.
+        /// </summary>
+        /// <value>Indicates whether an Option is for a put or call.</value>
+        [DataMember(Name = "putOrCall", EmitDefaultValue = true)]
+        public PutOrCallEnum? PutOrCall { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Instrument" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,15 +68,17 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Instrument" /> class.
         /// </summary>
-        /// <param name="symbol">Symbol (required).</param>
-        /// <param name="securityType">Security Type.</param>
-        /// <param name="cfiCode">Cfi Code.</param>
-        /// <param name="securityExchange">Security exchange.</param>
-        /// <param name="issuer">Issuer.</param>
+        /// <param name="symbol">Ticker symbol (required).</param>
+        /// <param name="securityType">Indicates type of security..</param>
+        /// <param name="cfiCode">Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard..</param>
+        /// <param name="securityExchange">Market used to help identify a security..</param>
+        /// <param name="issuer">Company name of security issuer..</param>
         /// <param name="securityDescription">Security Description.</param>
-        /// <param name="maturityMonthYear">Maturity month year.</param>
-        /// <param name="maturityDay">Maturity day.</param>
-        public Instrument(string symbol,string securityType = default(string), string cfiCode = default(string), string securityExchange = default(string), string issuer = default(string), string securityDescription = default(string), string maturityMonthYear = default(string), string maturityDay = default(string))
+        /// <param name="maturityMonthYear">Month and Year of the maturity..</param>
+        /// <param name="maturityDay">Day of month used in conjunction with maturityMonthYear to specify the maturity date.</param>
+        /// <param name="putOrCall">Indicates whether an Option is for a put or call..</param>
+        /// <param name="underlyingSecurityType">Underlying security’s SecurityType..</param>
+        public Instrument(string symbol,string securityType = default(string), string cfiCode = default(string), string securityExchange = default(string), string issuer = default(string), string securityDescription = default(string), string maturityMonthYear = default(string), string maturityDay = default(string), PutOrCallEnum? putOrCall = default(PutOrCallEnum?), string underlyingSecurityType = default(string))
         {
             // to ensure "symbol" is required (not null)
             if (symbol == null) {
@@ -62,40 +92,42 @@ namespace FactSet.SDK.FactSetTrading.Model
             this.SecurityDescription = securityDescription;
             this.MaturityMonthYear = maturityMonthYear;
             this.MaturityDay = maturityDay;
+            this.PutOrCall = putOrCall;
+            this.UnderlyingSecurityType = underlyingSecurityType;
         }
 
         /// <summary>
-        /// Symbol
+        /// Ticker symbol
         /// </summary>
-        /// <value>Symbol</value>
+        /// <value>Ticker symbol</value>
         [DataMember(Name = "symbol", IsRequired = true, EmitDefaultValue = false)]
         public string Symbol { get; set; }
 
         /// <summary>
-        /// Security Type
+        /// Indicates type of security.
         /// </summary>
-        /// <value>Security Type</value>
+        /// <value>Indicates type of security.</value>
         [DataMember(Name = "securityType", EmitDefaultValue = true)]
         public string SecurityType { get; set; }
 
         /// <summary>
-        /// Cfi Code
+        /// Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.
         /// </summary>
-        /// <value>Cfi Code</value>
+        /// <value>Classification of Financial Instruments. Indicates the type of security using ISO 0962 standard.</value>
         [DataMember(Name = "cfiCode", EmitDefaultValue = true)]
         public string CfiCode { get; set; }
 
         /// <summary>
-        /// Security exchange
+        /// Market used to help identify a security.
         /// </summary>
-        /// <value>Security exchange</value>
+        /// <value>Market used to help identify a security.</value>
         [DataMember(Name = "securityExchange", EmitDefaultValue = true)]
         public string SecurityExchange { get; set; }
 
         /// <summary>
-        /// Issuer
+        /// Company name of security issuer.
         /// </summary>
-        /// <value>Issuer</value>
+        /// <value>Company name of security issuer.</value>
         [DataMember(Name = "issuer", EmitDefaultValue = true)]
         public string Issuer { get; set; }
 
@@ -107,18 +139,25 @@ namespace FactSet.SDK.FactSetTrading.Model
         public string SecurityDescription { get; set; }
 
         /// <summary>
-        /// Maturity month year
+        /// Month and Year of the maturity.
         /// </summary>
-        /// <value>Maturity month year</value>
+        /// <value>Month and Year of the maturity.</value>
         [DataMember(Name = "maturityMonthYear", EmitDefaultValue = true)]
         public string MaturityMonthYear { get; set; }
 
         /// <summary>
-        /// Maturity day
+        /// Day of month used in conjunction with maturityMonthYear to specify the maturity date
         /// </summary>
-        /// <value>Maturity day</value>
+        /// <value>Day of month used in conjunction with maturityMonthYear to specify the maturity date</value>
         [DataMember(Name = "maturityDay", EmitDefaultValue = true)]
         public string MaturityDay { get; set; }
+
+        /// <summary>
+        /// Underlying security’s SecurityType.
+        /// </summary>
+        /// <value>Underlying security’s SecurityType.</value>
+        [DataMember(Name = "underlyingSecurityType", EmitDefaultValue = true)]
+        public string UnderlyingSecurityType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,6 +175,8 @@ namespace FactSet.SDK.FactSetTrading.Model
             sb.Append("  SecurityDescription: ").Append(SecurityDescription).Append("\n");
             sb.Append("  MaturityMonthYear: ").Append(MaturityMonthYear).Append("\n");
             sb.Append("  MaturityDay: ").Append(MaturityDay).Append("\n");
+            sb.Append("  PutOrCall: ").Append(PutOrCall).Append("\n");
+            sb.Append("  UnderlyingSecurityType: ").Append(UnderlyingSecurityType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -210,6 +251,15 @@ namespace FactSet.SDK.FactSetTrading.Model
                     this.MaturityDay == input.MaturityDay ||
                     (this.MaturityDay != null &&
                     this.MaturityDay.Equals(input.MaturityDay))
+                ) && 
+                (
+                    this.PutOrCall == input.PutOrCall ||
+                    this.PutOrCall.Equals(input.PutOrCall)
+                ) && 
+                (
+                    this.UnderlyingSecurityType == input.UnderlyingSecurityType ||
+                    (this.UnderlyingSecurityType != null &&
+                    this.UnderlyingSecurityType.Equals(input.UnderlyingSecurityType))
                 );
         }
 
@@ -253,6 +303,11 @@ namespace FactSet.SDK.FactSetTrading.Model
                 if (this.MaturityDay != null)
                 {
                     hashCode = (hashCode * 59) + this.MaturityDay.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PutOrCall.GetHashCode();
+                if (this.UnderlyingSecurityType != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnderlyingSecurityType.GetHashCode();
                 }
                 return hashCode;
             }

@@ -13,7 +13,7 @@ import java.util.Objects;
 
 import com.factset.sdk.FactSetTrading.models.ClientErrorResponse;
 import com.factset.sdk.FactSetTrading.models.EMSCancelOrdersRoot;
-import com.factset.sdk.FactSetTrading.models.EMSOrdersCreateResponseRoot;
+import com.factset.sdk.FactSetTrading.models.EMSOrdersResponseRoot;
 import com.factset.sdk.FactSetTrading.models.EMSOrdersRoot;
 import com.factset.sdk.FactSetTrading.models.EMSReplaceOrdersRoot;
 
@@ -31,19 +31,19 @@ public class OrdersApi {
   
   private static final Map<Integer, GenericType> cancelResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cancelResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
+    cancelResponseTypeMap.put(200, new GenericType<EMSOrdersResponseRoot>(){});
     cancelResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> createResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    createResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
+    createResponseTypeMap.put(200, new GenericType<EMSOrdersResponseRoot>(){});
     createResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> replaceResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    replaceResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
+    replaceResponseTypeMap.put(200, new GenericType<EMSOrdersResponseRoot>(){});
     replaceResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
 
@@ -72,7 +72,7 @@ public class OrdersApi {
    * Cancel the orders on EMS system.
    * This endpoint takes the list of orders to be cancelled on the EMS system.
    * @param emSCancelOrdersRoot  (optional)
-   * @return EMSOrdersCreateResponseRoot
+   * @return EMSOrdersResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -80,14 +80,14 @@ public class OrdersApi {
        <tr><td> 200 </td><td> Expected response, returns the list of order ids. </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid post body parameters. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait before sending further requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSOrdersCreateResponseRoot cancel(EMSCancelOrdersRoot emSCancelOrdersRoot) throws ApiException {
+  public EMSOrdersResponseRoot cancel(EMSCancelOrdersRoot emSCancelOrdersRoot) throws ApiException {
     return cancelWithHttpInfo(emSCancelOrdersRoot).getData();
   }
 
@@ -95,7 +95,7 @@ public class OrdersApi {
    * Cancel the orders on EMS system.
    * This endpoint takes the list of orders to be cancelled on the EMS system.
    * @param emSCancelOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSOrdersCreateResponseRoot&gt;
+   * @return ApiResponse&lt;EMSOrdersResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -103,14 +103,14 @@ public class OrdersApi {
        <tr><td> 200 </td><td> Expected response, returns the list of order ids. </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid post body parameters. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait before sending further requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSOrdersCreateResponseRoot> cancelWithHttpInfo(EMSCancelOrdersRoot emSCancelOrdersRoot) throws ApiException {
+  public ApiResponse<EMSOrdersResponseRoot> cancelWithHttpInfo(EMSCancelOrdersRoot emSCancelOrdersRoot) throws ApiException {
     Object localVarPostBody = emSCancelOrdersRoot;
     
     // create path and map variables
@@ -141,7 +141,7 @@ public class OrdersApi {
 
     ApiResponse<
         
-        EMSOrdersCreateResponseRoot
+        EMSOrdersResponseRoot
       
     > apiResponse = apiClient.invokeAPI("OrdersApi.cancel", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -154,7 +154,7 @@ public class OrdersApi {
    * Send orders to EMS for execution.
    * This endpoint takes the list of orders and place them on EMS for execution.
    * @param emSOrdersRoot  (optional)
-   * @return EMSOrdersCreateResponseRoot
+   * @return EMSOrdersResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -162,14 +162,14 @@ public class OrdersApi {
        <tr><td> 200 </td><td> Expected response, returns the list of orders. </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid post body parameters. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait before sending further requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSOrdersCreateResponseRoot create(EMSOrdersRoot emSOrdersRoot) throws ApiException {
+  public EMSOrdersResponseRoot create(EMSOrdersRoot emSOrdersRoot) throws ApiException {
     return createWithHttpInfo(emSOrdersRoot).getData();
   }
 
@@ -177,7 +177,7 @@ public class OrdersApi {
    * Send orders to EMS for execution.
    * This endpoint takes the list of orders and place them on EMS for execution.
    * @param emSOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSOrdersCreateResponseRoot&gt;
+   * @return ApiResponse&lt;EMSOrdersResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -185,14 +185,14 @@ public class OrdersApi {
        <tr><td> 200 </td><td> Expected response, returns the list of orders. </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid post body parameters. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait before sending further requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSOrdersCreateResponseRoot> createWithHttpInfo(EMSOrdersRoot emSOrdersRoot) throws ApiException {
+  public ApiResponse<EMSOrdersResponseRoot> createWithHttpInfo(EMSOrdersRoot emSOrdersRoot) throws ApiException {
     Object localVarPostBody = emSOrdersRoot;
     
     // create path and map variables
@@ -223,7 +223,7 @@ public class OrdersApi {
 
     ApiResponse<
         
-        EMSOrdersCreateResponseRoot
+        EMSOrdersResponseRoot
       
     > apiResponse = apiClient.invokeAPI("OrdersApi.create", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -236,7 +236,7 @@ public class OrdersApi {
    * Replace the orders on EMS system.
    * This endpoint takes the list of orders to be replaced on the EMS system.
    * @param emSReplaceOrdersRoot  (optional)
-   * @return EMSOrdersCreateResponseRoot
+   * @return EMSOrdersResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -244,14 +244,14 @@ public class OrdersApi {
        <tr><td> 200 </td><td> Expected response, returns the list of order ids. </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid post body parameters. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait before sending further requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSOrdersCreateResponseRoot replace(EMSReplaceOrdersRoot emSReplaceOrdersRoot) throws ApiException {
+  public EMSOrdersResponseRoot replace(EMSReplaceOrdersRoot emSReplaceOrdersRoot) throws ApiException {
     return replaceWithHttpInfo(emSReplaceOrdersRoot).getData();
   }
 
@@ -259,7 +259,7 @@ public class OrdersApi {
    * Replace the orders on EMS system.
    * This endpoint takes the list of orders to be replaced on the EMS system.
    * @param emSReplaceOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSOrdersCreateResponseRoot&gt;
+   * @return ApiResponse&lt;EMSOrdersResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -267,14 +267,14 @@ public class OrdersApi {
        <tr><td> 200 </td><td> Expected response, returns the list of order ids. </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Invalid post body parameters. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Missing/Invalid Content-Type header. Header needs to be set to application/json. </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait before sending further requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSOrdersCreateResponseRoot> replaceWithHttpInfo(EMSReplaceOrdersRoot emSReplaceOrdersRoot) throws ApiException {
+  public ApiResponse<EMSOrdersResponseRoot> replaceWithHttpInfo(EMSReplaceOrdersRoot emSReplaceOrdersRoot) throws ApiException {
     Object localVarPostBody = emSReplaceOrdersRoot;
     
     // create path and map variables
@@ -305,7 +305,7 @@ public class OrdersApi {
 
     ApiResponse<
         
-        EMSOrdersCreateResponseRoot
+        EMSOrdersResponseRoot
       
     > apiResponse = apiClient.invokeAPI("OrdersApi.replace", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

@@ -19,8 +19,8 @@ import EMSCancelOrdersRoot from './model/EMSCancelOrdersRoot';
 import EMSOrder from './model/EMSOrder';
 import EMSOrderMetadata from './model/EMSOrderMetadata';
 import EMSOrders from './model/EMSOrders';
-import EMSOrdersCreateResponse from './model/EMSOrdersCreateResponse';
-import EMSOrdersCreateResponseRoot from './model/EMSOrdersCreateResponseRoot';
+import EMSOrdersResponse from './model/EMSOrdersResponse';
+import EMSOrdersResponseRoot from './model/EMSOrdersResponseRoot';
 import EMSOrdersRoot from './model/EMSOrdersRoot';
 import EMSReplaceOrder from './model/EMSReplaceOrder';
 import EMSReplaceOrders from './model/EMSReplaceOrders';
@@ -113,16 +113,16 @@ export {
     EMSOrders,
 
     /**
-     * The EMSOrdersCreateResponse model constructor.
-     * @property {module:model/EMSOrdersCreateResponse}
+     * The EMSOrdersResponse model constructor.
+     * @property {module:model/EMSOrdersResponse}
      */
-    EMSOrdersCreateResponse,
+    EMSOrdersResponse,
 
     /**
-     * The EMSOrdersCreateResponseRoot model constructor.
-     * @property {module:model/EMSOrdersCreateResponseRoot}
+     * The EMSOrdersResponseRoot model constructor.
+     * @property {module:model/EMSOrdersResponseRoot}
      */
-    EMSOrdersCreateResponseRoot,
+    EMSOrdersResponseRoot,
 
     /**
      * The EMSOrdersRoot model constructor.

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTrading.Client.OpenAPIDateConver
 namespace FactSet.SDK.FactSetTrading.Model
 {
     /// <summary>
-    /// EMSCancelOrders
+    /// EMS Cancel Orders
     /// </summary>
     [DataContract(Name = "EMSCancelOrders")]
     public partial class EMSCancelOrders : IEquatable<EMSCancelOrders>, IValidatableObject
@@ -35,8 +35,8 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EMSCancelOrders" /> class.
         /// </summary>
-        /// <param name="investorId">investorId.</param>
-        /// <param name="orders">orders.</param>
+        /// <param name="investorId">Investor Id.</param>
+        /// <param name="orders">List of orders to cancel.</param>
         public EMSCancelOrders(string investorId = default(string), List<EMSCancelOrder> orders = default(List<EMSCancelOrder>))
         {
             this.InvestorId = investorId;
@@ -44,14 +44,16 @@ namespace FactSet.SDK.FactSetTrading.Model
         }
 
         /// <summary>
-        /// Gets or Sets InvestorId
+        /// Investor Id
         /// </summary>
+        /// <value>Investor Id</value>
         [DataMember(Name = "investorId", EmitDefaultValue = true)]
         public string InvestorId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Orders
+        /// List of orders to cancel
         /// </summary>
+        /// <value>List of orders to cancel</value>
         [DataMember(Name = "orders", EmitDefaultValue = true)]
         public List<EMSCancelOrder> Orders { get; set; }
 

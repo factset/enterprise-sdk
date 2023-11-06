@@ -21,6 +21,7 @@ import EMSReplaceOrder from './EMSReplaceOrder';
 class EMSReplaceOrders {
     /**
      * Constructs a new <code>EMSReplaceOrders</code>.
+     * EMS Replace Orders
      * @alias module:model/EMSReplaceOrders
      */
     constructor() { 
@@ -67,6 +68,7 @@ class EMSReplaceOrders {
 EMSReplaceOrders.prototype['investorId'] = undefined;
 
 /**
+ * List of orders to replace
  * @member {Array.<module:model/EMSReplaceOrder>} orders
  */
 EMSReplaceOrders.prototype['orders'] = undefined;

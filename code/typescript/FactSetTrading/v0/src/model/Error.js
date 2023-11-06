@@ -21,6 +21,7 @@ import ErrorSource from './ErrorSource';
 class Error {
     /**
      * Constructs a new <code>Error</code>.
+     * Error
      * @alias module:model/Error
      */
     constructor() { 
@@ -76,11 +77,13 @@ class Error {
 Error.prototype['id'] = undefined;
 
 /**
+ * Code
  * @member {String} code
  */
 Error.prototype['code'] = undefined;
 
 /**
+ * Title
  * @member {String} title
  */
 Error.prototype['title'] = undefined;

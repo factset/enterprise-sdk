@@ -104,7 +104,7 @@ class EMSOrderMetadata(ModelNormal):
             'order_quantity': (float, none_type,),  # noqa: E501
             'error': (str, none_type,),  # noqa: E501
             'info': (str, none_type,),  # noqa: E501
-            'order_id': (str, none_type,),  # noqa: E501
+            'client_order_id': (str, none_type,),  # noqa: E501
             'warning': (str, none_type,),  # noqa: E501
         }
 
@@ -120,7 +120,7 @@ class EMSOrderMetadata(ModelNormal):
         'order_quantity': 'orderQuantity',  # noqa: E501
         'error': 'error',  # noqa: E501
         'info': 'info',  # noqa: E501
-        'order_id': 'orderId',  # noqa: E501
+        'client_order_id': 'clientOrderId',  # noqa: E501
         'warning': 'warning',  # noqa: E501
     }
 
@@ -165,13 +165,13 @@ class EMSOrderMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            symbol (str, none_type): Symbol. [optional]  # noqa: E501
-            side (str, none_type): Side. [optional]  # noqa: E501
-            order_type (str, none_type): Order Type. [optional]  # noqa: E501
-            order_quantity (float, none_type): Order Quantity. [optional]  # noqa: E501
+            symbol (str, none_type): Ticker symbol. [optional]  # noqa: E501
+            side (str, none_type): Side of the order.. [optional]  # noqa: E501
+            order_type (str, none_type): Type of the order. [optional]  # noqa: E501
+            order_quantity (float, none_type): Number of shares/Quantity.. [optional]  # noqa: E501
             error (str, none_type): Error message. [optional]  # noqa: E501
-            info (str, none_type): information. [optional]  # noqa: E501
-            order_id (str, none_type): Order Id. [optional]  # noqa: E501
+            info (str, none_type): Information. [optional]  # noqa: E501
+            client_order_id (str, none_type): Client Order Id. [optional]  # noqa: E501
             warning (str, none_type): Warning. [optional]  # noqa: E501
         """
 
@@ -254,13 +254,13 @@ class EMSOrderMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            symbol (str, none_type): Symbol. [optional]  # noqa: E501
-            side (str, none_type): Side. [optional]  # noqa: E501
-            order_type (str, none_type): Order Type. [optional]  # noqa: E501
-            order_quantity (float, none_type): Order Quantity. [optional]  # noqa: E501
+            symbol (str, none_type): Ticker symbol. [optional]  # noqa: E501
+            side (str, none_type): Side of the order.. [optional]  # noqa: E501
+            order_type (str, none_type): Type of the order. [optional]  # noqa: E501
+            order_quantity (float, none_type): Number of shares/Quantity.. [optional]  # noqa: E501
             error (str, none_type): Error message. [optional]  # noqa: E501
-            info (str, none_type): information. [optional]  # noqa: E501
-            order_id (str, none_type): Order Id. [optional]  # noqa: E501
+            info (str, none_type): Information. [optional]  # noqa: E501
+            client_order_id (str, none_type): Client Order Id. [optional]  # noqa: E501
             warning (str, none_type): Warning. [optional]  # noqa: E501
         """
 

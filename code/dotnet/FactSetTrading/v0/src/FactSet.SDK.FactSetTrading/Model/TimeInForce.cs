@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTrading.Client.OpenAPIDateConver
 namespace FactSet.SDK.FactSetTrading.Model
 {
     /// <summary>
-    /// TimeInForce
+    /// Time in Force
     /// </summary>
     [DataContract(Name = "TimeInForce")]
     public partial class TimeInForce : IEquatable<TimeInForce>, IValidatableObject
@@ -99,10 +99,10 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TimeInForce" /> class.
         /// </summary>
-        /// <param name="tif">Time in force: if GTD, then Expire Time or Expire Date is a required field.</param>
+        /// <param name="tif">Time in force: if GTD, then Expire Time or Expire Date is a required field (default to TifEnum.DAY).</param>
         /// <param name="expireDate">Expire date in YYYYMMDD format expressed in UTC.</param>
         /// <param name="expireTime">Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC.</param>
-        public TimeInForce(TifEnum? tif = default(TifEnum?), string expireDate = default(string), string expireTime = default(string))
+        public TimeInForce(TifEnum? tif = TifEnum.DAY, string expireDate = default(string), string expireTime = default(string))
         {
             this.Tif = tif;
             this.ExpireDate = expireDate;

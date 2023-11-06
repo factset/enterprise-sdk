@@ -1,4 +1,5 @@
 # FactSet.SDK.FactSetTrading.Model.ClientErrorResponse
+Client Error Response
 
 ## Properties
 

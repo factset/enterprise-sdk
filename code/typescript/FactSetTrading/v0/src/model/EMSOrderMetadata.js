@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class EMSOrderMetadata {
     /**
      * Constructs a new <code>EMSOrderMetadata</code>.
+     * EMS Order Metadata
      * @alias module:model/EMSOrderMetadata
      */
     constructor() { 
@@ -64,8 +65,8 @@ class EMSOrderMetadata {
             if (data.hasOwnProperty('info')) {
                 obj['info'] = ApiClient.convertToType(data['info'], 'String');
             }
-            if (data.hasOwnProperty('orderId')) {
-                obj['orderId'] = ApiClient.convertToType(data['orderId'], 'String');
+            if (data.hasOwnProperty('clientOrderId')) {
+                obj['clientOrderId'] = ApiClient.convertToType(data['clientOrderId'], 'String');
             }
             if (data.hasOwnProperty('warning')) {
                 obj['warning'] = ApiClient.convertToType(data['warning'], 'String');
@@ -78,25 +79,25 @@ class EMSOrderMetadata {
 }
 
 /**
- * Symbol
+ * Ticker symbol
  * @member {String} symbol
  */
 EMSOrderMetadata.prototype['symbol'] = undefined;
 
 /**
- * Side
+ * Side of the order.
  * @member {module:model/EMSOrderMetadata.SideEnum} side
  */
 EMSOrderMetadata.prototype['side'] = undefined;
 
 /**
- * Order Type
+ * Type of the order
  * @member {module:model/EMSOrderMetadata.OrderTypeEnum} orderType
  */
 EMSOrderMetadata.prototype['orderType'] = undefined;
 
 /**
- * Order Quantity
+ * Number of shares/Quantity.
  * @member {Number} orderQuantity
  */
 EMSOrderMetadata.prototype['orderQuantity'] = undefined;
@@ -108,16 +109,16 @@ EMSOrderMetadata.prototype['orderQuantity'] = undefined;
 EMSOrderMetadata.prototype['error'] = undefined;
 
 /**
- * information
+ * Information
  * @member {String} info
  */
 EMSOrderMetadata.prototype['info'] = undefined;
 
 /**
- * Order Id
- * @member {String} orderId
+ * Client Order Id
+ * @member {String} clientOrderId
  */
-EMSOrderMetadata.prototype['orderId'] = undefined;
+EMSOrderMetadata.prototype['clientOrderId'] = undefined;
 
 /**
  * Warning

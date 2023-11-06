@@ -31,18 +31,19 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * EMSReplaceOrder
+ * EMS Replace Order
  */
+@ApiModel(description = "EMS Replace Order")
 @JsonPropertyOrder({
-  EMSReplaceOrder.JSON_PROPERTY_ORIGINAL_ORDER_ID,
+  EMSReplaceOrder.JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID,
   EMSReplaceOrder.JSON_PROPERTY_ORDER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EMSReplaceOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ORIGINAL_ORDER_ID = "originalOrderId";
-  private String originalOrderId;
+  public static final String JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID = "originalClientOrderId";
+  private String originalClientOrderId;
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private EMSOrder order;
@@ -52,37 +53,37 @@ public class EMSReplaceOrder implements Serializable {
 
   @JsonCreator
   public EMSReplaceOrder(
-    @JsonProperty(value=JSON_PROPERTY_ORIGINAL_ORDER_ID, required=true) String originalOrderId, 
+    @JsonProperty(value=JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID, required=true) String originalClientOrderId, 
     @JsonProperty(value=JSON_PROPERTY_ORDER, required=true) EMSOrder order
   ) {
     this();
-    this.originalOrderId = originalOrderId;
+    this.originalClientOrderId = originalClientOrderId;
     this.order = order;
   }
 
-  public EMSReplaceOrder originalOrderId(String originalOrderId) {
-    this.originalOrderId = originalOrderId;
+  public EMSReplaceOrder originalClientOrderId(String originalClientOrderId) {
+    this.originalClientOrderId = originalClientOrderId;
     return this;
   }
 
    /**
-   * Get originalOrderId
-   * @return originalOrderId
+   * Unique identifier of the original order, generated in Create.
+   * @return originalClientOrderId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_ORDER_ID)
+  @ApiModelProperty(required = true, value = "Unique identifier of the original order, generated in Create.")
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getOriginalOrderId() {
-    return originalOrderId;
+  public String getOriginalClientOrderId() {
+    return originalClientOrderId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_ORDER_ID)
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_CLIENT_ORDER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOriginalOrderId(String originalOrderId) {
-    this.originalOrderId = originalOrderId;
+  public void setOriginalClientOrderId(String originalClientOrderId) {
+    this.originalClientOrderId = originalClientOrderId;
   }
 
 
@@ -124,20 +125,20 @@ public class EMSReplaceOrder implements Serializable {
       return false;
     }
     EMSReplaceOrder emSReplaceOrder = (EMSReplaceOrder) o;
-    return Objects.equals(this.originalOrderId, emSReplaceOrder.originalOrderId) &&
+    return Objects.equals(this.originalClientOrderId, emSReplaceOrder.originalClientOrderId) &&
         Objects.equals(this.order, emSReplaceOrder.order);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(originalOrderId, order);
+    return Objects.hash(originalClientOrderId, order);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EMSReplaceOrder {\n");
-    sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");
+    sb.append("    originalClientOrderId: ").append(toIndentedString(originalClientOrderId)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -35,8 +35,9 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * EMSOrders
+ * EMS Orders
  */
+@ApiModel(description = "EMS Orders")
 @JsonPropertyOrder({
   EMSOrders.JSON_PROPERTY_INVESTOR_ID,
   EMSOrders.JSON_PROPERTY_ORDERS
@@ -107,11 +108,11 @@ public class EMSOrders implements Serializable {
   }
 
    /**
-   * Get orders
+   * List of orders
    * @return orders
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "List of orders")
   @JsonProperty(JSON_PROPERTY_ORDERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

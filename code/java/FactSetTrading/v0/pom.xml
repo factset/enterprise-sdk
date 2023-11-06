@@ -5,7 +5,7 @@
     <artifactId>factsettrading</artifactId>
     <packaging>jar</packaging>
     <name>factsettrading</name>
-    <version>0.23.2</version>
+    <version>0.23.3</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Trading client library for Java</description>
     <scm>

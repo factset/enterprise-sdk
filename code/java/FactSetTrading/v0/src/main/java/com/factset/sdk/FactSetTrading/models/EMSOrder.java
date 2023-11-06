@@ -36,10 +36,11 @@ import com.factset.sdk.FactSetTrading.JSON;
 
 
 /**
- * EMSOrder
+ * EMS Order
  */
+@ApiModel(description = "EMS Order")
 @JsonPropertyOrder({
-  EMSOrder.JSON_PROPERTY_ORDER_ID,
+  EMSOrder.JSON_PROPERTY_CLIENT_ORDER_ID,
   EMSOrder.JSON_PROPERTY_INSTRUMENT,
   EMSOrder.JSON_PROPERTY_SIDE,
   EMSOrder.JSON_PROPERTY_ORDER_TYPE,
@@ -67,14 +68,14 @@ import com.factset.sdk.FactSetTrading.JSON;
 public class EMSOrder implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ORDER_ID = "orderId";
-  private JsonNullable<String> orderId = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_CLIENT_ORDER_ID = "clientOrderId";
+  private JsonNullable<String> clientOrderId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private Instrument instrument;
 
   /**
-   * Side
+   * Side of the order.
    */
   public enum SideEnum {
     BUY("buy"),
@@ -195,7 +196,7 @@ public class EMSOrder implements Serializable {
   private JsonNullable<String> settlementDate = JsonNullable.<String>undefined();
 
   /**
-   * Handling instructions
+   * Instructions for order handling on Broker trading floor.
    */
   public enum HandlingInstructionsEnum {
     AUTO_ORD_PVT("auto_ord_pvt"),
@@ -235,7 +236,7 @@ public class EMSOrder implements Serializable {
   private JsonNullable<HandlingInstructionsEnum> handlingInstructions = JsonNullable.<HandlingInstructionsEnum>undefined();
 
   /**
-   * Execution instructions
+   * Instructions for order handling on exchange trading floor.
    */
   public enum ExecutionInstructionsEnum {
     NOT_HELD("not_held"),
@@ -395,37 +396,37 @@ public class EMSOrder implements Serializable {
     this.orderType = orderType;
   }
 
-  public EMSOrder orderId(String orderId) {
-    this.orderId = JsonNullable.<String>of(orderId);
+  public EMSOrder clientOrderId(String clientOrderId) {
+    this.clientOrderId = JsonNullable.<String>of(clientOrderId);
     return this;
   }
 
    /**
    * Unique id for the order
-   * @return orderId
+   * @return clientOrderId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "12322123", value = "Unique id for the order")
   @JsonIgnore
 
-  public String getOrderId() {
-        return orderId.orElse(null);
+  public String getClientOrderId() {
+        return clientOrderId.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ORDER_ID)
+  @JsonProperty(JSON_PROPERTY_CLIENT_ORDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getOrderId_JsonNullable() {
-    return orderId;
+  public JsonNullable<String> getClientOrderId_JsonNullable() {
+    return clientOrderId;
   }
   
-  @JsonProperty(JSON_PROPERTY_ORDER_ID)
-  public void setOrderId_JsonNullable(JsonNullable<String> orderId) {
-    this.orderId = orderId;
+  @JsonProperty(JSON_PROPERTY_CLIENT_ORDER_ID)
+  public void setClientOrderId_JsonNullable(JsonNullable<String> clientOrderId) {
+    this.clientOrderId = clientOrderId;
   }
 
-  public void setOrderId(String orderId) {
-    this.orderId = JsonNullable.<String>of(orderId);
+  public void setClientOrderId(String clientOrderId) {
+    this.clientOrderId = JsonNullable.<String>of(clientOrderId);
   }
 
 
@@ -461,11 +462,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Side
+   * Side of the order.
    * @return side
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "buy", required = true, value = "Side")
+  @ApiModelProperty(example = "buy", required = true, value = "Side of the order.")
   @JsonProperty(JSON_PROPERTY_SIDE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -513,11 +514,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Order quantity
+   * Number of shares/Quantity.
    * @return orderQuantity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "350", value = "Order quantity")
+  @ApiModelProperty(example = "350", value = "Number of shares/Quantity.")
   @JsonProperty(JSON_PROPERTY_ORDER_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -539,11 +540,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Order Price
+   * Order price per share
    * @return price
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "800", value = "Order Price")
+  @ApiModelProperty(example = "800", value = "Order price per share")
   @JsonIgnore
 
   public Double getPrice() {
@@ -573,11 +574,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Stop Price
+   * Stop-loss price to buy/sell stock at market.
    * @return stopPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "800", value = "Stop Price")
+  @ApiModelProperty(example = "800", value = "Stop-loss price to buy/sell stock at market.")
   @JsonIgnore
 
   public Double getStopPrice() {
@@ -607,11 +608,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Strike Price
+   * Strike Price for an Option.
    * @return strikePrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "400", value = "Strike Price")
+  @ApiModelProperty(example = "400", value = "Strike Price for an Option.")
   @JsonIgnore
 
   public Double getStrikePrice() {
@@ -641,11 +642,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Currency
+   * Currency used for price in ISO format.
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "Currency")
+  @ApiModelProperty(example = "USD", value = "Currency used for price in ISO format.")
   @JsonIgnore
 
   public String getCurrency() {
@@ -675,11 +676,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Currency
+   * Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order
    * @return isCovered
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Currency")
+  @ApiModelProperty(example = "false", value = "Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order")
   @JsonIgnore
 
   public Boolean getIsCovered() {
@@ -709,11 +710,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Max Show
+   * Maximum number of shares within an order to be shown to other customers.
    * @return maxShow
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100", value = "Max Show")
+  @ApiModelProperty(example = "100", value = "Maximum number of shares within an order to be shown to other customers.")
   @JsonIgnore
 
   public Double getMaxShow() {
@@ -743,11 +744,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Max Floor
+   * Maximum number of shares within an order to be shown on the exchange floor at any given time.
    * @return maxFloor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100", value = "Max Floor")
+  @ApiModelProperty(example = "100", value = "Maximum number of shares within an order to be shown on the exchange floor at any given time.")
   @JsonIgnore
 
   public Double getMaxFloor() {
@@ -777,11 +778,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Previous close price
+   * Previous closing price of security.
    * @return prevClosePrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100", value = "Previous close price")
+  @ApiModelProperty(example = "100", value = "Previous closing price of security.")
   @JsonIgnore
 
   public Double getPrevClosePrice() {
@@ -811,11 +812,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Settlement type
+   * Order settlement period.
    * @return settlementType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "regular", value = "Settlement type")
+  @ApiModelProperty(example = "regular", value = "Order settlement period.")
   @JsonIgnore
 
   public String getSettlementType() {
@@ -845,11 +846,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Settlement date in YYYYMMDD format
+   * Settlement date of trade settlement in YYYYMMDD format
    * @return settlementDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "20210622", value = "Settlement date in YYYYMMDD format")
+  @ApiModelProperty(example = "20210622", value = "Settlement date of trade settlement in YYYYMMDD format")
   @JsonIgnore
 
   public String getSettlementDate() {
@@ -879,11 +880,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Handling instructions
+   * Instructions for order handling on Broker trading floor.
    * @return handlingInstructions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "auto_ord_pub", value = "Handling instructions")
+  @ApiModelProperty(example = "auto_ord_pub", value = "Instructions for order handling on Broker trading floor.")
   @JsonIgnore
 
   public HandlingInstructionsEnum getHandlingInstructions() {
@@ -913,11 +914,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Execution instructions
+   * Instructions for order handling on exchange trading floor.
    * @return executionInstructions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "not_held", value = "Execution instructions")
+  @ApiModelProperty(example = "not_held", value = "Instructions for order handling on exchange trading floor.")
   @JsonIgnore
 
   public ExecutionInstructionsEnum getExecutionInstructions() {
@@ -947,11 +948,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Locate Required
+   * Indicates whether the broker is to locate the stock in conjunction with a short sell order.
    * @return locateRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Locate Required")
+  @ApiModelProperty(example = "false", value = "Indicates whether the broker is to locate the stock in conjunction with a short sell order.")
   @JsonIgnore
 
   public Boolean getLocateRequired() {
@@ -1015,11 +1016,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Account
+   * Account for the basket, parent basket or position.
    * @return account
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Test.ACCT", value = "Account")
+  @ApiModelProperty(example = "Test.ACCT", value = "Account for the basket, parent basket or position.")
   @JsonIgnore
 
   public String getAccount() {
@@ -1075,11 +1076,11 @@ public class EMSOrder implements Serializable {
   }
 
    /**
-   * Inbound Destination
+   * To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.
    * @return inboundDestination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Inbound Destination")
+  @ApiModelProperty(value = "To facilitate integration with translators that transform orders into a format compatible with the internal order routing and execution infrastructure.")
   @JsonIgnore
 
   public String getInboundDestination() {
@@ -1161,7 +1162,7 @@ public class EMSOrder implements Serializable {
       return false;
     }
     EMSOrder emSOrder = (EMSOrder) o;
-    return equalsNullable(this.orderId, emSOrder.orderId) &&
+    return equalsNullable(this.clientOrderId, emSOrder.clientOrderId) &&
         Objects.equals(this.instrument, emSOrder.instrument) &&
         Objects.equals(this.side, emSOrder.side) &&
         Objects.equals(this.orderType, emSOrder.orderType) &&
@@ -1192,7 +1193,7 @@ public class EMSOrder implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(orderId), instrument, side, orderType, orderQuantity, hashCodeNullable(price), hashCodeNullable(stopPrice), hashCodeNullable(strikePrice), hashCodeNullable(currency), hashCodeNullable(isCovered), hashCodeNullable(maxShow), hashCodeNullable(maxFloor), hashCodeNullable(prevClosePrice), hashCodeNullable(settlementType), hashCodeNullable(settlementDate), hashCodeNullable(handlingInstructions), hashCodeNullable(executionInstructions), hashCodeNullable(locateRequired), hashCodeNullable(effectiveTime), hashCodeNullable(account), timeInForce, hashCodeNullable(inboundDestination), hashCodeNullable(userDefinedFields));
+    return Objects.hash(hashCodeNullable(clientOrderId), instrument, side, orderType, orderQuantity, hashCodeNullable(price), hashCodeNullable(stopPrice), hashCodeNullable(strikePrice), hashCodeNullable(currency), hashCodeNullable(isCovered), hashCodeNullable(maxShow), hashCodeNullable(maxFloor), hashCodeNullable(prevClosePrice), hashCodeNullable(settlementType), hashCodeNullable(settlementDate), hashCodeNullable(handlingInstructions), hashCodeNullable(executionInstructions), hashCodeNullable(locateRequired), hashCodeNullable(effectiveTime), hashCodeNullable(account), timeInForce, hashCodeNullable(inboundDestination), hashCodeNullable(userDefinedFields));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1206,7 +1207,7 @@ public class EMSOrder implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EMSOrder {\n");
-    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    clientOrderId: ").append(toIndentedString(clientOrderId)).append("\n");
     sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
     sb.append("    side: ").append(toIndentedString(side)).append("\n");
     sb.append("    orderType: ").append(toIndentedString(orderType)).append("\n");

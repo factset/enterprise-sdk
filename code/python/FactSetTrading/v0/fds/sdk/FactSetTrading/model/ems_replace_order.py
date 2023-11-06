@@ -88,7 +88,7 @@ class EMSReplaceOrder(ModelNormal):
         """
         lazy_import()
         return {
-            'original_order_id': (str,),  # noqa: E501
+            'original_client_order_id': (str,),  # noqa: E501
             'order': (EMSOrder,),  # noqa: E501
         }
 
@@ -98,7 +98,7 @@ class EMSReplaceOrder(ModelNormal):
 
 
     attribute_map = {
-        'original_order_id': 'originalOrderId',  # noqa: E501
+        'original_client_order_id': 'originalClientOrderId',  # noqa: E501
         'order': 'order',  # noqa: E501
     }
 
@@ -109,11 +109,11 @@ class EMSReplaceOrder(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, original_order_id, order, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, original_client_order_id, order, *args, **kwargs):  # noqa: E501
         """EMSReplaceOrder - a model defined in OpenAPI
 
         Args:
-            original_order_id (str):
+            original_client_order_id (str): Unique identifier of the original order, generated in Create.
             order (EMSOrder):
 
         Keyword Args:
@@ -174,7 +174,7 @@ class EMSReplaceOrder(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.original_order_id = original_order_id
+        self.original_client_order_id = original_client_order_id
         self.order = order
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -196,11 +196,11 @@ class EMSReplaceOrder(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, original_order_id, order, *args, **kwargs):  # noqa: E501
+    def __init__(self, original_client_order_id, order, *args, **kwargs):  # noqa: E501
         """EMSReplaceOrder - a model defined in OpenAPI
 
         Args:
-            original_order_id (str):
+            original_client_order_id (str): Unique identifier of the original order, generated in Create.
             order (EMSOrder):
 
         Keyword Args:
@@ -259,7 +259,7 @@ class EMSReplaceOrder(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.original_order_id = original_order_id
+        self.original_client_order_id = original_client_order_id
         self.order = order
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
