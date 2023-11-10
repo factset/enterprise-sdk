@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.OpenRisk",
-  "packageVersion": "1.1.7",
+  "packageVersion": "1.2.0",
   "packageGuid": "{2e055cfd-8333-58f3-a67f-12508e9d6b56}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/OpenRisk/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/OpenRisk/1.1.7",
+  "httpUserAgent": "fds-sdk/dotnet/OpenRisk/1.2.0",
   "files": {
     "LICENSE": {}
   },

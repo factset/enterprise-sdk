@@ -49,7 +49,13 @@ namespace FactSet.SDK.OpenRisk.Model
             /// Enum Double for value: Double
             /// </summary>
             [EnumMember(Value = "Double")]
-            Double = 2
+            Double = 2,
+
+            /// <summary>
+            /// Enum Integer for value: Integer
+            /// </summary>
+            [EnumMember(Value = "Integer")]
+            Integer = 3
 
         }
 

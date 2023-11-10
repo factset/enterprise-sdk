@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.5.0
+  version: 1.6.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
@@ -34,7 +34,7 @@ paths:
         Count, and Turn Over for a specified list of securities, date range,
         currency, and adjustment factors.
       parameters:
-        - $ref: '#/components/parameters/idsMax1000'
+        - $ref: '#/components/parameters/idsBatchMax2000'
         - $ref: '#/components/parameters/fieldsPrices'
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
@@ -42,6 +42,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/adjust'
+        - $ref: '#/components/parameters/batch'
       responses:
         '200':
           description: Array of Price Objects
@@ -54,6 +55,21 @@ paths:
                   $ref: '#/components/examples/GlobalPricesResponseAll'
                 Filtered Fields:
                   $ref: '#/components/examples/GlobalPricesResponsePricesOnly'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -64,6 +80,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Prices
@@ -89,6 +106,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/globalPricesResponse'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /factset-global-prices/v1/corporate-actions:
     get:
       tags:
@@ -105,31 +148,32 @@ paths:
         Event Categories:
 
         * __Cash Dividends__ (CASH_DIVS)
-          * **DVC** – Dividend
-          * **DVCD** – Dividend with DRP Option
-          * **DRP** – Dividend Reinvestment
+          * **DVC** - Dividend
+          * **DVCD** - Dividend with DRP Option
+          * **DRP** - Dividend Reinvestment
         * __Stock Distributions__ (STOCK_DIST)
-          * **DVS** – Stock Dividend
-          * **DVSS** – Stock Dividend, Special
-          * **BNS** – Bonus Issue
-          * **BNSS** – Bonus Issue, Special
+          * **DVS** - Stock Dividend
+          * **DVSS** - Stock Dividend, Special
+          * **BNS** - Bonus Issue
+          * **BNSS** - Bonus Issue, Special
         * __Spin Offs__ (SPINOFFS)
-          * **SPO** – Spin Off
+          * **SPO** - Spin Off
         * __Rights Issue__ (RIGHTS)
-          * **DSR** – Rights Issue
+          * **DSR** - Rights Issue
         * __Splits__ (SPLITS)
-          * **FSP** – Forward Split
-          * **RSP** – Reverse Split
-          * **SPL** – Split
-          * **EXOS** – Exchange of Securities
+          * **FSP** - Forward Split
+          * **RSP** - Reverse Split
+          * **SPL** - Split
+          * **EXOS** - Exchange of Securities
       parameters:
-        - $ref: '#/components/parameters/idsMax100'
+        - $ref: '#/components/parameters/idsBatchMax2000'
         - $ref: '#/components/parameters/eventCategory'
         - $ref: '#/components/parameters/fieldsCorporateActions'
         - $ref: '#/components/parameters/startDateCA'
         - $ref: '#/components/parameters/endDateCA'
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/cancelledDividend'
+        - $ref: '#/components/parameters/batch'
       responses:
         '200':
           description: >-
@@ -154,6 +198,21 @@ paths:
                   $ref: '#/components/examples/SplitsDividend'
                 Reverse Split:
                   $ref: '#/components/examples/SplitsReverse'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -164,6 +223,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Corporate Actions
@@ -189,6 +249,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/corporateActionsResponse'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /factset-global-prices/v1/annualized-dividends:
     get:
       tags:
@@ -201,8 +287,9 @@ paths:
         The annualized dividend calculations does not involve cancelled
         dividends.
       parameters:
-        - $ref: '#/components/parameters/idsMax100'
+        - $ref: '#/components/parameters/idsBatchMax2000'
         - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/batch'
       responses:
         '200':
           description: Array of annualized dividend information.
@@ -210,6 +297,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/annualizedDividendResponse'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -220,6 +322,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Corporate Actions
@@ -242,32 +345,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/annualizedDividendResponse'
-  /factset-global-prices/v1/returns:
-    get:
-      tags:
-        - Returns
-      summary: Gets Returns for a list of `ids` as of given date range.
-      operationId: getReturns
-      description: >
-        Returns for the requested ids and currency for the given dates.
-        Depending on the input parameters the return data is provided. 
-      parameters:
-        - $ref: '#/components/parameters/idsMax50'
-        - $ref: '#/components/parameters/startDate'
-        - $ref: '#/components/parameters/endDate'
-        - $ref: '#/components/parameters/currency'
-        - $ref: '#/components/parameters/frequency'
-        - $ref: '#/components/parameters/dividendAdjust'
-      responses:
-        '200':
-          description: Array of Returns Objects
+        '202':
+          description: Batch request has been accepted.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/returnsResponse'
+                $ref: '#/components/schemas/BatchStatusResponse'
               examples:
-                Returns:
-                  $ref: '#/components/examples/returnsResponseAll'
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -278,6 +370,60 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
+  /factset-global-prices/v1/returns:
+    get:
+      tags:
+        - Returns
+      summary: Gets Returns for a list of `ids` as of given date range.
+      operationId: getReturns
+      description: >
+        Returns for the requested ids and currency for the given dates.
+        Depending on the input parameters the return data is provided. 
+      parameters:
+        - $ref: '#/components/parameters/idsBatchMax2000'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/dividendAdjust'
+        - $ref: '#/components/parameters/batch'
+      responses:
+        '200':
+          description: Array of Returns Objects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/returnsResponse'
+              examples:
+                Returns:
+                  $ref: '#/components/examples/returnsResponseAll'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Returns
@@ -300,6 +446,132 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/returnsResponse'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
+  /factset-global-prices/v1/batch-status:
+    get:
+      tags:
+        - Batch Processing
+      summary: |
+        Returns the status for a Batch Request
+      description: >-
+        Return the status for the underlying batch request that is specified by
+        the id.
+      operationId: getBatchStatus
+      parameters:
+        - $ref: '#/components/parameters/batchId'
+      responses:
+        '201':
+          description: >-
+            The batch Request has been completed and the response has been
+            created.
+          headers:
+            Location:
+              description: Path to Batch Request result.
+              schema:
+                type: string
+              example: batch-result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Status Done:
+                  $ref: '#/components/examples/BatchStatusDoneResponse'
+        '202':
+          description: >-
+            The batch Request has not finished and the result has NOT been
+            created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Status Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Status Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+                Batch Status Failed:
+                  $ref: '#/components/examples/BatchStatusFailedResponse'
+        '404':
+          $ref: '#/components/responses/batch404'
+      deprecated: false
+  /factset-global-prices/v1/batch-result:
+    get:
+      tags:
+        - Batch Processing
+      summary: |
+        Returns the response for a Batch Request
+      description: >
+        Returns the response data for the underlying batch request that is
+        specified by the id.
+
+
+        By default, this endpoint will return data as JSON. If you wish to
+        receive your data in CSV format, you can edit the header to have the
+        "accept" parameter as "text/csv" instead of "application/json".
+      operationId: getBatchData
+      parameters:
+        - $ref: '#/components/parameters/batchId'
+      responses:
+        '200':
+          description: >-
+            Request Response Object when the batch request has been completed
+            and the response is created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/batchResultResponse'
+              examples:
+                One Week Prices for Two Securities Filtered Fields:
+                  $ref: '#/components/examples/GlobalPricesResponsePricesOnly'
+                Returns:
+                  $ref: '#/components/examples/returnsResponseAll'
+                Corporate Actions Ordinary Dividends:
+                  $ref: '#/components/examples/OrdinaryDividends'
+                Annualized Dividends:
+                  $ref: '#/components/examples/annualizedDividendsResponse'
+        '202':
+          description: >-
+            The batch Request has not finished and the result has NOT been
+            created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Request Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+        '404':
+          $ref: '#/components/responses/batch404'
+      deprecated: false
+      x-factset-different-success-responses: true
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -393,6 +665,37 @@ components:
           summary: One Equity Market Identifier
           value:
             - AAPL-USA
+    batch:
+      name: batch
+      in: query
+      description: >
+        Enables the ability to asynchronously "batch" the request, supporting a
+        long-running request for up to 20 minutes. Upon requesting batch=Y, the
+        service will respond with an HTTP Status Code of 202.
+
+        Once a batch request is submitted, use batch status to see if the job
+        has been completed. Once completed, retrieve the results of the request
+        via batch-result. When using Batch, ids limit is increased to 10000 ids
+        per request, though limits on query string via GET method still apply.
+        It's advised to submit large lists of ids via POST method.
+
+        <B>Please note that the number of unique currencies present in the
+        requested ids is limited to 50 per request.</B>
+      schema:
+        type: string
+        enum:
+          - 'Y'
+          - 'N'
+        default: 'N'
+    batchId:
+      name: id
+      in: query
+      description: Batch Request identifier.
+      schema:
+        type: string
+        format: uuid
+      required: true
+      allowEmptyValue: false
     eventCategory:
       name: eventCategory
       description: |
@@ -581,6 +884,35 @@ components:
           * **SPLIT** = Split ONLY Adjusted. This is used by default.
           * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
           * **UNSPLIT** = No Adjustments.
+    idsBatchMax2000:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+      required: true
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
+        limit** =  1000 per non-batch request / 2000 per batch request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands of ids, which may lead to exceeding this request line limit of
+        8KB, it's advised for any requests with large request lines to be
+        requested through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - AAPL-USA
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
     fieldsPrices:
       name: fields
       in: query
@@ -718,7 +1050,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax1000'
+          $ref: '#/components/schemas/idsBatchMax10000'
         fields:
           $ref: '#/components/schemas/pricesFields'
         startDate:
@@ -733,6 +1065,8 @@ components:
           $ref: '#/components/schemas/calendar'
         adjust:
           $ref: '#/components/schemas/adjust'
+        batch:
+          $ref: '#/components/schemas/batch'
       required:
         - ids
         - startDate
@@ -828,103 +1162,91 @@ components:
           description: Array of Corporate Action Objects
           type: array
           items:
-            title: Corporate Action Object
-            type: object
-            properties:
-              fsymId:
-                description: >-
-                  Factset Regional Security Identifier. Six alpha-numeric
-                  characters, excluding vowels, with an -R suffix (XXXXXX-R).
-                  Identifies the security's best regional security data series
-                  per currency. For equities, all primary listings per region
-                  and currency are allocated a regional-level permanent
-                  identifier. The regional-level permanent identifier will be
-                  available once a SEDOL representing the region/currency has
-                  been allocated and the identifiers are on FactSet.
-                type: string
-                example: SJY281-R
-                x-fds-sdf: fsym_id
-                x-fds-dh: REGIONAL_FDS_ID
-                nullable: true
-              eventId:
-                description: FactSet identifier that uniquely identifies the Event.
-                type: string
-                example: JTHPFN-A
-                x-fds-sdf: ca_event_id
-                x-fds-dh: EVENT_ID
-                nullable: true
-              eventTypeCode:
-                description: Corporate Actions Event type code.
-                type: string
-                enum:
-                  - DVC
-                  - DVCD
-                  - DRP
-                  - DVS
-                  - DVSS
-                  - BNS
-                  - BNSS
-                  - SPO
-                  - DSR
-                  - FSP
-                  - RSP
-                  - SPL
-                x-fds-sdf: ca_event_type_code
-                x-fds-dh: EVENT_TYPE_CODE
-                nullable: true
-              eventTypeDesc:
-                description: Corporate Actions Event type description.
-                type: string
-                x-fds-sdf: null
-                x-fds-dh: EVENT_TYPE
-                nullable: true
-              divTypeCode:
-                description: >
-                  Dividend Type Code. For code descriptions, visit [Online
-                  Assistant Page #8764]
-                  (https://oa.apps.factset.com/pages/8764).
-                type: string
-                x-fds-sdf: div_type_code
-                x-fds-dh: DIVTYPE_NUM
-                nullable: true
-              announcementDate:
-                description: Date Event was announced in YYYY-MM-DD format.
-                type: string
-                x-fds-sdf: announcement_date
-                x-fds-dh: ANNDATE
-                nullable: true
-              recordDate:
-                description: Date of Record for distribution in YYYY-MM-DD format.
-                type: string
-                x-fds-sdf: record_date
-                x-fds-dh: RECORD_DATE
-                nullable: true
-              payDate:
-                description: Date of Payment for distribution in YYYY-MM-DD format.
-                type: string
-                x-fds-sdf: pay_date
-                x-fds-dh: PAYDATE
-                nullable: true
-              effectiveDate:
-                description: >-
-                  Effective Date or Ex-Date of distribution in YYYY-MM-DD
-                  format.
-                type: string
-                x-fds-sdf: effective_date
-                x-fds-dh: EFFECTIVE_DATE
-                nullable: true
-              requestId:
-                description: Identifier that was used for the request.
-                type: string
-                example: AAPL-US
-            additionalProperties: true
+            $ref: '#/components/schemas/corporateAction'
+    corporateAction:
+      title: Corporate Action Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: SJY281-R
+          x-fds-sdf: fsym_id
+          x-fds-dh: REGIONAL_FDS_ID
+          nullable: true
+        eventId:
+          description: FactSet identifier that uniquely identifies the Event.
+          type: string
+          example: JTHPFN-A
+          x-fds-sdf: ca_event_id
+          x-fds-dh: EVENT_ID
+          nullable: true
+        eventTypeCode:
+          description: >-
+            Corporate Actions Event type code, possible values: [ DVC, DVCD,
+            DRP, DVS, DVSS, BNS, BNSS, SPO, DSR, FSP, RSP, SPL ]
+          type: string
+          x-fds-sdf: ca_event_type_code
+          x-fds-dh: EVENT_TYPE_CODE
+          nullable: true
+        eventTypeDesc:
+          description: Corporate Actions Event type description.
+          type: string
+          x-fds-sdf: null
+          x-fds-dh: EVENT_TYPE
+          nullable: true
+        divTypeCode:
+          description: >
+            Dividend Type Code. For code descriptions, visit [Online Assistant
+            Page #8764] (https://oa.apps.factset.com/pages/8764).
+          type: string
+          x-fds-sdf: div_type_code
+          x-fds-dh: DIVTYPE_NUM
+          nullable: true
+        announcementDate:
+          description: Date Event was announced in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: announcement_date
+          x-fds-dh: ANNDATE
+          nullable: true
+        recordDate:
+          description: Date of Record for distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: record_date
+          x-fds-dh: RECORD_DATE
+          nullable: true
+        payDate:
+          description: Date of Payment for distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: pay_date
+          x-fds-dh: PAYDATE
+          nullable: true
+        effectiveDate:
+          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: effective_date
+          x-fds-dh: EFFECTIVE_DATE
+          nullable: true
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL-US
+      additionalProperties: true
     corporateActionsRequest:
       title: Corporate Actions Request Body
       description: Corporate Actions Request Body
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax100'
+          $ref: '#/components/schemas/idsBatchMax10000'
         eventCategory:
           $ref: '#/components/schemas/eventCategory'
         fields:
@@ -937,6 +1259,8 @@ components:
           $ref: '#/components/schemas/requestCurrency'
         cancelledDividend:
           $ref: '#/components/schemas/cancelledDividend'
+        batch:
+          $ref: '#/components/schemas/batch'
       required:
         - ids
     annualizedDividendsRequest:
@@ -945,9 +1269,11 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax100'
+          $ref: '#/components/schemas/idsBatchMax10000'
         currency:
           $ref: '#/components/schemas/requestCurrency'
+        batch:
+          $ref: '#/components/schemas/batch'
       required:
         - ids
     annualizedDividendResponse:
@@ -1053,6 +1379,89 @@ components:
         requests.
       example:
         - TSLA-US
+    idsBatchMax10000:
+      type: array
+      items:
+        type: string
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
+
+        <p>ids limit =  1000 per non-batch request / 10000 per batch request</p>
+      example:
+        - FDS-US
+    batch:
+      description: >
+        Enables the ability to asynchronously "batch" the request, supporting a
+        long-running request for up to 20 minutes. Upon requesting batch=Y, the
+        service will respond back with an HTTP Status Code of 202. Once a batch
+        request is submitted, use batch status to see if the job has been
+        completed. Once completed, retrieve the results of the request via
+        batch-result. When using Batch, ids limit is increased to 10000 ids per
+        request, though limits on query string via GET method still apply. It's
+        advised to submit large lists of ids via POST method. Please note that
+        the number of unique currencies present in the requested ids is limited
+        to 50 per request.
+      type: string
+      enum:
+        - 'Y'
+        - 'N'
+      default: 'N'
+    BatchStatusResponse:
+      title: Batch Status Response
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/BatchStatus'
+    BatchStatus:
+      title: Batch Status
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: the id of batch request.
+        startTime:
+          type: string
+          format: date-time
+          description: >-
+            Time when the batch request is started. This is in Eastern Time
+            Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
+            following ISO 8601.
+        endTime:
+          type: string
+          format: date-time
+          description: >-
+            Time when the batch request is ended. This is in Eastern Time Zone.
+            The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
+            following ISO 8601.
+          nullable: true
+        status:
+          type: string
+          enum:
+            - queued
+            - executing
+            - created
+            - failed
+        error:
+          $ref: '#/components/schemas/batchErrorObject'
+    batchResultResponse:
+      title: Batch Data Response
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/batchResult'
+    batchResult:
+      title: Batch Data
+      anyOf:
+        - $ref: '#/components/schemas/price'
+        - $ref: '#/components/schemas/returns'
+        - $ref: '#/components/schemas/corporateAction'
+        - $ref: '#/components/schemas/annualizedDividendsObject'
     eventCategory:
       title: eventCategory
       type: string
@@ -1821,7 +2230,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax50'
+          $ref: '#/components/schemas/idsBatchMax10000'
         startDate:
           $ref: '#/components/schemas/startDate'
         endDate:
@@ -1832,6 +2241,8 @@ components:
           $ref: '#/components/schemas/frequency'
         dividendAdjust:
           $ref: '#/components/schemas/dividendAdjust'
+        batch:
+          $ref: '#/components/schemas/batch'
       required:
         - ids
         - startDate
@@ -1921,6 +2332,45 @@ components:
               type: array
               items:
                 type: string
+    batchErrorResponse:
+      type: object
+      nullable: true
+      title: Error Response
+      description: Error Default Response
+      properties:
+        errors:
+          type: array
+          nullable: true
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/batchErrorObject'
+    batchErrorObject:
+      type: object
+      nullable: true
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          type: string
+          nullable: true
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code:
+          description: status
+          type: string
+          nullable: true
+          example: GenericError
+        links:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: object
+          properties:
+            about:
+              description: details.
+              type: string
+              example: /factset-global-prices/v1/{endpoint}
+        title:
+          description: The plain text error message
+          type: string
+          nullable: true
+          example: Validation Error
   responses:
     '400':
       description: >-
@@ -1994,6 +2444,15 @@ components:
               $ref: '#/components/examples/notWritable'
             Internal Server Error - General Exception:
               $ref: '#/components/examples/generalException'
+    batch404:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/batchErrorResponse'
+          examples:
+            Batch Request Not Found:
+              $ref: '#/components/examples/batchNotFound'
   examples:
     DividendsFields:
       summary: Dividends Fields
@@ -2140,8 +2599,8 @@ components:
             turnover: 2446231.2914
     GlobalPricesResponsePricesOnly:
       summary: >-
-        Prices Reponse of FactSet (FDS-US) filtered to only return "price" field
-        with dates.
+        Prices Response of FactSet (FDS-US) filtered to only return "price"
+        field with dates.
       value:
         data:
           - date: '2021-08-23'
@@ -2170,7 +2629,7 @@ components:
             fsymId: SQFMK3-R
             currency: USD
     OrdinaryDividends:
-      summary: Ordinary Dividends (DVC)
+      summary: Corporate Actions Ordinary Dividends (DVC)
       value:
         data:
           - fsymId: T0JRMW-R
@@ -2406,7 +2865,7 @@ components:
             shortDesc: 'Reverse Split(Mandatory): 25 for 29'
             requestId: GPOR-GB
     returnsResponseAll:
-      summary: Return
+      summary: Returns Response of Google (GOOGL) and Apple (AAPL)
       value:
         data:
           - fsymId: WFJYTJ-R
@@ -2419,6 +2878,64 @@ components:
             currency: USD
             totalReturn: 1.782245
             requestId: AAPL
+    annualizedDividendsResponse:
+      summary: Annualized Dividends Response of Apple (AAPL-US)
+      value:
+        data:
+          - fsymId: SJY281-R
+            eventId: JTHPFN-A
+            effectiveDate: '2022-03-11'
+            iadDefTradingAdj: 0.7584434
+            currency: USD
+            requestId: AAPL-US
+    BatchStatusAcceptedResponse:
+      description: Batch Status Accepted Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: queued
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: null
+          error: null
+    BatchStatusQueuedResponse:
+      description: Batch Status Queued Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: queued
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: null
+          error: null
+    BatchStatusExecutingResponse:
+      description: Batch Status Executing Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: executing
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: null
+          error: null
+    BatchStatusDoneResponse:
+      description: Batch Status Done Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: created
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: '2021-06-29T18:34:55.402Z'
+          error: null
+    BatchStatusFailedResponse:
+      description: Batch Status Failed Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: failed
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: '2021-06-29T18:34:55.402Z'
+          error:
+            id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+            code: GenericError
+            title: the date parameter must be in YYYY-MM-DD format
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-
@@ -2524,6 +3041,16 @@ components:
           USERNAME-SERIAL does not have permission to use
           /factset-global-prices/v1/{endpoint}
         subErrors: null
+    batchNotFound:
+      summary: Not Found
+      description: The requested item was not found.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Not Found
+            links:
+              about: /factset-global-prices/v1
+            title: The Batch Request was not found. It has probably expired.
     unsupportedMediaType:
       summary: Unsupported Media Type
       description: >-

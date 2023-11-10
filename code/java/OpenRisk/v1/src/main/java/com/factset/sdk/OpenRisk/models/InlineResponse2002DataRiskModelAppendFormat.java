@@ -49,7 +49,9 @@ public class InlineResponse2002DataRiskModelAppendFormat implements Serializable
   public enum TypeEnum {
     STRING("String"),
     
-    DOUBLE("Double");
+    DOUBLE("Double"),
+    
+    INTEGER("Integer");
 
     private String value;
 

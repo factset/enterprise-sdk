@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 
 * `Double` (value: `"Double"`)
 
+* `Integer` (value: `"Integer"`)
+
 
 
 

@@ -3258,7 +3258,8 @@
                             "minLength": 1,
                             "enum": [
                               "String",
-                              "Double"
+                              "Double",
+                              "Integer"
                             ]
                           }
                         }

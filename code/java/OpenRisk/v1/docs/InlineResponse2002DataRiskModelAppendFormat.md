@@ -18,6 +18,7 @@ Name | Value
 ---- | -----
 STRING | &quot;String&quot;
 DOUBLE | &quot;Double&quot;
+INTEGER | &quot;Integer&quot;
 
 
 ## Implemented Interfaces

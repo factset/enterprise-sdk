@@ -4225,6 +4225,7 @@ components:
           enum:
           - String
           - Double
+          - Integer
           minLength: 1
           type: string
       required:

@@ -96,7 +96,13 @@ InlineResponse2002DataRiskModelAppendFormat['TypeEnum'] = {
      * value: "Double"
      * @const
      */
-    "Double": "Double"
+    "Double": "Double",
+
+    /**
+     * value: "Integer"
+     * @const
+     */
+    "Integer": "Integer"
 };
 
 

@@ -59,6 +59,7 @@ class InlineResponse2002DataRiskModelAppendFormat(ModelNormal):
         ('type',): {
             'STRING': "String",
             'DOUBLE': "Double",
+            'INTEGER': "Integer",
         },
     }
 

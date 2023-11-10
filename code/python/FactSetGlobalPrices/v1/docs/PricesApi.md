@@ -59,7 +59,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
     api_instance = prices_api.PricesApi(api_client)
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
-    ids = ["AAPL-USA"] # [str] | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per multi-day request or 1000 for single day requests*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+    ids = ["AAPL-USA"] # [str] | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit** =  1000 per non-batch request / 2000 per batch request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, it's advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = "2021-08-27" # str | The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint. 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
@@ -74,12 +74,21 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     adjust = "SPLIT" # str | Controls the split and spinoff adjustments for the prices.   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.   * **UNSPLIT** = No Adjustments.  (optional) if omitted the server will use the default value of "SPLIT"
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    batch = "N" # str | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, ids limit is increased to 10000 ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method. <B>Please note that the number of unique currencies present in the requested ids is limited to 50 per request.</B>  (optional) if omitted the server will use the default value of "N"
 
     try:
         # Gets end-of-day Open, High, Low, Close for a list of securities.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_gpd_prices(ids, start_date, fields=fields, end_date=end_date, frequency=frequency, calendar=calendar, currency=currency, adjust=adjust)
+        api_response_wrapper = api_instance.get_gpd_prices(ids, start_date, fields=fields, end_date=end_date, frequency=frequency, calendar=calendar, currency=currency, adjust=adjust, batch=batch)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
 
         pprint(api_response)
 
@@ -92,7 +101,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per multi-day request or 1000 for single day requests*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* |
+ **ids** | **[str]**| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.&lt;p&gt;***ids limit** &#x3D;  1000 per non-batch request / 2000 per batch request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, it&#39;s advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* |
  **start_date** | **str**| The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint.  |
  **fields** | **[str]**| Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.   |field|description|   |---|---|   |price|Closing Price|   |priceOpen|Opening Price|   |priceHigh|High Price|   |priceLow|Low Price|   |volume|Volume|   |turnover|Total Trade Value for the Day|   |tradeCount|Number of Trades|   |vwap|Volume Weighted Average Price|  | [optional] if omitted the server will use the default value of ["price","priceOpen","priceHigh","priceLow","volume","turnover","tradeCount","vwap","currency"]
  **end_date** | **str**| The end date requested for a given date range in **YYYY-MM-DD** format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint.  | [optional]
@@ -100,6 +109,7 @@ Name | Type | Description  | Notes
  **calendar** | **str**| Calendar of data returned. SEVENDAY includes weekends. | [optional] if omitted the server will use the default value of "FIVEDAY"
  **currency** | **str**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional]
  **adjust** | **str**| Controls the split and spinoff adjustments for the prices.   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  | [optional] if omitted the server will use the default value of "SPLIT"
+ **batch** | **str**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, ids limit is increased to 10000 ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method. &lt;B&gt;Please note that the number of unique currencies present in the requested ids is limited to 50 per request.&lt;/B&gt;  | [optional] if omitted the server will use the default value of "N"
 
 ### Return type
 
@@ -120,6 +130,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Array of Price Objects |  -  |
+**202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -179,7 +190,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     global_prices_request = GlobalPricesRequest(
-        ids=IdsMax1000(["TSLA-US"]),
+        ids=IdsBatchMax10000(["FDS-US"]),
         fields=PricesFields(["price","priceOpen","priceHigh","priceLow","volume","vwap","tradeCount","turnover"]),
         start_date="2020-06-30",
         end_date="2021-06-30",
@@ -187,12 +198,20 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
         currency="USD",
         calendar=Calendar("FIVEDAY"),
         adjust=Adjust("SPLIT"),
+        batch=Batch("N"),
     ) # GlobalPricesRequest | Request object for `Prices`.
 
     try:
         # Requests end-of-day Open, High, Low, Close for a large list of securities.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_security_prices_for_list(global_prices_request)
+        api_response_wrapper = api_instance.get_security_prices_for_list(global_prices_request)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
 
         pprint(api_response)
 
@@ -226,6 +245,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Array of security prices |  -  |
+**202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
+**400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+**403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+**415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+**500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

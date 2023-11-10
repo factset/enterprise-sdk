@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getgpdprices"></a>
 # **GetGPDPrices**
-> GlobalPricesResponse GetGPDPrices (List<string> ids, string startDate, List<string> fields = null, string endDate = null, string frequency = null, string calendar = null, string currency = null, string adjust = null)
+> GlobalPricesResponse GetGPDPrices (List<string> ids, string startDate, List<string> fields = null, string endDate = null, string frequency = null, string calendar = null, string currency = null, string adjust = null, string batch = null)
 
 Gets end-of-day Open, High, Low, Close for a list of securities.
 
@@ -20,6 +20,7 @@ Gets security prices', Open, High, Low, Close, Volume, VWAP, Trade Count, and Tu
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetGlobalPrices.Api;
@@ -55,7 +56,7 @@ namespace Example
 
             var apiInstance = new PricesApi(config);
 
-            var ids = new List<string>(); // List<string> | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per multi-day request or 1000 for single day requests*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+            var ids = new List<string>(); // List<string> | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit** =  1000 per non-batch request / 2000 per batch request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, it's advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
             var startDate = "2021-08-27";  // string | The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint. 
             var fields = new List<string>(); // List<string> | Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.   |field|description|   |- --|- --|   |price|Closing Price|   |priceOpen|Opening Price|   |priceHigh|High Price|   |priceLow|Low Price|   |volume|Volume|   |turnover|Total Trade Value for the Day|   |tradeCount|Number of Trades|   |vwap|Volume Weighted Average Price|  (optional) 
             var endDate = "2021-08-27";  // string | The end date requested for a given date range in **YYYY-MM-DD** format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint.  (optional) 
@@ -63,12 +64,25 @@ namespace Example
             var calendar = "FIVEDAY";  // string | Calendar of data returned. SEVENDAY includes weekends. (optional)  (default to FIVEDAY)
             var currency = "USD";  // string | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional) 
             var adjust = "SPLIT";  // string | Controls the split and spinoff adjustments for the prices.   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.   * **UNSPLIT** = No Adjustments.  (optional)  (default to SPLIT)
+            var batch = "Y";  // string | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, ids limit is increased to 10000 ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method. <B>Please note that the number of unique currencies present in the requested ids is limited to 50 per request.</B>  (optional)  (default to N)
 
             try
             {
                 // Gets end-of-day Open, High, Low, Close for a list of securities.
-                GlobalPricesResponse result = apiInstance.GetGPDPrices(ids, startDate, fields, endDate, frequency, calendar, currency, adjust);
-                Console.WriteLine(result.ToJson());
+                PricesApi.GetGPDPricesResponseWrapper result = apiInstance.GetGPDPrices(ids, startDate, fields, endDate, frequency, calendar, currency, adjust, batch);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -85,7 +99,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per multi-day request or 1000 for single day requests*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* | 
+ **ids** | [**List&lt;string&gt;**](string.md)| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.&lt;p&gt;***ids limit** &#x3D;  1000 per non-batch request / 2000 per batch request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, it&#39;s advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* | 
  **startDate** | **string**| The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint.  | 
  **fields** | [**List&lt;string&gt;**](string.md)| Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.   |field|description|   |- --|- --|   |price|Closing Price|   |priceOpen|Opening Price|   |priceHigh|High Price|   |priceLow|Low Price|   |volume|Volume|   |turnover|Total Trade Value for the Day|   |tradeCount|Number of Trades|   |vwap|Volume Weighted Average Price|  | [optional] 
  **endDate** | **string**| The end date requested for a given date range in **YYYY-MM-DD** format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
@@ -93,9 +107,10 @@ Name | Type | Description  | Notes
  **calendar** | **string**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY]
  **currency** | **string**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] 
  **adjust** | **string**| Controls the split and spinoff adjustments for the prices.   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  | [optional] [default to SPLIT]
+ **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, ids limit is increased to 10000 ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method. &lt;B&gt;Please note that the number of unique currencies present in the requested ids is limited to 50 per request.&lt;/B&gt;  | [optional] [default to N]
 
 ### Return type
-[**GlobalPricesResponse**](GlobalPricesResponse.md)
+GetGPDPricesResponseWrapper
 
 ### Authorization
 
@@ -111,6 +126,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of Price Objects |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -131,6 +147,7 @@ Gets security prices', Open, High, Low, Close, Volume, VWAP, Trade Count, and Tu
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetGlobalPrices.Api;
@@ -171,8 +188,20 @@ namespace Example
             try
             {
                 // Requests end-of-day Open, High, Low, Close for a large list of securities.
-                GlobalPricesResponse result = apiInstance.GetSecurityPricesForList(globalPricesRequest);
-                Console.WriteLine(result.ToJson());
+                PricesApi.GetSecurityPricesForListResponseWrapper result = apiInstance.GetSecurityPricesForList(globalPricesRequest);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -192,7 +221,7 @@ Name | Type | Description  | Notes
  **globalPricesRequest** | [**GlobalPricesRequest**](GlobalPricesRequest.md)| Request object for &#x60;Prices&#x60;. | 
 
 ### Return type
-[**GlobalPricesResponse**](GlobalPricesResponse.md)
+GetSecurityPricesForListResponseWrapper
 
 ### Authorization
 
@@ -208,6 +237,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of security prices |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
+| **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+| **415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+| **500** | Internal Server Error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

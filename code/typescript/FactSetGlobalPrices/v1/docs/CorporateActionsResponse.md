@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **[{String: Object}]** | Array of Corporate Action Objects | [optional] 
+**data** | [**[CorporateAction]**](CorporateAction.md) | Array of Corporate Action Objects | [optional] 
 
 

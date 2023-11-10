@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.corporate_actions_api import CorporateActionsApi
+#   from .api.batch_processing_api import BatchProcessingApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,6 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from fds.sdk.FactSetGlobalPrices.api.batch_processing_api import BatchProcessingApi
 from fds.sdk.FactSetGlobalPrices.api.corporate_actions_api import CorporateActionsApi
 from fds.sdk.FactSetGlobalPrices.api.prices_api import PricesApi
 from fds.sdk.FactSetGlobalPrices.api.returns_api import ReturnsApi

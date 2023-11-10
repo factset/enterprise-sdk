@@ -13,9 +13,18 @@ from fds.sdk.FactSetGlobalPrices.model.adjust import Adjust
 from fds.sdk.FactSetGlobalPrices.model.annualized_dividend_response import AnnualizedDividendResponse
 from fds.sdk.FactSetGlobalPrices.model.annualized_dividends_object import AnnualizedDividendsObject
 from fds.sdk.FactSetGlobalPrices.model.annualized_dividends_request import AnnualizedDividendsRequest
+from fds.sdk.FactSetGlobalPrices.model.batch import Batch
+from fds.sdk.FactSetGlobalPrices.model.batch_error_object import BatchErrorObject
+from fds.sdk.FactSetGlobalPrices.model.batch_error_object_links import BatchErrorObjectLinks
+from fds.sdk.FactSetGlobalPrices.model.batch_error_response import BatchErrorResponse
+from fds.sdk.FactSetGlobalPrices.model.batch_result import BatchResult
+from fds.sdk.FactSetGlobalPrices.model.batch_result_response import BatchResultResponse
+from fds.sdk.FactSetGlobalPrices.model.batch_status import BatchStatus
+from fds.sdk.FactSetGlobalPrices.model.batch_status_response import BatchStatusResponse
 from fds.sdk.FactSetGlobalPrices.model.calendar import Calendar
 from fds.sdk.FactSetGlobalPrices.model.cancelled_dividend import CancelledDividend
 from fds.sdk.FactSetGlobalPrices.model.cash_dividends_response import CashDividendsResponse
+from fds.sdk.FactSetGlobalPrices.model.corporate_action import CorporateAction
 from fds.sdk.FactSetGlobalPrices.model.corporate_actions_request import CorporateActionsRequest
 from fds.sdk.FactSetGlobalPrices.model.corporate_actions_response import CorporateActionsResponse
 from fds.sdk.FactSetGlobalPrices.model.distribution import Distribution
@@ -28,6 +37,7 @@ from fds.sdk.FactSetGlobalPrices.model.fields_corporate_actions import FieldsCor
 from fds.sdk.FactSetGlobalPrices.model.frequency import Frequency
 from fds.sdk.FactSetGlobalPrices.model.global_prices_request import GlobalPricesRequest
 from fds.sdk.FactSetGlobalPrices.model.global_prices_response import GlobalPricesResponse
+from fds.sdk.FactSetGlobalPrices.model.ids_batch_max10000 import IdsBatchMax10000
 from fds.sdk.FactSetGlobalPrices.model.ids_max100 import IdsMax100
 from fds.sdk.FactSetGlobalPrices.model.ids_max1000 import IdsMax1000
 from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
