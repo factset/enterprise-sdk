@@ -1,291 +1,1549 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   contact:
-    email: analytics.api.support@factset.com
-    name: Analytics API Support
+    email: api@factset.com
+    name: FactSet Research Systems
     url: https://developer.factset.com/contact
   description: Allow clients to fetch precalculated Analytics through predeterministic
     URLs.
   license:
-    name: The Apache Software License, Version 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Analytics Datastore  API
-  version: "1"
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/analytics-datastore-api
 servers:
-- url: https://api-sandbox.factset.com/
+- url: https://api.factset.com
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
-tags: []
+tags:
+- description: Retrieves a mapping with a Location header to redirect to the underlying
+    data
+  name: Mappings
+- description: Retrieves Objects and their underlying data
+  name: Objects
+- description: Retrieves Document metadata and URL locations to underlying data
+  name: Documents
 paths:
-  /analytics/pub-datastore/swivel/v1/{pubDoc}/{assetName}/{reportId}/{tileId}/{accountId}:
+  /analytics/pub-datastore/swivel/v1/{document}/{accountId}/{date}:
     get:
-      description: 'Note: Due to Swagger UI functionality, the redirect is automatically
-        followed when using ''Try it out'', so instead of the 302 Header response,
-        a 200 is returned with the Cargo response Body.'
-      operationId: getSwivelEndpoint
+      description: "Takes report parameter inputs and returns the object location\
+        \ for the specified report via a 302 redirect.\r\n\r\nNote: Due to Swagger\
+        \ UI functionality, the redirect is automatically followed when using 'Try\
+        \ it out', so instead of the 302 Header response, a 200 is returned with the\
+        \ Cargo response Body."
+      operationId: getPdfPptMapping
       parameters:
-      - description: The publisher document containing the report
+      - description: The Publisher document containing the report
+        example: Analytics_Datastore
+        explode: false
         in: path
-        name: pubDoc
+        name: document
         required: true
         schema:
-          default: Analytics_Datastore
           type: string
-      - description: The PA/SPAR asset name and extension
-        in: path
-        name: assetName
-        required: true
-        schema:
-          default: ADS_Demo.PA3
-          type: string
-      - description: The PA/SPAR report ID
-        in: path
-        name: reportId
-        required: true
-        schema:
-          default: report7
-          type: string
-      - description: The PA/SPAR tile ID
-        in: path
-        name: tileId
-        required: true
-        schema:
-          default: tile0
-          type: string
+        style: simple
       - description: The account ID
+        example: LARGE_CORE
+        explode: false
         in: path
         name: accountId
         required: true
         schema:
-          default: LARGE_CORE
           type: string
+        style: simple
+      - description: The as of date for the report
+        example: 2023-01-01
+        explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: simple
       responses:
-        "200":
-          content:
-            headers:
-              schema:
-                items:
-                  type: string
-                type: array
-          description: Expected response (when redirect followed), returns json response
-            body of the report.
-          headers:
-            Transfer-Encoding:
-              description: Standard HTTP header. Header value will be set to Chunked
-                if Accept-Encoding header is specified.
-              schema:
-                type: string
-            Content-Encoding:
-              description: Standard HTTP header. Header value based on Accept-Encoding
-                Request header.
-              schema:
-                type: string
-            Content-Type:
-              description: Standard HTTP header.
-              schema:
-                type: string
-            X-DataDirect-Request-Key:
-              description: FactSet’s request key header.
-              schema:
-                type: string
         "302":
-          content: {}
           description: Expected response, contains the Cargo URL in the Location header.
           headers:
             Location:
-              description: "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/pub-datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)"
+              description: "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)"
+              explode: false
               schema:
                 type: string
+              style: simple
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "400":
-          content: {}
           description: Invalid parameter provided.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "401":
-          content: {}
           description: Missing or invalid authentication.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "403":
-          content: {}
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "404":
-          content: {}
           description: The provided request does not exist.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "500":
-          content: {}
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "503":
-          content: {}
           description: Request timed out. Retry the request in sometime.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
-      summary: Get Swivel endpoint, takes report parameter inputs and returns the
-        Cargo location for the specified report via a 302 redirect.
+              style: simple
+      summary: Redirects to the raw PPT/PDF output created by the Publisher service.
       tags:
-      - Swivel
-      x-accepts: headers
+      - Mappings
+      x-accepts: application/json
+  /analytics/pub-datastore/swivel/v1/{document}/{assetName}/{reportId}/{tileId}/{accountId}:
+    get:
+      description: "Takes report parameter inputs and returns the object location\
+        \ for the specified report via a 302 redirect.\r\n\r\nNote: Due to Swagger\
+        \ UI functionality, the redirect is automatically followed when using 'Try\
+        \ it out', so instead of the 302 Header response, a 200 is returned with the\
+        \ Cargo response Body."
+      operationId: getStachMappingNoDate
+      parameters:
+      - description: The Publisher or Analytics Datafeed document containing the report
+        example: Analytics_Datastore
+        explode: false
+        in: path
+        name: document
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR asset name and extension
+        example: ADS_Demo.PA3
+        explode: false
+        in: path
+        name: assetName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR report ID
+        example: report7
+        explode: false
+        in: path
+        name: reportId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR tile ID
+        example: tile0
+        explode: false
+        in: path
+        name: tileId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account ID
+        example: LARGE_CORE
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "302":
+          description: Expected response, contains the Cargo URL in the Location header.
+          headers:
+            Location:
+              description: "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Redirects to the underlying PA/SPAR data represented in a Stach format,
+        with no as of date specified.
+      tags:
+      - Mappings
+      x-accepts: application/json
+  /analytics/pub-datastore/swivel/v1/{document}/{assetName}/{reportId}/{tileId}/{accountId}/{date}:
+    get:
+      description: "Takes report parameter inputs and returns the object location\
+        \ for the specified report via a 302 redirect.\r\n\r\nNote: Due to Swagger\
+        \ UI functionality, the redirect is automatically followed when using 'Try\
+        \ it out', so instead of the 302 Header response, a 200 is returned with the\
+        \ Cargo response Body."
+      operationId: getStachMapping
+      parameters:
+      - description: The Publisher or Analytics Datafeed document containing the report
+        example: Analytics_Datastore
+        explode: false
+        in: path
+        name: document
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR asset name and extension
+        example: ADS_Demo.PA3
+        explode: false
+        in: path
+        name: assetName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR report ID
+        example: report7
+        explode: false
+        in: path
+        name: reportId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR tile ID
+        example: tile0
+        explode: false
+        in: path
+        name: tileId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account ID
+        example: LARGE_CORE
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The as of date for the report
+        example: 2023-01-01
+        explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: simple
+      responses:
+        "302":
+          description: Expected response, contains the Cargo URL in the Location header.
+          headers:
+            Location:
+              description: "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Redirects to the underlying PA/SPAR data represented in a Stach format.
+      tags:
+      - Mappings
+      x-accepts: application/json
+  /analytics/pub-datastore/swivel/v1/{document}/{assetName}/{reportId}/{tileId}/{accountId}/{configId}/{date}:
+    get:
+      description: "The inclusion of a configId in the path indicates this is for\
+        \ Insight/Vault mappings only, as PA/SPAR mappings do not support the concept\
+        \ of configuration id.\r\n\r\nTakes report parameter inputs and returns the\
+        \ object location for the specified report via a 302 redirect.\r\n\r\nNote:\
+        \ Due to Swagger UI functionality, the redirect is automatically followed\
+        \ when using 'Try it out', so instead of the 302 Header response, a 200 is\
+        \ returned with the Cargo response Body."
+      operationId: getInsightMapping
+      parameters:
+      - description: The Analytics Datafeed document containing the report
+        example: Analytics_Datastore
+        explode: false
+        in: path
+        name: document
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR asset name and extension
+        example: ADS_Demo.PA3
+        explode: false
+        in: path
+        name: assetName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR report ID
+        example: report7
+        explode: false
+        in: path
+        name: reportId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PA/SPAR tile ID
+        example: tile0
+        explode: false
+        in: path
+        name: tileId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The account ID
+        example: LARGE_CORE
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The Vault configuration ID
+        example: acb5150d-4333-49e7-8e33-4f7fa749691e
+        explode: false
+        in: path
+        name: configId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The as of date for the report
+        example: 2023-01-01
+        explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: simple
+      responses:
+        "302":
+          description: Expected response, contains the Cargo URL in the Location header.
+          headers:
+            Location:
+              description: "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Redirects to the underlying Insight/Vault data in a Stach format.
+      tags:
+      - Mappings
+      x-accepts: application/json
   /analytics/pub-datastore/cargo/v1/groups/{groupId}/objects/{objectId}:
     get:
-      description: "STACH json response documentation: https://pages.github.factset.com/analytics-reporting/stachschema/#/\
+      description: "Raw object data can be found in the response body. This can be\
+        \ either the mapped PDF/PPT or STACH json, depending on the mapping. https://pages.github.factset.com/analytics-reporting/stachschema/#/\
         \ \r\n\nOptional request header \"accept-encoding\", with allowed values of\
         \ \"br\" and \"gzip\". If accept-encoding is passed, the response is compressed."
       operationId: getCargoEndpoint
       parameters:
       - description: The ID of the group
+        example: a4186c50f8e74f979d271dd22298c901
+        explode: false
         in: path
         name: groupId
         required: true
         schema:
-          default: a4186c50f8e74f979d271dd22298c901
           type: string
+        style: simple
       - description: The ID of the object
+        example: fe875bc4150542dea6bc237663a01a0d
+        explode: false
         in: path
         name: objectId
         required: true
         schema:
-          default: fe875bc4150542dea6bc237663a01a0d
           type: string
+        style: simple
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  type: string
-                type: array
           description: Expected response, returns json response body of the report.
           headers:
             Transfer-Encoding:
               description: Standard HTTP header. Header value will be set to Chunked
                 if Accept-Encoding header is specified.
+              explode: false
               schema:
                 type: string
+              style: simple
             Content-Encoding:
               description: Standard HTTP header. Header value based on Accept-Encoding
                 Request header.
+              explode: false
               schema:
                 type: string
+              style: simple
             Content-Type:
               description: Standard HTTP header.
+              explode: false
               schema:
                 type: string
+              style: simple
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "400":
-          content: {}
           description: Invalid parameter provided.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "401":
-          content: {}
           description: Missing or invalid authentication.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "403":
-          content: {}
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "404":
-          content: {}
           description: The provided request does not exist.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "500":
-          content: {}
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting
           headers:
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
+              style: simple
         "503":
-          content: {}
           description: Request timed out. Retry the request in sometime.
           headers:
             X-RateLimit-Remaining:
               description: Number of requests left for the time window.
+              explode: false
               schema:
                 type: string
+              style: simple
             X-FactSet-Api-Request-Key:
               description: Key to uniquely identify an Analytics API request. Only
                 available after successful authentication.
+              explode: false
               schema:
                 type: string
+              style: simple
             X-RateLimit-Reset:
               description: Number of seconds remaining till rate limit resets.
+              explode: false
               schema:
                 type: string
+              style: simple
             X-RateLimit-Limit:
               description: Number of allowed requests for the time window.
+              explode: false
               schema:
                 type: string
+              style: simple
             X-DataDirect-Request-Key:
               description: FactSet’s request key header.
+              explode: false
               schema:
                 type: string
-      summary: Get Cargo endpoint, gets an object given an ID. In this case ID retrieved
-        from Swivel Location header, results in json response body of the report.
+              style: simple
+      summary: Gets an object given an ID. In this case ID retrieved from mapping
+        Location header, object data in response body.
       tags:
-      - Cargo
+      - Objects
+      x-accepts: application/json
+  /analytics/pub-datastore/tag-search/v1/documents/search:
+    post:
+      description: "Retrieves metadata around documents stored in the Analytics Datastore\
+        \ Service. Each Document will have a 'url' property which will act as a re-direct\
+        \ to the underlying document data\r\n\r\nThis end point supports pagination\
+        \ and filtering through the use of the request body listed below.\r\n\r\n\
+        To discover what tags are available to filter on, see GET /tags and GET /tags/{name}/values\
+        \ to retrieve these filter values.\r\n\r\nSimilarly, to discover what product\
+        \ types are available to filter on, see POST /product-types/search to retrieve\
+        \ a list of product types."
+      operationId: getDocumentsEndPoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentRequest'
+        description: Example request of a filtered Documents search call
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+          description: Expected response, a list of documents the user has access
+            to.
+        "400":
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Gets a list of Documents that a user has access to.
+      tags:
+      - Documents
+      x-contentType: application/json
+      x-accepts: application/json
+  /analytics/pub-datastore/tag-search/v1/tags:
+    get:
+      description: Tag definitions consist of a name and a type. Use this end point
+        to see a list of pre-existing tags that can be used to filter on the Documents
+        end point.
+      operationId: getTagsEndPoint
+      parameters:
+      - description: The offset integer on where to begin paginating
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      - description: The limit of records to return when paginating
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 50
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagListResponse'
+          description: Expected response, returns a list of tag definitions the user
+            has access to.
+        "400":
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Gets a list of tag definitions for the user.
+      tags:
+      - Documents
+      x-accepts: application/json
+  /analytics/pub-datastore/tag-search/v1/tags/{name}:
+    get:
+      description: Retrieve a tag definition based on its name
+      operationId: getSingleTagEndPoint
+      parameters:
+      - description: The name of the tag
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResponse'
+          description: Expected response, returns the tag requested
+        "400":
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Get a single tag definition based on its name
+      tags:
+      - Documents
+      x-accepts: application/json
+  /analytics/pub-datastore/tag-search/v1/tags/{name}/values:
+    post:
+      description: Returns a list of tag values depending on the name provided. Supports
+        filtering on additional tag name value pairs, which operates as an 'AND' where
+        the Document must have the tag name specified in the path AND the filtered
+        parameter.
+      operationId: getTagValuesEndPoint
+      parameters:
+      - description: The name of the tag
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TagFilterModel'
+        description: Request body to apply when filtering on this end point. Pagination
+          controls are applied through the pagination object and additional tag filters
+          can be used by supplying the tag name and its value in the tags object.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagValuesListResponse'
+          description: Expected response, returns a list of tag definitions the user
+            has access to.
+        "400":
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Gets a list of tag values for the given name
+      tags:
+      - Documents
+      x-contentType: application/json
+      x-accepts: application/json
+  /analytics/pub-datastore/tag-search/v1/product-types/search:
+    post:
+      description: Retrieves a list of product types that have been specified across
+        all documents the user has access to
+      operationId: getProductTypes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TagFilterModel'
+        description: Request body to apply when filtering on this end point. Pagination
+          controls are applied through the pagination object and additional tag filters
+          can be used by supplying the tag name and its value in the tags object.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductTypeListResponse'
+          description: Expected response, a list of product types the user has access
+            to.
+        "400":
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Gets a list of product types that a user has access to.
+      tags:
+      - Documents
+      x-contentType: application/json
       x-accepts: application/json
 components:
-  schemas: {}
+  schemas:
+    DocumentRequest:
+      example:
+        data:
+          path: Client:/Publisher/TEST_ACCOUNT.ACCT
+          productType: Publisher
+          tags:
+            account: TEST_ACCOUNT.ACCT
+            benchmark: TEST_BENCHMARK
+        meta:
+          pagination:
+            offset: 0
+            limit: 10
+      properties:
+        meta:
+          $ref: '#/components/schemas/MetaRequestModel'
+        data:
+          $ref: '#/components/schemas/DocumentRequest_data'
+      type: object
+    DocumentListResponse:
+      description: Response object for a list of documents
+      example:
+        data:
+        - url: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d
+          productType: Publisher
+          tags:
+            account: TEST_ACCOUNT.ACCT
+            benchmark: TEST_BENCHMARK
+        - url: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d
+          productType: Publisher
+          tags:
+            account: TEST_ACCOUNT.ACCT
+            benchmark: TEST_BENCHMARK
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+      properties:
+        meta:
+          $ref: '#/components/schemas/MetaModel'
+        data:
+          description: Array of documents
+          items:
+            $ref: '#/components/schemas/DocumentModel'
+          type: array
+      type: object
+    TagListResponse:
+      description: Response object for a list of tags
+      example:
+        data:
+        - name: account
+          type: string
+        - name: account
+          type: string
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+      properties:
+        meta:
+          $ref: '#/components/schemas/MetaModel'
+        data:
+          description: Array of tags
+          items:
+            $ref: '#/components/schemas/TagModel'
+          type: array
+      type: object
+    TagFilterModel:
+      description: Request object for requesting product types
+      example:
+        data:
+          tags:
+            account: TEST_ACCOUNT.ACCT
+            benchmark: TEST_BENCHMARK
+        meta:
+          pagination:
+            offset: 0
+            limit: 10
+      properties:
+        meta:
+          $ref: '#/components/schemas/MetaRequestModel'
+        data:
+          $ref: '#/components/schemas/TagFilterModel_data'
+      type: object
+    ProductTypeListResponse:
+      description: Response object for a list of documents
+      example:
+        data:
+        - adf
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+      properties:
+        meta:
+          $ref: '#/components/schemas/MetaModel'
+        data:
+          description: Array of product types
+          example:
+          - adf
+          items:
+            type: string
+          type: array
+      type: object
+    TagValuesListResponse:
+      description: Response object for a list of tag values
+      example:
+        data:
+        - TEST_ACCOUNT.ACCT
+        - CLIENT.ACCT
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+      properties:
+        meta:
+          $ref: '#/components/schemas/MetaModel'
+        data:
+          description: Array of tag values
+          example:
+          - TEST_ACCOUNT.ACCT
+          - CLIENT.ACCT
+          items:
+            type: string
+          type: array
+      type: object
+    TagResponse:
+      description: Response object for a single tag
+      example:
+        data:
+          name: account
+          type: string
+      properties:
+        data:
+          $ref: '#/components/schemas/TagModel'
+      type: object
+    DocumentModel:
+      description: Document model
+      example:
+        url: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d
+        productType: Publisher
+        tags:
+          account: TEST_ACCOUNT.ACCT
+          benchmark: TEST_BENCHMARK
+      properties:
+        url:
+          description: The resolved URL pointing to the location of the underlying
+            report
+          example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d
+          type: string
+        productType:
+          description: string property to denote what Product created this document.
+          example: Publisher
+          type: string
+        tags:
+          additionalProperties:
+            $ref: '#/components/schemas/StringOrNumberTagValue'
+          description: The documents tags, represented in a key value format with
+            the tag name as the key; and the tag's value as the value
+          example:
+            account: TEST_ACCOUNT.ACCT
+            benchmark: TEST_BENCHMARK
+          type: object
+      type: object
+    TagModel:
+      description: Tags model
+      example:
+        name: account
+        type: string
+      properties:
+        name:
+          description: The name of the tag
+          example: account
+          type: string
+        type:
+          description: The type of the tag
+          enum:
+          - string
+          - date
+          - datetime
+          example: string
+          type: string
+      type: object
+    MetaModel:
+      description: Meta model which includes pagination information
+      example:
+        pagination:
+          total: 1
+          isEstimatedTotal: false
+      properties:
+        pagination:
+          $ref: '#/components/schemas/MetaModel_pagination'
+      type: object
+    MetaRequestModel:
+      description: Meta request model which includes pagination controls
+      example:
+        pagination:
+          offset: 0
+          limit: 10
+      properties:
+        pagination:
+          $ref: '#/components/schemas/MetaRequestModel_pagination'
+      type: object
+    StringOrNumberTagValue:
+      oneOf:
+      - type: string
+      - type: number
+    DocumentRequest_data:
+      example:
+        path: Client:/Publisher/TEST_ACCOUNT.ACCT
+        productType: Publisher
+        tags:
+          account: TEST_ACCOUNT.ACCT
+          benchmark: TEST_BENCHMARK
+      properties:
+        path:
+          description: 'The Document path to filter on. For example: path=Client:/Test/Publisher/Example.pdf'
+          example: Client:/Publisher/TEST_ACCOUNT.ACCT
+          type: string
+        productType:
+          description: 'The Document path to filter on. For example: path=Client:/Test/Publisher/Example.pdf'
+          example: Publisher
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The documents tags, represented in a key value format with
+            the tag name as the key; and the tag's value as the value
+          example:
+            account: TEST_ACCOUNT.ACCT
+            benchmark: TEST_BENCHMARK
+          type: object
+      type: object
+    TagFilterModel_data:
+      example:
+        tags:
+          account: TEST_ACCOUNT.ACCT
+          benchmark: TEST_BENCHMARK
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The documents tags, represented in a key value format with
+            the tag name as the key; and the tag's value as the value
+          example:
+            account: TEST_ACCOUNT.ACCT
+            benchmark: TEST_BENCHMARK
+          type: object
+      type: object
+    MetaModel_pagination:
+      description: Pagination attributes for the offset-based pagination strategy
+      example:
+        total: 1
+        isEstimatedTotal: false
+      properties:
+        total:
+          description: Total number of entries in the result set
+          example: 1
+          type: integer
+        isEstimatedTotal:
+          description: Flag indicating that the value of total is estimated
+          example: false
+          type: boolean
+      type: object
+    MetaRequestModel_pagination:
+      example:
+        offset: 0
+        limit: 10
+      properties:
+        offset:
+          example: 0
+          type: integer
+        limit:
+          example: 10
+          type: integer
+      type: object
   securitySchemes:
-    FactSetApiKey:
-      scheme: basic
-      type: http
     FactSetOAuth2:
       flows:
         clientCredentials:
           scopes: {}
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
-x-original-swagger-version: "2.0"
+    FactSetApiKey:
+      scheme: basic
+      type: http
 

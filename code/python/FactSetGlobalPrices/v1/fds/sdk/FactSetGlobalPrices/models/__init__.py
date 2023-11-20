@@ -38,6 +38,7 @@ from fds.sdk.FactSetGlobalPrices.model.frequency import Frequency
 from fds.sdk.FactSetGlobalPrices.model.global_prices_request import GlobalPricesRequest
 from fds.sdk.FactSetGlobalPrices.model.global_prices_response import GlobalPricesResponse
 from fds.sdk.FactSetGlobalPrices.model.ids_batch_max10000 import IdsBatchMax10000
+from fds.sdk.FactSetGlobalPrices.model.ids_batch_max2000 import IdsBatchMax2000
 from fds.sdk.FactSetGlobalPrices.model.ids_max100 import IdsMax100
 from fds.sdk.FactSetGlobalPrices.model.ids_max1000 import IdsMax1000
 from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
@@ -47,6 +48,13 @@ from fds.sdk.FactSetGlobalPrices.model.returns import Returns
 from fds.sdk.FactSetGlobalPrices.model.returns_request import ReturnsRequest
 from fds.sdk.FactSetGlobalPrices.model.returns_response import ReturnsResponse
 from fds.sdk.FactSetGlobalPrices.model.rights_issue_response import RightsIssueResponse
+from fds.sdk.FactSetGlobalPrices.model.shares_outstanding_request import SharesOutstandingRequest
+from fds.sdk.FactSetGlobalPrices.model.shares_outstanding_request_body import SharesOutstandingRequestBody
+from fds.sdk.FactSetGlobalPrices.model.shares_outstanding_response import SharesOutstandingResponse
+from fds.sdk.FactSetGlobalPrices.model.shares_outstanding_response_object import SharesOutstandingResponseObject
+from fds.sdk.FactSetGlobalPrices.model.so_error_object import SoErrorObject
+from fds.sdk.FactSetGlobalPrices.model.so_error_object_links import SoErrorObjectLinks
+from fds.sdk.FactSetGlobalPrices.model.so_error_response import SoErrorResponse
 from fds.sdk.FactSetGlobalPrices.model.spinoffs_response import SpinoffsResponse
 from fds.sdk.FactSetGlobalPrices.model.split import Split
 from fds.sdk.FactSetGlobalPrices.model.splits_response import SplitsResponse

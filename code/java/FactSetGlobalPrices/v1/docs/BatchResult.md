@@ -7,6 +7,7 @@
 * [CorporateAction](CorporateAction.md)
 * [Price](Price.md)
 * [Returns](Returns.md)
+* [SharesOutstandingResponseObject](SharesOutstandingResponseObject.md)
 
 ## Example
 ```java
@@ -16,6 +17,7 @@ import com.factset.sdk.FactSetGlobalPrices.models.AnnualizedDividendsObject;
 import com.factset.sdk.FactSetGlobalPrices.models.CorporateAction;
 import com.factset.sdk.FactSetGlobalPrices.models.Price;
 import com.factset.sdk.FactSetGlobalPrices.models.Returns;
+import com.factset.sdk.FactSetGlobalPrices.models.SharesOutstandingResponseObject;
 
 public class Example {
     public static void main(String[] args) {
@@ -48,6 +50,13 @@ public class Example {
         exampleBatchResult.setActualInstance(exampleReturns);
         // to get back the Returns set earlier
         Returns testReturns = (Returns) exampleBatchResult.getActualInstance();
+
+        // create a new SharesOutstandingResponseObject
+        SharesOutstandingResponseObject exampleSharesOutstandingResponseObject = new SharesOutstandingResponseObject();
+        // set BatchResult to SharesOutstandingResponseObject
+        exampleBatchResult.setActualInstance(exampleSharesOutstandingResponseObject);
+        // to get back the SharesOutstandingResponseObject set earlier
+        SharesOutstandingResponseObject testSharesOutstandingResponseObject = (SharesOutstandingResponseObject) exampleBatchResult.getActualInstance();
     }
 }
 ```

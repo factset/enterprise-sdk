@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.openapitools.jackson.nullable.JsonNullableModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.factset.sdk.AnalyticsDatastore.models.*;
 
 import java.text.DateFormat;
 import java.util.HashMap;

@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Fundamentals API
-  version: 2.0.0
+  version: 2.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-fundamentals-api
@@ -69,10 +69,15 @@ paths:
             * **QTR**  = Quarterly - Original,
             * **QTR_R** = Quarterly - Latest - *Includes Restatements*,
             * **SEMI** = Semi-Annual,
+            * **SEMI_R** = Semi-Annual - Latest - *Includes Restatements*,
             * **LTM**  = Last Twelve Months,
+            * **LTM_R**  = Last Twelve Months - Latest - *Includes Restatements*,
             * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),
             * **LTM_SEMI**  = Last Twelve Months, Semi-Annually Reported Data,
             * **YTD** = Year-to-date.
+            <br>
+
+          Please note that the coverage for SEMI_R and LTM_R may be limited as fewer companies report with these periodicities.<br>
         examples:
           ANN:
             summary: ANN - Annual Original.
@@ -87,11 +92,17 @@ paths:
             summary: QTR_R - Quarterly Latest.
             value: QTR_R
           SEMI:
-            summary: SEMI - Semi-Annual.
+            summary: SEMI - Semi-Annual Original.
             value: SEMI
+          SEMI_R:
+            summary: SEMI_R - Semi-Annual Latest.
+            value: SEMI_R
           LTM:
-            summary: LTM - Last Twelve Months.
+            summary: LTM - Last Twelve Months Original.
             value: LTM
+          LTM_R:
+            summary: LTM_R - Last Twelve Months Latest.
+            value: LTM_R
           LTMSG:
             summary: LTMSG - Last Twelve Months Global.
             value: LTMSG
@@ -113,7 +124,9 @@ paths:
           - QTR
           - QTR_R
           - SEMI
+          - SEMI_R
           - LTM
+          - LTM_R
           - LTM_SEMI
           - LTMSG
           - YTD
@@ -1861,10 +1874,15 @@ components:
           * **QTR**  = Quarterly - Original,
           * **QTR_R** = Quarterly - Latest - *Includes Restatements*,
           * **SEMI** = Semi-Annual,
+          * **SEMI_R** = Semi-Annual - Latest - *Includes Restatements*,
           * **LTM**  = Last Twelve Months,
+          * **LTM_R**  = Last Twelve Months - Latest - *Includes Restatements*,
           * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),
           * **LTM_SEMI**  = Last Twelve Months, Semi-Annually Reported Data,
           * **YTD** = Year-to-date.
+          <br>
+
+        Please note that the coverage for SEMI_R and LTM_R may be limited as fewer companies report with these periodicities.<br>
       examples:
         ANN:
           summary: ANN - Annual Original.
@@ -1879,11 +1897,17 @@ components:
           summary: QTR_R - Quarterly Latest.
           value: QTR_R
         SEMI:
-          summary: SEMI - Semi-Annual.
+          summary: SEMI - Semi-Annual Original.
           value: SEMI
+        SEMI_R:
+          summary: SEMI_R - Semi-Annual Latest.
+          value: SEMI_R
         LTM:
-          summary: LTM - Last Twelve Months.
+          summary: LTM - Last Twelve Months Original.
           value: LTM
+        LTM_R:
+          summary: LTM_R - Last Twelve Months Latest.
+          value: LTM_R
         LTMSG:
           summary: LTMSG - Last Twelve Months Global.
           value: LTMSG
@@ -1905,7 +1929,9 @@ components:
         - QTR
         - QTR_R
         - SEMI
+        - SEMI_R
         - LTM
+        - LTM_R
         - LTM_SEMI
         - LTMSG
         - YTD
@@ -2605,17 +2631,22 @@ components:
         periodicity:
           description: Periodicity or frequency of the fiscal periods, where ANN =
             Annual Original, ANN_R = Annual Latest, QTR = Quarterly Original, QTR_R
-            = Quarterly Latest, SEMI = Semi-Annual, LTM = Last Twelve Months, LTMSG
-            = Last Twelve Months Global, [OA17959](https://my.apps.factset.com/oa/pages/17959),
+            = Quarterly Latest, SEMI = Semi-Annual Original, SEMI_R = Semi-Annual
+            Latest, LTM = Last Twelve Months Original, LTM_R = Last Twelve Months
+            Latest, LTMSG = Last Twelve Months Global, [OA17959](https://my.apps.factset.com/oa/pages/17959),
             LTM_SEMI = Last Twelve Months - Semi-Annual Data and YTD = Year-to-date.
+            Please note that the coverage for SEMI_R and LTM_R may be limited as fewer
+            companies report with these periodicities.
           enum:
           - ANN
           - ANN_R
           - QTR
           - QTR_R
           - SEMI
+          - SEMI_R
           - CAL
           - LTM
+          - LTM_R
           - LTMSG
           - LTM_SEMI
           - YTD
@@ -2947,17 +2978,23 @@ components:
           * **QTR** = Quarterly,
           * **QTR_R** = Quarterly Latest - *Includes Restatements*,
           * **SEMI** = Semi-Annual,
+          * **SEMI_R** = Semi-Annual Latest - *Includes Restatements*,
           * **LTM** = Last Twelve Months,
+          * **LTM_R** = Last Twelve Months Latest - *Includes Restatements*,
           * **LTM_SEMI** = Last Twelve Months - Semi-Annually Reported Data,
           * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959) and
           * **YTD** = Year-to-date
+        <br><br>
+        Please note that the coverage for SEMI_R and LTM_R may be limited as fewer companies report with these periodicities.
       enum:
       - ANN
       - ANN_R
       - QTR
       - QTR_R
       - SEMI
+      - SEMI_R
       - LTM
+      - LTM_R
       - LTMSG
       - LTM_SEMI
       - YTD

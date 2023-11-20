@@ -1,116 +1,107 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.3",
   "info": {
     "title": "Analytics Datastore  API",
     "description": "Allow clients to fetch precalculated Analytics through predeterministic URLs.",
     "contact": {
-      "name": "Analytics API Support",
+      "name": "FactSet Research Systems",
       "url": "https://developer.factset.com/contact",
-      "email": "analytics.api.support@factset.com"
+      "email": "api@factset.com"
     },
     "license": {
-      "name": "The Apache Software License, Version 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "1"
+    "version": "1.0.0"
   },
-  "host": "api-sandbox.factset.com",
-  "schemes": [
-    "https"
+  "externalDocs": {
+    "url": "https://developer.factset.com/api-catalog/analytics-datastore-api",
+    "description": "API Documentation"
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com"
+    }
+  ],
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Mappings",
+      "description": "Retrieves a mapping with a Location header to redirect to the underlying data"
+    },
+    {
+      "name": "Objects",
+      "description": "Retrieves Objects and their underlying data"
+    },
+    {
+      "name": "Documents",
+      "description": "Retrieves Document metadata and URL locations to underlying data"
+    }
   ],
   "paths": {
-    "/analytics/pub-datastore/swivel/v1/{pubDoc}/{assetName}/{reportId}/{tileId}/{accountId}": {
+    "/analytics/pub-datastore/swivel/v1/{document}/{accountId}/{date}": {
       "get": {
         "tags": [
-          "Swivel"
+          "Mappings"
         ],
-        "operationId": "getSwivelEndpoint",
-        "produces": [
-          "headers"
-        ],
-        "summary": "Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.",
-        "description": "Note: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.",
+        "summary": "Redirects to the raw PPT/PDF output created by the Publisher service.",
+        "description": "Takes report parameter inputs and returns the object location for the specified report via a 302 redirect.\r\n\r\nNote: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.",
+        "operationId": "getPdfPptMapping",
         "parameters": [
           {
-            "name": "pubDoc",
+            "name": "document",
             "in": "path",
-            "description": "The publisher document containing the report",
+            "description": "The Publisher document containing the report",
             "required": true,
-            "type": "string",
-            "default": "Analytics_Datastore"
-          },
-          {
-            "name": "assetName",
-            "in": "path",
-            "description": "The PA/SPAR asset name and extension",
-            "required": true,
-            "type": "string",
-            "default": "ADS_Demo.PA3"
-          },
-          {
-            "name": "reportId",
-            "in": "path",
-            "description": "The PA/SPAR report ID",
-            "required": true,
-            "type": "string",
-            "default": "report7"
-          },
-          {
-            "name": "tileId",
-            "in": "path",
-            "description": "The PA/SPAR tile ID",
-            "required": true,
-            "type": "string",
-            "default": "tile0"
+            "schema": {
+              "type": "string"
+            },
+            "example": "Analytics_Datastore"
           },
           {
             "name": "accountId",
             "in": "path",
             "description": "The account ID",
             "required": true,
-            "type": "string",
-            "default": "LARGE_CORE"
+            "schema": {
+              "type": "string"
+            },
+            "example": "LARGE_CORE"
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "description": "The as of date for the report",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "example": "2023-01-01"
           }
         ],
         "responses": {
-          "200": {
-            "description": "Expected response (when redirect followed), returns json response body of the report.",
-            "schema": {
-              "uniqueItems": false,
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "headers": {
-              "Content-Encoding": {
-                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
-                "type": "string"
-              },
-              "Content-Type": {
-                "description": "Standard HTTP header.",
-                "type": "string"
-              },
-              "Transfer-Encoding": {
-                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
-                "type": "string"
-              },
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet’s request key header.",
-                "type": "string"
-              }
-            }
-          },
           "302": {
             "description": "Expected response, contains the Cargo URL in the Location header.",
             "headers": {
               "Location": {
-                "description": "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/pub-datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)",
-                "type": "string"
+                "description": "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)",
+                "schema": {
+                  "type": "string"
+                }
               },
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -119,7 +110,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -128,7 +121,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -137,7 +132,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -146,7 +143,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -155,7 +154,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -164,7 +165,482 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/pub-datastore/swivel/v1/{document}/{assetName}/{reportId}/{tileId}/{accountId}": {
+      "get": {
+        "tags": [
+          "Mappings"
+        ],
+        "summary": "Redirects to the underlying PA/SPAR data represented in a Stach format, with no as of date specified.",
+        "description": "Takes report parameter inputs and returns the object location for the specified report via a 302 redirect.\r\n\r\nNote: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.",
+        "operationId": "getStachMappingNoDate",
+        "parameters": [
+          {
+            "name": "document",
+            "in": "path",
+            "description": "The Publisher or Analytics Datafeed document containing the report",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Analytics_Datastore"
+          },
+          {
+            "name": "assetName",
+            "in": "path",
+            "description": "The PA/SPAR asset name and extension",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ADS_Demo.PA3"
+          },
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "The PA/SPAR report ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "report7"
+          },
+          {
+            "name": "tileId",
+            "in": "path",
+            "description": "The PA/SPAR tile ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "tile0"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "The account ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "LARGE_CORE"
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Expected response, contains the Cargo URL in the Location header.",
+            "headers": {
+              "Location": {
+                "description": "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided request does not exist.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/pub-datastore/swivel/v1/{document}/{assetName}/{reportId}/{tileId}/{accountId}/{date}": {
+      "get": {
+        "tags": [
+          "Mappings"
+        ],
+        "summary": "Redirects to the underlying PA/SPAR data represented in a Stach format.",
+        "description": "Takes report parameter inputs and returns the object location for the specified report via a 302 redirect.\r\n\r\nNote: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.",
+        "operationId": "getStachMapping",
+        "parameters": [
+          {
+            "name": "document",
+            "in": "path",
+            "description": "The Publisher or Analytics Datafeed document containing the report",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Analytics_Datastore"
+          },
+          {
+            "name": "assetName",
+            "in": "path",
+            "description": "The PA/SPAR asset name and extension",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ADS_Demo.PA3"
+          },
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "The PA/SPAR report ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "report7"
+          },
+          {
+            "name": "tileId",
+            "in": "path",
+            "description": "The PA/SPAR tile ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "tile0"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "The account ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "LARGE_CORE"
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "description": "The as of date for the report",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "example": "2023-01-01"
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Expected response, contains the Cargo URL in the Location header.",
+            "headers": {
+              "Location": {
+                "description": "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided request does not exist.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/pub-datastore/swivel/v1/{document}/{assetName}/{reportId}/{tileId}/{accountId}/{configId}/{date}": {
+      "get": {
+        "tags": [
+          "Mappings"
+        ],
+        "summary": "Redirects to the underlying Insight/Vault data in a Stach format.",
+        "description": "The inclusion of a configId in the path indicates this is for Insight/Vault mappings only, as PA/SPAR mappings do not support the concept of configuration id.\r\n\r\nTakes report parameter inputs and returns the object location for the specified report via a 302 redirect.\r\n\r\nNote: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.",
+        "operationId": "getInsightMapping",
+        "parameters": [
+          {
+            "name": "document",
+            "in": "path",
+            "description": "The Analytics Datafeed document containing the report",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Analytics_Datastore"
+          },
+          {
+            "name": "assetName",
+            "in": "path",
+            "description": "The PA/SPAR asset name and extension",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ADS_Demo.PA3"
+          },
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "The PA/SPAR report ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "report7"
+          },
+          {
+            "name": "tileId",
+            "in": "path",
+            "description": "The PA/SPAR tile ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "tile0"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "The account ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "LARGE_CORE"
+          },
+          {
+            "name": "configId",
+            "in": "path",
+            "description": "The Vault configuration ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "acb5150d-4333-49e7-8e33-4f7fa749691e"
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "description": "The as of date for the report",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "example": "2023-01-01"
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Expected response, contains the Cargo URL in the Location header.",
+            "headers": {
+              "Location": {
+                "description": "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided request does not exist.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -174,59 +650,60 @@
     "/analytics/pub-datastore/cargo/v1/groups/{groupId}/objects/{objectId}": {
       "get": {
         "tags": [
-          "Cargo"
+          "Objects"
         ],
+        "summary": "Gets an object given an ID. In this case ID retrieved from mapping Location header, object data in response body.",
+        "description": "Raw object data can be found in the response body. This can be either the mapped PDF/PPT or STACH json, depending on the mapping. https://pages.github.factset.com/analytics-reporting/stachschema/#/ \r\n\nOptional request header \"accept-encoding\", with allowed values of \"br\" and \"gzip\". If accept-encoding is passed, the response is compressed.",
         "operationId": "getCargoEndpoint",
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
-        "summary": "Get Cargo endpoint, gets an object given an ID. In this case ID retrieved from Swivel Location header, results in json response body of the report.",
-        "description": "STACH json response documentation: https://pages.github.factset.com/analytics-reporting/stachschema/#/ \r\n\nOptional request header \"accept-encoding\", with allowed values of \"br\" and \"gzip\". If accept-encoding is passed, the response is compressed.",
         "parameters": [
           {
             "name": "groupId",
             "in": "path",
             "description": "The ID of the group",
             "required": true,
-            "type": "string",
-            "default": "a4186c50f8e74f979d271dd22298c901"
+            "schema": {
+              "type": "string"
+            },
+            "example": "a4186c50f8e74f979d271dd22298c901"
           },
           {
             "name": "objectId",
             "in": "path",
             "description": "The ID of the object",
             "required": true,
-            "type": "string",
-            "default": "fe875bc4150542dea6bc237663a01a0d"
+            "schema": {
+              "type": "string"
+            },
+            "example": "fe875bc4150542dea6bc237663a01a0d"
           }
         ],
         "responses": {
           "200": {
             "description": "Expected response, returns json response body of the report.",
-            "schema": {
-              "uniqueItems": false,
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
             "headers": {
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string"
+                }
+              },
               "Content-Encoding": {
                 "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               },
               "Content-Type": {
                 "description": "Standard HTTP header.",
-                "type": "string"
-              },
-              "Transfer-Encoding": {
-                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               },
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -235,7 +712,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -244,7 +723,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -253,7 +734,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -262,7 +745,9 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -271,32 +756,681 @@
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet’s request key header.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
           "503": {
             "description": "Request timed out. Retry the request in sometime.",
             "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet’s request key header.",
-                "type": "string"
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
               },
               "X-FactSet-Api-Request-Key": {
                 "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "type": "string"
-              },
-              "X-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "type": "string"
-              },
-              "X-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
               },
               "X-RateLimit-Reset": {
                 "description": "Number of seconds remaining till rate limit resets.",
-                "type": "string"
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/pub-datastore/tag-search/v1/documents/search": {
+      "post": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Gets a list of Documents that a user has access to.",
+        "description": "Retrieves metadata around documents stored in the Analytics Datastore Service. Each Document will have a 'url' property which will act as a re-direct to the underlying document data\r\n\r\nThis end point supports pagination and filtering through the use of the request body listed below.\r\n\r\nTo discover what tags are available to filter on, see GET /tags and GET /tags/{name}/values to retrieve these filter values.\r\n\r\nSimilarly, to discover what product types are available to filter on, see POST /product-types/search to retrieve a list of product types.",
+        "operationId": "getDocumentsEndPoint",
+        "requestBody": {
+          "description": "Example request of a filtered Documents search call",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, a list of documents the user has access to.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided request does not exist.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/pub-datastore/tag-search/v1/tags": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Gets a list of tag definitions for the user.",
+        "description": "Tag definitions consist of a name and a type. Use this end point to see a list of pre-existing tags that can be used to filter on the Documents end point.",
+        "operationId": "getTagsEndPoint",
+        "parameters": [
+          {
+            "name": "_paginationOffset",
+            "in": "query",
+            "description": "The offset integer on where to begin paginating",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "_paginationLimit",
+            "in": "query",
+            "description": "The limit of records to return when paginating",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a list of tag definitions the user has access to.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TagListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided request does not exist.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/pub-datastore/tag-search/v1/tags/{name}": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Get a single tag definition based on its name",
+        "description": "Retrieve a tag definition based on its name",
+        "operationId": "getSingleTagEndPoint",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The name of the tag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns the tag requested",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TagResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided request does not exist.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/pub-datastore/tag-search/v1/tags/{name}/values": {
+      "post": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Gets a list of tag values for the given name",
+        "description": "Returns a list of tag values depending on the name provided. Supports filtering on additional tag name value pairs, which operates as an 'AND' where the Document must have the tag name specified in the path AND the filtered parameter.",
+        "operationId": "getTagValuesEndPoint",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The name of the tag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request body to apply when filtering on this end point. Pagination controls are applied through the pagination object and additional tag filters can be used by supplying the tag name and its value in the tags object.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagFilterModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a list of tag definitions the user has access to.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TagValuesListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided request does not exist.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/pub-datastore/tag-search/v1/product-types/search": {
+      "post": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Gets a list of product types that a user has access to.",
+        "description": "Retrieves a list of product types that have been specified across all documents the user has access to",
+        "operationId": "getProductTypes",
+        "requestBody": {
+          "description": "Request body to apply when filtering on this end point. Pagination controls are applied through the pagination object and additional tag filters can be used by supplying the tag name and its value in the tags object.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagFilterModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, a list of product types the user has access to.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductTypeListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided request does not exist.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -304,24 +1438,262 @@
       }
     }
   },
-  "securityDefinitions": {
-    "FactSetApiKey": {
-      "type": "basic"
+  "components": {
+    "schemas": {
+      "DocumentRequest": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/MetaRequestModel"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "The Document path to filter on. For example: path=Client:/Test/Publisher/Example.pdf",
+                "example": "Client:/Publisher/TEST_ACCOUNT.ACCT"
+              },
+              "productType": {
+                "type": "string",
+                "description": "The Document path to filter on. For example: path=Client:/Test/Publisher/Example.pdf",
+                "example": "Publisher"
+              },
+              "tags": {
+                "type": "object",
+                "description": "The documents tags, represented in a key value format with the tag name as the key; and the tag's value as the value",
+                "example": {
+                  "account": "TEST_ACCOUNT.ACCT",
+                  "benchmark": "TEST_BENCHMARK"
+                },
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "DocumentListResponse": {
+        "type": "object",
+        "description": "Response object for a list of documents",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/MetaModel"
+          },
+          "data": {
+            "type": "array",
+            "description": "Array of documents",
+            "items": {
+              "$ref": "#/components/schemas/DocumentModel"
+            }
+          }
+        }
+      },
+      "TagListResponse": {
+        "type": "object",
+        "description": "Response object for a list of tags",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/MetaModel"
+          },
+          "data": {
+            "type": "array",
+            "description": "Array of tags",
+            "items": {
+              "$ref": "#/components/schemas/TagModel"
+            }
+          }
+        }
+      },
+      "TagFilterModel": {
+        "type": "object",
+        "description": "Request object for requesting product types",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/MetaRequestModel"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "tags": {
+                "type": "object",
+                "description": "The documents tags, represented in a key value format with the tag name as the key; and the tag's value as the value",
+                "example": {
+                  "account": "TEST_ACCOUNT.ACCT",
+                  "benchmark": "TEST_BENCHMARK"
+                },
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ProductTypeListResponse": {
+        "type": "object",
+        "description": "Response object for a list of documents",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/MetaModel"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of product types",
+            "example": [
+              "adf"
+            ]
+          }
+        }
+      },
+      "TagValuesListResponse": {
+        "type": "object",
+        "description": "Response object for a list of tag values",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/MetaModel"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of tag values",
+            "example": [
+              "TEST_ACCOUNT.ACCT",
+              "CLIENT.ACCT"
+            ]
+          }
+        }
+      },
+      "TagResponse": {
+        "type": "object",
+        "description": "Response object for a single tag",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TagModel"
+          }
+        }
+      },
+      "DocumentModel": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The resolved URL pointing to the location of the underlying report",
+            "example": "https://api.factset.com/analytics/datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d"
+          },
+          "productType": {
+            "type": "string",
+            "description": "string property to denote what Product created this document.",
+            "example": "Publisher"
+          },
+          "tags": {
+            "type": "object",
+            "description": "The documents tags, represented in a key value format with the tag name as the key; and the tag's value as the value",
+            "example": {
+              "account": "TEST_ACCOUNT.ACCT",
+              "benchmark": "TEST_BENCHMARK"
+            },
+            "additionalProperties": {
+              "$ref": "#/components/schemas/StringOrNumberTagValue"
+            }
+          }
+        },
+        "description": "Document model"
+      },
+      "TagModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the tag",
+            "example": "account"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the tag",
+            "example": "string",
+            "enum": [
+              "string",
+              "date",
+              "datetime"
+            ]
+          }
+        },
+        "description": "Tags model"
+      },
+      "MetaModel": {
+        "type": "object",
+        "description": "Meta model which includes pagination information",
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer",
+                "description": "Total number of entries in the result set",
+                "example": 1
+              },
+              "isEstimatedTotal": {
+                "type": "boolean",
+                "description": "Flag indicating that the value of total is estimated",
+                "example": false
+              }
+            },
+            "description": "Pagination attributes for the offset-based pagination strategy"
+          }
+        }
+      },
+      "MetaRequestModel": {
+        "type": "object",
+        "description": "Meta request model which includes pagination controls",
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "offset": {
+                "type": "integer",
+                "example": 0
+              },
+              "limit": {
+                "type": "integer",
+                "example": 10
+              }
+            }
+          }
+        }
+      },
+      "StringOrNumberTagValue": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          }
+        ]
+      }
     },
-    "FactSetOAuth2": {
-      "type": "oauth2",
-      "flow": "application",
-      "tokenUrl": "https://auth.factset.com/as/token.oauth2",
-      "scopes": {}
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
     }
-  },
-  "security": [
-    {
-      "FactSetApiKey": []
-    },
-    {
-      "FactSetOAuth2": []
-    }
-  ],
-  "tags": []
+  }
 }

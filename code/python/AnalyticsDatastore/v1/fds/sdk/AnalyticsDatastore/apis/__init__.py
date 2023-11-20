@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.cargo_api import CargoApi
+#   from .api.documents_api import DocumentsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,5 +14,6 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.AnalyticsDatastore.api.cargo_api import CargoApi
-from fds.sdk.AnalyticsDatastore.api.swivel_api import SwivelApi
+from fds.sdk.AnalyticsDatastore.api.documents_api import DocumentsApi
+from fds.sdk.AnalyticsDatastore.api.mappings_api import MappingsApi
+from fds.sdk.AnalyticsDatastore.api.objects_api import ObjectsApi

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FsymId** | **string** | Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. | [optional] 
-**Date** | **DateTime?** | End date of the return. Date in YYYY-MM-DD format. Depending on Frequency and Calendar settings, this could represent the entire return period requested. | [optional] 
+**FsymId** | **string** | Security-level FactSet Permanent Identifier associated with the identifier. | [optional] 
+**Date** | **DateTime?** | Date of the record in YYYY-MM-DD format. | [optional] 
 **Currency** | **string** | Currency ISO code associated with the annualized dividends.For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
-**RequestId** | **string** | Identifier that was used for the request. | [optional] 
+**RequestId** | **string** | FactSet Security Permanent Identifier that was used for the request. | [optional] 
 **TotalReturn** | **double?** | Returns the data for the given input parameters. | [optional] 
 **EventId** | **string** | FactSet identifier that uniquely identifies the Event. | [optional] 
 **EventTypeCode** | **string** | Corporate Actions Event type code, possible values: [ DVC, DVCD, DRP, DVS, DVSS, BNS, BNSS, SPO, DSR, FSP, RSP, SPL ] | [optional] 
@@ -18,6 +18,18 @@ Name | Type | Description | Notes
 **PayDate** | **string** | Date of Payment for distribution in YYYY-MM-DD format. | [optional] 
 **EffectiveDate** | **string** | Effective Date or Ex-Date of Annualized Dividend in YYYY-MM-DD format. | [optional] 
 **IadDefTradingAdj** | **float?** | Annualized Dividend value in the trading currency. The value is adjusted for splits | [optional] 
+**DocumentId** | **string** | Unique Identifier for each document or filing which contains the outstanding shares position. | [optional] 
+**ReportDate** | **DateTime?** | Reporting date of the position. | [optional] 
+**PublicationDate** | **DateTime?** | Exact date that results have been communicated to the market. | [optional] 
+**FiscalYear** | **int?** | The company&#39;s fiscal year corresponding to the report. | [optional] 
+**ReportingPeriodDescription** | **string** | Textual description of the reporting period. | [optional] 
+**ReportingPeriod** | **int?** | Code representing the unique reporting period. Options are as follows: - 1 - 1st Quarter - 2 - 2nd Quarter - 3 - 3rd Quarter - 4 - 4th Quarter - 6 - Mid-Year  | [optional] 
+**Description** | **string** | Different stock types based on the rights and benefits from ownership. | [optional] 
+**AdrDescription** | **string** | Different stock types based on the rights and benefits from ownership for the ADR. | [optional] 
+**AdrRatio** | **decimal?** | Number of common or ordinary shares that are equivalent to one American Depositary Receipt (ADR). | [optional] 
+**AdrFsymId** | **string** | Unique FactSet generated identifier assigned to a security, representing the ADR security. | [optional] 
+**TotalOutstanding** | **decimal?** | Number of shares outstanding as of &#x60;date&#x60;. | [optional] 
+**AdrTotalOutstanding** | **decimal?** | Number of shares outstanding for the ADR as of &#x60;date&#x60;. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

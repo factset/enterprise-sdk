@@ -40,6 +40,14 @@ docs/ReturnsApi.md
 docs/ReturnsRequest.md
 docs/ReturnsResponse.md
 docs/RightsIssueResponse.md
+docs/SharesOutstandingApi.md
+docs/SharesOutstandingRequest.md
+docs/SharesOutstandingRequestBody.md
+docs/SharesOutstandingResponse.md
+docs/SharesOutstandingResponseObject.md
+docs/SoErrorObject.md
+docs/SoErrorObjectLinks.md
+docs/SoErrorResponse.md
 docs/SpinoffsResponse.md
 docs/Split.md
 docs/SplitsResponse.md
@@ -49,6 +57,7 @@ src/FactSet.SDK.FactSetGlobalPrices/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/CorporateActionsApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/PricesApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/ReturnsApi.cs
+src/FactSet.SDK.FactSetGlobalPrices/Api/SharesOutstandingApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Client/ApiClient.cs
 src/FactSet.SDK.FactSetGlobalPrices/Client/ApiException.cs
 src/FactSet.SDK.FactSetGlobalPrices/Client/ApiResponse.cs
@@ -99,6 +108,13 @@ src/FactSet.SDK.FactSetGlobalPrices/Model/Returns.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/ReturnsRequest.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/ReturnsResponse.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/RightsIssueResponse.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/SharesOutstandingRequest.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/SharesOutstandingRequestBody.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/SharesOutstandingResponse.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/SharesOutstandingResponseObject.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/SoErrorObject.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/SoErrorObjectLinks.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/SoErrorResponse.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/SpinoffsResponse.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Split.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/SplitsResponse.cs

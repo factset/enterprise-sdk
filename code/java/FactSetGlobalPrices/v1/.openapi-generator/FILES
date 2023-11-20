@@ -42,6 +42,14 @@ docs/ReturnsApi.md
 docs/ReturnsRequest.md
 docs/ReturnsResponse.md
 docs/RightsIssueResponse.md
+docs/SharesOutstandingApi.md
+docs/SharesOutstandingRequest.md
+docs/SharesOutstandingRequestBody.md
+docs/SharesOutstandingResponse.md
+docs/SharesOutstandingResponseObject.md
+docs/SoErrorObject.md
+docs/SoErrorObjectLinks.md
+docs/SoErrorResponse.md
 docs/SpinoffsResponse.md
 docs/Split.md
 docs/SplitsResponse.md
@@ -70,6 +78,7 @@ src/main/java/com/factset/sdk/FactSetGlobalPrices/api/BatchProcessingApi.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/api/CorporateActionsApi.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/api/PricesApi.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/api/ReturnsApi.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/api/SharesOutstandingApi.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/auth/Authentication.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/auth/FactSetOAuth2ClientAuth.java
@@ -110,6 +119,13 @@ src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Returns.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/ReturnsRequest.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/ReturnsResponse.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/RightsIssueResponse.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SharesOutstandingRequest.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SharesOutstandingRequestBody.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SharesOutstandingResponse.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SharesOutstandingResponseObject.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SoErrorObject.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SoErrorObjectLinks.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SoErrorResponse.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SpinoffsResponse.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Split.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/SplitsResponse.java

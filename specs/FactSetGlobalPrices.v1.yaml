@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.6.0
+  version: 1.7.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
@@ -472,6 +472,108 @@ paths:
         '500':
           $ref: '#/components/responses/500'
       x-factset-different-success-responses: true
+  /factset-global-prices/v1/security-shares:
+    get:
+      tags:
+        - Shares Outstanding
+      summary: Gets Shares Outstanding information for securities.
+      operationId: getSharesOutstanding
+      description: >-
+        Returns security level shares outstanding data for the given ids and
+        dates. At this time, all values returned are split adjusted.
+      parameters:
+        - $ref: '#/components/parameters/idsBatchMax1000'
+        - $ref: '#/components/parameters/startDateSS'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/calendar'
+        - $ref: '#/components/parameters/batch'
+      responses:
+        '200':
+          description: >-
+            Array of security shares outstanding information for a given date
+            range and list of securities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sharesOutstandingResponse'
+              examples:
+                Shares Outstanding:
+                  $ref: '#/components/examples/sharesOutstanding'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/SO400'
+        '401':
+          $ref: '#/components/responses/SO401'
+        '403':
+          $ref: '#/components/responses/SO403'
+        '415':
+          $ref: '#/components/responses/SO415'
+        '500':
+          $ref: '#/components/responses/SO500'
+      x-factset-different-success-responses: true
+    post:
+      tags:
+        - Shares Outstanding
+      summary: Gets Shares Outstanding information for securities.
+      description: >-
+        Returns security level shares outstanding data for the given ids and
+        dates. At this time, all values returned are split adjusted.
+      operationId: postSharesOutstanding
+      requestBody:
+        required: true
+        description: Request object for `Shares Outstanding`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sharesOutstandingRequest'
+      responses:
+        '200':
+          description: Array of shares outstanding
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sharesOutstandingResponse'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/SO400'
+        '401':
+          $ref: '#/components/responses/SO401'
+        '403':
+          $ref: '#/components/responses/SO403'
+        '415':
+          $ref: '#/components/responses/SO415'
+        '500':
+          $ref: '#/components/responses/SO500'
+      x-factset-different-success-responses: true
   /factset-global-prices/v1/batch-status:
     get:
       tags:
@@ -555,6 +657,8 @@ paths:
                   $ref: '#/components/examples/OrdinaryDividends'
                 Annualized Dividends:
                   $ref: '#/components/examples/annualizedDividendsResponse'
+                Security Shares:
+                  $ref: '#/components/examples/sharesOutstanding'
         '202':
           description: >-
             The batch Request has not finished and the result has NOT been
@@ -739,6 +843,18 @@ components:
         The input end date must be after the input start date. Future dates
         (T+1) are not accepted in this endpoint.
       example: '2021-08-27'
+    startDateSS:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        default: 2021-08-27T00:00:00.000Z
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. The input start date must be before the input end date. Future
+        dates (T+1) are not accepted in this endpoint.
+      example: '2021-08-27'
     startDateCA:
       name: startDate
       in: query
@@ -896,12 +1012,43 @@ components:
       description: >-
         The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-        limit** =  1000 per non-batch request / 2000 per batch request*</p>
-        *<p>Make note, GET Method URL request lines are also limited to a total
-        length of 8192 bytes (8KB). In cases where the service allows for
-        thousands of ids, which may lead to exceeding this request line limit of
-        8KB, it's advised for any requests with large request lines to be
-        requested through the respective "POST" method.</p>*
+        limit** =  1000 per non-batch request / 2000 per batch request for a
+        single day and 50 per multi-day request*</p> *<p>Make note, GET Method
+        URL request lines are also limited to a total length of 8192 bytes
+        (8KB). In cases where the service allows for thousands of ids, which may
+        lead to exceeding this request line limit of 8KB, it's advised for any
+        requests with large request lines to be requested through the respective
+        "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - AAPL-USA
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+    idsBatchMax1000:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+      required: true
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
+        limit** =  500 per non-batch request / 1000 per batch request for a
+        single day and 50 per multi-day request*</p> *<p>Make note, GET Method
+        URL request lines are also limited to a total length of 8192 bytes
+        (8KB). In cases where the service allows for thousands of ids, which may
+        lead to exceeding this request line limit of 8KB, it's advised for any
+        requests with large request lines to be requested through the respective
+        "POST" method.</p>*
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
@@ -1379,6 +1526,150 @@ components:
         requests.
       example:
         - TSLA-US
+    sharesOutstandingRequest:
+      title: Shares Outstanding Request Body
+      description: Shares Outstanding Request Body
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/sharesOutstandingRequestBody'
+      required:
+        - data
+    sharesOutstandingRequestBody:
+      title: Shares Outstanding Request Body
+      description: Shares Outstanding Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idsBatchMax2000'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        calendar:
+          $ref: '#/components/schemas/calendar'
+        batch:
+          $ref: '#/components/schemas/batch'
+      required:
+        - ids
+    sharesOutstandingResponse:
+      type: object
+      title: Shares Outstanding Response
+      properties:
+        data:
+          description: Array of Shares Outstanding Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/sharesOutstandingResponseObject'
+    sharesOutstandingResponseObject:
+      type: object
+      title: Shares Outstanding Object
+      properties:
+        fsymId:
+          description: >-
+            Security-level FactSet Permanent Identifier associated with the
+            identifier.
+          type: string
+          example: C6J726-S
+          nullable: true
+        date:
+          description: Date of the record in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-08-10'
+          nullable: true
+        documentId:
+          description: >-
+            Unique Identifier for each document or filing which contains the
+            outstanding shares position.
+          type: string
+          example: '956881'
+          nullable: true
+        requestId:
+          description: FactSet Security Permanent Identifier that was used for the request.
+          type: string
+          example: C6J726-S
+          nullable: true
+        reportDate:
+          description: Reporting date of the position.
+          type: string
+          format: date
+          example: '2022-08-02'
+          nullable: true
+        publicationDate:
+          description: Exact date that results have been communicated to the market.
+          type: string
+          format: date
+          example: '2022-08-04'
+          nullable: true
+        fiscalYear:
+          description: The company's fiscal year corresponding to the report.
+          type: integer
+          example: 2022
+          nullable: true
+        reportingPeriodDescription:
+          description: Textual description of the reporting period.
+          type: string
+          example: 2nd Quarter
+          nullable: true
+        reportingPeriod:
+          description: >
+            Code representing the unique reporting period. Options are as
+            follows:
+
+            - 1 - 1st Quarter
+
+            - 2 - 2nd Quarter
+
+            - 3 - 3rd Quarter
+
+            - 4 - 4th Quarter
+
+            - 6 - Mid-Year
+          type: integer
+          example: 3
+          nullable: true
+        description:
+          description: >-
+            Different stock types based on the rights and benefits from
+            ownership.
+          type: string
+          example: Class A Shares
+          nullable: true
+        adrDescription:
+          description: >-
+            Different stock types based on the rights and benefits from
+            ownership for the ADR.
+          type: string
+          example: Class A Shares
+          nullable: true
+        adrRatio:
+          description: >-
+            Number of common or ordinary shares that are equivalent to one
+            American Depositary Receipt (ADR).
+          type: number
+          example: 0.5
+          nullable: true
+        adrFsymId:
+          description: >-
+            Unique FactSet generated identifier assigned to a security,
+            representing the ADR security.
+          type: string
+          example: V9GGRZ-S
+          nullable: true
+        totalOutstanding:
+          description: Number of shares outstanding as of `date`.
+          type: number
+          example: 1351.828
+          nullable: true
+        adrTotalOutstanding:
+          description: Number of shares outstanding for the ADR as of `date`.
+          type: number
+          example: 980.22284
+          nullable: true
+      additionalProperties: false
     idsBatchMax10000:
       type: array
       items:
@@ -1387,7 +1678,20 @@ components:
         The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
 
-        <p>ids limit =  1000 per non-batch request / 10000 per batch request</p>
+        <p>ids limit =  1000 per non-batch request / 10000 per batch request for
+        a single day and 50 per multi-day request</p>
+      example:
+        - FDS-US
+    idsBatchMax2000:
+      type: array
+      items:
+        type: string
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
+
+        <p>ids limit =  500 per non-batch request / 2000 per batch request for a
+        single day and 50 per multi-day request</p>
       example:
         - FDS-US
     batch:
@@ -1462,6 +1766,7 @@ components:
         - $ref: '#/components/schemas/returns'
         - $ref: '#/components/schemas/corporateAction'
         - $ref: '#/components/schemas/annualizedDividendsObject'
+        - $ref: '#/components/schemas/sharesOutstandingResponseObject'
     eventCategory:
       title: eventCategory
       type: string
@@ -2332,6 +2637,39 @@ components:
               type: array
               items:
                 type: string
+    soErrorResponse:
+      type: object
+      title: Error Response
+      description: Error Default Response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/soErrorObject'
+    soErrorObject:
+      type: object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          type: string
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code:
+          description: status
+          type: string
+          example: Bad Request
+        links:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: object
+          properties:
+            about:
+              description: Details.
+              type: string
+              example: /factset-global-prices/v1/securtiy-shares
+        title:
+          description: The plain text error message
+          type: string
+          example: Validation Error
     batchErrorResponse:
       type: object
       nullable: true
@@ -2453,6 +2791,78 @@ components:
           examples:
             Batch Request Not Found:
               $ref: '#/components/examples/batchNotFound'
+    SO400:
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/soErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/sobadRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/sobadRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/sobadRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/sobadRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/sobadRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/sobadRequestReadTimeout'
+    SO401:
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/soErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/sounauthenticated'
+    SO403:
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/soErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/soforbidden'
+    SO415:
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/soErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/sounsupportedMediaType'
+    SO500:
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/soErrorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/sonotWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/sogeneralException'
   examples:
     DividendsFields:
       summary: Dividends Fields
@@ -2897,6 +3307,25 @@ components:
           startTime: '2021-06-29T18:34:52.168Z'
           endTime: null
           error: null
+    sharesOutstanding:
+      summary: Shares Outstanding Response of FactSet (FDS-US)
+      value:
+        data:
+          - fsymId: C6J726-S
+            date: '2023-08-10'
+            documentId: '956881'
+            requestId: C6J726-S
+            reportDate: '2022-08-02'
+            publicationDate: '2022-08-04'
+            fiscalYear: 2022
+            reportingPeriodDescription: 2nd Quarter
+            reportingPeriod: 3
+            description: Ordinary Shares
+            adrRatio: 1
+            adrFsymId: V9GGRZ-S
+            adrDescription: American Despository Shares
+            totalOutstanding: 980.22284
+            adrTotalOutstanding: 225.30467
     BatchStatusQueuedResponse:
       description: Batch Status Queued Response
       value:
@@ -3013,6 +3442,89 @@ components:
         path: /factset-global-prices/v1/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
+    sobadRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: >-
+              The date parameter must be in the following date format:
+              YYYY-MM-DD
+    sobadRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: The parameter 'ids' is required and may not be empty.
+    sobadRequestFutureDate:
+      summary: Bad Request - Future Date
+      description: >-
+        This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include
+        dates as of today's current date or any prior historical date.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: >-
+              The use of future dates is not applicable in this endpoint. Please
+              revise your request to include dates up to today's current date.
+    sobadRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: >-
+              Invalid Parameter (s): fakeParameterName1 fakeParameterName2.
+              Please modify your request to use parameters outlined in the
+              specification for this endpoint.
+    sobadRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: Malformed JSON Request
+    sobadRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: The request took too long. Try again with a smaller request.
     unauthenticated:
       summary: User Authentication Failed
       description: >-
@@ -3026,6 +3538,20 @@ components:
         path: /factset-global-prices/v1/{endpoint}
         message: User Authentication Failed.
         subErrors: null
+    sounauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: User Authentication Failed
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: User Authentication Failed.
     forbidden:
       summary: Forbidden
       description: >-
@@ -3041,6 +3567,22 @@ components:
           USERNAME-SERIAL does not have permission to use
           /factset-global-prices/v1/{endpoint}
         subErrors: null
+    soforbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Forbidden
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: >-
+              User is not authorized for the id requested, please reach out to
+              FactSet for support
     batchNotFound:
       summary: Not Found
       description: The requested item was not found.
@@ -3064,6 +3606,20 @@ components:
           text/html media type is not supported. Supported media types are
           application/json
         subErrors: null
+    sounsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Unsupported Media Type
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: >-
+              text/html media type is not supported. Supported media types are
+              application/json.
     notWritable:
       summary: Internal Server Error - Not Writable
       description: >-
@@ -3086,3 +3642,27 @@ components:
         path: /factset-global-prices/v1/{endpoint}
         message: Unexpected error
         subErrors: null
+    sonotWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Internal Server Error
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: Error writing JSON output
+    sogeneralException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Internal Server Error
+            links:
+              about: /factset-global-prices/v1/{endpoint}
+            title: Unexpected error
