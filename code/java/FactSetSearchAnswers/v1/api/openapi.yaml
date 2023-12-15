@@ -10,7 +10,7 @@ info:
     data sources. Possible answers include Price of a Company, Top 10 Year-to-Date
     Gainers, Revenue per Passenger Mile, and many more.
   title: FactSet Search Answers API
-  version: 1.0.0
+  version: 1.1.0
 servers:
 - url: https://api.factset.com
 security:
@@ -29,6 +29,15 @@ paths:
         name: query
         required: true
         schema:
+          type: string
+        style: form
+      - description: Name of application consuming the API (used for analytics purposes)
+        explode: true
+        in: query
+        name: consumingApplication
+        required: false
+        schema:
+          default: Developer Portal
           type: string
         style: form
       responses:
@@ -93,6 +102,15 @@ paths:
           default: true
           type: boolean
         style: form
+      - description: Theme for desired answer (e.g., "Light", "Dark")
+        explode: true
+        in: query
+        name: theme
+        required: false
+        schema:
+          default: Light
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -153,6 +171,26 @@ components:
       schema:
         default: true
         type: boolean
+      style: form
+    Theme:
+      description: Theme for desired answer (e.g., "Light", "Dark")
+      explode: true
+      in: query
+      name: theme
+      required: false
+      schema:
+        default: Light
+        type: string
+      style: form
+    ConsumingApplication:
+      description: Name of application consuming the API (used for analytics purposes)
+      explode: true
+      in: query
+      name: consumingApplication
+      required: false
+      schema:
+        default: Developer Portal
+        type: string
       style: form
   schemas:
     DataAnswerSuccessResponse:

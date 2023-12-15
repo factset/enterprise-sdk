@@ -48,7 +48,8 @@ const apiInstance = new AnswersApi();
 const query = "query_example"; // String | Query for desired answer (e.g., \"fds price\")
 const opts = {
   'includeThumbnail': false, // Boolean | Includes thumbnail of Adaptive Card in response
-  'disableNoAnswerResponses': true // Boolean | Disables no-result answer responses (no-results and answer without data)
+  'disableNoAnswerResponses': true, // Boolean | Disables no-result answer responses (no-results and answer without data)
+  'theme': "'Light'" // String | Theme for desired answer (e.g., \"Light\", \"Dark\")
 };
 
 // Call api endpoint
@@ -74,6 +75,7 @@ Name | Type | Description  | Notes
  **query** | **String**| Query for desired answer (e.g., \&quot;fds price\&quot;) | 
  **includeThumbnail** | **Boolean**| Includes thumbnail of Adaptive Card in response | [optional] [default to false]
  **disableNoAnswerResponses** | **Boolean**| Disables no-result answer responses (no-results and answer without data) | [optional] [default to true]
+ **theme** | **String**| Theme for desired answer (e.g., \&quot;Light\&quot;, \&quot;Dark\&quot;) | [optional] [default to &#39;Light&#39;]
 
 ### Return type
 
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 
 ## searchForDataAnswer
 
-> DataAnswerSuccessResponse searchForDataAnswer(query)
+> DataAnswerSuccessResponse searchForDataAnswer(query, opts)
 
 Fetch FactSet answer in data format
 
@@ -126,9 +128,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new AnswersApi();
 const query = "query_example"; // String | Query for desired answer (e.g., \"fds price\")
+const opts = {
+  'consumingApplication': "'Developer Portal'" // String | Name of application consuming the API (used for analytics purposes)
+};
 
 // Call api endpoint
-apiInstance.searchForDataAnswer(query).then(
+apiInstance.searchForDataAnswer(query, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -148,6 +153,7 @@ apiInstance.searchForDataAnswer(query).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| Query for desired answer (e.g., \&quot;fds price\&quot;) | 
+ **consumingApplication** | **String**| Name of application consuming the API (used for analytics purposes) | [optional] [default to &#39;Developer Portal&#39;]
 
 ### Return type
 

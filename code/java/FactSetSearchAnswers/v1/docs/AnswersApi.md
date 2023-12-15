@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## searchForAdaptiveCardAnswer
 
-> AdaptiveCardAnswerSuccessResponse searchForAdaptiveCardAnswer(query, includeThumbnail, disableNoAnswerResponses)
+> AdaptiveCardAnswerSuccessResponse searchForAdaptiveCardAnswer(query, includeThumbnail, disableNoAnswerResponses, theme)
 
 Fetch FactSet answer in Adaptive Card format
 
@@ -56,8 +56,9 @@ public class Example {
         String query = "query_example"; // String | Query for desired answer (e.g., \"fds price\")
         Boolean includeThumbnail = false; // Boolean | Includes thumbnail of Adaptive Card in response
         Boolean disableNoAnswerResponses = true; // Boolean | Disables no-result answer responses (no-results and answer without data)
+        String theme = "Light"; // String | Theme for desired answer (e.g., \"Light\", \"Dark\")
         try {
-            AdaptiveCardAnswerSuccessResponse result = apiInstance.searchForAdaptiveCardAnswer(query, includeThumbnail, disableNoAnswerResponses);
+            AdaptiveCardAnswerSuccessResponse result = apiInstance.searchForAdaptiveCardAnswer(query, includeThumbnail, disableNoAnswerResponses, theme);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -79,6 +80,7 @@ Name | Type | Description  | Notes
  **query** | **String**| Query for desired answer (e.g., \&quot;fds price\&quot;) |
  **includeThumbnail** | **Boolean**| Includes thumbnail of Adaptive Card in response | [optional] [default to false]
  **disableNoAnswerResponses** | **Boolean**| Disables no-result answer responses (no-results and answer without data) | [optional] [default to true]
+ **theme** | **String**| Theme for desired answer (e.g., \&quot;Light\&quot;, \&quot;Dark\&quot;) | [optional] [default to Light]
 
 ### Return type
 
@@ -104,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## searchForDataAnswer
 
-> DataAnswerSuccessResponse searchForDataAnswer(query)
+> DataAnswerSuccessResponse searchForDataAnswer(query, consumingApplication)
 
 Fetch FactSet answer in data format
 
@@ -147,8 +149,9 @@ public class Example {
 
         AnswersApi apiInstance = new AnswersApi(defaultClient);
         String query = "query_example"; // String | Query for desired answer (e.g., \"fds price\")
+        String consumingApplication = "Developer Portal"; // String | Name of application consuming the API (used for analytics purposes)
         try {
-            DataAnswerSuccessResponse result = apiInstance.searchForDataAnswer(query);
+            DataAnswerSuccessResponse result = apiInstance.searchForDataAnswer(query, consumingApplication);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -168,6 +171,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| Query for desired answer (e.g., \&quot;fds price\&quot;) |
+ **consumingApplication** | **String**| Name of application consuming the API (used for analytics purposes) | [optional] [default to Developer Portal]
 
 ### Return type
 

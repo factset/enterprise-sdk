@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  version: 1.0.0
+  version: 1.1.0
   title: FactSet Search Answers API
   contact:
     name: FactSet Search Team
@@ -27,6 +27,7 @@ paths:
       operationId: searchForDataAnswer
       parameters:
         - $ref: '#/components/parameters/Query'
+        - $ref: '#/components/parameters/ConsumingApplication'
       responses:
         '200':
           description: Request was successful.
@@ -65,6 +66,7 @@ paths:
         - $ref: '#/components/parameters/Query'
         - $ref: '#/components/parameters/IncludeThumbnail'
         - $ref: '#/components/parameters/DisableNoAnswerResponses'
+        - $ref: '#/components/parameters/Theme'
       responses:
         '200':
           description: Request was successful.
@@ -128,6 +130,22 @@ components:
       schema:
         type: boolean
         default: true
+    Theme:
+      name: theme
+      in: query
+      description: Theme for desired answer (e.g., "Light", "Dark")
+      required: false
+      schema:
+        type: string
+        default: Light
+    ConsumingApplication:
+      name: consumingApplication
+      in: query
+      description: Name of application consuming the API (used for analytics purposes)
+      required: false
+      schema:
+        type: string
+        default: Developer Portal
   schemas:
     DataAnswerSuccessResponse:
       type: object

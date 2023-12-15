@@ -70,6 +70,7 @@ public class AnswersApi {
    * @param query Query for desired answer (e.g., \&quot;fds price\&quot;) (required)
    * @param includeThumbnail Includes thumbnail of Adaptive Card in response (optional, default to false)
    * @param disableNoAnswerResponses Disables no-result answer responses (no-results and answer without data) (optional, default to true)
+   * @param theme Theme for desired answer (e.g., \&quot;Light\&quot;, \&quot;Dark\&quot;) (optional, default to Light)
    * @return AdaptiveCardAnswerSuccessResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -81,8 +82,8 @@ public class AnswersApi {
        <tr><td> 500 </td><td> Unhandled error occurred while processing the request. </td><td>  -  </td></tr>
      </table>
    */
-  public AdaptiveCardAnswerSuccessResponse searchForAdaptiveCardAnswer(String query, Boolean includeThumbnail, Boolean disableNoAnswerResponses) throws ApiException {
-    return searchForAdaptiveCardAnswerWithHttpInfo(query, includeThumbnail, disableNoAnswerResponses).getData();
+  public AdaptiveCardAnswerSuccessResponse searchForAdaptiveCardAnswer(String query, Boolean includeThumbnail, Boolean disableNoAnswerResponses, String theme) throws ApiException {
+    return searchForAdaptiveCardAnswerWithHttpInfo(query, includeThumbnail, disableNoAnswerResponses, theme).getData();
   }
 
   /**
@@ -91,6 +92,7 @@ public class AnswersApi {
    * @param query Query for desired answer (e.g., \&quot;fds price\&quot;) (required)
    * @param includeThumbnail Includes thumbnail of Adaptive Card in response (optional, default to false)
    * @param disableNoAnswerResponses Disables no-result answer responses (no-results and answer without data) (optional, default to true)
+   * @param theme Theme for desired answer (e.g., \&quot;Light\&quot;, \&quot;Dark\&quot;) (optional, default to Light)
    * @return ApiResponse&lt;AdaptiveCardAnswerSuccessResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -102,7 +104,7 @@ public class AnswersApi {
        <tr><td> 500 </td><td> Unhandled error occurred while processing the request. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AdaptiveCardAnswerSuccessResponse> searchForAdaptiveCardAnswerWithHttpInfo(String query, Boolean includeThumbnail, Boolean disableNoAnswerResponses) throws ApiException {
+  public ApiResponse<AdaptiveCardAnswerSuccessResponse> searchForAdaptiveCardAnswerWithHttpInfo(String query, Boolean includeThumbnail, Boolean disableNoAnswerResponses, String theme) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'query' is set
@@ -122,6 +124,7 @@ public class AnswersApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeThumbnail", includeThumbnail));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "disableNoAnswerResponses", disableNoAnswerResponses));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "theme", theme));
 
     
     
@@ -154,6 +157,7 @@ public class AnswersApi {
    * Fetch FactSet answer in data format
    * Returns an answer to the specified query (if a valid answer exists). Returns the answer data only (as JSON), without any markup information.
    * @param query Query for desired answer (e.g., \&quot;fds price\&quot;) (required)
+   * @param consumingApplication Name of application consuming the API (used for analytics purposes) (optional, default to Developer Portal)
    * @return DataAnswerSuccessResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -165,14 +169,15 @@ public class AnswersApi {
        <tr><td> 500 </td><td> Unhandled error occurred while processing the request. </td><td>  -  </td></tr>
      </table>
    */
-  public DataAnswerSuccessResponse searchForDataAnswer(String query) throws ApiException {
-    return searchForDataAnswerWithHttpInfo(query).getData();
+  public DataAnswerSuccessResponse searchForDataAnswer(String query, String consumingApplication) throws ApiException {
+    return searchForDataAnswerWithHttpInfo(query, consumingApplication).getData();
   }
 
   /**
    * Fetch FactSet answer in data format
    * Returns an answer to the specified query (if a valid answer exists). Returns the answer data only (as JSON), without any markup information.
    * @param query Query for desired answer (e.g., \&quot;fds price\&quot;) (required)
+   * @param consumingApplication Name of application consuming the API (used for analytics purposes) (optional, default to Developer Portal)
    * @return ApiResponse&lt;DataAnswerSuccessResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -184,7 +189,7 @@ public class AnswersApi {
        <tr><td> 500 </td><td> Unhandled error occurred while processing the request. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DataAnswerSuccessResponse> searchForDataAnswerWithHttpInfo(String query) throws ApiException {
+  public ApiResponse<DataAnswerSuccessResponse> searchForDataAnswerWithHttpInfo(String query, String consumingApplication) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'query' is set
@@ -202,6 +207,7 @@ public class AnswersApi {
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "consumingApplication", consumingApplication));
 
     
     

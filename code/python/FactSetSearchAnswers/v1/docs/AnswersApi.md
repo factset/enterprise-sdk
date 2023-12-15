@@ -64,12 +64,14 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
     include_thumbnail = False # bool | Includes thumbnail of Adaptive Card in response (optional) if omitted the server will use the default value of False
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     disable_no_answer_responses = True # bool | Disables no-result answer responses (no-results and answer without data) (optional) if omitted the server will use the default value of True
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    theme = "Light" # str | Theme for desired answer (e.g., \"Light\", \"Dark\") (optional) if omitted the server will use the default value of "Light"
 
     try:
         # Fetch FactSet answer in Adaptive Card format
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.search_for_adaptive_card_answer(query, include_thumbnail=include_thumbnail, disable_no_answer_responses=disable_no_answer_responses)
+        api_response = api_instance.search_for_adaptive_card_answer(query, include_thumbnail=include_thumbnail, disable_no_answer_responses=disable_no_answer_responses, theme=theme)
 
         pprint(api_response)
 
@@ -85,6 +87,7 @@ Name | Type | Description  | Notes
  **query** | **str**| Query for desired answer (e.g., \&quot;fds price\&quot;) |
  **include_thumbnail** | **bool**| Includes thumbnail of Adaptive Card in response | [optional] if omitted the server will use the default value of False
  **disable_no_answer_responses** | **bool**| Disables no-result answer responses (no-results and answer without data) | [optional] if omitted the server will use the default value of True
+ **theme** | **str**| Theme for desired answer (e.g., \&quot;Light\&quot;, \&quot;Dark\&quot;) | [optional] if omitted the server will use the default value of "Light"
 
 ### Return type
 
@@ -162,11 +165,14 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     query = "query_example" # str | Query for desired answer (e.g., \"fds price\")
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    consuming_application = "Developer Portal" # str | Name of application consuming the API (used for analytics purposes) (optional) if omitted the server will use the default value of "Developer Portal"
 
     try:
         # Fetch FactSet answer in data format
         # example passing only required values which don't have defaults set
-        api_response = api_instance.search_for_data_answer(query)
+        # and optional values
+        api_response = api_instance.search_for_data_answer(query, consuming_application=consuming_application)
 
         pprint(api_response)
 
@@ -180,6 +186,7 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **str**| Query for desired answer (e.g., \&quot;fds price\&quot;) |
+ **consuming_application** | **str**| Name of application consuming the API (used for analytics purposes) | [optional] if omitted the server will use the default value of "Developer Portal"
 
 ### Return type
 

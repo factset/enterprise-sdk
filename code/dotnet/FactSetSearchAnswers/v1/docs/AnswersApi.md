@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="searchforadaptivecardanswer"></a>
 # **SearchForAdaptiveCardAnswer**
-> AdaptiveCardAnswerSuccessResponse SearchForAdaptiveCardAnswer (string query, bool? includeThumbnail = null, bool? disableNoAnswerResponses = null)
+> AdaptiveCardAnswerSuccessResponse SearchForAdaptiveCardAnswer (string query, bool? includeThumbnail = null, bool? disableNoAnswerResponses = null, string theme = null)
 
 Fetch FactSet answer in Adaptive Card format
 
@@ -58,11 +58,12 @@ namespace Example
             var query = "query_example";  // string | Query for desired answer (e.g., \"fds price\")
             var includeThumbnail = false;  // bool? | Includes thumbnail of Adaptive Card in response (optional)  (default to false)
             var disableNoAnswerResponses = true;  // bool? | Disables no-result answer responses (no-results and answer without data) (optional)  (default to true)
+            var theme = "\"Light\"";  // string | Theme for desired answer (e.g., \"Light\", \"Dark\") (optional)  (default to "Light")
 
             try
             {
                 // Fetch FactSet answer in Adaptive Card format
-                AdaptiveCardAnswerSuccessResponse result = apiInstance.SearchForAdaptiveCardAnswer(query, includeThumbnail, disableNoAnswerResponses);
+                AdaptiveCardAnswerSuccessResponse result = apiInstance.SearchForAdaptiveCardAnswer(query, includeThumbnail, disableNoAnswerResponses, theme);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -83,6 +84,7 @@ Name | Type | Description  | Notes
  **query** | **string**| Query for desired answer (e.g., \&quot;fds price\&quot;) | 
  **includeThumbnail** | **bool?**| Includes thumbnail of Adaptive Card in response | [optional] [default to false]
  **disableNoAnswerResponses** | **bool?**| Disables no-result answer responses (no-results and answer without data) | [optional] [default to true]
+ **theme** | **string**| Theme for desired answer (e.g., \&quot;Light\&quot;, \&quot;Dark\&quot;) | [optional] [default to &quot;Light&quot;]
 
 ### Return type
 [**AdaptiveCardAnswerSuccessResponse**](AdaptiveCardAnswerSuccessResponse.md)
@@ -110,7 +112,7 @@ Name | Type | Description  | Notes
 
 <a name="searchfordataanswer"></a>
 # **SearchForDataAnswer**
-> DataAnswerSuccessResponse SearchForDataAnswer (string query)
+> DataAnswerSuccessResponse SearchForDataAnswer (string query, string consumingApplication = null)
 
 Fetch FactSet answer in data format
 
@@ -155,11 +157,12 @@ namespace Example
             var apiInstance = new AnswersApi(config);
 
             var query = "query_example";  // string | Query for desired answer (e.g., \"fds price\")
+            var consumingApplication = "\"Developer Portal\"";  // string | Name of application consuming the API (used for analytics purposes) (optional)  (default to "Developer Portal")
 
             try
             {
                 // Fetch FactSet answer in data format
-                DataAnswerSuccessResponse result = apiInstance.SearchForDataAnswer(query);
+                DataAnswerSuccessResponse result = apiInstance.SearchForDataAnswer(query, consumingApplication);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -178,6 +181,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| Query for desired answer (e.g., \&quot;fds price\&quot;) | 
+ **consumingApplication** | **string**| Name of application consuming the API (used for analytics purposes) | [optional] [default to &quot;Developer Portal&quot;]
 
 ### Return type
 [**DataAnswerSuccessResponse**](DataAnswerSuccessResponse.md)
