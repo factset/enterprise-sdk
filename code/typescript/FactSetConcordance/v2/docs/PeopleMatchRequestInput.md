@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **firstName** | **String** | The first name of the person. This field should not be given along with personName.  | [optional] 
 **middleName** | **String** | The middle name of the person. This field should not be given along with personName.  | [optional] 
 **lastName** | **String** | The last name of the person. This field should not be given along with personName.  | [optional] 
+**additionalContext** | **{String: String}** | Any additional context information along with other input values that need to be saved for an entity during search. To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified.  | [optional] 
 **suffix** | **String** | The suffix of person&#39;s name. This field should not be given along with personName.  | [optional] 
 **entity** | **String** | The enity of the Person.  | [optional] 
 

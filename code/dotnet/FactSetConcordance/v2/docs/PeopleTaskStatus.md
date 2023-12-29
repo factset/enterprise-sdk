@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **UniverseName** | **string** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
 **UserFullName** | **string** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
 **UserSerial** | **string** | user-serial of the person who initiated the entity task. | [optional] 
+**AdditionalContextColumns** | **List&lt;string&gt;** | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

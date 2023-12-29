@@ -178,6 +178,7 @@ public class PeopleMatchBulkApi {
    * @param inputFile The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  (required)
    * @param clientIdColumn Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  (required)
    * @param entityColumn Header name of the column in the input file that contains the Entity Name to be matched.  (required)
+   * @param additionalContextColumns Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional)
    * @param firstNameColumn First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   (optional)
    * @param lastNameColumn Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
    * @param middleNameColumn Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  (optional)
@@ -198,8 +199,8 @@ public class PeopleMatchBulkApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public PeopleTaskResponse getPeopleTaskForList(Integer universeId, String taskName, File inputFile, String clientIdColumn, String entityColumn, String firstNameColumn, String lastNameColumn, String middleNameColumn, String personNameColumn, String priorityColumn, String salutationColumn, String suffixColumn) throws ApiException {
-    return getPeopleTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, entityColumn, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn).getData();
+  public PeopleTaskResponse getPeopleTaskForList(Integer universeId, String taskName, File inputFile, String clientIdColumn, String entityColumn, java.util.List<String> additionalContextColumns, String firstNameColumn, String lastNameColumn, String middleNameColumn, String personNameColumn, String priorityColumn, String salutationColumn, String suffixColumn) throws ApiException {
+    return getPeopleTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn).getData();
   }
 
   /**
@@ -210,6 +211,7 @@ public class PeopleMatchBulkApi {
    * @param inputFile The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  (required)
    * @param clientIdColumn Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  (required)
    * @param entityColumn Header name of the column in the input file that contains the Entity Name to be matched.  (required)
+   * @param additionalContextColumns Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional)
    * @param firstNameColumn First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   (optional)
    * @param lastNameColumn Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
    * @param middleNameColumn Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  (optional)
@@ -230,7 +232,7 @@ public class PeopleMatchBulkApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PeopleTaskResponse> getPeopleTaskForListWithHttpInfo(Integer universeId, String taskName, File inputFile, String clientIdColumn, String entityColumn, String firstNameColumn, String lastNameColumn, String middleNameColumn, String personNameColumn, String priorityColumn, String salutationColumn, String suffixColumn) throws ApiException {
+  public ApiResponse<PeopleTaskResponse> getPeopleTaskForListWithHttpInfo(Integer universeId, String taskName, File inputFile, String clientIdColumn, String entityColumn, java.util.List<String> additionalContextColumns, String firstNameColumn, String lastNameColumn, String middleNameColumn, String personNameColumn, String priorityColumn, String salutationColumn, String suffixColumn) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'universeId' is set
@@ -278,6 +280,8 @@ if (inputFile != null)
       localVarFormParams.put("inputFile", inputFile);
 if (clientIdColumn != null)
       localVarFormParams.put("clientIdColumn", clientIdColumn);
+if (additionalContextColumns != null)
+      localVarFormParams.put("additionalContextColumns", additionalContextColumns);
 if (entityColumn != null)
       localVarFormParams.put("entityColumn", entityColumn);
 if (firstNameColumn != null)

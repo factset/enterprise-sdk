@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **client_priority** | **str, none_type** | It indiactes the priority value of the client. | [optional] 
 **client_salutation** | **str, none_type** | It indicates the client&#39;s salutation. | [optional] 
 **client_suffix** | **str, none_type** | It indicates the suffix for the client. | [optional] 
+**client_additional_context** | **{str: (str,)}** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.  | [optional] 
 **created_time** | **datetime, none_type** | It indicates the time of the creation | [optional] 
 **map_status** | **str, none_type** | Current status of the people mapping. | [optional] 
 **person_id** | **str, none_type** | Helps to identify a person by using an unique indiactor  | [optional] 

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **client_priority** | **str** | Used to indicate the priority of the person | [optional] 
 **client_salutation** | **str** | Used to indicate the salutation of the person | [optional] 
 **client_suffix** | **str** | Used to indicate the suffix for the person&#39;s name | [optional] 
+**client_additional_context** | **{str: (str,)}** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.  | [optional] 
 **person_id** | **str** | A unique identifier used to identify a person. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

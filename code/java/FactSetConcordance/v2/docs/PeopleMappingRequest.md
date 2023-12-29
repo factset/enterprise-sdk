@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **clientPriority** | **String** | Used to indicate the priority of the person |  [optional]
 **clientSalutation** | **String** | Used to indicate the salutation of the person |  [optional]
 **clientSuffix** | **String** | Used to indicate the suffix for the person&#39;s name |  [optional]
+**clientAdditionalContext** | **Map&lt;String, String&gt;** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.  |  [optional]
 **personId** | **String** | A unique identifier used to identify a person. |  [optional]
 **universeId** | **Integer** | A unique identifier supplied to a person to save the data into his/her universe. | 
 

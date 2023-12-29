@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FirstName** | **string** | The first name of the person. This field should not be given along with personName.  | [optional] 
 **MiddleName** | **string** | The middle name of the person. This field should not be given along with personName.  | [optional] 
 **LastName** | **string** | The last name of the person. This field should not be given along with personName.  | [optional] 
+**AdditionalContext** | **Dictionary&lt;string, string&gt;** | Any additional context information along with other input values that need to be saved for an entity during search. To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified.  | [optional] 
 **Suffix** | **string** | The suffix of person&#39;s name. This field should not be given along with personName.  | [optional] 
 **Entity** | **string** | The enity of the Person.  | [optional] 
 

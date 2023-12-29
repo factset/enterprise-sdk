@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **ClientUkch** | **string** | Name as provided by the user for the type UK company house identifier. | [optional] 
 **ClientValoren** | **string** | Name as provided by the user for the type Valoren - Valor Identification. | [optional] 
 **ClientWkn** | **string** | Name as provided by the user for the type WKN - German Securities Identification. | [optional] 
+**ClientAdditionalContext** | **Dictionary&lt;string, string&gt;** | Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.  | [optional] 
 **ClientUrl** | **string** | URL specified in the request | [optional] 
 **CreatedTime** | **DateTime?** | Time when entity was created in UTC. | [optional] 
 **UpdatedTime** | **DateTime?** | Time when the submitted entity was last updated in UTC. | [optional] 

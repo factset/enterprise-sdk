@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ClientPriority** | **string** | Used to indicate the priority of the person | [optional] 
 **ClientSalutation** | **string** | Used to indicate the salutation of the person | [optional] 
 **ClientSuffix** | **string** | Used to indicate the suffix for the person&#39;s name | [optional] 
+**ClientAdditionalContext** | **Dictionary&lt;string, string&gt;** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.  | [optional] 
 **PersonId** | **string** | A unique identifier used to identify a person. | [optional] 
 **UniverseId** | **int** | A unique identifier supplied to a person to save the data into his/her universe. | 
 

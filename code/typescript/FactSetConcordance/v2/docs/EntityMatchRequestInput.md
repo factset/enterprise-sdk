@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **ukch** | **String** | Name for the type UKCompanyHouse | [optional] 
 **valoren** | **String** | Name for the type VALOR, Valoren (\&quot;Valor\&quot;) Identification. | [optional] 
 **wkn** | **String** | Name for the type WKN, German Securities Identification. | [optional] 
+**additionalContext** | **{String: String}** | Any additional context information along with other input values that need to be saved for an entity during search.  To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified.  | [optional] 
 
 
 

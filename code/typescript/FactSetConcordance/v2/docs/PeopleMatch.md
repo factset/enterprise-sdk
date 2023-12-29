@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **clientSuffix** | **String** | Suffix provided in the input file which is used in the &#x60;people-task&#x60; endpoint | [optional] 
 **clientPriority** | **String** | Priority provided in the input file which is used in the &#x60;people-task&#x60; endpoint | [optional] 
 **clientPersonName** | **String** | The person name as provided in request. | [optional] 
+**clientAdditionalContext** | **{String: String}** | Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.  | [optional] 
 **firstName** | **String** | The first name of the client. | [optional] 
 **personId** | **String** | The id of the person. | [optional] 
 **lastName** | **String** | The last name of the person. | [optional] 

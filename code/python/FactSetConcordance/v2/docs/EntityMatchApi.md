@@ -306,6 +306,9 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
                 ukch="CE012494",
                 valoren="685558",
                 wkn="A0MU9T",
+                additional_context={
+                    "key": "key_example",
+                },
             ),
         ],
         include_entity_type=[

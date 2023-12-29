@@ -39,5 +39,6 @@ Name | Type | Description | Notes
 **clientUkch** | **String** | User provided input for UKCompanyHouse symbol type | [optional] 
 **clientValoren** | **String** | User provided input for VALOR, Valoren (\&quot;Valor\&quot;) Identification symbol type. | [optional] 
 **clientWkn** | **String** | User provided input for WKN, German Securities Identification symbol type. | [optional] 
+**clientAdditionalContext** | **{String: String}** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.   | [optional] 
 
 

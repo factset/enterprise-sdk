@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **client_suffix** | **str, none_type** | Suffix provided in the input file which is used in the &#x60;people-task&#x60; endpoint | [optional] 
 **client_priority** | **str, none_type** | Priority provided in the input file which is used in the &#x60;people-task&#x60; endpoint | [optional] 
 **client_person_name** | **str, none_type** | The person name as provided in request. | [optional] 
+**client_additional_context** | **{str: (str,)}** | Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.  | [optional] 
 **first_name** | **str, none_type** | The first name of the client. | [optional] 
 **person_id** | **str, none_type** | The id of the person. | [optional] 
 **last_name** | **str, none_type** | The last name of the person. | [optional] 

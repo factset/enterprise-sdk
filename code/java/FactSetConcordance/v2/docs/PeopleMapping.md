@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **clientPriority** | **String** | It indiactes the priority value of the client. |  [optional]
 **clientSalutation** | **String** | It indicates the client&#39;s salutation. |  [optional]
 **clientSuffix** | **String** | It indicates the suffix for the client. |  [optional]
+**clientAdditionalContext** | **Map&lt;String, String&gt;** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.  |  [optional]
 **createdTime** | **OffsetDateTime** | It indicates the time of the creation |  [optional]
 **mapStatus** | [**MapStatusEnum**](#MapStatusEnum) | Current status of the people mapping. |  [optional]
 **personId** | **String** | Helps to identify a person by using an unique indiactor  |  [optional]

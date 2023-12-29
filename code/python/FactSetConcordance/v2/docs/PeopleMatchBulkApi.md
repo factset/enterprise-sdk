@@ -174,6 +174,10 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     entity_column = "Microsoft" # str | Header name of the column in the input file that contains the Entity Name to be matched. 
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    additional_context_columns = [
+        "Address",
+    ] # [str] | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     first_name_column = "Bill" # str | First name of the person.**Do not include with `personNameColumn`**.   (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     last_name_column = "Gates" # str | Lat name of the person.**Do not include with `personNameColumn`**.  (optional)
@@ -192,7 +196,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Create a People Concordance Task.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_people_task_for_list(universe_id, task_name, input_file, client_id_column, entity_column, first_name_column=first_name_column, last_name_column=last_name_column, middle_name_column=middle_name_column, person_name_column=person_name_column, priority_column=priority_column, salutation_column=salutation_column, suffix_column=suffix_column)
+        api_response = api_instance.get_people_task_for_list(universe_id, task_name, input_file, client_id_column, entity_column, additional_context_columns=additional_context_columns, first_name_column=first_name_column, last_name_column=last_name_column, middle_name_column=middle_name_column, person_name_column=person_name_column, priority_column=priority_column, salutation_column=salutation_column, suffix_column=suffix_column)
 
         pprint(api_response)
 
@@ -210,6 +214,7 @@ Name | Type | Description  | Notes
  **input_file** | **file_type**| The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  |
  **client_id_column** | **str**| Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  |
  **entity_column** | **str**| Header name of the column in the input file that contains the Entity Name to be matched.  |
+ **additional_context_columns** | **[str]**| Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional]
  **first_name_column** | **str**| First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   | [optional]
  **last_name_column** | **str**| Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional]
  **middle_name_column** | **str**| Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  | [optional]

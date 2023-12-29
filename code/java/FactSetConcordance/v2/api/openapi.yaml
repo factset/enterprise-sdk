@@ -26,9 +26,9 @@ info:
     \ Candidates are not included.\n \n Once the service has provided a list of concorded\
     \ FactSet Identifiers, you can then use our Entity Mappings and People Mappings\
     \ endpoints to further review the universe of mapped identifiers or modify existing\
-    \ records. </p>\n"
+    \ records. </p>\n \n"
   title: FactSet Concordance API
-  version: 2.7.0
+  version: 2.8.0
 servers:
 - description: Production Server
   url: https://api.factset.com/content
@@ -899,6 +899,14 @@ paths:
                     maxLength: 2
                     minLength: 2
                     type: string
+                  type: array
+                additionalContextColumns:
+                  description: |
+                    Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.
+                  items:
+                    example: Address
+                    type: string
+                  maxItems: 5
                   type: array
               required:
               - clientIdColumn
@@ -2710,6 +2718,14 @@ paths:
                     Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a "clientId". This clientId can be used to create custom mappings or references.
                   example: ClientId
                   type: string
+                additionalContextColumns:
+                  description: |
+                    Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.
+                  items:
+                    example: Address
+                    type: string
+                  maxItems: 5
+                  type: array
                 entityColumn:
                   description: |
                     Header name of the column in the input file that contains the Entity Name to be matched.
@@ -3157,6 +3173,10 @@ components:
           clientUrl: www.amazon.com
           clientValoren: 685558
           clientWkn: A0MU9T
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           rowIndex: 0
           matchFlag: true
           entityId: 0016YD-E
@@ -3249,6 +3269,10 @@ components:
           userFullName: Jane Smith
           universeId: 1
           universeName: My Universe
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     SuccessfulPeopleTasks:
       description: Example of the status of a successful People Concordance Task.
       summary: Successful People Task
@@ -3277,6 +3301,10 @@ components:
           taskSubmitTime: 2020-06-24T22:02:21+00:00
           userFullName: Jane Smith
           userSerial: FDSQAR_C-000000
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     PeopleTask:
       value:
         data:
@@ -3299,6 +3327,10 @@ components:
           universeId: 735
           universeName: Jane Smith
           userSerial: FDSQAR_C-000000
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     PendingTask:
       description: Example of the status of a Task pending input file.
       summary: Status pending input file
@@ -3365,6 +3397,10 @@ components:
           userFullName: Jane Smith
           universeId: 1
           universeName: My Universe
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     PendingTasks:
       description: Example of the status of a Task pending input file.
       summary: Status pending input file
@@ -3404,6 +3440,10 @@ components:
           userFullName: Jane Smith
           universeId: 1
           universeName: My Universe
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     PendingTask1:
       description: Example of the status of a Task pending input file.
       summary: Status pending input file
@@ -3440,6 +3480,10 @@ components:
           unmappedCount: 2
           userFullName: Jane Smith
           userSerial: FDSQAR_C-000000
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     BadTasks:
       description: Example of the status of a Task with a bad request.
       summary: Status for bad request
@@ -3479,6 +3523,10 @@ components:
           userFullName: Jane Smith
           universeId: 1
           universeName: My Universe
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     BadTasks1:
       description: Example of the status of a Task with a bad request.
       summary: Status for bad request
@@ -3515,6 +3563,10 @@ components:
           unmappedCount: 2
           userFullName: Jane Smith
           userSerial: FDSQAR_C-000000
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     FailedTasks:
       description: Example of the status of a Task with a failed request.
       summary: Status for failed request
@@ -3553,6 +3605,10 @@ components:
           userFullName: Jane Smith
           universeId: 1
           universeName: My Universe
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     FailedTasks1:
       description: Example of the status of a Task with a failed request.
       summary: Status for failed request
@@ -3589,6 +3645,10 @@ components:
           unmappedCount: 2
           userFullName: Jane Smith
           userSerial: FDSQAR_C-000000
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
     EntityDecisionsFile:
       description: An Entity Concordance Task Decision File.
       value: |
@@ -3659,6 +3719,10 @@ components:
           stateName: Connecticut
           stateProvinceCode: CT
           url: www.factset.com
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     NotFound:
       description: 404 - Not Found
       value:
@@ -3684,6 +3748,10 @@ components:
           updatedTime: 2020-10-04T20:14:13.123Z
           mapStatus: MAPPED
           universeId: 1
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
         - entityId: null
           entityName: null
           clientId: def-456
@@ -3697,6 +3765,10 @@ components:
           updatedTime: 2020-08-04T20:14:13.123Z
           mapStatus: UNMAPPED
           universeId: 1
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     PeopleUniverse:
       description: People Universe response from v2 endpoint
       value:
@@ -3716,6 +3788,10 @@ components:
           personName: GATES WILLIAM H III
           universeId: 1
           updatedTime: 2020-06-24T22:02:21.000Z
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
         - clientEntity: Microsoft
           clientFirstName: William
           clientId: BGA-123
@@ -3731,6 +3807,10 @@ components:
           personName: GATES WILLIAM H III
           universeId: 1
           updatedTime: 2020-06-24T22:02:21.000Z
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     EntityResponse:
       description: Entity Response
       value:
@@ -3748,6 +3828,10 @@ components:
           updatedTime: 2020:10:04T20:14:13.123
           mapStatus: MAPPED
           universeId: 1
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     EntityMappingRequest:
       description: Entity Mapping Request
       value:
@@ -3770,6 +3854,10 @@ components:
           clientPriority: HIGH
           clientSalutation: Mr
           clientSuffix: III
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           createdTime: 2020:09:04T20:14:13.123
           mapStatus: MAPPED
           personId: 00118X-E
@@ -3819,6 +3907,10 @@ components:
           rowIndex: 0
           similarityScore: 1
           universeId: 1
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     PeopleDecisions:
       description: People Decisions
       value:
@@ -3842,6 +3934,10 @@ components:
           suffix: ""
           taskId: 353453
           title: Technoking of Tesla
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     badRequestRequiredParameter:
       description: This error message occurs when the request does not include the
         required parameters. Required parameters are indicated with a red asterisks
@@ -5133,6 +5229,10 @@ components:
           md: "823736553"
           state: CT
           wkn: A0MU9T
+          additionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           redCode: 4C933G
           tickerExchange: GOOGL-NAS
           ticker: PriceTicker
@@ -5166,6 +5266,10 @@ components:
           md: "823736553"
           state: CT
           wkn: A0MU9T
+          additionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           redCode: 4C933G
           tickerExchange: GOOGL-NAS
           ticker: PriceTicker
@@ -5199,6 +5303,10 @@ components:
           md: "823736553"
           state: CT
           wkn: A0MU9T
+          additionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           redCode: 4C933G
           tickerExchange: GOOGL-NAS
           ticker: PriceTicker
@@ -5232,6 +5340,10 @@ components:
           md: "823736553"
           state: CT
           wkn: A0MU9T
+          additionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           redCode: 4C933G
           tickerExchange: GOOGL-NAS
           ticker: PriceTicker
@@ -5265,6 +5377,10 @@ components:
           md: "823736553"
           state: CT
           wkn: A0MU9T
+          additionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           redCode: 4C933G
           tickerExchange: GOOGL-NAS
           ticker: PriceTicker
@@ -5448,6 +5564,10 @@ components:
         clientRedCode: 4C933G
         clientLxid: LX113630
         clientId: FDS-USA
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         clientUrl: www.factset.com
         clientMd: "823736553"
         clientTickerExchange: GOOGL-NAS
@@ -5626,6 +5746,18 @@ components:
             symbol type.
           example: A0MU9T
           type: string
+        clientAdditionalContext:
+          additionalProperties:
+            type: string
+          description: "Any additional context information that can be saved along\
+            \ with other input values for mapping. To be used by Managed Service for\
+            \ mapping any unmapped records. \n"
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          maxProperties: 5
+          type: object
       required:
       - clientId
       - clientName
@@ -5636,6 +5768,10 @@ components:
         clientPersonName: Bill Gates
         clientLastName: Gates
         clientId: BGA-123
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         clientFirstName: William
         clientSuffix: III
         universeId: 1
@@ -5683,6 +5819,17 @@ components:
           description: Used to indicate the suffix for the person's name
           example: III
           type: string
+        clientAdditionalContext:
+          additionalProperties:
+            type: string
+          description: |
+            Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          maxProperties: 5
+          type: object
         personId:
           description: A unique identifier used to identify a person.
           example: 00118X-E
@@ -6013,6 +6160,10 @@ components:
           middleName: Henry
           salutation: Mr
           suffix: III
+          additionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           entity: Microsoft
         - personName: Bill Gates
           firstName: Bill
@@ -6021,6 +6172,10 @@ components:
           middleName: Henry
           salutation: Mr
           suffix: III
+          additionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           entity: Microsoft
         universeId: 1
       properties:
@@ -6084,6 +6239,10 @@ components:
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientId: abc-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: entityId
@@ -6146,6 +6305,10 @@ components:
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientId: abc-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: entityId
@@ -6208,6 +6371,10 @@ components:
           clientIdColumn: ClientId
           leiColumn: LegalEntityIdentifier
           gvkeyColumn: GVKey
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
           crdColumn: CRD
           dunsColumn: Dun&Bradstreet
           factsetIdColumn: FactSet Identifier
@@ -6251,6 +6418,10 @@ components:
         data:
           clientIdColumn: id1
           personNameColumn: Phil Snow
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
           suffixColumn: Suffix
           firstNameColumn: Frederick
           universeId: 1
@@ -6322,6 +6493,10 @@ components:
           clientIdColumn: ClientId
           leiColumn: LegalEntityIdentifier
           gvkeyColumn: GVKey
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
           crdColumn: CRD
           dunsColumn: Dun&Bradstreet
           factsetIdColumn: FactSet Identifier
@@ -6389,6 +6564,10 @@ components:
           clientIdColumn: ClientId
           leiColumn: LegalEntityIdentifier
           gvkeyColumn: GVKey
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
           crdColumn: CRD
           dunsColumn: Dun&Bradstreet
           factsetIdColumn: FactSet Identifier
@@ -6478,6 +6657,10 @@ components:
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientId: abc-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: entityId
@@ -6540,6 +6723,10 @@ components:
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientId: abc-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: entityId
@@ -6585,6 +6772,10 @@ components:
           email: abc@email.com
           clientLastName: Musk
           clientId: M7
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientEntity: Tesla
           clientPersonName: Elon Musk
           personName: personName
@@ -6613,6 +6804,10 @@ components:
           email: abc@email.com
           clientLastName: Musk
           clientId: M7
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientEntity: Tesla
           clientPersonName: Elon Musk
           personName: personName
@@ -6660,6 +6855,10 @@ components:
           clientLxid: LX113630
           updatedTime: 2020-06-24T22:02:21Z
           clientId: abc-1234
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientUrl: www.factset.com
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
@@ -6699,6 +6898,10 @@ components:
           clientLxid: LX113630
           updatedTime: 2020-06-24T22:02:21Z
           clientId: abc-1234
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientUrl: www.factset.com
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
@@ -6726,6 +6929,10 @@ components:
         - updatedTime: 2020-06-24T22:02:21Z
           clientLastName: Gates
           clientId: BGA-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           universeId: 1
           clientEntity: Microsoft
           clientSalutation: Mr
@@ -6741,6 +6948,10 @@ components:
         - updatedTime: 2020-06-24T22:02:21Z
           clientLastName: Gates
           clientId: BGA-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           universeId: 1
           clientEntity: Microsoft
           clientSalutation: Mr
@@ -6788,6 +6999,10 @@ components:
           clientLxid: LX113630
           updatedTime: 2020-06-24T22:02:21Z
           clientId: abc-1234
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientUrl: www.factset.com
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
@@ -6819,6 +7034,10 @@ components:
           updatedTime: 2020-06-24T22:02:21Z
           clientLastName: Gates
           clientId: BGA-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           universeId: 1
           clientEntity: Microsoft
           clientSalutation: Mr
@@ -6957,6 +7176,7 @@ components:
           universeId: 10,
           taskId: null,
           url: www.apple.com,
+          clientAdditionalContext: Address
         - clientCountry: null,
           clientId: null,
           clientName: factset,
@@ -6990,6 +7210,7 @@ components:
           universeId: 10,
           taskId: null,
           url: www.factset.com
+          clientAdditionalContext: Address
       properties:
         data:
           description: JSON body to be parsed by snowflake
@@ -7043,6 +7264,7 @@ components:
             mapStatus: MAPPED
             universeId: 1241
             updatedTime: 2023-04-10T17:29:31.128197+00:00
+            clientAdditionalContext: Address
         - - 1
           - clientBbgFigi: null
             clientBbgTicker: null
@@ -7083,6 +7305,7 @@ components:
             mapStatus: UNMAPPED
             universeId: 1241
             updatedTime: 2023-04-10T17:29:47.400250+00:00
+            clientAdditionalContext: Address
       properties:
         data:
           description: JSON body to be parsed by snowflake
@@ -7124,6 +7347,10 @@ components:
           clientLxid: LX113630
           updatedTime: 2020-06-24T22:02:21Z
           clientId: abc-1234
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientUrl: www.factset.com
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
@@ -7163,6 +7390,10 @@ components:
           clientLxid: LX113630
           updatedTime: 2020-06-24T22:02:21Z
           clientId: abc-1234
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientUrl: www.factset.com
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
@@ -7192,6 +7423,10 @@ components:
         - updatedTime: 2020-06-24T22:02:21Z
           clientLastName: Gates
           clientId: BGA-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           universeId: 1
           clientEntity: Microsoft
           clientSalutation: Mr
@@ -7207,6 +7442,10 @@ components:
         - updatedTime: 2020-06-24T22:02:21Z
           clientLastName: Gates
           clientId: BGA-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           universeId: 1
           clientEntity: Microsoft
           clientSalutation: Mr
@@ -7249,6 +7488,10 @@ components:
           email: abc@efg.com
           clientLastName: Musk
           clientId: abc-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientEntity: Factset
           clientPersonName: Phil Snow
           personName: GATES WILLIAM H III
@@ -7277,6 +7520,10 @@ components:
           email: abc@efg.com
           clientLastName: Musk
           clientId: abc-123
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           clientEntity: Factset
           clientPersonName: Phil Snow
           personName: GATES WILLIAM H III
@@ -7302,6 +7549,10 @@ components:
         - clientIdColumn: ClientId
           personNameColumn: personName
           suffixColumn: Suffix
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
           firstNameColumn: firstName
           universeId: 1
           middleNameColumn: middleName
@@ -7333,6 +7584,10 @@ components:
         - clientIdColumn: ClientId
           personNameColumn: personName
           suffixColumn: Suffix
+          additionalContextColumns:
+          - Address
+          - Phone
+          - City
           firstNameColumn: firstName
           universeId: 1
           middleNameColumn: middleName
@@ -7440,6 +7695,10 @@ components:
         clientGvkeyIid: "107481001"
         clientRedCode: 4C933G
         clientId: abc-123
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         clientMd: "823736553"
         clientTickerExchange: GOOGL-NAS
         entityId: entityId
@@ -7654,6 +7913,16 @@ components:
           example: A0MU9T
           nullable: true
           type: string
+        clientAdditionalContext:
+          additionalProperties:
+            type: string
+          description: |
+            Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          type: object
         symbolMatchType:
           description: Source type of the Symbol that matched
           example: SEDOL
@@ -7847,6 +8116,10 @@ components:
         clientIdColumn: ClientId
         leiColumn: LegalEntityIdentifier
         gvkeyColumn: GVKey
+        additionalContextColumns:
+        - Address
+        - Phone
+        - City
         crdColumn: CRD
         dunsColumn: Dun&Bradstreet
         factsetIdColumn: FactSet Identifier
@@ -8107,6 +8380,17 @@ components:
           example: URL
           nullable: true
           type: string
+        additionalContextColumns:
+          description: |
+            Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.
+          example:
+          - Address
+          - Phone
+          - City
+          items:
+            type: string
+          maxItems: 5
+          type: array
         hasResult:
           description: Flag denoting the taskId has a result.
           example: true
@@ -8258,6 +8542,10 @@ components:
         clientLxid: LX113630
         updatedTime: 2020-06-24T22:02:21Z
         clientId: abc-1234
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         clientUrl: www.factset.com
         clientMd: "823736553"
         clientTickerExchange: GOOGL-NAS
@@ -8464,6 +8752,16 @@ components:
           example: A0MU9T
           nullable: true
           type: string
+        clientAdditionalContext:
+          additionalProperties:
+            type: string
+          description: |
+            Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          type: object
         clientUrl:
           description: URL specified in the request
           example: www.factset.com
@@ -8504,6 +8802,10 @@ components:
         updatedTime: 2020-06-24T22:02:21Z
         clientLastName: Gates
         clientId: BGA-123
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         universeId: 1
         clientEntity: Microsoft
         clientSalutation: Mr
@@ -8563,6 +8865,17 @@ components:
           example: III
           nullable: true
           type: string
+        clientAdditionalContext:
+          additionalProperties:
+            type: string
+          description: |
+            Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          maxProperties: 5
+          type: object
         createdTime:
           description: It indicates the time of the creation
           example: 2020-06-24T22:02:21Z
@@ -8816,6 +9129,10 @@ components:
         email: abc@efg.com
         clientLastName: Musk
         clientId: abc-123
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         clientEntity: Factset
         clientPersonName: Phil Snow
         personName: GATES WILLIAM H III
@@ -8886,6 +9203,16 @@ components:
           example: Phil Snow
           nullable: true
           type: string
+        clientAdditionalContext:
+          additionalProperties:
+            type: string
+          description: |
+            Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          type: object
         firstName:
           description: The first name of the client.
           example: Frederick
@@ -8997,6 +9324,10 @@ components:
       example:
         clientIdColumn: id1
         personNameColumn: Phil Snow
+        additionalContextColumns:
+        - Address
+        - Phone
+        - City
         suffixColumn: Suffix
         firstNameColumn: Frederick
         universeId: 1
@@ -9062,6 +9393,17 @@ components:
           example: Mr
           nullable: true
           type: string
+        additionalContextColumns:
+          description: |
+            Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.
+          example:
+          - Address
+          - Phone
+          - City
+          items:
+            type: string
+          maxItems: 5
+          type: array
         hasResult:
           description: Whether the result is available.
           example: true
@@ -9204,6 +9546,10 @@ components:
         clientIdColumn: ClientId
         personNameColumn: personName
         suffixColumn: Suffix
+        additionalContextColumns:
+        - Address
+        - Phone
+        - City
         firstNameColumn: firstName
         universeId: 1
         middleNameColumn: middleName
@@ -9408,6 +9754,17 @@ components:
           example: FDSQAR_C-000000
           nullable: true
           type: string
+        additionalContextColumns:
+          description: |
+            Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.
+          example:
+          - Address
+          - Phone
+          - City
+          items:
+            type: string
+          maxItems: 5
+          type: array
       title: People Task Status
       type: object
     PeopleDecisions:
@@ -9431,6 +9788,10 @@ components:
         email: abc@email.com
         clientLastName: Musk
         clientId: M7
+        clientAdditionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         clientEntity: Tesla
         clientPersonName: Elon Musk
         personName: personName
@@ -9501,6 +9862,16 @@ components:
           example: Elon Musk
           nullable: true
           type: string
+        clientAdditionalContext:
+          additionalProperties:
+            type: string
+          description: |
+            Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          type: object
         email:
           description: The email address of the client.
           example: abc@email.com
@@ -9824,6 +10195,14 @@ components:
             minLength: 2
             type: string
           type: array
+        additionalContextColumns:
+          description: |
+            Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.
+          items:
+            example: Address
+            type: string
+          maxItems: 5
+          type: array
       required:
       - clientIdColumn
       - inputFile
@@ -9854,6 +10233,14 @@ components:
             Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a "clientId". This clientId can be used to create custom mappings or references.
           example: ClientId
           type: string
+        additionalContextColumns:
+          description: |
+            Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.
+          items:
+            example: Address
+            type: string
+          maxItems: 5
+          type: array
         entityColumn:
           description: |
             Header name of the column in the input file that contains the Entity Name to be matched.
@@ -9919,6 +10306,10 @@ components:
         md: "823736553"
         state: CT
         wkn: A0MU9T
+        additionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         redCode: 4C933G
         tickerExchange: GOOGL-NAS
         ticker: PriceTicker
@@ -10084,6 +10475,17 @@ components:
           description: Name for the type WKN, German Securities Identification.
           example: A0MU9T
           type: string
+        additionalContext:
+          additionalProperties:
+            type: string
+          description: |
+            Any additional context information along with other input values that need to be saved for an entity during search.  To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified.
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          maxProperties: 5
+          type: object
       required:
       - name
       type: object
@@ -10096,6 +10498,10 @@ components:
         middleName: Henry
         salutation: Mr
         suffix: III
+        additionalContext:
+          Address: 123 Main St
+          Phone: 555-555-5555
+          City: New York
         entity: Microsoft
       properties:
         personName:
@@ -10127,6 +10533,17 @@ components:
             The last name of the person. This field should not be given along with personName.
           example: Gates
           type: string
+        additionalContext:
+          additionalProperties:
+            type: string
+          description: |
+            Any additional context information along with other input values that need to be saved for an entity during search. To be used by Managed Service for any unmapped records.  This is applicable when saving the records with clientId and universeId specified.
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
+          maxProperties: 5
+          type: object
         suffix:
           description: |
             The suffix of person's name. This field should not be given along with personName.

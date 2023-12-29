@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **CountryColumn** | **string** | Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match.  | [optional] 
 **StateColumn** | **string** | Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match.  | [optional] 
 **UrlColumn** | **string** | Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match.  | [optional] 
+**AdditionalContextColumns** | **List&lt;string&gt;** | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional] 
 **HasResult** | **bool?** | Flag denoting the taskId has a result. | [optional] 
 **TaskSubmitTime** | **DateTime?** | Time the Task was submitted in UTC. | [optional] 
 **Message** | **string** | Textual message for the status. | [optional] 

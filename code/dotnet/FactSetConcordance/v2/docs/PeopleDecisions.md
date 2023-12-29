@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ClientSuffix** | **string** | Suffix provided in the input file which is used in the &#x60;people-task&#x60; endpoint | [optional] 
 **ClientPriority** | **string** | Priority provided in the input file which is used in the &#x60;people-task&#x60; endpoint | [optional] 
 **ClientPersonName** | **string** | The name provided by the client. | [optional] 
+**ClientAdditionalContext** | **Dictionary&lt;string, string&gt;** | Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.  | [optional] 
 **Email** | **string** | The email address of the client. | [optional] 
 **Entity** | **string** | Full name corresponding to the matched entity. | [optional] 
 **MapStatus** | **string** | Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping.  | [optional] 

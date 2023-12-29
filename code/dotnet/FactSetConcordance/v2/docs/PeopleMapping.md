@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ClientPriority** | **string** | It indiactes the priority value of the client. | [optional] 
 **ClientSalutation** | **string** | It indicates the client&#39;s salutation. | [optional] 
 **ClientSuffix** | **string** | It indicates the suffix for the client. | [optional] 
+**ClientAdditionalContext** | **Dictionary&lt;string, string&gt;** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.  | [optional] 
 **CreatedTime** | **DateTime?** | It indicates the time of the creation | [optional] 
 **MapStatus** | **string** | Current status of the people mapping. | [optional] 
 **PersonId** | **string** | Helps to identify a person by using an unique indiactor  | [optional] 

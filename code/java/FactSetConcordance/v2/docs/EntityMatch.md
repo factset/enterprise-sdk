@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **clientUrl** | **String** | URL specified in the request. |  [optional]
 **clientValoren** | **String** | Name of the column as provided by the user -  VALOR, Valoren (\&quot;Valor\&quot;) Identification. |  [optional]
 **clientWkn** | **String** | Name of the column as provided by the user -  WKN, German Securities Identification. |  [optional]
+**clientAdditionalContext** | **Map&lt;String, String&gt;** | Any additional context column along with their values in the input file or single search.  To be used by Managed Service for any unmapped records.  |  [optional]
 **symbolMatchType** | **String** | Source type of the Symbol that matched |  [optional]
 **rowIndex** | **Integer** | Row number for match in the request or input file. |  [optional]
 **matchFlag** | **Boolean** | Flag denoting if the row is a match. |  [optional]

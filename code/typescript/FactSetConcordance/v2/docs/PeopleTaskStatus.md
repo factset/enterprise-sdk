@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **universeName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
 **userFullName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
 **userSerial** | **String** | user-serial of the person who initiated the entity task. | [optional] 
+**additionalContextColumns** | **[String]** | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional] 
 
 
 

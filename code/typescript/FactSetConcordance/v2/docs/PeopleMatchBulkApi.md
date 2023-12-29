@@ -132,6 +132,7 @@ const inputFile = "/path/to/file"; // File | The UTF-8 encoded CSV File containi
 const clientIdColumn = "clientIdColumn_example"; // String | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
 const entityColumn = "entityColumn_example"; // String | Header name of the column in the input file that contains the Entity Name to be matched. 
 const opts = {
+  'additionalContextColumns': ["Address"], // [String] | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. 
   'firstNameColumn': "firstNameColumn_example", // String | First name of the person.**Do not include with `personNameColumn`**.  
   'lastNameColumn': "lastNameColumn_example", // String | Lat name of the person.**Do not include with `personNameColumn`**. 
   'middleNameColumn': "middleNameColumn_example", // String | Middle name of the person.**Do not include within `personNameColumn`**. 
@@ -166,6 +167,7 @@ Name | Type | Description  | Notes
  **inputFile** | **File**| The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  | 
  **clientIdColumn** | **String**| Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  | 
  **entityColumn** | **String**| Header name of the column in the input file that contains the Entity Name to be matched.  | 
+ **additionalContextColumns** | [**[String]**](String.md)| Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional] 
  **firstNameColumn** | **String**| First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   | [optional] 
  **lastNameColumn** | **String**| Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional] 
  **middleNameColumn** | **String**| Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  | [optional] 

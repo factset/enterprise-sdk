@@ -171,6 +171,9 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         client_priority="HIGH",
         client_salutation="Mr",
         client_suffix="III",
+        client_additional_context={
+            "key": "key_example",
+        },
         person_id="00118X-E",
         universe_id=1,
     ) # PeopleMappingRequest | A request to create a single mapping.

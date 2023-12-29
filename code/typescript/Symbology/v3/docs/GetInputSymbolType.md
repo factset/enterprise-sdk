@@ -59,6 +59,6 @@
 
 * `LoanX` (value: `"LoanX"`)
 
-* `Markit Red` (value: `"Markit Red"`)
+* `MarkitRed` (value: `"MarkitRed"`)
 
 

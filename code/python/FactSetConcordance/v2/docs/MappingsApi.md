@@ -197,6 +197,9 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         client_ukch="CE012494",
         client_valoren="685558",
         client_wkn="A0MU9T",
+        client_additional_context={
+            "key": "key_example",
+        },
     ) # EntityMappingRequest | A request to create a single mapping.
 
     try:

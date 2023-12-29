@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **ClientUkch** | **string** | User provided input for UKCompanyHouse symbol type | [optional] 
 **ClientValoren** | **string** | User provided input for VALOR, Valoren (\&quot;Valor\&quot;) Identification symbol type. | [optional] 
 **ClientWkn** | **string** | User provided input for WKN, German Securities Identification symbol type. | [optional] 
+**ClientAdditionalContext** | **Dictionary&lt;string, string&gt;** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.   | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.7.0
+  version: 2.8.0
   title: FactSet Concordance API
   description: >
 
@@ -21,6 +21,7 @@ info:
      <b>Entity & People Match - Bulk:</b> The second workflow allows you to input a large list of names within a .CSV file in a single request With this workflow, a task is created for uploading a set of queries. Once the task has completed, the client retrieves the concordance results through the /entity-decisions or /people-decisions endpoint. Note that in the Bulk workflow, only the matches for the records are returned. Candidates are not included.
      
      Once the service has provided a list of concorded FactSet Identifiers, you can then use our Entity Mappings and People Mappings endpoints to further review the universe of mapped identifiers or modify existing records. </p>
+     
   contact:
     name: FactSet Research Systems, Inc.
     email: api@factset.com
@@ -465,6 +466,16 @@ paths:
                     example: IB
                     maxLength: 2
                     minLength: 2
+                additionalContextColumns:
+                  description: >
+                    Comma separated list of any additional column names in the
+                    input file.  To be used by Managed Service for any unmapped
+                    records.
+                  type: array
+                  maxItems: 5
+                  items:
+                    type: string
+                    example: Address
               required:
                 - universeId
                 - taskName
@@ -1001,6 +1012,16 @@ paths:
                     mappings or references.
                   type: string
                   example: ClientId
+                additionalContextColumns:
+                  description: >
+                    Comma separated list of any additional column names in the
+                    input file.  To be used by Managed Service for any unmapped
+                    records.
+                  type: array
+                  maxItems: 5
+                  items:
+                    type: string
+                    example: Address
                 entityColumn:
                   description: >
                     Header name of the column in the input file that contains
@@ -2395,6 +2416,21 @@ components:
                 description: Name for the type WKN, German Securities Identification.
                 type: string
                 example: A0MU9T
+              additionalContext:
+                description: >
+                  Any additional context information along with other input
+                  values that need to be saved for an entity during search.  To
+                  be used by Managed Service for any unmapped records.  This is
+                  applicable when saving the records with clientId and
+                  universeId specified.
+                type: object
+                additionalProperties:
+                  type: string
+                maxProperties: 5
+                example:
+                  Address: 123 Main St
+                  Phone: 555-555-5555
+                  City: New York
             required:
               - name
           minItems: 1
@@ -2716,6 +2752,19 @@ components:
             type.
           type: string
           example: A0MU9T
+        clientAdditionalContext:
+          description: >
+            Any additional context information that can be saved along with
+            other input values for mapping. To be used by Managed Service for
+            mapping any unmapped records. 
+          type: object
+          additionalProperties:
+            type: string
+          maxProperties: 5
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     PeopleMappingRequest:
       type: object
       required:
@@ -2762,6 +2811,19 @@ components:
           description: Used to indicate the suffix for the person's name
           type: string
           example: III
+        clientAdditionalContext:
+          description: >
+            Any additional context information that can be saved along with
+            other input values for mapping. To be used by Managed Service for
+            mapping any unmapped records.
+          type: object
+          additionalProperties:
+            type: string
+          maxProperties: 5
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
         personId:
           description: A unique identifier used to identify a person.
           type: string
@@ -3027,6 +3089,21 @@ components:
                   along with personName.
                 type: string
                 example: Gates
+              additionalContext:
+                description: >
+                  Any additional context information along with other input
+                  values that need to be saved for an entity during search. To
+                  be used by Managed Service for any unmapped records.  This is
+                  applicable when saving the records with clientId and
+                  universeId specified.
+                type: object
+                additionalProperties:
+                  type: string
+                maxProperties: 5
+                example:
+                  Address: 123 Main St
+                  Phone: 555-555-5555
+                  City: New York
               suffix:
                 description: >
                   The suffix of person's name. This field should not be given
@@ -3194,6 +3271,7 @@ components:
             universeId: 10,
             taskId: null,
             url: www.apple.com,
+            clientAdditionalContext: Address
           - clientCountry: null,
             clientId: null,
             clientName: factset,
@@ -3227,6 +3305,7 @@ components:
             universeId: 10,
             taskId: null,
             url: www.factset.com
+            clientAdditionalContext: Address
       properties:
         data:
           type: array
@@ -3280,6 +3359,7 @@ components:
               mapStatus: MAPPED
               universeId: 1241
               updatedTime: '2023-04-10T17:29:31.128197+00:00'
+              clientAdditionalContext: Address
           - - 1
             - clientBbgFigi: null
               clientBbgTicker: null
@@ -3320,6 +3400,7 @@ components:
               mapStatus: UNMAPPED
               universeId: 1241
               updatedTime: '2023-04-10T17:29:47.400250+00:00'
+              clientAdditionalContext: Address
       properties:
         data:
           type: array
@@ -3636,6 +3717,18 @@ components:
           type: string
           example: A0MU9T
           nullable: true
+        clientAdditionalContext:
+          description: >
+            Any additional context column along with their values in the input
+            file or single search.  To be used by Managed Service for any
+            unmapped records.
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
         symbolMatchType:
           description: Source type of the Symbol that matched
           type: string
@@ -4071,6 +4164,18 @@ components:
           type: string
           example: URL
           nullable: true
+        additionalContextColumns:
+          description: >
+            Comma separated list of any additional column names in the input
+            file.  To be used by Managed Service for any unmapped records.
+          type: array
+          maxItems: 5
+          items:
+            type: string
+          example:
+            - Address
+            - Phone
+            - City
         hasResult:
           description: Flag denoting the taskId has a result.
           type: boolean
@@ -4412,6 +4517,18 @@ components:
           type: string
           example: A0MU9T
           nullable: true
+        clientAdditionalContext:
+          description: >
+            Any additional context column along with their values in the input
+            file or single search.  To be used by Managed Service for any
+            unmapped records.
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
         clientUrl:
           description: URL specified in the request
           type: string
@@ -4495,6 +4612,19 @@ components:
           type: string
           example: III
           nullable: true
+        clientAdditionalContext:
+          description: >
+            Any additional context information that can be saved along with
+            other input values for mapping. To be used by Managed Service for
+            mapping any unmapped records.
+          type: object
+          additionalProperties:
+            type: string
+          maxProperties: 5
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
         createdTime:
           description: It indicates the time of the creation
           type: string
@@ -4771,6 +4901,18 @@ components:
           type: string
           example: Phil Snow
           nullable: true
+        clientAdditionalContext:
+          description: >
+            Any additional context column along with their values in the input
+            file or single search.  To be used by Managed Service for any
+            unmapped records.
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
         firstName:
           description: The first name of the client.
           type: string
@@ -4925,6 +5067,18 @@ components:
           type: string
           example: Mr
           nullable: true
+        additionalContextColumns:
+          description: >
+            Comma separated list of any additional column names in the input
+            file.  To be used by Managed Service for any unmapped records.
+          type: array
+          maxItems: 5
+          items:
+            type: string
+          example:
+            - Address
+            - Phone
+            - City
         hasResult:
           description: Whether the result is available.
           type: boolean
@@ -5247,6 +5401,18 @@ components:
           type: string
           example: FDSQAR_C-000000
           nullable: true
+        additionalContextColumns:
+          description: >
+            Comma separated list of any additional column names in the input
+            file.  To be used by Managed Service for any unmapped records.
+          type: array
+          maxItems: 5
+          items:
+            type: string
+          example:
+            - Address
+            - Phone
+            - City
     PeopleDecisions:
       title: People Decisions
       description: >
@@ -5319,6 +5485,18 @@ components:
           type: string
           example: Elon Musk
           nullable: true
+        clientAdditionalContext:
+          description: >
+            Any additional context column along with their values in the input
+            file or single search.  To be used by Managed Service for any
+            unmapped records.
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
         email:
           description: The email address of the client.
           type: string
@@ -5488,6 +5666,10 @@ components:
             clientUrl: www.amazon.com
             clientValoren: 685558
             clientWkn: A0MU9T
+            clientAdditionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
             rowIndex: 0
             matchFlag: true
             entityId: 0016YD-E
@@ -5580,6 +5762,10 @@ components:
             userFullName: Jane Smith
             universeId: 1
             universeName: My Universe
+            additionalContextColumns:
+              - Address
+              - Phone
+              - City
     SuccessfulPeopleTasks:
       summary: Successful People Task
       description: Example of the status of a successful People Concordance Task.
@@ -5608,6 +5794,10 @@ components:
             taskSubmitTime: '2020-06-24T22:02:21+00:00'
             userFullName: Jane Smith
             userSerial: FDSQAR_C-000000
+            additionalContextColumns:
+              - Address
+              - Phone
+              - City
     PeopleTask:
       value:
         data:
@@ -5630,6 +5820,10 @@ components:
           universeId: 735
           universeName: Jane Smith
           userSerial: FDSQAR_C-000000
+          additionalContextColumns:
+            - Address
+            - Phone
+            - City
     PendingTask:
       summary: Status pending input file
       description: Example of the status of a Task pending input file.
@@ -5696,6 +5890,10 @@ components:
           userFullName: Jane Smith
           universeId: 1
           universeName: My Universe
+          additionalContextColumns:
+            - Address
+            - Phone
+            - City
     PendingTasks:
       summary: Status pending input file
       description: Example of the status of a Task pending input file.
@@ -5735,6 +5933,10 @@ components:
             userFullName: Jane Smith
             universeId: 1
             universeName: My Universe
+            additionalContextColumns:
+              - Address
+              - Phone
+              - City
     PendingTask1:
       summary: Status pending input file
       description: Example of the status of a Task pending input file.
@@ -5771,6 +5973,10 @@ components:
             unmappedCount: 2
             userFullName: Jane Smith
             userSerial: FDSQAR_C-000000
+            additionalContextColumns:
+              - Address
+              - Phone
+              - City
     BadTasks:
       summary: Status for bad request
       description: Example of the status of a Task with a bad request.
@@ -5811,6 +6017,10 @@ components:
             userFullName: Jane Smith
             universeId: 1
             universeName: My Universe
+            additionalContextColumns:
+              - Address
+              - Phone
+              - City
     BadTasks1:
       summary: Status for bad request
       description: Example of the status of a Task with a bad request.
@@ -5847,6 +6057,10 @@ components:
           unmappedCount: 2
           userFullName: Jane Smith
           userSerial: FDSQAR_C-000000
+          additionalContextColumns:
+            - Address
+            - Phone
+            - City
     FailedTasks:
       summary: Status for failed request
       description: Example of the status of a Task with a failed request.
@@ -5885,6 +6099,10 @@ components:
             userFullName: Jane Smith
             universeId: 1
             universeName: My Universe
+            additionalContextColumns:
+              - Address
+              - Phone
+              - City
     FailedTasks1:
       summary: Status for failed request
       description: Example of the status of a Task with a failed request.
@@ -5921,6 +6139,10 @@ components:
           unmappedCount: 2
           userFullName: Jane Smith
           userSerial: FDSQAR_C-000000
+          additionalContextColumns:
+            - Address
+            - Phone
+            - City
     EntityDecisionsFile:
       description: An Entity Concordance Task Decision File.
       value: >
@@ -5994,6 +6216,10 @@ components:
             stateName: Connecticut
             stateProvinceCode: CT
             url: www.factset.com
+            clientAdditionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
     NotFound:
       description: 404 - Not Found
       value:
@@ -6019,6 +6245,10 @@ components:
             updatedTime: 2020-10-04T20:14:13.123Z
             mapStatus: MAPPED
             universeId: 1
+            clientAdditionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
           - entityId: null
             entityName: null
             clientId: def-456
@@ -6032,6 +6262,10 @@ components:
             updatedTime: 2020-08-04T20:14:13.123Z
             mapStatus: UNMAPPED
             universeId: 1
+            clientAdditionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
     PeopleUniverse:
       description: People Universe response from v2 endpoint
       value:
@@ -6051,6 +6285,10 @@ components:
             personName: GATES WILLIAM H III
             universeId: 1
             updatedTime: 2020-06-24T22:02:21.000Z
+            clientAdditionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
           - clientEntity: Microsoft
             clientFirstName: William
             clientId: BGA-123
@@ -6066,6 +6304,10 @@ components:
             personName: GATES WILLIAM H III
             universeId: 1
             updatedTime: 2020-06-24T22:02:21.000Z
+            clientAdditionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
     EntityResponse:
       description: Entity Response
       value:
@@ -6083,6 +6325,10 @@ components:
           updatedTime: 2020:10:04T20:14:13.123
           mapStatus: MAPPED
           universeId: 1
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     EntityMappingRequest:
       description: Entity Mapping Request
       value:
@@ -6105,6 +6351,10 @@ components:
           clientPriority: HIGH
           clientSalutation: Mr
           clientSuffix: III
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
           createdTime: 2020:09:04T20:14:13.123
           mapStatus: MAPPED
           personId: 00118X-E
@@ -6154,6 +6404,10 @@ components:
             rowIndex: 0
             similarityScore: 1
             universeId: 1
+            clientAdditionalContext:
+              Address: 123 Main St
+              Phone: 555-555-5555
+              City: New York
     PeopleDecisions:
       description: People Decisions
       value:
@@ -6177,6 +6431,10 @@ components:
           suffix: ''
           taskId: 353453
           title: Technoking of Tesla
+          clientAdditionalContext:
+            Address: 123 Main St
+            Phone: 555-555-5555
+            City: New York
     badRequestRequiredParameter:
       summary: Bad Request - Required Parameter Missing
       description: >-

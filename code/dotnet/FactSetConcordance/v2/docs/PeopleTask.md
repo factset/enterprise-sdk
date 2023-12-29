@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **MiddleNameColumn** | **string** | The middle name of the client. | [optional] 
 **PriorityColumn** | **string** | The middle name of the client. | [optional] 
 **SalutationColumn** | **string** | The salutation of the person. | [optional] 
+**AdditionalContextColumns** | **List&lt;string&gt;** | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional] 
 **HasResult** | **bool?** | Whether the result is available. | [optional] 
 **TaskAction** | **string** | Action status for the Concordance Task process. | [optional] 
 **InputFile** | **string** | The input file is posted as a file object in the form.  | [optional] 

@@ -251,12 +251,16 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     exclude_entity_sub_type = [
         "IB",
     ] # [str] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    additional_context_columns = [
+        "Address",
+    ] # [str] | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional)
 
     try:
         # Input a file with names and attributes, creating a taskId.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bbg_figi_column=bbg_figi_column, bbg_ticker_column=bbg_ticker_column, bic_column=bic_column, cik_column=cik_column, crd_column=crd_column, cusip_column=cusip_column, duns_column=duns_column, ein_column=ein_column, factset_id_column=factset_id_column, fitch_column=fitch_column, gvkey_column=gvkey_column, gvkey_iid_column=gvkey_iid_column, isin_column=isin_column, jcn_column=jcn_column, lei_column=lei_column, lxid_column=lxid_column, md_column=md_column, red_code_column=red_code_column, rssd_column=rssd_column, sedol_column=sedol_column, spr_column=spr_column, ticker_column=ticker_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type)
+        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bbg_figi_column=bbg_figi_column, bbg_ticker_column=bbg_ticker_column, bic_column=bic_column, cik_column=cik_column, crd_column=crd_column, cusip_column=cusip_column, duns_column=duns_column, ein_column=ein_column, factset_id_column=factset_id_column, fitch_column=fitch_column, gvkey_column=gvkey_column, gvkey_iid_column=gvkey_iid_column, isin_column=isin_column, jcn_column=jcn_column, lei_column=lei_column, lxid_column=lxid_column, md_column=md_column, red_code_column=red_code_column, rssd_column=rssd_column, sedol_column=sedol_column, spr_column=spr_column, ticker_column=ticker_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, additional_context_columns=additional_context_columns)
 
         pprint(api_response)
 
@@ -309,6 +313,7 @@ Name | Type | Description  | Notes
  **exclude_entity_type** | **[str]**| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **include_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **exclude_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
+ **additional_context_columns** | **[str]**| Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional]
 
 ### Return type
 

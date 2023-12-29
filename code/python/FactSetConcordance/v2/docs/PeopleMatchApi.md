@@ -184,6 +184,9 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
                 first_name="Bill",
                 middle_name="Henry",
                 last_name="Gates",
+                additional_context={
+                    "key": "key_example",
+                },
                 suffix="III",
                 entity="Microsoft",
             ),

@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 <a name="getpeopletaskforlist"></a>
 # **GetPeopleTaskForList**
-> PeopleTaskResponse GetPeopleTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string entityColumn, string firstNameColumn = null, string lastNameColumn = null, string middleNameColumn = null, string personNameColumn = null, string priorityColumn = null, string salutationColumn = null, string suffixColumn = null)
+> PeopleTaskResponse GetPeopleTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string entityColumn, List<string> additionalContextColumns = null, string firstNameColumn = null, string lastNameColumn = null, string middleNameColumn = null, string personNameColumn = null, string priorityColumn = null, string salutationColumn = null, string suffixColumn = null)
 
 Create a People Concordance Task.
 
@@ -162,6 +162,7 @@ namespace Example
             var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
             var clientIdColumn = "clientIdColumn_example";  // string | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
             var entityColumn = "entityColumn_example";  // string | Header name of the column in the input file that contains the Entity Name to be matched. 
+            var additionalContextColumns = new List<string>(); // List<string> | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional) 
             var firstNameColumn = "firstNameColumn_example";  // string | First name of the person.**Do not include with `personNameColumn`**.   (optional) 
             var lastNameColumn = "lastNameColumn_example";  // string | Lat name of the person.**Do not include with `personNameColumn`**.  (optional) 
             var middleNameColumn = "middleNameColumn_example";  // string | Middle name of the person.**Do not include within `personNameColumn`**.  (optional) 
@@ -173,7 +174,7 @@ namespace Example
             try
             {
                 // Create a People Concordance Task.
-                PeopleTaskResponse result = apiInstance.GetPeopleTaskForList(universeId, taskName, inputFile, clientIdColumn, entityColumn, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn);
+                PeopleTaskResponse result = apiInstance.GetPeopleTaskForList(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -196,6 +197,7 @@ Name | Type | Description  | Notes
  **inputFile** | **System.IO.Stream****System.IO.Stream**| The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  | 
  **clientIdColumn** | **string**| Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  | 
  **entityColumn** | **string**| Header name of the column in the input file that contains the Entity Name to be matched.  | 
+ **additionalContextColumns** | [**List&lt;string&gt;**](string.md)| Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional] 
  **firstNameColumn** | **string**| First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   | [optional] 
  **lastNameColumn** | **string**| Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional] 
  **middleNameColumn** | **string**| Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  | [optional] 
