@@ -76,7 +76,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
                 "Earnings",
             ],
             regions=[
-                "United States",
+                "North America",
             ],
             topics=[
                 "Market Summaries",
@@ -295,7 +295,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
                 "Earnings",
             ],
             regions=[
-                "United States",
+                "North America",
             ],
             topics=[
                 "Market Summaries",

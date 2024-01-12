@@ -6,6 +6,8 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/Checkstatus.md
+docs/CheckstatusResponse.md
 docs/CreateEditDeleteViewResponse.md
 docs/CreateEditDeleteViewResponseData.md
 docs/CreateEditDeleteViewResponseDataMessage.md
@@ -23,7 +25,13 @@ docs/FlattenedFiltersRegionsObject.md
 docs/FlattenedFiltersSectorsObject.md
 docs/FlattenedFiltersTopicsObject.md
 docs/FlattenedFiltersWatchlistsObject.md
+docs/Getfiles.md
+docs/GetfilesResponse.md
 docs/HeadlinesApi.md
+docs/IsPartialOne.md
+docs/MetaOne.md
+docs/PaginationOne.md
+docs/RequestfilesResponse.md
 docs/SaHeadlinesRequest.md
 docs/SaHeadlinesRequestByView.md
 docs/SaHeadlinesRequestByViewData.md
@@ -37,6 +45,8 @@ docs/SearchResponseArrayObject.md
 docs/SearchResponseData.md
 docs/SearchResponseMeta.md
 docs/SearchResponseMetaPagination.md
+docs/StreetAccountHistoricalStoriesApi.md
+docs/StreetAccountStatus.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategoriesObject.md
 docs/StructuredFiltersChildrenObject.md
@@ -69,6 +79,7 @@ src/main/java/com/factset/sdk/StreetAccountNews/ServerVariable.java
 src/main/java/com/factset/sdk/StreetAccountNews/StringUtil.java
 src/main/java/com/factset/sdk/StreetAccountNews/api/FiltersApi.java
 src/main/java/com/factset/sdk/StreetAccountNews/api/HeadlinesApi.java
+src/main/java/com/factset/sdk/StreetAccountNews/api/StreetAccountHistoricalStoriesApi.java
 src/main/java/com/factset/sdk/StreetAccountNews/api/ViewsApi.java
 src/main/java/com/factset/sdk/StreetAccountNews/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/StreetAccountNews/auth/Authentication.java
@@ -78,6 +89,8 @@ src/main/java/com/factset/sdk/StreetAccountNews/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/StreetAccountNews/auth/OAuth.java
 src/main/java/com/factset/sdk/StreetAccountNews/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/Checkstatus.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/CheckstatusResponse.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/CreateEditDeleteViewResponse.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/CreateEditDeleteViewResponseData.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/CreateEditDeleteViewResponseDataMessage.java
@@ -94,6 +107,12 @@ src/main/java/com/factset/sdk/StreetAccountNews/models/FlattenedFiltersRegionsOb
 src/main/java/com/factset/sdk/StreetAccountNews/models/FlattenedFiltersSectorsObject.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/FlattenedFiltersTopicsObject.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/FlattenedFiltersWatchlistsObject.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/Getfiles.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/GetfilesResponse.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/IsPartialOne.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/MetaOne.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/PaginationOne.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/RequestfilesResponse.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/SaHeadlinesRequest.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/SaHeadlinesRequestByView.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/SaHeadlinesRequestByViewData.java
@@ -107,6 +126,7 @@ src/main/java/com/factset/sdk/StreetAccountNews/models/SearchResponseArrayObject
 src/main/java/com/factset/sdk/StreetAccountNews/models/SearchResponseData.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/SearchResponseMeta.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/SearchResponseMetaPagination.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/StreetAccountStatus.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/StructuredFilters.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/StructuredFiltersCategoriesObject.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/StructuredFiltersChildrenObject.java

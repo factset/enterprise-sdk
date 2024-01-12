@@ -4,6 +4,8 @@ FactSet.SDK.StreetAccountNews.sln
 LICENSE
 README.md
 appveyor.yml
+docs/Checkstatus.md
+docs/CheckstatusResponse.md
 docs/CreateEditDeleteViewResponse.md
 docs/CreateEditDeleteViewResponseData.md
 docs/CreateEditDeleteViewResponseDataMessage.md
@@ -21,7 +23,13 @@ docs/FlattenedFiltersRegionsObject.md
 docs/FlattenedFiltersSectorsObject.md
 docs/FlattenedFiltersTopicsObject.md
 docs/FlattenedFiltersWatchlistsObject.md
+docs/Getfiles.md
+docs/GetfilesResponse.md
 docs/HeadlinesApi.md
+docs/IsPartialOne.md
+docs/MetaOne.md
+docs/PaginationOne.md
+docs/RequestfilesResponse.md
 docs/SaHeadlinesRequest.md
 docs/SaHeadlinesRequestByView.md
 docs/SaHeadlinesRequestByViewData.md
@@ -35,6 +43,8 @@ docs/SearchResponseArrayObject.md
 docs/SearchResponseData.md
 docs/SearchResponseMeta.md
 docs/SearchResponseMetaPagination.md
+docs/StreetAccountHistoricalStoriesApi.md
+docs/StreetAccountStatus.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategoriesObject.md
 docs/StructuredFiltersChildrenObject.md
@@ -48,6 +58,7 @@ docs/ViewsObject.md
 git_push.sh
 src/FactSet.SDK.StreetAccountNews/Api/FiltersApi.cs
 src/FactSet.SDK.StreetAccountNews/Api/HeadlinesApi.cs
+src/FactSet.SDK.StreetAccountNews/Api/StreetAccountHistoricalStoriesApi.cs
 src/FactSet.SDK.StreetAccountNews/Api/ViewsApi.cs
 src/FactSet.SDK.StreetAccountNews/Client/ApiClient.cs
 src/FactSet.SDK.StreetAccountNews/Client/ApiException.cs
@@ -67,6 +78,8 @@ src/FactSet.SDK.StreetAccountNews/Client/RequestOptions.cs
 src/FactSet.SDK.StreetAccountNews/Client/RetryConfiguration.cs
 src/FactSet.SDK.StreetAccountNews/FactSet.SDK.StreetAccountNews.csproj
 src/FactSet.SDK.StreetAccountNews/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.StreetAccountNews/Model/Checkstatus.cs
+src/FactSet.SDK.StreetAccountNews/Model/CheckstatusResponse.cs
 src/FactSet.SDK.StreetAccountNews/Model/CreateEditDeleteViewResponse.cs
 src/FactSet.SDK.StreetAccountNews/Model/CreateEditDeleteViewResponseData.cs
 src/FactSet.SDK.StreetAccountNews/Model/CreateEditDeleteViewResponseDataMessage.cs
@@ -83,6 +96,12 @@ src/FactSet.SDK.StreetAccountNews/Model/FlattenedFiltersRegionsObject.cs
 src/FactSet.SDK.StreetAccountNews/Model/FlattenedFiltersSectorsObject.cs
 src/FactSet.SDK.StreetAccountNews/Model/FlattenedFiltersTopicsObject.cs
 src/FactSet.SDK.StreetAccountNews/Model/FlattenedFiltersWatchlistsObject.cs
+src/FactSet.SDK.StreetAccountNews/Model/Getfiles.cs
+src/FactSet.SDK.StreetAccountNews/Model/GetfilesResponse.cs
+src/FactSet.SDK.StreetAccountNews/Model/IsPartialOne.cs
+src/FactSet.SDK.StreetAccountNews/Model/MetaOne.cs
+src/FactSet.SDK.StreetAccountNews/Model/PaginationOne.cs
+src/FactSet.SDK.StreetAccountNews/Model/RequestfilesResponse.cs
 src/FactSet.SDK.StreetAccountNews/Model/SaHeadlinesRequest.cs
 src/FactSet.SDK.StreetAccountNews/Model/SaHeadlinesRequestByView.cs
 src/FactSet.SDK.StreetAccountNews/Model/SaHeadlinesRequestByViewData.cs
@@ -96,6 +115,7 @@ src/FactSet.SDK.StreetAccountNews/Model/SearchResponseArrayObject.cs
 src/FactSet.SDK.StreetAccountNews/Model/SearchResponseData.cs
 src/FactSet.SDK.StreetAccountNews/Model/SearchResponseMeta.cs
 src/FactSet.SDK.StreetAccountNews/Model/SearchResponseMetaPagination.cs
+src/FactSet.SDK.StreetAccountNews/Model/StreetAccountStatus.cs
 src/FactSet.SDK.StreetAccountNews/Model/StructuredFilters.cs
 src/FactSet.SDK.StreetAccountNews/Model/StructuredFiltersCategoriesObject.cs
 src/FactSet.SDK.StreetAccountNews/Model/StructuredFiltersChildrenObject.cs

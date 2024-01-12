@@ -1,6 +1,6 @@
 /**
- * StreetAccount API
- * Collection of endpoints for retrieving StreetAccount headlines and filters
+ * StreetAccount News API
+ * The StreetAccount News API provides access to FactSet's proprietary news provider, StreetAccount. StreetAccount, is a premium real-time market intelligence news service that delivers comprehensive U.S., Canadian, and European coverage (and expanding Asia coverage). All possible sources for corporate news are scanned and key story facts are highlighted and presented in an easy-to-read format.  **StreetAccount Filters, Headlines, and Views:**  These endpoints allow for the retrieval of news headlines using filters such as Watchlists/Indices/Tickers, Company Filters, Market Topics, Regions, and Sectors.  Headlines can also be retrieved based on saved views within the Workstation.  **StreetAccount Historical Stories:**  These endpoints provide access to historical StreetAccount (SA) news. The API delivers SA stories in XML format based on user-specified date input parameters. Output files are securely available to users through a URL. This API has three endpoints: Request Files, Check Status, and Get Files.  Please note that this API only supports adhoc requests for historical files and does not support real-time files. If real-time push is required, consider using other methods such as SFTP, QNT account, or Azure Storage. Both historical and real-time Street Account news can be delivered via SFTP, QNT account, or Azure Storage.  The files delivered contain both metadata and content body, eliminating the need for multiple requests through multiple services to retrieve all the information.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: api@factset.com
@@ -12,6 +12,8 @@
  */
 
 import ApiClient from './ApiClient';
+import Checkstatus from './model/Checkstatus';
+import CheckstatusResponse from './model/CheckstatusResponse';
 import CreateEditDeleteViewResponse from './model/CreateEditDeleteViewResponse';
 import CreateEditDeleteViewResponseData from './model/CreateEditDeleteViewResponseData';
 import CreateEditDeleteViewResponseDataMessage from './model/CreateEditDeleteViewResponseDataMessage';
@@ -28,6 +30,12 @@ import FlattenedFiltersRegionsObject from './model/FlattenedFiltersRegionsObject
 import FlattenedFiltersSectorsObject from './model/FlattenedFiltersSectorsObject';
 import FlattenedFiltersTopicsObject from './model/FlattenedFiltersTopicsObject';
 import FlattenedFiltersWatchlistsObject from './model/FlattenedFiltersWatchlistsObject';
+import Getfiles from './model/Getfiles';
+import GetfilesResponse from './model/GetfilesResponse';
+import IsPartialOne from './model/IsPartialOne';
+import MetaOne from './model/MetaOne';
+import PaginationOne from './model/PaginationOne';
+import RequestfilesResponse from './model/RequestfilesResponse';
 import SaHeadlinesRequest from './model/SaHeadlinesRequest';
 import SaHeadlinesRequestByView from './model/SaHeadlinesRequestByView';
 import SaHeadlinesRequestByViewData from './model/SaHeadlinesRequestByViewData';
@@ -41,6 +49,7 @@ import SearchResponseArrayObject from './model/SearchResponseArrayObject';
 import SearchResponseData from './model/SearchResponseData';
 import SearchResponseMeta from './model/SearchResponseMeta';
 import SearchResponseMetaPagination from './model/SearchResponseMetaPagination';
+import StreetAccountStatus from './model/StreetAccountStatus';
 import StructuredFilters from './model/StructuredFilters';
 import StructuredFiltersCategoriesObject from './model/StructuredFiltersCategoriesObject';
 import StructuredFiltersChildrenObject from './model/StructuredFiltersChildrenObject';
@@ -53,6 +62,7 @@ import ViewsObject from './model/ViewsObject';
 
 import FiltersApi from './api/FiltersApi';
 import HeadlinesApi from './api/HeadlinesApi';
+import StreetAccountHistoricalStoriesApi from './api/StreetAccountHistoricalStoriesApi';
 import ViewsApi from './api/ViewsApi';
 
 
@@ -92,6 +102,18 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The Checkstatus model constructor.
+     * @property {module:model/Checkstatus}
+     */
+    Checkstatus,
+
+    /**
+     * The CheckstatusResponse model constructor.
+     * @property {module:model/CheckstatusResponse}
+     */
+    CheckstatusResponse,
 
     /**
      * The CreateEditDeleteViewResponse model constructor.
@@ -190,6 +212,42 @@ export {
     FlattenedFiltersWatchlistsObject,
 
     /**
+     * The Getfiles model constructor.
+     * @property {module:model/Getfiles}
+     */
+    Getfiles,
+
+    /**
+     * The GetfilesResponse model constructor.
+     * @property {module:model/GetfilesResponse}
+     */
+    GetfilesResponse,
+
+    /**
+     * The IsPartialOne model constructor.
+     * @property {module:model/IsPartialOne}
+     */
+    IsPartialOne,
+
+    /**
+     * The MetaOne model constructor.
+     * @property {module:model/MetaOne}
+     */
+    MetaOne,
+
+    /**
+     * The PaginationOne model constructor.
+     * @property {module:model/PaginationOne}
+     */
+    PaginationOne,
+
+    /**
+     * The RequestfilesResponse model constructor.
+     * @property {module:model/RequestfilesResponse}
+     */
+    RequestfilesResponse,
+
+    /**
      * The SaHeadlinesRequest model constructor.
      * @property {module:model/SaHeadlinesRequest}
      */
@@ -268,6 +326,12 @@ export {
     SearchResponseMetaPagination,
 
     /**
+     * The StreetAccountStatus model constructor.
+     * @property {module:model/StreetAccountStatus}
+     */
+    StreetAccountStatus,
+
+    /**
      * The StructuredFilters model constructor.
      * @property {module:model/StructuredFilters}
      */
@@ -332,6 +396,12 @@ export {
     * @property {module:api/HeadlinesApi}
     */
     HeadlinesApi,
+
+    /**
+    * The StreetAccountHistoricalStoriesApi service constructor.
+    * @property {module:api/StreetAccountHistoricalStoriesApi}
+    */
+    StreetAccountHistoricalStoriesApi,
 
     /**
     * The ViewsApi service constructor.

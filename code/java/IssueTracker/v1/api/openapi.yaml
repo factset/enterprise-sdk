@@ -1,0 +1,387 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: This API is used to file issues
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Issue Tracker API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/issue-tracker-api
+servers:
+- url: https://api.factset.com/issue-tracker/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Updating and retrieving issue data within the Issue Tracker
+  name: Issue
+paths:
+  /issues:
+    post:
+      description: Creates a new issue in Issue Tracker
+      operationId: postIssue
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example 1:
+                value:
+                  data:
+                    subject: This is sample subject of issue tracker issue
+                    description: <p>Here we can provide a complete description of
+                      why we are creating issue.</p>
+                    productId: "13273"
+                    categoryId: "20589"
+            schema:
+              $ref: '#/components/schemas/issueRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                      id: 28d38193-3454-4e45-9825-71br87e69fe3
+              schema:
+                $ref: '#/components/schemas/idResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      summary: Creates a Issue Tracker issue
+      tags:
+      - Issue
+      x-contentType: application/json
+      x-accepts: application/json
+  /issues/{id}:
+    get:
+      description: Retrieve the information of the client with the matching issue
+        Id.
+      operationId: getIssue
+      parameters:
+      - description: '  ID of Issue Tracker issue'
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                      id: 28d38193-3454-4e45-9825-71br87e69fe3
+                      subject: This is sample subject of issue tracker issue
+                      comments:
+                      - id: 39d38193-2829-4e45-9825-61br87e59fe1
+                        content: Here we can provide a complete description of why
+                          we are creating the issue.
+                        createdAt: 2023-09-13T11:09:01.7274055Z
+                        author: Sreenu Narra
+              schema:
+                $ref: '#/components/schemas/issue'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      summary: Get the matched issue details
+      tags:
+      - Issue
+      x-accepts: application/json
+  /issues/{id}/comments:
+    post:
+      description: 'Reply to the existing matched issue '
+      operationId: postReply
+      parameters:
+      - description: ID of Issue Tracker issue
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example 1:
+                value:
+                  data:
+                    content: <p>this is a sample comment</p>
+            schema:
+              $ref: '#/components/schemas/commentRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                      id: 28d38693-3454-4e45-9825-71br87e69fe3
+              schema:
+                $ref: '#/components/schemas/idResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      summary: post comment to Issue Tracker issue
+      tags:
+      - Issue
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  parameters: {}
+  requestBodies: {}
+  schemas:
+    commentRequest:
+      properties:
+        data:
+          $ref: '#/components/schemas/commentRequest_data'
+      type: object
+      x-examples: {}
+    issue:
+      example:
+        data:
+          comments:
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            author: author
+            id: id
+            content: content
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            author: author
+            id: id
+            content: content
+          subject: subject
+          id: id
+      properties:
+        data:
+          $ref: '#/components/schemas/issue_data'
+      type: object
+      x-examples:
+        Example 1:
+          data:
+            id: string
+            subject: string
+            status: 0
+            comments:
+            - id: string
+              content: string
+              createdAt: string
+              author: string
+              read: true
+              isAuthorFactSetEmployee: true
+            factSetProducts:
+            - string
+            answeredProductQuestions:
+              productId: string
+              question: string
+              questionId: 0
+              answers:
+              - string
+              originalAnswers:
+              - string
+            ccClients:
+            - name: string
+              emailAddress: string
+              searchDisplay: string
+              serialNumber: string
+              factSetId: string
+              clientGroupEmailId: string
+    issueRequest:
+      properties:
+        data:
+          $ref: '#/components/schemas/issueRequest_data'
+      type: object
+      x-examples: {}
+    comment:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        author: author
+        id: id
+        content: content
+      properties:
+        id:
+          description: generated comment id
+          type: string
+        content:
+          description: cotent of comment
+          type: string
+        createdAt:
+          description: comment creation time
+          format: date-time
+          type: string
+        author:
+          description: author of the comment.
+          type: string
+      type: object
+      x-examples:
+        Example 1:
+          id: 39d38193-2829-4e45-9825-61br87e59fe1
+          content: Here we can provide a complete description of why we are creating
+            the issue.
+          createdAt: 2023-09-13T11:09:01.7274055Z
+          author: Sreenu Narra
+    idResponse:
+      example:
+        data:
+          id: id
+      properties:
+        data:
+          $ref: '#/components/schemas/idResponse_data'
+      type: object
+      x-examples:
+        Example 1:
+          data:
+            id: 28d38693-3454-4e45-9825-71br87e69fe3
+      x-stoplight:
+        id: 640bbb6a27cde
+    errorResponse:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/error'
+          type: array
+      type: object
+      x-examples: {}
+      x-stoplight:
+        id: 64ebd7841d11a
+    error:
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+      type: object
+      x-examples:
+        Example 1:
+          id: Error ID
+          title: Error title
+          code: Error code
+    commentRequest_data:
+      properties:
+        content:
+          description: description for comment
+          type: string
+      type: object
+    issue_data:
+      example:
+        comments:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          author: author
+          id: id
+          content: content
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          author: author
+          id: id
+          content: content
+        subject: subject
+        id: id
+      properties:
+        id:
+          description: generated issue id for Issue Tracker
+          type: string
+        subject:
+          description: subject of Issue Tracker issue
+          type: string
+        comments:
+          description: array of comments added to issue
+          items:
+            $ref: '#/components/schemas/comment'
+          type: array
+      type: object
+    issueRequest_data:
+      properties:
+        subject:
+          description: subject for new Issue Tracker issue
+          type: string
+        description:
+          description: Comprehensive description of the issue, including any problems
+            you've observed or any specific changes you'd like to request.
+          type: string
+        productId:
+          description: 'Issue Tracker product '
+          type: string
+        categoryId:
+          description: 'category of Factset Product. '
+          type: string
+      required:
+      - description
+      - productId
+      - subject
+      type: object
+    idResponse_data:
+      example:
+        id: id
+      properties:
+        id:
+          description: The generated ID for either an issue or a comment varies depending
+            on the endpoint. Specifically, for the Issues endpoint, it will return
+            'issueid,' and for the comments endpoint, it will return 'commentid.'
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

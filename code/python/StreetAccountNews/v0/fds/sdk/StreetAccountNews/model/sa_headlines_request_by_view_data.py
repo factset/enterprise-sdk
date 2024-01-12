@@ -1,7 +1,7 @@
 """
-    StreetAccount API
+    StreetAccount News API
 
-    Collection of endpoints for retrieving StreetAccount headlines and filters  # noqa: E501
+    The StreetAccount News API provides access to FactSet's proprietary news provider, StreetAccount. StreetAccount, is a premium real-time market intelligence news service that delivers comprehensive U.S., Canadian, and European coverage (and expanding Asia coverage). All possible sources for corporate news are scanned and key story facts are highlighted and presented in an easy-to-read format.  **StreetAccount Filters, Headlines, and Views:**  These endpoints allow for the retrieval of news headlines using filters such as Watchlists/Indices/Tickers, Company Filters, Market Topics, Regions, and Sectors.  Headlines can also be retrieved based on saved views within the Workstation.  **StreetAccount Historical Stories:**  These endpoints provide access to historical StreetAccount (SA) news. The API delivers SA stories in XML format based on user-specified date input parameters. Output files are securely available to users through a URL. This API has three endpoints: Request Files, Check Status, and Get Files.  Please note that this API only supports adhoc requests for historical files and does not support real-time files. If real-time push is required, consider using other methods such as SFTP, QNT account, or Azure Storage. Both historical and real-time Street Account news can be delivered via SFTP, QNT account, or Azure Storage.  The files delivered contain both metadata and content body, eliminating the need for multiple requests through multiple services to retrieve all the information.  # noqa: E501
 
     The version of the OpenAPI document: 0.1.0
     Contact: api@factset.com
@@ -60,19 +60,6 @@ class SaHeadlinesRequestByViewData(ModelNormal):
     """
 
     allowed_values = {
-        ('date_range',): {
-            'TODAY': "Today",
-            '2_DAYS': "2 Days",
-            '1_WEEK': "1 Week",
-            '1_MONTH': "1 Month",
-            '3_MONTHS': "3 Months",
-            '6_MONTHS': "6 Months",
-            '1_YEAR': "1 Year",
-            '3_YEARS': "3 Years",
-            '5_YEARS': "5 Years",
-            '10_YEARS': "10 Years",
-            'ALL_AVAILABLE': "All Available",
-        },
     }
 
     validations = {
@@ -101,7 +88,6 @@ class SaHeadlinesRequestByViewData(ModelNormal):
         """
         lazy_import()
         return {
-            'date_range': (str,),  # noqa: E501
             'search_date': (SaHeadlinesRequestDataSearchDate,),  # noqa: E501
         }
 
@@ -111,7 +97,6 @@ class SaHeadlinesRequestByViewData(ModelNormal):
 
 
     attribute_map = {
-        'date_range': 'dateRange',  # noqa: E501
         'search_date': 'searchDate',  # noqa: E501
     }
 
@@ -156,7 +141,6 @@ class SaHeadlinesRequestByViewData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            date_range (str): see list of valid date ranges. Date range is mutually exlusive to start/end time. [optional]  # noqa: E501
             search_date (SaHeadlinesRequestDataSearchDate): [optional]  # noqa: E501
         """
 
@@ -239,7 +223,6 @@ class SaHeadlinesRequestByViewData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            date_range (str): see list of valid date ranges. Date range is mutually exlusive to start/end time. [optional]  # noqa: E501
             search_date (SaHeadlinesRequestDataSearchDate): [optional]  # noqa: E501
         """
 

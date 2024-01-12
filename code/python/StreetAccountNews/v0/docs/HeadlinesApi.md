@@ -72,7 +72,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
                 "Earnings",
             ],
             regions=[
-                "United States",
+                "North America",
             ],
             topics=[
                 "Market Summaries",
@@ -81,7 +81,6 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
                 "Gold & Silver",
             ],
             is_primary=True,
-            date_range="Today",
             search_date=SaHeadlinesRequestDataSearchDate(
                 start="2022-08-21T12:35:45Z",
                 end="2022-08-29T08:10:30Z",
@@ -193,7 +192,6 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sa_headlines_request_by_view = SaHeadlinesRequestByView(
         data=SaHeadlinesRequestByViewData(
-            date_range="Today",
             search_date=SaHeadlinesRequestDataSearchDate(
                 start="2022-08-21T12:35:45Z",
                 end="2022-08-29T08:10:30Z",

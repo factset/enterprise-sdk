@@ -1,7 +1,7 @@
 /*
- * StreetAccount API
+ * StreetAccount News API
  *
- * Collection of endpoints for retrieving StreetAccount headlines and filters
+ * The StreetAccount News API provides access to FactSet's proprietary news provider, StreetAccount. StreetAccount, is a premium real-time market intelligence news service that delivers comprehensive U.S., Canadian, and European coverage (and expanding Asia coverage). All possible sources for corporate news are scanned and key story facts are highlighted and presented in an easy-to-read format.  **StreetAccount Filters, Headlines, and Views:**  These endpoints allow for the retrieval of news headlines using filters such as Watchlists/Indices/Tickers, Company Filters, Market Topics, Regions, and Sectors.  Headlines can also be retrieved based on saved views within the Workstation.  **StreetAccount Historical Stories:**  These endpoints provide access to historical StreetAccount (SA) news. The API delivers SA stories in XML format based on user-specified date input parameters. Output files are securely available to users through a URL. This API has three endpoints: Request Files, Check Status, and Get Files.  Please note that this API only supports adhoc requests for historical files and does not support real-time files. If real-time push is required, consider using other methods such as SFTP, QNT account, or Azure Storage. Both historical and real-time Street Account news can be delivered via SFTP, QNT account, or Azure Storage.  The files delivered contain both metadata and content body, eliminating the need for multiple requests through multiple services to retrieve all the information.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: api@factset.com
@@ -33,88 +33,6 @@ namespace FactSet.SDK.StreetAccountNews.Model
     public partial class SaHeadlinesRequestData : IEquatable<SaHeadlinesRequestData>, IValidatableObject
     {
         /// <summary>
-        /// see list of valid date ranges. Date range is mutually exlusive to start/end time
-        /// </summary>
-        /// <value>see list of valid date ranges. Date range is mutually exlusive to start/end time</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DateRangeEnum
-        {
-            /// <summary>
-            /// Enum Today for value: Today
-            /// </summary>
-            [EnumMember(Value = "Today")]
-            Today = 1,
-
-            /// <summary>
-            /// Enum _2Days for value: 2 Days
-            /// </summary>
-            [EnumMember(Value = "2 Days")]
-            _2Days = 2,
-
-            /// <summary>
-            /// Enum _1Week for value: 1 Week
-            /// </summary>
-            [EnumMember(Value = "1 Week")]
-            _1Week = 3,
-
-            /// <summary>
-            /// Enum _1Month for value: 1 Month
-            /// </summary>
-            [EnumMember(Value = "1 Month")]
-            _1Month = 4,
-
-            /// <summary>
-            /// Enum _3Months for value: 3 Months
-            /// </summary>
-            [EnumMember(Value = "3 Months")]
-            _3Months = 5,
-
-            /// <summary>
-            /// Enum _6Months for value: 6 Months
-            /// </summary>
-            [EnumMember(Value = "6 Months")]
-            _6Months = 6,
-
-            /// <summary>
-            /// Enum _1Year for value: 1 Year
-            /// </summary>
-            [EnumMember(Value = "1 Year")]
-            _1Year = 7,
-
-            /// <summary>
-            /// Enum _3Years for value: 3 Years
-            /// </summary>
-            [EnumMember(Value = "3 Years")]
-            _3Years = 8,
-
-            /// <summary>
-            /// Enum _5Years for value: 5 Years
-            /// </summary>
-            [EnumMember(Value = "5 Years")]
-            _5Years = 9,
-
-            /// <summary>
-            /// Enum _10Years for value: 10 Years
-            /// </summary>
-            [EnumMember(Value = "10 Years")]
-            _10Years = 10,
-
-            /// <summary>
-            /// Enum AllAvailable for value: All Available
-            /// </summary>
-            [EnumMember(Value = "All Available")]
-            AllAvailable = 11
-
-        }
-
-
-        /// <summary>
-        /// see list of valid date ranges. Date range is mutually exlusive to start/end time
-        /// </summary>
-        /// <value>see list of valid date ranges. Date range is mutually exlusive to start/end time</value>
-        [DataMember(Name = "dateRange", EmitDefaultValue = false)]
-        public DateRangeEnum? DateRange { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="SaHeadlinesRequestData" /> class.
         /// </summary>
         /// <param name="tickers">tickers.</param>
@@ -123,9 +41,8 @@ namespace FactSet.SDK.StreetAccountNews.Model
         /// <param name="topics">topics.</param>
         /// <param name="sectors">sectors.</param>
         /// <param name="isPrimary">isPrimary.</param>
-        /// <param name="dateRange">see list of valid date ranges. Date range is mutually exlusive to start/end time.</param>
         /// <param name="searchDate">searchDate.</param>
-        public SaHeadlinesRequestData(List<SaHeadlinesRequestTickersObject> tickers = default(List<SaHeadlinesRequestTickersObject>), List<string> categories = default(List<string>), List<string> regions = default(List<string>), List<string> topics = default(List<string>), List<string> sectors = default(List<string>), bool isPrimary = default(bool), DateRangeEnum? dateRange = default(DateRangeEnum?), SaHeadlinesRequestDataSearchDate searchDate = default(SaHeadlinesRequestDataSearchDate))
+        public SaHeadlinesRequestData(List<SaHeadlinesRequestTickersObject> tickers = default(List<SaHeadlinesRequestTickersObject>), List<string> categories = default(List<string>), List<string> regions = default(List<string>), List<string> topics = default(List<string>), List<string> sectors = default(List<string>), bool isPrimary = default(bool), SaHeadlinesRequestDataSearchDate searchDate = default(SaHeadlinesRequestDataSearchDate))
         {
             this.Tickers = tickers;
             this.Categories = categories;
@@ -133,7 +50,6 @@ namespace FactSet.SDK.StreetAccountNews.Model
             this.Topics = topics;
             this.Sectors = sectors;
             this.IsPrimary = isPrimary;
-            this.DateRange = dateRange;
             this.SearchDate = searchDate;
         }
 
@@ -193,7 +109,6 @@ namespace FactSet.SDK.StreetAccountNews.Model
             sb.Append("  Topics: ").Append(Topics).Append("\n");
             sb.Append("  Sectors: ").Append(Sectors).Append("\n");
             sb.Append("  IsPrimary: ").Append(IsPrimary).Append("\n");
-            sb.Append("  DateRange: ").Append(DateRange).Append("\n");
             sb.Append("  SearchDate: ").Append(SearchDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -265,10 +180,6 @@ namespace FactSet.SDK.StreetAccountNews.Model
                     this.IsPrimary.Equals(input.IsPrimary)
                 ) && 
                 (
-                    this.DateRange == input.DateRange ||
-                    this.DateRange.Equals(input.DateRange)
-                ) && 
-                (
                     this.SearchDate == input.SearchDate ||
                     (this.SearchDate != null &&
                     this.SearchDate.Equals(input.SearchDate))
@@ -305,7 +216,6 @@ namespace FactSet.SDK.StreetAccountNews.Model
                     hashCode = (hashCode * 59) + this.Sectors.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsPrimary.GetHashCode();
-                hashCode = (hashCode * 59) + this.DateRange.GetHashCode();
                 if (this.SearchDate != null)
                 {
                     hashCode = (hashCode * 59) + this.SearchDate.GetHashCode();

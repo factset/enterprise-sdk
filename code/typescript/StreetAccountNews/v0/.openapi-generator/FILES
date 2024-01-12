@@ -4,6 +4,8 @@
 .travis.yml
 LICENSE
 README.md
+docs/Checkstatus.md
+docs/CheckstatusResponse.md
 docs/CreateEditDeleteViewResponse.md
 docs/CreateEditDeleteViewResponseData.md
 docs/CreateEditDeleteViewResponseDataMessage.md
@@ -21,7 +23,13 @@ docs/FlattenedFiltersRegionsObject.md
 docs/FlattenedFiltersSectorsObject.md
 docs/FlattenedFiltersTopicsObject.md
 docs/FlattenedFiltersWatchlistsObject.md
+docs/Getfiles.md
+docs/GetfilesResponse.md
 docs/HeadlinesApi.md
+docs/IsPartialOne.md
+docs/MetaOne.md
+docs/PaginationOne.md
+docs/RequestfilesResponse.md
 docs/SaHeadlinesRequest.md
 docs/SaHeadlinesRequestByView.md
 docs/SaHeadlinesRequestByViewData.md
@@ -35,6 +43,8 @@ docs/SearchResponseArrayObject.md
 docs/SearchResponseData.md
 docs/SearchResponseMeta.md
 docs/SearchResponseMetaPagination.md
+docs/StreetAccountHistoricalStoriesApi.md
+docs/StreetAccountStatus.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategoriesObject.md
 docs/StructuredFiltersChildrenObject.md
@@ -51,8 +61,11 @@ package.json
 src/ApiClient.js
 src/api/FiltersApi.js
 src/api/HeadlinesApi.js
+src/api/StreetAccountHistoricalStoriesApi.js
 src/api/ViewsApi.js
 src/index.js
+src/model/Checkstatus.js
+src/model/CheckstatusResponse.js
 src/model/CreateEditDeleteViewResponse.js
 src/model/CreateEditDeleteViewResponseData.js
 src/model/CreateEditDeleteViewResponseDataMessage.js
@@ -69,6 +82,12 @@ src/model/FlattenedFiltersRegionsObject.js
 src/model/FlattenedFiltersSectorsObject.js
 src/model/FlattenedFiltersTopicsObject.js
 src/model/FlattenedFiltersWatchlistsObject.js
+src/model/Getfiles.js
+src/model/GetfilesResponse.js
+src/model/IsPartialOne.js
+src/model/MetaOne.js
+src/model/PaginationOne.js
+src/model/RequestfilesResponse.js
 src/model/SaHeadlinesRequest.js
 src/model/SaHeadlinesRequestByView.js
 src/model/SaHeadlinesRequestByViewData.js
@@ -82,6 +101,7 @@ src/model/SearchResponseArrayObject.js
 src/model/SearchResponseData.js
 src/model/SearchResponseMeta.js
 src/model/SearchResponseMetaPagination.js
+src/model/StreetAccountStatus.js
 src/model/StructuredFilters.js
 src/model/StructuredFiltersCategoriesObject.js
 src/model/StructuredFiltersChildrenObject.js

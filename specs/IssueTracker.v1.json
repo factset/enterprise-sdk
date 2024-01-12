@@ -1,0 +1,509 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Issue Tracker API",
+    "version": "1.0.0",
+    "description": "This API is used to file issues",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "email": "api@factset.com",
+      "url": "https://developer.factset.com/contact"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com/issue-tracker/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Issue",
+      "description": "Updating and retrieving issue data within the Issue Tracker"
+    }
+  ],
+  "paths": {
+    "/issues": {
+      "post": {
+        "summary": "Creates a Issue Tracker issue",
+        "tags": [
+          "Issue"
+        ],
+        "operationId": "postIssue",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/idResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "data": {
+                        "id": "28d38193-3454-4e45-9825-71br87e69fe3"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Creates a new issue in Issue Tracker",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/issueRequest"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "subject": "This is sample subject of issue tracker issue",
+                      "description": "<p>Here we can provide a complete description of why we are creating issue.</p>",
+                      "productId": "13273",
+                      "categoryId": "20589"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/issues/{id}": {
+      "get": {
+        "summary": "Get the matched issue details",
+        "tags": [
+          "Issue"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "  ID of Issue Tracker issue"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/issue"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "data": {
+                        "id": "28d38193-3454-4e45-9825-71br87e69fe3",
+                        "subject": "This is sample subject of issue tracker issue",
+                        "comments": [
+                          {
+                            "id": "39d38193-2829-4e45-9825-61br87e59fe1",
+                            "content": "Here we can provide a complete description of why we are creating the issue.",
+                            "createdAt": "2023-09-13T11:09:01.7274055Z",
+                            "author": "Sreenu Narra"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "getIssue",
+        "description": "Retrieve the information of the client with the matching issue Id."
+      }
+    },
+    "/issues/{id}/comments": {
+      "post": {
+        "summary": "post comment to Issue Tracker issue",
+        "tags": [
+          "Issue"
+        ],
+        "operationId": "postReply",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of Issue Tracker issue"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/idResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "data": {
+                        "id": "28d38693-3454-4e45-9825-71br87e69fe3"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Reply to the existing matched issue ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/commentRequest"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "content": "<p>this is a sample comment</p>"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "components": {
+    "schemas": {
+      "commentRequest": {
+        "type": "object",
+        "x-examples": {},
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string",
+                "description": "description for comment"
+              }
+            }
+          }
+        }
+      },
+      "issue": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "data": {
+              "id": "string",
+              "subject": "string",
+              "status": 0,
+              "comments": [
+                {
+                  "id": "string",
+                  "content": "string",
+                  "createdAt": "string",
+                  "author": "string",
+                  "read": true,
+                  "isAuthorFactSetEmployee": true
+                }
+              ],
+              "factSetProducts": [
+                "string"
+              ],
+              "answeredProductQuestions": {
+                "productId": "string",
+                "question": "string",
+                "questionId": 0,
+                "answers": [
+                  "string"
+                ],
+                "originalAnswers": [
+                  "string"
+                ]
+              },
+              "ccClients": [
+                {
+                  "name": "string",
+                  "emailAddress": "string",
+                  "searchDisplay": "string",
+                  "serialNumber": "string",
+                  "factSetId": "string",
+                  "clientGroupEmailId": "string"
+                }
+              ]
+            }
+          }
+        },
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "generated issue id for Issue Tracker"
+              },
+              "subject": {
+                "type": "string",
+                "description": "subject of Issue Tracker issue"
+              },
+              "comments": {
+                "type": "array",
+                "description": "array of comments added to issue",
+                "items": {
+                  "$ref": "#/components/schemas/comment"
+                }
+              }
+            }
+          }
+        }
+      },
+      "issueRequest": {
+        "type": "object",
+        "x-examples": {},
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "subject": {
+                "type": "string",
+                "description": "subject for new Issue Tracker issue"
+              },
+              "description": {
+                "type": "string",
+                "description": "Comprehensive description of the issue, including any problems you've observed or any specific changes you'd like to request."
+              },
+              "productId": {
+                "type": "string",
+                "description": "Issue Tracker product "
+              },
+              "categoryId": {
+                "type": "string",
+                "description": "category of Factset Product. "
+              }
+            },
+            "required": [
+              "subject",
+              "description",
+              "productId"
+            ]
+          }
+        }
+      },
+      "comment": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "id": "39d38193-2829-4e45-9825-61br87e59fe1",
+            "content": "Here we can provide a complete description of why we are creating the issue.",
+            "createdAt": "2023-09-13T11:09:01.7274055Z",
+            "author": "Sreenu Narra"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "generated comment id"
+          },
+          "content": {
+            "type": "string",
+            "description": "cotent of comment"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "comment creation time",
+            "format": "date-time"
+          },
+          "author": {
+            "type": "string",
+            "description": "author of the comment."
+          }
+        }
+      },
+      "idResponse": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "data": {
+              "id": "28d38693-3454-4e45-9825-71br87e69fe3"
+            }
+          }
+        },
+        "x-stoplight": {
+          "id": "640bbb6a27cde"
+        },
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The generated ID for either an issue or a comment varies depending on the endpoint. Specifically, for the Issues endpoint, it will return 'issueid,' and for the comments endpoint, it will return 'commentid.'"
+              }
+            }
+          }
+        }
+      },
+      "errorResponse": {
+        "type": "object",
+        "x-examples": {},
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        },
+        "x-stoplight": {
+          "id": "64ebd7841d11a"
+        }
+      },
+      "error": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "id": "Error ID",
+            "title": "Error title",
+            "code": "Error code"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "requestBodies": {},
+    "parameters": {}
+  },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/issue-tracker-api"
+  }
+}

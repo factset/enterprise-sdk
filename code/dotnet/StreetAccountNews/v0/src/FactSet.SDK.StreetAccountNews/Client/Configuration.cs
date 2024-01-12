@@ -1,7 +1,7 @@
 /*
- * StreetAccount API
+ * StreetAccount News API
  *
- * Collection of endpoints for retrieving StreetAccount headlines and filters
+ * The StreetAccount News API provides access to FactSet's proprietary news provider, StreetAccount. StreetAccount, is a premium real-time market intelligence news service that delivers comprehensive U.S., Canadian, and European coverage (and expanding Asia coverage). All possible sources for corporate news are scanned and key story facts are highlighted and presented in an easy-to-read format.  **StreetAccount Filters, Headlines, and Views:**  These endpoints allow for the retrieval of news headlines using filters such as Watchlists/Indices/Tickers, Company Filters, Market Topics, Regions, and Sectors.  Headlines can also be retrieved based on saved views within the Workstation.  **StreetAccount Historical Stories:**  These endpoints provide access to historical StreetAccount (SA) news. The API delivers SA stories in XML format based on user-specified date input parameters. Output files are securely available to users through a URL. This API has three endpoints: Request Files, Check Status, and Get Files.  Please note that this API only supports adhoc requests for historical files and does not support real-time files. If real-time push is required, consider using other methods such as SFTP, QNT account, or Azure Storage. Both historical and real-time Street Account news can be delivered via SFTP, QNT account, or Azure Storage.  The files delivered contain both metadata and content body, eliminating the need for multiple requests through multiple services to retrieve all the information.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: api@factset.com
@@ -33,7 +33,7 @@ namespace FactSet.SDK.StreetAccountNews.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.20.1";
+        public const string Version = "0.20.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.StreetAccountNews.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/StreetAccountNews/0.20.1";
+            UserAgent = "fds-sdk/dotnet/StreetAccountNews/0.20.2";
             BasePath = "https://api.factset.com/research/news/v0";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.StreetAccountNews.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 0.1.0\n";
-            report += "    SDK Package Version: 0.20.1\n";
+            report += "    SDK Package Version: 0.20.2\n";
 
             return report;
         }
