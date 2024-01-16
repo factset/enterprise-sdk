@@ -18,7 +18,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.IDLookup.models.LookupCount;
-import com.factset.sdk.IDLookup.models.ResponseDetails;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,139 +35,41 @@ import com.factset.sdk.IDLookup.JSON;
  */
 @ApiModel(description = "Response object for a lookup request")
 @JsonPropertyOrder({
-  LookupResponse.JSON_PROPERTY_TYPEHEAD,
-  LookupResponse.JSON_PROPERTY_ERROR,
-  LookupResponse.JSON_PROPERTY_IS_SUCCESS,
-  LookupResponse.JSON_PROPERTY_RESULTS
+  LookupResponse.JSON_PROPERTY_TYPEAHEAD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LookupResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_TYPEHEAD = "typehead";
-  private LookupCount typehead;
-
-  public static final String JSON_PROPERTY_ERROR = "error";
-  private String error;
-
-  public static final String JSON_PROPERTY_IS_SUCCESS = "is_success";
-  private Integer isSuccess;
-
-  public static final String JSON_PROPERTY_RESULTS = "results";
-  private java.util.List<ResponseDetails> results = null;
+  public static final String JSON_PROPERTY_TYPEAHEAD = "typeahead";
+  private LookupCount typeahead;
 
   public LookupResponse() { 
   }
 
-  public LookupResponse typehead(LookupCount typehead) {
-    this.typehead = typehead;
+  public LookupResponse typeahead(LookupCount typeahead) {
+    this.typeahead = typeahead;
     return this;
   }
 
    /**
-   * Get typehead
-   * @return typehead
+   * Get typeahead
+   * @return typeahead
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPEHEAD)
+  @JsonProperty(JSON_PROPERTY_TYPEAHEAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LookupCount getTypehead() {
-    return typehead;
+  public LookupCount getTypeahead() {
+    return typeahead;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPEHEAD)
+  @JsonProperty(JSON_PROPERTY_TYPEAHEAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTypehead(LookupCount typehead) {
-    this.typehead = typehead;
-  }
-
-
-  public LookupResponse error(String error) {
-    this.error = error;
-    return this;
-  }
-
-   /**
-   * Get error
-   * @return error
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getError() {
-    return error;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setError(String error) {
-    this.error = error;
-  }
-
-
-  public LookupResponse isSuccess(Integer isSuccess) {
-    this.isSuccess = isSuccess;
-    return this;
-  }
-
-   /**
-   * Get isSuccess
-   * @return isSuccess
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "")
-  @JsonProperty(JSON_PROPERTY_IS_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getIsSuccess() {
-    return isSuccess;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsSuccess(Integer isSuccess) {
-    this.isSuccess = isSuccess;
-  }
-
-
-  public LookupResponse results(java.util.List<ResponseDetails> results) {
-    this.results = results;
-    return this;
-  }
-
-  public LookupResponse addResultsItem(ResponseDetails resultsItem) {
-    if (this.results == null) {
-      this.results = new java.util.ArrayList<>();
-    }
-    this.results.add(resultsItem);
-    return this;
-  }
-
-   /**
-   * Array of Lookup details for the query
-   * @return results
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of Lookup details for the query")
-  @JsonProperty(JSON_PROPERTY_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public java.util.List<ResponseDetails> getResults() {
-    return results;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResults(java.util.List<ResponseDetails> results) {
-    this.results = results;
+  public void setTypeahead(LookupCount typeahead) {
+    this.typeahead = typeahead;
   }
 
 
@@ -184,25 +85,19 @@ public class LookupResponse implements Serializable {
       return false;
     }
     LookupResponse lookupResponse = (LookupResponse) o;
-    return Objects.equals(this.typehead, lookupResponse.typehead) &&
-        Objects.equals(this.error, lookupResponse.error) &&
-        Objects.equals(this.isSuccess, lookupResponse.isSuccess) &&
-        Objects.equals(this.results, lookupResponse.results);
+    return Objects.equals(this.typeahead, lookupResponse.typeahead);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(typehead, error, isSuccess, results);
+    return Objects.hash(typeahead);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LookupResponse {\n");
-    sb.append("    typehead: ").append(toIndentedString(typehead)).append("\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    isSuccess: ").append(toIndentedString(isSuccess)).append("\n");
-    sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    typeahead: ").append(toIndentedString(typeahead)).append("\n");
     sb.append("}");
     return sb.toString();
   }

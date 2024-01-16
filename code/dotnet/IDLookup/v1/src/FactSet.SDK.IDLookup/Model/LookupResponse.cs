@@ -34,42 +34,17 @@ namespace FactSet.SDK.IDLookup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LookupResponse" /> class.
         /// </summary>
-        /// <param name="typehead">typehead.</param>
-        /// <param name="error">error.</param>
-        /// <param name="isSuccess">isSuccess.</param>
-        /// <param name="results">Array of Lookup details for the query.</param>
-        public LookupResponse(LookupCount typehead = default(LookupCount), string error = default(string), int isSuccess = default(int), List<ResponseDetails> results = default(List<ResponseDetails>))
+        /// <param name="typeahead">typeahead.</param>
+        public LookupResponse(LookupCount typeahead = default(LookupCount))
         {
-            this.Typehead = typehead;
-            this.Error = error;
-            this.IsSuccess = isSuccess;
-            this.Results = results;
+            this.Typeahead = typeahead;
         }
 
         /// <summary>
-        /// Gets or Sets Typehead
+        /// Gets or Sets Typeahead
         /// </summary>
-        [DataMember(Name = "typehead", EmitDefaultValue = false)]
-        public LookupCount Typehead { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Error
-        /// </summary>
-        [DataMember(Name = "error", EmitDefaultValue = false)]
-        public string Error { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsSuccess
-        /// </summary>
-        [DataMember(Name = "is_success", EmitDefaultValue = false)]
-        public int IsSuccess { get; set; }
-
-        /// <summary>
-        /// Array of Lookup details for the query
-        /// </summary>
-        /// <value>Array of Lookup details for the query</value>
-        [DataMember(Name = "results", EmitDefaultValue = false)]
-        public List<ResponseDetails> Results { get; set; }
+        [DataMember(Name = "typeahead", EmitDefaultValue = false)]
+        public LookupCount Typeahead { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,10 +54,7 @@ namespace FactSet.SDK.IDLookup.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class LookupResponse {\n");
-            sb.Append("  Typehead: ").Append(Typehead).Append("\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  IsSuccess: ").Append(IsSuccess).Append("\n");
-            sb.Append("  Results: ").Append(Results).Append("\n");
+            sb.Append("  Typeahead: ").Append(Typeahead).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,24 +91,9 @@ namespace FactSet.SDK.IDLookup.Model
             }
             return 
                 (
-                    this.Typehead == input.Typehead ||
-                    (this.Typehead != null &&
-                    this.Typehead.Equals(input.Typehead))
-                ) && 
-                (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
-                ) && 
-                (
-                    this.IsSuccess == input.IsSuccess ||
-                    this.IsSuccess.Equals(input.IsSuccess)
-                ) && 
-                (
-                    this.Results == input.Results ||
-                    this.Results != null &&
-                    input.Results != null &&
-                    this.Results.SequenceEqual(input.Results)
+                    this.Typeahead == input.Typeahead ||
+                    (this.Typeahead != null &&
+                    this.Typeahead.Equals(input.Typeahead))
                 );
         }
 
@@ -149,18 +106,9 @@ namespace FactSet.SDK.IDLookup.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Typehead != null)
+                if (this.Typeahead != null)
                 {
-                    hashCode = (hashCode * 59) + this.Typehead.GetHashCode();
-                }
-                if (this.Error != null)
-                {
-                    hashCode = (hashCode * 59) + this.Error.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsSuccess.GetHashCode();
-                if (this.Results != null)
-                {
-                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Typeahead.GetHashCode();
                 }
                 return hashCode;
             }

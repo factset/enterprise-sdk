@@ -31,9 +31,7 @@ from fds.sdk.IDLookup.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.IDLookup.model.lookup_count import LookupCount
-    from fds.sdk.IDLookup.model.response_details import ResponseDetails
     globals()['LookupCount'] = LookupCount
-    globals()['ResponseDetails'] = ResponseDetails
 
 
 class LookupResponse(ModelNormal):
@@ -89,10 +87,7 @@ class LookupResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'typehead': (LookupCount,),  # noqa: E501
-            'error': (str,),  # noqa: E501
-            'is_success': (int,),  # noqa: E501
-            'results': ([ResponseDetails],),  # noqa: E501
+            'typeahead': (LookupCount,),  # noqa: E501
         }
 
     @cached_property
@@ -101,10 +96,7 @@ class LookupResponse(ModelNormal):
 
 
     attribute_map = {
-        'typehead': 'typehead',  # noqa: E501
-        'error': 'error',  # noqa: E501
-        'is_success': 'is_success',  # noqa: E501
-        'results': 'results',  # noqa: E501
+        'typeahead': 'typeahead',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,10 +140,7 @@ class LookupResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            typehead (LookupCount): [optional]  # noqa: E501
-            error (str): [optional]  # noqa: E501
-            is_success (int): [optional]  # noqa: E501
-            results ([ResponseDetails]): Array of Lookup details for the query. [optional]  # noqa: E501
+            typeahead (LookupCount): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,10 +222,7 @@ class LookupResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            typehead (LookupCount): [optional]  # noqa: E501
-            error (str): [optional]  # noqa: E501
-            is_success (int): [optional]  # noqa: E501
-            results ([ResponseDetails]): Array of Lookup details for the query. [optional]  # noqa: E501
+            typeahead (LookupCount): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

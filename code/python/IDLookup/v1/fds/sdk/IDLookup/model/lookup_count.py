@@ -31,7 +31,9 @@ from fds.sdk.IDLookup.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.IDLookup.model.lookup_assettype import LookupAssettype
+    from fds.sdk.IDLookup.model.response_details import ResponseDetails
     globals()['LookupAssettype'] = LookupAssettype
+    globals()['ResponseDetails'] = ResponseDetails
 
 
 class LookupCount(ModelNormal):
@@ -88,6 +90,9 @@ class LookupCount(ModelNormal):
         lazy_import()
         return {
             'result_count': (LookupAssettype,),  # noqa: E501
+            'error': (str,),  # noqa: E501
+            'is_success': (int,),  # noqa: E501
+            'results': ([ResponseDetails],),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +102,9 @@ class LookupCount(ModelNormal):
 
     attribute_map = {
         'result_count': 'result_count',  # noqa: E501
+        'error': 'error',  # noqa: E501
+        'is_success': 'is_success',  # noqa: E501
+        'results': 'results',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,6 +149,9 @@ class LookupCount(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             result_count (LookupAssettype): [optional]  # noqa: E501
+            error (str): [optional]  # noqa: E501
+            is_success (int): [optional]  # noqa: E501
+            results ([ResponseDetails]): Array of Lookup details for the query. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,6 +234,9 @@ class LookupCount(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             result_count (LookupAssettype): [optional]  # noqa: E501
+            error (str): [optional]  # noqa: E501
+            is_success (int): [optional]  # noqa: E501
+            results ([ResponseDetails]): Array of Lookup details for the query. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

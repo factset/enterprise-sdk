@@ -179,8 +179,15 @@ components:
       title: Lookup Response
       type: object
       properties:
-        typehead:
+        typeahead:
           $ref: '#/components/schemas/lookup_count'
+      description: Response object for a lookup request
+    lookup_count:
+      title: Lookup Count
+      type: object
+      properties:
+        result_count:
+          $ref: '#/components/schemas/lookup_assettype'
         error:
           type: string
           example: null
@@ -192,13 +199,6 @@ components:
           description: Array of Lookup details for the query
           items:
             $ref: '#/components/schemas/response_details'
-      description: Response object for a lookup request
-    lookup_count:
-      title: Lookup Count
-      type: object
-      properties:
-        result_count:
-          $ref: '#/components/schemas/lookup_assettype'
       description: Returns the count of on entities
     lookup_assettype:
       title: Lookup Asset Type
@@ -357,7 +357,7 @@ components:
       summary: ID search Basic Response for entity type as equities
       description: ID search Basic Response for entity type as equities
       value:
-        typehead:
+        typeahead:
           result_count:
             equities: 25
           error: 'null'
@@ -375,7 +375,7 @@ components:
       summary: ID search Basic Response for entity type as bonds
       description: ID search Basic Response for entity type as bonds
       value:
-        typehead:
+        typeahead:
           result_count:
             bonds: 25
           error: 'null'
@@ -393,7 +393,7 @@ components:
       summary: ID search Basic Response for entity type as private_companies
       description: ID search Basic Response for entity type as private_companies
       value:
-        typehead:
+        typeahead:
           result_count:
             private_companies: 25
           error: 'null'
@@ -411,7 +411,7 @@ components:
       summary: ID search response using Filters
       description: ID search response using Filters
       value:
-        typehead:
+        typeahead:
           result_count:
             bonds: 10
           error: 'null'
@@ -425,7 +425,7 @@ components:
       summary: sample response using OR logic
       description: sample response using OR logic
       value:
-        typehead:
+        typeahead:
           result_count:
             private_companies: 10
             equities: 10
@@ -443,7 +443,7 @@ components:
       summary: sample response using both OR & AND logic
       description: sample response using both OR & AND logic
       value:
-        typehead:
+        typeahead:
           result_count:
             equities: 10
           error: 'null'

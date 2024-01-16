@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.21.8"
+__version__ = "0.22.0"
 
 # import ApiClient
 from fds.sdk.IDLookup.api_client import ApiClient

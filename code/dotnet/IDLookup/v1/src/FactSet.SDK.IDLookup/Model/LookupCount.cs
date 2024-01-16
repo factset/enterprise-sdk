@@ -35,9 +35,15 @@ namespace FactSet.SDK.IDLookup.Model
         /// Initializes a new instance of the <see cref="LookupCount" /> class.
         /// </summary>
         /// <param name="resultCount">resultCount.</param>
-        public LookupCount(LookupAssettype resultCount = default(LookupAssettype))
+        /// <param name="error">error.</param>
+        /// <param name="isSuccess">isSuccess.</param>
+        /// <param name="results">Array of Lookup details for the query.</param>
+        public LookupCount(LookupAssettype resultCount = default(LookupAssettype), string error = default(string), int isSuccess = default(int), List<ResponseDetails> results = default(List<ResponseDetails>))
         {
             this.ResultCount = resultCount;
+            this.Error = error;
+            this.IsSuccess = isSuccess;
+            this.Results = results;
         }
 
         /// <summary>
@@ -45,6 +51,25 @@ namespace FactSet.SDK.IDLookup.Model
         /// </summary>
         [DataMember(Name = "result_count", EmitDefaultValue = false)]
         public LookupAssettype ResultCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Error
+        /// </summary>
+        [DataMember(Name = "error", EmitDefaultValue = false)]
+        public string Error { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsSuccess
+        /// </summary>
+        [DataMember(Name = "is_success", EmitDefaultValue = false)]
+        public int IsSuccess { get; set; }
+
+        /// <summary>
+        /// Array of Lookup details for the query
+        /// </summary>
+        /// <value>Array of Lookup details for the query</value>
+        [DataMember(Name = "results", EmitDefaultValue = false)]
+        public List<ResponseDetails> Results { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +80,9 @@ namespace FactSet.SDK.IDLookup.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class LookupCount {\n");
             sb.Append("  ResultCount: ").Append(ResultCount).Append("\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  IsSuccess: ").Append(IsSuccess).Append("\n");
+            sb.Append("  Results: ").Append(Results).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +122,21 @@ namespace FactSet.SDK.IDLookup.Model
                     this.ResultCount == input.ResultCount ||
                     (this.ResultCount != null &&
                     this.ResultCount.Equals(input.ResultCount))
+                ) && 
+                (
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
+                ) && 
+                (
+                    this.IsSuccess == input.IsSuccess ||
+                    this.IsSuccess.Equals(input.IsSuccess)
+                ) && 
+                (
+                    this.Results == input.Results ||
+                    this.Results != null &&
+                    input.Results != null &&
+                    this.Results.SequenceEqual(input.Results)
                 );
         }
 
@@ -109,6 +152,15 @@ namespace FactSet.SDK.IDLookup.Model
                 if (this.ResultCount != null)
                 {
                     hashCode = (hashCode * 59) + this.ResultCount.GetHashCode();
+                }
+                if (this.Error != null)
+                {
+                    hashCode = (hashCode * 59) + this.Error.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsSuccess.GetHashCode();
+                if (this.Results != null)
+                {
+                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
                 }
                 return hashCode;
             }

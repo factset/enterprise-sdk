@@ -13,7 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import LookupCount from './LookupCount';
-import ResponseDetails from './ResponseDetails';
 
 /**
  * The LookupResponse model module.
@@ -49,17 +48,8 @@ class LookupResponse {
         if (data) {
             obj = obj || new LookupResponse();
 
-            if (data.hasOwnProperty('typehead')) {
-                obj['typehead'] = LookupCount.constructFromObject(data['typehead']);
-            }
-            if (data.hasOwnProperty('error')) {
-                obj['error'] = ApiClient.convertToType(data['error'], 'String');
-            }
-            if (data.hasOwnProperty('is_success')) {
-                obj['is_success'] = ApiClient.convertToType(data['is_success'], 'Number');
-            }
-            if (data.hasOwnProperty('results')) {
-                obj['results'] = ApiClient.convertToType(data['results'], [ResponseDetails]);
+            if (data.hasOwnProperty('typeahead')) {
+                obj['typeahead'] = LookupCount.constructFromObject(data['typeahead']);
             }
         }
         return obj;
@@ -69,25 +59,9 @@ class LookupResponse {
 }
 
 /**
- * @member {module:model/LookupCount} typehead
+ * @member {module:model/LookupCount} typeahead
  */
-LookupResponse.prototype['typehead'] = undefined;
-
-/**
- * @member {String} error
- */
-LookupResponse.prototype['error'] = undefined;
-
-/**
- * @member {Number} is_success
- */
-LookupResponse.prototype['is_success'] = undefined;
-
-/**
- * Array of Lookup details for the query
- * @member {Array.<module:model/ResponseDetails>} results
- */
-LookupResponse.prototype['results'] = undefined;
+LookupResponse.prototype['typeahead'] = undefined;
 
 
 

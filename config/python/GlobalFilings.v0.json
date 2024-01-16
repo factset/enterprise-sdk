@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.GlobalFilings",
+  "projectName": "fds.sdk.GlobalFilings",
+  "packageVersion": "0.1.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Global Filings client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/GlobalFilings/v0",
+  "httpUserAgent": "fds-sdk/python/GlobalFilings/0.1.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

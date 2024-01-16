@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import LookupAssettype from './LookupAssettype';
+import ResponseDetails from './ResponseDetails';
 
 /**
  * The LookupCount model module.
@@ -51,6 +52,15 @@ class LookupCount {
             if (data.hasOwnProperty('result_count')) {
                 obj['result_count'] = LookupAssettype.constructFromObject(data['result_count']);
             }
+            if (data.hasOwnProperty('error')) {
+                obj['error'] = ApiClient.convertToType(data['error'], 'String');
+            }
+            if (data.hasOwnProperty('is_success')) {
+                obj['is_success'] = ApiClient.convertToType(data['is_success'], 'Number');
+            }
+            if (data.hasOwnProperty('results')) {
+                obj['results'] = ApiClient.convertToType(data['results'], [ResponseDetails]);
+            }
         }
         return obj;
     }
@@ -62,6 +72,22 @@ class LookupCount {
  * @member {module:model/LookupAssettype} result_count
  */
 LookupCount.prototype['result_count'] = undefined;
+
+/**
+ * @member {String} error
+ */
+LookupCount.prototype['error'] = undefined;
+
+/**
+ * @member {Number} is_success
+ */
+LookupCount.prototype['is_success'] = undefined;
+
+/**
+ * Array of Lookup details for the query
+ * @member {Array.<module:model/ResponseDetails>} results
+ */
+LookupCount.prototype['results'] = undefined;
 
 
 

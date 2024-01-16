@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.IDLookup.models.LookupAssettype;
+import com.factset.sdk.IDLookup.models.ResponseDetails;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,7 +36,10 @@ import com.factset.sdk.IDLookup.JSON;
  */
 @ApiModel(description = "Returns the count of on entities")
 @JsonPropertyOrder({
-  LookupCount.JSON_PROPERTY_RESULT_COUNT
+  LookupCount.JSON_PROPERTY_RESULT_COUNT,
+  LookupCount.JSON_PROPERTY_ERROR,
+  LookupCount.JSON_PROPERTY_IS_SUCCESS,
+  LookupCount.JSON_PROPERTY_RESULTS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LookupCount implements Serializable {
@@ -43,6 +47,15 @@ public class LookupCount implements Serializable {
 
   public static final String JSON_PROPERTY_RESULT_COUNT = "result_count";
   private LookupAssettype resultCount;
+
+  public static final String JSON_PROPERTY_ERROR = "error";
+  private String error;
+
+  public static final String JSON_PROPERTY_IS_SUCCESS = "is_success";
+  private Integer isSuccess;
+
+  public static final String JSON_PROPERTY_RESULTS = "results";
+  private java.util.List<ResponseDetails> results = null;
 
   public LookupCount() { 
   }
@@ -73,6 +86,92 @@ public class LookupCount implements Serializable {
   }
 
 
+  public LookupCount error(String error) {
+    this.error = error;
+    return this;
+  }
+
+   /**
+   * Get error
+   * @return error
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getError() {
+    return error;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setError(String error) {
+    this.error = error;
+  }
+
+
+  public LookupCount isSuccess(Integer isSuccess) {
+    this.isSuccess = isSuccess;
+    return this;
+  }
+
+   /**
+   * Get isSuccess
+   * @return isSuccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "")
+  @JsonProperty(JSON_PROPERTY_IS_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getIsSuccess() {
+    return isSuccess;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsSuccess(Integer isSuccess) {
+    this.isSuccess = isSuccess;
+  }
+
+
+  public LookupCount results(java.util.List<ResponseDetails> results) {
+    this.results = results;
+    return this;
+  }
+
+  public LookupCount addResultsItem(ResponseDetails resultsItem) {
+    if (this.results == null) {
+      this.results = new java.util.ArrayList<>();
+    }
+    this.results.add(resultsItem);
+    return this;
+  }
+
+   /**
+   * Array of Lookup details for the query
+   * @return results
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of Lookup details for the query")
+  @JsonProperty(JSON_PROPERTY_RESULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<ResponseDetails> getResults() {
+    return results;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RESULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResults(java.util.List<ResponseDetails> results) {
+    this.results = results;
+  }
+
+
   /**
    * Return true if this lookup_count object is equal to o.
    */
@@ -85,12 +184,15 @@ public class LookupCount implements Serializable {
       return false;
     }
     LookupCount lookupCount = (LookupCount) o;
-    return Objects.equals(this.resultCount, lookupCount.resultCount);
+    return Objects.equals(this.resultCount, lookupCount.resultCount) &&
+        Objects.equals(this.error, lookupCount.error) &&
+        Objects.equals(this.isSuccess, lookupCount.isSuccess) &&
+        Objects.equals(this.results, lookupCount.results);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resultCount);
+    return Objects.hash(resultCount, error, isSuccess, results);
   }
 
   @Override
@@ -98,6 +200,9 @@ public class LookupCount implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class LookupCount {\n");
     sb.append("    resultCount: ").append(toIndentedString(resultCount)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    isSuccess: ").append(toIndentedString(isSuccess)).append("\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -178,7 +178,7 @@ components:
       description: ID search Basic Response for entity type as equities
       summary: ID search Basic Response for entity type as equities
       value:
-        typehead:
+        typeahead:
           result_count:
             equities: 25
           error: "null"
@@ -196,7 +196,7 @@ components:
       description: ID search Basic Response for entity type as bonds
       summary: ID search Basic Response for entity type as bonds
       value:
-        typehead:
+        typeahead:
           result_count:
             bonds: 25
           error: "null"
@@ -214,7 +214,7 @@ components:
       description: ID search Basic Response for entity type as private_companies
       summary: ID search Basic Response for entity type as private_companies
       value:
-        typehead:
+        typeahead:
           result_count:
             private_companies: 25
           error: "null"
@@ -232,7 +232,7 @@ components:
       description: ID search response using Filters
       summary: ID search response using Filters
       value:
-        typehead:
+        typeahead:
           result_count:
             bonds: 10
           error: "null"
@@ -246,7 +246,7 @@ components:
       description: sample response using OR logic
       summary: sample response using OR logic
       value:
-        typehead:
+        typeahead:
           result_count:
             private_companies: 10
             equities: 10
@@ -264,7 +264,7 @@ components:
       description: sample response using both OR & AND logic
       summary: sample response using both OR & AND logic
       value:
-        typehead:
+        typeahead:
           result_count:
             equities: 10
           error: "null"
@@ -416,11 +416,32 @@ components:
     lookup_response:
       description: Response object for a lookup request
       example:
-        typehead:
+        typeahead:
+          error: error
+          is_success: 1
           result_count:
             people: 10
+          results:
+          - symbol: FDS-US
+            name: Factset Research Systems Inc
+            index: equities
+            entity_id: 00BDWZ-E
+          - symbol: FDS-US
+            name: Factset Research Systems Inc
+            index: equities
+            entity_id: 00BDWZ-E
+      properties:
+        typeahead:
+          $ref: '#/components/schemas/lookup_count'
+      title: Lookup Response
+      type: object
+    lookup_count:
+      description: Returns the count of on entities
+      example:
         error: error
         is_success: 1
+        result_count:
+          people: 10
         results:
         - symbol: FDS-US
           name: Factset Research Systems Inc
@@ -431,8 +452,8 @@ components:
           index: equities
           entity_id: 00BDWZ-E
       properties:
-        typehead:
-          $ref: '#/components/schemas/lookup_count'
+        result_count:
+          $ref: '#/components/schemas/lookup_assettype'
         error:
           type: string
         is_success:
@@ -443,16 +464,6 @@ components:
           items:
             $ref: '#/components/schemas/response_details'
           type: array
-      title: Lookup Response
-      type: object
-    lookup_count:
-      description: Returns the count of on entities
-      example:
-        result_count:
-          people: 10
-      properties:
-        result_count:
-          $ref: '#/components/schemas/lookup_assettype'
       title: Lookup Count
       type: object
     lookup_assettype:
