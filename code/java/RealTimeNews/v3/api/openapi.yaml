@@ -5,8 +5,8 @@ info:
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
   description: "Consume FactSet’s StreetAccount news and 3rd party content through\
-    \ an API that seamlessly integrates with\n[quotes](https://developer.factset.com/api-catalog/quotes-api-digital-portals),\n\
-    [time series](https://developer.factset.com/api-catalog/time-series-api-digital-portals),\n\
+    \ an API that seamlessly integrates with\n[quotes](https://developer.factset.com/api-catalog/real-time-quotes-api),\n\
+    [time series](https://developer.factset.com/api-catalog/real-time-time-series-api),\n\
     [watchlists](https://developer.factset.com/api-catalog/watchlist-api-digital-portals),\
     \ and other Functional APIs.\n\nSearch for news articles from various news distributors\
     \ and publishers. Incorporate a multitude of search parameters such as region,\
@@ -16,7 +16,7 @@ info:
     * Cercle Finance\n* Direkt News SE\n* Dow Jones News\n* dpa\n* dpa-AFX \n* EUWAX\n\
     * GlobenewsWire\n* Kauppalehti\n* MT Newswires\n* MoneyAM\n* newsaktuell\n* OMX\n\
     * PR Newswire \n* Ritzau Finans\n* StreetAccount News\n* TDN News\n      \nSee\
-    \ the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals)\
+    \ the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api)\
     \ for access to detailed\nprice and performance information, plus basic support\
     \ for security identifier cross-reference.\n"
   license:

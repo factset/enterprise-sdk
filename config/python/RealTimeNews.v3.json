@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.RealTimeNews",
   "projectName": "fds.sdk.RealTimeNews",
-  "packageVersion": "0.11.0",
+  "packageVersion": "0.11.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Real-Time News client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/RealTimeNews/v3",
-  "httpUserAgent": "fds-sdk/python/RealTimeNews/0.11.0",
+  "httpUserAgent": "fds-sdk/python/RealTimeNews/0.11.1",
   "files": {
     "LICENSE": {}
   }
