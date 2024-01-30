@@ -1,7 +1,7 @@
 # flake8: noqa
 
 """
-    Analytics Datastore  API
+    Analytics Datastore API
 
     Allow clients to fetch precalculated Analytics through predeterministic URLs.  # noqa: E501
 
@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.22.0"
+__version__ = "0.22.1"
 
 # import ApiClient
 from fds.sdk.AnalyticsDatastore.api_client import ApiClient

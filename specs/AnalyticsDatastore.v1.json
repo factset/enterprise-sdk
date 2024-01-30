@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Analytics Datastore  API",
+    "title": "Analytics Datastore API",
     "description": "Allow clients to fetch precalculated Analytics through predeterministic URLs.",
     "contact": {
       "name": "FactSet Research Systems",
@@ -20,7 +20,12 @@
   },
   "servers": [
     {
-      "url": "https://api.factset.com"
+      "url": "https://api.factset.com",
+      "description": "Production"
+    },
+    {
+      "url": "https://api-sandbox.factset.com",
+      "description": "Sandbox"
     }
   ],
   "security": [

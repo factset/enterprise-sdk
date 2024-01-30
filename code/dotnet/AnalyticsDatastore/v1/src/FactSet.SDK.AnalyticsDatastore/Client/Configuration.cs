@@ -1,5 +1,5 @@
 /*
- * Analytics Datastore  API
+ * Analytics Datastore API
  *
  * Allow clients to fetch precalculated Analytics through predeterministic URLs.
  *
@@ -33,7 +33,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.22.0";
+        public const string Version = "0.22.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/AnalyticsDatastore/0.22.0";
+            UserAgent = "fds-sdk/dotnet/AnalyticsDatastore/0.22.1";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -115,7 +115,13 @@ namespace FactSet.SDK.AnalyticsDatastore.Client
                 {
                     new Dictionary<string, object> {
                         {"url", "https://api.factset.com"},
-                        {"description", "No description provided"},
+                        {"description", "Production"},
+                    }
+                },
+                {
+                    new Dictionary<string, object> {
+                        {"url", "https://api-sandbox.factset.com"},
+                        {"description", "Sandbox"},
                     }
                 }
             };
@@ -461,7 +467,7 @@ namespace FactSet.SDK.AnalyticsDatastore.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.22.0\n";
+            report += "    SDK Package Version: 0.22.1\n";
 
             return report;
         }

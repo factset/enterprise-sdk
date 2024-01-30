@@ -1,5 +1,5 @@
 /**
- * Analytics Datastore  API
+ * Analytics Datastore API
  * Allow clients to fetch precalculated Analytics through predeterministic URLs.
  *
  * The version of the OpenAPI document: 1.0.0
@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/AnalyticsDatastore/0.22.0'
+            'User-Agent': 'fds-sdk/javascript/AnalyticsDatastore/0.22.1'
         };
 
         /**
@@ -615,7 +615,11 @@ class ApiClient {
         return [
             {
               'url': "https://api.factset.com",
-              'description': "No description provided",
+              'description': "Production",
+            },
+            {
+              'url': "https://api-sandbox.factset.com",
+              'description': "Sandbox",
             }
       ];
     }

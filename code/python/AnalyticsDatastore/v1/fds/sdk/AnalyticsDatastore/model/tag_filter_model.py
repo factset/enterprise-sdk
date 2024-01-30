@@ -1,5 +1,5 @@
 """
-    Analytics Datastore  API
+    Analytics Datastore API
 
     Allow clients to fetch precalculated Analytics through predeterministic URLs.  # noqa: E501
 

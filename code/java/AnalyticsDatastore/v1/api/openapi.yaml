@@ -9,13 +9,16 @@ info:
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: Analytics Datastore  API
+  title: Analytics Datastore API
   version: 1.0.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/analytics-datastore-api
 servers:
-- url: https://api.factset.com
+- description: Production
+  url: https://api.factset.com
+- description: Sandbox
+  url: https://api-sandbox.factset.com
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
