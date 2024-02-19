@@ -34,6 +34,11 @@ Returns Convertible Details for a list of securities, such as -
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTermsandConditions.ApiClient;
@@ -136,6 +141,11 @@ Returns Convertible Details for a list of securities, such as -
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTermsandConditions.ApiClient;
@@ -227,6 +237,11 @@ Returns Convertible History data for the Fixed Income security, including - * Co
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -320,6 +335,11 @@ Returns Convertible History data for a list of Fixed Income securities.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTermsandConditions.ApiClient;
@@ -412,6 +432,11 @@ Returns Convertible Triggers data for the Fixed Income security including the Co
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTermsandConditions.ApiClient;
@@ -503,6 +528,11 @@ Returns Convertible Triggers data for the Fixed Income security including the Co
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

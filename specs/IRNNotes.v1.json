@@ -267,6 +267,15 @@
             }
           },
           {
+            "name": "includeRelatedEntities",
+            "in": "query",
+            "description": "When set to true fetches notes tagged with all the entities related to identifiers param",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
             "name": "X-IRN-Include-Deleted",
             "in": "header",
             "description": "",

@@ -77,6 +77,11 @@ Add these dependencies to your project's build file:
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```java
 import com.factset.sdk.RealTimeTimeSeries.*;
 import com.factset.sdk.RealTimeTimeSeries.auth.*;

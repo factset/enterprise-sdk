@@ -18,6 +18,12 @@ Retrieve a list of all available factors with relevant meta data.
 Fetch the list of all available factors and related meta data. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -112,6 +118,12 @@ Retrieves a list of all available factors with relevant meta data.
 Fetch the list of all available factors and related meta data. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

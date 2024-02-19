@@ -21,8 +21,10 @@ Allows users to delete various combinations of symbols, dates, and fields from t
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -131,8 +133,10 @@ Deletes all data specific to the date in 3d database(OFDB). This includes all th
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -233,8 +237,10 @@ Deletes data specific to the symbol and date from a 3d database(OFDB).
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -338,8 +344,10 @@ Deletes all data specific to the symbol in both 2d and 3d database(OFDB). This i
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -440,8 +448,10 @@ Deletes data specific to the symbol and date from a 3d database(OFDB).
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient

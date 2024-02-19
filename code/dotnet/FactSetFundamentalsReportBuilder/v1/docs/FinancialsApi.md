@@ -19,6 +19,12 @@ Balance Sheet
 Returns a standardized Balance Sheet based on industry.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -126,6 +132,12 @@ Cash Flow
 Returns a standardized Cash Flow based on industry.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -233,6 +245,12 @@ Income Statement
 Returns a standardized Income Statement based on industry.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

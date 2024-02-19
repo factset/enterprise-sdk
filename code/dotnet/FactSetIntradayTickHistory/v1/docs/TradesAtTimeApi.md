@@ -15,6 +15,12 @@ Method | HTTP request | Description
 Request returns the before and after trade data along with the associated quotes for the specified time
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

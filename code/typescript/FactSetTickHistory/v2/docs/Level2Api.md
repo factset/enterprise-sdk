@@ -4,21 +4,26 @@ All URIs are relative to *https://api.factset.com/tick-history/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getStatusLevel2**](Level2Api.md#getStatusLevel2) | **GET** /level2/files/status | Returns the status of the ID
-[**getTickHistoryFilesLevel2**](Level2Api.md#getTickHistoryFilesLevel2) | **GET** /level2/files/get | Returns the tick history files requested in the /create endpoint
-[**getlevel2id**](Level2Api.md#getlevel2id) | **POST** /level2/files/create | Returns the ID for the requested data.
+[**getLevel2FileStatus**](Level2Api.md#getLevel2FileStatus) | **GET** /level2/files/status | Returns the status of the ID
+[**getTickHistoryLevel2Files**](Level2Api.md#getTickHistoryLevel2Files) | **GET** /level2/files/get | Returns the tick history files requested in the /create endpoint
+[**requestTickHistoryLeve2Files**](Level2Api.md#requestTickHistoryLeve2Files) | **POST** /level2/files/create | Returns the ID for the requested data.
 
 
 
-## getStatusLevel2
+## getLevel2FileStatus
 
-> CompletedResponse getStatusLevel2(id)
+> CompletedResponse getLevel2FileStatus(id)
 
 Returns the status of the ID
 
 Need to plug-in the id get from /create endpoint into /status endpoint
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, Level2Api } = require('@factset/sdk-factsettickhistory');
@@ -49,10 +54,10 @@ const apiInstance = new Level2Api();
 const id = "id_example"; // String | id returned by files create endpoint to poll and collect status of the query
 
 // Call api endpoint
-apiInstance.getStatusLevel2(id).then(
+apiInstance.getLevel2FileStatus(id).then(
   data => {
 
-      // data is a responsewrapper: GetStatusLevel2ResponseWrapper
+      // data is a responsewrapper: GetLevel2FileStatusResponseWrapper
       switch (data.statusCode) {
 
           case 201:
@@ -97,15 +102,20 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getTickHistoryFilesLevel2
+## getTickHistoryLevel2Files
 
-> LeveltwoGetFilesResponse getTickHistoryFilesLevel2(id, opts)
+> LeveltwoGetFilesResponse getTickHistoryLevel2Files(id, opts)
 
 Returns the tick history files requested in the /create endpoint
 
 Returns the files from tickhistory endpoint
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, Level2Api } = require('@factset/sdk-factsettickhistory');
@@ -140,10 +150,10 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.getTickHistoryFilesLevel2(id, opts).then(
+apiInstance.getTickHistoryLevel2Files(id, opts).then(
   data => {
 
-      // data is a responsewrapper: GetTickHistoryFilesLevel2ResponseWrapper
+      // data is a responsewrapper: GetTickHistoryLevel2FilesResponseWrapper
       switch (data.statusCode) {
 
           case 200:
@@ -190,15 +200,20 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getlevel2id
+## requestTickHistoryLeve2Files
 
-> SubmittedResponse getlevel2id(levelTwoRequest)
+> SubmittedResponse requestTickHistoryLeve2Files(levelTwoRequest)
 
 Returns the ID for the requested data.
 
-Data available from past 6 years to current date.
+Data available from past 6 years to previous day.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, Level2Api } = require('@factset/sdk-factsettickhistory');
@@ -229,7 +244,7 @@ const apiInstance = new Level2Api();
 const levelTwoRequest = new factsettickhistory.LevelTwoRequest(); // LevelTwoRequest | 
 
 // Call api endpoint
-apiInstance.getlevel2id(levelTwoRequest).then(
+apiInstance.requestTickHistoryLeve2Files(levelTwoRequest).then(
   data => {
 
     console.log('API called successfully. Returned data:');

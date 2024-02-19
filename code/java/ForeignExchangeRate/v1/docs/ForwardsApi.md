@@ -20,6 +20,11 @@ Forward rates are provided in 80+ currencies against the U.S. dollar, British po
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ForeignExchangeRate.ApiClient;
@@ -119,6 +124,11 @@ Forward rates are provided in 80+ currencies against the U.S. dollar, British po
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

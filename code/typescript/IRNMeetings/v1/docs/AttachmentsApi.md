@@ -19,6 +19,11 @@ Create an attachment for a existing meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AttachmentsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -93,6 +98,11 @@ Download an attachment from a Meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AttachmentsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -165,6 +175,11 @@ Get all the attachments belonging to a meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AttachmentsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -236,6 +251,11 @@ Name | Type | Description  | Notes
 Delete attachment from meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AttachmentsApi } = require('@factset/sdk-irnmeetings');

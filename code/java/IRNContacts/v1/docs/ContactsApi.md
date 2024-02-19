@@ -24,6 +24,11 @@ Create a contact
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNContacts.ApiClient;
@@ -109,6 +114,11 @@ Name | Type | Description  | Notes
 Delete a contact
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -196,6 +206,11 @@ Get all custom field and standard field details on a specific contact
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNContacts.ApiClient;
@@ -281,6 +296,11 @@ Name | Type | Description  | Notes
 Get a contact’s audit history
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -368,6 +388,11 @@ Get the About field content for a specific contact
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNContacts.ApiClient;
@@ -453,6 +478,11 @@ Name | Type | Description  | Notes
 Get all notes and meetings where a specific contact was tagged
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -540,6 +570,11 @@ Returns a list of a contact’s relationships
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNContacts.ApiClient;
@@ -625,6 +660,11 @@ Name | Type | Description  | Notes
 Get list of all contacts in your group along with some of their standard field data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -725,6 +765,11 @@ Name | Type | Description  | Notes
 Edit a contact’s standard field and custom field data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

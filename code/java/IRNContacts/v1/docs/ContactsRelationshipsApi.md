@@ -20,6 +20,11 @@ Create a contact relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNContacts.ApiClient;
@@ -106,6 +111,11 @@ Delete a contact relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNContacts.ApiClient;
@@ -191,6 +201,11 @@ null (empty response body)
 Get all the relationships where the given symbol or contact identifier has been tagged in a relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -281,6 +296,11 @@ Get details on a specific contact relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNContacts.ApiClient;
@@ -366,6 +386,11 @@ Name | Type | Description  | Notes
 Update a contact relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

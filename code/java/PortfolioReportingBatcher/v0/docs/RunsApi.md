@@ -19,6 +19,11 @@ Use this endpoint to check the status of a run using the id from the POST /runs 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PortfolioReportingBatcher.ApiClient;
@@ -109,6 +114,11 @@ trigger PRB jobs
 Use this endpoint with with POST method to trigger PRB jobs.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

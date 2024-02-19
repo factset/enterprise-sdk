@@ -18,8 +18,10 @@ Get yield curve data points and dates for 3M, 6M, 1Y, 2Y, 3Y, 4Y, 5Y, 6Y, 7Y, 8Y
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -128,8 +130,10 @@ Get yield curve data points and dates for 3M, 6M, 1Y, 2Y, 3Y, 4Y, 5Y, 6Y, 7Y, 8Y
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient

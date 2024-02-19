@@ -19,6 +19,11 @@ Get a group.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GroupsApi } = require('@factset/sdk-procuretopayapiscim');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -90,6 +95,11 @@ Name | Type | Description  | Notes
 Patch a group (add, replace, or remove attributes of a group.)
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, GroupsApi } = require('@factset/sdk-procuretopayapiscim');
@@ -167,6 +177,11 @@ Replace a group.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GroupsApi } = require('@factset/sdk-procuretopayapiscim');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -240,6 +255,11 @@ Name | Type | Description  | Notes
 Get a list of groups.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, GroupsApi } = require('@factset/sdk-procuretopayapiscim');

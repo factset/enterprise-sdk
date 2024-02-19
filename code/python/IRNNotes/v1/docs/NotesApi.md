@@ -19,8 +19,10 @@ Create a note
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -166,8 +168,10 @@ Delete a Note
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -258,8 +262,10 @@ Get details of a note
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -350,8 +356,10 @@ Get all the notes in the specified date range filtered on the given identifiers
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -427,13 +435,15 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     filter_on_related_symbols = False # bool | Include notes whose related symbols match the identifier filter (optional) if omitted the server will use the default value of False
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    include_related_entities = False # bool | When set to true fetches notes tagged with all the entities related to identifiers param (optional) if omitted the server will use the default value of False
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_include_deleted = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
         # Get all the notes in the specified date range filtered on the given identifiers
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_notes(start=start, end=end, identifiers=identifiers, authors=authors, subjects=subjects, recommendations=recommendations, sentiments=sentiments, limit=limit, offset=offset, modified_since=modified_since, states=states, filter_on_related_symbols=filter_on_related_symbols, x_irn_include_deleted=x_irn_include_deleted)
+        api_response = api_instance.get_notes(start=start, end=end, identifiers=identifiers, authors=authors, subjects=subjects, recommendations=recommendations, sentiments=sentiments, limit=limit, offset=offset, modified_since=modified_since, states=states, filter_on_related_symbols=filter_on_related_symbols, include_related_entities=include_related_entities, x_irn_include_deleted=x_irn_include_deleted)
 
         pprint(api_response)
 
@@ -458,6 +468,7 @@ Name | Type | Description  | Notes
  **modified_since** | **str**| Only return notes which have been modified or created since a particular time | [optional]
  **states** | **[str]**| Set of states to filter on | [optional]
  **filter_on_related_symbols** | **bool**| Include notes whose related symbols match the identifier filter | [optional] if omitted the server will use the default value of False
+ **include_related_entities** | **bool**| When set to true fetches notes tagged with all the entities related to identifiers param | [optional] if omitted the server will use the default value of False
  **x_irn_include_deleted** | **bool**|  | [optional] if omitted the server will use the default value of False
 
 ### Return type
@@ -490,8 +501,10 @@ Update a note
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient

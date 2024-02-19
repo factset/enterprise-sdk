@@ -21,6 +21,11 @@ Delete a Concordance Mapping to the client universe. When making a post, all exi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, MappingsApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -95,6 +100,11 @@ Saves a Concordance Mapping to the client universe. When making a post, all exit
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, MappingsApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -168,6 +178,11 @@ Retrieve all saved mappings within a requested universe
 Retrieves all entity mappings within a requested universe. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, MappingsApi } = require('@factset/sdk-factsetconcordance');
@@ -254,6 +269,11 @@ Retrieve all saved mappings within a requested universe or large list of client 
 Retrieves all entity mappings that were saved in a given universe. Supports filtering by a large number of &#x60;clientId&#x60;s 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, MappingsApi } = require('@factset/sdk-factsetconcordance');

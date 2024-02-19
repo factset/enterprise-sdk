@@ -19,6 +19,11 @@ Create an attachment for a existing meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.io.File;
 // Import classes:
@@ -108,6 +113,11 @@ Download an attachment from a Meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNMeetings.ApiClient;
@@ -196,6 +206,11 @@ Get all the attachments belonging to a meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNMeetings.ApiClient;
@@ -281,6 +296,11 @@ Name | Type | Description  | Notes
 Delete attachment from meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

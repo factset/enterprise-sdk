@@ -19,6 +19,11 @@ Get yield curve data points and dates for 3M, 6M, 1Y, 2Y, 3Y, 4Y, 5Y, 6Y, 7Y, 8Y
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, IssuerYieldCurveApi } = require('@factset/sdk-spglobalfixedincomeevaluatedpricesandanalytics');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -102,6 +107,11 @@ Request yield curve data for given date range and list of securities
 Get yield curve data points and dates for 3M, 6M, 1Y, 2Y, 3Y, 4Y, 5Y, 6Y, 7Y, 8Y, 9Y, 10Y, 15Y, 20Y, 25Y, 30Y and 40Y provided by Markit for the specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, IssuerYieldCurveApi } = require('@factset/sdk-spglobalfixedincomeevaluatedpricesandanalytics');

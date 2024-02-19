@@ -21,6 +21,11 @@ Get the Fund Level or Share Class Level Assets Under Management (AUM). &lt;p&gt;
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FundFlowsAUMApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -107,6 +112,11 @@ Get the Fund Level or Share Class Level Assets Under Management (AUM). &lt;p&gt;
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FundFlowsAUMApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -180,6 +190,11 @@ Get Fund Flows for a requested date range and list of ids
 Get the Fund Flows. One-day fund flows are calculated by subtracting the shares outstanding at previous close from the shares outstanding one day prior to close, and then multiplying the result by the net asset value (NAV) of one day prior to close.  The fund flows calculation breaks down as follows -  (Shares Outstanding T0 - Shares Outstanding T-1) * NAV T-1 While NAVs are routinely reported on a trade-day (T0) basis, industry-wide shares outstanding are a mixture of trade-day and next-day values. Trade-day values are not verified, as the actual creation/redemption activity takes place late in the evening, after NAVs and shares outstanding values have been published. The result is that multiple industry flows are calculated using unverified T0 values. FactSet has standardized all shares outstanding reporting on a next-day basis. To ensure that assets under management (AUM) and fund flows are synchronized, FactSet synchronizes shares outstanding values and changes with NAVs reported on the previous day, as the creations and redemptions used the previous day&#39;s reported NAVs as a transaction price. &lt;p&gt;For more information on Fund Flows Methodology, Time Windows, Makret Holidays, and Missing Values, visit - [OA #17863](https://my.apps.factset.com/oa/pages/17863#Flows_Calculation)&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FundFlowsAUMApi } = require('@factset/sdk-factsetfunds');
@@ -264,6 +279,11 @@ Get Fund Flows for a requested date range and large list of ids
 Get the Fund Flows. One-day fund flows are calculated by subtracting the shares outstanding at previous close from the shares outstanding one day prior to close, and then multiplying the result by the net asset value (NAV) of one day prior to close.  The fund flows calculation breaks down as follows -  (Shares Outstanding T0 - Shares Outstanding T-1) * NAV T-1 While NAVs are routinely reported on a trade-day (T0) basis, industry-wide shares outstanding are a mixture of trade-day and next-day values. Trade-day values are not verified, as the actual creation/redemption activity takes place late in the evening, after NAVs and shares outstanding values have been published. The result is that multiple industry flows are calculated using unverified T0 values. FactSet has standardized all shares outstanding reporting on a next-day basis. To ensure that assets under management (AUM) and fund flows are synchronized, FactSet synchronizes shares outstanding values and changes with NAVs reported on the previous day, as the creations and redemptions used the previous day&#39;s reported NAVs as a transaction price. &lt;p&gt;For more information on Fund Flows Methodology, Time Windows, Makret Holidays, and Missing Values, visit - [OA #17863](https://my.apps.factset.com/oa/pages/17863#Flows_Calculation)&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FundFlowsAUMApi } = require('@factset/sdk-factsetfunds');

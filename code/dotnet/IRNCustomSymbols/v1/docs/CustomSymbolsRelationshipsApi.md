@@ -19,6 +19,12 @@ Method | HTTP request | Description
 Create a symbol relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -110,6 +116,12 @@ void (empty response body)
 Delete a symbol relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -202,6 +214,12 @@ void (empty response body)
 Edit a symbol relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -293,6 +311,12 @@ void (empty response body)
 Get details on a specific symbol relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -385,6 +409,12 @@ Name | Type | Description  | Notes
 Returns a list of a symbol’s relationships
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

@@ -48,6 +48,11 @@ pip install fds.sdk.utils fds.sdk.FactSetContentAPIBatch==0.21.8
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -85,7 +90,6 @@ configuration = fds.sdk.FactSetContentAPIBatch.Configuration(
 with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = batch_processing_api.BatchProcessingApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | Batch Request identifier.
 
     try:

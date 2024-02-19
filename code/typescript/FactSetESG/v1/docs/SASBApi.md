@@ -23,6 +23,11 @@ Indicates if a company is a Leader, Above Average, Average, Below Average, or a 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SASBApi } = require('@factset/sdk-factsetesg');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -109,6 +114,11 @@ Indicates if a company is a Leader, Above Average, Average, Below Average, or a 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SASBApi } = require('@factset/sdk-factsetesg');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -182,6 +192,11 @@ Gets short-term, long-term, and momentum scores based on the 26 ESG categories d
 FactSet Truvalue Labs SASB Scores provides short-term, long-term, and momentum scores that are generated for 26 ESG categories defined by the Sustainability Accounting Standards Board. FactSet Truvalue also calculates a custom overall score called ALLCATEGORIES, can indicate data volume flow, and the Dynamic Materiality of that data flow. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SASBApi } = require('@factset/sdk-factsetesg');
@@ -271,6 +286,11 @@ Gets a flat key value array of scores for named categories of the input scoreTyp
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SASBApi } = require('@factset/sdk-factsetesg');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -357,6 +377,11 @@ Gets a flat key value array of scores for named categories of the input score ty
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SASBApi } = require('@factset/sdk-factsetesg');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -430,6 +455,11 @@ For a large list of ids, gets short-term, long-term, and momentum scores based o
 FactSet Truvalue Labs SASB Scores provides short-term, long-term, and momentum scores that are generated for 26 ESG categories defined by the Sustainability Accounting Standards Board. FactSet Truvalue also calculates a custom overall score called ALLCATEGORIES, can indicate data volume flow, and the Dynamic Materiality of that data flow. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SASBApi } = require('@factset/sdk-factsetesg');

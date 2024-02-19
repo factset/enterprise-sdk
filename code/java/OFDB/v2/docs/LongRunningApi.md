@@ -28,6 +28,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;
@@ -122,6 +127,11 @@ Name | Type | Description  | Notes
 Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -218,6 +228,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;
@@ -313,6 +328,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;
@@ -405,6 +425,11 @@ Name | Type | Description  | Notes
 Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -504,6 +529,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;
@@ -598,6 +628,11 @@ Name | Type | Description  | Notes
 Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -694,6 +729,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;
@@ -788,6 +828,11 @@ Name | Type | Description  | Notes
 Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -886,6 +931,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;
@@ -980,6 +1030,11 @@ Name | Type | Description  | Notes
 Returns the current status of a long running request. The full URL is normally provided for you in the Location header of a long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

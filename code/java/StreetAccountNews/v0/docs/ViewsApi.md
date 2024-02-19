@@ -21,6 +21,11 @@ This endpoint allows you to create a new StreetAccount view. Select watchlists/t
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StreetAccountNews.ApiClient;
@@ -112,6 +117,11 @@ This endpoint allows you to delete a previously saved StreetAccount view.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StreetAccountNews.ApiClient;
@@ -201,6 +211,11 @@ Edits and saves an existing StreetAccount view
 This endpoint allows you to edit the criteria used for a previously saved StreetAccount view.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -292,6 +307,11 @@ Retrieves StreetAccount search views
 This endpoint allows you to pull the full list of StreetAccount views that have been previously saved.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

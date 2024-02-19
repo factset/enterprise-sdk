@@ -20,8 +20,10 @@ This is the endpoint to cancel a previously submitted calculation request.  Inst
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -118,8 +120,10 @@ This is the endpoint to check on the progress of a previous calculation request.
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -218,8 +222,10 @@ This endpoints returns all active calculation requests.
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -311,8 +317,10 @@ This endpoint creates a new calculation and runs the set of calculation units sp
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient

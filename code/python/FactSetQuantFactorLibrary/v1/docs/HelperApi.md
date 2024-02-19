@@ -18,8 +18,10 @@ Fetch the list of all available factors and related meta data.
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -114,8 +116,10 @@ Fetch the list of all available factors and related meta data.
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient

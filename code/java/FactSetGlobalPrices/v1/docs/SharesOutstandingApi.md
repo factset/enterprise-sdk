@@ -19,6 +19,11 @@ Returns security level shares outstanding data for the given ids and dates. At t
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetGlobalPrices.ApiClient;
@@ -129,6 +134,11 @@ Gets Shares Outstanding information for securities.
 Returns security level shares outstanding data for the given ids and dates. At this time, all values returned are split adjusted.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -32,6 +32,11 @@ Details for a news article.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.RealTimeNews.ApiClient;
@@ -124,6 +129,11 @@ Details for a news article type.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -215,6 +225,11 @@ List of news article types.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.RealTimeNews.ApiClient;
@@ -302,6 +317,11 @@ Details of a distributor.
 Details of a distributor.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -391,6 +411,11 @@ List of distributors.
 List of distributors.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -482,6 +507,11 @@ Details of a publisher.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -570,6 +600,11 @@ List of publishers.
 List of publishers.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -666,6 +701,11 @@ List of publishers provided by the given distributor.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -757,6 +797,11 @@ List of news articles.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.RealTimeNews.ApiClient;
@@ -842,6 +887,11 @@ List news articles of an article chain.
 List news articles of an article chain.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -929,6 +979,11 @@ News articles for instruments that are constituents of the given indices.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.RealTimeNews.ApiClient;
@@ -1014,6 +1069,11 @@ News articles for instruments.
 News articles for instruments.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -1101,6 +1161,11 @@ List news articles which contain media of specific media kinds.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.RealTimeNews.ApiClient;
@@ -1187,6 +1252,11 @@ Search for news articles using a fulltext search. All specified criteria need to
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.RealTimeNews.ApiClient;
@@ -1272,6 +1342,11 @@ Search for publishers.
 Search for publishers by the name of the publisher.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

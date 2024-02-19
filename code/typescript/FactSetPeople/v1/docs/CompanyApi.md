@@ -25,6 +25,11 @@ Returns the list of company-level executive compensation data items for the top 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -99,6 +104,11 @@ Returns the list of company-level executive compensation data items for the top 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -172,6 +182,11 @@ Returns the list of people for the specified company identifiers
 Returns the list of executives associated the company identifier requested. Information includes the job functions, email, phone, title, name, and FactSet Entity Identifier. The personId returned can then be used in the &#x60;/profiles&#x60; endpoint to learn more about the given person. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');
@@ -251,6 +266,11 @@ Returns the list of executives associated the company identifier requested. Info
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -324,6 +344,11 @@ Returns the list of people for the specified company identifiers and position
 Returns the list of people, name, and title for a list of company ids and requested position. Positions include-   * Chairman   * Chief Executive Officer   * President   * Chief Operating Officer   * Chief Financial Officer   * Chief Technology Officer   * Chief Investment Officer   * Founder(s)   * Compliance Officer   * Admin   * Independent Director   * Directors/Board Members   * Investor Relations   * Legal Counsel   * Treasurer   * Sales and Marketing Managers   * Human Resources 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');
@@ -403,6 +428,11 @@ Returns the list of people, name, and title for a list of company ids and reques
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -476,6 +506,11 @@ Returns statistics about top leadership of a company.
 Returns the statistics such as the average age, tenure, compensation of leadership, number of executives, and the gender diversity of leadership. We can utilize the data for analyzing a company&#39;s board and management. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');
@@ -554,6 +589,11 @@ Returns statistics about top leadership of a company.
 Returns the statistics such as the average age, tenure, compensation of leadership, number of executives, and the gender diversity of leadership. We can utilize the data for analyzing a company&#39;s board and management.  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-factsetpeople');

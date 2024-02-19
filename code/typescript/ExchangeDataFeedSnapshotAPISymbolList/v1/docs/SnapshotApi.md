@@ -19,6 +19,11 @@ Request a snapshot of exchange data for a list of symbols.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SnapshotApi } = require('@factset/sdk-exchangedatafeedsnapshotapisymbollist');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -106,6 +111,11 @@ Snap exchange data. Use if URL lengh of 2,048 is exceeded.
 Request Snapshot exchange data. Use POST when your URL length exceeds 2,048 characters.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SnapshotApi } = require('@factset/sdk-exchangedatafeedsnapshotapisymbollist');

@@ -19,6 +19,11 @@ This endpoint takes a file and uploads it
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.io.File;
 // Import classes:
@@ -111,6 +116,11 @@ Get upload status by id
 This is the endpoint to check on the progress of a previous upload request.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

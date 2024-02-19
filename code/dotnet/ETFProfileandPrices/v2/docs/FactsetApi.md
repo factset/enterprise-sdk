@@ -50,6 +50,12 @@ This endpoint returns selected ETP's asset allocations.
 This endpoint returns selected ETP's allocations grouped by asset class. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -148,6 +154,12 @@ This endpoint returns selected ETP's country allocations.
 This endpoint returns selected ETP's allocations grouped by country names. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -246,6 +258,12 @@ This endpoint returns selected ETP's currency allocations.
 This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -344,6 +362,12 @@ List of allocations classified by a holding's economic development status.
 List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -442,6 +466,12 @@ This endpoint returns selected ETP's exchange allocations.
 This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -540,6 +570,12 @@ This endpoint returns selected ETP's industry allocations.
 This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -638,6 +674,12 @@ List of allocations classified by a holding's total market capitalization.
 List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -736,6 +778,12 @@ This endpoint returns selected ETP's region allocations.
 This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -834,6 +882,12 @@ This endpoint returns selected ETP's sector allocations.
 This endpoint returns selected ETP's allocations grouped by sector names. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -932,6 +986,12 @@ FactSet proprietary analytics datapoints for ETPs.
 FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1026,6 +1086,12 @@ FactSet's portfolio statistics for ETPs.
 FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1120,6 +1186,12 @@ FactSet proprietary ETP rankings.
 FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1214,6 +1286,12 @@ Trade statistics for specific ETP.
 Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1308,6 +1386,12 @@ Retrieve basic characteristic information for a specified ETP.
 An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1402,6 +1486,12 @@ List of ETP class broad categories.
 List of ETP class broad categories.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1494,6 +1584,12 @@ List of ETP class focus categories.
 List of ETP class focus categories.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1590,6 +1686,12 @@ List of ETP class niche categories.
 List of ETP class niche categories.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1686,6 +1788,12 @@ List of ETP class geographies.
 List of ETP class geographies.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1778,6 +1886,12 @@ Retrieve an ETP's classification specific to asset class, geography, or investme
 ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund's geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP's investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1872,6 +1986,12 @@ FactSet's proprietary list of competing companies.
 FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1966,6 +2086,12 @@ Retrieve an ETP's current distribution details.
 Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2060,6 +2186,12 @@ Retrieve an ETP's cash inflow/outflows for various time periods.
 Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2154,6 +2286,12 @@ Retrieve basic profile information for a specified ETP.
 An ETP can be profiled by defining several common attributes such as issuer, fund description, and benchmark.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2248,6 +2386,12 @@ This endpoint returns selected ETP's Growth of 10K calculated values.
 Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2352,6 +2496,12 @@ Holdings details for an individual ETP.
 Retrieve an ETP's holdings information including security, shares held, and weight.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2450,6 +2600,12 @@ Market aggregate data for ETPs.
 Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2544,6 +2700,12 @@ Summary of ETP premium discount data.
 Summary of ETP premium discount data.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2646,6 +2808,12 @@ Retrieve historical ETP NAV values.
 Retrieve an ETP's historical NAV and shares outstanding for a specified time range.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2740,6 +2908,12 @@ Retrieve total return data for a specified ETP.
 An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2836,6 +3010,12 @@ Retrieve various classification details for a specified ETP.
 ETP's can be classified in many different ways including investment strategy, security weightings, and fund composition.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -2930,6 +3110,12 @@ Retrieve a list of ETP strategy segments.
 Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -3026,6 +3212,12 @@ Retrieve the basic structure information for a specified ETP.
 Retrieve details on a fund's structure including its type, investment style (active/passive), and legal structure.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -3120,6 +3312,12 @@ Retrieve the tax and fee related information for a specified ETP.
 Retrieve various fee and tax related details on a specified ETP including expense ratio and tax treatment for dividends and capital gains.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -3214,6 +3412,12 @@ Retrieve historical NAV data for a specified ETP.
 Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

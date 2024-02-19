@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.IRNConfiguration==1.0.8
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,7 +88,6 @@ configuration = fds.sdk.IRNConfiguration.Configuration(
 with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts___custom_fields_api.ContactsCustomFieldsApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_custom_field_save_dto = ContactCustomFieldSaveDto(
         code="code_example",
         name="name_example",

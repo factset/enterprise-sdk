@@ -22,6 +22,11 @@ Allows users to delete various combinations of symbols, dates, and fields from t
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;
@@ -116,6 +121,11 @@ Name | Type | Description  | Notes
 Deletes all data specific to the date in 3d database(OFDB). This includes all the symbols related to that date
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -212,6 +222,11 @@ Name | Type | Description  | Notes
 Deletes data specific to the symbol and date from a 3d database(OFDB).
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -311,6 +326,11 @@ Deletes all data specific to the symbol in both 2d and 3d database(OFDB). This i
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;
@@ -406,6 +426,11 @@ Name | Type | Description  | Notes
 Deletes data specific to the symbol and date from a 3d database(OFDB).
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

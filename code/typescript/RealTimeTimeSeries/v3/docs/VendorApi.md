@@ -22,6 +22,11 @@ End-of-day time series data for a notation. The resulting time series is always 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, VendorApi } = require('@factset/sdk-realtimetimeseries');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -95,6 +100,11 @@ Single subsample end-of-day data for a notation.
 Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, VendorApi } = require('@factset/sdk-realtimetimeseries');
@@ -170,6 +180,11 @@ Subsampled end-of-day time series data for a notation. The resulting time series
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, VendorApi } = require('@factset/sdk-realtimetimeseries');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -244,6 +259,11 @@ Single subsample intraday data for a notation. The subsample may exceed the enti
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, VendorApi } = require('@factset/sdk-realtimetimeseries');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -317,6 +337,11 @@ Subsampled intraday time series data for a notation.
 Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, VendorApi } = require('@factset/sdk-realtimetimeseries');

@@ -25,6 +25,11 @@ Returns all relevant dates such as  for the specified Option identifier. Data It
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetOptions.ApiClient;
@@ -128,6 +133,11 @@ Returns basic reference details for the options. Data items include -
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

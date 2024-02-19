@@ -18,6 +18,11 @@ Debt Capital Structure (DCS)
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.CapitalStructureReportBuilder.ApiClient;
@@ -111,6 +116,11 @@ Debt Capital Structure (DCS) Summary
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.CapitalStructureReportBuilder.ApiClient;
@@ -203,6 +213,11 @@ Name | Type | Description  | Notes
 Source of Capital
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

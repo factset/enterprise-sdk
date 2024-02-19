@@ -19,6 +19,11 @@ Returns the current security, composite, and regional identifiers from Bloomberg
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Symbology.ApiClient;
@@ -109,6 +114,11 @@ Translate market security symbols into Bloomberg Identifiers.
 Returns the current security, composite, regional Bloomberg (FIGI) unique identifiers.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

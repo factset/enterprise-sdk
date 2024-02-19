@@ -21,6 +21,11 @@ Endpoint that returns the full headline and summary results from the initial POS
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DefaultApi } = require('@factset/sdk-aitextsummarization');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ POST request to create a 2-3 sentence summary from input text
 Endpoint for initiating a processing job to create a 2-3 sentence summary from input text.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DefaultApi } = require('@factset/sdk-aitextsummarization');
@@ -169,6 +179,11 @@ Endpoint for initiating a processing job to create a headline from input text.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DefaultApi } = require('@factset/sdk-aitextsummarization');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -242,6 +257,11 @@ POST request to create a headline and summary from input text
 Endpoint for initiating a processing job to create a headline and summary from input text.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DefaultApi } = require('@factset/sdk-aitextsummarization');

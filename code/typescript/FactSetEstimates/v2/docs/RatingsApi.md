@@ -21,6 +21,11 @@ Returns ratings from the FactSet Estimates database for current and historical f
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, RatingsApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -103,6 +108,11 @@ Returns ratings from the FactSet Estimates database for current and historical f
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, RatingsApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -176,6 +186,11 @@ Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
 Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, RatingsApi } = require('@factset/sdk-factsetestimates');
@@ -258,6 +273,11 @@ Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
 Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, RatingsApi } = require('@factset/sdk-factsetestimates');

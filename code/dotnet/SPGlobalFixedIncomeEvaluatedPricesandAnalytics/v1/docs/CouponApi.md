@@ -18,6 +18,12 @@ Get coupon data for given date range and list of securities
 Get coupon information like accrued interest, coupon, coupon type and coupon frequency provided by Markit for specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Request coupon data for given date range and list of securities
 Get coupon information like accrued interest, coupon, coupon type and coupon frequency provided by Markit for specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

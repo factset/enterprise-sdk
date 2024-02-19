@@ -18,6 +18,11 @@ This endpoint converts the given start and end dates in FactSet date format to y
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PAEngine.ApiClient;

@@ -20,6 +20,12 @@ Gets Spotlight data for the most important positive and negative ESG events to e
 FactSet ESG by Truvalue Labs’ Spotlight Data solutions are a daily collection of the most important positive and negative ESG events detected by our algorithms, with a variety of quantitative metadata to enable timely and systematic trading strategies and portfolio management. Qualitive informational data points such as the headline and key bullet points for articles is also included.  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -130,6 +136,12 @@ Gets Spotlight data for the most important positive and negative ESG events to e
 FactSet ESG by Truvalue Labs’ Spotlight Data solutions are a daily collection of the most important positive and negative ESG events detected by our algorithms, with a variety of quantitative metadata to enable timely and systematic trading strategies and portfolio management. Qualitive informational data points such as the headline and key bullet points for articles is also included. reporting is sparse. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -228,6 +240,12 @@ Gets Spotlight data for the most important positive and negative ESG events to e
 FactSet ESG by Truvalue Labs’ Spotlight Data solutions are a daily collection of the most important positive and negative ESG events detected by our algorithms, with a variety of quantitative metadata to enable timely and systematic trading strategies and portfolio management. Qualitive informational data points such as the headline and key bullet points for articles is also included.  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -338,6 +356,12 @@ Gets Spotlight data for the most important positive and negative ESG events to e
 FactSet ESG by Truvalue Labs’ Spotlight Data solutions are a daily collection of the most important positive and negative ESG events detected by our algorithms, with a variety of quantitative metadata to enable timely and systematic trading strategies and portfolio management. Qualitive informational data points such as the headline and key bullet points for articles is also included. reporting is sparse. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

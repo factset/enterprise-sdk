@@ -21,6 +21,11 @@ Return the full history of CUSIP changes for a given market security or FactSet 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CUSIPApi } = require('@factset/sdk-symbology');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -95,6 +100,11 @@ Translate market security symbols into CUSIP and FactSet Permanent Identifiers. 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CUSIPApi } = require('@factset/sdk-symbology');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -168,6 +178,11 @@ Retrieve the full history or as of a requested date of CUSIP changes for the req
 Return the full history of CUSIP changes or as of a requested date for a given market security or FactSet Permanent Id. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for more details regarding the CUSIP numbering system. If no asOfDate is requested, the service will default to returning the entire history. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CUSIPApi } = require('@factset/sdk-symbology');
@@ -246,6 +261,11 @@ Translate market security symbols into CUSIPs - Current Only
 Translate market security symbols into CUSIP and FactSet Permanent Identifiers. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for more details regarding the CUSIP numbering system.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CUSIPApi } = require('@factset/sdk-symbology');

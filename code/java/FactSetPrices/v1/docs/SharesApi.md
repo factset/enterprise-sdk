@@ -19,6 +19,11 @@ Gets security shares for a list of 'ids' and given date range. Share values retu
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetPrices.ApiClient;
@@ -119,6 +124,11 @@ Requests shares for a list of &#x60;ids&#x60; as of given date range.
 Gets security shares for a list of 'ids' and given date range. Share values returned include security-level and company-level.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -23,6 +23,11 @@ Retrieves the index level ratios for a requested benchmark. Ratios supported are
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, IndexLevelApi } = require('@factset/sdk-factsetbenchmarks');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -111,6 +116,11 @@ Retrieves the index level ratios for a requested benchmark. Ratios supported are
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, IndexLevelApi } = require('@factset/sdk-factsetbenchmarks');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -184,6 +194,11 @@ Retrieves Index Level Prices and Returns information for a list of identifiers a
 Retrieves Index Level Prices and Returns information as of a date range requested. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date range to retrieve Index Level Prices, Returns, and related information. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, IndexLevelApi } = require('@factset/sdk-factsetbenchmarks');
@@ -277,6 +292,11 @@ Retrieves Index Level Prices and Returns information as aligned with FactSet&#39
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, IndexLevelApi } = require('@factset/sdk-factsetbenchmarks');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -350,6 +370,11 @@ Index Level Prices, Returns, and related information as of a single date.
 Retrieves Index Level Prices and Returns information as of a specific date. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, IndexLevelApi } = require('@factset/sdk-factsetbenchmarks');
@@ -434,6 +459,11 @@ Retrieves the Index Level Snapshot of Prices and Returns information for a given
 Retrieves Index Level Prices and Returns information as aligned with FactSet&#39;s Benchmark Data Feed solution. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, IndexLevelApi } = require('@factset/sdk-factsetbenchmarks');

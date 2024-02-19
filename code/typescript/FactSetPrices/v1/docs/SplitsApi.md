@@ -19,6 +19,11 @@ Gets the entire history of splits for a given list of identifiers. Information r
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SplitsApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Requests splits for a list of &#x60;ids&#x60;
 Gets the entire history of splits for a given list of identifiers. Information returned includes the split factor, a plain text comment regarding the type of split, and the event date.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SplitsApi } = require('@factset/sdk-factsetprices');

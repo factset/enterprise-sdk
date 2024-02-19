@@ -20,6 +20,11 @@ Create a meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, MeetingsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Delete a Meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, MeetingsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -163,6 +173,11 @@ null (empty response body)
 Get details of a meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, MeetingsApi } = require('@factset/sdk-irnmeetings');
@@ -236,6 +251,11 @@ Get all the meetings in the specified date range filtered on the given identifie
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, MeetingsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -268,6 +288,7 @@ const opts = {
   'identifiers': ["null"], // [String] | Set of identifiers to filter on
   'limit': 56, // Number | Limit on the number of meetings retrieved
   'modifiedSince': "modifiedSince_example", // String | Only return meetings which have been modified or created since a particular time
+  'includeRelatedEntities': false, // Boolean | When set to true fetches meetings tagged with all the entities related to identifiers param
   'xIRNIncludeDeleted': false // Boolean | Includes deleted meetings in results when set to true
 };
 
@@ -296,6 +317,7 @@ Name | Type | Description  | Notes
  **identifiers** | [**[String]**](String.md)| Set of identifiers to filter on | [optional] 
  **limit** | **Number**| Limit on the number of meetings retrieved | [optional] 
  **modifiedSince** | **String**| Only return meetings which have been modified or created since a particular time | [optional] 
+ **includeRelatedEntities** | **Boolean**| When set to true fetches meetings tagged with all the entities related to identifiers param | [optional] [default to false]
  **xIRNIncludeDeleted** | **Boolean**| Includes deleted meetings in results when set to true | [optional] [default to false]
 
 ### Return type
@@ -319,6 +341,11 @@ Name | Type | Description  | Notes
 Update meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, MeetingsApi } = require('@factset/sdk-irnmeetings');

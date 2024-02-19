@@ -51,6 +51,11 @@ This endpoint returns selected ETP&#39;s allocations grouped by asset class. The
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -132,6 +137,11 @@ This endpoint returns selected ETP&#39;s country allocations.
 This endpoint returns selected ETP&#39;s allocations grouped by country names. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -215,6 +225,11 @@ This endpoint returns selected ETP&#39;s allocations grouped by currency. The re
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -296,6 +311,11 @@ List of allocations classified by a holding&#39;s economic development status.
 List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -379,6 +399,11 @@ This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The r
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -460,6 +485,11 @@ This endpoint returns selected ETP&#39;s industry allocations.
 This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -543,6 +573,11 @@ List of allocations classified by a holding&#39;s total market capitalization (e
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -624,6 +659,11 @@ This endpoint returns selected ETP&#39;s region allocations.
 This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -707,6 +747,11 @@ This endpoint returns selected ETP&#39;s allocations grouped by sector names. Th
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -789,6 +834,11 @@ FactSet&#39;s proprietary analytical datapoints include ETP attributes specific 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -866,6 +916,11 @@ FactSet&#39;s portfolio statistics for ETPs.
 FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -945,6 +1000,11 @@ FactSet calculates various proprietary fund rankings including unique scores, fu
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1022,6 +1082,11 @@ Trade statistics for specific ETP.
 Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -1101,6 +1166,11 @@ An ETP has many unique characteristics specific to its composition that differen
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1179,6 +1249,11 @@ List of ETP class broad categories.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1254,6 +1329,11 @@ List of ETP class focus categories.
 List of ETP class focus categories.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -1335,6 +1415,11 @@ List of ETP class niche categories.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1415,6 +1500,11 @@ List of ETP class geographies.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1490,6 +1580,11 @@ Retrieve an ETP&#39;s classification specific to asset class, geography, or inve
 ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -1569,6 +1664,11 @@ FactSet defines and maintains a proprietary list of competing companies based on
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1646,6 +1746,11 @@ Retrieve an ETP&#39;s current distribution details.
 Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -1725,6 +1830,11 @@ Retrieve the amount invested or divested in a specific ETP over various time per
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1803,6 +1913,11 @@ An ETP can be profiled by defining several common attributes such as issuer, fun
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1880,6 +1995,11 @@ This endpoint returns selected ETP&#39;s Growth of 10K calculated values.
 Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -1969,6 +2089,11 @@ Retrieve an ETP&#39;s holdings information including security, shares held, and 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2051,6 +2176,11 @@ Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2128,6 +2258,11 @@ Summary of ETP premium discount data.
 Summary of ETP premium discount data.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -2215,6 +2350,11 @@ Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2292,6 +2432,11 @@ Retrieve total return data for a specified ETP.
 An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -2373,6 +2518,11 @@ ETP&#39;s can be classified in many different ways including investment strategy
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2450,6 +2600,11 @@ Retrieve a list of ETP strategy segments.
 Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
@@ -2531,6 +2686,11 @@ Retrieve details on a fund&#39;s structure including its type, investment style 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2609,6 +2769,11 @@ Retrieve various fee and tax related details on a specified ETP including expens
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2686,6 +2851,11 @@ Retrieve historical NAV data for a specified ETP.
 Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactsetApi } = require('@factset/sdk-etfprofileandprices');

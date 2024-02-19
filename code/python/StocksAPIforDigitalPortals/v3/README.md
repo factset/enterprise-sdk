@@ -70,6 +70,11 @@ pip install fds.sdk.utils fds.sdk.StocksAPIforDigitalPortals==0.10.13
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -107,13 +112,10 @@ configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     language = "_language_example" # str |  (optional)
 
     try:

@@ -15,6 +15,12 @@ Method | HTTP request | Description
 Returns the files from tickhistory endpoint for the specified date range
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

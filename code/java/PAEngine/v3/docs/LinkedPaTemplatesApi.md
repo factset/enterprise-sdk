@@ -35,6 +35,11 @@ Remarks:
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PAEngine.ApiClient;
@@ -129,6 +134,11 @@ This endpoint deletes an existing linked PA template.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PAEngine.ApiClient;
@@ -221,6 +231,11 @@ Get linked PA templates
 This endpoint returns the list of linked PA templates in given path.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -319,6 +334,11 @@ Get linked PA template by id
 This endpoint fetches the linked PA template settings.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -426,6 +446,11 @@ Remarks:
 *   Multi-horizon frequencies are not supported through this endpoint.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

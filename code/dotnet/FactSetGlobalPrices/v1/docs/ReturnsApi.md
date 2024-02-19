@@ -18,6 +18,12 @@ Gets Returns for a list of `ids` as of given date range.
 Returns for the requested ids and currency for the given dates. Depending on the input parameters the return data is provided.  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Net;
@@ -141,6 +147,12 @@ Gets Returns for a list of `ids` as of given date range.
 Returns for the requested ids and currency for the given dates. Depending on the input parameters the return data is provided.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Net;

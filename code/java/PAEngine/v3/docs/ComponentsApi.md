@@ -19,6 +19,11 @@ This endpoint returns the default settings of a PA component.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PAEngine.ApiClient;
@@ -112,6 +117,11 @@ Get PA components
 This endpoint returns the list of PA components in a given PA document.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

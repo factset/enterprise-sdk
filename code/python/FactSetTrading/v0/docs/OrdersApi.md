@@ -19,8 +19,10 @@ This endpoint takes the list of orders to be cancelled on the EMS system.
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -129,8 +131,10 @@ This endpoint takes the list of orders and place them on EMS for execution.
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -201,15 +205,15 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                     prev_close_price=100,
                     settlement_type="regular",
                     settlement_date="20210622",
-                    handling_instructions="auto_ord_pub",
-                    execution_instructions="not_held",
+                    handling_instructions="autoOrderPublic",
+                    execution_instructions="notHeld",
                     locate_required=False,
                     effective_time="20210622-12:15:30",
                     account="Test.ACCT",
                     time_in_force=TimeInForce(
-                        tif="DAY",
-                        expire_date="expire_date_example",
-                        expire_time="expire_time_example",
+                        tif="day",
+                        expire_date="20230823",
+                        expire_time="20230823-12:20:25",
                     ),
                     inbound_destination="inbound_destination_example",
                     user_defined_fields={
@@ -277,8 +281,10 @@ This endpoint takes the list of orders to be replaced on the EMS system.
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -351,15 +357,15 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                         prev_close_price=100,
                         settlement_type="regular",
                         settlement_date="20210622",
-                        handling_instructions="auto_ord_pub",
-                        execution_instructions="not_held",
+                        handling_instructions="autoOrderPublic",
+                        execution_instructions="notHeld",
                         locate_required=False,
                         effective_time="20210622-12:15:30",
                         account="Test.ACCT",
                         time_in_force=TimeInForce(
-                            tif="DAY",
-                            expire_date="expire_date_example",
-                            expire_time="expire_time_example",
+                            tif="day",
+                            expire_date="20230823",
+                            expire_time="20230823-12:20:25",
                         ),
                         inbound_destination="inbound_destination_example",
                         user_defined_fields={

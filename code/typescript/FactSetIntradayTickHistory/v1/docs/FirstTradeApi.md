@@ -16,6 +16,11 @@ Request returns data for the first trade (official and unofficial) after the spe
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FirstTradeApi } = require('@factset/sdk-factsetintradaytickhistory');
 const { ConfidentialClient } = require('@factset/sdk-utils');

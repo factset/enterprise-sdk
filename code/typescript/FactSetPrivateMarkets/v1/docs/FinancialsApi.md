@@ -19,6 +19,11 @@ Returns Private Company Financials Information.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FinancialsApi } = require('@factset/sdk-factsetprivatemarkets');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -100,6 +105,11 @@ Returns Private Company Financials for a list of ids.
 Returns a private markets financials object for the requested ids. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FinancialsApi } = require('@factset/sdk-factsetprivatemarkets');

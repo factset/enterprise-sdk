@@ -47,6 +47,11 @@ pip install fds.sdk.utils fds.sdk.UniversalScreening==1.0.7
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -84,7 +89,6 @@ configuration = fds.sdk.UniversalScreening.Configuration(
 with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_management_api.JobManagementApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "id_example" # str | Unique identifier for a screen calculation job
 
     try:

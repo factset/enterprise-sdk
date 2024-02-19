@@ -17,6 +17,11 @@ Get a list of products.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ProductsApi } = require('@factset/sdk-procuretopayapiscim');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -98,6 +103,11 @@ Name | Type | Description  | Notes
 Get a product.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ProductsApi } = require('@factset/sdk-procuretopayapiscim');

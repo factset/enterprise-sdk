@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.FactSetFundamentalsReportBuilder==1.0.7
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,15 +88,10 @@ configuration = fds.sdk.FactSetFundamentalsReportBuilder.Configuration(
 with fds.sdk.FactSetFundamentalsReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = financials_api.FinancialsApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company Ticker
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "INTERIM"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) if omitted the server will use the default value of "RESTATED"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) if omitted the server will use the default value of "LOCAL"
 
     try:

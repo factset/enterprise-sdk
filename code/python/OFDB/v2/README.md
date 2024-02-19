@@ -48,6 +48,11 @@ pip install fds.sdk.utils fds.sdk.OFDB==0.30.9
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -85,9 +90,7 @@ configuration = fds.sdk.OFDB.Configuration(
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = add_api.AddApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "path_example" # str | Encode database path
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     add_dates = AddDates(
         data=[
             AddDatesData(

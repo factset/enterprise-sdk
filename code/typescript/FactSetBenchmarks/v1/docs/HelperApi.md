@@ -19,6 +19,11 @@ Returns a **sample** list of Benchmark Identifiers to use in other Benchmark API
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, HelperApi } = require('@factset/sdk-factsetbenchmarks');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Returns a sample list of Benchmark Identifiers and the benchmark categorization 
 Returns a **sample** list of Benchmark Identifiers to use in other Benchmark API endpoints. This is a supporting API to be use alongside the other Benchmark API endpoints. For example, use the fsymID value returned in this response as the input to your &#x60;ids&#x60; parameter in the /constituents endpoint to return constituents for that id.&lt;p&gt; *This is not the full list of benchmark ids allowed in this service, but rather a representation of the most commonly requested. For complete assistance with ID lookup or concordance services, please reach out to FactSet Support.*&lt;/p&gt;
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, HelperApi } = require('@factset/sdk-factsetbenchmarks');

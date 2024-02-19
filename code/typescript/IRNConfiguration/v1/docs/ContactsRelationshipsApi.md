@@ -19,6 +19,11 @@ Create a relationship type
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -93,6 +98,11 @@ Delete a relationship type
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -162,6 +172,11 @@ null (empty response body)
 Edit a relationship type
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irnconfiguration');
@@ -236,6 +251,11 @@ null (empty response body)
 Get list of the relationships configured in your group
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irnconfiguration');

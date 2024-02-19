@@ -19,6 +19,11 @@ Returns the current security, composite, and regional identifiers from Bloomberg
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, BloombergFIGIApi } = require('@factset/sdk-symbology');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Translate market security symbols into Bloomberg Identifiers.
 Returns the current security, composite, regional Bloomberg (FIGI) unique identifiers.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, BloombergFIGIApi } = require('@factset/sdk-symbology');

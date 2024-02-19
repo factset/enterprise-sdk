@@ -17,6 +17,12 @@ Get SPAR frequencies
 This endpoint lists all the frequencies that can be applied to a SPAR calculation.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

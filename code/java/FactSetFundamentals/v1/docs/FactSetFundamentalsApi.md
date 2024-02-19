@@ -20,6 +20,11 @@ Retrieves FactSet Fundamental standardized data for an individual security. Use 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFundamentals.ApiClient;
@@ -123,6 +128,11 @@ Retrieves FactSet Fundamental standardized data for an individual security. Use 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

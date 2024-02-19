@@ -19,6 +19,11 @@ Returns all relevant dates such as  for the specified Option identifier. Data It
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetoptions');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Returns basic reference details for the options such as currency, exchange, symb
 Returns basic reference details for the options. Data items include -  * Name * Exchange * Call or Put Flag * Call or Put Pair Symbol * Other symbols such as OPRA17 and OCC21 * Currency * Underlying Security Symbols * Expiration Month, Dates, and Frequency  *For details or definitions of all available response fields visit the associated schema.*    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetoptions');

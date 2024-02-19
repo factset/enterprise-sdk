@@ -18,6 +18,12 @@ Requests security reference details a list of securities
 Gets security reference details for a large list of `ids`, such as Name, Security Type, Currency, Country, Primary Exchange, Local Index, and dates of First and Last Trade. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -115,6 +121,12 @@ Gets security reference details for a list of securities
 Gets security reference details for a list of `ids`, such as Name, Security Type, Currency, Country, Primary Exchange, Local Index, and dates of First and Last Trade. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

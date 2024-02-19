@@ -18,6 +18,12 @@ Calculate risk statistics
 Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -118,6 +124,12 @@ Generate risk model ID mapping
 Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

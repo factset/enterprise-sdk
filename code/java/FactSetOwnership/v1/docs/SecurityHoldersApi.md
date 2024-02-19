@@ -20,6 +20,11 @@ Gets security ownership details and activity for the requested security identifi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetOwnership.ApiClient;
@@ -119,6 +124,11 @@ Gets security ownership details and activity for the requested security identifi
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

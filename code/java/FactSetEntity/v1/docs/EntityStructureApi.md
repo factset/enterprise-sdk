@@ -22,6 +22,11 @@ Returns all active or inactive entities below the requested entity id.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEntity.ApiClient;
@@ -117,6 +122,11 @@ Returns full ultimate entity structure including ultimate parent and all subordi
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -214,6 +224,11 @@ Returns all active or inactive entities and respective levels below the requeste
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEntity.ApiClient;
@@ -305,6 +320,11 @@ Returns all active or inactive entities and respective levels below the requeste
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

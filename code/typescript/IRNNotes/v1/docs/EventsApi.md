@@ -18,6 +18,11 @@ Get all the record events in the specified date range filtered on the given type
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-irnnotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Get all the record events that belong to a note
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-irnnotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -167,6 +177,11 @@ Name | Type | Description  | Notes
 Get details of a record event of a note
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-irnnotes');

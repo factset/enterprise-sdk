@@ -18,6 +18,11 @@ This endpoint lists all the column statistics that can be applied to a PA column
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PAEngine.ApiClient;

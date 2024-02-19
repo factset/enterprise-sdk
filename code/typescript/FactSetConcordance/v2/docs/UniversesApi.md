@@ -22,6 +22,11 @@ Get the total number of mappings in a universe, as well as the number of mapped,
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, UniversesApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -95,6 +100,11 @@ Create a new universe
 Create a new universe that is distinct from any existing universe 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, UniversesApi } = require('@factset/sdk-factsetconcordance');
@@ -170,6 +180,11 @@ Get the total number of mappings in a universe, as well as the number of mapped,
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, UniversesApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -243,6 +258,11 @@ Fetch metadata for universes
 Fetch information on active universes for the current user. Optionally filter for a specific universe given a &#x60;universeId&#x60; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, UniversesApi } = require('@factset/sdk-factsetconcordance');
@@ -321,6 +341,11 @@ Update metadata for an existing universe
 Update metadata for an existing universe 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, UniversesApi } = require('@factset/sdk-factsetconcordance');

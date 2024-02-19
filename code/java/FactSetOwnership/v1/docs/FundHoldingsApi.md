@@ -20,6 +20,11 @@ Gets holdings information for list of fund identifiers. The service allows you t
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetOwnership.ApiClient;
@@ -118,6 +123,11 @@ Get holdings for a list of funds.
 Gets Holding information for a long list of Fund objects.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

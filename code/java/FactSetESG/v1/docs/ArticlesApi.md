@@ -22,6 +22,11 @@ Articles endpoint allows to retrieve underlying news articles used by the AI eng
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetESG.ApiClient;
@@ -125,6 +130,11 @@ Articles endpoint allows to retrieve underlying news articles used by the AI eng
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetESG.ApiClient;
@@ -217,6 +227,11 @@ Articles endpoint allows to retrieve underlying news articles used by the AI eng
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -320,6 +335,11 @@ Articles endpoint allows to retrieve underlying news articles used by the AI eng
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -265,6 +265,7 @@ class NotesApi(object):
                     'modified_since',
                     'states',
                     'filter_on_related_symbols',
+                    'include_related_entities',
                     'x_irn_include_deleted',
                 ],
                 'required': [],
@@ -305,6 +306,8 @@ class NotesApi(object):
                         ([str],),
                     'filter_on_related_symbols':
                         (bool,),
+                    'include_related_entities':
+                        (bool,),
                     'x_irn_include_deleted':
                         (bool,),
                 },
@@ -321,6 +324,7 @@ class NotesApi(object):
                     'modified_since': 'modifiedSince',
                     'states': 'states',
                     'filter_on_related_symbols': 'filterOnRelatedSymbols',
+                    'include_related_entities': 'includeRelatedEntities',
                     'x_irn_include_deleted': 'X-IRN-Include-Deleted',
                 },
                 'location_map': {
@@ -336,6 +340,7 @@ class NotesApi(object):
                     'modified_since': 'query',
                     'states': 'query',
                     'filter_on_related_symbols': 'query',
+                    'include_related_entities': 'query',
                     'x_irn_include_deleted': 'header',
                 },
                 'collection_format_map': {
@@ -1011,6 +1016,7 @@ class NotesApi(object):
             modified_since (str): Only return notes which have been modified or created since a particular time. [optional]
             states ([str]): Set of states to filter on. [optional]
             filter_on_related_symbols (bool): Include notes whose related symbols match the identifier filter. [optional] if omitted the server will use the default value of False
+            include_related_entities (bool): When set to true fetches notes tagged with all the entities related to identifiers param. [optional] if omitted the server will use the default value of False
             x_irn_include_deleted (bool): [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1064,6 +1070,7 @@ class NotesApi(object):
             modified_since (str): Only return notes which have been modified or created since a particular time. [optional]
             states ([str]): Set of states to filter on. [optional]
             filter_on_related_symbols (bool): Include notes whose related symbols match the identifier filter. [optional] if omitted the server will use the default value of False
+            include_related_entities (bool): When set to true fetches notes tagged with all the entities related to identifiers param. [optional] if omitted the server will use the default value of False
             x_irn_include_deleted (bool): [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1121,6 +1128,7 @@ class NotesApi(object):
             modified_since (str): Only return notes which have been modified or created since a particular time. [optional]
             states ([str]): Set of states to filter on. [optional]
             filter_on_related_symbols (bool): Include notes whose related symbols match the identifier filter. [optional] if omitted the server will use the default value of False
+            include_related_entities (bool): When set to true fetches notes tagged with all the entities related to identifiers param. [optional] if omitted the server will use the default value of False
             x_irn_include_deleted (bool): [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1173,6 +1181,7 @@ class NotesApi(object):
             modified_since (str): Only return notes which have been modified or created since a particular time. [optional]
             states ([str]): Set of states to filter on. [optional]
             filter_on_related_symbols (bool): Include notes whose related symbols match the identifier filter. [optional] if omitted the server will use the default value of False
+            include_related_entities (bool): When set to true fetches notes tagged with all the entities related to identifiers param. [optional] if omitted the server will use the default value of False
             x_irn_include_deleted (bool): [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.

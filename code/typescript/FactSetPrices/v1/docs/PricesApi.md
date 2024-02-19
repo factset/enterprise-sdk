@@ -21,6 +21,11 @@ Get BID, MID, ASK, and Issuer Entity ID for a list of Fixed Income Securities as
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -103,6 +108,11 @@ Get BID, MID, ASK, and Issuer Entity ID for a list of Fixed Income Securities as
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -176,6 +186,11 @@ Gets end-of-day Open, High, Low, Close for a list of securities.
 Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency. Prices are updated and at different times across the different regions around the globe. The Prices API automatically defaults relative price dates to the local region which is determined by the local region of the requested security id. To learn more about relative dates please visit [OA Page 4627](https://my.apps.factset.com/oa/pages/4627)  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via &#x60;batch&#x60; parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-factsetprices');
@@ -279,6 +294,11 @@ Requests end-of-day Open, High, Low, Close for a large list of securities.
  Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via &#x60;batch&#x60; parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-factsetprices');

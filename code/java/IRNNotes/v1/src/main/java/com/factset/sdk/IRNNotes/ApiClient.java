@@ -127,7 +127,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/IRNNotes/1.0.8");
+    setUserAgent("fds-sdk/java/IRNNotes/2.0.0");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

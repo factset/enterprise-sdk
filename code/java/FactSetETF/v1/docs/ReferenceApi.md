@@ -20,6 +20,11 @@ Returns reference data items for Exchange Traded Funds.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetETF.ApiClient;
@@ -115,6 +120,11 @@ Returns reference data items for a list of Exchange Traded Funds.
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

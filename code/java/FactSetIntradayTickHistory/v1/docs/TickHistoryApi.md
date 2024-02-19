@@ -18,6 +18,11 @@ When using an HTTP GET request, the seach criteria is sent via the query string 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetIntradayTickHistory.ApiClient;

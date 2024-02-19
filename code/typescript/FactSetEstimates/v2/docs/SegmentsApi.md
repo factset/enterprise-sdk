@@ -19,6 +19,11 @@ Returns FactSet Estimates Consensus Data for the segments gathered from the Busi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SegmentsApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -112,6 +117,11 @@ Retrieves product segment estimates for a requested list of ids and fiscal perio
 Returns FactSet Estimates Data for the segments gathered from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications by using fiscal periods with a reporting frequency.  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SegmentsApi } = require('@factset/sdk-factsetestimates');

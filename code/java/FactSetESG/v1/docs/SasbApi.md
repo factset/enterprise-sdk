@@ -35,6 +35,11 @@ Industry classifications follow SICS, SASB's Industry Classification System. Usi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetESG.ApiClient;
@@ -148,6 +153,11 @@ Industry classifications follow SICS, SASB's Industry Classification System. Usi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetESG.ApiClient;
@@ -239,6 +249,11 @@ FactSet Truvalue Labs SASB Scores provides short-term, long-term, and momentum s
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -344,6 +359,11 @@ Gets a flat key value array of scores for named categories of the input scoreTyp
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetESG.ApiClient;
@@ -446,6 +466,11 @@ Gets a flat key value array of scores for named categories of the input score ty
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetESG.ApiClient;
@@ -537,6 +562,11 @@ FactSet Truvalue Labs SASB Scores provides short-term, long-term, and momentum s
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

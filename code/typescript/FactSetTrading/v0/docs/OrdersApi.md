@@ -20,6 +20,11 @@ This endpoint takes the list of orders to be cancelled on the EMS system.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, OrdersApi } = require('@factset/sdk-factsettrading');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ This endpoint takes the list of orders and place them on EMS for execution.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, OrdersApi } = require('@factset/sdk-factsettrading');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -123,7 +133,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new OrdersApi();
 const opts = {
-  'eMSOrdersRoot': {"data":{"investorId":"MyOrganization","orders":[{"clientOrderId":"OR0000001","instrument":{"symbol":"GOOGL"},"side":"buy","orderType":"market","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"clientOrderId":"OR0000002","instrument":{"symbol":"MSFT"},"side":"sell","orderType":"limit","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"clientOrderId":"OR0000003","instrument":{"symbol":"TSLA"},"side":"buy","orderType":"market_on_close","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"}]}} // EMSOrdersRoot | 
+  'eMSOrdersRoot': {"data":{"investorId":"MyOrganization","orders":[{"clientOrderId":"OR0000001","instrument":{"symbol":"GOOGL"},"side":"buy","orderType":"market","orderQuantity":1000,"price":450,"currency":"USD","settlementType":"regular","handlingInstructions":"autoOrderPublic"},{"clientOrderId":"OR0000002","instrument":{"symbol":"MSFT"},"side":"sell","orderType":"limit","orderQuantity":1000,"price":450,"currency":"USD","settlementType":"regular","handlingInstructions":"autoOrderPublic"},{"clientOrderId":"OR0000003","instrument":{"symbol":"TSLA"},"side":"buy","orderType":"marketOnClose","orderQuantity":1000,"price":450,"currency":"USD","settlementType":"regular","handlingInstructions":"autoOrderPublic"}]}} // EMSOrdersRoot | 
 };
 
 // Call api endpoint
@@ -171,6 +181,11 @@ Replace the orders on EMS system.
 This endpoint takes the list of orders to be replaced on the EMS system.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, OrdersApi } = require('@factset/sdk-factsettrading');

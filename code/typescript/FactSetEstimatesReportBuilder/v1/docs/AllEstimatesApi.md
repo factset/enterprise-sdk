@@ -25,6 +25,11 @@ Returns historical and future period broker estimate consensus in a statement fo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AllEstimatesApi } = require('@factset/sdk-factsetestimatesreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -104,6 +109,11 @@ Cash Flow
 Returns historical and future period broker estimate consensus in a statement format for Cash Flow line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AllEstimatesApi } = require('@factset/sdk-factsetestimatesreportbuilder');
@@ -185,6 +195,11 @@ Returns historical and future period broker estimate consensus in a statement fo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AllEstimatesApi } = require('@factset/sdk-factsetestimatesreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -264,6 +279,11 @@ Income Statement
 Returns historical and future period broker estimate consensus in a statement format for Income Statement line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AllEstimatesApi } = require('@factset/sdk-factsetestimatesreportbuilder');
@@ -345,6 +365,11 @@ Returns historical and future period broker estimate consensus in a statement fo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AllEstimatesApi } = require('@factset/sdk-factsetestimatesreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -424,6 +449,11 @@ Per Share
 Returns historical and future period broker estimate consensus in a statement format for Per Share line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AllEstimatesApi } = require('@factset/sdk-factsetestimatesreportbuilder');
@@ -505,6 +535,11 @@ Returns historical and future period broker estimate consensus in a statement fo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AllEstimatesApi } = require('@factset/sdk-factsetestimatesreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -584,6 +619,11 @@ Valuation
 Returns valuation ratios in a statement format calculated from historical and future period broker estimate consensus.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AllEstimatesApi } = require('@factset/sdk-factsetestimatesreportbuilder');

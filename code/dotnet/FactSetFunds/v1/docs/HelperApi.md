@@ -18,6 +18,12 @@ Get Fund's current status and database availability
 Get the funds active status, share class status, and database availability. Most common use is for coverage checks and id resolution checks. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -115,6 +121,12 @@ Get Fund's current status and database availability for large list of ids.
 Get the funds active status, share class status, and database availability. Most common use is for coverage checks and id resolution checks. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

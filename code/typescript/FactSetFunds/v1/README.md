@@ -58,6 +58,11 @@ yarn add @factset/sdk-utils @factset/sdk-factsetfunds@1.0.3
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 
 ```javascript
 const { ApiClient, FundFlowsAUMApi } = require('@factset/sdk-factsetfunds');

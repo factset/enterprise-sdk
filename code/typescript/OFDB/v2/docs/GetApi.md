@@ -23,6 +23,11 @@ Returns a list of the most recent \&quot;modificationTimes\&quot; in long dateti
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GetApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Name | Type | Description  | Notes
 Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, GetApi } = require('@factset/sdk-ofdb');
@@ -195,6 +205,11 @@ Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GetApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -281,6 +296,11 @@ Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GetApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -355,6 +375,11 @@ Returns a summary of OFDB metadata and data points
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GetApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -428,6 +453,11 @@ Name | Type | Description  | Notes
 Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, GetApi } = require('@factset/sdk-ofdb');

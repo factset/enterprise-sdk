@@ -17,6 +17,12 @@ Available ETF metrics
 Returns a list of available metrics that can be used in the `metrics` parameter of related endpoints. Leave _category_ blank to request all available items. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

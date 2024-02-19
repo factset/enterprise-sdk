@@ -20,6 +20,11 @@ Create a relationship category
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsRelationshipCategoryApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Delete a relationship category
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsRelationshipCategoryApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -163,6 +173,11 @@ null (empty response body)
 Edit a relationship category
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsRelationshipCategoryApi } = require('@factset/sdk-irnconfiguration');
@@ -238,6 +253,11 @@ Get list of the relationship categories configured in your group
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsRelationshipCategoryApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -305,6 +325,11 @@ This endpoint does not need any parameter.
 Reorder relationship categories
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsRelationshipCategoryApi } = require('@factset/sdk-irnconfiguration');

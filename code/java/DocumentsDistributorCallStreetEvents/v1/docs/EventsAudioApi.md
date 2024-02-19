@@ -27,6 +27,11 @@ Query parameters can be used to filter and narrow down the results.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.ApiClient;
@@ -122,6 +127,11 @@ Retrieve latest audio recordings and related metadata within FactSet coverage.
 Returns the latest audio recordings. Query parameters can be used to filter and narrow down the results.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

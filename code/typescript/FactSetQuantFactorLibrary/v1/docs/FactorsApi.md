@@ -19,6 +19,11 @@ Retrieves Quant Factors for a small list of ids. Request an array of specific Fa
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FactorsApi } = require('@factset/sdk-factsetquantfactorlibrary');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -104,6 +109,11 @@ Retrieves Quant Factors for a large list of ids.
 Retrieves Quant Factors for a large list of ids. Use the &#x60;library&#x60; endpoint to return a full list of available Factors, Factor Groups, and related meta data. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FactorsApi } = require('@factset/sdk-factsetquantfactorlibrary');

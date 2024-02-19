@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/IRNMeetings/1.0.3'
+            'User-Agent': 'fds-sdk/javascript/IRNMeetings/2.0.0'
         };
 
         /**

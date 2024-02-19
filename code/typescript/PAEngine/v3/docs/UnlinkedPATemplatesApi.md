@@ -24,6 +24,11 @@ This endpoint creates a template which is not linked to any specific PA3 tile.  
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, UnlinkedPATemplatesApi } = require('@factset/sdk-paengine');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -98,6 +103,11 @@ This endpoint deletes an existing unliked PA template.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, UnlinkedPATemplatesApi } = require('@factset/sdk-paengine');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -170,6 +180,11 @@ This endpoint fetches default unlinked PA template types.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, UnlinkedPATemplatesApi } = require('@factset/sdk-paengine');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -239,6 +254,11 @@ Get unlinked PA template type details by id.
 This endpoint fetches the unlinked PA template type details.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, UnlinkedPATemplatesApi } = require('@factset/sdk-paengine');
@@ -313,6 +333,11 @@ Get unlinked PA templates
 This endpoint returns the list of unlinked PA templates.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, UnlinkedPATemplatesApi } = require('@factset/sdk-paengine');
@@ -392,6 +417,11 @@ This endpoint fetches the template settings.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, UnlinkedPATemplatesApi } = require('@factset/sdk-paengine');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -465,6 +495,11 @@ Update unlinked PA template
 This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account.       Possible values for holdings mode are B&amp;H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System),       VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&amp;H.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is &#39;securities&#39;.      Additionally, while &#39;groupsall&#39; returns all the group levels in the PA component,      setting componentdetail to &#39;groups&#39; only returns the expanded or collapsed group levels within the PA component.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, UnlinkedPATemplatesApi } = require('@factset/sdk-paengine');

@@ -20,6 +20,12 @@ Returns all active or inactive entities and respective levels below the requeste
 Returns all active or inactive entities below the requested entity id. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -121,6 +127,12 @@ Returns the full ultimate parent entity hiearachy. Control levels and active sta
 Returns full ultimate entity structure including ultimate parent and all subordinates. Will accept entity from any level of entity structure or active vs. inactive status of entity. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -222,6 +234,12 @@ Returns all active or inactive entities below the requested entity id.
 Returns all active or inactive entities and respective levels below the requested entity id. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -319,6 +337,12 @@ Returns all active or inactive entities and respective levels below the requeste
 Returns all active or inactive entities and respective levels below the requested entity id. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

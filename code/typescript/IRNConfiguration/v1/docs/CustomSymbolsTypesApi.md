@@ -22,6 +22,11 @@ Create a Custom symbol type
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CustomSymbolsTypesApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Delete a Custom symbol type
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CustomSymbolsTypesApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -165,6 +175,11 @@ null (empty response body)
 Get a specific Custom symbol type&#39;s details
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CustomSymbolsTypesApi } = require('@factset/sdk-irnconfiguration');
@@ -238,6 +253,11 @@ Get all the custom symbol types
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CustomSymbolsTypesApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -305,6 +325,11 @@ This endpoint does not need any parameter.
 Get Custom fields for Custom Symbol type
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CustomSymbolsTypesApi } = require('@factset/sdk-irnconfiguration');
@@ -377,6 +402,11 @@ Name | Type | Description  | Notes
 Edit a Custom symbol type
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CustomSymbolsTypesApi } = require('@factset/sdk-irnconfiguration');
@@ -451,6 +481,11 @@ null (empty response body)
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CustomSymbolsTypesApi } = require('@factset/sdk-irnconfiguration');

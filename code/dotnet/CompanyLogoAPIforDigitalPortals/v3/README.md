@@ -40,6 +40,11 @@ nuget install FactSet.SDK.CompanyLogoAPIforDigitalPortals -Version 0.10.10
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

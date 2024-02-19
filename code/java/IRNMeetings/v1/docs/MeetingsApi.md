@@ -20,6 +20,11 @@ Create a meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNMeetings.ApiClient;
@@ -105,6 +110,11 @@ Name | Type | Description  | Notes
 Delete a Meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -192,6 +202,11 @@ Get details of a meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNMeetings.ApiClient;
@@ -272,11 +287,16 @@ Name | Type | Description  | Notes
 
 ## getMeetings
 
-> java.util.List<MeetingSummaryDto> getMeetings(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted)
+> java.util.List<MeetingSummaryDto> getMeetings(start, end, identifiers, limit, modifiedSince, includeRelatedEntities, xIRNIncludeDeleted)
 
 Get all the meetings in the specified date range filtered on the given identifiers
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -317,9 +337,10 @@ public class Example {
         java.util.List<String> identifiers = Arrays.asList(); // java.util.List<String> | Set of identifiers to filter on
         Integer limit = 56; // Integer | Limit on the number of meetings retrieved
         String modifiedSince = "modifiedSince_example"; // String | Only return meetings which have been modified or created since a particular time
+        Boolean includeRelatedEntities = false; // Boolean | When set to true fetches meetings tagged with all the entities related to identifiers param
         Boolean xIRNIncludeDeleted = false; // Boolean | Includes deleted meetings in results when set to true
         try {
-            java.util.List<MeetingSummaryDto> result = apiInstance.getMeetings(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted);
+            java.util.List<MeetingSummaryDto> result = apiInstance.getMeetings(start, end, identifiers, limit, modifiedSince, includeRelatedEntities, xIRNIncludeDeleted);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -343,6 +364,7 @@ Name | Type | Description  | Notes
  **identifiers** | **List&lt;String&gt;**| Set of identifiers to filter on | [optional]
  **limit** | **Integer**| Limit on the number of meetings retrieved | [optional]
  **modifiedSince** | **String**| Only return meetings which have been modified or created since a particular time | [optional]
+ **includeRelatedEntities** | **Boolean**| When set to true fetches meetings tagged with all the entities related to identifiers param | [optional] [default to false]
  **xIRNIncludeDeleted** | **Boolean**| Includes deleted meetings in results when set to true | [optional] [default to false]
 
 ### Return type
@@ -372,6 +394,11 @@ Name | Type | Description  | Notes
 Update meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

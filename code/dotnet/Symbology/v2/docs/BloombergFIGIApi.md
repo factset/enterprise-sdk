@@ -18,6 +18,12 @@ Translate market security symbols into Bloomberg Identifiers.
 Returns the current security, composite, and regional identifiers from Bloomberg. <p>This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -115,6 +121,12 @@ Translate market security symbols into Bloomberg Identifiers.
 Returns the current security, composite, regional Bloomberg (FIGI) unique identifiers.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

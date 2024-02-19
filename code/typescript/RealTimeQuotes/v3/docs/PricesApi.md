@@ -25,6 +25,11 @@ Most recent bid and ask prices (best bid / offer) for a notation.  The endpoint 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -108,6 +113,11 @@ Most recent bid and ask prices (best bid / offer) for a list of notations.
 Most recent bid and ask prices (best bid / offer) for a list of notations.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-realtimequotes');
@@ -193,6 +203,11 @@ Overview of trading on the most recent trading day, including the latest price, 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -276,6 +291,11 @@ Overview of trading on the most recent trading day, including the latest price, 
 Overview of trading on the most recent trading day, including the latest price, for a list of notations.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-realtimequotes');
@@ -361,6 +381,11 @@ Orderbook aggregated by price.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -444,6 +469,11 @@ Full orderbook
 Full orderbook
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-realtimequotes');
@@ -529,6 +559,11 @@ Trading schedule event types define the events which may occur during any period
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -604,6 +639,11 @@ Sequence of market-related events.
 Sequence of market-related events like the opening time or closing time of a market of a specific notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesApi } = require('@factset/sdk-realtimequotes');

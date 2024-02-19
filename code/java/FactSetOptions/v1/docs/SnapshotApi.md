@@ -31,6 +31,11 @@ Returns all the profile information for the list of identifiers for a specific d
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetOptions.ApiClient;

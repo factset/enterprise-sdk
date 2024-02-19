@@ -17,6 +17,12 @@ Snapshot
 A service that provides access to Real Time or Delayed data snapped at hourly intervals for an entire Exchange
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

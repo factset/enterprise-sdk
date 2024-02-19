@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Tick History
-  version: 2.0.0
+  version: 2.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-tick-history-api
@@ -30,7 +30,7 @@ paths:
   /level1/coverage:
     get:
       description: Returns coverage for specified tickers for Level1 Data
-      operationId: getTickHistoryCoverage
+      operationId: requestTickHistoryCoverage
       parameters:
       - description: "<P> The requested list of one or more tickers.</p>\n\n The `tickers`\
           \ and `isins`  parameters provide two different ways to specify the identifiers\
@@ -166,8 +166,8 @@ paths:
       x-accepts: application/json
   /level1/files/create:
     post:
-      description: Data available from 20120101 to current date.
-      operationId: getId
+      description: Data available from 20120101 to previous day.
+      operationId: requestTickHistoryLevel1Files
       requestBody:
         content:
           application/json:
@@ -268,7 +268,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/status'
           description: Internal Error
-      summary: Returns the ID for the requested data.
+      summary: Requests the creation of tick-by-tick file
       tags:
       - Level 1
       x-contentType: application/json
@@ -276,7 +276,7 @@ paths:
   /level1/files/status:
     get:
       description: Need to plug-in the id get from /create endpoint into /status endpoint
-      operationId: getStatusLevel1
+      operationId: getLevel1FileStatus
       parameters:
       - description: id returned by files create endpoint to poll and collect status
           of the query
@@ -381,7 +381,7 @@ paths:
   /level1/files/get:
     get:
       description: Returns the files from tickhistory endpoint
-      operationId: getTickHistoryFiles
+      operationId: getTickHistoryLevel1Files
       parameters:
       - description: id returned by files create endpoint to poll and collect results
           of the query
@@ -494,15 +494,349 @@ paths:
               schema:
                 $ref: '#/components/schemas/status'
           description: Internal Error
-      summary: Returns the tick history files requested in the /create endpoint
+      summary: Returns the tick-by-tick data in files requested in the /create endpoint
+      tags:
+      - Level 1
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+  /level1/files/minute-bars/create:
+    post:
+      description: 1-minute bars available from 20120101 to previous day. Per request
+        able to fetch upto 6 months of data.
+      operationId: requestMinutebarsFiles
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Single ticker for the given period:
+                $ref: '#/components/examples/minSingleTicker'
+              Multiple tickers  for the given period:
+                $ref: '#/components/examples/minMultipleTicker'
+            schema:
+              $ref: '#/components/schemas/minRequest'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                default202ResponseExample:
+                  $ref: '#/components/examples/sampleFilesResponse'
+              schema:
+                $ref: '#/components/schemas/submittedResponse'
+          description: The Request has been Accepted
+          headers:
+            Location:
+              description: Relative location to poll for status
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "429":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/429Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Too many requests.
+        "500":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Internal Error
+      summary: Requests the creation of Minute bars file
+      tags:
+      - Level 1
+      x-contentType: application/json
+      x-accepts: application/json
+  /level1/files/minute-bars/status:
+    get:
+      description: Need to plug-in the id get from /create endpoint into /status endpoint
+      operationId: getMinutebarsFileStatus
+      parameters:
+      - description: id returned by files create endpoint to poll and collect status
+          of the query
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleCompletedResponse'
+              schema:
+                $ref: '#/components/schemas/completedResponse'
+          description: |2
+
+            The Request has been created and the response has been created.
+          headers:
+            Location:
+              description: Relative location to pick up results.
+              example: get?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              examples:
+                QueuedExample:
+                  $ref: '#/components/examples/sampleFilesResponseQueued'
+                ExecutingExample:
+                  $ref: '#/components/examples/sampleFilesResponseExecuting'
+                FailedExample:
+                  $ref: '#/components/examples/sampleFilesResponseFailed'
+                CancelledExample:
+                  $ref: '#/components/examples/sampleFilesResponseCancelled'
+              schema:
+                $ref: '#/components/schemas/submittedResponse'
+          description: |
+            The Request has not finished and the result has NOT been created.
+          headers:
+            Location:
+              description: Relative location to poll for status.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: id not found
+        "500":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Internal Error
+      summary: Returns the status of the ID
+      tags:
+      - Level 1
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+  /level1/files/minute-bars/get:
+    get:
+      description: Returns the files from tickhistory endpoint
+      operationId: getMinutebarsFiles
+      parameters:
+      - description: id returned by files create endpoint to poll and collect results
+          of the query
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Specifies the maximum number of results to return per response
+          page
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 20
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleMinGet-FilesResponse'
+              schema:
+                $ref: '#/components/schemas/Get-FilesMinuteResponse'
+          description: Success</p> **To download the output file copy the response
+            url in a browser**
+        "202":
+          content:
+            application/json:
+              examples:
+                QueuedExample:
+                  $ref: '#/components/examples/sampleFilesResponseQueued'
+                ExecutingExample:
+                  $ref: '#/components/examples/sampleFilesResponseExecuting'
+              schema:
+                $ref: '#/components/schemas/submittedResponse'
+          description: |
+            The Request has not finished and the result has NOT been created.
+          headers:
+            Location:
+              description: Relative location to poll for status.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: id not found
+        "500":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Internal Error
+      summary: Returns the Minute bars data in files requested in the /create endpoint
       tags:
       - Level 1
       x-factset-different-success-responses: true
       x-accepts: application/json
   /level2/files/create:
     post:
-      description: Data available from past 6 years to current date.
-      operationId: getlevel2id
+      description: Data available from past 6 years to previous day.
+      operationId: requestTickHistoryLeve2Files
       requestBody:
         content:
           application/json:
@@ -610,7 +944,7 @@ paths:
   /level2/files/status:
     get:
       description: Need to plug-in the id get from /create endpoint into /status endpoint
-      operationId: getStatusLevel2
+      operationId: getLevel2FileStatus
       parameters:
       - description: id returned by files create endpoint to poll and collect status
           of the query
@@ -714,7 +1048,7 @@ paths:
   /level2/files/get:
     get:
       description: Returns the files from tickhistory endpoint
-      operationId: getTickHistoryFilesLevel2
+      operationId: getTickHistoryLevel2Files
       parameters:
       - description: id returned by files create endpoint to poll and collect results
           of the query
@@ -862,6 +1196,35 @@ components:
             start: 2020-01-01
             end: 2020-01-05
           responseFileType: csv
+    minSingleTicker:
+      description: Post body request example to fetch details of the IBM tick data
+        for the period 2023-01-01T00:00:00Z to 2023-01-05T23:59:59Z.
+      summary: Single ticker for the given period
+      value:
+        data:
+          tickers:
+          - IBM
+          factsetExchangeCode: USA
+          dateTimeRange:
+            start: 2023-01-01T00:00:00Z
+            end: 2023-01-05T23:59:59Z
+          granularity: 1m
+          type: trades
+    minMultipleTicker:
+      description: Post body request example to fetch details of the IBM and GOOGL
+        tick data for the period    2023-01-01T00:00:00Z to 2023-01-05T23:59:59Z
+      summary: Multiple tickers for the given period
+      value:
+        data:
+          tickers:
+          - IBM
+          - GOOGL
+          factsetExchangeCode: USA
+          dateTimeRange:
+            start: 2023-01-01T00:00:00Z
+            end: 2023-01-05T23:59:59Z
+          granularity: 1m
+          type: trades
     postBodyOfSingleTicker:
       description: Post body request example to fetch details of the IBM tick data
         for the period 2023-01-01T00:00:00Z to 2023-01-05T23:59:59Z.
@@ -963,6 +1326,19 @@ components:
           updateTimestamp: 2020-10-23T03:41:39Z
           notAuthorizedTickers: []
           invalidTickers: []
+          listOfFiles:
+          - fileName: data_0_0_0.csv.gz
+            url: https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    sampleMinGet-FilesResponse:
+      summary: sample Response data for Minute bars Trades
+      value:
+        data:
+          requestTimestamp: 2020-10-23T03:38:02Z
+          updateTimestamp: 2020-10-23T03:41:39Z
           listOfFiles:
           - fileName: data_0_0_0.csv.gz
             url: https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65
@@ -1256,7 +1632,7 @@ components:
           type: array
         factsetExchangeCode:
           description: |
-            FactSet specific regional or composite exchange code.
+            FactSet specific regional or composite exchange code and last exchange code.
             <p> NOTE:Does not support multiple factsetExchangeCodes</p>.
           example: USA
           maxItems: 1
@@ -1347,7 +1723,7 @@ components:
       type: array
     factsetExchangeCode:
       description: |
-        FactSet specific regional or composite exchange code.
+        FactSet specific regional or composite exchange code and last exchange code.
         <p> NOTE:Does not support multiple factsetExchangeCodes</p>.
       example: USA
       maxItems: 1
@@ -1437,6 +1813,86 @@ components:
         - ISO
         type: string
       type: array
+    minRequest:
+      description: Level1 Minute bars request body elements
+      properties:
+        data:
+          $ref: '#/components/schemas/minutesbarRequestBody'
+      required:
+      - data
+      title: Level1 Minute bars Request Body
+      type: object
+    minutesbarRequestBody:
+      description: Level1 Minute bars request body elements
+      properties:
+        tickers:
+          description: "The requested list of one or more tickers. <p> NOTE: Maximum\
+            \ 500 tickers per request.</p>.\n \n"
+          example:
+          - FDS
+          items:
+            maxItems: 500
+            minItems: 1
+            type: string
+          type: array
+        factsetExchangeCode:
+          description: |
+            FactSet specific regional or composite exchange code and last exchange code.
+            <p> NOTE:Does not support multiple factsetExchangeCodes</p>.
+          example: USA
+          maxItems: 1
+          minItems: 1
+          title: factsetExchangeCode
+          type: string
+        dateTimeRange:
+          $ref: '#/components/schemas/dateTimePeriodMin'
+        granularity:
+          $ref: '#/components/schemas/granularity'
+        type:
+          $ref: '#/components/schemas/type'
+      required:
+      - dateTimeRange
+      - factsetExchangeCode
+      - granularity
+      - tickers
+      - type
+      title: Level1 Minute bars Request Body
+      type: object
+    granularity:
+      description: |
+        This is the grantualrity in which minute bars data is shown. Possible values are 1 Minute (1m)
+      enum:
+      - 1m
+      title: granularity
+      type: string
+    type:
+      description: |2
+
+        <p>'type=trades' gives  minute bars data calculated from trade data (price and volume)</p>
+      enum:
+      - trades
+      title: type
+      type: string
+    dateTimePeriodMin:
+      description: |
+        Date-Time
+      properties:
+        start:
+          description: |
+            The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.
+          example: 2012-01-01T11:00:00Z
+          format: date-time
+          type: string
+        end:
+          description: |
+            The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.
+          example: 2012-01-30T11:20:30Z
+          format: date-time
+          type: string
+      required:
+      - end
+      - start
+      type: object
     submittedResponse:
       description: Returns Status of the id.
       example:
@@ -1709,6 +2165,53 @@ components:
           type: array
       title: Tick History Object
       type: object
+    Get-FilesMinuteResponse:
+      description: Returns Tick History Files
+      example:
+        data:
+          requestTimestamp: 2000-01-23T04:56:07.000+00:00
+          listOfFiles:
+          - fileName: fileName
+            url: url
+          - fileName: fileName
+            url: url
+          updateTimestamp: 2000-01-23T04:56:07.000+00:00
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          $ref: '#/components/schemas/MinTickData'
+        meta:
+          $ref: '#/components/schemas/meta'
+      type: object
+    MinTickData:
+      description: ' Returns Tick History Response.'
+      example:
+        requestTimestamp: 2000-01-23T04:56:07.000+00:00
+        listOfFiles:
+        - fileName: fileName
+          url: url
+        - fileName: fileName
+          url: url
+        updateTimestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        requestTimestamp:
+          description: Timestamp of when request was made
+          format: date-time
+          type: string
+        updateTimestamp:
+          description: Timestamp when the file was last updated
+          format: date-time
+          type: string
+        listOfFiles:
+          description: Contains list of Files
+          items:
+            $ref: '#/components/schemas/filesOne'
+          type: array
+      title: Tick History Object
+      type: object
     leveltwoGet-FilesResponse:
       description: Returns Tick History Files
       example:
@@ -1770,7 +2273,27 @@ components:
           description: Name of the file(s) generated for the query requested
           type: string
         url:
-          description: Download link for the TickHistory file with requested parameters
+          description: |2
+
+            Download link for the TickHistory file with requested parameters
+            <p>This download link will expire after 24 hours</p>
+          type: string
+      title: Files
+      type: object
+    filesOne:
+      description: Array of data objects
+      example:
+        fileName: fileName
+        url: url
+      properties:
+        fileName:
+          description: Name of the file(s) generated for the query requested
+          type: string
+        url:
+          description: "Download link for the TickHistory minute bars file with requested\
+            \ parameters. \n\n <p>The downloaded file contains isoCode, ticker, date,\
+            \ time, tradeOpen, tradeHigh, tradeLow, tradeClose, tradeVolume, tradeNumber,\
+            \ and tradeVWAP</P>\n \n <p>This download link will expire after 12 hours.</p>\n"
           type: string
       title: Files
       type: object

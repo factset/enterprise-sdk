@@ -4,21 +4,26 @@ All URIs are relative to *https://api.factset.com/tick-history/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getStatusLevel2**](Level2Api.md#getStatusLevel2) | **GET** /level2/files/status | Returns the status of the ID
-[**getTickHistoryFilesLevel2**](Level2Api.md#getTickHistoryFilesLevel2) | **GET** /level2/files/get | Returns the tick history files requested in the /create endpoint
-[**getlevel2id**](Level2Api.md#getlevel2id) | **POST** /level2/files/create | Returns the ID for the requested data.
+[**getLevel2FileStatus**](Level2Api.md#getLevel2FileStatus) | **GET** /level2/files/status | Returns the status of the ID
+[**getTickHistoryLevel2Files**](Level2Api.md#getTickHistoryLevel2Files) | **GET** /level2/files/get | Returns the tick history files requested in the /create endpoint
+[**requestTickHistoryLeve2Files**](Level2Api.md#requestTickHistoryLeve2Files) | **POST** /level2/files/create | Returns the ID for the requested data.
 
 
 
-## getStatusLevel2
+## getLevel2FileStatus
 
-> GetStatusLevel2ResponseWrapper getStatusLevel2(id)
+> GetLevel2FileStatusResponseWrapper getLevel2FileStatus(id)
 
 Returns the status of the ID
 
 Need to plug-in the id get from /create endpoint into /status endpoint
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -28,7 +33,7 @@ import com.factset.sdk.FactSetTickHistory.Configuration;
 import com.factset.sdk.FactSetTickHistory.auth.*;
 import com.factset.sdk.FactSetTickHistory.models.*;
 import com.factset.sdk.FactSetTickHistory.api.Level2Api;
-import com.factset.sdk.FactSetTickHistory.api.Level2Api.GetStatusLevel2ResponseWrapper;
+import com.factset.sdk.FactSetTickHistory.api.Level2Api.GetLevel2FileStatusResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -57,7 +62,7 @@ public class Example {
         Level2Api apiInstance = new Level2Api(defaultClient);
         String id = "id_example"; // String | id returned by files create endpoint to poll and collect status of the query
         try {
-            GetStatusLevel2ResponseWrapper result = apiInstance.getStatusLevel2(id);
+            GetLevel2FileStatusResponseWrapper result = apiInstance.getLevel2FileStatus(id);
             switch(result.getStatusCode()) {
             
                 case 201:
@@ -69,7 +74,7 @@ public class Example {
             }
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling Level2Api#getStatusLevel2");
+            System.err.println("Exception when calling Level2Api#getLevel2FileStatus");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -88,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-GetStatusLevel2ResponseWrapper
+GetLevel2FileStatusResponseWrapper
 
 ### Authorization
 
@@ -110,15 +115,20 @@ GetStatusLevel2ResponseWrapper
 | **500** | Internal Error |  -  |
 
 
-## getTickHistoryFilesLevel2
+## getTickHistoryLevel2Files
 
-> GetTickHistoryFilesLevel2ResponseWrapper getTickHistoryFilesLevel2(id, paginationLimit, paginationOffset)
+> GetTickHistoryLevel2FilesResponseWrapper getTickHistoryLevel2Files(id, paginationLimit, paginationOffset)
 
 Returns the tick history files requested in the /create endpoint
 
 Returns the files from tickhistory endpoint
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -128,7 +138,7 @@ import com.factset.sdk.FactSetTickHistory.Configuration;
 import com.factset.sdk.FactSetTickHistory.auth.*;
 import com.factset.sdk.FactSetTickHistory.models.*;
 import com.factset.sdk.FactSetTickHistory.api.Level2Api;
-import com.factset.sdk.FactSetTickHistory.api.Level2Api.GetTickHistoryFilesLevel2ResponseWrapper;
+import com.factset.sdk.FactSetTickHistory.api.Level2Api.GetTickHistoryLevel2FilesResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -159,7 +169,7 @@ public class Example {
         Integer paginationLimit = 20; // Integer | Specifies the maximum number of results to return per response page
         Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
         try {
-            GetTickHistoryFilesLevel2ResponseWrapper result = apiInstance.getTickHistoryFilesLevel2(id, paginationLimit, paginationOffset);
+            GetTickHistoryLevel2FilesResponseWrapper result = apiInstance.getTickHistoryLevel2Files(id, paginationLimit, paginationOffset);
             switch(result.getStatusCode()) {
             
                 case 200:
@@ -171,7 +181,7 @@ public class Example {
             }
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling Level2Api#getTickHistoryFilesLevel2");
+            System.err.println("Exception when calling Level2Api#getTickHistoryLevel2Files");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -192,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-GetTickHistoryFilesLevel2ResponseWrapper
+GetTickHistoryLevel2FilesResponseWrapper
 
 ### Authorization
 
@@ -215,15 +225,20 @@ GetTickHistoryFilesLevel2ResponseWrapper
 | **500** | Internal Error |  -  |
 
 
-## getlevel2id
+## requestTickHistoryLeve2Files
 
-> SubmittedResponse getlevel2id(levelTwoRequest)
+> SubmittedResponse requestTickHistoryLeve2Files(levelTwoRequest)
 
 Returns the ID for the requested data.
 
-Data available from past 6 years to current date.
+Data available from past 6 years to previous day.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -261,11 +276,11 @@ public class Example {
         Level2Api apiInstance = new Level2Api(defaultClient);
         LevelTwoRequest levelTwoRequest = new LevelTwoRequest(); // LevelTwoRequest | 
         try {
-            SubmittedResponse result = apiInstance.getlevel2id(levelTwoRequest);
+            SubmittedResponse result = apiInstance.requestTickHistoryLeve2Files(levelTwoRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling Level2Api#getlevel2id");
+            System.err.println("Exception when calling Level2Api#requestTickHistoryLeve2Files");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

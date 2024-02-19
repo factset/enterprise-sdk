@@ -43,6 +43,11 @@ Event Categories:
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetGlobalPrices.ApiClient;
@@ -160,6 +165,11 @@ The annualized dividend calculations does not involve cancelled dividends.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetGlobalPrices.ApiClient;
@@ -265,6 +275,11 @@ Gets the Annualized dividend of the latest reported dividend. The annualized div
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetGlobalPrices.ApiClient;
@@ -365,6 +380,11 @@ Requests Corporate Actions information.
 Gets the Corporate Actions amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared events. <p>**_startDate and endDate are required parameters. The input startDate must come before the input endDate._**
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

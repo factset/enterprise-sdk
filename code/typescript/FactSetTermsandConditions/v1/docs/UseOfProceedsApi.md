@@ -19,6 +19,11 @@ Returns Use of Proceeds for the Fixed Income security.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, UseOfProceedsApi } = require('@factset/sdk-factsettermsandconditions');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Return Use of Proceeds for a list of Fixed Income securities.
 Returns Use of Proceeds for a list of Fixed Income securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, UseOfProceedsApi } = require('@factset/sdk-factsettermsandconditions');

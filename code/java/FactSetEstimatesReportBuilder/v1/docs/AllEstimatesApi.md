@@ -25,6 +25,11 @@ Returns historical and future period broker estimate consensus in a statement fo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
@@ -121,6 +126,11 @@ Cash Flow
 Returns historical and future period broker estimate consensus in a statement format for Cash Flow line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -219,6 +229,11 @@ Returns historical and future period broker estimate consensus in a statement fo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
@@ -315,6 +330,11 @@ Income Statement
 Returns historical and future period broker estimate consensus in a statement format for Income Statement line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -413,6 +433,11 @@ Returns historical and future period broker estimate consensus in a statement fo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
@@ -509,6 +534,11 @@ Per Share
 Returns historical and future period broker estimate consensus in a statement format for Per Share line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -607,6 +637,11 @@ Returns historical and future period broker estimate consensus in a statement fo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
@@ -703,6 +738,11 @@ Valuation
 Returns valuation ratios in a statement format calculated from historical and future period broker estimate consensus.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

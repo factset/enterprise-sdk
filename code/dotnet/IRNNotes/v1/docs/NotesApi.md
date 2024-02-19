@@ -19,6 +19,12 @@ Method | HTTP request | Description
 Create a note
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -114,6 +120,12 @@ Name | Type | Description  | Notes
 Delete a Note
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -206,6 +218,12 @@ void (empty response body)
 Get details of a note
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -293,11 +311,17 @@ Name | Type | Description  | Notes
 
 <a name="getnotes"></a>
 # **GetNotes**
-> List&lt;NoteSummaryDto&gt; GetNotes (string start = null, string end = null, List<string> identifiers = null, List<Guid> authors = null, List<Guid> subjects = null, List<Guid> recommendations = null, List<Guid> sentiments = null, int? limit = null, int? offset = null, string modifiedSince = null, List<string> states = null, bool? filterOnRelatedSymbols = null, bool? xIRNIncludeDeleted = null)
+> List&lt;NoteSummaryDto&gt; GetNotes (string start = null, string end = null, List<string> identifiers = null, List<Guid> authors = null, List<Guid> subjects = null, List<Guid> recommendations = null, List<Guid> sentiments = null, int? limit = null, int? offset = null, string modifiedSince = null, List<string> states = null, bool? filterOnRelatedSymbols = null, bool? includeRelatedEntities = null, bool? xIRNIncludeDeleted = null)
 
 Get all the notes in the specified date range filtered on the given identifiers
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -347,12 +371,13 @@ namespace Example
             var modifiedSince = "modifiedSince_example";  // string | Only return notes which have been modified or created since a particular time (optional) 
             var states = new List<string>(); // List<string> | Set of states to filter on (optional) 
             var filterOnRelatedSymbols = false;  // bool? | Include notes whose related symbols match the identifier filter (optional)  (default to false)
+            var includeRelatedEntities = false;  // bool? | When set to true fetches notes tagged with all the entities related to identifiers param (optional)  (default to false)
             var xIRNIncludeDeleted = false;  // bool? |  (optional)  (default to false)
 
             try
             {
                 // Get all the notes in the specified date range filtered on the given identifiers
-                List<NoteSummaryDto> result = apiInstance.GetNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted);
+                List<NoteSummaryDto> result = apiInstance.GetNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, includeRelatedEntities, xIRNIncludeDeleted);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -382,6 +407,7 @@ Name | Type | Description  | Notes
  **modifiedSince** | **string**| Only return notes which have been modified or created since a particular time | [optional] 
  **states** | [**List&lt;string&gt;**](string.md)| Set of states to filter on | [optional] 
  **filterOnRelatedSymbols** | **bool?**| Include notes whose related symbols match the identifier filter | [optional] [default to false]
+ **includeRelatedEntities** | **bool?**| When set to true fetches notes tagged with all the entities related to identifiers param | [optional] [default to false]
  **xIRNIncludeDeleted** | **bool?**|  | [optional] [default to false]
 
 ### Return type
@@ -413,6 +439,12 @@ Name | Type | Description  | Notes
 Update a note
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

@@ -23,6 +23,11 @@ This is the endpoint to cancel a previously submitted calculation.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PubCalculationsApi } = require('@factset/sdk-publisher');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Get Pub calculation parameters by id
 This is the endpoint that returns the calculation parameters passed for a calculation.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PubCalculationsApi } = require('@factset/sdk-publisher');
@@ -169,6 +179,11 @@ This is the endpoint to check on the progress of a previously requested calculat
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PubCalculationsApi } = require('@factset/sdk-publisher');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -242,6 +257,11 @@ Get Pub calculation result by id
 This is the endpoint to get the result of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in the specified format.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PubCalculationsApi } = require('@factset/sdk-publisher');
@@ -322,6 +342,11 @@ Create and Run Pub calculation
 This endpoint runs the Pub calculation specified in the POST body parameters.  It can take one or more units as input.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PubCalculationsApi } = require('@factset/sdk-publisher');
@@ -420,6 +445,11 @@ Create or Update Pub calculation and run it.
 This endpoint updates and run the Pub calculation specified in the PUT body parameters. This also allows creating new Pub calculations with custom ids.  It can take one or more units as input.    Remarks:    *   Start and and end date must be within the configuration&#39;s min and max date range
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PubCalculationsApi } = require('@factset/sdk-publisher');

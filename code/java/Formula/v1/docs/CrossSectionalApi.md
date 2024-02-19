@@ -42,6 +42,11 @@ The ICSF can offer better performance than Time-Series requests when the date ra
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Formula.ApiClient;
@@ -198,6 +203,11 @@ The ICSF can offer better performance than Time-Series requests when the date ra
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

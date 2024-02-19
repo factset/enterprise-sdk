@@ -19,6 +19,11 @@ Finds the best candidate entities matching the given entity name. Country code c
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, UniverseApi } = require('@factset/sdk-factsetprivatemarkets');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Get a list of Entity Candidates and Matches for a requested list of up to 25 nam
 Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search. Finds the best candidate entities matching the given company name. &lt;p&gt;**Max of 25 Names inputted.**&lt;/p&gt;&lt;p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, UniverseApi } = require('@factset/sdk-factsetprivatemarkets');

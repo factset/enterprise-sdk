@@ -28,6 +28,11 @@ List of entitled category datasets.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -105,6 +110,11 @@ Details of a category.
 Details of a category.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
@@ -185,6 +195,11 @@ List of instruments where a specific dataset has assigned a given category.
 List of instruments where a specific dataset has assigned a given category.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
@@ -270,6 +285,11 @@ Details of a category level.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -350,6 +370,11 @@ List of categories.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -429,6 +454,11 @@ List of categories assigned to a category level.
 List of categories assigned to a category level.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
@@ -514,6 +544,11 @@ List of categories assigned to a category system.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -598,6 +633,11 @@ Path from the first level to the level of a specific category.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -677,6 +717,11 @@ Details of an entitled category system.
 Details of an entitled category system.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
@@ -758,6 +803,11 @@ List of entitled category systems.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -837,6 +887,11 @@ List of category system types.
 List of category system types.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CategoryApi } = require('@factset/sdk-realtimequotes');

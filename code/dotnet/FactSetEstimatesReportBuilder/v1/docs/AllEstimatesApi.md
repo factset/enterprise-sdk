@@ -24,6 +24,12 @@ Balance Sheet
 Returns historical and future period broker estimate consensus in a statement format for Balance Sheet line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -127,6 +133,12 @@ Cash Flow
 Returns historical and future period broker estimate consensus in a statement format for Cash Flow line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -230,6 +242,12 @@ Geographic Segments
 Returns historical and future period broker estimate consensus in a statement format for line items broken down geographically.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -333,6 +351,12 @@ Income Statement
 Returns historical and future period broker estimate consensus in a statement format for Income Statement line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -436,6 +460,12 @@ Industry Metrics
 Returns historical and future period broker estimate consensus in a statement format for industry-specific metrics.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -539,6 +569,12 @@ Per Share
 Returns historical and future period broker estimate consensus in a statement format for Per Share line items.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -642,6 +678,12 @@ Product Segments
 Returns historical and future period broker estimate consensus in a statement format for line items broken down by product and business.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -745,6 +787,12 @@ Valuation
 Returns valuation ratios in a statement format calculated from historical and future period broker estimate consensus.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

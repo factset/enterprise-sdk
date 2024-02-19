@@ -60,6 +60,11 @@ nuget install FactSet.SDK.DocumentsDistributorDocuments -Version 0.21.9
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

@@ -20,6 +20,12 @@ Return historical Coupon information for a Fixed Income security.
 Returns historical Coupon information for the Fixed Income security. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -117,6 +123,12 @@ Return historical Coupon information for a list of Fixed Income securities.
 Returns historical Coupon information for a list of Fixed Income securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -214,6 +226,12 @@ Return Coupon Sechedules for a Fixed Income security.
 Returns Coupon Schedules information for the Fixed Income security. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -311,6 +329,12 @@ Return Coupon Schedules information for a list of Fixed Income securities.
 Returns historical Coupon Schedules information for a list of Fixed Income securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

@@ -16,6 +16,11 @@ Request returns the before and after trade data along with the associated quotes
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetIntradayTickHistory.ApiClient;

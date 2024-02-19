@@ -54,6 +54,11 @@ pip install fds.sdk.utils fds.sdk.GlobalFilings==0.1.0
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -91,13 +96,9 @@ configuration = fds.sdk.GlobalFilings.Configuration(
 with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filings_api_api.FilingsAPIApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     sources = ["EDG"] # [str] | Code for document source to include.This is a comma-separated list. Use the ```/helper``` endpoint to get the list of available sources.  
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = "20231222" # str | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional) if omitted the server will use the default value of "0"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = "20231223" # str | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional) if omitted the server will use the default value of "0"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["MODN-US"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
 
     try:

@@ -17,6 +17,12 @@ Get currencies
 This endpoint lists all the currencies that can be applied to any calculation.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

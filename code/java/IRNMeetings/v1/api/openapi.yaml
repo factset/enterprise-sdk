@@ -65,6 +65,16 @@ paths:
         schema:
           type: string
         style: form
+      - description: When set to true fetches meetings tagged with all the entities
+          related to identifiers param
+        explode: true
+        in: query
+        name: includeRelatedEntities
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       - description: Includes deleted meetings in results when set to true
         explode: false
         in: header

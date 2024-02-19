@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tif** | **String** | Time in force: if GTD, then Expire Time or Expire Date is a required field | [optional] [default to &#39;DAY&#39;]
+**tif** | **String** | Time in force: if goodTillDate, then Expire Time or Expire Date is a required field | [optional] 
 **expireDate** | **String** | Expire date in YYYYMMDD format expressed in UTC | [optional] 
 **expireTime** | **String** | Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC | [optional] 
 
@@ -13,21 +13,21 @@ Name | Type | Description | Notes
 ## Enum: TifEnum
 
 
-* `DAY` (value: `"DAY"`)
+* `day` (value: `"day"`)
 
-* `GTC` (value: `"GTC"`)
+* `goodTillCancel` (value: `"goodTillCancel"`)
 
-* `OPG` (value: `"OPG"`)
+* `atTheOpening` (value: `"atTheOpening"`)
 
-* `IOC` (value: `"IOC"`)
+* `immediateOrCancel` (value: `"immediateOrCancel"`)
 
-* `FOK` (value: `"FOK"`)
+* `fillOrKill` (value: `"fillOrKill"`)
 
-* `GTX` (value: `"GTX"`)
+* `goodTillCrossing` (value: `"goodTillCrossing"`)
 
-* `GTD` (value: `"GTD"`)
+* `goodTillDate` (value: `"goodTillDate"`)
 
-* `ATC` (value: `"ATC"`)
+* `atc` (value: `"atc"`)
 
 
 

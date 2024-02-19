@@ -327,6 +327,7 @@ if (xIRNContributorSerial != null)
    * @param modifiedSince Only return notes which have been modified or created since a particular time (optional)
    * @param states Set of states to filter on (optional)
    * @param filterOnRelatedSymbols Include notes whose related symbols match the identifier filter (optional, default to false)
+   * @param includeRelatedEntities When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)
    * @param xIRNIncludeDeleted  (optional, default to false)
    * @return java.util.List<NoteSummaryDto>
    * @throws ApiException if fails to make API call
@@ -337,8 +338,8 @@ if (xIRNContributorSerial != null)
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<NoteSummaryDto> getNotes(String start, String end, java.util.List<String> identifiers, java.util.List<java.util.UUID> authors, java.util.List<java.util.UUID> subjects, java.util.List<java.util.UUID> recommendations, java.util.List<java.util.UUID> sentiments, Integer limit, Integer offset, String modifiedSince, java.util.List<String> states, Boolean filterOnRelatedSymbols, Boolean xIRNIncludeDeleted) throws ApiException {
-    return getNotesWithHttpInfo(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted).getData();
+  public java.util.List<NoteSummaryDto> getNotes(String start, String end, java.util.List<String> identifiers, java.util.List<java.util.UUID> authors, java.util.List<java.util.UUID> subjects, java.util.List<java.util.UUID> recommendations, java.util.List<java.util.UUID> sentiments, Integer limit, Integer offset, String modifiedSince, java.util.List<String> states, Boolean filterOnRelatedSymbols, Boolean includeRelatedEntities, Boolean xIRNIncludeDeleted) throws ApiException {
+    return getNotesWithHttpInfo(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, includeRelatedEntities, xIRNIncludeDeleted).getData();
   }
 
   /**
@@ -356,6 +357,7 @@ if (xIRNContributorSerial != null)
    * @param modifiedSince Only return notes which have been modified or created since a particular time (optional)
    * @param states Set of states to filter on (optional)
    * @param filterOnRelatedSymbols Include notes whose related symbols match the identifier filter (optional, default to false)
+   * @param includeRelatedEntities When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)
    * @param xIRNIncludeDeleted  (optional, default to false)
    * @return ApiResponse&lt;java.util.List<NoteSummaryDto>&gt;
    * @throws ApiException if fails to make API call
@@ -366,7 +368,7 @@ if (xIRNContributorSerial != null)
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<NoteSummaryDto>> getNotesWithHttpInfo(String start, String end, java.util.List<String> identifiers, java.util.List<java.util.UUID> authors, java.util.List<java.util.UUID> subjects, java.util.List<java.util.UUID> recommendations, java.util.List<java.util.UUID> sentiments, Integer limit, Integer offset, String modifiedSince, java.util.List<String> states, Boolean filterOnRelatedSymbols, Boolean xIRNIncludeDeleted) throws ApiException {
+  public ApiResponse<java.util.List<NoteSummaryDto>> getNotesWithHttpInfo(String start, String end, java.util.List<String> identifiers, java.util.List<java.util.UUID> authors, java.util.List<java.util.UUID> subjects, java.util.List<java.util.UUID> recommendations, java.util.List<java.util.UUID> sentiments, Integer limit, Integer offset, String modifiedSince, java.util.List<String> states, Boolean filterOnRelatedSymbols, Boolean includeRelatedEntities, Boolean xIRNIncludeDeleted) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -390,6 +392,7 @@ if (xIRNContributorSerial != null)
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "modifiedSince", modifiedSince));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "states", states));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterOnRelatedSymbols", filterOnRelatedSymbols));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRelatedEntities", includeRelatedEntities));
 
     if (xIRNIncludeDeleted != null)
       localVarHeaderParams.put("X-IRN-Include-Deleted", apiClient.parameterToString(xIRNIncludeDeleted));

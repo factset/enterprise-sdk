@@ -16,6 +16,11 @@ Method | HTTP request | Description
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DefaultApi } = require('@factset/sdk-optimizationengineapimultiperiod');
 const { ConfidentialClient } = require('@factset/sdk-utils');

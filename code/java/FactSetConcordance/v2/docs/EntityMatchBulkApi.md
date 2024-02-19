@@ -21,6 +21,11 @@ Retrieves the `Decision` objects for an Entity Task (taskId). The decisions do n
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetConcordance.ApiClient;
@@ -116,6 +121,11 @@ Upload a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.io.File;
@@ -295,6 +305,11 @@ Pulls the **status** for ALL the Entity Tasks submitted by a client within the l
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

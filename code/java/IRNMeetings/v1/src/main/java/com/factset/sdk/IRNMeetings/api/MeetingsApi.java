@@ -310,6 +310,7 @@ public class MeetingsApi {
    * @param identifiers Set of identifiers to filter on (optional)
    * @param limit Limit on the number of meetings retrieved (optional)
    * @param modifiedSince Only return meetings which have been modified or created since a particular time (optional)
+   * @param includeRelatedEntities When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)
    * @param xIRNIncludeDeleted Includes deleted meetings in results when set to true (optional, default to false)
    * @return java.util.List<MeetingSummaryDto>
    * @throws ApiException if fails to make API call
@@ -320,8 +321,8 @@ public class MeetingsApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<MeetingSummaryDto> getMeetings(String start, String end, java.util.List<String> identifiers, Integer limit, String modifiedSince, Boolean xIRNIncludeDeleted) throws ApiException {
-    return getMeetingsWithHttpInfo(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted).getData();
+  public java.util.List<MeetingSummaryDto> getMeetings(String start, String end, java.util.List<String> identifiers, Integer limit, String modifiedSince, Boolean includeRelatedEntities, Boolean xIRNIncludeDeleted) throws ApiException {
+    return getMeetingsWithHttpInfo(start, end, identifiers, limit, modifiedSince, includeRelatedEntities, xIRNIncludeDeleted).getData();
   }
 
   /**
@@ -332,6 +333,7 @@ public class MeetingsApi {
    * @param identifiers Set of identifiers to filter on (optional)
    * @param limit Limit on the number of meetings retrieved (optional)
    * @param modifiedSince Only return meetings which have been modified or created since a particular time (optional)
+   * @param includeRelatedEntities When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)
    * @param xIRNIncludeDeleted Includes deleted meetings in results when set to true (optional, default to false)
    * @return ApiResponse&lt;java.util.List<MeetingSummaryDto>&gt;
    * @throws ApiException if fails to make API call
@@ -342,7 +344,7 @@ public class MeetingsApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<MeetingSummaryDto>> getMeetingsWithHttpInfo(String start, String end, java.util.List<String> identifiers, Integer limit, String modifiedSince, Boolean xIRNIncludeDeleted) throws ApiException {
+  public ApiResponse<java.util.List<MeetingSummaryDto>> getMeetingsWithHttpInfo(String start, String end, java.util.List<String> identifiers, Integer limit, String modifiedSince, Boolean includeRelatedEntities, Boolean xIRNIncludeDeleted) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -359,6 +361,7 @@ public class MeetingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "identifiers", identifiers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "modifiedSince", modifiedSince));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRelatedEntities", includeRelatedEntities));
 
     if (xIRNIncludeDeleted != null)
       localVarHeaderParams.put("X-IRN-Include-Deleted", apiClient.parameterToString(xIRNIncludeDeleted));

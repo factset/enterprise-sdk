@@ -21,6 +21,11 @@ Fetch a list of available signal categories
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Signals.ApiClient;
@@ -105,6 +110,11 @@ Fetch a list of all active signals
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Signals.ApiClient;
@@ -188,6 +198,11 @@ This endpoint does not need any parameter.
 Fetch the metadata and contract for the requested signal
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -277,6 +292,11 @@ Name | Type | Description  | Notes
 Fetch a list of available signal themes
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

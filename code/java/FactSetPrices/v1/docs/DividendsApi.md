@@ -19,6 +19,11 @@ Get the dividend amounts, dates, types, and flags over a specified date range. Y
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetPrices.ApiClient;
@@ -117,6 +122,11 @@ Requests dividend information for a given date range and list of securities
 Get the dividend amounts, dates, types, and flags over a specified date range
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

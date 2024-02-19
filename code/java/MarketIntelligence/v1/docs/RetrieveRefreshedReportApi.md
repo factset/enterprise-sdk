@@ -19,6 +19,11 @@ If the report has not been refreshed within the last hour, a pollUrl will be ret
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.MarketIntelligence.ApiClient;

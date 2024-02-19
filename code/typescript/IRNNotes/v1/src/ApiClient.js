@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/IRNNotes/1.0.4'
+            'User-Agent': 'fds-sdk/javascript/IRNNotes/2.0.0'
         };
 
         /**

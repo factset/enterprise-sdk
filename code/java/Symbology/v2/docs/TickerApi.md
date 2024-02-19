@@ -21,6 +21,11 @@ Returns the full history of Ticker-Exchange or Ticker-Region changes for a reque
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Symbology.ApiClient;
@@ -112,6 +117,11 @@ Returns the full history of Ticker-Exchange or Ticker-Region changes for a reque
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Symbology.ApiClient;
@@ -202,6 +212,11 @@ Returns the full history of Ticker-Exchange or Ticker-Region changes for a reque
 Return the full history of Ticker changes for a given market security or FactSet Permanent Id. <p> *GET Method is limited by URL Length of 2,048 characters. If a large universe of symbols is requested, it's advised to use POST method to retrieve the same response model.*</p>
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -298,6 +313,11 @@ Returns the Ticker-Exchange or Ticker-Region for a given security.\
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -18,6 +18,11 @@ Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x6
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, MetricsApi } = require('@factset/sdk-factsetfundamentals');
 const { ConfidentialClient } = require('@factset/sdk-utils');

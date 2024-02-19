@@ -18,6 +18,12 @@ Get Bid, Mid and Ask prices for a list of securities
 Get bond clean and dirty bid, mid and ask pricing data provided by Markit for a specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Request Bid, Mid and Ask prices for a list of securities
 Get bond clean and dirty bid, mid and ask pricing data provided by Markit for a specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.FactSetSearchAnswers==1.1.0
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,13 +88,9 @@ configuration = fds.sdk.FactSetSearchAnswers.Configuration(
 with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = answers_api.AnswersApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     query = "query_example" # str | Query for desired answer (e.g., \"fds price\")
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_thumbnail = False # bool | Includes thumbnail of Adaptive Card in response (optional) if omitted the server will use the default value of False
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     disable_no_answer_responses = True # bool | Disables no-result answer responses (no-results and answer without data) (optional) if omitted the server will use the default value of True
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     theme = "Light" # str | Theme for desired answer (e.g., \"Light\", \"Dark\") (optional) if omitted the server will use the default value of "Light"
 
     try:

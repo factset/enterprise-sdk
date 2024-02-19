@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.FactSetEntityReportBuilder==1.0.7
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,9 +88,7 @@ configuration = fds.sdk.FactSetEntityReportBuilder.Configuration(
 with fds.sdk.FactSetEntityReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_structure_api.EntityStructureApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     id = "FDS" # str | Company ticker
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns - tree - Entities are represented as tree nodes returned in a flat structure, where each parent node contains a children attribute pointing to its child nodes  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:

@@ -19,6 +19,11 @@ This endpoint looks up all ACCT and ACTM files and sub-directories in a given di
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AccountsApi } = require('@factset/sdk-sparengine');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Get SPAR account returns type details
 This endpoint returns the returns type of account associated with SPAR
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AccountsApi } = require('@factset/sdk-sparengine');

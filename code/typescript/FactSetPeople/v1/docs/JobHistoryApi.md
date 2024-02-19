@@ -19,6 +19,11 @@ Returns the &#x60;Job&#x60; history of the person referenced by the entityId spe
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, JobHistoryApi } = require('@factset/sdk-factsetpeople');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -100,6 +105,11 @@ Returns the Job history for the large list of people.
 Returns the &#x60;Job&#x60; history of the person referenced by the entityId specified in the request. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, JobHistoryApi } = require('@factset/sdk-factsetpeople');

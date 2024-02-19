@@ -19,6 +19,12 @@ Method | HTTP request | Description
 Create a meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -111,6 +117,12 @@ Name | Type | Description  | Notes
 Delete a Meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -203,6 +215,12 @@ void (empty response body)
 Get details of a meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -290,11 +308,17 @@ Name | Type | Description  | Notes
 
 <a name="getmeetings"></a>
 # **GetMeetings**
-> List&lt;MeetingSummaryDto&gt; GetMeetings (string start = null, string end = null, List<string> identifiers = null, int? limit = null, string modifiedSince = null, bool? xIRNIncludeDeleted = null)
+> List&lt;MeetingSummaryDto&gt; GetMeetings (string start = null, string end = null, List<string> identifiers = null, int? limit = null, string modifiedSince = null, bool? includeRelatedEntities = null, bool? xIRNIncludeDeleted = null)
 
 Get all the meetings in the specified date range filtered on the given identifiers
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -337,12 +361,13 @@ namespace Example
             var identifiers = new List<string>(); // List<string> | Set of identifiers to filter on (optional) 
             var limit = 56;  // int? | Limit on the number of meetings retrieved (optional) 
             var modifiedSince = "modifiedSince_example";  // string | Only return meetings which have been modified or created since a particular time (optional) 
+            var includeRelatedEntities = false;  // bool? | When set to true fetches meetings tagged with all the entities related to identifiers param (optional)  (default to false)
             var xIRNIncludeDeleted = false;  // bool? | Includes deleted meetings in results when set to true (optional)  (default to false)
 
             try
             {
                 // Get all the meetings in the specified date range filtered on the given identifiers
-                List<MeetingSummaryDto> result = apiInstance.GetMeetings(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted);
+                List<MeetingSummaryDto> result = apiInstance.GetMeetings(start, end, identifiers, limit, modifiedSince, includeRelatedEntities, xIRNIncludeDeleted);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -365,6 +390,7 @@ Name | Type | Description  | Notes
  **identifiers** | [**List&lt;string&gt;**](string.md)| Set of identifiers to filter on | [optional] 
  **limit** | **int?**| Limit on the number of meetings retrieved | [optional] 
  **modifiedSince** | **string**| Only return meetings which have been modified or created since a particular time | [optional] 
+ **includeRelatedEntities** | **bool?**| When set to true fetches meetings tagged with all the entities related to identifiers param | [optional] [default to false]
  **xIRNIncludeDeleted** | **bool?**| Includes deleted meetings in results when set to true | [optional] [default to false]
 
 ### Return type
@@ -396,6 +422,12 @@ Name | Type | Description  | Notes
 Update meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

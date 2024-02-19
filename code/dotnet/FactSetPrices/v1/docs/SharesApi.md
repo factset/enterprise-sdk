@@ -18,6 +18,12 @@ Gets shares for a list of `ids` as of given date range.
 Gets security shares for a list of 'ids' and given date range. Share values returned include security-level and company-level.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -125,6 +131,12 @@ Requests shares for a list of `ids` as of given date range.
 Gets security shares for a list of 'ids' and given date range. Share values returned include security-level and company-level.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

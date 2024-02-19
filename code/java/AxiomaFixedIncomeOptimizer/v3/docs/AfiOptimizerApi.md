@@ -23,6 +23,11 @@ This is the endpoint to cancel a previously submitted optimization.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiClient;
@@ -113,6 +118,11 @@ Get AFI optimization parameters by id
 This is the endpoint that returns the optimization parameters passed for an optimization.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -205,6 +215,11 @@ Get AFI optimization result by id
 This is the endpoint to get the result of a previously requested optimization.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -299,6 +314,11 @@ If the optimization has finished computing, the body of the response will contai
 Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -396,6 +416,11 @@ Remarks:
 *	Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -504,6 +529,11 @@ Create or Update AFI optimization and run it.
 This endpoint updates and run the AFI optimization specified in the PUT body parameters. It also allows the creation of new AFI optimization with custom id.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

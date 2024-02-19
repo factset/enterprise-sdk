@@ -17,6 +17,12 @@ Returns all the profile information for the list of identifiers as of a specific
 Returns all the profile information for the list of identifiers for a specific date. The data includes -  * Expiration Date * Greek - Delta * Implied Volatility * Price  * Style * Type * Underlying Security * Underlying Security Price * Open Interest * Name    *Currently only OPRA Exchange is supported with exchange ISO \"USA\"* 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

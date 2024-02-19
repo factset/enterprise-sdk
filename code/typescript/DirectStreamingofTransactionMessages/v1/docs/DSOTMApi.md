@@ -18,6 +18,11 @@ This endpoint takes the transactions data and pushes them into FactSet.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DSOTMApi } = require('@factset/sdk-directstreamingoftransactionmessages');
 const { ConfidentialClient } = require('@factset/sdk-utils');

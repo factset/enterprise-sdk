@@ -21,6 +21,11 @@ Returns the active calls happening at the moment
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NearRealTimeTranscriptsApi } = require('@factset/sdk-documentsdistributorcallstreetevents');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -111,6 +116,11 @@ Returns the  indexed transcript data  in small increments throughout the duratio
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NearRealTimeTranscriptsApi } = require('@factset/sdk-documentsdistributorcallstreetevents');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -193,6 +203,11 @@ Returns the latest snippets from an active call
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NearRealTimeTranscriptsApi } = require('@factset/sdk-documentsdistributorcallstreetevents');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -274,6 +289,11 @@ Returns the latest speakerIds with the confidence scores generated for an active
 Returns the latest speakerIds with the cosine scores(confidence scores) generated for an active call.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NearRealTimeTranscriptsApi } = require('@factset/sdk-documentsdistributorcallstreetevents');

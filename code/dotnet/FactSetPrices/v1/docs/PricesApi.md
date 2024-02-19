@@ -20,6 +20,12 @@ Gets pricing for a list of Fixed Income securities
 Get BID, MID, ASK, and Issuer Entity ID for a list of Fixed Income Securities as of a requested date range. Available for U.S. Corporate, Treasury and Agency bonds, Municipals, and non-U.S. Corporate and Government bonds. To learn more about Fixed Income Prices database, please review [OA:15995](https://my.apps.factset.com/oa/pages/15995) 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Requests pricing for a list of Fixed Income securities for date range requested
 Get BID, MID, ASK, and Issuer Entity ID for a list of Fixed Income Securities as of a requested date range. Available for U.S. Corporate, Treasury and Agency bonds, Municipals, and non-U.S. Corporate and Government bonds. To learn more about Fixed Income Prices database, please review [OA:15995](https://my.apps.factset.com/oa/pages/15995) 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -220,6 +232,12 @@ Gets end-of-day Open, High, Low, Close for a list of securities.
 Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency. Prices are updated and at different times across the different regions around the globe. The Prices API automatically defaults relative price dates to the local region which is determined by the local region of the requested security id. To learn more about relative dates please visit [OA Page 4627](https://my.apps.factset.com/oa/pages/4627)  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Net;
@@ -345,6 +363,12 @@ Requests end-of-day Open, High, Low, Close for a large list of securities.
  Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Net;

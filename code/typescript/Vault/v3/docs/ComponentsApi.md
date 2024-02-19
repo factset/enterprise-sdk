@@ -19,6 +19,11 @@ This endpoint returns the default settings of a Vault component.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ComponentsApi } = require('@factset/sdk-vault');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Get Vault components
 This endpoint returns the list of Vault components in a given Vault document.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ComponentsApi } = require('@factset/sdk-vault');

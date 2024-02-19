@@ -20,6 +20,11 @@ Returns the `Job` history of the person referenced by the entityId specified in 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetPeople.ApiClient;
@@ -117,6 +122,11 @@ Returns the `Job` history of the person referenced by the entityId specified in 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

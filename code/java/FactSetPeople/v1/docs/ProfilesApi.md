@@ -20,6 +20,11 @@ Returns a summary of basic information about the person referenced by the entity
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetPeople.ApiClient;
@@ -108,6 +113,11 @@ Name | Type | Description  | Notes
 Returns profile information for a large list of people.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

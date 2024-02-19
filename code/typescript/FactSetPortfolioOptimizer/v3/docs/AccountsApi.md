@@ -18,6 +18,11 @@ This endpoint looks up all ACCT and ACTM files and sub-directories in a given di
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AccountsApi } = require('@factset/sdk-factsetportfoliooptimizer');
 const { ConfidentialClient } = require('@factset/sdk-utils');

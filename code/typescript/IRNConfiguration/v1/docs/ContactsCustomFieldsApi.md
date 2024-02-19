@@ -20,6 +20,11 @@ Create a contact custom field
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsCustomFieldsApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Delete a contact custom field
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsCustomFieldsApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -163,6 +173,11 @@ null (empty response body)
 Get a specific Contact custom field&#39;s details
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsCustomFieldsApi } = require('@factset/sdk-irnconfiguration');
@@ -236,6 +251,11 @@ Get all the contact custom fields
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsCustomFieldsApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -303,6 +323,11 @@ This endpoint does not need any parameter.
 Edit a contact custom field
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsCustomFieldsApi } = require('@factset/sdk-irnconfiguration');

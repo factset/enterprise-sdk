@@ -23,6 +23,11 @@ This is the endpoint to cancel a previously submitted optimization.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AXPOptimizerApi } = require('@factset/sdk-axiomaequityoptimizer');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Get Axioma optimization parameters by id
 This is the endpoint that returns the optimization parameters passed for a calculation.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AXPOptimizerApi } = require('@factset/sdk-axiomaequityoptimizer');
@@ -168,6 +178,11 @@ Get Axioma optimization result by id
 This is the endpoint to get the result of a previously requested optimization.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AXPOptimizerApi } = require('@factset/sdk-axiomaequityoptimizer');
@@ -247,6 +262,11 @@ This is the endpoint to check on the progress of a previously requested optimiza
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AXPOptimizerApi } = require('@factset/sdk-axiomaequityoptimizer');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -320,6 +340,11 @@ Create and Run Axioma optimization
 This endpoint creates and runs Axioma optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AXPOptimizerApi } = require('@factset/sdk-axiomaequityoptimizer');
@@ -413,6 +438,11 @@ Create or Update Axioma optimization and run it.
 This endpoint updates and run the Axioma optimization specified in the PUT body parameters. It also allows the creation of new Axioma optimization with custom id.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AXPOptimizerApi } = require('@factset/sdk-axiomaequityoptimizer');

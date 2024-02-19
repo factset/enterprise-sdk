@@ -50,6 +50,11 @@ pip install fds.sdk.utils fds.sdk.FactSetEntity==1.1.2
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -87,7 +92,6 @@ configuration = fds.sdk.FactSetEntity.Configuration(
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_reference_api.EntityReferenceApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 
     try:

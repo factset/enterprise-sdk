@@ -18,6 +18,11 @@ This endpoint returns all company events with filters from the request.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-eventcalendar');
 const { ConfidentialClient } = require('@factset/sdk-utils');

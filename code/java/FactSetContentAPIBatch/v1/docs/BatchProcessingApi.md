@@ -21,6 +21,11 @@ Returns the response data for the underlying batch request that is specified by 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetContentAPIBatch.ApiClient;
@@ -117,6 +122,11 @@ Returns the response for a Batch Request
 Return the response data for the underlying batch request that is specified by the id. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -215,6 +225,11 @@ Return the status for the underlying batch request that is specified by the id.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetContentAPIBatch.ApiClient;
@@ -302,6 +317,11 @@ Returns the status for a Batch Request
 Return the status for the underlying batch request that is specified by the id. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

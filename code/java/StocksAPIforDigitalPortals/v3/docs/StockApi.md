@@ -33,6 +33,11 @@ Provides key elements of a stock profile together with the profile of the issuin
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -125,6 +130,11 @@ List of dividend types.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -212,6 +222,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one mont
 End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -307,6 +322,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of three mo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -400,6 +420,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of six mont
 End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -495,6 +520,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one week
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -588,6 +618,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one year
 End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -683,6 +718,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of three ye
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -776,6 +816,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of five yea
 End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -871,6 +916,11 @@ List of top-20 owners for a specific type of a company's shares.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -963,6 +1013,11 @@ Target price and aggregated recommendations for a stock.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -1052,6 +1107,11 @@ Current and historical trade recommendations and target prices for a stock.
 Current and historical trade recommendations and target prices for a stock.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -1145,6 +1205,11 @@ List of dividends for a stock.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -1236,6 +1301,11 @@ The search can be restricted to a specific set of products by using customer-spe
 All identifiers used as parameters must be valid and entitled.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -1329,6 +1399,11 @@ A specific set of stocks can be restricted to or excluded by using customer-spec
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
@@ -1414,6 +1489,11 @@ Possible values and value ranges for the parameters used in the endpoint &#x60;/
 The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/stock/notation/screener/search` endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the `/notation/keyFigures/` endpoints.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

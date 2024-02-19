@@ -22,6 +22,11 @@ Returns all the underlying option identifiers for the underlying security identi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetOptions.ApiClient;
@@ -127,6 +132,11 @@ Returns all the option identifiers based on the conditions provided as input in 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

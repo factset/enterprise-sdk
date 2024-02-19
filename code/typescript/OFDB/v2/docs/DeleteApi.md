@@ -22,6 +22,11 @@ Allows users to delete various combinations of symbols, dates, and fields from t
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DeleteApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -100,6 +105,11 @@ Deletes all data specific to the date in 3d database(OFDB). This includes all th
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DeleteApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -175,6 +185,11 @@ Name | Type | Description  | Notes
 Deletes data specific to the symbol and date from a 3d database(OFDB).
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DeleteApi } = require('@factset/sdk-ofdb');
@@ -254,6 +269,11 @@ Deletes all data specific to the symbol in both 2d and 3d database(OFDB). This i
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DeleteApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -329,6 +349,11 @@ Name | Type | Description  | Notes
 Deletes data specific to the symbol and date from a 3d database(OFDB).
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DeleteApi } = require('@factset/sdk-ofdb');

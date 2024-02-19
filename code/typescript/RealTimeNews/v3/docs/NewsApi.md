@@ -32,6 +32,11 @@ Details for a news article.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -114,6 +119,11 @@ Details for a news article type.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -194,6 +204,11 @@ List of news article types.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -272,6 +287,11 @@ Details of a distributor.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -349,6 +369,11 @@ List of distributors.
 List of distributors.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
@@ -430,6 +455,11 @@ Details of a publisher.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -507,6 +537,11 @@ List of publishers.
 List of publishers.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
@@ -592,6 +627,11 @@ List of publishers provided by the given distributor.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -672,6 +712,11 @@ List of news articles.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -748,6 +793,11 @@ List news articles of an article chain.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -821,6 +871,11 @@ News articles for instruments that are constituents of the given indices.
 News articles for instruments that are constituents of the given indices.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
@@ -896,6 +951,11 @@ News articles for instruments.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -970,6 +1030,11 @@ List news articles which contain media of specific media kinds.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1043,6 +1108,11 @@ Search for news articles using a fulltext search.
 Search for news articles using a fulltext search. All specified criteria need to be fulfilled for an article to match. Each criterion is handled according to its selectionType; \&quot;include\&quot; requires the criterion to evaluate to true, \&quot;exclude\&quot; requires the criterion to evaluate to false. A criterion is fulfilled when at least one of its values is found.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');
@@ -1119,6 +1189,11 @@ Search for publishers.
 Search for publishers by the name of the publisher.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NewsApi } = require('@factset/sdk-realtimenews');

@@ -23,6 +23,11 @@ Create a comment to a Meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CommentsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -98,6 +103,11 @@ Name | Type | Description  | Notes
 Create a comment attachment to a Meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CommentsApi } = require('@factset/sdk-irnmeetings');
@@ -175,6 +185,11 @@ Delete a Comment from a Meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CommentsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -246,6 +261,11 @@ null (empty response body)
 Download single attachment detail of a comment belonging to a meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CommentsApi } = require('@factset/sdk-irnmeetings');
@@ -321,6 +341,11 @@ Get details of a comment belonging to a meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CommentsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -394,6 +419,11 @@ Name | Type | Description  | Notes
 Get attachments summary of a comment belonging to a meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CommentsApi } = require('@factset/sdk-irnmeetings');
@@ -469,6 +499,11 @@ Get all comments for a meeting
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CommentsApi } = require('@factset/sdk-irnmeetings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -540,6 +575,11 @@ Name | Type | Description  | Notes
 Edit a comment for a meeting
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CommentsApi } = require('@factset/sdk-irnmeetings');

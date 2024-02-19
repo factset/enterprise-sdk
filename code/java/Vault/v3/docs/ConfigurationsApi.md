@@ -19,6 +19,11 @@ This endpoint returns details for a Vault configuration as well as a list of acc
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Vault.ApiClient;
@@ -112,6 +117,11 @@ Get Vault configurations
 This endpoint returns all the Vault configurations saved in the provided account.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

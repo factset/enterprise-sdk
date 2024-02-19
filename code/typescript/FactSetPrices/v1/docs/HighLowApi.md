@@ -19,6 +19,11 @@ For given security(s), gets the high and low prices with the respective dates on
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, HighLowApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -106,6 +111,11 @@ Requests the price high and price low of securities for a list of &#x60;ids&#x60
 For given security(s), gets the high and low prices with the respective dates on which they occurred. This service gives options for fetching the price as of the close or intraday. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, HighLowApi } = require('@factset/sdk-factsetprices');

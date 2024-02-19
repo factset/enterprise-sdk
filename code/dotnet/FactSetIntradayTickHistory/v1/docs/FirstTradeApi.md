@@ -15,6 +15,12 @@ Method | HTTP request | Description
 Request returns data for the first trade (official and unofficial) after the specified time
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

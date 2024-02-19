@@ -22,6 +22,11 @@ Delete a Concordance Mapping to the client universe. When making a post, all exi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetConcordance.ApiClient;
@@ -114,6 +119,11 @@ Saves a Concordance Mapping to the client universe. When making a post, all exit
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetConcordance.ApiClient;
@@ -205,6 +215,11 @@ Retrieves all entity mappings within a requested universe.
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -307,6 +322,11 @@ Retrieves all entity mappings that were saved in a given universe. Supports filt
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

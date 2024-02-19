@@ -21,6 +21,11 @@ Updated intraday, the FactSet detail estimates apis provide individual broker-le
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, BrokerDetailApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -115,6 +120,11 @@ Updated intraday, the FactSet detail estimates apis provide individual broker-le
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, BrokerDetailApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -188,6 +198,11 @@ FactSet estimates detail data for rolling fiscal periods
 Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, BrokerDetailApi } = require('@factset/sdk-factsetestimates');
@@ -282,6 +297,11 @@ FactSet estimates detail data for rolling fiscal periods
 Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, BrokerDetailApi } = require('@factset/sdk-factsetestimates');

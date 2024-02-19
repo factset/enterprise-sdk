@@ -24,6 +24,11 @@ The top-levels' market-defined approach groups companies based on their behavior
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetRBICS.ApiClient;
@@ -121,6 +126,11 @@ Get the full RBICS Taxonomy Structure Ids, Names, and effective periods. POST me
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

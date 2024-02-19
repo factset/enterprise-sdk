@@ -29,6 +29,11 @@ Fetch the Fund&#39;s Benchmark and Segement Benchmark ids. These ids can be then
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -102,6 +107,11 @@ Get the Fund&#39;s Primary and Segment Benchmark details for large list of ids.
 Fetch the Fund&#39;s Benchmark and Segement Benchmark ids. These ids can be then used in the [Benchmarks API](https://developer.factset.com/api-catalog/factset-benchmarks-api) to fetch index-level prices, returns, constituents data. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
@@ -177,6 +187,11 @@ Fetch basic fund classification data, such as Asset Class, Category, Focus, Nich
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -251,6 +266,11 @@ Fetch basic fund classification data, such as Asset Class, Category, Focus, Nich
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -324,6 +344,11 @@ Get the Fund&#39;s Costs, Investment minimums and Risk, and Fees.
 Fetch the Fund&#39;s Costs, Investment minimums and Risk, and Fees. This subcategory includes management fees, 12b-1 fees, expense ratios, and several other data items. The value for each specified share class is expressed as a percentage of the AUM. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
@@ -405,6 +430,11 @@ Fetch the Fund&#39;s Costs, Investment minimums and Risk, and Fees. Data Items i
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -478,6 +508,11 @@ Get a list of Fund Managers and related details for a list of ids.
 Fetch basic Fund manager details, such as Title, Phone, Job Id and Name. NOTE - A subscription to FactSet&#39;s Ownership product is required to access formulas in this Asset Managers subcategory. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
@@ -553,6 +588,11 @@ Fetch basic Fund manager details, such as Title, Phone, Job Id and Name.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -626,6 +666,11 @@ Get basic reference summary data for a Fund.
 Fetch basic reference data for the requested fund(s), including countryDomicile, shrClass, shrClassInceptDate, etc.  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
@@ -701,6 +746,11 @@ Fetch basic reference data for the requested fund(s), including countryDomicile,
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -775,6 +825,11 @@ Fetch the five related fund share classes. Fund share classes can be related if 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -848,6 +903,11 @@ Get a list of Related Funds for a large list of Fund ids.
 Fetch the five related fund share classes. Fund share classes can be related if they belong to the same Fund Classification segment, have the same share class type, have the same legal structure, and have the same country of primary exchange. Beyond the baseline criteria, the five most relevant funds are determined based on whether they follow the same benchmark, have the same maturity, and have the same selection strategy as the specified share class. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetfunds');

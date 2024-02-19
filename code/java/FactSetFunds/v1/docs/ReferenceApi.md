@@ -30,6 +30,11 @@ Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be then use
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -121,6 +126,11 @@ Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be then use
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -224,6 +234,11 @@ Fetch basic fund classification data, such as Asset Class, Category, Focus, Nich
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -326,6 +341,11 @@ Fetch basic fund classification data, such as Asset Class, Category, Focus, Nich
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -417,6 +437,11 @@ Fetch the Fund's Costs, Investment minimums and Risk, and Fees. This subcategory
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -514,6 +539,11 @@ Fetch the Fund's Costs, Investment minimums and Risk, and Fees. Data Items inclu
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -605,6 +635,11 @@ Fetch basic Fund manager details, such as Title, Phone, Job Id and Name. NOTE - 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -698,6 +733,11 @@ Fetch basic Fund manager details, such as Title, Phone, Job Id and Name.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -789,6 +829,11 @@ Fetch basic reference data for the requested fund(s), including countryDomicile,
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -882,6 +927,11 @@ Fetch basic reference data for the requested fund(s), including countryDomicile,
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -974,6 +1024,11 @@ Fetch the five related fund share classes. Fund share classes can be related if 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -1065,6 +1120,11 @@ Fetch the five related fund share classes. Fund share classes can be related if 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -17,6 +17,12 @@ Interim/Annual Estimate Table
 Returns a timeseries grid of Interim and Annual data for a single line item
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

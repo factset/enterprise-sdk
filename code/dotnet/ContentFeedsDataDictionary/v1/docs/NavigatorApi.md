@@ -20,6 +20,12 @@ Method | HTTP request | Description
 Returns the data items (along with the products they belong to) that contain at least one of the search terms as a substring of either their name or description.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -112,6 +118,12 @@ Name | Type | Description  | Notes
 Get the list of data items associated with a product for Navigator.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -204,6 +216,12 @@ Name | Type | Description  | Notes
 Get the list of products for Navigator.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -291,6 +309,12 @@ This endpoint does not need any parameter.
 Get a list of sources where the specified data item can be found, for each delivery method, filtered to the appearances of the given data item within the specified product.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -385,6 +409,12 @@ Name | Type | Description  | Notes
 Get a list of sources by delivery method for the given product_id
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -477,6 +507,12 @@ Name | Type | Description  | Notes
 Get the list of fields associated with a table for Navigator, and the code information for the specified data item, if applicable.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

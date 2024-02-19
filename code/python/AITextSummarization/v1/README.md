@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.AITextSummarization==0.21.8
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,7 +88,6 @@ configuration = fds.sdk.AITextSummarization.Configuration(
 with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     result_id = "result_id_example" # str | 
 
     try:

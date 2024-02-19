@@ -19,6 +19,11 @@ Create a phone type
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsPhoneNumberTypesApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -91,6 +96,11 @@ Delete a phone type
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsPhoneNumberTypesApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -161,6 +171,11 @@ Get list of the phone types configured in your group
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsPhoneNumberTypesApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -228,6 +243,11 @@ This endpoint does not need any parameter.
 Edit a phone type
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsPhoneNumberTypesApi } = require('@factset/sdk-irnconfiguration');

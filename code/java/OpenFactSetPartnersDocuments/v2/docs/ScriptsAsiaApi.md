@@ -20,6 +20,11 @@ Returns XML files and relevant metadata provided by Open: FactSet Partner – Sc
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.time.LocalDate;
 // Import classes:

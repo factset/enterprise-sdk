@@ -24,6 +24,11 @@ Create a contact
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -98,6 +103,11 @@ Delete a contact
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -167,6 +177,11 @@ null (empty response body)
 Get all custom field and standard field details on a specific contact
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
@@ -240,6 +255,11 @@ Get a contact’s audit history
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -311,6 +331,11 @@ Name | Type | Description  | Notes
 Get the About field content for a specific contact
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
@@ -384,6 +409,11 @@ Get all notes and meetings where a specific contact was tagged
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -456,6 +486,11 @@ Returns a list of a contact’s relationships
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -527,6 +562,11 @@ Name | Type | Description  | Notes
 Get list of all contacts in your group along with some of their standard field data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
@@ -617,6 +657,11 @@ Name | Type | Description  | Notes
 Edit a contact’s standard field and custom field data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');

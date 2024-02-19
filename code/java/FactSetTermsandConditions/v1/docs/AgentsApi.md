@@ -20,6 +20,11 @@ Returns Agents data items for the Fixed Income security.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTermsandConditions.ApiClient;
@@ -111,6 +116,11 @@ Returns Agents data items for a list of Fixed Income securities.
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -20,6 +20,11 @@ Create a note
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NotesApi } = require('@factset/sdk-irnnotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -98,6 +103,11 @@ Delete a Note
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NotesApi } = require('@factset/sdk-irnnotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -167,6 +177,11 @@ null (empty response body)
 Get details of a note
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NotesApi } = require('@factset/sdk-irnnotes');
@@ -240,6 +255,11 @@ Get all the notes in the specified date range filtered on the given identifiers
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NotesApi } = require('@factset/sdk-irnnotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -279,6 +299,7 @@ const opts = {
   'modifiedSince': "modifiedSince_example", // String | Only return notes which have been modified or created since a particular time
   'states': ["null"], // [String] | Set of states to filter on
   'filterOnRelatedSymbols': false, // Boolean | Include notes whose related symbols match the identifier filter
+  'includeRelatedEntities': false, // Boolean | When set to true fetches notes tagged with all the entities related to identifiers param
   'xIRNIncludeDeleted': false // Boolean | 
 };
 
@@ -314,6 +335,7 @@ Name | Type | Description  | Notes
  **modifiedSince** | **String**| Only return notes which have been modified or created since a particular time | [optional] 
  **states** | [**[String]**](String.md)| Set of states to filter on | [optional] 
  **filterOnRelatedSymbols** | **Boolean**| Include notes whose related symbols match the identifier filter | [optional] [default to false]
+ **includeRelatedEntities** | **Boolean**| When set to true fetches notes tagged with all the entities related to identifiers param | [optional] [default to false]
  **xIRNIncludeDeleted** | **Boolean**|  | [optional] [default to false]
 
 ### Return type
@@ -337,6 +359,11 @@ Name | Type | Description  | Notes
 Update a note
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NotesApi } = require('@factset/sdk-irnnotes');

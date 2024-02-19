@@ -18,6 +18,12 @@ Return Issue Size data for a list of Fixed Income securities.
 Returns Issue Size data for the Fixed Income security. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -115,6 +121,12 @@ Return Issue Size data for a large list of Fixed Income securities.
 Returns Issue Size data for a list of Fixed Income securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

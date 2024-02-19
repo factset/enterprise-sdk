@@ -47,6 +47,11 @@ pip install fds.sdk.utils fds.sdk.Symbology==3.0.0
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -84,7 +89,6 @@ configuration = fds.sdk.Symbology.Configuration(
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = historical_identifier_resolution_api.HistoricalIdentifierResolutionApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_resolution_historical_request = IdentifierResolutionHistoricalRequest(
         data=IdentifierResolutionHistoricalRequestBody(
             ids=GetIdsResolution(["GOOGL-US"]),

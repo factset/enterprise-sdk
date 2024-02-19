@@ -19,6 +19,11 @@ Get the sensitivity information like convexity, effective convexity, effective d
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SensitivityApi } = require('@factset/sdk-spglobalfixedincomeevaluatedpricesandanalytics');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -102,6 +107,11 @@ Request the bond sensitivity data for a list of securities
 Get the sensitivity information like convexity, effective convexity, effective duration, Macaulay duration and modified duration provided by Markit for the specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SensitivityApi } = require('@factset/sdk-spglobalfixedincomeevaluatedpricesandanalytics');

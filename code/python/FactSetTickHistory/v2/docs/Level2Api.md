@@ -4,14 +4,14 @@ All URIs are relative to *https://api.factset.com/tick-history/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_status_level2**](Level2Api.md#get_status_level2) | **GET** /level2/files/status | Returns the status of the ID
-[**get_tick_history_files_level2**](Level2Api.md#get_tick_history_files_level2) | **GET** /level2/files/get | Returns the tick history files requested in the /create endpoint
-[**getlevel2id**](Level2Api.md#getlevel2id) | **POST** /level2/files/create | Returns the ID for the requested data.
+[**get_level2_file_status**](Level2Api.md#get_level2_file_status) | **GET** /level2/files/status | Returns the status of the ID
+[**get_tick_history_level2_files**](Level2Api.md#get_tick_history_level2_files) | **GET** /level2/files/get | Returns the tick history files requested in the /create endpoint
+[**request_tick_history_leve2_files**](Level2Api.md#request_tick_history_leve2_files) | **POST** /level2/files/create | Returns the ID for the requested data.
 
 
 
-# **get_status_level2**
-> CompletedResponse get_status_level2(id)
+# **get_level2_file_status**
+> CompletedResponse get_level2_file_status(id)
 
 Returns the status of the ID
 
@@ -19,8 +19,10 @@ Need to plug-in the id get from /create endpoint into /status endpoint
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -65,7 +67,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     try:
         # Returns the status of the ID
         # example passing only required values which don't have defaults set
-        api_response_wrapper = api_instance.get_status_level2(id)
+        api_response_wrapper = api_instance.get_level2_file_status(id)
 
         # This endpoint returns a response wrapper that contains different types of responses depending on the query.
         # To access the correct response type, you need to perform one additional step, as shown below.
@@ -77,7 +79,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
         pprint(api_response)
 
     except fds.sdk.FactSetTickHistory.ApiException as e:
-        print("Exception when calling Level2Api->get_status_level2: %s\n" % e)
+        print("Exception when calling Level2Api->get_level2_file_status: %s\n" % e)
 ```
 
 
@@ -114,8 +116,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_tick_history_files_level2**
-> LeveltwoGetFilesResponse get_tick_history_files_level2(id)
+# **get_tick_history_level2_files**
+> LeveltwoGetFilesResponse get_tick_history_level2_files(id)
 
 Returns the tick history files requested in the /create endpoint
 
@@ -123,8 +125,10 @@ Returns the files from tickhistory endpoint
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -174,7 +178,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
         # Returns the tick history files requested in the /create endpoint
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response_wrapper = api_instance.get_tick_history_files_level2(id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
+        api_response_wrapper = api_instance.get_tick_history_level2_files(id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
 
         # This endpoint returns a response wrapper that contains different types of responses depending on the query.
         # To access the correct response type, you need to perform one additional step, as shown below.
@@ -186,7 +190,7 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
         pprint(api_response)
 
     except fds.sdk.FactSetTickHistory.ApiException as e:
-        print("Exception when calling Level2Api->get_tick_history_files_level2: %s\n" % e)
+        print("Exception when calling Level2Api->get_tick_history_level2_files: %s\n" % e)
 ```
 
 
@@ -226,17 +230,19 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getlevel2id**
-> SubmittedResponse getlevel2id(level_two_request)
+# **request_tick_history_leve2_files**
+> SubmittedResponse request_tick_history_leve2_files(level_two_request)
 
 Returns the ID for the requested data.
 
-Data available from past 6 years to current date.
+Data available from past 6 years to previous day.
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -291,12 +297,12 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     try:
         # Returns the ID for the requested data.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.getlevel2id(level_two_request)
+        api_response = api_instance.request_tick_history_leve2_files(level_two_request)
 
         pprint(api_response)
 
     except fds.sdk.FactSetTickHistory.ApiException as e:
-        print("Exception when calling Level2Api->getlevel2id: %s\n" % e)
+        print("Exception when calling Level2Api->request_tick_history_leve2_files: %s\n" % e)
 ```
 
 

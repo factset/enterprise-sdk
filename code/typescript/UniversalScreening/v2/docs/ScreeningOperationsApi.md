@@ -21,6 +21,11 @@ Retrieve results of complete screen calculation. Screens with more than 10,000 r
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ScreeningOperationsApi } = require('@factset/sdk-universalscreening');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -101,6 +106,11 @@ Polls the job with a given screen ID and returns job status
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ScreeningOperationsApi } = require('@factset/sdk-universalscreening');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -174,6 +184,11 @@ Name | Type | Description  | Notes
 Begins archive of screen to OFDB. Subject to rate limiting by serial.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ScreeningOperationsApi } = require('@factset/sdk-universalscreening');
@@ -250,6 +265,11 @@ Name | Type | Description  | Notes
 Begins calculation of screen. Subject to rate limiting by serial.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ScreeningOperationsApi } = require('@factset/sdk-universalscreening');

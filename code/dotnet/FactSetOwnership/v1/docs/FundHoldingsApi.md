@@ -18,6 +18,12 @@ Get underlying holdings information for a requested fund identifer.
 Gets holdings information for list of fund identifiers. The service allows you to filter by the TopN holdings and Asset Type. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Get holdings for a list of funds.
 Gets Holding information for a long list of Fund objects.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

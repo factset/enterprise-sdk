@@ -20,6 +20,11 @@ Gets market capitalization of list of ids for the company level, security level,
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetPrices.ApiClient;
@@ -120,6 +125,11 @@ Requests the market value for a list of &#x60;ids&#x60; as of given date range.
 Requests the market value for a list of `ids` as of given date range.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

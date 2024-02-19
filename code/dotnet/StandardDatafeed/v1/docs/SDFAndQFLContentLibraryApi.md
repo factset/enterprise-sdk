@@ -17,6 +17,12 @@ Method | HTTP request | Description
 <a href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a> end point provides the delta & full files in a reverse chronological order by default for all the schemas & bundles subscribed by the client    QFL:-    - In case of QFL, <a href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a> end point provides the \"Historical & Year to Date (YTD)\" data in a reverse chronological order by default for all the factor families & groups subscribed to by the user</p> Provides \"full files\" only for historical bundles[data available from 1995 to previous year], \"full & delta files\" for YTD bundles[data available for current year]        If startDate and endDate parameters are not specified in the request, this endpoint returns past 10 days data by default. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

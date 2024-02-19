@@ -20,6 +20,11 @@ Returns FactSet Estimates Consensus Data for the segments gathered from the Busi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimates.ApiClient;
@@ -129,6 +134,11 @@ Returns FactSet Estimates Data for the segments gathered from the Business, Geog
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

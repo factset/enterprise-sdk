@@ -21,6 +21,11 @@ This is the endpoint to check on the progress of a previous calculation request.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetProgrammaticEnvironment.ApiClient;
@@ -109,6 +114,11 @@ Get calculation log for a specific calculation
 This endpoint returns the log from the calculation.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -199,6 +209,11 @@ This endpoint returns the specified output from the calculation.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetProgrammaticEnvironment.ApiClient;
@@ -287,6 +302,11 @@ Starts a new script calculation
 This endpoint takes a python script and starts executing it within FPE
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -21,6 +21,11 @@ Returns historical Coupon information for the Fixed Income security.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CouponsApi } = require('@factset/sdk-factsettermsandconditions');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Return historical Coupon information for a list of Fixed Income securities.
 Returns historical Coupon information for a list of Fixed Income securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CouponsApi } = require('@factset/sdk-factsettermsandconditions');
@@ -169,6 +179,11 @@ Returns Coupon Schedules information for the Fixed Income security.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CouponsApi } = require('@factset/sdk-factsettermsandconditions');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -242,6 +257,11 @@ Return Coupon Schedules information for a list of Fixed Income securities.
 Returns historical Coupon Schedules information for a list of Fixed Income securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CouponsApi } = require('@factset/sdk-factsettermsandconditions');

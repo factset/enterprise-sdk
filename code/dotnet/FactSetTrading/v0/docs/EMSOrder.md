@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **StopPrice** | **double?** | Stop-loss price to buy/sell stock at market. | [optional] 
 **StrikePrice** | **double?** | Strike Price for an Option. | [optional] 
 **Currency** | **string** | Currency used for price in ISO format. | [optional] 
-**IsCovered** | **bool?** | Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order | [optional] 
+**IsCovered** | **bool?** | Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order. | [optional] 
 **MaxShow** | **double?** | Maximum number of shares within an order to be shown to other customers. | [optional] 
 **MaxFloor** | **double?** | Maximum number of shares within an order to be shown on the exchange floor at any given time. | [optional] 
 **PrevClosePrice** | **double?** | Previous closing price of security. | [optional] 

@@ -20,6 +20,11 @@ Delete a specified job started by the requester&#39;s username-serial
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, JobManagementApi } = require('@factset/sdk-universalscreening');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Delete all active jobs started by the requester&#39;s username-serial
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, JobManagementApi } = require('@factset/sdk-universalscreening');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -159,6 +169,11 @@ null (empty response body)
 Retrieve list of all active job ids started by requester&#39;s username-serial
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, JobManagementApi } = require('@factset/sdk-universalscreening');

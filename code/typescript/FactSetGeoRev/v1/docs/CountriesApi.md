@@ -19,6 +19,11 @@ Gets the **Countries&#39;** Geographic Revenue, Percents, Confidence, and Ranks 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CountriesApi } = require('@factset/sdk-factsetgeorev');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -104,6 +109,11 @@ Gets the revenue details for the requested Countries. Use for large lists of ids
 Gets the **Countries&#39;** Geographic Revenue, Percents, Confidence, and Ranks for a requested list of ids and country ISO codes, for a given start-date and end-date. Nearly 300 countries are supported. Countries represent the fourth and bottom level of the GeoRev taxonomy. The full list of countries and their related regional mappings can be found by using the /country-mappings endpoint or visit [OA 8754](https://my.apps.factset.com/oa/pages/8754) for a list of ISO2 Country codes. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CountriesApi } = require('@factset/sdk-factsetgeorev');

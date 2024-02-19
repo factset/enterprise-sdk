@@ -18,6 +18,12 @@ Get accounts and sub-directories in a directory
 This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -118,6 +124,12 @@ Get SPAR account returns type details
 This endpoint returns the returns type of account associated with SPAR
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

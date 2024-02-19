@@ -26,6 +26,11 @@ Get all assigned FactSet users
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -93,6 +98,11 @@ This endpoint does not need any parameter.
 Get all Authors
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
@@ -168,6 +178,11 @@ Name | Type | Description  | Notes
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -235,6 +250,11 @@ This endpoint does not need any parameter.
 Get all Custom Fields
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
@@ -310,6 +330,11 @@ Get Group details
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -377,6 +402,11 @@ This endpoint does not need any parameter.
 Get all Recommendations
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
@@ -446,6 +476,11 @@ Get all Sentiments
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -513,6 +548,11 @@ This endpoint does not need any parameter.
 Get Subject details for the given Id provided
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
@@ -590,6 +630,11 @@ Get all Subjects
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -663,6 +708,11 @@ Name | Type | Description  | Notes
 Get Team details for the given Id provided
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');
@@ -739,6 +789,11 @@ Name | Type | Description  | Notes
 Get all Teams
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, NotesConfigurationApi } = require('@factset/sdk-irnconfiguration');

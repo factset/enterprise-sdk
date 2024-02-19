@@ -101,9 +101,10 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
         /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <returns>List<NoteSummaryDto></returns>
-        List<NoteSummaryDto> GetNotes(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
+        List<NoteSummaryDto> GetNotes(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
 
         /// <summary>
         /// Get all the notes in the specified date range filtered on the given identifiers
@@ -124,9 +125,10 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
         /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <returns>ApiResponse of List<NoteSummaryDto></returns>
-        ApiResponse<List<NoteSummaryDto>> GetNotesWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
+        ApiResponse<List<NoteSummaryDto>> GetNotesWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
         /// <summary>
         /// Update a note
         /// </summary>
@@ -248,10 +250,11 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
         /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NoteSummaryDto&gt;</returns>
-        System.Threading.Tasks.Task<List<NoteSummaryDto>> GetNotesAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<NoteSummaryDto>> GetNotesAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all the notes in the specified date range filtered on the given identifiers
@@ -272,10 +275,11 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
         /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List<NoteSummaryDto>)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<NoteSummaryDto>>> GetNotesWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<NoteSummaryDto>>> GetNotesWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a note
         /// </summary>
@@ -1010,11 +1014,12 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
         /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <returns>List<NoteSummaryDto></returns>
-        public List<NoteSummaryDto> GetNotes(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
+        public List<NoteSummaryDto> GetNotes(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
         {
-            var localVarResponse = GetNotesWithHttpInfo(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted);
+            var localVarResponse = GetNotesWithHttpInfo(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, includeRelatedEntities, xIRNIncludeDeleted);
             return localVarResponse.Data;
         }
 
@@ -1034,9 +1039,10 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
         /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;NoteSummaryDto&gt;</returns>
-        public ApiResponse<List<NoteSummaryDto>> GetNotesWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
+        public ApiResponse<List<NoteSummaryDto>> GetNotesWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
         {
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -1107,6 +1113,10 @@ namespace FactSet.SDK.IRNNotes.Api
             if (filterOnRelatedSymbols != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "filterOnRelatedSymbols", filterOnRelatedSymbols));
+            }
+            if (includeRelatedEntities != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "includeRelatedEntities", includeRelatedEntities));
             }
             if (xIRNIncludeDeleted != null)
             {
@@ -1165,12 +1175,13 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
         /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NoteSummaryDto&gt;</returns>
-        public async System.Threading.Tasks.Task<List<NoteSummaryDto>>GetNotesAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<NoteSummaryDto>>GetNotesAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetNotesWithHttpInfoAsync(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotesWithHttpInfoAsync(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, includeRelatedEntities, xIRNIncludeDeleted, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1190,11 +1201,12 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
         /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches notes tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;NoteSummaryDto&gt;)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<List<NoteSummaryDto>>> GetNotesWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<List<NoteSummaryDto>>> GetNotesWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -1266,6 +1278,10 @@ namespace FactSet.SDK.IRNNotes.Api
             if (filterOnRelatedSymbols != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "filterOnRelatedSymbols", filterOnRelatedSymbols));
+            }
+            if (includeRelatedEntities != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "includeRelatedEntities", includeRelatedEntities));
             }
             if (xIRNIncludeDeleted != null)
             {

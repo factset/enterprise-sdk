@@ -17,6 +17,12 @@ Get SPAR benchmark details
 This endpoint returns the details of a given SPAR benchmark identifier.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

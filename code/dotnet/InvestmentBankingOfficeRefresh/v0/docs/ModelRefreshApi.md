@@ -19,6 +19,12 @@ Retrieve a calculated file by resource ID.
 If the requested job is complete, the calculated file will be returned.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Net;
@@ -131,6 +137,12 @@ Get the status of the refresh job with the given resource ID
 Check the status of the given job by ID
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -228,6 +240,12 @@ Upload a model
 Upload a model (e.g., an Excel workbook in Open Office XML format) for FactSet to refresh.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

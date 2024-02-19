@@ -19,6 +19,11 @@ Gets the **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sector
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GICSApi } = require('@factset/sdk-classifications');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -102,6 +107,11 @@ Returns the GICS classifications for the requested &#39;ids&#39; and date range.
 Gets the **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](https://www.spglobal.com/spdji/en/landing/topic/gics/) home pages. Coverage includes over 37,000 securities. *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, GICSApi } = require('@factset/sdk-classifications');

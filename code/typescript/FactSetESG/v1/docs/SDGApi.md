@@ -19,6 +19,11 @@ Truvalue Labs SDG Scores provides short-term, long-term, and momentum scores tha
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SDGApi } = require('@factset/sdk-factsetesg');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -104,6 +109,11 @@ Gets short-term, long-term, and momentum scores based on the 16 Sustainable Deve
 Truvalue Labs SDG Scores provides short-term, long-term, and momentum scores that are generated for 16 Sustainable Development Goals categories defined by the United Nations.* 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SDGApi } = require('@factset/sdk-factsetesg');

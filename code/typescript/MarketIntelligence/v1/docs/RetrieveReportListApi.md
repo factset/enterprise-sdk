@@ -18,6 +18,11 @@ Endpoint to retrieve list of all available Market Intelligence reports for speci
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, RetrieveReportListApi } = require('@factset/sdk-marketintelligence');
 const { ConfidentialClient } = require('@factset/sdk-utils');

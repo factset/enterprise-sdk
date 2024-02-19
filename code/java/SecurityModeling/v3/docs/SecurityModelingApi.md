@@ -20,6 +20,11 @@ This endpoint deletes existing securities.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.SecurityModeling.ApiClient;
@@ -112,6 +117,11 @@ This endpoint gets all existing securities.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.SecurityModeling.ApiClient;
@@ -203,6 +213,11 @@ Create or update securities
 This endpoint is to create or update existing securities.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -19,6 +19,11 @@ Get the funds active status, share class status, and database availability. Most
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, HelperApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Get Fund&#39;s current status and database availability for large list of ids.
 Get the funds active status, share class status, and database availability. Most common use is for coverage checks and id resolution checks. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, HelperApi } = require('@factset/sdk-factsetfunds');

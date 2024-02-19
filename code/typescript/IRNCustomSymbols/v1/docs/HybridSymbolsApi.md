@@ -18,6 +18,11 @@ Create standard symbol metadata
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, HybridSymbolsApi } = require('@factset/sdk-irncustomsymbols');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Get all custom field and standard field details on a specific standard symbol
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, HybridSymbolsApi } = require('@factset/sdk-irncustomsymbols');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -163,6 +173,11 @@ Name | Type | Description  | Notes
 Edit a standard symbol’s standard field and custom field data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, HybridSymbolsApi } = require('@factset/sdk-irncustomsymbols');

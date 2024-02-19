@@ -23,6 +23,12 @@ Method | HTTP request | Description
 Create or update an existing model account
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -124,6 +130,12 @@ void (empty response body)
 Delete model account, takes an account path and name and deletes it.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -218,6 +230,12 @@ void (empty response body)
 Delete all entries for a date or specific symbol entries for a date from a previously created account.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -317,6 +335,12 @@ void (empty response body)
 Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -416,6 +440,12 @@ void (empty response body)
 Get account endpoint, takes an account name and returns underlying data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -515,6 +545,12 @@ Name | Type | Description  | Notes
 Get account endpoint, takes an account name, date and returns underlying data for that date
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -616,6 +652,12 @@ Name | Type | Description  | Notes
 Get account endpoint, takes an account name and returns underlying data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -719,6 +761,12 @@ Name | Type | Description  | Notes
 Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -820,6 +868,12 @@ Name | Type | Description  | Notes
 Get account schema endpoint, takes an account name and returns its schema
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

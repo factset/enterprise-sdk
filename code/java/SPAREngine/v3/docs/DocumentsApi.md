@@ -18,6 +18,11 @@ This endpoint looks up all SPAR3 documents and sub-directories in a given direct
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.SPAREngine.ApiClient;

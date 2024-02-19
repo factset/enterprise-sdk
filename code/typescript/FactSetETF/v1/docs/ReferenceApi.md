@@ -19,6 +19,11 @@ Returns reference data items for Exchange Traded Funds.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetetf');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -98,6 +103,11 @@ Fetch Reference Data for a large list of ETF securities.
 Returns reference data items for a list of Exchange Traded Funds. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetetf');

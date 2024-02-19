@@ -29,35 +29,35 @@ public class Level2Api {
     this.apiClient = apiClient;
   }
   
-  private static final Map<Integer, GenericType> getStatusLevel2ResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getLevel2FileStatusResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getStatusLevel2ResponseTypeMap.put(201, new GenericType<CompletedResponse>(){});
-    getStatusLevel2ResponseTypeMap.put(202, new GenericType<SubmittedResponse>(){});
-    getStatusLevel2ResponseTypeMap.put(401, new GenericType<Status>(){});
-    getStatusLevel2ResponseTypeMap.put(403, new GenericType<Status>(){});
-    getStatusLevel2ResponseTypeMap.put(404, new GenericType<Status>(){});
-    getStatusLevel2ResponseTypeMap.put(500, new GenericType<Status>(){});
+    getLevel2FileStatusResponseTypeMap.put(201, new GenericType<CompletedResponse>(){});
+    getLevel2FileStatusResponseTypeMap.put(202, new GenericType<SubmittedResponse>(){});
+    getLevel2FileStatusResponseTypeMap.put(401, new GenericType<Status>(){});
+    getLevel2FileStatusResponseTypeMap.put(403, new GenericType<Status>(){});
+    getLevel2FileStatusResponseTypeMap.put(404, new GenericType<Status>(){});
+    getLevel2FileStatusResponseTypeMap.put(500, new GenericType<Status>(){});
   }
 
-  private static final Map<Integer, GenericType> getTickHistoryFilesLevel2ResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getTickHistoryLevel2FilesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getTickHistoryFilesLevel2ResponseTypeMap.put(200, new GenericType<LeveltwoGetFilesResponse>(){});
-    getTickHistoryFilesLevel2ResponseTypeMap.put(202, new GenericType<SubmittedResponse>(){});
-    getTickHistoryFilesLevel2ResponseTypeMap.put(400, new GenericType<Status>(){});
-    getTickHistoryFilesLevel2ResponseTypeMap.put(401, new GenericType<Status>(){});
-    getTickHistoryFilesLevel2ResponseTypeMap.put(403, new GenericType<Status>(){});
-    getTickHistoryFilesLevel2ResponseTypeMap.put(404, new GenericType<Status>(){});
-    getTickHistoryFilesLevel2ResponseTypeMap.put(500, new GenericType<Status>(){});
+    getTickHistoryLevel2FilesResponseTypeMap.put(200, new GenericType<LeveltwoGetFilesResponse>(){});
+    getTickHistoryLevel2FilesResponseTypeMap.put(202, new GenericType<SubmittedResponse>(){});
+    getTickHistoryLevel2FilesResponseTypeMap.put(400, new GenericType<Status>(){});
+    getTickHistoryLevel2FilesResponseTypeMap.put(401, new GenericType<Status>(){});
+    getTickHistoryLevel2FilesResponseTypeMap.put(403, new GenericType<Status>(){});
+    getTickHistoryLevel2FilesResponseTypeMap.put(404, new GenericType<Status>(){});
+    getTickHistoryLevel2FilesResponseTypeMap.put(500, new GenericType<Status>(){});
   }
 
-  private static final Map<Integer, GenericType> getlevel2idResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> requestTickHistoryLeve2FilesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getlevel2idResponseTypeMap.put(202, new GenericType<SubmittedResponse>(){});
-    getlevel2idResponseTypeMap.put(400, new GenericType<Status>(){});
-    getlevel2idResponseTypeMap.put(401, new GenericType<Status>(){});
-    getlevel2idResponseTypeMap.put(403, new GenericType<Status>(){});
-    getlevel2idResponseTypeMap.put(429, new GenericType<Status>(){});
-    getlevel2idResponseTypeMap.put(500, new GenericType<Status>(){});
+    requestTickHistoryLeve2FilesResponseTypeMap.put(202, new GenericType<SubmittedResponse>(){});
+    requestTickHistoryLeve2FilesResponseTypeMap.put(400, new GenericType<Status>(){});
+    requestTickHistoryLeve2FilesResponseTypeMap.put(401, new GenericType<Status>(){});
+    requestTickHistoryLeve2FilesResponseTypeMap.put(403, new GenericType<Status>(){});
+    requestTickHistoryLeve2FilesResponseTypeMap.put(429, new GenericType<Status>(){});
+    requestTickHistoryLeve2FilesResponseTypeMap.put(500, new GenericType<Status>(){});
   }
 
   
@@ -76,7 +76,7 @@ public class Level2Api {
    * <p>
    * Example:
    * <pre>{@code
-   * GetStatusLevel2ResponseWrapper response = ...;
+   * GetLevel2FileStatusResponseWrapper response = ...;
    * switch (response.statusCode) {
    *   case 201:
    *     CompletedResponse data201 = response.getResponse201();
@@ -87,11 +87,11 @@ public class Level2Api {
    *  }
    * }</pre>
    */
-  public static class GetStatusLevel2ResponseWrapper {
+  public static class GetLevel2FileStatusResponseWrapper {
     public final int statusCode;
     public final Object response;
 
-    public GetStatusLevel2ResponseWrapper(int statusCode, Object response) {
+    public GetLevel2FileStatusResponseWrapper(int statusCode, Object response) {
       this.statusCode = statusCode;
       this.response = response;
     }
@@ -122,7 +122,7 @@ public class Level2Api {
       if (o == null || getClass() != o.getClass()) {
         return false;
       }
-      GetStatusLevel2ResponseWrapper other = (GetStatusLevel2ResponseWrapper) o;
+      GetLevel2FileStatusResponseWrapper other = (GetLevel2FileStatusResponseWrapper) o;
       return this.statusCode == other.statusCode &&
         Objects.equals(this.response, other.response);
     }
@@ -134,7 +134,7 @@ public class Level2Api {
 
     @Override
     public String toString() {
-      return "class GetStatusLevel2ResponseWrapper {\n"
+      return "class GetLevel2FileStatusResponseWrapper {\n"
        + "    statusCode: " + statusCode + "\n"
        + "    response: "
        + Objects.toString(response).replace("\n", "\n    ")
@@ -158,7 +158,7 @@ public class Level2Api {
    * <p>
    * Example:
    * <pre>{@code
-   * GetTickHistoryFilesLevel2ResponseWrapper response = ...;
+   * GetTickHistoryLevel2FilesResponseWrapper response = ...;
    * switch (response.statusCode) {
    *   case 200:
    *     LeveltwoGetFilesResponse data200 = response.getResponse200();
@@ -169,11 +169,11 @@ public class Level2Api {
    *  }
    * }</pre>
    */
-  public static class GetTickHistoryFilesLevel2ResponseWrapper {
+  public static class GetTickHistoryLevel2FilesResponseWrapper {
     public final int statusCode;
     public final Object response;
 
-    public GetTickHistoryFilesLevel2ResponseWrapper(int statusCode, Object response) {
+    public GetTickHistoryLevel2FilesResponseWrapper(int statusCode, Object response) {
       this.statusCode = statusCode;
       this.response = response;
     }
@@ -204,7 +204,7 @@ public class Level2Api {
       if (o == null || getClass() != o.getClass()) {
         return false;
       }
-      GetTickHistoryFilesLevel2ResponseWrapper other = (GetTickHistoryFilesLevel2ResponseWrapper) o;
+      GetTickHistoryLevel2FilesResponseWrapper other = (GetTickHistoryLevel2FilesResponseWrapper) o;
       return this.statusCode == other.statusCode &&
         Objects.equals(this.response, other.response);
     }
@@ -216,7 +216,7 @@ public class Level2Api {
 
     @Override
     public String toString() {
-      return "class GetTickHistoryFilesLevel2ResponseWrapper {\n"
+      return "class GetTickHistoryLevel2FilesResponseWrapper {\n"
        + "    statusCode: " + statusCode + "\n"
        + "    response: "
        + Objects.toString(response).replace("\n", "\n    ")
@@ -249,7 +249,7 @@ public class Level2Api {
    * Returns the status of the ID
    * Need to plug-in the id get from /create endpoint into /status endpoint
    * @param id id returned by files create endpoint to poll and collect status of the query (required)
-   * @return GetStatusLevel2ResponseWrapper
+   * @return GetLevel2FileStatusResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -262,15 +262,15 @@ public class Level2Api {
        <tr><td> 500 </td><td> Internal Error </td><td>  -  </td></tr>
      </table>
    */
-  public GetStatusLevel2ResponseWrapper getStatusLevel2(String id) throws ApiException {
-    return getStatusLevel2WithHttpInfo(id).getData();
+  public GetLevel2FileStatusResponseWrapper getLevel2FileStatus(String id) throws ApiException {
+    return getLevel2FileStatusWithHttpInfo(id).getData();
   }
 
   /**
    * Returns the status of the ID
    * Need to plug-in the id get from /create endpoint into /status endpoint
    * @param id id returned by files create endpoint to poll and collect status of the query (required)
-   * @return ApiResponse&lt;GetStatusLevel2ResponseWrapper&gt;
+   * @return ApiResponse&lt;GetLevel2FileStatusResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -283,12 +283,12 @@ public class Level2Api {
        <tr><td> 500 </td><td> Internal Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GetStatusLevel2ResponseWrapper> getStatusLevel2WithHttpInfo(String id) throws ApiException {
+  public ApiResponse<GetLevel2FileStatusResponseWrapper> getLevel2FileStatusWithHttpInfo(String id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getStatusLevel2");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getLevel2FileStatus");
     }
     
     // create path and map variables
@@ -322,17 +322,17 @@ public class Level2Api {
         Object
         
       
-    > apiResponse = apiClient.invokeAPI("Level2Api.getStatusLevel2", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("Level2Api.getLevel2FileStatus", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, getStatusLevel2ResponseTypeMap, false);
+                               localVarAuthNames, getLevel2FileStatusResponseTypeMap, false);
 
     int statusCode = apiResponse.getStatusCode();
-    GetStatusLevel2ResponseWrapper responseWrapper = new GetStatusLevel2ResponseWrapper(
+    GetLevel2FileStatusResponseWrapper responseWrapper = new GetLevel2FileStatusResponseWrapper(
       statusCode,
       apiResponse.getData()
     );
 
-    return new ApiResponse<GetStatusLevel2ResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+    return new ApiResponse<GetLevel2FileStatusResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
 
 
   }
@@ -342,7 +342,7 @@ public class Level2Api {
    * @param id id returned by files create endpoint to poll and collect results of the query (required)
    * @param paginationLimit Specifies the maximum number of results to return per response page (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional, default to 0)
-   * @return GetTickHistoryFilesLevel2ResponseWrapper
+   * @return GetTickHistoryLevel2FilesResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -356,8 +356,8 @@ public class Level2Api {
        <tr><td> 500 </td><td> Internal Error </td><td>  -  </td></tr>
      </table>
    */
-  public GetTickHistoryFilesLevel2ResponseWrapper getTickHistoryFilesLevel2(String id, Integer paginationLimit, Integer paginationOffset) throws ApiException {
-    return getTickHistoryFilesLevel2WithHttpInfo(id, paginationLimit, paginationOffset).getData();
+  public GetTickHistoryLevel2FilesResponseWrapper getTickHistoryLevel2Files(String id, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getTickHistoryLevel2FilesWithHttpInfo(id, paginationLimit, paginationOffset).getData();
   }
 
   /**
@@ -366,7 +366,7 @@ public class Level2Api {
    * @param id id returned by files create endpoint to poll and collect results of the query (required)
    * @param paginationLimit Specifies the maximum number of results to return per response page (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional, default to 0)
-   * @return ApiResponse&lt;GetTickHistoryFilesLevel2ResponseWrapper&gt;
+   * @return ApiResponse&lt;GetTickHistoryLevel2FilesResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -380,12 +380,12 @@ public class Level2Api {
        <tr><td> 500 </td><td> Internal Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GetTickHistoryFilesLevel2ResponseWrapper> getTickHistoryFilesLevel2WithHttpInfo(String id, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+  public ApiResponse<GetTickHistoryLevel2FilesResponseWrapper> getTickHistoryLevel2FilesWithHttpInfo(String id, Integer paginationLimit, Integer paginationOffset) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getTickHistoryFilesLevel2");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getTickHistoryLevel2Files");
     }
     
     // create path and map variables
@@ -421,23 +421,23 @@ public class Level2Api {
         Object
         
       
-    > apiResponse = apiClient.invokeAPI("Level2Api.getTickHistoryFilesLevel2", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("Level2Api.getTickHistoryLevel2Files", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, getTickHistoryFilesLevel2ResponseTypeMap, false);
+                               localVarAuthNames, getTickHistoryLevel2FilesResponseTypeMap, false);
 
     int statusCode = apiResponse.getStatusCode();
-    GetTickHistoryFilesLevel2ResponseWrapper responseWrapper = new GetTickHistoryFilesLevel2ResponseWrapper(
+    GetTickHistoryLevel2FilesResponseWrapper responseWrapper = new GetTickHistoryLevel2FilesResponseWrapper(
       statusCode,
       apiResponse.getData()
     );
 
-    return new ApiResponse<GetTickHistoryFilesLevel2ResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+    return new ApiResponse<GetTickHistoryLevel2FilesResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
 
 
   }
   /**
    * Returns the ID for the requested data.
-   * Data available from past 6 years to current date.
+   * Data available from past 6 years to previous day.
    * @param levelTwoRequest  (required)
    * @return SubmittedResponse
    * @throws ApiException if fails to make API call
@@ -452,13 +452,13 @@ public class Level2Api {
        <tr><td> 500 </td><td> Internal Error </td><td>  -  </td></tr>
      </table>
    */
-  public SubmittedResponse getlevel2id(LevelTwoRequest levelTwoRequest) throws ApiException {
-    return getlevel2idWithHttpInfo(levelTwoRequest).getData();
+  public SubmittedResponse requestTickHistoryLeve2Files(LevelTwoRequest levelTwoRequest) throws ApiException {
+    return requestTickHistoryLeve2FilesWithHttpInfo(levelTwoRequest).getData();
   }
 
   /**
    * Returns the ID for the requested data.
-   * Data available from past 6 years to current date.
+   * Data available from past 6 years to previous day.
    * @param levelTwoRequest  (required)
    * @return ApiResponse&lt;SubmittedResponse&gt;
    * @throws ApiException if fails to make API call
@@ -473,12 +473,12 @@ public class Level2Api {
        <tr><td> 500 </td><td> Internal Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SubmittedResponse> getlevel2idWithHttpInfo(LevelTwoRequest levelTwoRequest) throws ApiException {
+  public ApiResponse<SubmittedResponse> requestTickHistoryLeve2FilesWithHttpInfo(LevelTwoRequest levelTwoRequest) throws ApiException {
     Object localVarPostBody = levelTwoRequest;
     
     // verify the required parameter 'levelTwoRequest' is set
     if (levelTwoRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'levelTwoRequest' when calling getlevel2id");
+      throw new ApiException(400, "Missing the required parameter 'levelTwoRequest' when calling requestTickHistoryLeve2Files");
     }
     
     // create path and map variables
@@ -511,9 +511,9 @@ public class Level2Api {
         
         SubmittedResponse
       
-    > apiResponse = apiClient.invokeAPI("Level2Api.getlevel2id", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("Level2Api.requestTickHistoryLeve2Files", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, getlevel2idResponseTypeMap, false);
+                               localVarAuthNames, requestTickHistoryLeve2FilesResponseTypeMap, false);
 
     return apiResponse;
 

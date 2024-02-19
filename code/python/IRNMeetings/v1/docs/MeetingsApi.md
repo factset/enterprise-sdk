@@ -19,8 +19,10 @@ Create a meeting
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -168,8 +170,10 @@ Delete a Meeting
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -260,8 +264,10 @@ Get details of a meeting
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -352,8 +358,10 @@ Get all the meetings in the specified date range filtered on the given identifie
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
@@ -405,13 +413,15 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     modified_since = "modifiedSince_example" # str | Only return meetings which have been modified or created since a particular time (optional)
     # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    include_related_entities = False # bool | When set to true fetches meetings tagged with all the entities related to identifiers param (optional) if omitted the server will use the default value of False
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     x_irn_include_deleted = False # bool | Includes deleted meetings in results when set to true (optional) if omitted the server will use the default value of False
 
     try:
         # Get all the meetings in the specified date range filtered on the given identifiers
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_meetings(start=start, end=end, identifiers=identifiers, limit=limit, modified_since=modified_since, x_irn_include_deleted=x_irn_include_deleted)
+        api_response = api_instance.get_meetings(start=start, end=end, identifiers=identifiers, limit=limit, modified_since=modified_since, include_related_entities=include_related_entities, x_irn_include_deleted=x_irn_include_deleted)
 
         pprint(api_response)
 
@@ -429,6 +439,7 @@ Name | Type | Description  | Notes
  **identifiers** | **[str]**| Set of identifiers to filter on | [optional]
  **limit** | **int**| Limit on the number of meetings retrieved | [optional]
  **modified_since** | **str**| Only return meetings which have been modified or created since a particular time | [optional]
+ **include_related_entities** | **bool**| When set to true fetches meetings tagged with all the entities related to identifiers param | [optional] if omitted the server will use the default value of False
  **x_irn_include_deleted** | **bool**| Includes deleted meetings in results when set to true | [optional] if omitted the server will use the default value of False
 
 ### Return type
@@ -461,8 +472,10 @@ Update meeting
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient

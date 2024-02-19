@@ -23,6 +23,11 @@ This is the endpoint to cancel a previously submitted calculation.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FixedIncomeCalculation.ApiClient;
@@ -113,6 +118,11 @@ Get FI calculation parameters by id
 This is the endpoint that returns the calculation parameters passed for a calculation.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -206,6 +216,11 @@ This is the endpoint to get the result of a previously requested calculation.
 If the calculation has finished computing, the body of the response will contain the requested document in JSON.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -301,6 +316,11 @@ Otherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progres
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FixedIncomeCalculation.ApiClient;
@@ -393,6 +413,11 @@ Create and Run FI calculation
 This endpoint creates and runs a new FI calculation specified in the post body.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -501,6 +526,11 @@ Create or Update FI calculation and run it.
 This endpoint updates and run the FI optimization specified in the PUT body parameters. It also allows the creation of new FI optimization with custom id.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -192,6 +192,7 @@ export default class MeetingsApi {
      * @param {Array.<String>} opts.identifiers Set of identifiers to filter on
      * @param {Number} opts.limit Limit on the number of meetings retrieved
      * @param {String} opts.modifiedSince Only return meetings which have been modified or created since a particular time
+     * @param {Boolean} opts.includeRelatedEntities When set to true fetches meetings tagged with all the entities related to identifiers param (default to false)
      * @param {Boolean} opts.xIRNIncludeDeleted Includes deleted meetings in results when set to true (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/MeetingSummaryDto>} and HTTP response
      */
@@ -206,7 +207,8 @@ export default class MeetingsApi {
         'end': opts['end'],
         'identifiers': this.apiClient.buildCollectionParam(opts['identifiers'], 'multi'),
         'limit': opts['limit'],
-        'modifiedSince': opts['modifiedSince']
+        'modifiedSince': opts['modifiedSince'],
+        'includeRelatedEntities': opts['includeRelatedEntities']
       };
       let headerParams = {
         'X-IRN-Include-Deleted': opts['xIRNIncludeDeleted']
@@ -236,6 +238,7 @@ export default class MeetingsApi {
      * @param {Array.<String>} opts.identifiers Set of identifiers to filter on
      * @param {Number} opts.limit Limit on the number of meetings retrieved
      * @param {String} opts.modifiedSince Only return meetings which have been modified or created since a particular time
+     * @param {Boolean} opts.includeRelatedEntities When set to true fetches meetings tagged with all the entities related to identifiers param (default to false)
      * @param {Boolean} opts.xIRNIncludeDeleted Includes deleted meetings in results when set to true (default to false)
      * @return { Promise.< Array.<module:model/MeetingSummaryDto> > } a Promise, with data of type {@link Array.<module:model/MeetingSummaryDto> }
      */

@@ -18,6 +18,12 @@ Retrieve historical audio recordings and related metadata within FactSet coverag
  * Returns the **untrimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.  * Returns the **trimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Dec 31, 2022.    Query parameters can be used to filter and narrow down the results. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -120,6 +126,12 @@ Retrieve latest audio recordings and related metadata within FactSet coverage.
 Returns the latest audio recordings. Query parameters can be used to filter and narrow down the results.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

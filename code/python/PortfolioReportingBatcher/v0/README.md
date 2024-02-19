@@ -51,6 +51,11 @@ pip install fds.sdk.utils fds.sdk.PortfolioReportingBatcher==0.21.1
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -88,11 +93,8 @@ configuration = fds.sdk.PortfolioReportingBatcher.Configuration(
 with fds.sdk.PortfolioReportingBatcher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = jobs_api.JobsApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     type = JobTypes("vault") # JobTypes | The jobs type
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     name = "name_example" # str | The jobs name
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attribute = [
         "documents",
     ] # [str] | The attribute parameter accepts a list of the given enums, separated by commas. Each of them returns the respective data associated with the job. Runs returns the run history of the job. (optional)

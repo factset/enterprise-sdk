@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: EMS API
-  version: 0.2.0
+  version: 0.3.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-trading-api
@@ -24,6 +24,8 @@ security:
 tags:
 - description: These endpoints relate to Order Entry.
   name: Orders
+- description: These endpoints relate to Order Routing.
+  name: ChildOrders
 paths:
   /orders/create:
     post:
@@ -47,7 +49,8 @@ paths:
                       orderQuantity: 1000
                       price: 450
                       currency: USD
-                      handlingInstructions: auto_ord_pub
+                      settlementType: regular
+                      handlingInstructions: autoOrderPublic
                     - clientOrderId: OR0000002
                       instrument:
                         symbol: MSFT
@@ -56,16 +59,18 @@ paths:
                       orderQuantity: 1000
                       price: 450
                       currency: USD
-                      handlingInstructions: auto_ord_pub
+                      settlementType: regular
+                      handlingInstructions: autoOrderPublic
                     - clientOrderId: OR0000003
                       instrument:
                         symbol: TSLA
                       side: buy
-                      orderType: market_on_close
+                      orderType: marketOnClose
                       orderQuantity: 1000
                       price: 450
                       currency: USD
-                      handlingInstructions: auto_ord_pub
+                      settlementType: regular
+                      handlingInstructions: autoOrderPublic
               Single Order (Minimum Fields):
                 summary: Very basic single order with only required fields.
                 value:
@@ -79,6 +84,7 @@ paths:
                       orderQuantity: 1000
                       price: 450
                       currency: USD
+                      settlementType: regular
               Single Order:
                 value:
                   data:
@@ -99,11 +105,11 @@ paths:
                       maxFloor: 20
                       settlementType: regular
                       settlementDate: "20211024"
-                      handlingInstructions: auto_ord_pub
+                      handlingInstructions: autoOrderPublic
                       locateRequired: false
                       account: ACCT1
                       timeInForce:
-                        tif: GTC
+                        tif: goodTillCancel
               Single order with derivatives (futures/options):
                 value:
                   data:
@@ -118,7 +124,8 @@ paths:
                       orderQuantity: 1000
                       price: 450
                       currency: USD
-                      handlingInstructions: auto_ord_pub
+                      settlementType: regular
+                      handlingInstructions: autoOrderPublic
                       account: ACCT1
             schema:
               $ref: '#/components/schemas/EMSOrdersRoot'
@@ -295,6 +302,164 @@ paths:
       - Orders
       x-contentType: application/json
       x-accepts: application/json
+  /child-orders/create:
+    post:
+      description: This endpoint is used to create child orders.
+      operationId: createChildOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EMSChildOrdersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  accepted:
+                    "3280015":
+                      basketId: FACTSET_OMS-100823_12345
+                      ticketId: RKPW.3280015
+                      symbol: FDS-USA
+                  rejected:
+                    "3280015":
+                      message: 'Ticket does not exist for ticketid: null'
+                      basketId: FACTSET_OMS-100823_12345
+                      ticketId: RKPW.3280015
+                      symbol: FDS-USA
+              schema:
+                $ref: '#/components/schemas/EMSCreateChildOrdersResponseRoot'
+          description: Expected response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid parameters provided.
+        "401":
+          description: Missing or invalid authentication.
+        "403":
+          description: User is forbidden with current credentials.
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+        "429":
+          description: Rate limit reached. Wait before sending further requests.
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+        "503":
+          description: Request timed out. Retry the request in sometime.
+      summary: Create Child Orders
+      tags:
+      - ChildOrders
+      x-contentType: application/json
+      x-accepts: application/json
+  /child-orders/replace:
+    post:
+      description: This endpoint takes the child order to be replaced on the EMS system.
+      operationId: replaceChildOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EMSReplaceChildOrdersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  accepted:
+                    "3280015":
+                      ticketId: RKPW.3280015
+                      symbol: FDS-USA
+                  rejected:
+                    "3280015":
+                      message: 'Ticket does not exist for ticketid: null'
+                      ticketId: RKPW.3280015
+                      symbol: FDS-USA
+              schema:
+                $ref: '#/components/schemas/EMSChildOrdersResponseRoot'
+          description: Expected response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid parameters provided.
+        "401":
+          description: Missing or invalid authentication.
+        "403":
+          description: User is forbidden with current credentials.
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+        "429":
+          description: Rate limit reached. Wait before sending further requests.
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+        "503":
+          description: Request timed out. Retry the request in sometime.
+      summary: Replace the Child Orders on EMS system.
+      tags:
+      - ChildOrders
+      x-contentType: application/json
+      x-accepts: application/json
+  /child-orders/cancel:
+    post:
+      description: This endpoint is to cancel a specific child order.
+      operationId: cancelChildOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EMSCancelChildOrdersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  accepted:
+                    "3280015":
+                      ticketId: RKPW.3280015
+                      symbol: FDS-USA
+                  rejected:
+                    "3280015":
+                      message: 'Ticket does not exist for ticketid: null'
+                      ticketId: RKPW.3280015
+                      symbol: FDS-USA
+              schema:
+                $ref: '#/components/schemas/EMSChildOrdersResponseRoot'
+          description: Expected response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid parameters provided.
+        "401":
+          description: Missing or invalid authentication.
+        "403":
+          description: User is forbidden with current credentials.
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+        "429":
+          description: Rate limit reached. Wait before sending further requests.
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+        "503":
+          description: Request timed out. Retry the request in sometime.
+      summary: Cancel Child Orders
+      tags:
+      - ChildOrders
+      x-contentType: application/json
+      x-accepts: application/json
 components:
   schemas:
     ClientErrorResponse:
@@ -306,6 +471,50 @@ components:
             $ref: '#/components/schemas/Error'
           nullable: true
           type: array
+      type: object
+    EMSCancelChildOrder:
+      description: EMS Cancel Child Order
+      example:
+        reason: mistyped order quantity to be routed
+        ticketId: RKPW.3280015
+      properties:
+        ticketId:
+          description: Ticket Id for the child order to be cancelled
+          example: RKPW.3280015
+          type: string
+        reason:
+          description: Reason for cancelling the child order
+          example: mistyped order quantity to be routed
+          nullable: true
+          type: string
+      required:
+      - ticketId
+      type: object
+    EMSCancelChildOrders:
+      description: EMS Cancel Child Orders
+      example:
+        childOrders:
+        - reason: mistyped order quantity to be routed
+          ticketId: RKPW.3280015
+      properties:
+        childOrders:
+          items:
+            $ref: '#/components/schemas/EMSCancelChildOrder'
+          maxItems: 1
+          minItems: 1
+          type: array
+      required:
+      - childOrders
+      type: object
+    EMSCancelChildOrdersRoot:
+      example:
+        data:
+          childOrders:
+          - reason: mistyped order quantity to be routed
+            ticketId: RKPW.3280015
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSCancelChildOrders'
       type: object
     EMSCancelOrder:
       description: EMS Cancel Order
@@ -360,13 +569,480 @@ components:
         data:
           $ref: '#/components/schemas/EMSCancelOrders'
       type: object
+    EMSChildOrder:
+      description: EMS Child Orders
+      example:
+        settlementType: regular
+        orderType: market
+        side: buy
+        executionInstructions: notHeld
+        maxFloor: 100
+        profile: profile
+        destination: PAPER
+        settlementDate: "20230823"
+        parentId:
+          symbol: FDS-USA
+          basketId: FACTSET_OMS-100823_12345
+        orderQuantity: 250
+        userDefinedFields:
+          key: userDefinedFields
+        stopPrice: 250
+        minQuantity: 120
+        price: 450
+        text: routing 10 orders to PAPER destination
+        exDestination: America Stock Exchange
+        timeInForce:
+          tif: day
+          expireTime: 20230823-12:20:25
+          expireDate: "20230823"
+        handlingInstructions: autoOrderPublic
+        locateRequired: false
+      properties:
+        parentId:
+          $ref: '#/components/schemas/ParentId'
+        side:
+          description: Side of the order.If the parent order side is 'buy', valid
+            values are 'buy' or 'buyMinus'. If the parent order side is 'sell', valid
+            values are 'sell' or 'sellPlus'
+          enum:
+          - buy
+          - sell
+          - buyMinus
+          - sellPlus
+          - sellShort
+          - sellShortExempt
+          example: buy
+          nullable: true
+          type: string
+        orderType:
+          description: Type of the order
+          enum:
+          - market
+          - limit
+          - stop
+          - stopLimit
+          - marketOnClose
+          - limitOrBetter
+          example: market
+          type: string
+        orderQuantity:
+          description: Number of shares/Quantity to be routed. Must be less than or
+            equal to the orderQuantity of the parent order.
+          example: 250
+          format: double
+          minimum: 0
+          type: number
+        price:
+          description: Order price per share.
+          example: 450
+          format: double
+          nullable: true
+          type: number
+        timeInForce:
+          $ref: '#/components/schemas/TimeInForce'
+        handlingInstructions:
+          description: Instructions for order handling on Broker trading floor.
+          enum:
+          - autoOrderPrivate
+          - autoOrderPublic
+          - bestExecution
+          example: autoOrderPublic
+          nullable: true
+          type: string
+        exDestination:
+          default: America Stock Exchange
+          description: Execution destination as defined by institution when order
+            is entered.
+          example: America Stock Exchange
+          nullable: true
+          type: string
+        destination:
+          description: Represents the designated venue or location to which an order
+            is intended to be routed.
+          example: PAPER
+          type: string
+        stopPrice:
+          description: Stop-loss price to buy/sell stock at market.
+          example: 250
+          format: double
+          nullable: true
+          type: number
+        maxFloor:
+          description: Maximum number of shares within an order to be shown on the
+            exchange floor at any given time.
+          example: 100
+          format: double
+          nullable: true
+          type: number
+        minQuantity:
+          description: Minimum quantity of an order to be executed.
+          example: 120
+          format: double
+          nullable: true
+          type: number
+        settlementType:
+          description: Order settlement period
+          enum:
+          - regular
+          - cash
+          - nextDay
+          - tPlus2
+          - tPlus3
+          - tPlus4
+          - future
+          - whenIssued
+          - sellersOption
+          - tPlus5
+          example: regular
+          nullable: true
+          type: string
+        settlementDate:
+          description: Specific date of trade settlement in YYYYMMDD format.
+          example: "20230823"
+          nullable: true
+          type: string
+        executionInstructions:
+          description: Instructions for order handling on exchange trading floor.
+          enum:
+          - notHeld
+          - work
+          - goAlong
+          - overTheDay
+          - held
+          - participateDoNotInitiate
+          - strictScale
+          - tryToScale
+          - stayOnBidSide
+          - stayOnOfferSide
+          - noCross
+          - okToCross
+          - callFirst
+          - percentOfVolume
+          - doNotIncrease
+          - doNotReduce
+          - allOrNone
+          - reinstateOnSystemFailure
+          - institutionsOnly
+          - reinstateOnTradingHalt
+          - cancelOnTradingHalt
+          - lastPeg
+          - midPricePeg
+          - nonNegotiable
+          - openingPeg
+          - marketPeg
+          - cancelOnSystemFailure
+          - primaryPeg
+          - suspend
+          - fixedPegToLocalBestBid
+          - customerDisplayInstruction
+          - netting
+          - pegToVWAP
+          - tradeAlong
+          - tryToStop
+          - cancelIfNotBest
+          - trailingStopPeg
+          - strictLimit
+          - ignorePriceValidityChecks
+          - pegToLimitPrice
+          - workToTargetStrategy
+          - intermarketSweep
+          - externalRoutingAllowed
+          - externalRoutingNotAllowed
+          - imbalanceOnly
+          - singleExecutionRequestedForBlockTrade
+          - bestExecution
+          example: notHeld
+          nullable: true
+          type: string
+        locateRequired:
+          description: Indicates whether the broker is to locate the stock in conjunction
+            with a short sell order.
+          example: false
+          nullable: true
+          type: boolean
+        text:
+          description: Free format text string.
+          example: routing 10 orders to PAPER destination
+          maxLength: 250
+          nullable: true
+          type: string
+        profile:
+          description: A name given to broker algo
+          nullable: true
+          type: string
+        userDefinedFields:
+          additionalProperties:
+            type: string
+          description: User defined fields
+          nullable: true
+          type: object
+      required:
+      - destination
+      - orderQuantity
+      - orderType
+      - parentId
+      type: object
+    EMSChildOrderInfo:
+      description: EMS Child Order Info
+      example:
+        symbol: FDS-USA
+        ticketId: RKPW.3280015
+      properties:
+        ticketId:
+          description: Ticket Id for the child order
+          example: RKPW.3280015
+          nullable: true
+          type: string
+        symbol:
+          description: Ticker symbol
+          example: FDS-USA
+          nullable: true
+          type: string
+      type: object
+    EMSChildOrderRejectedInfo:
+      description: EMS Child Order Rejected Info
+      example:
+        symbol: FDS-USA
+        message: 'Ticket does not exist for ticketid: null'
+        ticketId: RKPW.3280015
+      properties:
+        message:
+          description: Reason for rejection
+          example: 'Ticket does not exist for ticketid: null'
+          nullable: true
+          type: string
+        ticketId:
+          description: Ticket Id for the child order
+          example: RKPW.3280015
+          nullable: true
+          type: string
+        symbol:
+          description: Ticker symbol
+          example: FDS-USA
+          nullable: true
+          type: string
+      type: object
+    EMSChildOrders:
+      example:
+        childOrders:
+        - settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: notHeld
+          maxFloor: 100
+          profile: profile
+          destination: PAPER
+          settlementDate: "20230823"
+          parentId:
+            symbol: FDS-USA
+            basketId: FACTSET_OMS-100823_12345
+          orderQuantity: 250
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 250
+          minQuantity: 120
+          price: 450
+          text: routing 10 orders to PAPER destination
+          exDestination: America Stock Exchange
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+      properties:
+        childOrders:
+          items:
+            $ref: '#/components/schemas/EMSChildOrder'
+          maxItems: 1
+          minItems: 1
+          type: array
+      required:
+      - childOrders
+      type: object
+    EMSChildOrdersResponse:
+      description: EMS Child Orders Response
+      example:
+        rejected:
+          key:
+            symbol: FDS-USA
+            message: 'Ticket does not exist for ticketid: null'
+            ticketId: RKPW.3280015
+        accepted:
+          key:
+            symbol: FDS-USA
+            ticketId: RKPW.3280015
+      properties:
+        accepted:
+          additionalProperties:
+            $ref: '#/components/schemas/EMSChildOrderInfo'
+          description: Accepted Orders. Key is the clientOrderId of the request.
+          nullable: true
+          type: object
+        rejected:
+          additionalProperties:
+            $ref: '#/components/schemas/EMSChildOrderRejectedInfo'
+          description: Rejected Orders. Key is the clientOrderId of the request.
+          nullable: true
+          type: object
+      type: object
+    EMSChildOrdersResponseRoot:
+      description: EMS Response
+      example:
+        data:
+          rejected:
+            key:
+              symbol: FDS-USA
+              message: 'Ticket does not exist for ticketid: null'
+              ticketId: RKPW.3280015
+          accepted:
+            key:
+              symbol: FDS-USA
+              ticketId: RKPW.3280015
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSChildOrdersResponse'
+      required:
+      - data
+      type: object
+    EMSChildOrdersRoot:
+      example:
+        data:
+          childOrders:
+          - settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: notHeld
+            maxFloor: 100
+            profile: profile
+            destination: PAPER
+            settlementDate: "20230823"
+            parentId:
+              symbol: FDS-USA
+              basketId: FACTSET_OMS-100823_12345
+            orderQuantity: 250
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 250
+            minQuantity: 120
+            price: 450
+            text: routing 10 orders to PAPER destination
+            exDestination: America Stock Exchange
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSChildOrders'
+      type: object
+    EMSCreateChildOrderInfo:
+      example:
+        basketId: FACTSET_OMS-100823_12345
+        symbol: FDS-USA
+        ticketId: RKPW.3280015
+      properties:
+        basketId:
+          description: Unique identifier assigned to basket order
+          example: FACTSET_OMS-100823_12345
+          nullable: true
+          type: string
+        ticketId:
+          description: Ticket Id for the child order
+          example: RKPW.3280015
+          nullable: true
+          type: string
+        symbol:
+          description: Ticker symbol
+          example: FDS-USA
+          nullable: true
+          type: string
+      type: object
+    EMSCreateChildOrderRejectedInfo:
+      example:
+        basketId: FACTSET_OMS-100823_12345
+        symbol: FDS-USA
+        message: 'Ticket does not exist for ticketid: null'
+        ticketId: RKPW.3280015
+      properties:
+        message:
+          description: Reason for rejection
+          example: 'Ticket does not exist for ticketid: null'
+          nullable: true
+          type: string
+        basketId:
+          description: Unique identifier assigned to basket order
+          example: FACTSET_OMS-100823_12345
+          nullable: true
+          type: string
+        ticketId:
+          description: Ticket Id for the child order
+          example: RKPW.3280015
+          nullable: true
+          type: string
+        symbol:
+          description: Ticker symbol
+          example: FDS-USA
+          nullable: true
+          type: string
+      type: object
+    EMSCreateChildOrdersResponse:
+      example:
+        rejected:
+          key:
+            basketId: FACTSET_OMS-100823_12345
+            symbol: FDS-USA
+            message: 'Ticket does not exist for ticketid: null'
+            ticketId: RKPW.3280015
+        accepted:
+          key:
+            basketId: FACTSET_OMS-100823_12345
+            symbol: FDS-USA
+            ticketId: RKPW.3280015
+      properties:
+        accepted:
+          additionalProperties:
+            $ref: '#/components/schemas/EMSCreateChildOrderInfo'
+          description: Accepted Orders. Key is the clientOrderId of the request.
+          nullable: true
+          type: object
+        rejected:
+          additionalProperties:
+            $ref: '#/components/schemas/EMSCreateChildOrderRejectedInfo'
+          description: Rejected Orders. Key is the clientOrderId of the request.
+          nullable: true
+          type: object
+      type: object
+    EMSCreateChildOrdersResponseRoot:
+      description: EMS Response
+      example:
+        data:
+          rejected:
+            key:
+              basketId: FACTSET_OMS-100823_12345
+              symbol: FDS-USA
+              message: 'Ticket does not exist for ticketid: null'
+              ticketId: RKPW.3280015
+          accepted:
+            key:
+              basketId: FACTSET_OMS-100823_12345
+              symbol: FDS-USA
+              ticketId: RKPW.3280015
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSCreateChildOrdersResponse'
+      required:
+      - data
+      type: object
     EMSOrder:
       description: EMS Order
       example:
         settlementType: regular
         orderType: market
         side: buy
-        executionInstructions: not_held
+        executionInstructions: notHeld
         effectiveTime: 20210622-12:15:30
         clientOrderId: "12322123"
         maxFloor: 100
@@ -391,12 +1067,12 @@ components:
         currency: USD
         prevClosePrice: 100
         timeInForce:
-          tif: DAY
-          expireTime: expireTime
-          expireDate: expireDate
+          tif: day
+          expireTime: 20230823-12:20:25
+          expireDate: "20230823"
         strikePrice: 400
         isCovered: false
-        handlingInstructions: auto_ord_pub
+        handlingInstructions: autoOrderPublic
         account: Test.ACCT
         inboundDestination: inboundDestination
         locateRequired: false
@@ -413,8 +1089,8 @@ components:
           enum:
           - buy
           - sell
-          - sell_short
-          - sell_short_exempt
+          - sellShort
+          - sellShortExempt
           example: buy
           type: string
         orderType:
@@ -423,15 +1099,16 @@ components:
           - market
           - limit
           - stop
-          - stop_limit
-          - market_on_close
-          - limit_or_better
+          - stopLimit
+          - marketOnClose
+          - limitOrBetter
           example: market
           type: string
         orderQuantity:
           description: Number of shares/Quantity.
           example: 350
           format: double
+          minimum: 0
           type: number
         price:
           description: Order price per share
@@ -459,7 +1136,7 @@ components:
         isCovered:
           description: Signifies if a specific order is a covered order. A covered
             order is one that involves an investment strategy with the capability
-            to limit the potential loss of the order
+            to limit the potential loss of the order.
           example: false
           nullable: true
           type: boolean
@@ -485,6 +1162,17 @@ components:
           type: number
         settlementType:
           description: Order settlement period.
+          enum:
+          - regular
+          - cash
+          - nextDay
+          - tPlus2
+          - tPlus3
+          - tPlus4
+          - future
+          - whenIssued
+          - sellersOption
+          - tPlus5
           example: regular
           nullable: true
           type: string
@@ -496,63 +1184,63 @@ components:
         handlingInstructions:
           description: Instructions for order handling on Broker trading floor.
           enum:
-          - auto_ord_pvt
-          - auto_ord_pub
-          - best_execution
-          example: auto_ord_pub
+          - autoOrderPrivate
+          - autoOrderPublic
+          - bestExecution
+          example: autoOrderPublic
           nullable: true
           type: string
         executionInstructions:
           description: Instructions for order handling on exchange trading floor.
           enum:
-          - not_held
+          - notHeld
           - work
-          - go_along
-          - over_the_day
+          - goAlong
+          - overTheDay
           - held
-          - participate_dont_initiate
-          - strict_scale
-          - try_to_scale
-          - stay_on_bidside
-          - stay_on_offerside
-          - no_cross
-          - ok_to_cross
-          - call_first
-          - percent_of_volume
-          - do_not_increase
-          - do_not_reduce
-          - all_or_none
-          - reinstate_on_system_failure
-          - institutions_only
-          - reinstate_on_trading_halt
-          - cancel_on_trading_halt
-          - last_peg
-          - mid_price_peg
-          - non_negotiable
-          - opening_peg
-          - market_peg
-          - cancel_on_system_failure
-          - primary_peg
+          - participateDoNotInitiate
+          - strictScale
+          - tryToScale
+          - stayOnBidSide
+          - stayOnOfferSide
+          - noCross
+          - okToCross
+          - callFirst
+          - percentOfVolume
+          - doNotIncrease
+          - doNotReduce
+          - allOrNone
+          - reinstateOnSystemFailure
+          - institutionsOnly
+          - reinstateOnTradingHalt
+          - cancelOnTradingHalt
+          - lastPeg
+          - midPricePeg
+          - nonNegotiable
+          - openingPeg
+          - marketPeg
+          - cancelOnSystemFailure
+          - primaryPeg
           - suspend
-          - fixed_peg_to_local_best_bid
-          - customer_display_instruction
+          - fixedPegToLocalBestBid
+          - customerDisplayInstruction
           - netting
-          - peg_to_vwap
-          - trade_along
-          - try_to_stop
-          - cancel_if_not_best
-          - trailing_stop_peg
-          - strict_limit
-          - ignore_price_validity_checks
-          - peg_to_limit_price
-          - work_to_target_strategy
-          - intermarket_sweep
-          - external_routing_allowed
-          - external_routing_not_allowed
-          - imbalance_only
-          - single_execution_requested_for_block_trade
-          - best_execution
-          example: not_held
+          - pegToVWAP
+          - tradeAlong
+          - tryToStop
+          - cancelIfNotBest
+          - trailingStopPeg
+          - strictLimit
+          - ignorePriceValidityChecks
+          - pegToLimitPrice
+          - workToTargetStrategy
+          - intermarketSweep
+          - externalRoutingAllowed
+          - externalRoutingNotAllowed
+          - imbalanceOnly
+          - singleExecutionRequestedForBlockTrade
+          - bestExecution
+          example: notHeld
           nullable: true
           type: string
         locateRequired:
@@ -607,12 +1295,12 @@ components:
           nullable: true
           type: string
         side:
-          description: Side of the order.
+          description: Side of the order
           enum:
           - buy
           - sell
-          - sell_short
-          - sell_short_exempt
+          - sellShort
+          - sellShortExempt
           nullable: true
           type: string
         orderType:
@@ -621,9 +1309,9 @@ components:
           - market
           - limit
           - stop
-          - stop_limit
-          - market_on_close
-          - limit_or_better
+          - stopLimit
+          - marketOnClose
+          - limitOrBetter
           nullable: true
           type: string
         orderQuantity:
@@ -656,7 +1344,7 @@ components:
         - settlementType: regular
           orderType: market
           side: buy
-          executionInstructions: not_held
+          executionInstructions: notHeld
           effectiveTime: 20210622-12:15:30
           clientOrderId: "12322123"
           maxFloor: 100
@@ -681,19 +1369,19 @@ components:
           currency: USD
           prevClosePrice: 100
           timeInForce:
-            tif: DAY
-            expireTime: expireTime
-            expireDate: expireDate
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
           strikePrice: 400
           isCovered: false
-          handlingInstructions: auto_ord_pub
+          handlingInstructions: autoOrderPublic
           account: Test.ACCT
           inboundDestination: inboundDestination
           locateRequired: false
         - settlementType: regular
           orderType: market
           side: buy
-          executionInstructions: not_held
+          executionInstructions: notHeld
           effectiveTime: 20210622-12:15:30
           clientOrderId: "12322123"
           maxFloor: 100
@@ -718,12 +1406,12 @@ components:
           currency: USD
           prevClosePrice: 100
           timeInForce:
-            tif: DAY
-            expireTime: expireTime
-            expireDate: expireDate
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
           strikePrice: 400
           isCovered: false
-          handlingInstructions: auto_ord_pub
+          handlingInstructions: autoOrderPublic
           account: Test.ACCT
           inboundDestination: inboundDestination
           locateRequired: false
@@ -816,7 +1504,7 @@ components:
           - settlementType: regular
             orderType: market
             side: buy
-            executionInstructions: not_held
+            executionInstructions: notHeld
             effectiveTime: 20210622-12:15:30
             clientOrderId: "12322123"
             maxFloor: 100
@@ -841,19 +1529,19 @@ components:
             currency: USD
             prevClosePrice: 100
             timeInForce:
-              tif: DAY
-              expireTime: expireTime
-              expireDate: expireDate
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
             strikePrice: 400
             isCovered: false
-            handlingInstructions: auto_ord_pub
+            handlingInstructions: autoOrderPublic
             account: Test.ACCT
             inboundDestination: inboundDestination
             locateRequired: false
           - settlementType: regular
             orderType: market
             side: buy
-            executionInstructions: not_held
+            executionInstructions: notHeld
             effectiveTime: 20210622-12:15:30
             clientOrderId: "12322123"
             maxFloor: 100
@@ -878,18 +1566,77 @@ components:
             currency: USD
             prevClosePrice: 100
             timeInForce:
-              tif: DAY
-              expireTime: expireTime
-              expireDate: expireDate
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
             strikePrice: 400
             isCovered: false
-            handlingInstructions: auto_ord_pub
+            handlingInstructions: autoOrderPublic
             account: Test.ACCT
             inboundDestination: inboundDestination
             locateRequired: false
       properties:
         data:
           $ref: '#/components/schemas/EMSOrders'
+      type: object
+    EMSReplaceChildOrders:
+      example:
+        childOrders:
+        - settlementType: regular
+          orderType: market
+          executionInstructions: notHeld
+          maxFloor: 200
+          settlementDate: "20230823"
+          orderQuantity: 100
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 120
+          minQuantity: 120
+          price: 450
+          text: Replacing price to 300 for 50 orders
+          timeInForce:
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
+          ticketId: RKPW.3280015
+          handlingInstructions: autoOrderPublic
+          locateRequired: false
+      properties:
+        childOrders:
+          items:
+            $ref: '#/components/schemas/ReplaceChildOrder'
+          maxItems: 1
+          minItems: 1
+          type: array
+      required:
+      - childOrders
+      type: object
+    EMSReplaceChildOrdersRoot:
+      example:
+        data:
+          childOrders:
+          - settlementType: regular
+            orderType: market
+            executionInstructions: notHeld
+            maxFloor: 200
+            settlementDate: "20230823"
+            orderQuantity: 100
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 120
+            minQuantity: 120
+            price: 450
+            text: Replacing price to 300 for 50 orders
+            timeInForce:
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
+            ticketId: RKPW.3280015
+            handlingInstructions: autoOrderPublic
+            locateRequired: false
+      properties:
+        data:
+          $ref: '#/components/schemas/EMSReplaceChildOrders'
       type: object
     EMSReplaceOrder:
       description: EMS Replace Order
@@ -899,7 +1646,7 @@ components:
           settlementType: regular
           orderType: market
           side: buy
-          executionInstructions: not_held
+          executionInstructions: notHeld
           effectiveTime: 20210622-12:15:30
           clientOrderId: "12322123"
           maxFloor: 100
@@ -924,12 +1671,12 @@ components:
           currency: USD
           prevClosePrice: 100
           timeInForce:
-            tif: DAY
-            expireTime: expireTime
-            expireDate: expireDate
+            tif: day
+            expireTime: 20230823-12:20:25
+            expireDate: "20230823"
           strikePrice: 400
           isCovered: false
-          handlingInstructions: auto_ord_pub
+          handlingInstructions: autoOrderPublic
           account: Test.ACCT
           inboundDestination: inboundDestination
           locateRequired: false
@@ -953,7 +1700,7 @@ components:
             settlementType: regular
             orderType: market
             side: buy
-            executionInstructions: not_held
+            executionInstructions: notHeld
             effectiveTime: 20210622-12:15:30
             clientOrderId: "12322123"
             maxFloor: 100
@@ -978,12 +1725,12 @@ components:
             currency: USD
             prevClosePrice: 100
             timeInForce:
-              tif: DAY
-              expireTime: expireTime
-              expireDate: expireDate
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
             strikePrice: 400
             isCovered: false
-            handlingInstructions: auto_ord_pub
+            handlingInstructions: autoOrderPublic
             account: Test.ACCT
             inboundDestination: inboundDestination
             locateRequired: false
@@ -992,7 +1739,7 @@ components:
             settlementType: regular
             orderType: market
             side: buy
-            executionInstructions: not_held
+            executionInstructions: notHeld
             effectiveTime: 20210622-12:15:30
             clientOrderId: "12322123"
             maxFloor: 100
@@ -1017,12 +1764,12 @@ components:
             currency: USD
             prevClosePrice: 100
             timeInForce:
-              tif: DAY
-              expireTime: expireTime
-              expireDate: expireDate
+              tif: day
+              expireTime: 20230823-12:20:25
+              expireDate: "20230823"
             strikePrice: 400
             isCovered: false
-            handlingInstructions: auto_ord_pub
+            handlingInstructions: autoOrderPublic
             account: Test.ACCT
             inboundDestination: inboundDestination
             locateRequired: false
@@ -1049,7 +1796,7 @@ components:
               settlementType: regular
               orderType: market
               side: buy
-              executionInstructions: not_held
+              executionInstructions: notHeld
               effectiveTime: 20210622-12:15:30
               clientOrderId: "12322123"
               maxFloor: 100
@@ -1074,12 +1821,12 @@ components:
               currency: USD
               prevClosePrice: 100
               timeInForce:
-                tif: DAY
-                expireTime: expireTime
-                expireDate: expireDate
+                tif: day
+                expireTime: 20230823-12:20:25
+                expireDate: "20230823"
               strikePrice: 400
               isCovered: false
-              handlingInstructions: auto_ord_pub
+              handlingInstructions: autoOrderPublic
               account: Test.ACCT
               inboundDestination: inboundDestination
               locateRequired: false
@@ -1088,7 +1835,7 @@ components:
               settlementType: regular
               orderType: market
               side: buy
-              executionInstructions: not_held
+              executionInstructions: notHeld
               effectiveTime: 20210622-12:15:30
               clientOrderId: "12322123"
               maxFloor: 100
@@ -1113,12 +1860,12 @@ components:
               currency: USD
               prevClosePrice: 100
               timeInForce:
-                tif: DAY
-                expireTime: expireTime
-                expireDate: expireDate
+                tif: day
+                expireTime: 20230823-12:20:25
+                expireDate: "20230823"
               strikePrice: 400
               isCovered: false
-              handlingInstructions: auto_ord_pub
+              handlingInstructions: autoOrderPublic
               account: Test.ACCT
               inboundDestination: inboundDestination
               locateRequired: false
@@ -1177,6 +1924,7 @@ components:
         symbol:
           description: Ticker symbol
           example: TATAMOTORS
+          maxLength: 250
           type: string
         securityType:
           description: Indicates type of security.
@@ -1222,33 +1970,231 @@ components:
       required:
       - symbol
       type: object
+    ParentId:
+      description: Unique identifier to identify the parent order.
+      example:
+        symbol: FDS-USA
+        basketId: FACTSET_OMS-100823_12345
+      properties:
+        symbol:
+          description: Ticker symbol
+          example: FDS-USA
+          type: string
+        basketId:
+          description: Unique identifier assigned to basket order. Can be fetched
+            from the WebSocket Order Update API.
+          example: FACTSET_OMS-100823_12345
+          type: string
+      required:
+      - basketId
+      - symbol
+      type: object
+    ReplaceChildOrder:
+      description: EMS Replace Child Orders
+      example:
+        settlementType: regular
+        orderType: market
+        executionInstructions: notHeld
+        maxFloor: 200
+        settlementDate: "20230823"
+        orderQuantity: 100
+        userDefinedFields:
+          key: userDefinedFields
+        stopPrice: 120
+        minQuantity: 120
+        price: 450
+        text: Replacing price to 300 for 50 orders
+        timeInForce:
+          tif: day
+          expireTime: 20230823-12:20:25
+          expireDate: "20230823"
+        ticketId: RKPW.3280015
+        handlingInstructions: autoOrderPublic
+        locateRequired: false
+      properties:
+        ticketId:
+          description: Ticket Id for the child order to be replaced
+          example: RKPW.3280015
+          type: string
+        orderType:
+          description: Type of the order
+          enum:
+          - market
+          - limit
+          - stop
+          - stopLimit
+          - marketOnClose
+          - limitOrBetter
+          example: market
+          nullable: true
+          type: string
+        orderQuantity:
+          description: Number of shares/Quantity to be routed. Must be less than or
+            equal to the orderQuantity of the parent order.
+          example: 100
+          format: double
+          minimum: 0
+          nullable: true
+          type: number
+        price:
+          description: Order price per share.
+          example: 450
+          format: double
+          nullable: true
+          type: number
+        timeInForce:
+          $ref: '#/components/schemas/TimeInForce'
+        handlingInstructions:
+          description: Instructions for order handling on Broker trading floor.
+          enum:
+          - autoOrderPrivate
+          - autoOrderPublic
+          - bestExecution
+          example: autoOrderPublic
+          nullable: true
+          type: string
+        stopPrice:
+          description: Stop-loss price to buy/sell stock at market.
+          example: 120
+          format: double
+          nullable: true
+          type: number
+        maxFloor:
+          description: Maximum number of shares within an order to be shown on the
+            exchange floor at any given time.
+          example: 200
+          format: double
+          nullable: true
+          type: number
+        minQuantity:
+          description: Minimum quantity of an order to be executed.
+          example: 120
+          format: double
+          nullable: true
+          type: number
+        settlementType:
+          description: Order settlement period
+          enum:
+          - regular
+          - cash
+          - nextDay
+          - tPlus2
+          - tPlus3
+          - tPlus4
+          - future
+          - whenIssued
+          - sellersOption
+          - tPlus5
+          example: regular
+          nullable: true
+          type: string
+        settlementDate:
+          description: Specific date of trade settlement in YYYYMMDD format.
+          example: "20230823"
+          nullable: true
+          type: string
+        executionInstructions:
+          description: Instructions for order handling on exchange trading floor.
+          enum:
+          - notHeld
+          - work
+          - goAlong
+          - overTheDay
+          - held
+          - participateDoNotInitiate
+          - strictScale
+          - tryToScale
+          - stayOnBidSide
+          - stayOnOfferSide
+          - noCross
+          - okToCross
+          - callFirst
+          - percentOfVolume
+          - doNotIncrease
+          - doNotReduce
+          - allOrNone
+          - reinstateOnSystemFailure
+          - institutionsOnly
+          - reinstateOnTradingHalt
+          - cancelOnTradingHalt
+          - lastPeg
+          - midPricePeg
+          - nonNegotiable
+          - openingPeg
+          - marketPeg
+          - cancelOnSystemFailure
+          - primaryPeg
+          - suspend
+          - fixedPegToLocalBestBid
+          - customerDisplayInstruction
+          - netting
+          - pegToVWAP
+          - tradeAlong
+          - tryToStop
+          - cancelIfNotBest
+          - trailingStopPeg
+          - strictLimit
+          - ignorePriceValidityChecks
+          - pegToLimitPrice
+          - workToTargetStrategy
+          - intermarketSweep
+          - externalRoutingAllowed
+          - externalRoutingNotAllowed
+          - imbalanceOnly
+          - singleExecutionRequestedForBlockTrade
+          - bestExecution
+          example: notHeld
+          nullable: true
+          type: string
+        locateRequired:
+          description: Indicates whether the broker is to locate the stock in conjunction
+            with a short sell order.
+          example: false
+          nullable: true
+          type: boolean
+        text:
+          description: Free format text string.
+          example: Replacing price to 300 for 50 orders
+          maxLength: 250
+          nullable: true
+          type: string
+        userDefinedFields:
+          additionalProperties:
+            type: string
+          description: User defined fields
+          nullable: true
+          type: object
+      required:
+      - ticketId
+      type: object
     TimeInForce:
       description: Time in Force
       example:
-        tif: DAY
-        expireTime: expireTime
-        expireDate: expireDate
+        tif: day
+        expireTime: 20230823-12:20:25
+        expireDate: "20230823"
       properties:
         tif:
-          default: DAY
-          description: 'Time in force: if GTD, then Expire Time or Expire Date is
-            a required field'
+          description: 'Time in force: if goodTillDate, then Expire Time or Expire
+            Date is a required field'
           enum:
-          - DAY
-          - GTC
-          - OPG
-          - IOC
-          - FOK
-          - GTX
-          - GTD
-          - ATC
+          - day
+          - goodTillCancel
+          - atTheOpening
+          - immediateOrCancel
+          - fillOrKill
+          - goodTillCrossing
+          - goodTillDate
+          - atc
           type: string
         expireDate:
           description: Expire date in YYYYMMDD format expressed in UTC
+          example: "20230823"
           nullable: true
           type: string
         expireTime:
           description: Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC
+          example: 20230823-12:20:25
           nullable: true
           type: string
       type: object

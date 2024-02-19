@@ -18,6 +18,11 @@ This endpoint lists all the discount curves that can be applied to a FI calculat
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DiscountCurvesApi } = require('@factset/sdk-fixedincomecalculation');
 const { ConfidentialClient } = require('@factset/sdk-utils');

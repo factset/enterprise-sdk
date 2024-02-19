@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.CompanyLogoAPIforDigitalPortals==0.10.10
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,13 +88,9 @@ configuration = fds.sdk.CompanyLogoAPIforDigitalPortals.Configuration(
 with fds.sdk.CompanyLogoAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier = "80728" # str | Identifier that resolves to a company. 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     identifier_type = "idInstrument" # str | The type of the identifier.
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     format = "rectangular" # str | Format of the logos. (optional) if omitted the server will use the default value of "rectangular"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)

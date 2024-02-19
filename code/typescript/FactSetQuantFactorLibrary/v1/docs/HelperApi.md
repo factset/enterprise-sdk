@@ -19,6 +19,11 @@ Fetch the list of all available factors and related meta data.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, HelperApi } = require('@factset/sdk-factsetquantfactorlibrary');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Retrieves a list of all available factors with relevant meta data.
 Fetch the list of all available factors and related meta data. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, HelperApi } = require('@factset/sdk-factsetquantfactorlibrary');

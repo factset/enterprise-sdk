@@ -47,6 +47,11 @@ pip install fds.sdk.utils fds.sdk.FactSetPrivateMarkets==1.0.7
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -84,7 +89,6 @@ configuration = fds.sdk.FactSetPrivateMarkets.Configuration(
 with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = data_items_api.DataItemsApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     category = "FINANCIALS" # str | Filters the list of available fields per endpoint  -   * **FINANCIALS** = Financials endpoint data items, such as Assets, Liabilities, and EBITDA.   * **NON_PERIODIC** = Non-Periodic endpoint data items, such as ISO Currency, Current CEO, and Investor List.  (optional)
 
     try:

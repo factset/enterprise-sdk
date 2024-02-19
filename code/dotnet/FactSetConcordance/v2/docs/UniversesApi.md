@@ -21,6 +21,12 @@ Get statistics on a given universe
 Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -114,6 +120,12 @@ Create a new universe
 Create a new universe that is distinct from any existing universe 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -212,6 +224,12 @@ Get statistics on a given universe
 Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -305,6 +323,12 @@ Fetch metadata for universes
 Fetch information on active universes for the current user. Optionally filter for a specific universe given a `universeId` 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -400,6 +424,12 @@ Update metadata for an existing universe
 Update metadata for an existing universe 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

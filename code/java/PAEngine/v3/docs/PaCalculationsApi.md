@@ -24,6 +24,11 @@ This is the endpoint to cancel a previously submitted calculation.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PAEngine.ApiClient;
@@ -114,6 +119,11 @@ Get all calculations
 This endpoints returns all calculation requests.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -209,6 +219,11 @@ This is the endpoint that returns the calculation parameters passed for a calcul
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PAEngine.ApiClient;
@@ -303,6 +318,11 @@ Otherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progres
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.PAEngine.ApiClient;
@@ -396,6 +416,11 @@ This is the endpoint to get the result of a previously requested calculation.
 If the calculation has finished computing, the body of the response will contain the requested document in JSON.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -508,6 +533,11 @@ Remarks:
     setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -638,6 +668,11 @@ Remarks:
     setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

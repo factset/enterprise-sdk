@@ -209,6 +209,7 @@ export default class NotesApi {
      * @param {String} opts.modifiedSince Only return notes which have been modified or created since a particular time
      * @param {Array.<String>} opts.states Set of states to filter on
      * @param {Boolean} opts.filterOnRelatedSymbols Include notes whose related symbols match the identifier filter (default to false)
+     * @param {Boolean} opts.includeRelatedEntities When set to true fetches notes tagged with all the entities related to identifiers param (default to false)
      * @param {Boolean} opts.xIRNIncludeDeleted  (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/NoteSummaryDto>} and HTTP response
      */
@@ -230,7 +231,8 @@ export default class NotesApi {
         'offset': opts['offset'],
         'modifiedSince': opts['modifiedSince'],
         'states': this.apiClient.buildCollectionParam(opts['states'], 'multi'),
-        'filterOnRelatedSymbols': opts['filterOnRelatedSymbols']
+        'filterOnRelatedSymbols': opts['filterOnRelatedSymbols'],
+        'includeRelatedEntities': opts['includeRelatedEntities']
       };
       let headerParams = {
         'X-IRN-Include-Deleted': opts['xIRNIncludeDeleted']
@@ -267,6 +269,7 @@ export default class NotesApi {
      * @param {String} opts.modifiedSince Only return notes which have been modified or created since a particular time
      * @param {Array.<String>} opts.states Set of states to filter on
      * @param {Boolean} opts.filterOnRelatedSymbols Include notes whose related symbols match the identifier filter (default to false)
+     * @param {Boolean} opts.includeRelatedEntities When set to true fetches notes tagged with all the entities related to identifiers param (default to false)
      * @param {Boolean} opts.xIRNIncludeDeleted  (default to false)
      * @return { Promise.< Array.<module:model/NoteSummaryDto> > } a Promise, with data of type {@link Array.<module:model/NoteSummaryDto> }
      */

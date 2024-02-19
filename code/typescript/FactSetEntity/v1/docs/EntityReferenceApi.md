@@ -19,6 +19,11 @@ Returns an Entity reference profile for the requested Entity Id(s). Data points 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EntityReferenceApi } = require('@factset/sdk-factsetentity');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Returns an entity reference data for a list of ids.
 Returns an entity reference object for the requested entity ids. Data points include - ultimate parent id, headquarters location details, credit parent id, website, and business description. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EntityReferenceApi } = require('@factset/sdk-factsetentity');

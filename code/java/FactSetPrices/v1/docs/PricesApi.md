@@ -22,6 +22,11 @@ Get BID, MID, ASK, and Issuer Entity ID for a list of Fixed Income Securities as
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetPrices.ApiClient;
@@ -120,6 +125,11 @@ Get BID, MID, ASK, and Issuer Entity ID for a list of Fixed Income Securities as
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetPrices.ApiClient;
@@ -213,6 +223,11 @@ Gets security prices, Open, High, Low, Close, Volume, and currency for a specifi
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -332,6 +347,11 @@ Gets security prices, Open, High, Low, Close, Volume, and currency for a specifi
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

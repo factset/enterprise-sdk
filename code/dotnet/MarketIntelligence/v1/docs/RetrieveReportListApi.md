@@ -17,6 +17,12 @@ Retrieve a list of previously created reports and associated report metadata.
 Endpoint to retrieve list of all available Market Intelligence reports for specific User in JSON format.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

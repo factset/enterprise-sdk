@@ -17,6 +17,12 @@ Returns daily files from Open:FactSet Partner - Luxembourg
 Returns XML files and relevant metadata provided by Open: FactSet Partner – Luxembourg. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

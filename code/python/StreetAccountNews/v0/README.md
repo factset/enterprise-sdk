@@ -60,6 +60,11 @@ pip install fds.sdk.utils fds.sdk.StreetAccountNews==0.20.2
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -97,9 +102,7 @@ configuration = fds.sdk.StreetAccountNews.Configuration(
 with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = filters_api.FiltersApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     structured = True # bool | Pass structured to generate a structured view of the available filters. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     flattened = True # bool | Pass flattened to generate a structured view of the available filters. (optional)
 
     try:

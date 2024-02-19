@@ -20,6 +20,11 @@ Returns an Entity reference profile for the requested Entity Id(s). Data points 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEntity.ApiClient;
@@ -111,6 +116,11 @@ Returns an entity reference object for the requested entity ids. Data points inc
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

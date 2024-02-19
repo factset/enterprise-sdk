@@ -21,6 +21,12 @@ Gets a list of Documents that a user has access to.
 Retrieves metadata around documents stored in the Analytics Datastore Service. Each Document will have a 'url' property which will act as a re-direct to the underlying document data    This end point supports pagination and filtering through the use of the request body listed below.    To discover what tags are available to filter on, see GET /tags and GET /tags/{name}/values to retrieve these filter values.    Similarly, to discover what product types are available to filter on, see POST /product-types/search to retrieve a list of product types.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -119,6 +125,12 @@ Gets a list of product types that a user has access to.
 Retrieves a list of product types that have been specified across all documents the user has access to
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -217,6 +229,12 @@ Get a single tag definition based on its name
 Retrieve a tag definition based on its name
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -315,6 +333,12 @@ Gets a list of tag values for the given name
 Returns a list of tag values depending on the name provided. Supports filtering on additional tag name value pairs, which operates as an 'AND' where the Document must have the tag name specified in the path AND the filtered parameter.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -415,6 +439,12 @@ Gets a list of tag definitions for the user.
 Tag definitions consist of a name and a type. Use this end point to see a list of pre-existing tags that can be used to filter on the Documents end point.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

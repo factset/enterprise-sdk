@@ -26,6 +26,12 @@ Returns the daily files of Biomarkers Details from Open:FactSet Partner - Ozmosi
 Returns the daily files of Biomarkers Details from Open:FactSet Partner - Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -130,6 +136,12 @@ Returns the daily files of Clinical Trial Details from Open:FactSet Partner - Oz
 Returns the daily files of Clinical Trial Details from Open:FactSet Partner - Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -238,6 +250,12 @@ Returns the history files from Open:FactSet Partner - Ozmosi
 Returns the historical files from June 23rd, 2005 to current date.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -336,6 +354,12 @@ Returns the daily files of Collaborators Details from Open:FactSet Partner - Ozm
 Returns the daily files of Collaborators Details from Open:FactSet Partner - Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -440,6 +464,12 @@ Returns the daily files of Diseases Details from Open:FactSet Partner- Ozmosi.
 Returns the daily files of Diseases Details from Open:FactSet Partner- Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -546,6 +576,12 @@ Returns the daily files of Beam Endpoints Details from Open:FactSet Partner - Oz
 Returns the daily files of Beam Endpoints Details from Open:FactSet Partner - Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -650,6 +686,12 @@ Returns the daily files of Intervention details from Open:FactSet Partner - Ozmo
 Returns the daily files of Intervention details from Open:FactSet Partner - Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -754,6 +796,12 @@ Returns the daily files of OrangePurple Details from Open:FactSet Partner - Ozmo
 Returns the daily files of OrangePurple Details from Open:FaStset Partner - Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -858,6 +906,12 @@ Returns the daily files of PrimaryOutcome Details from Open:FactSet Partner - Oz
 Returns the daily files of PrimaryOutcome Details from Open:FactSet Partner - Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -962,6 +1016,12 @@ Returns the daily files of Sponsors Details from Open:FactSet Partner - Ozmosi.
 Returns the daily files of Sponsors Details from Open:FactSet Partner - Ozmosi.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

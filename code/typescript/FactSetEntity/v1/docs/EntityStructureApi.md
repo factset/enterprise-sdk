@@ -21,6 +21,11 @@ Returns all active or inactive entities below the requested entity id.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EntityStructureApi } = require('@factset/sdk-factsetentity');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -100,6 +105,11 @@ Returns the full ultimate parent entity hiearachy. Control levels and active sta
 Returns full ultimate entity structure including ultimate parent and all subordinates. Will accept entity from any level of entity structure or active vs. inactive status of entity. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EntityStructureApi } = require('@factset/sdk-factsetentity');
@@ -181,6 +191,11 @@ Returns all active or inactive entities and respective levels below the requeste
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EntityStructureApi } = require('@factset/sdk-factsetentity');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -254,6 +269,11 @@ Returns all active or inactive entities and respective levels below the requeste
 Returns all active or inactive entities and respective levels below the requested entity id. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EntityStructureApi } = require('@factset/sdk-factsetentity');

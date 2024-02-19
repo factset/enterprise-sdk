@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.orders_api import OrdersApi
+#   from .api.child_orders_api import ChildOrdersApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,5 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from fds.sdk.FactSetTrading.api.child_orders_api import ChildOrdersApi
 from fds.sdk.FactSetTrading.api.orders_api import OrdersApi

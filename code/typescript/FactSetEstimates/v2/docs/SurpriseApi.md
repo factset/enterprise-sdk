@@ -19,6 +19,11 @@ Returns FactSet Estimates surprise data using rolling fiscal dates.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SurpriseApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -108,6 +113,11 @@ Surprise estimates for rolling fiscal periods
 Returns FactSet Estimates surprise data using rolling fiscal dates. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SurpriseApi } = require('@factset/sdk-factsetestimates');

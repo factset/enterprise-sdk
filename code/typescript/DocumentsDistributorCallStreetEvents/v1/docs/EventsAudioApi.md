@@ -19,6 +19,11 @@ Retrieve historical audio recordings and related metadata within FactSet coverag
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EventsAudioApi } = require('@factset/sdk-documentsdistributorcallstreetevents');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -100,6 +105,11 @@ Retrieve latest audio recordings and related metadata within FactSet coverage.
 Returns the latest audio recordings. Query parameters can be used to filter and narrow down the results.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EventsAudioApi } = require('@factset/sdk-documentsdistributorcallstreetevents');

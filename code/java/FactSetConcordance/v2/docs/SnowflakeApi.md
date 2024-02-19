@@ -20,6 +20,11 @@ Finds the best candidate entities matching the given company name. Additional at
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetConcordance.ApiClient;
@@ -105,6 +110,11 @@ Save entity mappings to a universe
 Manually save or update entity mappings with metadata
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

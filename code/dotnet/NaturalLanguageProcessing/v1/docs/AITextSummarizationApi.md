@@ -20,6 +20,12 @@ Endpoint to generate a headline from text
 Generate a headline-length summary of plain text
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -115,6 +121,12 @@ Endpoint to summarize and generate a headline from text
 Generate both a paragraph-length, and headline-length summary of plain text
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -210,6 +222,12 @@ Endpoint to obtain result of a particular summarization job
 Retrieve the summarization result from a job started with the other summarization endpoints
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -306,6 +324,12 @@ Endpoint to summarize text
 Generate a paragraph-length summary of plain text
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

@@ -51,6 +51,11 @@ This endpoint returns selected ETP's allocations grouped by asset class. The res
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -143,6 +148,11 @@ This endpoint returns selected ETP&#39;s country allocations.
 This endpoint returns selected ETP's allocations grouped by country names. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -237,6 +247,11 @@ This endpoint returns selected ETP's allocations grouped by currency. The respon
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -329,6 +344,11 @@ List of allocations classified by a holding&#39;s economic development status.
 List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -423,6 +443,11 @@ This endpoint returns selected ETP's allocations grouped by exchanges. The respo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -515,6 +540,11 @@ This endpoint returns selected ETP&#39;s industry allocations.
 This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -609,6 +639,11 @@ List of allocations classified by a holding's total market capitalization (e.g. 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -701,6 +736,11 @@ This endpoint returns selected ETP&#39;s region allocations.
 This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -795,6 +835,11 @@ This endpoint returns selected ETP's allocations grouped by sector names. The re
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -888,6 +933,11 @@ FactSet's proprietary analytical datapoints include ETP attributes specific to l
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -975,6 +1025,11 @@ FactSet&#39;s portfolio statistics for ETPs.
 FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -1064,6 +1119,11 @@ FactSet calculates various proprietary fund rankings including unique scores, fu
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -1151,6 +1211,11 @@ Trade statistics for specific ETP.
 Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -1240,6 +1305,11 @@ An ETP has many unique characteristics specific to its composition that differen
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -1328,6 +1398,11 @@ List of ETP class broad categories.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -1413,6 +1488,11 @@ List of ETP class focus categories.
 List of ETP class focus categories.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -1505,6 +1585,11 @@ List of ETP class niche categories.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -1596,6 +1681,11 @@ List of ETP class geographies.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -1681,6 +1771,11 @@ Retrieve an ETP&#39;s classification specific to asset class, geography, or inve
 ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund's geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP's investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -1770,6 +1865,11 @@ FactSet defines and maintains a proprietary list of competing companies based on
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -1857,6 +1957,11 @@ Retrieve an ETP&#39;s current distribution details.
 Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -1946,6 +2051,11 @@ Retrieve the amount invested or divested in a specific ETP over various time per
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -2034,6 +2144,11 @@ An ETP can be profiled by defining several common attributes such as issuer, fun
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -2121,6 +2236,11 @@ This endpoint returns selected ETP&#39;s Growth of 10K calculated values.
 Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -2221,6 +2341,11 @@ Retrieve an ETP's holdings information including security, shares held, and weig
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -2314,6 +2439,11 @@ Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -2401,6 +2531,11 @@ Summary of ETP premium discount data.
 Summary of ETP premium discount data.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -2499,6 +2634,11 @@ Retrieve an ETP's historical NAV and shares outstanding for a specified time ran
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -2586,6 +2726,11 @@ Retrieve total return data for a specified ETP.
 An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -2677,6 +2822,11 @@ ETP's can be classified in many different ways including investment strategy, se
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -2764,6 +2914,11 @@ Retrieve a list of ETP strategy segments.
 Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -2856,6 +3011,11 @@ Retrieve details on a fund's structure including its type, investment style (act
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -2944,6 +3104,11 @@ Retrieve various fee and tax related details on a specified ETP including expens
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ETFProfileandPrices.ApiClient;
@@ -3031,6 +3196,11 @@ Retrieve historical NAV data for a specified ETP.
 Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;

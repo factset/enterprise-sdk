@@ -22,6 +22,12 @@ Gets ESG Rankings for a requested list of ids and dates.
 Indicates if a company is a Leader, Above Average, Average, Below Average, or a Laggard; directly mapping from Industry Percentiles (*request IND_PCTL in scores endpoints*). Mapping of ESG Ranks to Industry Percentile Ranges is as follows -   |Rank|Industry Percentile Range (%)| |- --|- --| |Leader|90 - 100| |Above Average|70 - 89.9| |Average|30 - 69.9| |Below Average|10 - 29.9| |Laggard|0 - 9.9|  Industry classifications follow SICS, SASB's Industry Classification System. Using the Adjusted Insight scores, Industry Percentiles are generated for all companies. Companies with five or more articles in a year get ranked in a first pass, then companies with filled-in values are interpolated without forcing the ranking of higher-volume companies up or down.  In the case where a company falls into an industry with fewer than 7 high or medium volume companies the Sector Percentile is inserted in the place of the Industry Percentile score. <p>Only Vaild for ALLCATEGORIES and MATERIALITY categories.</p> 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -129,6 +135,12 @@ Get ESG Ranks for a large list of ids and specified date range.
 Indicates if a company is a Leader, Above Average, Average, Below Average, or a Laggard; directly mapping from Industry Percentiles (*request IND_PCTL in scores endpoints*). Mapping of ESG Ranks to Industry Percentile Ranges is as follows -   |Rank|Industry Percentile Range (%)| |- --|- --| |Leader|90 - 100| |Above Average|70 - 89.9| |Average|30 - 69.9| |Below Average|10 - 29.9| |Laggard|0 - 9.9|  Industry classifications follow SICS, SASB's Industry Classification System. Using the Adjusted Insight scores, Industry Percentiles are generated for all companies. Companies with five or more articles in a year get ranked in a first pass, then companies with filled-in values are interpolated without forcing the ranking of higher-volume companies up or down.  In the case where a company falls into an industry with fewer than 7 high or medium volume companies the Sector Percentile is inserted in the place of the Industry Percentile score. <p>Only Vaild for ALLCATEGORIES and MATERIALITY categories.</p> 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -226,6 +238,12 @@ Gets short-term, long-term, and momentum scores based on the 26 ESG categories d
 FactSet Truvalue Labs SASB Scores provides short-term, long-term, and momentum scores that are generated for 26 ESG categories defined by the Sustainability Accounting Standards Board. FactSet Truvalue also calculates a custom overall score called ALLCATEGORIES, can indicate data volume flow, and the Dynamic Materiality of that data flow. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -335,6 +353,12 @@ Gets a flat key value array of scores for named categories of the input scoreTyp
 **Retrieves a flat array of all categories for the requested scoreType and ids. Unlike the /sasb-scores endpoint the format of the response returns category names as part of the key value.**<p> Gets values for all categories for the selected score type(s) for the requested identifier(s). FactSet Truvalue Labs SASB Scores provides short-term, long-term, and momentum scores that are generated for 26 ESG categories defined by the Sustainability Accounting Standards Board. ESG Ranks are not supported in this Endpoint. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -442,6 +466,12 @@ Gets a flat key value array of scores for named categories of the input score ty
 **Retrieves a flat array of all categories for the requested scoreType and ids. Unlike the /sasb-scores endpoint the format of the response returns category names as part of the key value.**<p> Gets values for all categories for the selected score type(s) for the requested identifier(s). FactSet Truvalue Labs SASB Scores provides short-term, long-term, and momentum scores that are generated for 26 ESG categories defined by the Sustainability Accounting Standards Board. ESG Ranks are not supported in this Endpoint. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -539,6 +569,12 @@ For a large list of ids, gets short-term, long-term, and momentum scores based o
 FactSet Truvalue Labs SASB Scores provides short-term, long-term, and momentum scores that are generated for 26 ESG categories defined by the Sustainability Accounting Standards Board. FactSet Truvalue also calculates a custom overall score called ALLCATEGORIES, can indicate data volume flow, and the Dynamic Materiality of that data flow. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

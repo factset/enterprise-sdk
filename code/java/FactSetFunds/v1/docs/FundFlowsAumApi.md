@@ -22,6 +22,11 @@ Get the Fund Level or Share Class Level Assets Under Management (AUM). <p>NOTE -
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -124,6 +129,11 @@ Get the Fund Level or Share Class Level Assets Under Management (AUM). <p>NOTE -
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -220,6 +230,11 @@ FactSet has standardized all shares outstanding reporting on a next-day basis. T
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -325,6 +340,11 @@ FactSet has standardized all shares outstanding reporting on a next-day basis. T
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

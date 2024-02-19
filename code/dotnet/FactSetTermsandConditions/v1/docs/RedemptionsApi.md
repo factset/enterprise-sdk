@@ -18,6 +18,12 @@ Return Redemption Prices for a Fixed Income security.
 Returns Redemption Prices for the Fixed Income security. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -117,6 +123,12 @@ Return Redemption Prices for a list of Fixed Income securities.
 Returns Redemption Prices for a list of Fixed Income securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

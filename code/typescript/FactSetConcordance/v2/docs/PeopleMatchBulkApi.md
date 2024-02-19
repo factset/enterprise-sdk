@@ -20,6 +20,11 @@ Retrieves the &#x60;Decision&#x60; objects for an People Task (taskId). The deci
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PeopleMatchBulkApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -99,6 +104,11 @@ Create a People Concordance Task.
 The \&quot;Bulk\&quot; workflow allows the user to create a People Concordance Task. Uploading of a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names and attributes and creation of a task id is mandatory to start the process.    The taskId is then used for reference in the /people-task-status and /people-decisions endpoints to receive results once the task is successful.The /people-task-status endpoint is to check the status of the Tasks as per the ids.     A universeId must be included in request. If you do not have a universe created, reference the /universe endpoint.The bulk workflow supports a two way approach for the user.   **The user can use these parameters in the following ways.**     1.Filling all the required fields including the &#x60;personNameColumn&#x60;.(do not include &#x60;firstNameColumn&#x60;,&#x60;lastNameColumn&#x60; &amp; &#x60;middleNameColumn&#x60;)     2.Filling all the required fields excluding the &#x60;personNameColumn&#x60;.(Ensure atleast the &#x60;lastNameColumn&#x60; is filled) 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PeopleMatchBulkApi } = require('@factset/sdk-factsetconcordance');
@@ -199,6 +209,11 @@ Get the Status of the People Tasks.
 Pulls the **status** for ALL the People Tasks submitted by a client within the last 30 days, and related details such as task duration and decision rates. Specific Tasks can also be retrieved by using the _taskId_ parameter.&lt;p&gt;Status types include -   * PENDING - The task has not yet started.   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /people-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PeopleMatchBulkApi } = require('@factset/sdk-factsetconcordance');

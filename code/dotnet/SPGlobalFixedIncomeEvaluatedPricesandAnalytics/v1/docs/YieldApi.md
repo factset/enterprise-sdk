@@ -18,6 +18,12 @@ Get yield information for given date range and list of securities
 Get the yield information like yield to maturity, yield to worst, benchmark yield to maturity and yield to call provided by Markit for a specified date range and frequency.  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Request yield information for given date range and list of securities
 Get the yield information like yield to maturity, yield to worst, benchmark yield to maturity and yield to call provided by Markit for a specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

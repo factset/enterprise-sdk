@@ -19,6 +19,11 @@ Gets market capitalization of list of ids for the company level, security level,
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, MarketValueApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -104,6 +109,11 @@ Requests the market value for a list of &#x60;ids&#x60; as of given date range.
 Requests the market value for a list of &#x60;ids&#x60; as of given date range.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, MarketValueApi } = require('@factset/sdk-factsetprices');

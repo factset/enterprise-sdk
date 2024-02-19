@@ -236,6 +236,7 @@ class MeetingsApi(object):
                     'identifiers',
                     'limit',
                     'modified_since',
+                    'include_related_entities',
                     'x_irn_include_deleted',
                 ],
                 'required': [],
@@ -262,6 +263,8 @@ class MeetingsApi(object):
                         (int,),
                     'modified_since':
                         (str,),
+                    'include_related_entities':
+                        (bool,),
                     'x_irn_include_deleted':
                         (bool,),
                 },
@@ -271,6 +274,7 @@ class MeetingsApi(object):
                     'identifiers': 'identifiers',
                     'limit': 'limit',
                     'modified_since': 'modifiedSince',
+                    'include_related_entities': 'includeRelatedEntities',
                     'x_irn_include_deleted': 'X-IRN-Include-Deleted',
                 },
                 'location_map': {
@@ -279,6 +283,7 @@ class MeetingsApi(object):
                     'identifiers': 'query',
                     'limit': 'query',
                     'modified_since': 'query',
+                    'include_related_entities': 'query',
                     'x_irn_include_deleted': 'header',
                 },
                 'collection_format_map': {
@@ -918,6 +923,7 @@ class MeetingsApi(object):
             identifiers ([str]): Set of identifiers to filter on. [optional]
             limit (int): Limit on the number of meetings retrieved. [optional]
             modified_since (str): Only return meetings which have been modified or created since a particular time. [optional]
+            include_related_entities (bool): When set to true fetches meetings tagged with all the entities related to identifiers param. [optional] if omitted the server will use the default value of False
             x_irn_include_deleted (bool): Includes deleted meetings in results when set to true. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -964,6 +970,7 @@ class MeetingsApi(object):
             identifiers ([str]): Set of identifiers to filter on. [optional]
             limit (int): Limit on the number of meetings retrieved. [optional]
             modified_since (str): Only return meetings which have been modified or created since a particular time. [optional]
+            include_related_entities (bool): When set to true fetches meetings tagged with all the entities related to identifiers param. [optional] if omitted the server will use the default value of False
             x_irn_include_deleted (bool): Includes deleted meetings in results when set to true. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1014,6 +1021,7 @@ class MeetingsApi(object):
             identifiers ([str]): Set of identifiers to filter on. [optional]
             limit (int): Limit on the number of meetings retrieved. [optional]
             modified_since (str): Only return meetings which have been modified or created since a particular time. [optional]
+            include_related_entities (bool): When set to true fetches meetings tagged with all the entities related to identifiers param. [optional] if omitted the server will use the default value of False
             x_irn_include_deleted (bool): Includes deleted meetings in results when set to true. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -1059,6 +1067,7 @@ class MeetingsApi(object):
             identifiers ([str]): Set of identifiers to filter on. [optional]
             limit (int): Limit on the number of meetings retrieved. [optional]
             modified_since (str): Only return meetings which have been modified or created since a particular time. [optional]
+            include_related_entities (bool): When set to true fetches meetings tagged with all the entities related to identifiers param. [optional] if omitted the server will use the default value of False
             x_irn_include_deleted (bool): Includes deleted meetings in results when set to true. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.

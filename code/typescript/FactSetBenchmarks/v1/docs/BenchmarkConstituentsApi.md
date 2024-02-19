@@ -21,6 +21,11 @@ Returns the requested Benchmark Constituents and respective Weights, Price and M
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, BenchmarkConstituentsApi } = require('@factset/sdk-factsetbenchmarks');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -103,6 +108,11 @@ Returns the requested Benchmark Constituents and respective Weights, Price and M
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, BenchmarkConstituentsApi } = require('@factset/sdk-factsetbenchmarks');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -176,6 +186,11 @@ Returns the requested Fixed Income Benchmark Constituents and respective Weights
 Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the &#x60;ids&#x60; requested. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, BenchmarkConstituentsApi } = require('@factset/sdk-factsetbenchmarks');
@@ -256,6 +271,11 @@ Returns the requested Benchmark Constituents and respective Weights, Price and M
 Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the &#x60;ids&#x60; requested. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, BenchmarkConstituentsApi } = require('@factset/sdk-factsetbenchmarks');

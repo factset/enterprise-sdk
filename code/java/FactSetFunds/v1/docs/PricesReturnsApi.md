@@ -26,6 +26,11 @@ Get Fund Prices (NAV) for a requested date range and list of ids.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -130,6 +135,11 @@ Fetch fund prices (NAV) as of a requested date range and a large list of ids.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -221,6 +231,11 @@ Get Fund NAV Returns over a time-series for the requested date range and frequen
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -324,6 +339,11 @@ Get Fund NAV Returns over a time-series for the requested date range and frequen
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFunds.ApiClient;
@@ -415,6 +435,11 @@ Get Fund Returns between a specified startDate and endDate. The service will com
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -513,6 +538,11 @@ Get Fund Returns between a specified startDate and endDate. The service will com
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -614,6 +644,11 @@ Get Fund Returns over pre-defined time horizons as of a specific date. Use the d
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -719,6 +754,11 @@ Get Fund Returns over pre-defined time horizons as of a specific date. Use the d
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -18,6 +18,11 @@ Returns a list of available metrics that can be used in the &#x60;metrics&#x60; 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DataItemsApi } = require('@factset/sdk-factsetetf');
 const { ConfidentialClient } = require('@factset/sdk-utils');

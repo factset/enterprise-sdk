@@ -51,6 +51,11 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Symbology.ApiClient;
@@ -173,6 +178,11 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

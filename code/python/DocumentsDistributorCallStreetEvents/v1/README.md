@@ -57,6 +57,11 @@ pip install fds.sdk.utils fds.sdk.DocumentsDistributorCallStreetEvents==0.21.14
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -94,13 +99,9 @@ configuration = fds.sdk.DocumentsDistributorCallStreetEvents.Configuration(
 with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_audio_api.EventsAudioApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 25 # int | Specifies the number of results to return per page. [ Min=0 ; Max=500 ] (optional) if omitted the server will use the default value of 25
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional) if omitted the server will use the default value of 0
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     year = 2021 # int | Specifies the year for which the historical audio recordings and related metadata are to be retrieved. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     trimmed = True # bool | Specifies if trimmed/untrimmed historical audio recordings should be returned. (optional) if omitted the server will use the default value of False
 
     try:

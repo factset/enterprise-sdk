@@ -23,6 +23,11 @@ Data can be returned in CSV, JSON or XML format, use the `format` parameter to c
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ExchangeDataFeedDataModel.ApiClient;

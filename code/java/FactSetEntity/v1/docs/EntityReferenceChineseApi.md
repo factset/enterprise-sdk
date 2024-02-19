@@ -20,6 +20,11 @@ Returns entity reference data in Chinese for the requested Id(s). Data points in
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEntity.ApiClient;
@@ -111,6 +116,11 @@ Returns entity reference data in Chinese for the requested Id(s). Data points in
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

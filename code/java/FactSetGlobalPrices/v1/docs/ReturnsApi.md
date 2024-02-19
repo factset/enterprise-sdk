@@ -20,6 +20,11 @@ Returns for the requested ids and currency for the given dates. Depending on the
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetGlobalPrices.ApiClient;
@@ -132,6 +137,11 @@ Gets Returns for a list of &#x60;ids&#x60; as of given date range.
 Returns for the requested ids and currency for the given dates. Depending on the input parameters the return data is provided.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

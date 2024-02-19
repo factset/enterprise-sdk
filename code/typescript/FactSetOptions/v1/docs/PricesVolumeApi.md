@@ -20,6 +20,11 @@ Returns the pricing related information for the specified option identifier. Ite
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesVolumeApi } = require('@factset/sdk-factsetoptions');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Returns the volume details for the specified option identifier for a specified e
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesVolumeApi } = require('@factset/sdk-factsetoptions');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -167,6 +177,11 @@ Returns the aggregate volume and open interest for the list of the options under
 Return the Volume and Open Interest details for list of the options for the specified underlying security identifier. The data is aggregated for all options contracts associated to the underlying id, or specified in the request only the contracts listed on a specific exchange. Data Includes -  * Put Call Ratio  * Total Put Volume &amp; Open Interest * Total Call Volume &amp; Open Interest * Total Put &amp; Call Volume &amp; Open Interest    *Currently only OPRA Exchange is supported with exchange ISO \&quot;USA\&quot;* 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesVolumeApi } = require('@factset/sdk-factsetoptions');

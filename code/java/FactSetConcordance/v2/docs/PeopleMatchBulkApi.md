@@ -21,6 +21,11 @@ Retrieves the `Decision` objects for an People Task (taskId). The decisions do n
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetConcordance.ApiClient;
@@ -121,6 +126,11 @@ The "Bulk" workflow allows the user to create a People Concordance Task. Uploadi
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.io.File;
@@ -244,6 +254,11 @@ Pulls the **status** for ALL the People Tasks submitted by a client within the l
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

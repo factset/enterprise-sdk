@@ -18,6 +18,12 @@ Return reference data for an ETF.
 Returns reference data items for Exchange Traded Funds. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -119,6 +125,12 @@ Fetch Reference Data for a large list of ETF securities.
 Returns reference data items for a list of Exchange Traded Funds. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

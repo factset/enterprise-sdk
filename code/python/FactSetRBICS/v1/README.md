@@ -49,6 +49,11 @@ pip install fds.sdk.utils fds.sdk.FactSetRBICS==0.21.8
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -86,13 +91,9 @@ configuration = fds.sdk.FactSetRBICS.Configuration(
 with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_focus_api.EntityFocusApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**ids limit = 2500 per request**</p>    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p> 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     date = "2017-07-24" # str | Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     levels = [1,3,6] # [int] | List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.** (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     include_names = True # bool | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional) if omitted the server will use the default value of True
 
     try:

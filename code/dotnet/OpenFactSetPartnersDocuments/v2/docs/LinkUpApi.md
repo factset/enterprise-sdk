@@ -17,6 +17,12 @@ Returns the  daily files from Open:FactSet Partner - LinkUp. The LinkUp API prov
 Returns the  daily files from Open:FactSet Partner - LinkUp. The LinkUp API provides access to job listings dataset that is sourced directly from employer webistes globally delivered daily. **This API is no longer being sold for new clients.**
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

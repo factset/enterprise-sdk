@@ -18,6 +18,12 @@ Returns the Job history of the person.
 Returns the `Job` history of the person referenced by the entityId specified in the request. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -121,6 +127,12 @@ Returns the Job history for the large list of people.
 Returns the `Job` history of the person referenced by the entityId specified in the request. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

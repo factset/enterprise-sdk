@@ -20,6 +20,11 @@ Create a note
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNNotes.ApiClient;
@@ -109,6 +114,11 @@ Delete a Note
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNNotes.ApiClient;
@@ -195,6 +205,11 @@ Get details of a note
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IRNNotes.ApiClient;
@@ -275,11 +290,16 @@ Name | Type | Description  | Notes
 
 ## getNotes
 
-> java.util.List<NoteSummaryDto> getNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted)
+> java.util.List<NoteSummaryDto> getNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, includeRelatedEntities, xIRNIncludeDeleted)
 
 Get all the notes in the specified date range filtered on the given identifiers
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -327,9 +347,10 @@ public class Example {
         String modifiedSince = "modifiedSince_example"; // String | Only return notes which have been modified or created since a particular time
         java.util.List<String> states = Arrays.asList(); // java.util.List<String> | Set of states to filter on
         Boolean filterOnRelatedSymbols = false; // Boolean | Include notes whose related symbols match the identifier filter
+        Boolean includeRelatedEntities = false; // Boolean | When set to true fetches notes tagged with all the entities related to identifiers param
         Boolean xIRNIncludeDeleted = false; // Boolean | 
         try {
-            java.util.List<NoteSummaryDto> result = apiInstance.getNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted);
+            java.util.List<NoteSummaryDto> result = apiInstance.getNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, includeRelatedEntities, xIRNIncludeDeleted);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -360,6 +381,7 @@ Name | Type | Description  | Notes
  **modifiedSince** | **String**| Only return notes which have been modified or created since a particular time | [optional]
  **states** | **List&lt;String&gt;**| Set of states to filter on | [optional]
  **filterOnRelatedSymbols** | **Boolean**| Include notes whose related symbols match the identifier filter | [optional] [default to false]
+ **includeRelatedEntities** | **Boolean**| When set to true fetches notes tagged with all the entities related to identifiers param | [optional] [default to false]
  **xIRNIncludeDeleted** | **Boolean**|  | [optional] [default to false]
 
 ### Return type
@@ -389,6 +411,11 @@ Name | Type | Description  | Notes
 Update a note
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

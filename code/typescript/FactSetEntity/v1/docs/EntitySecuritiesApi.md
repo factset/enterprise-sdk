@@ -19,6 +19,11 @@ Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EntitySecuritiesApi } = require('@factset/sdk-factsetentity');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Returns all Equity Exchange Listings and all debt instruments issued for the req
 Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EntitySecuritiesApi } = require('@factset/sdk-factsetentity');

@@ -17,6 +17,12 @@ Returns the daily files from Open:FactSet Partner - Scripts Asia.
 Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta returns the files from March 1st 2023 to current date. - type=full will returns the files from start of date until Feb 28th 2023.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.IRNCustomSymbols==1.0.7
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,7 +88,6 @@ configuration = fds.sdk.IRNCustomSymbols.Configuration(
 with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     create_custom_symbol_dto = CreateCustomSymbolDto(
         code="code_example",
         name="name_example",

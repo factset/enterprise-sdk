@@ -20,6 +20,11 @@ Need to plug-in the jobID got from /request-files into /check-status endpoint
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.DocumentsDistributorDocuments.ApiClient;
@@ -112,6 +117,11 @@ Returns the news filings for the specified daterange and source
 Need to plug-in the source and jobID got from /request-files into /get-files endpoint
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -206,6 +216,11 @@ Give the startDate,endDate and source parameters as request parameters in the /r
 This API only supports adhoc requests to retrieve historical files
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.time.LocalDate;

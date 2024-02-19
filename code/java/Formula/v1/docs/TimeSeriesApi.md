@@ -24,6 +24,11 @@ The `/time-series` endpoint supports Long Running asynchronous requests up to **
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Formula.ApiClient;
@@ -156,6 +161,11 @@ The `/time-series` endpoint supports Long Running asynchronous requests up to **
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

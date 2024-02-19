@@ -20,6 +20,12 @@ Translate Market IDs into ISINS as of a specific date or receive the full histor
 Returns the full history of ISIN changes for a given security or as of a requested date. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -117,6 +123,12 @@ Translate market security symbols into ISIN. - Current Only
 Translate market security symbols into ISIN and FactSet Permanent Identifiers. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -214,6 +226,12 @@ Translate Market IDs into ISINS as of a specific date or receive the full histor
 Returns the full history of ISIN changes for a given security or as of a requested date. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -313,6 +331,12 @@ Translate market security symbols into ISIN. - Current Only
 Translate market security symbols into ISIN and FactSet Permanent Identifiers. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

@@ -18,6 +18,11 @@ This endpoint looks up all Axioma FI strategy documents and sub-directories in a
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StrategyDocumentsApi } = require('@factset/sdk-axiomafixedincomeoptimizer');
 const { ConfidentialClient } = require('@factset/sdk-utils');

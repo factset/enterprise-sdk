@@ -19,6 +19,11 @@ Gets security shares for a list of &#39;ids&#39; and given date range. Share val
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SharesApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -104,6 +109,11 @@ Requests shares for a list of &#x60;ids&#x60; as of given date range.
 Gets security shares for a list of &#39;ids&#39; and given date range. Share values returned include security-level and company-level.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SharesApi } = require('@factset/sdk-factsetprices');

@@ -20,6 +20,11 @@ Endpoint to extract themes from provided text. Optionally, can include sentiment
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AIThemesApi } = require('@factset/sdk-naturallanguageprocessing');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Endpoint to obtain the completion status of the themes task request. The &#x60;i
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AIThemesApi } = require('@factset/sdk-naturallanguageprocessing');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -167,6 +177,11 @@ Endpoint to get a theme (and sentiments if requested) job result
 Endpoint to obtain the results from the original themes task request. The &#x60;id&#x60; parameter represents the identifier of the task generated from the POST request which created the task. Once the task is complete, the result can be fetched with this endpoint.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AIThemesApi } = require('@factset/sdk-naturallanguageprocessing');

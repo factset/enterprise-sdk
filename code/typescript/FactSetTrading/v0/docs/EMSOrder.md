@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **stopPrice** | **Number** | Stop-loss price to buy/sell stock at market. | [optional] 
 **strikePrice** | **Number** | Strike Price for an Option. | [optional] 
 **currency** | **String** | Currency used for price in ISO format. | [optional] 
-**isCovered** | **Boolean** | Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order | [optional] 
+**isCovered** | **Boolean** | Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order. | [optional] 
 **maxShow** | **Number** | Maximum number of shares within an order to be shown to other customers. | [optional] 
 **maxFloor** | **Number** | Maximum number of shares within an order to be shown on the exchange floor at any given time. | [optional] 
 **prevClosePrice** | **Number** | Previous closing price of security. | [optional] 
@@ -37,9 +37,9 @@ Name | Type | Description | Notes
 
 * `sell` (value: `"sell"`)
 
-* `sell_short` (value: `"sell_short"`)
+* `sellShort` (value: `"sellShort"`)
 
-* `sell_short_exempt` (value: `"sell_short_exempt"`)
+* `sellShortExempt` (value: `"sellShortExempt"`)
 
 
 
@@ -54,11 +54,38 @@ Name | Type | Description | Notes
 
 * `stop` (value: `"stop"`)
 
-* `stop_limit` (value: `"stop_limit"`)
+* `stopLimit` (value: `"stopLimit"`)
 
-* `market_on_close` (value: `"market_on_close"`)
+* `marketOnClose` (value: `"marketOnClose"`)
 
-* `limit_or_better` (value: `"limit_or_better"`)
+* `limitOrBetter` (value: `"limitOrBetter"`)
+
+
+
+
+
+## Enum: SettlementTypeEnum
+
+
+* `regular` (value: `"regular"`)
+
+* `cash` (value: `"cash"`)
+
+* `nextDay` (value: `"nextDay"`)
+
+* `tPlus2` (value: `"tPlus2"`)
+
+* `tPlus3` (value: `"tPlus3"`)
+
+* `tPlus4` (value: `"tPlus4"`)
+
+* `future` (value: `"future"`)
+
+* `whenIssued` (value: `"whenIssued"`)
+
+* `sellersOption` (value: `"sellersOption"`)
+
+* `tPlus5` (value: `"tPlus5"`)
 
 
 
@@ -67,11 +94,11 @@ Name | Type | Description | Notes
 ## Enum: HandlingInstructionsEnum
 
 
-* `auto_ord_pvt` (value: `"auto_ord_pvt"`)
+* `autoOrderPrivate` (value: `"autoOrderPrivate"`)
 
-* `auto_ord_pub` (value: `"auto_ord_pub"`)
+* `autoOrderPublic` (value: `"autoOrderPublic"`)
 
-* `best_execution` (value: `"best_execution"`)
+* `bestExecution` (value: `"bestExecution"`)
 
 
 
@@ -80,99 +107,99 @@ Name | Type | Description | Notes
 ## Enum: ExecutionInstructionsEnum
 
 
-* `not_held` (value: `"not_held"`)
+* `notHeld` (value: `"notHeld"`)
 
 * `work` (value: `"work"`)
 
-* `go_along` (value: `"go_along"`)
+* `goAlong` (value: `"goAlong"`)
 
-* `over_the_day` (value: `"over_the_day"`)
+* `overTheDay` (value: `"overTheDay"`)
 
 * `held` (value: `"held"`)
 
-* `participate_dont_initiate` (value: `"participate_dont_initiate"`)
+* `participateDoNotInitiate` (value: `"participateDoNotInitiate"`)
 
-* `strict_scale` (value: `"strict_scale"`)
+* `strictScale` (value: `"strictScale"`)
 
-* `try_to_scale` (value: `"try_to_scale"`)
+* `tryToScale` (value: `"tryToScale"`)
 
-* `stay_on_bidside` (value: `"stay_on_bidside"`)
+* `stayOnBidSide` (value: `"stayOnBidSide"`)
 
-* `stay_on_offerside` (value: `"stay_on_offerside"`)
+* `stayOnOfferSide` (value: `"stayOnOfferSide"`)
 
-* `no_cross` (value: `"no_cross"`)
+* `noCross` (value: `"noCross"`)
 
-* `ok_to_cross` (value: `"ok_to_cross"`)
+* `okToCross` (value: `"okToCross"`)
 
-* `call_first` (value: `"call_first"`)
+* `callFirst` (value: `"callFirst"`)
 
-* `percent_of_volume` (value: `"percent_of_volume"`)
+* `percentOfVolume` (value: `"percentOfVolume"`)
 
-* `do_not_increase` (value: `"do_not_increase"`)
+* `doNotIncrease` (value: `"doNotIncrease"`)
 
-* `do_not_reduce` (value: `"do_not_reduce"`)
+* `doNotReduce` (value: `"doNotReduce"`)
 
-* `all_or_none` (value: `"all_or_none"`)
+* `allOrNone` (value: `"allOrNone"`)
 
-* `reinstate_on_system_failure` (value: `"reinstate_on_system_failure"`)
+* `reinstateOnSystemFailure` (value: `"reinstateOnSystemFailure"`)
 
-* `institutions_only` (value: `"institutions_only"`)
+* `institutionsOnly` (value: `"institutionsOnly"`)
 
-* `reinstate_on_trading_halt` (value: `"reinstate_on_trading_halt"`)
+* `reinstateOnTradingHalt` (value: `"reinstateOnTradingHalt"`)
 
-* `cancel_on_trading_halt` (value: `"cancel_on_trading_halt"`)
+* `cancelOnTradingHalt` (value: `"cancelOnTradingHalt"`)
 
-* `last_peg` (value: `"last_peg"`)
+* `lastPeg` (value: `"lastPeg"`)
 
-* `mid_price_peg` (value: `"mid_price_peg"`)
+* `midPricePeg` (value: `"midPricePeg"`)
 
-* `non_negotiable` (value: `"non_negotiable"`)
+* `nonNegotiable` (value: `"nonNegotiable"`)
 
-* `opening_peg` (value: `"opening_peg"`)
+* `openingPeg` (value: `"openingPeg"`)
 
-* `market_peg` (value: `"market_peg"`)
+* `marketPeg` (value: `"marketPeg"`)
 
-* `cancel_on_system_failure` (value: `"cancel_on_system_failure"`)
+* `cancelOnSystemFailure` (value: `"cancelOnSystemFailure"`)
 
-* `primary_peg` (value: `"primary_peg"`)
+* `primaryPeg` (value: `"primaryPeg"`)
 
 * `suspend` (value: `"suspend"`)
 
-* `fixed_peg_to_local_best_bid` (value: `"fixed_peg_to_local_best_bid"`)
+* `fixedPegToLocalBestBid` (value: `"fixedPegToLocalBestBid"`)
 
-* `customer_display_instruction` (value: `"customer_display_instruction"`)
+* `customerDisplayInstruction` (value: `"customerDisplayInstruction"`)
 
 * `netting` (value: `"netting"`)
 
-* `peg_to_vwap` (value: `"peg_to_vwap"`)
+* `pegToVWAP` (value: `"pegToVWAP"`)
 
-* `trade_along` (value: `"trade_along"`)
+* `tradeAlong` (value: `"tradeAlong"`)
 
-* `try_to_stop` (value: `"try_to_stop"`)
+* `tryToStop` (value: `"tryToStop"`)
 
-* `cancel_if_not_best` (value: `"cancel_if_not_best"`)
+* `cancelIfNotBest` (value: `"cancelIfNotBest"`)
 
-* `trailing_stop_peg` (value: `"trailing_stop_peg"`)
+* `trailingStopPeg` (value: `"trailingStopPeg"`)
 
-* `strict_limit` (value: `"strict_limit"`)
+* `strictLimit` (value: `"strictLimit"`)
 
-* `ignore_price_validity_checks` (value: `"ignore_price_validity_checks"`)
+* `ignorePriceValidityChecks` (value: `"ignorePriceValidityChecks"`)
 
-* `peg_to_limit_price` (value: `"peg_to_limit_price"`)
+* `pegToLimitPrice` (value: `"pegToLimitPrice"`)
 
-* `work_to_target_strategy` (value: `"work_to_target_strategy"`)
+* `workToTargetStrategy` (value: `"workToTargetStrategy"`)
 
-* `intermarket_sweep` (value: `"intermarket_sweep"`)
+* `intermarketSweep` (value: `"intermarketSweep"`)
 
-* `external_routing_allowed` (value: `"external_routing_allowed"`)
+* `externalRoutingAllowed` (value: `"externalRoutingAllowed"`)
 
-* `external_routing_not_allowed` (value: `"external_routing_not_allowed"`)
+* `externalRoutingNotAllowed` (value: `"externalRoutingNotAllowed"`)
 
-* `imbalance_only` (value: `"imbalance_only"`)
+* `imbalanceOnly` (value: `"imbalanceOnly"`)
 
-* `single_execution_requested_for_block_trade` (value: `"single_execution_requested_for_block_trade"`)
+* `singleExecutionRequestedForBlockTrade` (value: `"singleExecutionRequestedForBlockTrade"`)
 
-* `best_execution` (value: `"best_execution"`)
+* `bestExecution` (value: `"bestExecution"`)
 
 
 

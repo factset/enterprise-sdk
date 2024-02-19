@@ -18,6 +18,11 @@ Retrieves Sales Metrics data for specified companies.  The &#x60;&#x60;&#x60;/se
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SegmentsApi } = require('@factset/sdk-factsetfundamentals');
 const { ConfidentialClient } = require('@factset/sdk-utils');

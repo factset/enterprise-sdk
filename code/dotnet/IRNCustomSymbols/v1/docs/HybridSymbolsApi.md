@@ -17,6 +17,12 @@ Method | HTTP request | Description
 Create standard symbol metadata
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -109,6 +115,12 @@ Name | Type | Description  | Notes
 Get all custom field and standard field details on a specific standard symbol
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -201,6 +213,12 @@ Name | Type | Description  | Notes
 Edit a standard symbol’s standard field and custom field data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

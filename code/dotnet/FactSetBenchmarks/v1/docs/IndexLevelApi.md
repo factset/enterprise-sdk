@@ -22,6 +22,12 @@ Returns the aggregated ratios of a requested benchmark
 Retrieves the index level ratios for a requested benchmark. Ratios supported are expressed through metrics parameter, and include Categories of Profitability, Valuation, Coverage, and Leverage. <p> Using FactSet Market Aggregates, the service combines fundamental, estimates, and pricing content to derive ratios and per share values for global equity market indexes and commercial benchmark vendors. The constituents of the index are fetched on rolling basis over time period requested, and then the metric requested is aggregated up to the index level. To learn more about FMA, visit [OA 15778](https://my.apps.factset.com/oa/pages/15778).</p> 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -131,6 +137,12 @@ Returns the aggregated ratios of a requested benchmark
 Retrieves the index level ratios for a requested benchmark. Ratios supported are expressed through metrics parameter, and include Categories of Profitability, Valuation, Coverage, and Leverage. <p> Using FactSet Market Aggregates, the service combines FactSet Fundamental, FactSet Estimates, and FactSet Pricing content to derive ratios and per share values for global equity market indexes and commercial benchmark vendors. The constituents of the index are fetched on rolling basis over time period requested, and then the metric requested is aggregated up to the index level. To learn more about FMA, visit [OA 15778](https://my.apps.factset.com/oa/pages/15778).</p> 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -228,6 +240,12 @@ Retrieves Index Level Prices and Returns information for a list of identifiers a
 Retrieves Index Level Prices and Returns information as of a date range requested. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date range to retrieve Index Level Prices, Returns, and related information. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -341,6 +359,12 @@ Retrieves Index Level Prices and Returns information for a list of identifiers a
 Retrieves Index Level Prices and Returns information as aligned with FactSet's Benchmark Data Feed solution. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -438,6 +462,12 @@ Index Level Prices, Returns, and related information as of a single date.
 Retrieves Index Level Prices and Returns information as of a specific date. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -543,6 +573,12 @@ Retrieves the Index Level Snapshot of Prices and Returns information for a given
 Retrieves Index Level Prices and Returns information as aligned with FactSet's Benchmark Data Feed solution. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

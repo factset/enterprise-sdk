@@ -18,6 +18,11 @@ Endpoint to create a new Market Intelligence report. If you want to retrieve a r
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.MarketIntelligence.ApiClient;

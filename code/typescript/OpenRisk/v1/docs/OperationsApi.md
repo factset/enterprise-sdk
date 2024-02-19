@@ -19,6 +19,11 @@ Calculate predicted risk statistics for provided holdings using risk model data.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, OperationsApi } = require('@factset/sdk-openrisk');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Generate risk model ID mapping
 Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, OperationsApi } = require('@factset/sdk-openrisk');

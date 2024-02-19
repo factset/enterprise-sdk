@@ -18,6 +18,11 @@ Returns the  daily files from Open:FactSet Partner - LinkUp. The LinkUp API prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, LinkUpApi } = require('@factset/sdk-openfactsetpartnersdocuments');
 const { ConfidentialClient } = require('@factset/sdk-utils');

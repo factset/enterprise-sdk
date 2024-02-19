@@ -20,6 +20,11 @@ Truvalue Labs SDG Scores provides short-term, long-term, and momentum scores tha
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetESG.ApiClient;
@@ -121,6 +126,11 @@ Truvalue Labs SDG Scores provides short-term, long-term, and momentum scores tha
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -20,6 +20,11 @@ Gets FX Spot rates for a requested currency pair, date range, and frequency. The
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.ForeignExchangeRate.ApiClient;
@@ -117,6 +122,11 @@ Gets FX Spot rates for a requested currency pair, date range, and frequency. The
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

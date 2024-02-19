@@ -20,6 +20,11 @@ Create a contact relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irncontacts');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Delete a contact relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irncontacts');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -163,6 +173,11 @@ null (empty response body)
 Get all the relationships where the given symbol or contact identifier has been tagged in a relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irncontacts');
@@ -242,6 +257,11 @@ Get details on a specific contact relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irncontacts');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -313,6 +333,11 @@ Name | Type | Description  | Notes
 Update a contact relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ContactsRelationshipsApi } = require('@factset/sdk-irncontacts');

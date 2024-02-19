@@ -19,6 +19,11 @@ Get coupon information like accrued interest, coupon, coupon type and coupon fre
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CouponApi } = require('@factset/sdk-spglobalfixedincomeevaluatedpricesandanalytics');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -102,6 +107,11 @@ Request coupon data for given date range and list of securities
 Get coupon information like accrued interest, coupon, coupon type and coupon frequency provided by Markit for specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CouponApi } = require('@factset/sdk-spglobalfixedincomeevaluatedpricesandanalytics');

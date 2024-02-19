@@ -19,6 +19,11 @@ Returns a list of available metrics that can be used in the `metrics` parameter 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetETF.ApiClient;

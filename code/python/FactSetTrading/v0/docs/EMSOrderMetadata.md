@@ -6,7 +6,7 @@ EMS Order Metadata
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **str, none_type** | Ticker symbol | [optional] 
-**side** | **str, none_type** | Side of the order. | [optional] 
+**side** | **str, none_type** | Side of the order | [optional] 
 **order_type** | **str, none_type** | Type of the order | [optional] 
 **order_quantity** | **float, none_type** | Number of shares/Quantity. | [optional] 
 **error** | **str, none_type** | Error message | [optional] 

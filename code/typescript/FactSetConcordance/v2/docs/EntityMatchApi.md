@@ -19,6 +19,11 @@ Finds the best candidate entities matching the given entity name. Additional att
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EntityMatchApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -164,6 +169,11 @@ Get a list of Entity Candidates and Matches for a requested list of up to 25 nam
 Finds the best candidate entities matching the given entity name. If a &#x60;universeId&#x60; is provided, any match for an input including a &#x60;clientId&#x60; will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search.  &lt;p&gt;**Max of 25 Names inputted.** Use the \&quot;Entity Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EntityMatchApi } = require('@factset/sdk-factsetconcordance');

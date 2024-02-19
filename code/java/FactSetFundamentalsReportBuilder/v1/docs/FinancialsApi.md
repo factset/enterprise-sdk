@@ -20,6 +20,11 @@ Returns a standardized Balance Sheet based on industry.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFundamentalsReportBuilder.ApiClient;
@@ -121,6 +126,11 @@ Returns a standardized Cash Flow based on industry.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetFundamentalsReportBuilder.ApiClient;
@@ -221,6 +231,11 @@ Income Statement
 Returns a standardized Income Statement based on industry.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

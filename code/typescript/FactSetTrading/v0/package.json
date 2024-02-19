@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsettrading",
-  "version": "0.23.3",
+  "version": "0.24.0",
   "description": "FactSet Trading client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

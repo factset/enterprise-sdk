@@ -19,6 +19,11 @@ Understand the full RBICS Taxonomy Structure through time to help organize your 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StructureApi } = require('@factset/sdk-factsetrbics');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -100,6 +105,11 @@ Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
 Get the full RBICS Taxonomy Structure Ids, Names, and effective periods. POST method is optimal for requesting large lists of &#x60;rbicsIds&#x60;. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, StructureApi } = require('@factset/sdk-factsetrbics');

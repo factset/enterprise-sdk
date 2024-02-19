@@ -48,6 +48,11 @@ pip install fds.sdk.utils fds.sdk.Portfolio==0.21.9
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -85,9 +90,7 @@ configuration = fds.sdk.Portfolio.Configuration(
 with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     name = "name_example" # str | The path and filename of the model account to create or update
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     model_account_fields_root = ModelAccountFieldsRoot(
         data=ModelAccountFields(
             iterative={

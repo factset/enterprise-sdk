@@ -20,6 +20,11 @@ Gets security reference details for a large list of `ids`, such as Name, Securit
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetPrices.ApiClient;
@@ -111,6 +116,11 @@ Gets security reference details for a list of `ids`, such as Name, Security Type
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

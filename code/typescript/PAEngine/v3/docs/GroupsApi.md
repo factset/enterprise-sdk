@@ -19,6 +19,11 @@ This endpoint lists all the PA grouping frequencies that can be applied to a PA 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GroupsApi } = require('@factset/sdk-paengine');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -88,6 +93,11 @@ Get PA groups
 This endpoint lists all the PA groups that can be applied to a PA calculation.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, GroupsApi } = require('@factset/sdk-paengine');

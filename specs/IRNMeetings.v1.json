@@ -69,6 +69,15 @@
             }
           },
           {
+            "name": "includeRelatedEntities",
+            "in": "query",
+            "description": "When set to true fetches meetings tagged with all the entities related to identifiers param",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
             "name": "X-IRN-Include-Deleted",
             "in": "header",
             "description": "Includes deleted meetings in results when set to true",

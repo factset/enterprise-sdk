@@ -20,6 +20,11 @@ This is the endpoint to cancel a previously submitted optimization. Instead of d
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.AxiomaEquityOptimizer.ApiClient;
@@ -112,6 +117,11 @@ If the optimization has finished computing, the body of the response will contai
 Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -210,6 +220,11 @@ Remarks:
 *	Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **String** | Ticker symbol | [optional] 
-**side** | **String** | Side of the order. | [optional] 
+**side** | **String** | Side of the order | [optional] 
 **orderType** | **String** | Type of the order | [optional] 
 **orderQuantity** | **Number** | Number of shares/Quantity. | [optional] 
 **error** | **String** | Error message | [optional] 
@@ -22,9 +22,9 @@ Name | Type | Description | Notes
 
 * `sell` (value: `"sell"`)
 
-* `sell_short` (value: `"sell_short"`)
+* `sellShort` (value: `"sellShort"`)
 
-* `sell_short_exempt` (value: `"sell_short_exempt"`)
+* `sellShortExempt` (value: `"sellShortExempt"`)
 
 
 
@@ -39,11 +39,11 @@ Name | Type | Description | Notes
 
 * `stop` (value: `"stop"`)
 
-* `stop_limit` (value: `"stop_limit"`)
+* `stopLimit` (value: `"stopLimit"`)
 
-* `market_on_close` (value: `"market_on_close"`)
+* `marketOnClose` (value: `"marketOnClose"`)
 
-* `limit_or_better` (value: `"limit_or_better"`)
+* `limitOrBetter` (value: `"limitOrBetter"`)
 
 
 

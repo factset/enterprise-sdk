@@ -20,6 +20,12 @@ Returns the requested Benchmark Constituents and respective Weights, Price and M
 Returns the requested Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested. Use the helper endpoint **_/id-list** for valid identifiers.   
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Returns the requested Benchmark Constituents and respective Weights, Price and M
 Returns the requested Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested. Use the helper endpoint **_/id-list** for valid identifiers. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -220,6 +232,12 @@ Returns the requested Fixed Income Benchmark Constituents and respective Weights
 Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -321,6 +339,12 @@ Returns the requested Benchmark Constituents and respective Weights, Price and M
 Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

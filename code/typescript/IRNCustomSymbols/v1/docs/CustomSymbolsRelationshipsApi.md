@@ -20,6 +20,11 @@ Create a symbol relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CustomSymbolsRelationshipsApi } = require('@factset/sdk-irncustomsymbols');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Delete a symbol relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CustomSymbolsRelationshipsApi } = require('@factset/sdk-irncustomsymbols');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -161,6 +171,11 @@ null (empty response body)
 Edit a symbol relationship
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CustomSymbolsRelationshipsApi } = require('@factset/sdk-irncustomsymbols');
@@ -236,6 +251,11 @@ Get details on a specific symbol relationship
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CustomSymbolsRelationshipsApi } = require('@factset/sdk-irncustomsymbols');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -307,6 +327,11 @@ Name | Type | Description  | Notes
 Returns a list of a symbol’s relationships
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CustomSymbolsRelationshipsApi } = require('@factset/sdk-irncustomsymbols');

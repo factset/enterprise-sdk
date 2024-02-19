@@ -20,6 +20,11 @@ Returns the count of filings documents along with other response fields.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FilingsAPIApi } = require('@factset/sdk-globalfilings');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -103,6 +108,11 @@ Returns the filings documents and related metadata within FactSet coverage.
 Returns the filings documents within FactSet coverage along with other response fields
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FilingsAPIApi } = require('@factset/sdk-globalfilings');
@@ -203,6 +213,11 @@ Returns the static values for various parameters
 Returns the static values for sources,formTypes,timeZones,categories based on the specified parameter
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FilingsAPIApi } = require('@factset/sdk-globalfilings');

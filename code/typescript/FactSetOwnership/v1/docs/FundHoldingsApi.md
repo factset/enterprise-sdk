@@ -19,6 +19,11 @@ Gets holdings information for list of fund identifiers. The service allows you t
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FundHoldingsApi } = require('@factset/sdk-factsetownership');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -102,6 +107,11 @@ Get holdings for a list of funds.
 Gets Holding information for a long list of Fund objects.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FundHoldingsApi } = require('@factset/sdk-factsetownership');

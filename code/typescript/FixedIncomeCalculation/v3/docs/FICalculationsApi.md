@@ -23,6 +23,11 @@ This is the endpoint to cancel a previously submitted calculation.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FICalculationsApi } = require('@factset/sdk-fixedincomecalculation');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -94,6 +99,11 @@ Get FI calculation parameters by id
 This is the endpoint that returns the calculation parameters passed for a calculation.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FICalculationsApi } = require('@factset/sdk-fixedincomecalculation');
@@ -169,6 +179,11 @@ This is the endpoint to get the result of a previously requested calculation.  I
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FICalculationsApi } = require('@factset/sdk-fixedincomecalculation');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -243,6 +258,11 @@ This is the endpoint to check on the progress of a previously requested calculat
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FICalculationsApi } = require('@factset/sdk-fixedincomecalculation');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -316,6 +336,11 @@ Create and Run FI calculation
 This endpoint creates and runs a new FI calculation specified in the post body.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FICalculationsApi } = require('@factset/sdk-fixedincomecalculation');
@@ -409,6 +434,11 @@ Create or Update FI calculation and run it.
 This endpoint updates and run the FI optimization specified in the PUT body parameters. It also allows the creation of new FI optimization with custom id.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FICalculationsApi } = require('@factset/sdk-fixedincomecalculation');

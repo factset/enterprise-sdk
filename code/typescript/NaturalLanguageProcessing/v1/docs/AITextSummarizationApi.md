@@ -21,6 +21,11 @@ Generate a headline-length summary of plain text
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AITextSummarizationApi } = require('@factset/sdk-naturallanguageprocessing');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Endpoint to summarize and generate a headline from text
 Generate both a paragraph-length, and headline-length summary of plain text
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AITextSummarizationApi } = require('@factset/sdk-naturallanguageprocessing');
@@ -173,6 +183,11 @@ Retrieve the summarization result from a job started with the other summarizatio
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, AITextSummarizationApi } = require('@factset/sdk-naturallanguageprocessing');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -246,6 +261,11 @@ Endpoint to summarize text
 Generate a paragraph-length summary of plain text
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, AITextSummarizationApi } = require('@factset/sdk-naturallanguageprocessing');

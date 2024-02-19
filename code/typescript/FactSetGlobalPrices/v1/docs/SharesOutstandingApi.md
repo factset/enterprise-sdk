@@ -19,6 +19,11 @@ Returns security level shares outstanding data for the given ids and dates. At t
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SharesOutstandingApi } = require('@factset/sdk-factsetglobalprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -117,6 +122,11 @@ Gets Shares Outstanding information for securities.
 Returns security level shares outstanding data for the given ids and dates. At this time, all values returned are split adjusted.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SharesOutstandingApi } = require('@factset/sdk-factsetglobalprices');

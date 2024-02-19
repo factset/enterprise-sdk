@@ -48,6 +48,11 @@ pip install fds.sdk.utils fds.protobuf.stach.extensions fds.sdk.SPAREngine==1.0.
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -85,7 +90,6 @@ configuration = fds.sdk.SPAREngine.Configuration(
 with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = accounts_api.AccountsApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     path = "Client:" # str | The directory to get the accounts and sub-directories.
 
     try:

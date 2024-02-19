@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "servers": [
     {
@@ -55,7 +55,8 @@
                           "orderQuantity": 1000,
                           "price": 450,
                           "currency": "USD",
-                          "handlingInstructions": "auto_ord_pub"
+                          "settlementType": "regular",
+                          "handlingInstructions": "autoOrderPublic"
                         },
                         {
                           "clientOrderId": "OR0000002",
@@ -67,7 +68,8 @@
                           "orderQuantity": 1000,
                           "price": 450,
                           "currency": "USD",
-                          "handlingInstructions": "auto_ord_pub"
+                          "settlementType": "regular",
+                          "handlingInstructions": "autoOrderPublic"
                         },
                         {
                           "clientOrderId": "OR0000003",
@@ -75,11 +77,12 @@
                             "symbol": "TSLA"
                           },
                           "side": "buy",
-                          "orderType": "market_on_close",
+                          "orderType": "marketOnClose",
                           "orderQuantity": 1000,
                           "price": 450,
                           "currency": "USD",
-                          "handlingInstructions": "auto_ord_pub"
+                          "settlementType": "regular",
+                          "handlingInstructions": "autoOrderPublic"
                         }
                       ]
                     }
@@ -99,7 +102,8 @@
                           "orderType": "market",
                           "orderQuantity": 1000,
                           "price": 450,
-                          "currency": "USD"
+                          "currency": "USD",
+                          "settlementType": "regular"
                         }
                       ]
                     }
@@ -127,11 +131,11 @@
                           "maxFloor": 20,
                           "settlementType": "regular",
                           "settlementDate": "20211024",
-                          "handlingInstructions": "auto_ord_pub",
+                          "handlingInstructions": "autoOrderPublic",
                           "locateRequired": false,
                           "account": "ACCT1",
                           "timeInForce": {
-                            "tif": "GTC"
+                            "tif": "goodTillCancel"
                           }
                         }
                       ]
@@ -154,7 +158,8 @@
                           "orderQuantity": 1000,
                           "price": 450,
                           "currency": "USD",
-                          "handlingInstructions": "auto_ord_pub",
+                          "settlementType": "regular",
+                          "handlingInstructions": "autoOrderPublic",
                           "account": "ACCT1"
                         }
                       ]
@@ -402,6 +407,236 @@
           }
         }
       }
+    },
+    "/child-orders/create": {
+      "post": {
+        "tags": [
+          "ChildOrders"
+        ],
+        "summary": "Create Child Orders",
+        "description": "This endpoint is used to create child orders.",
+        "operationId": "createChildOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EMSChildOrdersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EMSCreateChildOrdersResponseRoot"
+                },
+                "example": {
+                  "data": {
+                    "accepted": {
+                      "3280015": {
+                        "basketId": "FACTSET_OMS-100823_12345",
+                        "ticketId": "RKPW.3280015",
+                        "symbol": "FDS-USA"
+                      }
+                    },
+                    "rejected": {
+                      "3280015": {
+                        "message": "Ticket does not exist for ticketid: null",
+                        "basketId": "FACTSET_OMS-100823_12345",
+                        "ticketId": "RKPW.3280015",
+                        "symbol": "FDS-USA"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication."
+          },
+          "403": {
+            "description": "User is forbidden with current credentials."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
+          },
+          "429": {
+            "description": "Rate limit reached. Wait before sending further requests."
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting."
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime."
+          }
+        }
+      }
+    },
+    "/child-orders/replace": {
+      "post": {
+        "tags": [
+          "ChildOrders"
+        ],
+        "summary": "Replace the Child Orders on EMS system.",
+        "description": "This endpoint takes the child order to be replaced on the EMS system.",
+        "operationId": "replaceChildOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EMSReplaceChildOrdersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EMSChildOrdersResponseRoot"
+                },
+                "example": {
+                  "data": {
+                    "accepted": {
+                      "3280015": {
+                        "ticketId": "RKPW.3280015",
+                        "symbol": "FDS-USA"
+                      }
+                    },
+                    "rejected": {
+                      "3280015": {
+                        "message": "Ticket does not exist for ticketid: null",
+                        "ticketId": "RKPW.3280015",
+                        "symbol": "FDS-USA"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication."
+          },
+          "403": {
+            "description": "User is forbidden with current credentials."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
+          },
+          "429": {
+            "description": "Rate limit reached. Wait before sending further requests."
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting."
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime."
+          }
+        }
+      }
+    },
+    "/child-orders/cancel": {
+      "post": {
+        "tags": [
+          "ChildOrders"
+        ],
+        "summary": "Cancel Child Orders",
+        "description": "This endpoint is to cancel a specific child order.",
+        "operationId": "cancelChildOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EMSCancelChildOrdersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EMSChildOrdersResponseRoot"
+                },
+                "example": {
+                  "data": {
+                    "accepted": {
+                      "3280015": {
+                        "ticketId": "RKPW.3280015",
+                        "symbol": "FDS-USA"
+                      }
+                    },
+                    "rejected": {
+                      "3280015": {
+                        "message": "Ticket does not exist for ticketid: null",
+                        "ticketId": "RKPW.3280015",
+                        "symbol": "FDS-USA"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication."
+          },
+          "403": {
+            "description": "User is forbidden with current credentials."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
+          },
+          "429": {
+            "description": "Rate limit reached. Wait before sending further requests."
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting."
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime."
+          }
+        }
+      }
     }
   },
   "components": {
@@ -419,6 +654,51 @@
           }
         },
         "description": "Client Error Response"
+      },
+      "EMSCancelChildOrder": {
+        "required": [
+          "ticketId"
+        ],
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "string",
+            "description": "Ticket Id for the child order to be cancelled",
+            "example": "RKPW.3280015"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Reason for cancelling the child order",
+            "nullable": true,
+            "example": "mistyped order quantity to be routed"
+          }
+        },
+        "description": "EMS Cancel Child Order"
+      },
+      "EMSCancelChildOrders": {
+        "required": [
+          "childOrders"
+        ],
+        "type": "object",
+        "properties": {
+          "childOrders": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EMSCancelChildOrder"
+            }
+          }
+        },
+        "description": "EMS Cancel Child Orders"
+      },
+      "EMSCancelChildOrdersRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSCancelChildOrders"
+          }
+        }
       },
       "EMSCancelOrder": {
         "required": [
@@ -466,6 +746,399 @@
           }
         }
       },
+      "EMSChildOrder": {
+        "required": [
+          "destination",
+          "orderQuantity",
+          "orderType",
+          "parentId"
+        ],
+        "type": "object",
+        "properties": {
+          "parentId": {
+            "$ref": "#/components/schemas/ParentId"
+          },
+          "side": {
+            "enum": [
+              "buy",
+              "sell",
+              "buyMinus",
+              "sellPlus",
+              "sellShort",
+              "sellShortExempt"
+            ],
+            "type": "string",
+            "description": "Side of the order.If the parent order side is 'buy', valid values are 'buy' or 'buyMinus'. If the parent order side is 'sell', valid values are 'sell' or 'sellPlus'",
+            "nullable": true,
+            "example": "buy"
+          },
+          "orderType": {
+            "enum": [
+              "market",
+              "limit",
+              "stop",
+              "stopLimit",
+              "marketOnClose",
+              "limitOrBetter"
+            ],
+            "type": "string",
+            "description": "Type of the order",
+            "example": "market"
+          },
+          "orderQuantity": {
+            "minimum": 0,
+            "type": "number",
+            "description": "Number of shares/Quantity to be routed. Must be less than or equal to the orderQuantity of the parent order.",
+            "format": "double",
+            "example": 250
+          },
+          "price": {
+            "type": "number",
+            "description": "Order price per share.",
+            "format": "double",
+            "nullable": true,
+            "example": 450
+          },
+          "timeInForce": {
+            "$ref": "#/components/schemas/TimeInForce"
+          },
+          "handlingInstructions": {
+            "enum": [
+              "autoOrderPrivate",
+              "autoOrderPublic",
+              "bestExecution"
+            ],
+            "type": "string",
+            "description": "Instructions for order handling on Broker trading floor.",
+            "nullable": true,
+            "example": "autoOrderPublic"
+          },
+          "exDestination": {
+            "type": "string",
+            "description": "Execution destination as defined by institution when order is entered.",
+            "default": "America Stock Exchange",
+            "nullable": true,
+            "example": "America Stock Exchange"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Represents the designated venue or location to which an order is intended to be routed.",
+            "example": "PAPER"
+          },
+          "stopPrice": {
+            "type": "number",
+            "description": "Stop-loss price to buy/sell stock at market.",
+            "format": "double",
+            "nullable": true,
+            "example": 250
+          },
+          "maxFloor": {
+            "type": "number",
+            "description": "Maximum number of shares within an order to be shown on the exchange floor at any given time.",
+            "format": "double",
+            "nullable": true,
+            "example": 100
+          },
+          "minQuantity": {
+            "type": "number",
+            "description": "Minimum quantity of an order to be executed.",
+            "format": "double",
+            "nullable": true,
+            "example": 120
+          },
+          "settlementType": {
+            "enum": [
+              "regular",
+              "cash",
+              "nextDay",
+              "tPlus2",
+              "tPlus3",
+              "tPlus4",
+              "future",
+              "whenIssued",
+              "sellersOption",
+              "tPlus5"
+            ],
+            "type": "string",
+            "description": "Order settlement period",
+            "nullable": true,
+            "example": "regular"
+          },
+          "settlementDate": {
+            "type": "string",
+            "description": "Specific date of trade settlement in YYYYMMDD format.",
+            "nullable": true,
+            "example": "20230823"
+          },
+          "executionInstructions": {
+            "enum": [
+              "notHeld",
+              "work",
+              "goAlong",
+              "overTheDay",
+              "held",
+              "participateDoNotInitiate",
+              "strictScale",
+              "tryToScale",
+              "stayOnBidSide",
+              "stayOnOfferSide",
+              "noCross",
+              "okToCross",
+              "callFirst",
+              "percentOfVolume",
+              "doNotIncrease",
+              "doNotReduce",
+              "allOrNone",
+              "reinstateOnSystemFailure",
+              "institutionsOnly",
+              "reinstateOnTradingHalt",
+              "cancelOnTradingHalt",
+              "lastPeg",
+              "midPricePeg",
+              "nonNegotiable",
+              "openingPeg",
+              "marketPeg",
+              "cancelOnSystemFailure",
+              "primaryPeg",
+              "suspend",
+              "fixedPegToLocalBestBid",
+              "customerDisplayInstruction",
+              "netting",
+              "pegToVWAP",
+              "tradeAlong",
+              "tryToStop",
+              "cancelIfNotBest",
+              "trailingStopPeg",
+              "strictLimit",
+              "ignorePriceValidityChecks",
+              "pegToLimitPrice",
+              "workToTargetStrategy",
+              "intermarketSweep",
+              "externalRoutingAllowed",
+              "externalRoutingNotAllowed",
+              "imbalanceOnly",
+              "singleExecutionRequestedForBlockTrade",
+              "bestExecution"
+            ],
+            "type": "string",
+            "description": "Instructions for order handling on exchange trading floor.",
+            "nullable": true,
+            "example": "notHeld"
+          },
+          "locateRequired": {
+            "type": "boolean",
+            "description": "Indicates whether the broker is to locate the stock in conjunction with a short sell order.",
+            "nullable": true,
+            "example": false
+          },
+          "text": {
+            "maxLength": 250,
+            "type": "string",
+            "description": "Free format text string.",
+            "nullable": true,
+            "example": "routing 10 orders to PAPER destination"
+          },
+          "profile": {
+            "type": "string",
+            "description": "A name given to broker algo",
+            "nullable": true
+          },
+          "userDefinedFields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User defined fields",
+            "nullable": true
+          }
+        },
+        "description": "EMS Child Orders"
+      },
+      "EMSChildOrderInfo": {
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "string",
+            "description": "Ticket Id for the child order",
+            "nullable": true,
+            "example": "RKPW.3280015"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Ticker symbol",
+            "nullable": true,
+            "example": "FDS-USA"
+          }
+        },
+        "description": "EMS Child Order Info"
+      },
+      "EMSChildOrderRejectedInfo": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Reason for rejection",
+            "nullable": true,
+            "example": "Ticket does not exist for ticketid: null"
+          },
+          "ticketId": {
+            "type": "string",
+            "description": "Ticket Id for the child order",
+            "nullable": true,
+            "example": "RKPW.3280015"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Ticker symbol",
+            "nullable": true,
+            "example": "FDS-USA"
+          }
+        },
+        "description": "EMS Child Order Rejected Info"
+      },
+      "EMSChildOrders": {
+        "required": [
+          "childOrders"
+        ],
+        "type": "object",
+        "properties": {
+          "childOrders": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EMSChildOrder"
+            }
+          }
+        }
+      },
+      "EMSChildOrdersResponse": {
+        "type": "object",
+        "properties": {
+          "accepted": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EMSChildOrderInfo"
+            },
+            "description": "Accepted Orders. Key is the clientOrderId of the request.",
+            "nullable": true
+          },
+          "rejected": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EMSChildOrderRejectedInfo"
+            },
+            "description": "Rejected Orders. Key is the clientOrderId of the request.",
+            "nullable": true
+          }
+        },
+        "description": "EMS Child Orders Response"
+      },
+      "EMSChildOrdersResponseRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSChildOrdersResponse"
+          }
+        },
+        "description": "EMS Response"
+      },
+      "EMSChildOrdersRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSChildOrders"
+          }
+        }
+      },
+      "EMSCreateChildOrderInfo": {
+        "type": "object",
+        "properties": {
+          "basketId": {
+            "type": "string",
+            "description": "Unique identifier assigned to basket order",
+            "nullable": true,
+            "example": "FACTSET_OMS-100823_12345"
+          },
+          "ticketId": {
+            "type": "string",
+            "description": "Ticket Id for the child order",
+            "nullable": true,
+            "example": "RKPW.3280015"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Ticker symbol",
+            "nullable": true,
+            "example": "FDS-USA"
+          }
+        }
+      },
+      "EMSCreateChildOrderRejectedInfo": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Reason for rejection",
+            "nullable": true,
+            "example": "Ticket does not exist for ticketid: null"
+          },
+          "basketId": {
+            "type": "string",
+            "description": "Unique identifier assigned to basket order",
+            "nullable": true,
+            "example": "FACTSET_OMS-100823_12345"
+          },
+          "ticketId": {
+            "type": "string",
+            "description": "Ticket Id for the child order",
+            "nullable": true,
+            "example": "RKPW.3280015"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Ticker symbol",
+            "nullable": true,
+            "example": "FDS-USA"
+          }
+        }
+      },
+      "EMSCreateChildOrdersResponse": {
+        "type": "object",
+        "properties": {
+          "accepted": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EMSCreateChildOrderInfo"
+            },
+            "description": "Accepted Orders. Key is the clientOrderId of the request.",
+            "nullable": true
+          },
+          "rejected": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EMSCreateChildOrderRejectedInfo"
+            },
+            "description": "Rejected Orders. Key is the clientOrderId of the request.",
+            "nullable": true
+          }
+        }
+      },
+      "EMSCreateChildOrdersResponseRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSCreateChildOrdersResponse"
+          }
+        },
+        "description": "EMS Response"
+      },
       "EMSOrder": {
         "required": [
           "instrument",
@@ -487,8 +1160,8 @@
             "enum": [
               "buy",
               "sell",
-              "sell_short",
-              "sell_short_exempt"
+              "sellShort",
+              "sellShortExempt"
             ],
             "type": "string",
             "description": "Side of the order.",
@@ -499,15 +1172,16 @@
               "market",
               "limit",
               "stop",
-              "stop_limit",
-              "market_on_close",
-              "limit_or_better"
+              "stopLimit",
+              "marketOnClose",
+              "limitOrBetter"
             ],
             "type": "string",
             "description": "Type of the order",
             "example": "market"
           },
           "orderQuantity": {
+            "minimum": 0,
             "type": "number",
             "description": "Number of shares/Quantity.",
             "format": "double",
@@ -542,7 +1216,7 @@
           },
           "isCovered": {
             "type": "boolean",
-            "description": "Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order",
+            "description": "Signifies if a specific order is a covered order. A covered order is one that involves an investment strategy with the capability to limit the potential loss of the order.",
             "nullable": true,
             "example": false
           },
@@ -568,6 +1242,18 @@
             "example": 100
           },
           "settlementType": {
+            "enum": [
+              "regular",
+              "cash",
+              "nextDay",
+              "tPlus2",
+              "tPlus3",
+              "tPlus4",
+              "future",
+              "whenIssued",
+              "sellersOption",
+              "tPlus5"
+            ],
             "type": "string",
             "description": "Order settlement period.",
             "nullable": true,
@@ -581,69 +1267,69 @@
           },
           "handlingInstructions": {
             "enum": [
-              "auto_ord_pvt",
-              "auto_ord_pub",
-              "best_execution"
+              "autoOrderPrivate",
+              "autoOrderPublic",
+              "bestExecution"
             ],
             "type": "string",
             "description": "Instructions for order handling on Broker trading floor.",
             "nullable": true,
-            "example": "auto_ord_pub"
+            "example": "autoOrderPublic"
           },
           "executionInstructions": {
             "enum": [
-              "not_held",
+              "notHeld",
               "work",
-              "go_along",
-              "over_the_day",
+              "goAlong",
+              "overTheDay",
               "held",
-              "participate_dont_initiate",
-              "strict_scale",
-              "try_to_scale",
-              "stay_on_bidside",
-              "stay_on_offerside",
-              "no_cross",
-              "ok_to_cross",
-              "call_first",
-              "percent_of_volume",
-              "do_not_increase",
-              "do_not_reduce",
-              "all_or_none",
-              "reinstate_on_system_failure",
-              "institutions_only",
-              "reinstate_on_trading_halt",
-              "cancel_on_trading_halt",
-              "last_peg",
-              "mid_price_peg",
-              "non_negotiable",
-              "opening_peg",
-              "market_peg",
-              "cancel_on_system_failure",
-              "primary_peg",
+              "participateDoNotInitiate",
+              "strictScale",
+              "tryToScale",
+              "stayOnBidSide",
+              "stayOnOfferSide",
+              "noCross",
+              "okToCross",
+              "callFirst",
+              "percentOfVolume",
+              "doNotIncrease",
+              "doNotReduce",
+              "allOrNone",
+              "reinstateOnSystemFailure",
+              "institutionsOnly",
+              "reinstateOnTradingHalt",
+              "cancelOnTradingHalt",
+              "lastPeg",
+              "midPricePeg",
+              "nonNegotiable",
+              "openingPeg",
+              "marketPeg",
+              "cancelOnSystemFailure",
+              "primaryPeg",
               "suspend",
-              "fixed_peg_to_local_best_bid",
-              "customer_display_instruction",
+              "fixedPegToLocalBestBid",
+              "customerDisplayInstruction",
               "netting",
-              "peg_to_vwap",
-              "trade_along",
-              "try_to_stop",
-              "cancel_if_not_best",
-              "trailing_stop_peg",
-              "strict_limit",
-              "ignore_price_validity_checks",
-              "peg_to_limit_price",
-              "work_to_target_strategy",
-              "intermarket_sweep",
-              "external_routing_allowed",
-              "external_routing_not_allowed",
-              "imbalance_only",
-              "single_execution_requested_for_block_trade",
-              "best_execution"
+              "pegToVWAP",
+              "tradeAlong",
+              "tryToStop",
+              "cancelIfNotBest",
+              "trailingStopPeg",
+              "strictLimit",
+              "ignorePriceValidityChecks",
+              "pegToLimitPrice",
+              "workToTargetStrategy",
+              "intermarketSweep",
+              "externalRoutingAllowed",
+              "externalRoutingNotAllowed",
+              "imbalanceOnly",
+              "singleExecutionRequestedForBlockTrade",
+              "bestExecution"
             ],
             "type": "string",
             "description": "Instructions for order handling on exchange trading floor.",
             "nullable": true,
-            "example": "not_held"
+            "example": "notHeld"
           },
           "locateRequired": {
             "type": "boolean",
@@ -694,11 +1380,11 @@
             "enum": [
               "buy",
               "sell",
-              "sell_short",
-              "sell_short_exempt"
+              "sellShort",
+              "sellShortExempt"
             ],
             "type": "string",
-            "description": "Side of the order.",
+            "description": "Side of the order",
             "nullable": true
           },
           "orderType": {
@@ -706,9 +1392,9 @@
               "market",
               "limit",
               "stop",
-              "stop_limit",
-              "market_on_close",
-              "limit_or_better"
+              "stopLimit",
+              "marketOnClose",
+              "limitOrBetter"
             ],
             "type": "string",
             "description": "Type of the order",
@@ -804,6 +1490,30 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/EMSOrders"
+          }
+        }
+      },
+      "EMSReplaceChildOrders": {
+        "required": [
+          "childOrders"
+        ],
+        "type": "object",
+        "properties": {
+          "childOrders": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReplaceChildOrder"
+            }
+          }
+        }
+      },
+      "EMSReplaceChildOrdersRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSReplaceChildOrders"
           }
         }
       },
@@ -904,6 +1614,7 @@
         "type": "object",
         "properties": {
           "symbol": {
+            "maxLength": 250,
             "type": "string",
             "description": "Ticker symbol",
             "example": "TATAMOTORS"
@@ -960,33 +1671,232 @@
         },
         "description": "Instrument"
       },
+      "ParentId": {
+        "required": [
+          "basketId",
+          "symbol"
+        ],
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Ticker symbol",
+            "example": "FDS-USA"
+          },
+          "basketId": {
+            "type": "string",
+            "description": "Unique identifier assigned to basket order. Can be fetched from the WebSocket Order Update API.",
+            "example": "FACTSET_OMS-100823_12345"
+          }
+        },
+        "description": "Unique identifier to identify the parent order."
+      },
+      "ReplaceChildOrder": {
+        "required": [
+          "ticketId"
+        ],
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "string",
+            "description": "Ticket Id for the child order to be replaced",
+            "example": "RKPW.3280015"
+          },
+          "orderType": {
+            "enum": [
+              "market",
+              "limit",
+              "stop",
+              "stopLimit",
+              "marketOnClose",
+              "limitOrBetter"
+            ],
+            "type": "string",
+            "description": "Type of the order",
+            "nullable": true,
+            "example": "market"
+          },
+          "orderQuantity": {
+            "minimum": 0,
+            "type": "number",
+            "description": "Number of shares/Quantity to be routed. Must be less than or equal to the orderQuantity of the parent order.",
+            "format": "double",
+            "nullable": true,
+            "example": 100
+          },
+          "price": {
+            "type": "number",
+            "description": "Order price per share.",
+            "format": "double",
+            "nullable": true,
+            "example": 450
+          },
+          "timeInForce": {
+            "$ref": "#/components/schemas/TimeInForce"
+          },
+          "handlingInstructions": {
+            "enum": [
+              "autoOrderPrivate",
+              "autoOrderPublic",
+              "bestExecution"
+            ],
+            "type": "string",
+            "description": "Instructions for order handling on Broker trading floor.",
+            "nullable": true,
+            "example": "autoOrderPublic"
+          },
+          "stopPrice": {
+            "type": "number",
+            "description": "Stop-loss price to buy/sell stock at market.",
+            "format": "double",
+            "nullable": true,
+            "example": 120
+          },
+          "maxFloor": {
+            "type": "number",
+            "description": "Maximum number of shares within an order to be shown on the exchange floor at any given time.",
+            "format": "double",
+            "nullable": true,
+            "example": 200
+          },
+          "minQuantity": {
+            "type": "number",
+            "description": "Minimum quantity of an order to be executed.",
+            "format": "double",
+            "nullable": true,
+            "example": 120
+          },
+          "settlementType": {
+            "enum": [
+              "regular",
+              "cash",
+              "nextDay",
+              "tPlus2",
+              "tPlus3",
+              "tPlus4",
+              "future",
+              "whenIssued",
+              "sellersOption",
+              "tPlus5"
+            ],
+            "type": "string",
+            "description": "Order settlement period",
+            "nullable": true,
+            "example": "regular"
+          },
+          "settlementDate": {
+            "type": "string",
+            "description": "Specific date of trade settlement in YYYYMMDD format.",
+            "nullable": true,
+            "example": "20230823"
+          },
+          "executionInstructions": {
+            "enum": [
+              "notHeld",
+              "work",
+              "goAlong",
+              "overTheDay",
+              "held",
+              "participateDoNotInitiate",
+              "strictScale",
+              "tryToScale",
+              "stayOnBidSide",
+              "stayOnOfferSide",
+              "noCross",
+              "okToCross",
+              "callFirst",
+              "percentOfVolume",
+              "doNotIncrease",
+              "doNotReduce",
+              "allOrNone",
+              "reinstateOnSystemFailure",
+              "institutionsOnly",
+              "reinstateOnTradingHalt",
+              "cancelOnTradingHalt",
+              "lastPeg",
+              "midPricePeg",
+              "nonNegotiable",
+              "openingPeg",
+              "marketPeg",
+              "cancelOnSystemFailure",
+              "primaryPeg",
+              "suspend",
+              "fixedPegToLocalBestBid",
+              "customerDisplayInstruction",
+              "netting",
+              "pegToVWAP",
+              "tradeAlong",
+              "tryToStop",
+              "cancelIfNotBest",
+              "trailingStopPeg",
+              "strictLimit",
+              "ignorePriceValidityChecks",
+              "pegToLimitPrice",
+              "workToTargetStrategy",
+              "intermarketSweep",
+              "externalRoutingAllowed",
+              "externalRoutingNotAllowed",
+              "imbalanceOnly",
+              "singleExecutionRequestedForBlockTrade",
+              "bestExecution"
+            ],
+            "type": "string",
+            "description": "Instructions for order handling on exchange trading floor.",
+            "nullable": true,
+            "example": "notHeld"
+          },
+          "locateRequired": {
+            "type": "boolean",
+            "description": "Indicates whether the broker is to locate the stock in conjunction with a short sell order.",
+            "nullable": true,
+            "example": false
+          },
+          "text": {
+            "maxLength": 250,
+            "type": "string",
+            "description": "Free format text string.",
+            "nullable": true,
+            "example": "Replacing price to 300 for 50 orders"
+          },
+          "userDefinedFields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User defined fields",
+            "nullable": true
+          }
+        },
+        "description": "EMS Replace Child Orders"
+      },
       "TimeInForce": {
         "type": "object",
         "properties": {
           "tif": {
             "enum": [
-              "DAY",
-              "GTC",
-              "OPG",
-              "IOC",
-              "FOK",
-              "GTX",
-              "GTD",
-              "ATC"
+              "day",
+              "goodTillCancel",
+              "atTheOpening",
+              "immediateOrCancel",
+              "fillOrKill",
+              "goodTillCrossing",
+              "goodTillDate",
+              "atc"
             ],
             "type": "string",
-            "description": "Time in force: if GTD, then Expire Time or Expire Date is a required field",
-            "default": "DAY"
+            "description": "Time in force: if goodTillDate, then Expire Time or Expire Date is a required field"
           },
           "expireDate": {
             "type": "string",
             "description": "Expire date in YYYYMMDD format expressed in UTC",
-            "nullable": true
+            "nullable": true,
+            "example": "20230823"
           },
           "expireTime": {
             "type": "string",
             "description": "Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC",
-            "nullable": true
+            "nullable": true,
+            "example": "20230823-12:20:25"
           }
         },
         "description": "Time in Force"
@@ -1008,18 +1918,22 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Orders",
-      "description": "These endpoints relate to Order Entry."
-    }
-  ],
   "security": [
     {
       "FactSetApiKey": []
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Orders",
+      "description": "These endpoints relate to Order Entry."
+    },
+    {
+      "name": "ChildOrders",
+      "description": "These endpoints relate to Order Routing."
     }
   ],
   "externalDocs": {

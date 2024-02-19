@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.FactSetNER==0.21.8
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,7 +88,6 @@ configuration = fds.sdk.FactSetNER.Configuration(
 with fds.sdk.FactSetNER.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entities_api.EntitiesApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     payload = Input(
         text="As demand for the coronavirus vaccine plateaus, Ohio Governor Mike DeWine is giving state residents a shot to win $1 million. Starting May 26, the state will award $1 million each week to an adult who has received at least the first dose of the COVID-19 vaccine, DeWine said. There will be five total drawings. This will give anyone who has not been vaccinated time to get the first dose of Pfizer or Moderna and be well on the way to full immunity, DeWine said Wednesday. West Virginia Governor Jim Justice wanted to give every vaccinated resident between the ages of 16 and 35 a $100 savings bond. States and localities have been given wide discretion by the Treasury Department in spending federal aid.",
         filter_entities=True,

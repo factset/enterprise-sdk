@@ -66,6 +66,11 @@ pip install fds.sdk.utils fds.sdk.DocumentsDistributorDocuments==0.21.9
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -103,9 +108,7 @@ configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
 with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_filings_api_api.GlobalFilingsAPIApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = dateutil_parser('1970-01-01').date() # date | The earliest date the API should fetch for. Dates can be YYYY-MM-DD format
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = dateutil_parser('1970-01-01').date() # date | The date after upto eight days of the earliest date given the API should fetch for. Dates can be YYYY-MM-DD format
 
     try:

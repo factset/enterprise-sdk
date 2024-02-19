@@ -22,6 +22,11 @@ Returns ratings from the FactSet Estimates database for current and historical f
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimates.ApiClient;
@@ -120,6 +125,11 @@ Returns ratings from the FactSet Estimates database for current and historical f
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimates.ApiClient;
@@ -212,6 +222,11 @@ Retrieves the Broker Level ratings for the requested Id and date range. Ratings 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -311,6 +326,11 @@ Retrieves the Broker Level ratings for the requested Id and date range. Ratings 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

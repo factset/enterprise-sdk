@@ -28,6 +28,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -103,6 +108,11 @@ Name | Type | Description  | Notes
 Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
@@ -180,6 +190,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -256,6 +271,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -329,6 +349,11 @@ Name | Type | Description  | Notes
 Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
@@ -408,6 +433,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -483,6 +513,11 @@ Name | Type | Description  | Notes
 Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
@@ -560,6 +595,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -635,6 +675,11 @@ Name | Type | Description  | Notes
 Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
@@ -714,6 +759,11 @@ Returns the end results of a long running request. The full URL is normally prov
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -789,6 +839,11 @@ Name | Type | Description  | Notes
 Returns the current status of a long running request. The full URL is normally provided for you in the Location header of a long running response.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, LongRunningApi } = require('@factset/sdk-ofdb');

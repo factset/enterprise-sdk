@@ -16,6 +16,11 @@ Request returns a quote at the specified time
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, QuoteAtTimeApi } = require('@factset/sdk-factsetintradaytickhistory');
 const { ConfidentialClient } = require('@factset/sdk-utils');

@@ -20,6 +20,11 @@ Finds the best people candidates matching the given name. <p>**Max of 1 Name per
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetConcordance.ApiClient;
@@ -123,6 +128,11 @@ Finds the best candidate people matching the given people names. Additional attr
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

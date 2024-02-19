@@ -19,6 +19,11 @@ Finds the best people candidates matching the given name. &lt;p&gt;**Max of 1 Na
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PeopleMatchApi } = require('@factset/sdk-factsetconcordance');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -106,6 +111,11 @@ Find potential people matches given a person&#39;s name.
 Finds the best candidate people matching the given people names. Additional attributes can be supplied to narrow the search. If a &#x60;universeId&#x60; is provided, any match for an input including a &#x60;clientId&#x60; will be saved to that universe. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PeopleMatchApi } = require('@factset/sdk-factsetconcordance');

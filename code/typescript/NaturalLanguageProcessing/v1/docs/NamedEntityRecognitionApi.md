@@ -18,6 +18,11 @@ Detect entities (People, Places, Organizations, etc.) in plain text
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, NamedEntityRecognitionApi } = require('@factset/sdk-naturallanguageprocessing');
 const { ConfidentialClient } = require('@factset/sdk-utils');

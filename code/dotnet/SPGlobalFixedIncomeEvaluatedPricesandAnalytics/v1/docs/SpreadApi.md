@@ -18,6 +18,12 @@ Get the Spread and OAS data for a list of securities
 Get spread details like discount margin, OAS, Asset Swap Spread, Z Spread, spread benchmark provided by Markit for a specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Request the Spread and OAS data for a list of securities
 Get spread details like discount margin, OAS, Asset Swap Spread, Z Spread, spread benchmark provided by Markit for a specified date range and frequency. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

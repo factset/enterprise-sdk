@@ -18,6 +18,12 @@ Gets dividend information for a given date range and list of securities
 Get the dividend amounts, dates, types, and flags over a specified date range. You may request future dates to receive information for declared dividends.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Requests dividend information for a given date range and list of securities
 Get the dividend amounts, dates, types, and flags over a specified date range
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

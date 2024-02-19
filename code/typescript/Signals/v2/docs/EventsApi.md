@@ -23,6 +23,11 @@ Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-signals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Name | Type | Description  | Notes
 Fetch Signals event headlines plus all additional event details for a single requested Signal event
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-signals');
@@ -171,6 +181,11 @@ Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-signals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -244,6 +259,11 @@ Name | Type | Description  | Notes
 Fetch Signals event headlines plus all additional event details for up to 1000 identifiers and at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-signals');
@@ -319,6 +339,11 @@ Fetch FactSet entity IDs for events that match the filtering criteria
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-signals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -392,6 +417,11 @@ Name | Type | Description  | Notes
 Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers and at least one of the following filtering parameters: &#x60;ids&#x60;, &#x60;portfolios&#x60;
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, EventsApi } = require('@factset/sdk-signals');

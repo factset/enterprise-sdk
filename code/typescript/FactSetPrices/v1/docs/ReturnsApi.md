@@ -21,6 +21,11 @@ Retrieves various return periods as of a given date for a requested list of secu
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReturnsApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -105,6 +110,11 @@ Retrieves various return periods as of a given date for a requested list of secu
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReturnsApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -178,6 +188,11 @@ Gets Returns for a list of &#x60;ids&#x60; as of given date range and rolling Pe
 The simple or compound return for the requested frequency and/or rollingPeriod. Depending on the input parameters the return will adjust accordingly. If you simply use frequency and no rollingPeriod, the return value will represent the frequency period. If you use rollingPeriod, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReturnsApi } = require('@factset/sdk-factsetprices');
@@ -268,6 +283,11 @@ Requests security returns for the given date range and rollingPeriod.
 The simple or compound return for the requested frequency and/or rollingPeriod. Depending on the input parameters the return will adjust accordingly. If you simply use frequency and no rollingPeriod, the return value will represent the frequency period. If you use rollingPeriod, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReturnsApi } = require('@factset/sdk-factsetprices');

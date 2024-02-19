@@ -19,6 +19,11 @@ This endpoint looks up all ACCT and ACTM files and sub-directories in a given di
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.SPAREngine.ApiClient;
@@ -112,6 +117,11 @@ Get SPAR account returns type details
 This endpoint returns the returns type of account associated with SPAR
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

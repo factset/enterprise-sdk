@@ -21,6 +21,11 @@ Return the full history of SEDOL changes for a given market security or FactSet 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SEDOLApi } = require('@factset/sdk-symbology');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -95,6 +100,11 @@ Translate market security symbols into SEDOL and FactSet Permanent Identifiers. 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SEDOLApi } = require('@factset/sdk-symbology');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -168,6 +178,11 @@ Retrieve the full history or as of a specific date of SEDOL changes for the requ
 Returns the full history of SEDOL changes for a given security or as of a requested date. The service will default to returning the full history if no asOfDate is requested. Visit [OA 3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more details. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SEDOLApi } = require('@factset/sdk-symbology');
@@ -246,6 +261,11 @@ Translate market security symbols into SEDOL. - Current Only
 Translate market security symbols into SEDOL and FactSet Permanent Identifiers. Visit [OA 3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more details regarding the SEDOL numbering system. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SEDOLApi } = require('@factset/sdk-symbology');

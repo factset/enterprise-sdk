@@ -18,6 +18,11 @@ This endpoint looks up all FactSet Portfolio Optimizer strategy documents and su
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StrategyDocumentsApi } = require('@factset/sdk-factsetportfoliooptimizer');
 const { ConfidentialClient } = require('@factset/sdk-utils');

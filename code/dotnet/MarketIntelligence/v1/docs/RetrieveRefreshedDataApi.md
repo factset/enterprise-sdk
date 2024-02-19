@@ -17,6 +17,12 @@ Retrieve data for desired report.
 Endpoint to retrieve raw data in JSON format for a particular Market Intelligence report.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

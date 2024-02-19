@@ -19,6 +19,11 @@ This endpoint returns details for a Vault configuration as well as a list of acc
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ConfigurationsApi } = require('@factset/sdk-vault');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Get Vault configurations
 This endpoint returns all the Vault configurations saved in the provided account.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ConfigurationsApi } = require('@factset/sdk-vault');

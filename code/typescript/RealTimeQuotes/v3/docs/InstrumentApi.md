@@ -47,6 +47,11 @@ Background texts of an instrument.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -128,6 +133,11 @@ Compliance properties of an instrument.
 Compliance properties of an instrument.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -211,6 +221,11 @@ Composite instrument and its components.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -293,6 +308,11 @@ List of day count convention types.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -371,6 +391,11 @@ List of interest rate types.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -448,6 +473,11 @@ Interest rate details for selected periods of an interest-bearing instrument.
 Interest rate details for selected periods of an interest-bearing instrument; any other instrument yields empty values.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -531,6 +561,11 @@ List of coupons for an interest-bearing instrument; any other instrument yields 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -613,6 +648,11 @@ Translate a given ISIN to the respective most recent instrument identifier, retr
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -691,6 +731,11 @@ Translate a given WKN to the respective most recent instrument identifier, retri
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -768,6 +813,11 @@ ISIN to instrument translation history.
 Retrieve the complete translation history of a given ISIN to the respective instrument association from the Cross Reference Service. The results are sorted in descending order, starting with the most recent.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -851,6 +901,11 @@ Retrieve the complete translation history of a given WKN to the respective instr
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -932,6 +987,11 @@ Retrieve an exchange rate instrument identifier.
 Retrieve an exchange rate instrument identifier using the identifier of the main currencies represented by that exchange rate.    An error is returned if one of the provided parameters is invalid or if no instrument is associated with the given combination of parameters.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -1015,6 +1075,11 @@ Retrieve an exchange rate instrument identifier using the ISO 4217 code of the m
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1096,6 +1161,11 @@ Basic data for an instrument.
 Basic data for an instrument.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -1179,6 +1249,11 @@ Basic data for an instrument.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1258,6 +1333,11 @@ Role-specific background texts of legal entities related to an instrument.
 Role-specific background texts of legal entities related to an instrument.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -1341,6 +1421,11 @@ Role-specic compliance properties of legal entities related to an instrument.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1423,6 +1508,11 @@ MiFID II data for a specified financial instrument. The instruments governed by 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1504,6 +1594,11 @@ Basic search for instruments.
 Search for instruments whose ISIN, specified NSINs, or name match the search value according to a tolerant full-text match algorithm. Better matching results appear in the response before less relevant matches.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -1595,6 +1690,11 @@ Set of custom instrument-level selection lists.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1670,6 +1770,11 @@ For each given instrument, returns the instrument-level selection lists of which
 For each given instrument, returns the instrument-level selection lists of which the instrument is a member.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -1751,6 +1856,11 @@ List of background text types for instruments.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1826,6 +1936,11 @@ List of benchmarks of a financial instrument.
 Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -1903,6 +2018,11 @@ List of categories assigned to a specific instrument the application is entitled
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1978,6 +2098,11 @@ List of compliance properties for instruments.
 List of compliance properties for instruments.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -2055,6 +2180,11 @@ Translate a given list of ISINs to the respective most recent instrument identif
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2129,6 +2259,11 @@ Translate a given list of WKNs to the respective most recent instrument identifi
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2202,6 +2337,11 @@ List of active, entitled notations for a set of instruments.
 List of active, entitled notations for a set of instruments. By default the list of notations (per instrument) is sorted descending by the trading volume, averaged over one month. All identifiers used as parameters must be valid and entitled.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
@@ -2279,6 +2419,11 @@ List of rating grades for a list of instruments. The list can be restricted to r
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -2354,6 +2499,11 @@ List of instruments belonging to an instrument-level selection list.
 List of instruments belonging to an instrument-level selection list.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, InstrumentApi } = require('@factset/sdk-realtimequotes');

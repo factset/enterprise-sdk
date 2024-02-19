@@ -19,6 +19,11 @@ Returns the daily files from Open:FactSet Partner - Orbit.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, OrbitApi } = require('@factset/sdk-openfactsetpartnersdocuments');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -108,6 +113,11 @@ Returns the history files from Open:FactSet Partner - Orbit
 Returns the historical files from February 28th, 2005 to current date. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, OrbitApi } = require('@factset/sdk-openfactsetpartnersdocuments');

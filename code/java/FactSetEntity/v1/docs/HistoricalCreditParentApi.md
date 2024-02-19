@@ -24,6 +24,11 @@ This endpoint uses a seven day calendar to account for changes that occur on all
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEntity.ApiClient;
@@ -121,6 +126,11 @@ This endpoint uses a seven day calendar to account for changes that occur on all
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

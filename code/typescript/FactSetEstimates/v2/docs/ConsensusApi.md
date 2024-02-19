@@ -21,6 +21,11 @@ Returns FactSet Estimates consensus data using fixed fiscal dates. For example, 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ConsensusApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -113,6 +118,11 @@ Returns FactSet Estimates consensus data using fixed fiscal dates. For example, 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ConsensusApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -186,6 +196,11 @@ Retrieves consensus estimates for a requested list of ids and rolling fiscal per
 Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ConsensusApi } = require('@factset/sdk-factsetestimates');
@@ -278,6 +293,11 @@ Retrieves consensus estimates for a requested list of ids and rolling fiscal per
 Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ConsensusApi } = require('@factset/sdk-factsetestimates');

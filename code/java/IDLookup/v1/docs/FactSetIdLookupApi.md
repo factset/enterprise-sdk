@@ -19,6 +19,11 @@ Service will accept request in JSON formatted request body. The request is sent 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.IDLookup.ApiClient;

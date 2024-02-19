@@ -20,6 +20,11 @@ Get spread details like discount margin, OAS, Asset Swap Spread, Z Spread, sprea
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.ApiClient;
@@ -119,6 +124,11 @@ Get spread details like discount margin, OAS, Asset Swap Spread, Z Spread, sprea
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

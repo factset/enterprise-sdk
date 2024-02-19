@@ -22,6 +22,11 @@ Returns FactSet Estimates consensus data using fixed fiscal dates. For example, 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimates.ApiClient;
@@ -130,6 +135,11 @@ Returns FactSet Estimates consensus data using fixed fiscal dates. For example, 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetEstimates.ApiClient;
@@ -221,6 +231,11 @@ Returns FactSet Estimates consensus data using rolling fiscal dates. <p>The roll
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -329,6 +344,11 @@ Returns FactSet Estimates consensus data using rolling fiscal dates. <p>The roll
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

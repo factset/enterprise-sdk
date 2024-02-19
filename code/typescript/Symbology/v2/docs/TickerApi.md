@@ -21,6 +21,11 @@ Returns the full history of Ticker-Exchange or Ticker-Region changes for a reque
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, TickerApi } = require('@factset/sdk-symbology');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -95,6 +100,11 @@ Returns the full history of Ticker-Exchange or Ticker-Region changes for a reque
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, TickerApi } = require('@factset/sdk-symbology');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -168,6 +178,11 @@ Returns the full history of Ticker-Exchange or Ticker-Region changes for a reque
 Return the full history of Ticker changes for a given market security or FactSet Permanent Id. &lt;p&gt; *GET Method is limited by URL Length of 2,048 characters. If a large universe of symbols is requested, it&#39;s advised to use POST method to retrieve the same response model.*&lt;/p&gt;
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, TickerApi } = require('@factset/sdk-symbology');
@@ -248,6 +263,11 @@ Returns the Ticker-Exchange or Ticker-Region for a given security. - Current Onl
 Returns the Ticker-Exchange or Ticker-Region for a given security.\\ 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, TickerApi } = require('@factset/sdk-symbology');

@@ -23,6 +23,11 @@ Use the `fields` parameter to request specific items only or request an entire c
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTermsandConditions.ApiClient;
@@ -122,6 +127,11 @@ Make Note, this does not represent all available fields within the Terms and Con
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTermsandConditions.ApiClient;
@@ -215,6 +225,11 @@ Use the `fields` parameter to request specific items only or request an entire c
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

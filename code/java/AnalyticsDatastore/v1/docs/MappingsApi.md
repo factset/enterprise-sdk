@@ -25,6 +25,11 @@ Note: Due to Swagger UI functionality, the redirect is automatically followed wh
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.time.LocalDate;
 // Import classes:
@@ -131,6 +136,11 @@ Note: Due to Swagger UI functionality, the redirect is automatically followed wh
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.time.LocalDate;
 // Import classes:
@@ -228,6 +238,11 @@ Takes report parameter inputs and returns the object location for the specified 
 Note: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.time.LocalDate;
@@ -332,6 +347,11 @@ Takes report parameter inputs and returns the object location for the specified 
 Note: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

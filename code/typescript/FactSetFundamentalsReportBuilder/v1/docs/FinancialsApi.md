@@ -20,6 +20,11 @@ Returns a standardized Balance Sheet based on industry.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FinancialsApi } = require('@factset/sdk-factsetfundamentalsreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -104,6 +109,11 @@ Returns a standardized Cash Flow based on industry.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FinancialsApi } = require('@factset/sdk-factsetfundamentalsreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -187,6 +197,11 @@ Income Statement
 Returns a standardized Income Statement based on industry.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, FinancialsApi } = require('@factset/sdk-factsetfundamentalsreportbuilder');

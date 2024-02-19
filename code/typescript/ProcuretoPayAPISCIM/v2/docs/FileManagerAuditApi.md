@@ -16,6 +16,11 @@ Get File Manager audit data.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, FileManagerAuditApi } = require('@factset/sdk-procuretopayapiscim');
 const { ConfidentialClient } = require('@factset/sdk-utils');

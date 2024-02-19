@@ -90,9 +90,10 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="identifiers">Set of identifiers to filter on (optional)</param>
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <returns>List<MeetingSummaryDto></returns>
-        List<MeetingSummaryDto> GetMeetings(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?));
+        List<MeetingSummaryDto> GetMeetings(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
 
         /// <summary>
         /// Get all the meetings in the specified date range filtered on the given identifiers
@@ -106,9 +107,10 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="identifiers">Set of identifiers to filter on (optional)</param>
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <returns>ApiResponse of List<MeetingSummaryDto></returns>
-        ApiResponse<List<MeetingSummaryDto>> GetMeetingsWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?));
+        ApiResponse<List<MeetingSummaryDto>> GetMeetingsWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
         /// <summary>
         /// Update meeting
         /// </summary>
@@ -219,10 +221,11 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="identifiers">Set of identifiers to filter on (optional)</param>
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;MeetingSummaryDto&gt;</returns>
-        System.Threading.Tasks.Task<List<MeetingSummaryDto>> GetMeetingsAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<MeetingSummaryDto>> GetMeetingsAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all the meetings in the specified date range filtered on the given identifiers
@@ -236,10 +239,11 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="identifiers">Set of identifiers to filter on (optional)</param>
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List<MeetingSummaryDto>)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<MeetingSummaryDto>>> GetMeetingsWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<MeetingSummaryDto>>> GetMeetingsWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update meeting
         /// </summary>
@@ -932,11 +936,12 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="identifiers">Set of identifiers to filter on (optional)</param>
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <returns>List<MeetingSummaryDto></returns>
-        public List<MeetingSummaryDto> GetMeetings(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?))
+        public List<MeetingSummaryDto> GetMeetings(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
         {
-            var localVarResponse = GetMeetingsWithHttpInfo(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted);
+            var localVarResponse = GetMeetingsWithHttpInfo(start, end, identifiers, limit, modifiedSince, includeRelatedEntities, xIRNIncludeDeleted);
             return localVarResponse.Data;
         }
 
@@ -949,9 +954,10 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="identifiers">Set of identifiers to filter on (optional)</param>
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;MeetingSummaryDto&gt;</returns>
-        public ApiResponse<List<MeetingSummaryDto>> GetMeetingsWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?))
+        public ApiResponse<List<MeetingSummaryDto>> GetMeetingsWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -994,6 +1000,10 @@ namespace FactSet.SDK.IRNMeetings.Api
             if (modifiedSince != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToMultiMap("", "modifiedSince", modifiedSince));
+            }
+            if (includeRelatedEntities != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToMultiMap("", "includeRelatedEntities", includeRelatedEntities));
             }
             if (xIRNIncludeDeleted != null)
             {
@@ -1045,12 +1055,13 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="identifiers">Set of identifiers to filter on (optional)</param>
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;MeetingSummaryDto&gt;</returns>
-        public async System.Threading.Tasks.Task<List<MeetingSummaryDto>>GetMeetingsAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<MeetingSummaryDto>>GetMeetingsAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetMeetingsWithHttpInfoAsync(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetMeetingsWithHttpInfoAsync(start, end, identifiers, limit, modifiedSince, includeRelatedEntities, xIRNIncludeDeleted, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1063,11 +1074,12 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="identifiers">Set of identifiers to filter on (optional)</param>
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
+        /// <param name="includeRelatedEntities">When set to true fetches meetings tagged with all the entities related to identifiers param (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;MeetingSummaryDto&gt;)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingSummaryDto>>> GetMeetingsWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingSummaryDto>>> GetMeetingsWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? includeRelatedEntities = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -1111,6 +1123,10 @@ namespace FactSet.SDK.IRNMeetings.Api
             if (modifiedSince != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToMultiMap("", "modifiedSince", modifiedSince));
+            }
+            if (includeRelatedEntities != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToMultiMap("", "includeRelatedEntities", includeRelatedEntities));
             }
             if (xIRNIncludeDeleted != null)
             {

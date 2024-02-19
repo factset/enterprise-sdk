@@ -20,6 +20,11 @@ If the requested job is complete, the calculated file will be returned.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ModelRefreshApi } = require('@factset/sdk-investmentbankingofficerefresh');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -111,6 +116,11 @@ Check the status of the given job by ID
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ModelRefreshApi } = require('@factset/sdk-investmentbankingofficerefresh');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -184,6 +194,11 @@ Upload a model
 Upload a model (e.g., an Excel workbook in Open Office XML format) for FactSet to refresh.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ModelRefreshApi } = require('@factset/sdk-investmentbankingofficerefresh');

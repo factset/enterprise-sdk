@@ -19,6 +19,11 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, IdentifierResolutionApi } = require('@factset/sdk-symbology');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Returns the specified output identifiers for the specified input identifier.
 The Identifier Resolution endpoint provides flexibility for requesting and receiving both third-party and FactSet Permanent identifiers. Users can both input and output most of the listed identifiers, with exceptions noted below.  All input and output symbols must be declared, and users have the ability to resolve one input symbol to many different output symbols in one request.  * **BIC*** - Bank Identification Code (e.g. ABXXHKH1) * **CIK** - Edgar Central Index Keys (e.g. 0000100331) * **CRD** - Central Registration Depository (e.g. 149722) * **DUNS** - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 687741991) (Input only) * **EIN** - Employer Identification Number (e.g. 953540776) * **FITCH*** - Fitch Ratings Identifier (e.g. 47504) * **LEI** - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * **MD*** - Moody&#39;s Ratings Identifier (e.g. 0823736553) * **SPR*** - S&amp;P Ratings Identifier (e.g. 301939) * **VALOREN** - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) (Input only) * **WKN*** - German Securities Identification (\&quot;Wertpapierkennnummer\&quot;) (e.g. A0MU9T) * **UKCH** - UK Company House Identifier (e.g.CE012494) * **RSSD** - Federal Reserve RSSD Identifier (1139297) * **SEDOL*** * **CUSIP*** * **fsymEntityId** - FactSet entity Id * **fsymSecurityId** - FactSet security level permanent identifier * **fsymRegionalId** - FactSet regional level permanent identifier * **fsymListingId** - FactSet listing level permanent identifier * **ISIN*** * **tickerExchange** - Ticker Exchange is a marketplace where stocks, bonds, commodities, and derivatives are bought and sold. (e.g. GOOGL-NAS) * **tickerRegion** - Ticker Region is the geographical region or market segment where a particular stock or security is listed and traded. (e.g. GOOGL-US) * **bloombergFigi** - Bloomberg Listing/Regional/Security Identifier (output symbols: bloombergFigiListing, bloombergFigiRegional &amp; bloombergFigiSecurity) (e.g. BBG009S39JY5) * **bloombergTicker** - Bloomberg Listing and Regional Ticker Identifier (output symbols: bloombergRegionalTicker &amp; bloombergListingTicker) (e.g. GOOGL UW) * **GVKEY** - CompuStat Entity Identifier (e.g. 063172)(Input only) * **GVKEY &amp; IID** - CompuStat Security Identifier (e.g.063172001) (Input only) * **JCN** - Japan Corporate Number (e.g. 9011101021173) * **LoanX** - Markit Bank Loan Security Identifier (e.g. LX130668) (Input only) * **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input only)  **These symbol types require additional subscriptions. If you would like to gain access to these symbol types, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, IdentifierResolutionApi } = require('@factset/sdk-symbology');

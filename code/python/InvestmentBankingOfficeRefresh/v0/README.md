@@ -48,6 +48,11 @@ pip install fds.sdk.utils fds.sdk.InvestmentBankingOfficeRefresh==0.20.2
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.InvestmentBankingOfficeRefresh
@@ -84,13 +89,9 @@ configuration = fds.sdk.InvestmentBankingOfficeRefresh.Configuration(
 with fds.sdk.InvestmentBankingOfficeRefresh.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_refresh_api.ModelRefreshApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     body = open('/path/to/file', 'rb') # file_type | 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     now_handling_enabled = True # bool | Option to handle =NOW codes. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     refresh_auto_filters = True # bool | Option to refresh codes in autofilters. (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     resize_arrays = True # bool | Option to resize arrays (optional)
 
     try:

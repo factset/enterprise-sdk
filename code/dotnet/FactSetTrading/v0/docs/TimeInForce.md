@@ -5,7 +5,7 @@ Time in Force
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tif** | **string** | Time in force: if GTD, then Expire Time or Expire Date is a required field | [optional] [default to TifEnum.DAY]
+**Tif** | **string** | Time in force: if goodTillDate, then Expire Time or Expire Date is a required field | [optional] 
 **ExpireDate** | **string** | Expire date in YYYYMMDD format expressed in UTC | [optional] 
 **ExpireTime** | **string** | Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC | [optional] 
 

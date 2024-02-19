@@ -18,6 +18,12 @@ Get bond meta data for a list of securities.
 Get bond metadata like classification, maturity date, symbology information like isin, cusip, vendorid, ticker, issue and issuer name provided by Markit for a list of securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -123,6 +129,12 @@ Get bond meta data for a list of securities.
 Get bond metadata like classification, maturity date, symbology information like isin, cusip, vendorid, ticker, issue and issuer name provided by Markit for a list of securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

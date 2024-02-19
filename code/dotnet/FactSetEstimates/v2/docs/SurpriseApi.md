@@ -18,6 +18,12 @@ Surprise estimates for rolling fiscal periods
 Returns FactSet Estimates surprise data using rolling fiscal dates. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -129,6 +135,12 @@ Surprise estimates for rolling fiscal periods
 Returns FactSet Estimates surprise data using rolling fiscal dates. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

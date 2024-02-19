@@ -20,6 +20,12 @@ Request articles tagged with SASB lens categories from 2016-01-01 to previous da
 Articles endpoint allows to retrieve underlying news articles used by the AI engine to calculate the ESG Scores of companies and therefore provides ESG relevant news and also transparency into the ESG Scores. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -128,6 +134,12 @@ Request articles tagged with SASB lens categories from 2016-01-01 to previous da
 Articles endpoint allows to retrieve underlying news articles used by the AI engine to calculate the ESG Scores of companies and therefore provides ESG relevant news and also transparency into the ESG Scores. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -226,6 +238,12 @@ Request articles tagged with SDG lens categories from 2016-01-01 to previous day
 Articles endpoint allows to retrieve underlying news articles used by the AI engine to calculate the ESG Scores of companies and therefore provides ESG relevant news and also transparency into the ESG Scores. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -334,6 +352,12 @@ Request articles tagged with SDG lens categories from 2016-01-01 to previous day
 Articles endpoint allows to retrieve underlying news articles used by the AI engine to calculate the ESG Scores of companies and therefore provides ESG relevant news and also transparency into the ESG Scores. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

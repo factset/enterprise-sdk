@@ -20,6 +20,11 @@ Endpoint to obtain the results from the original Q&A task request. The `id` para
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.NaturalLanguageProcessing.ApiClient;
@@ -119,6 +124,11 @@ Endpoint to obtain the status of the Q&A task request. The `id` parameter repres
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.NaturalLanguageProcessing.ApiClient;
@@ -208,6 +218,11 @@ Endpoint to submit a question for answer(s)
 Endpoint to create a task submission by providing plain text and question(s). The underlying model will answer the question. The created task needs to be polled to obtain the results. Please check the schema(s) for each of the status codes for more details about the task.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

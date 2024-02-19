@@ -22,6 +22,11 @@ Return the full history of SEDOL changes for a given market security or FactSet 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Symbology.ApiClient;
@@ -114,6 +119,11 @@ Translate market security symbols into SEDOL and FactSet Permanent Identifiers. 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.Symbology.ApiClient;
@@ -205,6 +215,11 @@ Returns the full history of SEDOL changes for a given security or as of a reques
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -299,6 +314,11 @@ Translate market security symbols into SEDOL and FactSet Permanent Identifiers. 
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

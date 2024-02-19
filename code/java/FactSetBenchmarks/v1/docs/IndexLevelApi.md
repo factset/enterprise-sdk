@@ -24,6 +24,11 @@ Retrieves the index level ratios for a requested benchmark. Ratios supported are
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetBenchmarks.ApiClient;
@@ -128,6 +133,11 @@ Retrieves the index level ratios for a requested benchmark. Ratios supported are
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetBenchmarks.ApiClient;
@@ -219,6 +229,11 @@ Retrieves Index Level Prices and Returns information as of a date range requeste
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -328,6 +343,11 @@ Retrieves Index Level Prices and Returns information as aligned with FactSet's B
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetBenchmarks.ApiClient;
@@ -419,6 +439,11 @@ Retrieves Index Level Prices and Returns information as of a specific date. Simp
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -519,6 +544,11 @@ Retrieves Index Level Prices and Returns information as aligned with FactSet's B
 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

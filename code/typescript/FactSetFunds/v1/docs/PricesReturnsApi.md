@@ -25,6 +25,11 @@ Get Fund Prices (NAV) for a requested date range and list of ids.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesReturnsApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -113,6 +118,11 @@ Fetch fund prices (NAV) as of a requested date range and a large list of ids.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesReturnsApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -186,6 +196,11 @@ Get Fund Returns for a requested time-series
 Get Fund NAV Returns over a time-series for the requested date range and frequency. &lt;p&gt;The simple Total Return NAV shows the fund&#39;s total return level by reinvesting distributions so that ex-date NAVs are increased by the distribution amount and compounded thereafter. Total return NAV compounds daily and is calculated from the first available NAV date of each fund. The total return NAV series reflects the value that an investor would own if it had purchased one share at the inception date and reinvested all dividends on a Gross basis.&lt;/p&gt;&lt;p&gt; Control the dividends to include or exclude using the dividendAdjust parameter. The first available NAV date of each fund can be found in the /summary endpoint as &#x60;priceFristDate&#x60;. Visit [OA #21437](https://my.apps.factset.com/oa/pages/21437) for more details.&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesReturnsApi } = require('@factset/sdk-factsetfunds');
@@ -273,6 +288,11 @@ Get Fund NAV Returns over a time-series for the requested date range and frequen
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesReturnsApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -346,6 +366,11 @@ Get Fund Returns for a user-defined date range
 Get Fund Returns between a specified startDate and endDate. The service will compute the return between those two periods to retrieve the single value and does not create a time-series. Control the return type to include or exclude dividends by using the dividendAdjust parameter. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesReturnsApi } = require('@factset/sdk-factsetfunds');
@@ -429,6 +454,11 @@ Get Fund Returns between a specified startDate and endDate. The service will com
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, PricesReturnsApi } = require('@factset/sdk-factsetfunds');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -502,6 +532,11 @@ Get Fund Returns over pre-defined time horizons as of a specific date.
 Get Fund Returns over pre-defined time horizons as of a specific date. Use the date parameter to set the perspective date, and adjust the return type to include or exclude dividends using the dividendAdjust parameter. Returns Ranges include -  * oneWeek * oneMonth * threeMonth * yearToDate * oneYear * threeYear * threeYearAnnualized * fiveYear * fiveYearAnnualized 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesReturnsApi } = require('@factset/sdk-factsetfunds');
@@ -582,6 +617,11 @@ Get Fund Returns over pre-defined time horizons as of a specific date.
 Get Fund Returns over pre-defined time horizons as of a specific date. Use the date parameter to set the perspective date, and adjust the return type to include or exclude dividends using the dividendAdjust parameter. Returns Ranges include -  * oneWeek * oneMonth * threeMonth * yearToDate * oneYear * threeYear * threeYearAnnualized * fiveYear * fiveYearAnnualized  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, PricesReturnsApi } = require('@factset/sdk-factsetfunds');

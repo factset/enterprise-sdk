@@ -20,6 +20,11 @@ This endpoint takes the list of orders to be cancelled on the EMS system.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTrading.ApiClient;
@@ -113,6 +118,11 @@ This endpoint takes the list of orders and place them on EMS for execution.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetTrading.ApiClient;
@@ -205,6 +215,11 @@ Replace the orders on EMS system.
 This endpoint takes the list of orders to be replaced on the EMS system.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -19,6 +19,11 @@ Returns list of available Estimate metrics that can be used in the &#x60;metrics
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DataItemsApi } = require('@factset/sdk-factsetestimates');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Available Estimate metrics or ratios.
 Returns list of available Estimate metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. **By default, Factset provides Estimated items in millions. For specific metric methodology definitions, reference the &#x60;OAurl&#x60; response items to launch the available methodology page.**  
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DataItemsApi } = require('@factset/sdk-factsetestimates');

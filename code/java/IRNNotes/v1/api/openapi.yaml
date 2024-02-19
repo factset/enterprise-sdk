@@ -228,6 +228,16 @@ paths:
           default: false
           type: boolean
         style: form
+      - description: When set to true fetches notes tagged with all the entities related
+          to identifiers param
+        explode: true
+        in: query
+        name: includeRelatedEntities
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       - explode: false
         in: header
         name: X-IRN-Include-Deleted

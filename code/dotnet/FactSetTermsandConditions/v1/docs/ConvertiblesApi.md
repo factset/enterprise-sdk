@@ -22,6 +22,12 @@ Return Convertible Details for a list of Convertible Fixed Income securities.
 Returns Convertible Details for a list of securities, such as -   * Convertible Currency   * Convertible Effective Date   * Convertible Notice Days Max and Min   * Convertible Payment Form   * Convertible Payment Details   * Convertible Payment Form Election   * Convertible Price Method   * Convertible Type   * Convertibles Ratio   * More 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -119,6 +125,12 @@ Return Convertible Details data for a large list of Fixed Income securities.
 Returns Convertible Details for a list of securities, such as -   * Convertible Currency   * Convertible Effective Date   * Convertible Notice Days Max and Min   * Convertible Payment Form   * Convertible Payment Details   * Convertible Payment Form Election   * Convertible Price Method   * Convertible Type   * Convertibles Ratio   * More 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -216,6 +228,12 @@ Return Convertible History data for a list of Fixed Income securities.
 Returns Convertible History data for the Fixed Income security, including - * Convertibles Price * Convertibles Effective Date 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -313,6 +331,12 @@ Return Convertible History data for a large list of Fixed Income securities.
 Returns Convertible History data for a list of Fixed Income securities. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -410,6 +434,12 @@ Return Convertible Triggers data for a list of Fixed Income securities.
 Returns Convertible Triggers data for the Fixed Income security including the Convertible Trigger Id, Event, and Description. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -507,6 +537,12 @@ Return Convertible Trigger data for a large list of Fixed Income securities.
 Returns Convertible Triggers data for the Fixed Income security including the Convertible Trigger Id, Event, and Description. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

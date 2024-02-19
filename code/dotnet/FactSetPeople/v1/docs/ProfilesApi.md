@@ -18,6 +18,12 @@ Return information about the person with the specified entity ID.
 Returns a summary of basic information about the person referenced by the entityId specified in the URI. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -113,6 +119,12 @@ Name | Type | Description  | Notes
 Returns profile information for a large list of people.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

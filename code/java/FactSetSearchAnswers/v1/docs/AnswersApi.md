@@ -19,6 +19,11 @@ Returns an answer to the specified query (if valid answer exists) in the Adaptiv
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetSearchAnswers.ApiClient;
@@ -113,6 +118,11 @@ Fetch FactSet answer in data format
 Returns an answer to the specified query (if a valid answer exists). Returns the answer data only (as JSON), without any markup information.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

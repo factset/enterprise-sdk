@@ -20,6 +20,11 @@ Returns Terms and Conditions data items for the Fixed Income security. Includes 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, TermsConditionsApi } = require('@factset/sdk-factsettermsandconditions');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -100,6 +105,11 @@ Returns a list of available fields that can be used in the &#x60;fields&#x60; pa
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, TermsConditionsApi } = require('@factset/sdk-factsettermsandconditions');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -175,6 +185,11 @@ Return Terms and Conditions for a list of Fixed Income securities.
 Returns Terms and Conditions data items for the Fixed Income security. Includes reference items for Conditional Redemptions, Redemption Options, Security Details, Convertible Features, and Coupon Details. Use the &#x60;fields&#x60; parameter to request specific items only or request an entire category of items to fetch all available fields matching that category(s). &lt;p&gt;*For T&amp;C data related to Agency, Coupon History, Issue Size, Negative Covenants, or Redemption Prices, Lead Underwriters, and Use of Proceeds, please use respective endpoints optimized for that content.*&lt;/p&gt; 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, TermsConditionsApi } = require('@factset/sdk-factsettermsandconditions');

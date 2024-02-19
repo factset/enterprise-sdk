@@ -27,6 +27,11 @@ The endpoint is subscribable to provide push updates. See attribute `_subscripti
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -121,6 +126,11 @@ Most recent bid and ask prices (best bid / offer) for a list of notations.
 Most recent bid and ask prices (best bid / offer) for a list of notations.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:
@@ -218,6 +228,11 @@ The endpoint is subscribable to provide push updates. See attribute `_subscripti
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -313,6 +328,11 @@ Overview of trading on the most recent trading day, including the latest price, 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.RealTimeQuotes.ApiClient;
@@ -406,6 +426,11 @@ Orderbook aggregated by price.
 Orderbook aggregated by price.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 import java.math.BigDecimal;
@@ -502,6 +527,11 @@ Full orderbook
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 import java.math.BigDecimal;
 // Import classes:
@@ -597,6 +627,11 @@ Trading schedule event types define the events which may occur during any period
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.RealTimeQuotes.ApiClient;
@@ -682,6 +717,11 @@ Sequence of market-related events.
 Sequence of market-related events like the opening time or closing time of a market of a specific notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

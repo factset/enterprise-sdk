@@ -33,6 +33,11 @@ Provides key elements of a stock profile together with the profile of the issuin
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -115,6 +120,11 @@ List of dividend types.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -192,6 +202,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one mont
 End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
@@ -277,6 +292,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of three mo
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -360,6 +380,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of six mont
 End-of-day (EOD) benchmark key figures of a stock for the time range of six months.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
@@ -445,6 +470,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one week
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -528,6 +558,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one year
 End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
@@ -613,6 +648,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of three ye
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -696,6 +736,11 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of five yea
 End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
@@ -781,6 +826,11 @@ List of top-20 owners for a specific type of a company&#39;s shares.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -863,6 +913,11 @@ Target price and aggregated recommendations for a stock.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -942,6 +997,11 @@ Current and historical trade recommendations and target prices for a stock.
 Current and historical trade recommendations and target prices for a stock.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
@@ -1025,6 +1085,11 @@ List of dividends for a stock.
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1100,6 +1165,11 @@ Ranking of stocks&#39; notations using intraday figures.
 Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
@@ -1177,6 +1247,11 @@ Screener for stocks&#39; notations based on stock-specific parameters. The resul
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -1252,6 +1327,11 @@ Possible values and value ranges for the parameters used in the endpoint &#x60;/
 The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, StockApi } = require('@factset/sdk-stocksapifordigitalportals');

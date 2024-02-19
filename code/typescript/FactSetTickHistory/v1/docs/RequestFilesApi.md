@@ -18,6 +18,11 @@ Try it Out - references a Sandbox environment to simulate live reponses.&lt;/p&g
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, RequestFilesApi } = require('@factset/sdk-factsettickhistory');
 const { ConfidentialClient } = require('@factset/sdk-utils');

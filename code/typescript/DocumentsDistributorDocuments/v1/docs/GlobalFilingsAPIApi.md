@@ -18,6 +18,11 @@ Parameters can be used to get the filings
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, GlobalFilingsAPIApi } = require('@factset/sdk-documentsdistributordocuments');
 const { ConfidentialClient } = require('@factset/sdk-utils');

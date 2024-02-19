@@ -19,6 +19,11 @@ Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x6
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, DataItemsApi } = require('@factset/sdk-factsetfundamentals');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -96,6 +101,11 @@ Available fundamental metrics or ratios.
 Returns list of available FF_* metrics that can be used in the &#x60;metrics&#x60; parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As-Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for timeseries data with periodicity. Some items in this list are non-timeseries.        **For methodology definitions, reference the &#x60;OApageID&#x60; or &#x60;OAurl&#x60; response items to launch the available methodology page.** 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DataItemsApi } = require('@factset/sdk-factsetfundamentals');

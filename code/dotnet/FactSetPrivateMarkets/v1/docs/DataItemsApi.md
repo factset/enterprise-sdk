@@ -17,6 +17,12 @@ Available private company fields, metrics, and ratios.
 Returns list of available Private Company fields that can be used in the `fields` parameter of related endpoints. These are related to FactSet Private Company standardized data. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

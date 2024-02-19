@@ -58,6 +58,11 @@ pip install fds.sdk.utils fds.sdk.FactSetFunds==1.0.7
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -95,17 +100,11 @@ configuration = fds.sdk.FactSetFunds.Configuration(
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_flows__aum_api.FundFlowsAUMApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     start_date = "2018-12-31" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     frequency = "M" # str | Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly  (optional) if omitted the server will use the default value of "M"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) if omitted the server will use the default value of "LOCAL"
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     data_type = "ROLL" # str | The Data Type of the NAV expressed as Raw or Rolled values. (optional) if omitted the server will use the default value of "ROLL"
 
     try:

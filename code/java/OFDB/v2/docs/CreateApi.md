@@ -18,6 +18,11 @@ Creates a 2d or 3d database(OFDB). Users will note that not every field requires
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.OFDB.ApiClient;

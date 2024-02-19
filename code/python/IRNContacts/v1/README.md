@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.IRNContacts==1.0.8
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,7 +88,6 @@ configuration = fds.sdk.IRNContacts.Configuration(
 with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     contact_save_dto = ContactSaveDto(
         primary_email_address="primary_email_address_example",
         full_name="full_name_example",

@@ -20,6 +20,12 @@ Returns the price performance of the security and annualized compound total retu
 Retrieves various return periods as of a given date for a requested list of securities. This endpoint is very helpful for quickly retrieving a list of pre-calculated returns for application development.<p> Return periods include   * oneDay   * weekToDate   * monthToDate   * quarterToDate   * yearToDate   * oneMonth   * threeMonth   * sixMonth   * nineMonth   * oneYear   * twoYearAnnualized   * threeYearAnnualized   * fiveYearAnnualized   * tenYearAnnualized   * twentyYearAnnualized   * thirtyYearAnnualized   * ipoToDateAnnualized   </p> 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -125,6 +131,12 @@ Returns the price performance of the security and annualized compound total retu
 Retrieves various return periods as of a given date for a requested list of securities. This endpoint is very helpful for quickly retrieving a list of pre-calculated returns for application development.<p> Return periods include   * oneDay   * weekToDate   * monthToDate   * quarterToDate   * yearToDate   * oneMonth   * threeMonth   * sixMonth   * nineMonth   * oneYear   * twoYearAnnualized   * threeYearAnnualized   * fiveYearAnnualized   * tenYearAnnualized   * twentyYearAnnualized   * thirtyYearAnnualized   * ipoToDateAnnualized   </p> 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -222,6 +234,12 @@ Gets Returns for a list of `ids` as of given date range and rolling Period
 The simple or compound return for the requested frequency and/or rollingPeriod. Depending on the input parameters the return will adjust accordingly. If you simply use frequency and no rollingPeriod, the return value will represent the frequency period. If you use rollingPeriod, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -333,6 +351,12 @@ Requests security returns for the given date range and rollingPeriod.
 The simple or compound return for the requested frequency and/or rollingPeriod. Depending on the input parameters the return will adjust accordingly. If you simply use frequency and no rollingPeriod, the return value will represent the frequency period. If you use rollingPeriod, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;

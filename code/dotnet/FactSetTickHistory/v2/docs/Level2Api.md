@@ -4,21 +4,27 @@ All URIs are relative to *https://api.factset.com/tick-history/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetStatusLevel2**](Level2Api.md#getstatuslevel2) | **GET** /level2/files/status | Returns the status of the ID
-[**GetTickHistoryFilesLevel2**](Level2Api.md#gettickhistoryfileslevel2) | **GET** /level2/files/get | Returns the tick history files requested in the /create endpoint
-[**Getlevel2id**](Level2Api.md#getlevel2id) | **POST** /level2/files/create | Returns the ID for the requested data.
+[**GetLevel2FileStatus**](Level2Api.md#getlevel2filestatus) | **GET** /level2/files/status | Returns the status of the ID
+[**GetTickHistoryLevel2Files**](Level2Api.md#gettickhistorylevel2files) | **GET** /level2/files/get | Returns the tick history files requested in the /create endpoint
+[**RequestTickHistoryLeve2Files**](Level2Api.md#requesttickhistoryleve2files) | **POST** /level2/files/create | Returns the ID for the requested data.
 
 
 
-<a name="getstatuslevel2"></a>
-# **GetStatusLevel2**
-> CompletedResponse GetStatusLevel2 (string id)
+<a name="getlevel2filestatus"></a>
+# **GetLevel2FileStatus**
+> CompletedResponse GetLevel2FileStatus (string id)
 
 Returns the status of the ID
 
 Need to plug-in the id get from /create endpoint into /status endpoint
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Net;
@@ -30,7 +36,7 @@ using FactSet.SDK.FactSetTickHistory.Model;
 
 namespace Example
 {
-    public class GetStatusLevel2Example
+    public class GetLevel2FileStatusExample
     {
         public static async Task Main()
         {
@@ -62,7 +68,7 @@ namespace Example
             try
             {
                 // Returns the status of the ID
-                Level2Api.GetStatusLevel2ResponseWrapper result = apiInstance.GetStatusLevel2(id);
+                Level2Api.GetLevel2FileStatusResponseWrapper result = apiInstance.GetLevel2FileStatus(id);
 
                 switch (result.StatusCode)
                 {
@@ -79,7 +85,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling Level2Api.GetStatusLevel2: " + e.Message );
+                Console.WriteLine("Exception when calling Level2Api.GetLevel2FileStatus: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -95,7 +101,7 @@ Name | Type | Description  | Notes
  **id** | **string**| id returned by files create endpoint to poll and collect status of the query | 
 
 ### Return type
-GetStatusLevel2ResponseWrapper
+GetLevel2FileStatusResponseWrapper
 
 ### Authorization
 
@@ -120,15 +126,21 @@ GetStatusLevel2ResponseWrapper
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-<a name="gettickhistoryfileslevel2"></a>
-# **GetTickHistoryFilesLevel2**
-> LeveltwoGetFilesResponse GetTickHistoryFilesLevel2 (string id, int? paginationLimit = null, int? paginationOffset = null)
+<a name="gettickhistorylevel2files"></a>
+# **GetTickHistoryLevel2Files**
+> LeveltwoGetFilesResponse GetTickHistoryLevel2Files (string id, int? paginationLimit = null, int? paginationOffset = null)
 
 Returns the tick history files requested in the /create endpoint
 
 Returns the files from tickhistory endpoint
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Net;
@@ -140,7 +152,7 @@ using FactSet.SDK.FactSetTickHistory.Model;
 
 namespace Example
 {
-    public class GetTickHistoryFilesLevel2Example
+    public class GetTickHistoryLevel2FilesExample
     {
         public static async Task Main()
         {
@@ -174,7 +186,7 @@ namespace Example
             try
             {
                 // Returns the tick history files requested in the /create endpoint
-                Level2Api.GetTickHistoryFilesLevel2ResponseWrapper result = apiInstance.GetTickHistoryFilesLevel2(id, paginationLimit, paginationOffset);
+                Level2Api.GetTickHistoryLevel2FilesResponseWrapper result = apiInstance.GetTickHistoryLevel2Files(id, paginationLimit, paginationOffset);
 
                 switch (result.StatusCode)
                 {
@@ -191,7 +203,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling Level2Api.GetTickHistoryFilesLevel2: " + e.Message );
+                Console.WriteLine("Exception when calling Level2Api.GetTickHistoryLevel2Files: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -209,7 +221,7 @@ Name | Type | Description  | Notes
  **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] [default to 0]
 
 ### Return type
-GetTickHistoryFilesLevel2ResponseWrapper
+GetTickHistoryLevel2FilesResponseWrapper
 
 ### Authorization
 
@@ -235,15 +247,21 @@ GetTickHistoryFilesLevel2ResponseWrapper
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-<a name="getlevel2id"></a>
-# **Getlevel2id**
-> SubmittedResponse Getlevel2id (LevelTwoRequest levelTwoRequest)
+<a name="requesttickhistoryleve2files"></a>
+# **RequestTickHistoryLeve2Files**
+> SubmittedResponse RequestTickHistoryLeve2Files (LevelTwoRequest levelTwoRequest)
 
 Returns the ID for the requested data.
 
-Data available from past 6 years to current date.
+Data available from past 6 years to previous day.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -254,7 +272,7 @@ using FactSet.SDK.FactSetTickHistory.Model;
 
 namespace Example
 {
-    public class Getlevel2idExample
+    public class RequestTickHistoryLeve2FilesExample
     {
         public static async Task Main()
         {
@@ -286,12 +304,12 @@ namespace Example
             try
             {
                 // Returns the ID for the requested data.
-                SubmittedResponse result = apiInstance.Getlevel2id(levelTwoRequest);
+                SubmittedResponse result = apiInstance.RequestTickHistoryLeve2Files(levelTwoRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling Level2Api.Getlevel2id: " + e.Message );
+                Console.WriteLine("Exception when calling Level2Api.RequestTickHistoryLeve2Files: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }

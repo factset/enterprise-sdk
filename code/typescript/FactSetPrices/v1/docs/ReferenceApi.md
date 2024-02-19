@@ -19,6 +19,11 @@ Gets security reference details for a large list of &#x60;ids&#x60;, such as Nam
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetprices');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Gets security reference details for a list of securities
 Gets security reference details for a list of &#x60;ids&#x60;, such as Name, Security Type, Currency, Country, Primary Exchange, Local Index, and dates of First and Last Trade. 
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, ReferenceApi } = require('@factset/sdk-factsetprices');

@@ -21,6 +21,11 @@ Current Capitalization
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-overviewreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -92,6 +97,11 @@ Name | Type | Description  | Notes
 Financial / Estimate Highlights
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-overviewreportbuilder');
@@ -171,6 +181,11 @@ Overview Profile
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-overviewreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -243,6 +258,11 @@ Key Stats
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-overviewreportbuilder');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -314,6 +334,11 @@ Name | Type | Description  | Notes
 Peer List
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-overviewreportbuilder');
@@ -390,6 +415,11 @@ Name | Type | Description  | Notes
 Transactions
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, CompanyApi } = require('@factset/sdk-overviewreportbuilder');

@@ -46,6 +46,11 @@ pip install fds.sdk.utils fds.sdk.ContentFeedsDataDictionary==0.21.9
 3. [Install dependencies](#installation).
 4. Run the following:
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+### Example Code
+
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 
@@ -83,7 +88,6 @@ configuration = fds.sdk.ContentFeedsDataDictionary.Configuration(
 with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = navigator_api.NavigatorApi(api_client)
-    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     basic_search_request = BasicSearchRequest(None) # BasicSearchRequest | A list of search terms (each term must be at least two characters).
 
     try:

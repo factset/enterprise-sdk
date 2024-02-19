@@ -22,6 +22,11 @@ By default, this endpoint will return data as JSON. If you wish to receive your 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```java
 // Import classes:
 import com.factset.sdk.FactSetGlobalPrices.ApiClient;
@@ -118,6 +123,11 @@ Returns the status for a Batch Request
 Return the status for the underlying batch request that is specified by the id.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```java
 // Import classes:

@@ -18,6 +18,11 @@ When using an HTTP GET request, the seach criteria is sent via the query string 
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, TickHistoryApi } = require('@factset/sdk-factsetintradaytickhistory');
 const { ConfidentialClient } = require('@factset/sdk-utils');

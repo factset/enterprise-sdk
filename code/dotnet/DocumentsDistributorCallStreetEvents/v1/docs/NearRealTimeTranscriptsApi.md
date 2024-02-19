@@ -20,6 +20,12 @@ Returns the active calls happening at the moment.
 Returns the active calls happening at the moment
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -130,6 +136,12 @@ Returns the  indexed transcript data  in small increments throughout the duratio
 Returns the  indexed transcript data  in small increments throughout the duration of an active call.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -232,6 +244,12 @@ Returns the latest transcript snippets from an active call.
 Returns the latest snippets from an active call
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -334,6 +352,12 @@ Returns the latest speakerIds with the confidence scores generated for an active
 Returns the latest speakerIds with the cosine scores(confidence scores) generated for an active call.
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
