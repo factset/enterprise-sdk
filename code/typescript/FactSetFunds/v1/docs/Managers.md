@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **managerName** | **String** | Proper Name of the Fund Manager | [optional] 
 **managerTitle** | **String** | Proper Title of the Fund Manager | [optional] 
 **managerPhone** | **String** | Phone Number of the Fund Manager | [optional] 
-**managerInceptionDate** | **String** | Inception Date of the Fund Manager | [optional] 
+**managerInceptionDate** | **Date** | Inception Date of the Fund Manager | [optional] 
 **managerJobId** | **Number** | Job Identifier for the Fund Manager | [optional] 
 **requestId** | **String** | The requested Id sent as input. | [optional] 
 

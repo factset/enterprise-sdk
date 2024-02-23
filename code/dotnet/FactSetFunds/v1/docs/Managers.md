@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **ManagerName** | **string** | Proper Name of the Fund Manager | [optional] 
 **ManagerTitle** | **string** | Proper Title of the Fund Manager | [optional] 
 **ManagerPhone** | **string** | Phone Number of the Fund Manager | [optional] 
-**ManagerInceptionDate** | **string** | Inception Date of the Fund Manager | [optional] 
-**ManagerJobId** | **int** | Job Identifier for the Fund Manager | [optional] 
+**ManagerInceptionDate** | **DateTime?** | Inception Date of the Fund Manager | [optional] 
+**ManagerJobId** | **int?** | Job Identifier for the Fund Manager | [optional] 
 **RequestId** | **string** | The requested Id sent as input. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

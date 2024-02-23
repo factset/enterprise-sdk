@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.7.0
+  version: 1.7.1
   title: FactSet Formula API
   description: >
 
@@ -1485,10 +1485,8 @@ components:
         service will respond back with an HTTP Status Code of 202.
 
 
-        Individual users are limited to running 5 Batch Requests in a 5 minute
-        period and are allowed 5 concurrent Batch Requests. Production users are
-        limited to running 10 Batch Requests in a 5 minute period and are
-        allowed 10 concurrent Batch Requests.
+        Individual users are allowed 5 concurrent Batch Requests, while
+        Production users are allowed 10 concurrent Batch Requests.
 
         *This feature is available to Individual Users subscribed to the
         Performance Package and Performance Package Plus Performance Tiers and
@@ -1814,10 +1812,8 @@ components:
                 HTTP Status Code of 202.
 
 
-                Individual users are limited to running 5 Batch Requests in a 5
-                minute period and are allowed 5 concurrent Batch Requests.
-                Production users are limited to running 10 Batch Requests in a 5
-                minute period and are allowed 10 concurrent Batch Requests.
+                Individual users are allowed 5 concurrent Batch Requests, while
+                Production users are allowed 10 concurrent Batch Requests.
 
 
                 *This feature is available to Individual Users subscribed to the
@@ -2506,10 +2502,8 @@ components:
                 HTTP Status Code of 202.
 
 
-                Individual users are limited to running 5 Batch Requests in a 5
-                minute period and are allowed 5 concurrent Batch Requests.
-                Production users are limited to running 10 Batch Requests in a 5
-                minute period and are allowed 10 concurrent Batch Requests.
+                Individual users are allowed 5 concurrent Batch Requests, while
+                Production users are allowed 10 concurrent Batch Requests.
 
 
                 *This feature is available to Individual Users subscribed to the

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
+  version: 1.0.1
   title: FactSet Funds API
   contact:
     name: FactSet Research Systems
@@ -131,31 +131,31 @@ paths:
 
         |Asset Class|The asset class of the fund (e.g. Equity, Fixed Income,
         Currency, Commodities, Asset Allocation, or Alternatives) based on the
-        fund’s mandate.|
+        fund's mandate.|
 
         |Category|The 1st of 3 asset-class-specific, hierarchical exposure
         tiers; the broadest category the fund falls under within its asset class
         (e.g., Size & Style, Sector, Precious Metals, Absolute Returns); based
-        on the fund’s mandate.|
+        on the fund's mandate.|
 
         |Focus|The 2nd of 3 asset-class-specific, hierarchical exposure tiers;
         the fund's classification within its category (e.g. Small Cap, Energy,
-        Palladium, Long/Short); based on the fund’s mandate.|
+        Palladium, Long/Short); based on the fund's mandate.|
 
         |Niche|The 3rd of 3 asset-class-specific, hierarchical exposure tiers;
         The fund's classification within its Focus. Most granular tier of
         exposure sort (e.g., Growth, Coal, Physically held, Merger Arbitrage);
-        based on the fund’s mandate.|
+        based on the fund's mandate.|
 
         |Economic Development Level|The country development level of the fund
-        (Developed, Emerging, Frontier, or Blended) based on the fund’s
+        (Developed, Emerging, Frontier, or Blended) based on the fund's
         mandate.|
 
         |Region|The broad regional exposure of the fund (e.g., Latin America,
-        Asia-Pacific, Global) based on the fund’s mandate.|
+        Asia-Pacific, Global) based on the fund's mandate.|
 
         |Specific Geography|The specific geographic exposure of the fund (e.g.,
-        Developed Europe, Chile, Asia-Pacific Ex-Japan) based on the fund’s
+        Developed Europe, Chile, Asia-Pacific Ex-Japan) based on the fund's
         mandate.|
 
         </p>
@@ -205,31 +205,31 @@ paths:
 
         |Asset Class|The asset class of the fund (e.g. Equity, Fixed Income,
         Currency, Commodities, Asset Allocation, or Alternatives) based on the
-        fund’s mandate.|
+        fund's mandate.|
 
         |Category|The 1st of 3 asset-class-specific, hierarchical exposure
         tiers; the broadest category the fund falls under within its asset class
         (e.g., Size & Style, Sector, Precious Metals, Absolute Returns); based
-        on the fund’s mandate.|
+        on the fund's mandate.|
 
         |Focus|The 2nd of 3 asset-class-specific, hierarchical exposure tiers;
         the fund's classification within its category (e.g. Small Cap, Energy,
-        Palladium, Long/Short); based on the fund’s mandate.|
+        Palladium, Long/Short); based on the fund's mandate.|
 
         |Niche|The 3rd of 3 asset-class-specific, hierarchical exposure tiers;
         The fund's classification within its Focus. Most granular tier of
         exposure sort (e.g., Growth, Coal, Physically held, Merger Arbitrage);
-        based on the fund’s mandate.|
+        based on the fund's mandate.|
 
         |Economic Development Level|The country development level of the fund
-        (Developed, Emerging, Frontier, or Blended) based on the fund’s
+        (Developed, Emerging, Frontier, or Blended) based on the fund's
         mandate.|
 
         |Region|The broad regional exposure of the fund (e.g., Latin America,
-        Asia-Pacific, Global) based on the fund’s mandate.|
+        Asia-Pacific, Global) based on the fund's mandate.|
 
         |Specific Geography|The specific geographic exposure of the fund (e.g.,
-        Developed Europe, Chile, Asia-Pacific Ex-Japan) based on the fund’s
+        Developed Europe, Chile, Asia-Pacific Ex-Japan) based on the fund's
         mandate.|
 
         </p>
@@ -267,7 +267,7 @@ paths:
       summary: Get the Fund's Primary and Segment Benchmark Details
       operationId: getFundsBenchmarkDetails
       description: >
-        Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be
+        Fetch the Fund's Benchmark and Segment Benchmark ids. These ids can be
         then used in the [Benchmarks
         API](https://developer.factset.com/api-catalog/factset-benchmarks-api)
         to fetch index-level prices, returns, constituents data.
@@ -341,7 +341,7 @@ paths:
         expressed as a percentage of the AUM.
       parameters:
         - $ref: '#/components/parameters/costsFeesIds'
-        - $ref: '#/components/parameters/date'
+        - $ref: '#/components/parameters/costsFeesDate'
         - $ref: '#/components/parameters/currency'
       responses:
         '200':
@@ -1225,7 +1225,7 @@ components:
         If left blank, the API will default to latest available completed
         period.
       example: '2019-12-31'
-    date:
+    costsFeesDate:
       name: date
       in: query
       required: false
@@ -1372,6 +1372,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         fsymEntityId:
           description: >-
             FactSet Entity Identifier. Six alpha-numeric characters, excluding
@@ -1380,6 +1381,7 @@ components:
           type: string
           example: 04BFG7-E
           x-fds-fql-formula: FSYM_ENTITY_ID
+          nullable: true
         fsymRegionalId:
           description: >-
             FactSet Regional Identifier. Six alpha-numeric characters, excluding
@@ -1388,11 +1390,13 @@ components:
           type: string
           example: SJY03Z-R
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('REGIONAL_NEW')
+          nullable: true
         fsymTickerRegion:
           description: FactSet Ticker-Region for the requested fund.
           type: string
           example: MABAX-US
           x-fds-fql-formula: FSYM_TICKER_REGION
+          nullable: true
         fsymUltimateParentId:
           description: >-
             The FactSet Ultimate Parent Entity Identifer, with a -E suffix
@@ -1400,6 +1404,7 @@ components:
           type: string
           example: 002HJD-E
           x-fds-fql-formula: FSYM_ULTIMATE_PARENT_ID
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -1411,6 +1416,7 @@ components:
           type: integer
           example: 1
           x-fds-fql-formula: FFD_ACTIVE
+          nullable: true
         activelyManagedFlag:
           description: >-
             Binary indicator of whether the fund is actively managed, where 1 is
@@ -1418,22 +1424,26 @@ components:
           type: integer
           example: 1
           x-fds-fql-formula: FFD_ACTM
+          nullable: true
         brand:
           description: The Funds Brand Name in proper format.
           type: string
           example: BlackRock
           x-fds-fql-formula: FFD_BRAND
+          nullable: true
         countryDomicile:
           description: >-
             Returns the fund's country of domicile in ISO2 format. Only
             available for Mutual Funds.
           type: string
           example: US
+          nullable: true
         currency:
           description: The fund's currency.
           type: string
           example: USD
           x-fds-fql-formula: FFD_CURRENCY
+          nullable: true
         descInfo:
           description: The Fund's Investment Strategy short description.
           type: string
@@ -1444,6 +1454,7 @@ components:
             management of the Fund believes are undervalued and therefore
             represent basic investment value.
           x-fds-fql-formula: FFD_DESC_INFO
+          nullable: true
         fundOfFundsId:
           description: >-
             The fund of fund's id if applicable. Will provide plain Fund of
@@ -1451,12 +1462,14 @@ components:
           type: string
           example: null
           x-fds-fql-formula: FFD_FUND_OF_FUNDS_ID
+          nullable: true
         inceptionDate:
           description: The fund's inception date in YYYY-MM-DD format.
           type: string
           format: date
           example: '1977-07-01'
           x-fds-fql-formula: FFD_INCEPT_DATE
+          nullable: true
         insight:
           description: >-
             The fund's investment strategy long description. Use `descInfo` if
@@ -1464,16 +1477,19 @@ components:
           type: string
           example: null
           x-fds-fql-formula: FFD_INSIGHT
+          nullable: true
         issuerId:
           description: The Issuer Identifier.
           type: string
           example: null
           x-fds-fql-formula: FFD_ISSUER('ID')
+          nullable: true
         issuerName:
           description: The Issuer Name in proper format.
           type: string
           example: BlackRock Inc.
           x-fds-fql-formula: FFD_ISSUER('NAME')
+          nullable: true
         legalStructure:
           description: >-
             The legal structure of the fund, e.g. Open-Ended Fund, close-ended
@@ -1481,12 +1497,14 @@ components:
           type: string
           example: Open-Ended Fund
           x-fds-fql-formula: FFD_LEG
+          nullable: true
         leverageFactor:
           description: The leverage factor of the fund.
           type: number
           format: double
           example: 0
           x-fds-fql-formula: FFD_LEV_FACTOR
+          nullable: true
         leverageInverse:
           description: >-
             Indicates whether the fund is leveraged, inverse, or neither in
@@ -1494,16 +1512,19 @@ components:
           type: string
           example: Neither
           x-fds-fql-formula: FFD_LEV_INV
+          nullable: true
         name:
           description: The Fund security's name in proper format.
           type: string
           example: BlackRock Basic Value Fund Incorporated
           x-fds-fql-formula: FFD_NAME
+          nullable: true
         navCurrency:
           description: The NAV currency for the specified share class.
           type: string
           example: USD
           x-fds-fql-formula: FFD_DATA_CURR
+          nullable: true
         objective:
           description: The Fund's objective long description.
           type: string
@@ -1521,6 +1542,7 @@ components:
             foreign companies. The Fund focuses primarily on companies with
             market capitalizations of over $5 billion.
           x-fds-fql-formula: FFD_OBJECTIVE
+          nullable: true
         priceFirstDate:
           description: >-
             The fund's first available date for prices (NAV) in YYYY-MM-DD
@@ -1530,6 +1552,7 @@ components:
           format: date
           example: '2018-04-18'
           x-fds-fql-formula: FFD_PRICE_START_DATE
+          nullable: true
         priceRecentDate:
           description: >-
             The fund's most recent available date for prices (NAV) in YYYY-MM-DD
@@ -1538,11 +1561,13 @@ components:
           format: date
           example: '2021-03-26'
           x-fds-fql-formula: FFD_PRICE_RCNT_DATE
+          nullable: true
         shrClass:
           description: The Funds Share class type name in proper format.
           example: Institutional Class
           type: string
           x-fds-fql-formula: FFD_SHR_CLS
+          nullable: true
         shrClassActiveFlag:
           description: >-
             Returns a binary indicator of whether the specified share class is
@@ -1550,22 +1575,34 @@ components:
           type: integer
           example: 1
           x-fds-fql-formula: FFD_SHR_CLS_ACTIVE
+          nullable: true
+        shrClsActivelyManagedFlag:
+          description: >-
+            Returns a binary indicator of whether the specified share class is
+            actively managed, where 1 is active and 0 is inactive.
+          type: integer
+          example: 1
+          x-fds-fql-formula: FFD_SHR_CLS_ACTM
+          nullable: true
         shrClsCurrency:
           description: The currency for the specified share class.
           type: string
           example: USD
           x-fds-fql-formula: FFD_SHR_CLS_CURRENCY
+          nullable: true
         shrClsInceptDate:
           description: The specified share class's inception date in YYYY-MM-DD format.
           type: string
           format: date
           example: '1977-07-01'
           x-fds-fql-formula: FFD_SHR_CLS_INCEPT_DATE
+          nullable: true
         shrClsName:
           description: The specified share class name for the fund in proper format.
           type: string
           example: BlackRock Basic Value I
           x-fds-fql-formula: FFD_SHR_CLS_NAME
+          nullable: true
         shrClsTermDate:
           description: >-
             The Share class Termination Date in YYYY-MM-DD format. If still
@@ -1574,6 +1611,7 @@ components:
           format: date
           example: null
           x-fds-fql-formula: FFD_SHR_CLS_TERM_DATE
+          nullable: true
         terminationDate:
           description: >-
             The Termination Date in YYYY-MM-DD format. If still active, value
@@ -1582,17 +1620,20 @@ components:
           format: date
           example: null
           x-fds-fql-formula: FFD_TERM_DATE
+          nullable: true
         type:
           description: The Type of Fund, e.g. Mutual Fund, Unit Investment Trust
           type: string
           example: Mutual Fund
           x-fds-fql-formula: FFD_TYPE
+          nullable: true
         webSite:
           description: The URL of the Fund.
           type: string
           example: >-
             https://www.blackrock.com/investing/products/227716/blackrock-basic-value-class-a-fund
           x-fds-fql-formula: FFD_WEB
+          nullable: true
     classificationsRequest:
       title: Classifications Request Body
       description: Classifications Request Body
@@ -1623,6 +1664,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -1635,6 +1677,7 @@ components:
           type: string
           example: Equity
           x-fds-fql-formula: FFD_CLASS_ASSET
+          nullable: true
         categoryClass:
           description: >-
             Returns the asset class category description from FactSet's fund
@@ -1644,6 +1687,7 @@ components:
           type: string
           example: Size and Style
           x-fds-fql-formula: FFD_CLASS_CAT
+          nullable: true
         economicDevelopmentClass:
           description: >-
             Returns the fund's economic development description from FactSet's
@@ -1653,6 +1697,7 @@ components:
           type: string
           example: Developed Markets
           x-fds-fql-formula: FFD_CLASS_DEV
+          nullable: true
         focusClass:
           description: >-
             Returns the fund's focus description from FactSet's fund
@@ -1662,6 +1707,7 @@ components:
           type: string
           example: Total Market
           x-fds-fql-formula: FFD_CLASS_FOCUS
+          nullable: true
         geographicClass:
           description: >-
             Returns the fund's specific geography description from FactSet's
@@ -1671,6 +1717,7 @@ components:
           type: string
           example: U.S.
           x-fds-fql-formula: FFD_CLASS_GEO
+          nullable: true
         nicheClass:
           description: >-
             Returns the fund's niche description from FactSet's fund
@@ -1679,6 +1726,7 @@ components:
           type: string
           example: Value
           x-fds-fql-formula: FFD_CLASS_NICHE
+          nullable: true
         regionClass:
           description: >-
             Returns the fund's region description from FactSet's fund
@@ -1687,6 +1735,7 @@ components:
           type: string
           example: North America
           x-fds-fql-formula: FFD_CLASS_REG
+          nullable: true
     benchmarkDetailsRequest:
       title: Benchmark Details Request Body
       description: Benchmark Details Request Body
@@ -1717,21 +1766,25 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         benchmarkId:
           description: The Fund's primary Benchmark Identifier.
           type: string
           example: R.1000
           x-fds-fql-formula: FFD_BMK_ID
+          nullable: true
         benchmarkName:
           description: The proper name of the Benchmark Id.
           type: string
           example: Russell 1000 Index
           x-fds-fql-formula: FFD_BMK_NAME
+          nullable: true
         multipleBenchmarkFlag:
           description: Indicates if the Fund has a composite benchmark.
           type: string
           example: Non-Composite
           x-fds-fql-formula: FFD_BMK_MULT
+          nullable: true
         benchmarkChangeDate:
           description: >-
             The date in which the benchmark changed for the requested fund in
@@ -1741,11 +1794,13 @@ components:
           format: date
           example: null
           x-fds-fql-formula: FFD_BMK_CHG_DATE
+          nullable: true
         segment:
           description: The segment of the respective segment benchmark id.
           type: string
           example: 'Equity: U.S. - Total Market Value'
           x-fds-fql-formula: FFD_SEG
+          nullable: true
         segmentBenchmarkId:
           description: >-
             Segment Benchmark Identifier. Funds in the same segment match on all
@@ -1753,6 +1808,7 @@ components:
           type: string
           example: MS664292
           x-fds-fql-formula: FFD_SEG_BMK
+          nullable: true
         segmentBenchmarkName:
           description: >-
             The segment benchmark's name in proper format. Funds in the same
@@ -1761,6 +1817,7 @@ components:
           type: string
           example: MSCI USA IMI Value Index
           x-fds-fql-formula: FFD_SEG_BMK_NAME
+          nullable: true
         segmentBenchmarkCurrency:
           description: >-
             The Segment Benchmark's currency in ISO3. Funds in the same segment
@@ -1768,6 +1825,7 @@ components:
           type: string
           example: USD
           x-fds-fql-formula: FFD_SEG_BMK_CURR
+          nullable: true
         segmentBenchmarkReturnType:
           description: >-
             The Segment benchmarks return type. Funds in the same segment match
@@ -1775,6 +1833,7 @@ components:
           type: string
           example: GROSS_RETURN
           x-fds-fql-formula: FFD_SEG_BMK_RET
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -1809,32 +1868,38 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         managerName:
           description: Proper Name of the Fund Manager
           type: string
           example: Mr. Antonio DeSpirito III
           x-fds-fql-formula: FFD_AM_NAME
+          nullable: true
         managerTitle:
           description: Proper Title of the Fund Manager
           type: string
           example: Managing Director
           x-fds-fql-formula: FFD_AM_TITLE
+          nullable: true
         managerPhone:
           description: Phone Number of the Fund Manager
           type: string
           example: 1.212.810.5300
           x-fds-fql-formula: FFD_AM_PHONE
+          nullable: true
         managerInceptionDate:
           description: Inception Date of the Fund Manager
           type: string
           format: date
           example: '2014-01-01'
           x-fds-fql-formula: FFD_AM_INCEPT_DATE
+          nullable: true
         managerJobId:
           description: Job Identifier for the Fund Manager
           type: integer
           example: 6721381
           x-fds-fql-formula: FFD_AM_JOB_ID
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -1847,7 +1912,7 @@ components:
         ids:
           $ref: '#/components/schemas/costsFeesIds'
         date:
-          $ref: '#/components/schemas/date'
+          $ref: '#/components/schemas/costsFeesDate'
         currency:
           $ref: '#/components/schemas/currency'
       required:
@@ -1873,6 +1938,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         managementExpenses:
           description: >-
             The management fee, or maintenance fee, is charged by the fund
@@ -1882,18 +1948,21 @@ components:
           format: double
           example: 0.42
           x-fds-fql-formula: FFD_EXPENSES({date},MGMT)
+          nullable: true
         date:
           description: The Expense Date expressed in YYYY-MM-DD.
           type: string
           format: date
           example: '2020-10-28'
           x-fds-fql-formula: FFD_EXPENSES({date},MGMT).dates
+          nullable: true
         currency:
           description: ISO3 Currency
           type: string
           example: USD
           x-fds-fql-formula: FFD_CURRENCY
-        entryExpense:
+          nullable: true
+        entryExpenses:
           description: >-
             The transaction entry fee or purchase fee collected from investors
             when they join or leave a scheme. The fee is paid to the fund
@@ -1901,7 +1970,8 @@ components:
           format: double
           example: null
           x-fds-fql-formula: FFD_EXPENSES({date},ENTRY)
-        exitExpense:
+          nullable: true
+        exitExpenses:
           description: >-
             The transaction exit fee is charged to investors when they redeem
             shares from a fund.
@@ -1909,6 +1979,7 @@ components:
           format: double
           example: null
           x-fds-fql-formula: FFD_EXPENSES({date},EXIT)
+          nullable: true
         frontExpensesMax:
           description: >
             The Maximum sales load or initial Sales Fee is a reduction made from
@@ -1918,79 +1989,89 @@ components:
             known as Sales Charge, this is a fee paid when shares are purchased.
             Also known as a "front-end load", this fee typically goes to the
             brokers that sell the fund's shares.  (Under the Investment Company
-            Act of 1940 is 9%. The maximum sales load under NASD Rules is
-            81⁄2%)."
+            Act of 1940 is 9%. The maximum sales load under NASD Rules is 8
+            1/2%)."
           type: number
           format: double
           example: null
           x-fds-fql-formula: FFD_EXPENSES({date},MAXF)
+          nullable: true
         backExpensesMax:
           description: The Back Expense Maximum
           type: number
           format: double
           example: null
           x-fds-fql-formula: FFD_EXPENSES({date},MAXB)
+          nullable: true
         expenseRatio:
           description: The Expense Ratio
           type: number
           format: double
           example: 0.53
           x-fds-fql-formula: FFD_EXPENSES({date},EXR)
+          nullable: true
         expenseRatioProspectus:
           description: The Expense Ratio Prospectus
           type: number
           format: double
           example: 0.53
           x-fds-fql-formula: FFD_EXPENSES({date},EXG)
+          nullable: true
         initInvestmentMin:
           description: The Initial Investment Minimum
           type: number
           format: double
           example: 2000000
           x-fds-fql-formula: FFD_INIT_INVT({date},MI,{currency})
+          nullable: true
         initInvestmentIra:
           description: The Initial Investment Individual Retirement Accounts
           type: number
           format: double
           example: null
           x-fds-fql-formula: FFD_INIT_INVT({date},IRA,{currency})
+          nullable: true
         swingPrice:
           description: >-
             Swing Price. Swing pricing occurs when a fund provider adjusts the
             net asset value (NAV) of a fund in order to pass on trading costs to
             purchasing or redeeming shareholders. This anti-dilution technique
-            is used to protect long-term shareholder’s interests.
+            is used to protect long-term shareholder's interests.
           type: number
           format: double
           example: null
           x-fds-fql-formula: FFD_SWG_PRICE({date})
+          nullable: true
         swingPriceDate:
           description: >-
             Swing Price Date. Swing pricing occurs when a fund provider adjusts
             the net asset value (NAV) of a fund in order to pass on trading
             costs to purchasing or redeeming shareholders. This anti-dilution
-            technique is used to protect long-term shareholder’s interests.
+            technique is used to protect long-term shareholder's interests.
           type: string
           format: date
           example: null
           x-fds-fql-formula: FFD_SWG_PRICE({date}).dates
+          nullable: true
         sriPriips:
           description: >-
-            The SRI (Summary Risk Indicator) illustrates PRIIPs’ risk and reward
+            The SRI (Summary Risk Indicator) illustrates PRIIPs' risk and reward
             profile by measuring the market and credit risk level. Returns 1 for
             low risk up to 7 for higher risk.
           type: integer
           example: null
           x-fds-fql-formula: FFD_PRIIPS_SRI
+          nullable: true
         srriUcits:
           description: >-
             Synthetic Risk and Reward Indicator illustrates a UCITS or NURS
-            (Non-UCITS Retail Scheme) fund’s risk and reward profile by
+            (Non-UCITS Retail Scheme) fund's risk and reward profile by
             measuring the market risk level. Returns 1 for low risk up to 7 for
             high risk.
           type: integer
           example: null
           x-fds-fql-formula: FFD_UCITS_SRRI
+          nullable: true
         performanceFee:
           description: >-
             Represents fees made to an investment manager as a percentage of
@@ -1999,6 +2080,7 @@ components:
           format: double
           example: null
           x-fds-fql-formula: FFD_PERF_FEE({date})
+          nullable: true
         tradingExpenseRatio:
           description: >-
             Represents the amount of trading commissions incurred to manage the
@@ -2007,6 +2089,7 @@ components:
           format: double
           example: null
           x-fds-fql-formula: FFD_TRAD_EXP({date})
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2041,36 +2124,42 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         relatedFundIdOne:
           description: >-
             The first related fund to the requestedId returned as a FactSet
             Permanent Security Identifier (XXXXXX-S).
           type: string
           example: VTG6QP-S
+          nullable: true
         relatedFundIdTwo:
           description: >-
             The second related fund to the requestedId returned as a FactSet
             Permanent Security Identifier (XXXXXX-S).
           type: string
           example: MPWNZT-S
+          nullable: true
         relatedFundIdThree:
           description: >-
             The third related fund to the requestedId returned as a FactSet
             Permanent Security Identifier (XXXXXX-S).
           type: string
           example: NK7DYK-S
+          nullable: true
         relatedFundIdFour:
           description: >-
             The fourth related fund to the requestedId returned as a FactSet
             Permanent Security Identifier (XXXXXX-S).
           type: string
           example: VS6HXC-S
+          nullable: true
         relatedFundIdFive:
           description: >-
             The fifth related fund to the requestedId returned as a FactSet
             Permanent Security Identifier (XXXXXX-S).
           type: string
           example: NYQFB0-S
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2117,6 +2206,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         price:
           description: >-
             The NAV for the requested share class. NOTE - FactSet Mutual Funds
@@ -2125,11 +2215,13 @@ components:
           format: double
           example: 19.94
           x-fds-fql-formula: FFD_PRICE
+          nullable: true
         date:
           description: The date of the NAV in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-02-26'
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2138,6 +2230,7 @@ components:
           description: ISO3 Currency
           type: string
           example: USD
+          nullable: true
     fundsReturnsRequest:
       title: Returns Request Body
       description: Returns Request Body
@@ -2178,6 +2271,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         return:
           description: >-
             The Return for the requested id and date. Adjusting the frequency of
@@ -2189,15 +2283,18 @@ components:
           format: double
           example: 25.2970433246628
           x-fds-fql-formula: FFD_TOTAL_RET
+          nullable: true
         date:
           description: The date of the return in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-02-26'
+          nullable: true
         currency:
           description: ISO3 Currency
           type: string
           example: USD
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2236,6 +2333,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         oneWeek:
           description: >-
             The one-week return for the requested id and date. The return type
@@ -2245,6 +2343,7 @@ components:
           format: double
           example: 2.38777459407833
           x-fds-fql-formula: FFD_TRET({date},"1WK","NAV",{dividendAdjust})
+          nullable: true
         oneMonth:
           description: >-
             The one-month return for the requested id and date. The return type
@@ -2254,6 +2353,7 @@ components:
           format: double
           example: 7.52256770310935
           x-fds-fql-formula: FFD_TRET({date},"1MON","NAV",{dividendAdjust})
+          nullable: true
         threeMonth:
           description: >-
             The three-month return for the requested id and date. The return
@@ -2263,6 +2363,7 @@ components:
           format: double
           example: 13.8004246284501
           x-fds-fql-formula: FFD_TRET({date},"3MON","NAV",{dividendAdjust})
+          nullable: true
         yearToDate:
           description: >-
             The year-to-date return for the requested id and date. The return
@@ -2272,6 +2373,7 @@ components:
           format: double
           example: 13.1398416886544
           x-fds-fql-formula: FFD_TRET({date},"YTD","NAV",{dividendAdjust})
+          nullable: true
         oneYear:
           description: >-
             The one-year return for the requested id and date. The return type
@@ -2281,6 +2383,7 @@ components:
           format: double
           example: 40.2223675604972
           x-fds-fql-formula: FFD_TRET({date},"1YR","NAV",{dividendAdjust})
+          nullable: true
         threeYear:
           description: >-
             The three-year return for the requested id and date. The return type
@@ -2290,6 +2393,7 @@ components:
           format: double
           example: null
           x-fds-fql-formula: FFD_TRET({date},"3YR","NAV",{dividendAdjust})
+          nullable: true
         threeYearAnnualized:
           description: >-
             The three-year annualized return for the requested id and date. The
@@ -2299,6 +2403,7 @@ components:
           format: double
           example: null
           x-fds-fql-formula: FFD_TRET_ANN({date},"3YR","NAV",{dividendAdjust})
+          nullable: true
         fiveYear:
           description: >-
             The five-year return for the requested id and date. The return type
@@ -2308,6 +2413,7 @@ components:
           format: double
           example: 25.2970433246628
           x-fds-fql-formula: FFD_TRET({date},"3YR","NAV",{dividendAdjust})
+          nullable: true
         fiveYearAnnualized:
           description: >-
             The five year annualized return for the requested id and date. The
@@ -2317,11 +2423,13 @@ components:
           format: double
           example: null
           x-fds-fql-formula: FFD_TRET_ANN({date},"5YR","NAV",{dividendAdjust})
+          nullable: true
         date:
           description: The date of the return in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-03-30'
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2362,6 +2470,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         return:
           description: >-
             The Return calculated between two dates. The return type is
@@ -2371,6 +2480,7 @@ components:
           format: double
           example: -3.16187341965815
           x-fds-fql-formula: FFD_TRET_USER_RANGE({startDate},{endDate},"NAV",{dividendAdjust})
+          nullable: true
         returnStartDate:
           description: >-
             The start date of the return in YYYY-MM-DD format. *NOTE - the
@@ -2380,6 +2490,7 @@ components:
           format: date
           example: '2018-04-18'
           x-fds-fql-formula: FFD_PRICE_ACT_DATE({startDate})
+          nullable: true
         returnEndDate:
           description: >-
             The end date of the return in YYYY-MM-DD format. The start date of
@@ -2390,6 +2501,7 @@ components:
           format: date
           example: '2021-03-30'
           x-fds-fql-formula: FFD_PRICE_ACT_DATE({endDate})
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2434,6 +2546,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         fundLevelAUM:
           description: >-
             Returns fund-level Assets Under Management (AUM) data. Fund-level
@@ -2443,6 +2556,7 @@ components:
           format: double
           example: 1908934757.1935
           x-fds-fql-formula: FFD_AUM
+          nullable: true
         shrClassAUMRpt:
           description: >-
             As-Reported AUM. Calculated by using shares outstanding at previous
@@ -2454,6 +2568,7 @@ components:
           example: 902354605.39548
           x-fds-fql-formula: >-
             FFD_SHR_CLS_AUM({startDate},{endDate},{frequency},RPT,{dataType},{currency})
+          nullable: true
         shrClassAUMAct:
           description: >-
             Actual AUM. Calculated by using shares outstanding at previous close
@@ -2465,6 +2580,7 @@ components:
           example: 914573047.89582
           x-fds-fql-formula: >-
             FFD_SHR_CLS_AUM({startDate},{endDate},{frequency},ACT,{dataType},{currency})
+          nullable: true
         currency:
           description: >-
             The Currency of the AUM values. By default it will be in the FUnds
@@ -2472,11 +2588,13 @@ components:
           type: string
           example: USD
           x-fds-fql-formula: FFD_CURRENCY
+          nullable: true
         date:
           description: The date of the AUM in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-02-28'
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2519,6 +2637,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         fundFlows:
           description: >-
             Fund flows data for the specified share class in raw units of the
@@ -2527,6 +2646,7 @@ components:
           format: double
           example: 271971.16741002
           x-fds-fql-formula: FFD_FUND_FLOWS
+          nullable: true
         currency:
           description: >-
             The Currency of the AUM values. By default it will be in the FUnds
@@ -2534,11 +2654,13 @@ components:
           type: string
           example: USD
           x-fds-fql-formula: FFD_CURRENCY
+          nullable: true
         date:
           description: The date of the AUM in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-02-26'
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2573,6 +2695,7 @@ components:
           type: string
           example: FNK7XP-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         activeFlag:
           description: >-
             Binary flag to indicate whether the fund is currently active, where
@@ -2580,6 +2703,7 @@ components:
           type: integer
           example: 1
           x-fds-fql-formula: FFD_ACTIVE
+          nullable: true
         shrClassActiveFlag:
           description: >-
             Returns a binary indicator of whether the specified share class is
@@ -2587,6 +2711,7 @@ components:
           type: integer
           example: 1
           x-fds-fql-formula: FFD_SHR_CLS_ACTIVE
+          nullable: true
         isonFFD:
           description: >-
             Returns a binary indicator of whether the specified fund is
@@ -2594,6 +2719,7 @@ components:
           type: integer
           example: 1
           x-fds-fql-formula: ISON_FFD
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2662,7 +2788,7 @@ components:
         If left blank, the API will default to previous close. Future dates
         (T+1) are not accepted in this endpoint.
       example: '2019-12-31'
-    date:
+    costsFeesDate:
       type: string
       description: >
         The date requested in **YYYY-MM-DD** format. If left blank, the API will

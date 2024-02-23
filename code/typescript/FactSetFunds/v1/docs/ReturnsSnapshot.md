@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **threeYearAnnualized** | **Number** | The three-year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
 **fiveYear** | **Number** | The five-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
 **fiveYearAnnualized** | **Number** | The five year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
-**date** | **String** | The date of the return in YYYY-MM-DD format. | [optional] 
+**date** | **Date** | The date of the return in YYYY-MM-DD format. | [optional] 
 **requestId** | **String** | The requested Id sent as input. | [optional] 
 
 
