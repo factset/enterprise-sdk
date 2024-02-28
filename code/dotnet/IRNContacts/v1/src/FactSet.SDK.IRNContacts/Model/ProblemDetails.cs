@@ -87,6 +87,12 @@ namespace FactSet.SDK.IRNContacts.Model
         [JsonExtensionData]
         private JObject _rawAdditionalData;
 
+        [OnSerializing]
+        private void OnSerializing(StreamingContext context)
+        {
+            _rawAdditionalData = JObject.FromObject(AdditionalProperties);
+        }
+
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {

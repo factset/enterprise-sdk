@@ -32,7 +32,7 @@ namespace FactSet.SDK.IRNCustomSymbols.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.0.7";
+        public const string Version = "2.0.8";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,7 +104,7 @@ namespace FactSet.SDK.IRNCustomSymbols.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/IRNCustomSymbols/2.0.7";
+            UserAgent = "fds-sdk/dotnet/IRNCustomSymbols/2.0.8";
             BasePath = "https://api.factset.com/research/irn";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -466,7 +466,7 @@ namespace FactSet.SDK.IRNCustomSymbols.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1\n";
-            report += "    SDK Package Version: 2.0.7\n";
+            report += "    SDK Package Version: 2.0.8\n";
 
             return report;
         }
