@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2002Data from './InlineResponse2002Data';
 
 /**
  * The InlineResponse2002 model module.
@@ -21,12 +20,14 @@ import InlineResponse2002Data from './InlineResponse2002Data';
 class InlineResponse2002 {
     /**
      * Constructs a new <code>InlineResponse2002</code>.
+     * Response from the health check route in the event of a &#39;pass&#39; status
      * @alias module:model/InlineResponse2002
-     * @param data {module:model/InlineResponse2002Data} 
+     * @param status {module:model/InlineResponse2002.StatusEnum} 
+     * @param version {String} Full requested semantic version string
      */
-    constructor(data) { 
+    constructor(status, version) { 
         
-        InlineResponse2002.initialize(this, data);
+        InlineResponse2002.initialize(this, status, version);
     }
 
     /**
@@ -34,8 +35,9 @@ class InlineResponse2002 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, data) { 
-        obj['data'] = data;
+    static initialize(obj, status, version) { 
+        obj['status'] = status;
+        obj['version'] = version;
     }
 
     /**
@@ -49,8 +51,11 @@ class InlineResponse2002 {
         if (data) {
             obj = obj || new InlineResponse2002();
 
-            if (data.hasOwnProperty('data')) {
-                obj['data'] = InlineResponse2002Data.constructFromObject(data['data']);
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+            }
+            if (data.hasOwnProperty('version')) {
+                obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
         }
         return obj;
@@ -60,12 +65,33 @@ class InlineResponse2002 {
 }
 
 /**
- * @member {module:model/InlineResponse2002Data} data
+ * @member {module:model/InlineResponse2002.StatusEnum} status
  */
-InlineResponse2002.prototype['data'] = undefined;
+InlineResponse2002.prototype['status'] = undefined;
+
+/**
+ * Full requested semantic version string
+ * @member {String} version
+ */
+InlineResponse2002.prototype['version'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>status</code> property.
+ * @enum {String}
+ * @readonly
+ */
+InlineResponse2002['StatusEnum'] = {
+
+    /**
+     * value: "pass"
+     * @const
+     */
+    "pass": "pass"
+};
 
 
 

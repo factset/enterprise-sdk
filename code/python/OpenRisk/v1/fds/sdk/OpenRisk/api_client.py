@@ -106,7 +106,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/OpenRisk/1.2.0'
+        self.user_agent = 'fds-sdk/python/OpenRisk/1.3.0'
 
     def __enter__(self):
         return self
@@ -837,10 +837,10 @@ class Endpoint(object):
         Example:
 
         api_instance = AboutApi()
-        api_instance.documentation  # this is an instance of the class Endpoint
-        api_instance.documentation()  # this invokes api_instance.documentation.__call__()
+        api_instance.health_status  # this is an instance of the class Endpoint
+        api_instance.health_status()  # this invokes api_instance.health_status.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.documentation.callable or self.callable in this class
+        api_instance.health_status.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

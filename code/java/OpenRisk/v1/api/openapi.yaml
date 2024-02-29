@@ -23,100 +23,6 @@ tags:
 - name: About
 - name: Operations
 paths:
-  /linear/{version}:
-    get:
-      description: The service documentation as this OpenAPI Specification JSON document
-        for the corresponding major version number
-      operationId: documentation
-      parameters:
-      - description: Semantic version number. See [this link here](https://regexr.com/47b7t)
-          to test validate patterns.
-        explode: false
-        in: path
-        name: version
-        required: true
-        schema:
-          example: v1
-          minLength: 1
-          pattern: ^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200'
-          description: The service documentation as this OpenAPI Specification JSON
-            document for the corresponding major version number
-          headers:
-            api-supported-versions:
-              $ref: '#/components/headers/ApiSupportedVersions'
-            api-version:
-              $ref: '#/components/headers/ApiVersion'
-            RateLimit-Limit:
-              $ref: '#/components/headers/RateLimitLimit'
-            RateLimit-Remaining:
-              $ref: '#/components/headers/RateLimitRemaining'
-            RateLimit-Reset:
-              $ref: '#/components/headers/RateLimitReset'
-        "401":
-          content:
-            text/plain:
-              schema:
-                minLength: 1
-                type: string
-          description: Missing or invalid authentication
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Endpoint not found
-          headers:
-            api-supported-versions:
-              $ref: '#/components/headers/ApiSupportedVersions'
-            api-version:
-              $ref: '#/components/headers/ApiVersion'
-            RateLimit-Limit:
-              $ref: '#/components/headers/RateLimitLimit'
-            RateLimit-Remaining:
-              $ref: '#/components/headers/RateLimitRemaining'
-            RateLimit-Reset:
-              $ref: '#/components/headers/RateLimitReset'
-        "429":
-          description: Rate limit reached. Wait until the time specified in header
-            'Retry-After' has elapsed before making further requests.
-          headers:
-            Retry-After:
-              $ref: '#/components/headers/RetryAfter'
-            RateLimit-Limit:
-              $ref: '#/components/headers/RateLimitLimit'
-            RateLimit-Remaining:
-              $ref: '#/components/headers/RateLimitRemaining'
-            RateLimit-Reset:
-              $ref: '#/components/headers/RateLimitReset'
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Internal server error occurred
-          headers:
-            api-supported-versions:
-              $ref: '#/components/headers/ApiSupportedVersions'
-            api-version:
-              $ref: '#/components/headers/ApiVersion'
-            RateLimit-Limit:
-              $ref: '#/components/headers/RateLimitLimit'
-            RateLimit-Remaining:
-              $ref: '#/components/headers/RateLimitRemaining'
-            RateLimit-Reset:
-              $ref: '#/components/headers/RateLimitReset'
-      summary: Get OpenAPI Specification documentation
-      tags:
-      - About
-      x-accepts: application/json
   /linear/{version}/riskmodels:
     get:
       description: Get the list of available risk models, including their respective
@@ -152,7 +58,7 @@ paths:
                   name: FactSet Equity Model - China
                   vendor: FactSet
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                $ref: '#/components/schemas/inline_response_200'
           description: Returns the list of available risk models for use. Both risk
             model subscription and each risk model vendor specific Open:Risk API subscription
             are required for use. For subscription, please report an issue from FactSet:Developer
@@ -420,7 +326,7 @@ paths:
                   universeCount: 79209
                   vendor: FactSet
               schema:
-                $ref: '#/components/schemas/inline_response_200_2'
+                $ref: '#/components/schemas/inline_response_200_1'
           description: Returns the meta data of risk model.
           headers:
             api-supported-versions:
@@ -673,7 +579,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                $ref: '#/components/schemas/inline_response_200_2'
           description: Service is operational and healthy
           headers:
             api-supported-versions:
@@ -1146,7 +1052,7 @@ paths:
                     id: a25dce97-8df7-4145-b219-16c15975a38c
                     title: Factor grouping missing factor(s).
               schema:
-                $ref: '#/components/schemas/inline_response_200_4'
+                $ref: '#/components/schemas/inline_response_200_3'
           description: Calculate predicted risk statistics for provided holdings using
             risk model data. Asset symbols and market values/weights are required.
           headers:
@@ -1400,7 +1306,7 @@ paths:
                     ssrDate: 2021-05-31
                     universeDate: 2021-05-31
               schema:
-                $ref: '#/components/schemas/inline_response_200_5'
+                $ref: '#/components/schemas/inline_response_200_4'
           description: Provides a mapping to security indices in the risk model or
             the reason for exclusion
         "400":
@@ -1836,7 +1742,7 @@ components:
                 id: a25dce97-8df7-4145-b219-16c15975a38c
                 title: Factor grouping missing factor(s).
           schema:
-            $ref: '#/components/schemas/inline_response_200_4'
+            $ref: '#/components/schemas/inline_response_200_3'
       description: Calculate predicted risk statistics for provided holdings using
         risk model data. Asset symbols and market values/weights are required.
       headers:
@@ -1915,7 +1821,7 @@ components:
                 ssrDate: 2021-05-31
                 universeDate: 2021-05-31
           schema:
-            $ref: '#/components/schemas/inline_response_200_5'
+            $ref: '#/components/schemas/inline_response_200_4'
       description: Provides a mapping to security indices in the risk model or the
         reason for exclusion
     HealthFailAuthorization:
@@ -1952,7 +1858,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_response_200_3'
+            $ref: '#/components/schemas/inline_response_200_2'
       description: Service is operational and healthy
       headers:
         api-supported-versions:
@@ -1998,7 +1904,7 @@ components:
               name: FactSet Equity Model - China
               vendor: FactSet
           schema:
-            $ref: '#/components/schemas/inline_response_200_1'
+            $ref: '#/components/schemas/inline_response_200'
       description: Returns the list of available risk models for use. Both risk model
         subscription and each risk model vendor specific Open:Risk API subscription
         are required for use. For subscription, please report an issue from FactSet:Developer
@@ -2060,24 +1966,6 @@ components:
             minLength: 1
             type: string
       description: Missing or invalid authentication
-    OpenAPIDocumentation:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_response_200'
-      description: The service documentation as this OpenAPI Specification JSON document
-        for the corresponding major version number
-      headers:
-        api-supported-versions:
-          $ref: '#/components/headers/ApiSupportedVersions'
-        api-version:
-          $ref: '#/components/headers/ApiVersion'
-        RateLimit-Limit:
-          $ref: '#/components/headers/RateLimitLimit'
-        RateLimit-Remaining:
-          $ref: '#/components/headers/RateLimitRemaining'
-        RateLimit-Reset:
-          $ref: '#/components/headers/RateLimitReset'
     RateLimitReached:
       description: Rate limit reached. Wait until the time specified in header 'Retry-After'
         has elapsed before making further requests.
@@ -2258,7 +2146,7 @@ components:
               universeCount: 79209
               vendor: FactSet
           schema:
-            $ref: '#/components/schemas/inline_response_200_2'
+            $ref: '#/components/schemas/inline_response_200_1'
       description: Returns the meta data of risk model.
       headers:
         api-supported-versions:
@@ -4032,100 +3920,7 @@ components:
       required:
       - data
       type: object
-    inline_response_200_info:
-      example:
-        contact: '{}'
-        description: description
-        title: title
-        version: version
-      properties:
-        title:
-          minLength: 1
-          type: string
-        description:
-          minLength: 1
-          type: string
-        version:
-          minLength: 1
-          type: string
-        contact:
-          type: object
-      required:
-      - contact
-      - description
-      - title
-      - version
-      type: object
-    inline_response_200_servers:
-      example:
-        url: url
-      properties:
-        url:
-          minLength: 1
-          type: string
-      required:
-      - url
-      type: object
-    inline_response_200_components:
-      example:
-        schemas: '{}'
-        securitySchemes: '{}'
-      properties:
-        schemas:
-          type: object
-        securitySchemes:
-          type: object
-      required:
-      - securitySchemes
-      type: object
-    inline_response_200:
-      example:
-        components:
-          schemas: '{}'
-          securitySchemes: '{}'
-        security:
-        - '{}'
-        - '{}'
-        servers:
-        - url: url
-        - url: url
-        openapi: openapi
-        paths: '{}'
-        info:
-          contact: '{}'
-          description: description
-          title: title
-          version: version
-      properties:
-        openapi:
-          description: OpenAPI Specification version
-          minLength: 1
-          type: string
-        info:
-          $ref: '#/components/schemas/inline_response_200_info'
-        servers:
-          items:
-            $ref: '#/components/schemas/inline_response_200_servers'
-          minItems: 1
-          type: array
-        paths:
-          type: object
-        components:
-          $ref: '#/components/schemas/inline_response_200_components'
-        security:
-          items:
-            type: object
-          minItems: 1
-          type: array
-      required:
-      - components
-      - info
-      - openapi
-      - paths
-      - security
-      - servers
-      type: object
-    inline_response_200_1_data:
+    inline_response_200_data:
       example:
         code: FDS:GLOBAL_EQUITY_M_V1
         vendor: vendor
@@ -4160,7 +3955,7 @@ components:
       - name
       - vendor
       type: object
-    inline_response_200_1:
+    inline_response_200:
       example:
         data:
         - code: FDS:GLOBAL_EQUITY_M_V1
@@ -4176,13 +3971,13 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/inline_response_200_1_data'
+            $ref: '#/components/schemas/inline_response_200_data'
           minItems: 1
           type: array
       required:
       - data
       type: object
-    inline_response_200_2_data_factors:
+    inline_response_200_1_data_factors:
       example:
         definedAs: PercentChg
         name: name
@@ -4211,7 +4006,7 @@ components:
       - id
       - name
       type: object
-    inline_response_200_2_data_riskModelAppendFormat:
+    inline_response_200_1_data_riskModelAppendFormat:
       example:
         id: id
         type: String
@@ -4232,7 +4027,7 @@ components:
       - id
       - type
       type: object
-    inline_response_200_2_data:
+    inline_response_200_1_data:
       example:
         latestDate: 2019-01-26T00:00:00.000+0000
         code: FDS:GLOBAL_EQUITY_M_V1
@@ -4281,7 +4076,7 @@ components:
         factors:
           description: Factors of the model
           items:
-            $ref: '#/components/schemas/inline_response_200_2_data_factors'
+            $ref: '#/components/schemas/inline_response_200_1_data_factors'
           minItems: 1
           type: array
         factorIdToIsoCurrency:
@@ -4311,7 +4106,7 @@ components:
           description: List of fields which are supported by the risk model for appending
             additional asset data
           items:
-            $ref: '#/components/schemas/inline_response_200_2_data_riskModelAppendFormat'
+            $ref: '#/components/schemas/inline_response_200_1_data_riskModelAppendFormat'
           minItems: 1
           type: array
         universeCount:
@@ -4334,7 +4129,7 @@ components:
       - universeCount
       - vendor
       type: object
-    inline_response_200_2:
+    inline_response_200_1:
       example:
         data:
           latestDate: 2019-01-26T00:00:00.000+0000
@@ -4364,11 +4159,11 @@ components:
           frequency: frequency
       properties:
         data:
-          $ref: '#/components/schemas/inline_response_200_2_data'
+          $ref: '#/components/schemas/inline_response_200_1_data'
       required:
       - data
       type: object
-    inline_response_200_3:
+    inline_response_200_2:
       description: Response from the health check route in the event of a 'pass' status
       example:
         version: 1.0.1
@@ -4432,7 +4227,7 @@ components:
       - output
       - status
       type: object
-    inline_response_200_4:
+    inline_response_200_3:
       example:
         data:
         - '{}'
@@ -4528,7 +4323,7 @@ components:
       - data
       - meta
       type: object
-    inline_response_200_5:
+    inline_response_200_4:
       example:
         data:
         - null

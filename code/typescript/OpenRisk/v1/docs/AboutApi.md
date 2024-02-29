@@ -4,7 +4,6 @@ All URIs are relative to *https://api.factset.com/analytics/openrisk*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**documentation**](AboutApi.md#documentation) | **GET** /linear/{version} | Get OpenAPI Specification documentation
 [**healthStatus**](AboutApi.md#healthStatus) | **GET** /linear/{version}/health | Get health of service
 [**listRiskModels**](AboutApi.md#listRiskModels) | **GET** /linear/{version}/riskmodels | Get available risk models
 [**riskModelMetadata**](AboutApi.md#riskModelMetadata) | **GET** /linear/{version}/riskmodels/{modelCode} | Get risk model details
@@ -13,88 +12,9 @@ Method | HTTP request | Description
 
 
 
-## documentation
-
-> InlineResponse200 documentation(version)
-
-Get OpenAPI Specification documentation
-
-The service documentation as this OpenAPI Specification JSON document for the corresponding major version number
-
-### Example
-
-> [!IMPORTANT]
-> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
-
-#### Example Code
-
-```javascript
-const { ApiClient, AboutApi } = require('@factset/sdk-openrisk');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-//
-// The confidential client instance should be reused in production environments.
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new AboutApi();
-const version = v1; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-
-// Call api endpoint
-apiInstance.documentation(version).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
-
-### Return type
-
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, text/plain
-
-
 ## healthStatus
 
-> InlineResponse2003 healthStatus(version)
+> InlineResponse2002 healthStatus(version)
 
 Get health of service
 
@@ -159,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -173,7 +93,7 @@ Name | Type | Description  | Notes
 
 ## listRiskModels
 
-> InlineResponse2001 listRiskModels(version)
+> InlineResponse200 listRiskModels(version)
 
 Get available risk models
 
@@ -238,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -252,7 +172,7 @@ Name | Type | Description  | Notes
 
 ## riskModelMetadata
 
-> InlineResponse2002 riskModelMetadata(version, modelCode)
+> InlineResponse2001 riskModelMetadata(version, modelCode)
 
 Get risk model details
 
@@ -319,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

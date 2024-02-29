@@ -17,6 +17,11 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.OpenRisk.models.ErrorItem;
+import com.factset.sdk.OpenRisk.models.StatCalculationLevel;
+import com.factset.sdk.OpenRisk.models.StatCalculationSettings;
+import com.factset.sdk.OpenRisk.models.StatResultValue;
+import com.factset.sdk.OpenRisk.models.SuccessResponseMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,118 +35,89 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * Response from the health check route in the event of a &#39;pass&#39; status
+ * InlineResponse2003
  */
-@ApiModel(description = "Response from the health check route in the event of a 'pass' status")
 @JsonPropertyOrder({
-  InlineResponse2003.JSON_PROPERTY_STATUS,
-  InlineResponse2003.JSON_PROPERTY_VERSION
+  InlineResponse2003.JSON_PROPERTY_META,
+  InlineResponse2003.JSON_PROPERTY_DATA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2003 implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  /**
-   * Gets or Sets status
-   */
-  public enum StatusEnum {
-    PASS("pass");
+  public static final String JSON_PROPERTY_META = "meta";
+  private SuccessResponseMeta meta;
 
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private StatusEnum status;
-
-  public static final String JSON_PROPERTY_VERSION = "version";
-  private String version;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private java.util.List<Object> data = new java.util.ArrayList<>();
 
   public InlineResponse2003() { 
   }
 
   @JsonCreator
   public InlineResponse2003(
-    @JsonProperty(value=JSON_PROPERTY_STATUS, required=true) StatusEnum status, 
-    @JsonProperty(value=JSON_PROPERTY_VERSION, required=true) String version
+    @JsonProperty(value=JSON_PROPERTY_META, required=true) SuccessResponseMeta meta, 
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<Object> data
   ) {
     this();
-    this.status = status;
-    this.version = version;
+    this.meta = meta;
+    this.data = data;
   }
 
-  public InlineResponse2003 status(StatusEnum status) {
-    this.status = status;
+  public InlineResponse2003 meta(SuccessResponseMeta meta) {
+    this.meta = meta;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get meta
+   * @return meta
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "pass", required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public StatusEnum getStatus() {
-    return status;
+  public SuccessResponseMeta getMeta() {
+    return meta;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(StatusEnum status) {
-    this.status = status;
+  public void setMeta(SuccessResponseMeta meta) {
+    this.meta = meta;
   }
 
 
-  public InlineResponse2003 version(String version) {
-    this.version = version;
+  public InlineResponse2003 data(java.util.List<Object> data) {
+    this.data = data;
+    return this;
+  }
+
+  public InlineResponse2003 addDataItem(Object dataItem) {
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * Full requested semantic version string
-   * @return version
+   * Calculation results aligned to the input list of requested risk statistics
+   * @return data
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "1.0.1", required = true, value = "Full requested semantic version string")
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @ApiModelProperty(required = true, value = "Calculation results aligned to the input list of requested risk statistics")
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getVersion() {
-    return version;
+  public java.util.List<Object> getData() {
+    return data;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(String version) {
-    this.version = version;
+  public void setData(java.util.List<Object> data) {
+    this.data = data;
   }
 
 
@@ -157,21 +133,21 @@ public class InlineResponse2003 implements Serializable {
       return false;
     }
     InlineResponse2003 inlineResponse2003 = (InlineResponse2003) o;
-    return Objects.equals(this.status, inlineResponse2003.status) &&
-        Objects.equals(this.version, inlineResponse2003.version);
+    return Objects.equals(this.meta, inlineResponse2003.meta) &&
+        Objects.equals(this.data, inlineResponse2003.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, version);
+    return Objects.hash(meta, data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2003 {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

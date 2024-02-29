@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OpenRisk.models.InlineResponse2002Data;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,52 +30,118 @@ import com.factset.sdk.OpenRisk.JSON;
 
 
 /**
- * InlineResponse2002
+ * Response from the health check route in the event of a &#39;pass&#39; status
  */
+@ApiModel(description = "Response from the health check route in the event of a 'pass' status")
 @JsonPropertyOrder({
-  InlineResponse2002.JSON_PROPERTY_DATA
+  InlineResponse2002.JSON_PROPERTY_STATUS,
+  InlineResponse2002.JSON_PROPERTY_VERSION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2002 implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DATA = "data";
-  private InlineResponse2002Data data;
+  /**
+   * Gets or Sets status
+   */
+  public enum StatusEnum {
+    PASS("pass");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private StatusEnum status;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
 
   public InlineResponse2002() { 
   }
 
   @JsonCreator
   public InlineResponse2002(
-    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) InlineResponse2002Data data
+    @JsonProperty(value=JSON_PROPERTY_STATUS, required=true) StatusEnum status, 
+    @JsonProperty(value=JSON_PROPERTY_VERSION, required=true) String version
   ) {
     this();
-    this.data = data;
+    this.status = status;
+    this.version = version;
   }
 
-  public InlineResponse2002 data(InlineResponse2002Data data) {
-    this.data = data;
+  public InlineResponse2002 status(StatusEnum status) {
+    this.status = status;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get status
+   * @return status
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @ApiModelProperty(example = "pass", required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public InlineResponse2002Data getData() {
-    return data;
+  public StatusEnum getStatus() {
+    return status;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(InlineResponse2002Data data) {
-    this.data = data;
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+
+  public InlineResponse2002 version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Full requested semantic version string
+   * @return version
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "1.0.1", required = true, value = "Full requested semantic version string")
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 
@@ -92,19 +157,21 @@ public class InlineResponse2002 implements Serializable {
       return false;
     }
     InlineResponse2002 inlineResponse2002 = (InlineResponse2002) o;
-    return Objects.equals(this.data, inlineResponse2002.data);
+    return Objects.equals(this.status, inlineResponse2002.status) &&
+        Objects.equals(this.version, inlineResponse2002.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(status, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2002 {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

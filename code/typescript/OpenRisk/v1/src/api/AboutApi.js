@@ -17,7 +17,6 @@ import ErrorResponse from '../model/ErrorResponse';
 import InlineResponse200 from '../model/InlineResponse200';
 import InlineResponse2001 from '../model/InlineResponse2001';
 import InlineResponse2002 from '../model/InlineResponse2002';
-import InlineResponse2003 from '../model/InlineResponse2003';
 import InlineResponse403 from '../model/InlineResponse403';
 import InlineResponse404 from '../model/InlineResponse404';
 import SupportedStats from '../model/SupportedStats';
@@ -43,61 +42,10 @@ export default class AboutApi {
 
 
     /**
-     * Get OpenAPI Specification documentation
-     * The service documentation as this OpenAPI Specification JSON document for the corresponding major version number
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
-     */
-    documentationWithHttpInfo(version) {
-      let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling documentation");
-      }
-
-      let pathParams = {
-        'version': version
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json', 'text/plain'];
-
-
-      let returnType = InlineResponse200;
-
-      return this.apiClient.callApi(
-        '/linear/{version}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get OpenAPI Specification documentation
-     * The service documentation as this OpenAPI Specification JSON document for the corresponding major version number
-     * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
-     */
-    documentation(version) {
-      return this.documentationWithHttpInfo(version)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
      * Get health of service
      * Health status of the service
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
      */
     healthStatusWithHttpInfo(version) {
       let postBody = null;
@@ -121,7 +69,7 @@ export default class AboutApi {
       let accepts = ['application/json', 'text/plain'];
 
 
-      let returnType = InlineResponse2003;
+      let returnType = InlineResponse2002;
 
       return this.apiClient.callApi(
         '/linear/{version}/health', 'GET',
@@ -134,7 +82,7 @@ export default class AboutApi {
      * Get health of service
      * Health status of the service
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     healthStatus(version) {
       return this.healthStatusWithHttpInfo(version)
@@ -148,7 +96,7 @@ export default class AboutApi {
      * Get available risk models
      * Get the list of available risk models, including their respective model codes required for use with other routes.
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
     listRiskModelsWithHttpInfo(version) {
       let postBody = null;
@@ -172,7 +120,7 @@ export default class AboutApi {
       let accepts = ['application/json', 'text/plain'];
 
 
-      let returnType = InlineResponse2001;
+      let returnType = InlineResponse200;
 
       return this.apiClient.callApi(
         '/linear/{version}/riskmodels', 'GET',
@@ -185,7 +133,7 @@ export default class AboutApi {
      * Get available risk models
      * Get the list of available risk models, including their respective model codes required for use with other routes.
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     listRiskModels(version) {
       return this.listRiskModelsWithHttpInfo(version)
@@ -200,7 +148,7 @@ export default class AboutApi {
      * Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {String} modelCode Model code
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
     riskModelMetadataWithHttpInfo(version, modelCode) {
       let postBody = null;
@@ -229,7 +177,7 @@ export default class AboutApi {
       let accepts = ['application/json', 'text/plain'];
 
 
-      let returnType = InlineResponse2002;
+      let returnType = InlineResponse2001;
 
       return this.apiClient.callApi(
         '/linear/{version}/riskmodels/{modelCode}', 'GET',
@@ -243,7 +191,7 @@ export default class AboutApi {
      * Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {String} modelCode Model code
-     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     riskModelMetadata(version, modelCode) {
       return this.riskModelMetadataWithHttpInfo(version, modelCode)

@@ -16,8 +16,8 @@ import ApiClient from "../ApiClient";
 import CalculateFromHoldingsRequestBody from '../model/CalculateFromHoldingsRequestBody';
 import ErrorResponse from '../model/ErrorResponse';
 import GenerateIDMappingRequestBody from '../model/GenerateIDMappingRequestBody';
+import InlineResponse2003 from '../model/InlineResponse2003';
 import InlineResponse2004 from '../model/InlineResponse2004';
-import InlineResponse2005 from '../model/InlineResponse2005';
 
 /**
 * Operations service.
@@ -43,7 +43,7 @@ export default class OperationsApi {
      * Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {module:model/CalculateFromHoldingsRequestBody} calculateFromHoldingsRequestBody 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
     calculateFromHoldingsWithHttpInfo(version, calculateFromHoldingsRequestBody) {
       let postBody = calculateFromHoldingsRequestBody;
@@ -71,7 +71,7 @@ export default class OperationsApi {
       let accepts = ['application/json', 'text/plain'];
 
 
-      let returnType = InlineResponse2004;
+      let returnType = InlineResponse2003;
 
       return this.apiClient.callApi(
         '/linear/{version}/calculate/from-holdings', 'POST',
@@ -85,7 +85,7 @@ export default class OperationsApi {
      * Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {module:model/CalculateFromHoldingsRequestBody} calculateFromHoldingsRequestBody 
-     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     calculateFromHoldings(version, calculateFromHoldingsRequestBody) {
       return this.calculateFromHoldingsWithHttpInfo(version, calculateFromHoldingsRequestBody)
@@ -100,7 +100,7 @@ export default class OperationsApi {
      * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {module:model/GenerateIDMappingRequestBody} generateIDMappingRequestBody 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
     generateIdMappingWithHttpInfo(version, generateIDMappingRequestBody) {
       let postBody = generateIDMappingRequestBody;
@@ -128,7 +128,7 @@ export default class OperationsApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2005;
+      let returnType = InlineResponse2004;
 
       return this.apiClient.callApi(
         '/linear/{version}/generate/id-mapping', 'POST',
@@ -142,7 +142,7 @@ export default class OperationsApi {
      * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
      * @param {String} version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
      * @param {module:model/GenerateIDMappingRequestBody} generateIDMappingRequestBody 
-     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     generateIdMapping(version, generateIDMappingRequestBody) {
       return this.generateIdMappingWithHttpInfo(version, generateIDMappingRequestBody)

@@ -17,9 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OpenRisk.models.InlineResponse200Components;
-import com.factset.sdk.OpenRisk.models.InlineResponse200Info;
-import com.factset.sdk.OpenRisk.models.InlineResponse200Servers;
+import com.factset.sdk.OpenRisk.models.InlineResponse200Data;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,219 +34,54 @@ import com.factset.sdk.OpenRisk.JSON;
  * InlineResponse200
  */
 @JsonPropertyOrder({
-  InlineResponse200.JSON_PROPERTY_OPENAPI,
-  InlineResponse200.JSON_PROPERTY_INFO,
-  InlineResponse200.JSON_PROPERTY_SERVERS,
-  InlineResponse200.JSON_PROPERTY_PATHS,
-  InlineResponse200.JSON_PROPERTY_COMPONENTS,
-  InlineResponse200.JSON_PROPERTY_SECURITY
+  InlineResponse200.JSON_PROPERTY_DATA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse200 implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_OPENAPI = "openapi";
-  private String openapi;
-
-  public static final String JSON_PROPERTY_INFO = "info";
-  private InlineResponse200Info info;
-
-  public static final String JSON_PROPERTY_SERVERS = "servers";
-  private java.util.List<InlineResponse200Servers> servers = new java.util.ArrayList<>();
-
-  public static final String JSON_PROPERTY_PATHS = "paths";
-  private Object paths;
-
-  public static final String JSON_PROPERTY_COMPONENTS = "components";
-  private InlineResponse200Components components;
-
-  public static final String JSON_PROPERTY_SECURITY = "security";
-  private java.util.List<Object> security = new java.util.ArrayList<>();
+  public static final String JSON_PROPERTY_DATA = "data";
+  private java.util.List<InlineResponse200Data> data = new java.util.ArrayList<>();
 
   public InlineResponse200() { 
   }
 
   @JsonCreator
   public InlineResponse200(
-    @JsonProperty(value=JSON_PROPERTY_OPENAPI, required=true) String openapi, 
-    @JsonProperty(value=JSON_PROPERTY_INFO, required=true) InlineResponse200Info info, 
-    @JsonProperty(value=JSON_PROPERTY_SERVERS, required=true) java.util.List<InlineResponse200Servers> servers, 
-    @JsonProperty(value=JSON_PROPERTY_PATHS, required=true) Object paths, 
-    @JsonProperty(value=JSON_PROPERTY_COMPONENTS, required=true) InlineResponse200Components components, 
-    @JsonProperty(value=JSON_PROPERTY_SECURITY, required=true) java.util.List<Object> security
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<InlineResponse200Data> data
   ) {
     this();
-    this.openapi = openapi;
-    this.info = info;
-    this.servers = servers;
-    this.paths = paths;
-    this.components = components;
-    this.security = security;
+    this.data = data;
   }
 
-  public InlineResponse200 openapi(String openapi) {
-    this.openapi = openapi;
+  public InlineResponse200 data(java.util.List<InlineResponse200Data> data) {
+    this.data = data;
+    return this;
+  }
+
+  public InlineResponse200 addDataItem(InlineResponse200Data dataItem) {
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * OpenAPI Specification version
-   * @return openapi
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "OpenAPI Specification version")
-  @JsonProperty(JSON_PROPERTY_OPENAPI)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getOpenapi() {
-    return openapi;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OPENAPI)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOpenapi(String openapi) {
-    this.openapi = openapi;
-  }
-
-
-  public InlineResponse200 info(InlineResponse200Info info) {
-    this.info = info;
-    return this;
-  }
-
-   /**
-   * Get info
-   * @return info
+   * Get data
+   * @return data
   **/
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_INFO)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public InlineResponse200Info getInfo() {
-    return info;
+  public java.util.List<InlineResponse200Data> getData() {
+    return data;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INFO)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInfo(InlineResponse200Info info) {
-    this.info = info;
-  }
-
-
-  public InlineResponse200 servers(java.util.List<InlineResponse200Servers> servers) {
-    this.servers = servers;
-    return this;
-  }
-
-  public InlineResponse200 addServersItem(InlineResponse200Servers serversItem) {
-    this.servers.add(serversItem);
-    return this;
-  }
-
-   /**
-   * Get servers
-   * @return servers
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_SERVERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public java.util.List<InlineResponse200Servers> getServers() {
-    return servers;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SERVERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setServers(java.util.List<InlineResponse200Servers> servers) {
-    this.servers = servers;
-  }
-
-
-  public InlineResponse200 paths(Object paths) {
-    this.paths = paths;
-    return this;
-  }
-
-   /**
-   * Get paths
-   * @return paths
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_PATHS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Object getPaths() {
-    return paths;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PATHS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPaths(Object paths) {
-    this.paths = paths;
-  }
-
-
-  public InlineResponse200 components(InlineResponse200Components components) {
-    this.components = components;
-    return this;
-  }
-
-   /**
-   * Get components
-   * @return components
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_COMPONENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public InlineResponse200Components getComponents() {
-    return components;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_COMPONENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setComponents(InlineResponse200Components components) {
-    this.components = components;
-  }
-
-
-  public InlineResponse200 security(java.util.List<Object> security) {
-    this.security = security;
-    return this;
-  }
-
-  public InlineResponse200 addSecurityItem(Object securityItem) {
-    this.security.add(securityItem);
-    return this;
-  }
-
-   /**
-   * Get security
-   * @return security
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_SECURITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public java.util.List<Object> getSecurity() {
-    return security;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SECURITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSecurity(java.util.List<Object> security) {
-    this.security = security;
+  public void setData(java.util.List<InlineResponse200Data> data) {
+    this.data = data;
   }
 
 
@@ -264,29 +97,19 @@ public class InlineResponse200 implements Serializable {
       return false;
     }
     InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.openapi, inlineResponse200.openapi) &&
-        Objects.equals(this.info, inlineResponse200.info) &&
-        Objects.equals(this.servers, inlineResponse200.servers) &&
-        Objects.equals(this.paths, inlineResponse200.paths) &&
-        Objects.equals(this.components, inlineResponse200.components) &&
-        Objects.equals(this.security, inlineResponse200.security);
+    return Objects.equals(this.data, inlineResponse200.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(openapi, info, servers, paths, components, security);
+    return Objects.hash(data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200 {\n");
-    sb.append("    openapi: ").append(toIndentedString(openapi)).append("\n");
-    sb.append("    info: ").append(toIndentedString(info)).append("\n");
-    sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
-    sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
-    sb.append("    components: ").append(toIndentedString(components)).append("\n");
-    sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

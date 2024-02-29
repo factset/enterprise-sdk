@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse2001Data&gt;**](InlineResponse2001Data.md) |  | 
+**data** | [**InlineResponse2001Data**](InlineResponse2001Data.md) |  | 
 
 
 ## Implemented Interfaces

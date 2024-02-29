@@ -4,6 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**InlineResponse2002Data**](InlineResponse2002Data.md) |  | 
+**status** | **String** |  | 
+**version** | **String** | Full requested semantic version string | 
+
+
+
+## Enum: StatusEnum
+
+
+* `pass` (value: `"pass"`)
+
+
 
 

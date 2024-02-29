@@ -31,7 +31,13 @@ from fds.sdk.OpenRisk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.OpenRisk.model.currency_iso_code import CurrencyISOCode
+    from fds.sdk.OpenRisk.model.inline_response2001_data_factors import InlineResponse2001DataFactors
+    from fds.sdk.OpenRisk.model.inline_response2001_data_risk_model_append_format import InlineResponse2001DataRiskModelAppendFormat
     from fds.sdk.OpenRisk.model.risk_model_code import RiskModelCode
+    globals()['CurrencyISOCode'] = CurrencyISOCode
+    globals()['InlineResponse2001DataFactors'] = InlineResponse2001DataFactors
+    globals()['InlineResponse2001DataRiskModelAppendFormat'] = InlineResponse2001DataRiskModelAppendFormat
     globals()['RiskModelCode'] = RiskModelCode
 
 
@@ -63,7 +69,13 @@ class InlineResponse2001Data(ModelNormal):
     }
 
     validations = {
-        ('category',): {
+        ('currencies',): {
+            'min_items': 1,
+        },
+        ('factors',): {
+            'min_items': 1,
+        },
+        ('frequency',): {
             'min_length': 1,
         },
         ('name',): {
@@ -71,6 +83,9 @@ class InlineResponse2001Data(ModelNormal):
         },
         ('vendor',): {
             'min_length': 1,
+        },
+        ('risk_model_append_format',): {
+            'min_items': 1,
         },
     }
 
@@ -97,11 +112,18 @@ class InlineResponse2001Data(ModelNormal):
         """
         lazy_import()
         return {
-            'available': (bool,),  # noqa: E501
-            'category': (str,),  # noqa: E501
             'code': (RiskModelCode,),  # noqa: E501
+            'currencies': ([CurrencyISOCode],),  # noqa: E501
+            'currency': (CurrencyISOCode,),  # noqa: E501
+            'factors': ([InlineResponse2001DataFactors],),  # noqa: E501
+            'factor_id_to_iso_currency': ({str: (CurrencyISOCode,)},),  # noqa: E501
+            'first_date': (date,),  # noqa: E501
+            'frequency': (str,),  # noqa: E501
+            'latest_date': (date,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'universe_count': (int,),  # noqa: E501
             'vendor': (str,),  # noqa: E501
+            'risk_model_append_format': ([InlineResponse2001DataRiskModelAppendFormat],),  # noqa: E501
         }
 
     @cached_property
@@ -110,11 +132,18 @@ class InlineResponse2001Data(ModelNormal):
 
 
     attribute_map = {
-        'available': 'available',  # noqa: E501
-        'category': 'category',  # noqa: E501
         'code': 'code',  # noqa: E501
+        'currencies': 'currencies',  # noqa: E501
+        'currency': 'currency',  # noqa: E501
+        'factors': 'factors',  # noqa: E501
+        'factor_id_to_iso_currency': 'factorIdToIsoCurrency',  # noqa: E501
+        'first_date': 'firstDate',  # noqa: E501
+        'frequency': 'frequency',  # noqa: E501
+        'latest_date': 'latestDate',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'universe_count': 'universeCount',  # noqa: E501
         'vendor': 'vendor',  # noqa: E501
+        'risk_model_append_format': 'riskModelAppendFormat',  # noqa: E501
     }
 
     read_only_vars = {
@@ -124,14 +153,20 @@ class InlineResponse2001Data(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, available, category, code, name, vendor, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, code, currencies, currency, factors, factor_id_to_iso_currency, first_date, frequency, latest_date, name, universe_count, vendor, *args, **kwargs):  # noqa: E501
         """InlineResponse2001Data - a model defined in OpenAPI
 
         Args:
-            available (bool): If the model is available for use
-            category (str): Model category
             code (RiskModelCode):
+            currencies ([CurrencyISOCode]): Currencies that can be used with the model
+            currency (CurrencyISOCode):
+            factors ([InlineResponse2001DataFactors]): Factors of the model
+            factor_id_to_iso_currency ({str: (CurrencyISOCode,)}): Map of currency factor IDs to ISO currency code.
+            first_date (date): **(since 1.12.0)**  Date format YYYY-MM-DD.
+            frequency (str): Frequency of the model
+            latest_date (date): **(since 1.12.0)**  Date format YYYY-MM-DD.
             name (str): Model name
+            universe_count (int): Total universe count of the model
             vendor (str): Model vendor
 
         Keyword Args:
@@ -165,6 +200,7 @@ class InlineResponse2001Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            risk_model_append_format ([InlineResponse2001DataRiskModelAppendFormat]): List of fields which are supported by the risk model for appending additional asset data. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -192,10 +228,16 @@ class InlineResponse2001Data(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.available = available
-        self.category = category
         self.code = code
+        self.currencies = currencies
+        self.currency = currency
+        self.factors = factors
+        self.factor_id_to_iso_currency = factor_id_to_iso_currency
+        self.first_date = first_date
+        self.frequency = frequency
+        self.latest_date = latest_date
         self.name = name
+        self.universe_count = universe_count
         self.vendor = vendor
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -217,14 +259,20 @@ class InlineResponse2001Data(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, available, category, code, name, vendor, *args, **kwargs):  # noqa: E501
+    def __init__(self, code, currencies, currency, factors, factor_id_to_iso_currency, first_date, frequency, latest_date, name, universe_count, vendor, *args, **kwargs):  # noqa: E501
         """InlineResponse2001Data - a model defined in OpenAPI
 
         Args:
-            available (bool): If the model is available for use
-            category (str): Model category
             code (RiskModelCode):
+            currencies ([CurrencyISOCode]): Currencies that can be used with the model
+            currency (CurrencyISOCode):
+            factors ([InlineResponse2001DataFactors]): Factors of the model
+            factor_id_to_iso_currency ({str: (CurrencyISOCode,)}): Map of currency factor IDs to ISO currency code.
+            first_date (date): **(since 1.12.0)**  Date format YYYY-MM-DD.
+            frequency (str): Frequency of the model
+            latest_date (date): **(since 1.12.0)**  Date format YYYY-MM-DD.
             name (str): Model name
+            universe_count (int): Total universe count of the model
             vendor (str): Model vendor
 
         Keyword Args:
@@ -258,6 +306,7 @@ class InlineResponse2001Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            risk_model_append_format ([InlineResponse2001DataRiskModelAppendFormat]): List of fields which are supported by the risk model for appending additional asset data. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,10 +332,16 @@ class InlineResponse2001Data(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.available = available
-        self.category = category
         self.code = code
+        self.currencies = currencies
+        self.currency = currency
+        self.factors = factors
+        self.factor_id_to_iso_currency = factor_id_to_iso_currency
+        self.first_date = first_date
+        self.frequency = frequency
+        self.latest_date = latest_date
         self.name = name
+        self.universe_count = universe_count
         self.vendor = vendor
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

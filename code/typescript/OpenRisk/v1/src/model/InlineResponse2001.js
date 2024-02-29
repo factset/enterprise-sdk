@@ -22,7 +22,7 @@ class InlineResponse2001 {
     /**
      * Constructs a new <code>InlineResponse2001</code>.
      * @alias module:model/InlineResponse2001
-     * @param data {Array.<module:model/InlineResponse2001Data>} 
+     * @param data {module:model/InlineResponse2001Data} 
      */
     constructor(data) { 
         
@@ -50,7 +50,7 @@ class InlineResponse2001 {
             obj = obj || new InlineResponse2001();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2001Data]);
+                obj['data'] = InlineResponse2001Data.constructFromObject(data['data']);
             }
         }
         return obj;
@@ -60,7 +60,7 @@ class InlineResponse2001 {
 }
 
 /**
- * @member {Array.<module:model/InlineResponse2001Data>} data
+ * @member {module:model/InlineResponse2001Data} data
  */
 InlineResponse2001.prototype['data'] = undefined;
 

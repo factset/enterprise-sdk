@@ -12,11 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import ErrorItem from './ErrorItem';
-import StatCalculationLevel from './StatCalculationLevel';
-import StatCalculationSettings from './StatCalculationSettings';
-import StatResultValue from './StatResultValue';
-import SuccessResponseMeta from './SuccessResponseMeta';
+import RiskMappingEntry from './RiskMappingEntry';
+import SecurityOnlySuccessResponseMeta from './SecurityOnlySuccessResponseMeta';
 
 /**
  * The InlineResponse2004 model module.
@@ -26,8 +23,8 @@ class InlineResponse2004 {
     /**
      * Constructs a new <code>InlineResponse2004</code>.
      * @alias module:model/InlineResponse2004
-     * @param meta {module:model/SuccessResponseMeta} 
-     * @param data {Array.<Object>} Calculation results aligned to the input list of requested risk statistics
+     * @param meta {module:model/SecurityOnlySuccessResponseMeta} 
+     * @param data {Array.<module:model/RiskMappingEntry>} 
      */
     constructor(meta, data) { 
         
@@ -56,10 +53,10 @@ class InlineResponse2004 {
             obj = obj || new InlineResponse2004();
 
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = SuccessResponseMeta.constructFromObject(data['meta']);
+                obj['meta'] = SecurityOnlySuccessResponseMeta.constructFromObject(data['meta']);
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [Object]);
+                obj['data'] = ApiClient.convertToType(data['data'], [RiskMappingEntry]);
             }
         }
         return obj;
@@ -69,13 +66,12 @@ class InlineResponse2004 {
 }
 
 /**
- * @member {module:model/SuccessResponseMeta} meta
+ * @member {module:model/SecurityOnlySuccessResponseMeta} meta
  */
 InlineResponse2004.prototype['meta'] = undefined;
 
 /**
- * Calculation results aligned to the input list of requested risk statistics
- * @member {Array.<Object>} data
+ * @member {Array.<module:model/RiskMappingEntry>} data
  */
 InlineResponse2004.prototype['data'] = undefined;
 

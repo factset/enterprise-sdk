@@ -31,12 +31,8 @@ from fds.sdk.OpenRisk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OpenRisk.model.inline_response200_components import InlineResponse200Components
-    from fds.sdk.OpenRisk.model.inline_response200_info import InlineResponse200Info
-    from fds.sdk.OpenRisk.model.inline_response200_servers import InlineResponse200Servers
-    globals()['InlineResponse200Components'] = InlineResponse200Components
-    globals()['InlineResponse200Info'] = InlineResponse200Info
-    globals()['InlineResponse200Servers'] = InlineResponse200Servers
+    from fds.sdk.OpenRisk.model.inline_response200_data import InlineResponse200Data
+    globals()['InlineResponse200Data'] = InlineResponse200Data
 
 
 class InlineResponse200(ModelNormal):
@@ -67,13 +63,7 @@ class InlineResponse200(ModelNormal):
     }
 
     validations = {
-        ('openapi',): {
-            'min_length': 1,
-        },
-        ('servers',): {
-            'min_items': 1,
-        },
-        ('security',): {
+        ('data',): {
             'min_items': 1,
         },
     }
@@ -101,12 +91,7 @@ class InlineResponse200(ModelNormal):
         """
         lazy_import()
         return {
-            'openapi': (str,),  # noqa: E501
-            'info': (InlineResponse200Info,),  # noqa: E501
-            'servers': ([InlineResponse200Servers],),  # noqa: E501
-            'paths': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'components': (InlineResponse200Components,),  # noqa: E501
-            'security': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
+            'data': ([InlineResponse200Data],),  # noqa: E501
         }
 
     @cached_property
@@ -115,12 +100,7 @@ class InlineResponse200(ModelNormal):
 
 
     attribute_map = {
-        'openapi': 'openapi',  # noqa: E501
-        'info': 'info',  # noqa: E501
-        'servers': 'servers',  # noqa: E501
-        'paths': 'paths',  # noqa: E501
-        'components': 'components',  # noqa: E501
-        'security': 'security',  # noqa: E501
+        'data': 'data',  # noqa: E501
     }
 
     read_only_vars = {
@@ -130,16 +110,11 @@ class InlineResponse200(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, openapi, info, servers, paths, components, security, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, data, *args, **kwargs):  # noqa: E501
         """InlineResponse200 - a model defined in OpenAPI
 
         Args:
-            openapi (str): OpenAPI Specification version
-            info (InlineResponse200Info):
-            servers ([InlineResponse200Servers]):
-            paths ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            components (InlineResponse200Components):
-            security ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            data ([InlineResponse200Data]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,12 +174,7 @@ class InlineResponse200(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.openapi = openapi
-        self.info = info
-        self.servers = servers
-        self.paths = paths
-        self.components = components
-        self.security = security
+        self.data = data
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -225,16 +195,11 @@ class InlineResponse200(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, openapi, info, servers, paths, components, security, *args, **kwargs):  # noqa: E501
+    def __init__(self, data, *args, **kwargs):  # noqa: E501
         """InlineResponse200 - a model defined in OpenAPI
 
         Args:
-            openapi (str): OpenAPI Specification version
-            info (InlineResponse200Info):
-            servers ([InlineResponse200Servers]):
-            paths ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            components (InlineResponse200Components):
-            security ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            data ([InlineResponse200Data]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -292,12 +257,7 @@ class InlineResponse200(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.openapi = openapi
-        self.info = info
-        self.servers = servers
-        self.paths = paths
-        self.components = components
-        self.security = security
+        self.data = data
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

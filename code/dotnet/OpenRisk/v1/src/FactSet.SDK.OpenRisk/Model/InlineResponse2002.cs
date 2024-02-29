@@ -27,11 +27,31 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// InlineResponse2002
+    /// Response from the health check route in the event of a &#39;pass&#39; status
     /// </summary>
     [DataContract(Name = "inline_response_200_2")]
     public partial class InlineResponse2002 : IEquatable<InlineResponse2002>, IValidatableObject
     {
+        /// <summary>
+        /// Defines Status
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            /// <summary>
+            /// Enum Pass for value: pass
+            /// </summary>
+            [EnumMember(Value = "pass")]
+            Pass = 1
+
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        public StatusEnum Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
@@ -40,21 +60,24 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
-        /// <param name="data">data (required).</param>
-        public InlineResponse2002(InlineResponse2002Data data)
+        /// <param name="status">status (required).</param>
+        /// <param name="version">Full requested semantic version string (required).</param>
+        public InlineResponse2002(StatusEnum status, string version)
         {
-            // to ensure "data" is required (not null)
-            if (data == null) {
-                throw new ArgumentNullException("data is a required property for InlineResponse2002 and cannot be null");
+            this.Status = status;
+            // to ensure "version" is required (not null)
+            if (version == null) {
+                throw new ArgumentNullException("version is a required property for InlineResponse2002 and cannot be null");
             }
-            this.Data = data;
+            this._Version = version;
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Full requested semantic version string
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public InlineResponse2002Data Data { get; set; }
+        /// <value>Full requested semantic version string</value>
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
+        public string _Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +87,8 @@ namespace FactSet.SDK.OpenRisk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2002 {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,9 +125,13 @@ namespace FactSet.SDK.OpenRisk.Model
             }
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -116,9 +144,10 @@ namespace FactSet.SDK.OpenRisk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this._Version != null)
                 {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
                 }
                 return hashCode;
             }
@@ -131,6 +160,12 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
+            // _Version (string) minLength
+            if (this._Version != null && this._Version.Length < 5)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be greater than 5.", new [] { "_Version" });
+            }
+
             yield break;
         }
     }

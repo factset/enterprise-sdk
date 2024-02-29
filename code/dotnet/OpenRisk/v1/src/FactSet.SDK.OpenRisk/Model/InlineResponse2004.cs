@@ -41,8 +41,8 @@ namespace FactSet.SDK.OpenRisk.Model
         /// Initializes a new instance of the <see cref="InlineResponse2004" /> class.
         /// </summary>
         /// <param name="meta">meta (required).</param>
-        /// <param name="data">Calculation results aligned to the input list of requested risk statistics (required).</param>
-        public InlineResponse2004(SuccessResponseMeta meta, List<Object> data)
+        /// <param name="data">data (required).</param>
+        public InlineResponse2004(SecurityOnlySuccessResponseMeta meta, List<RiskMappingEntry> data)
         {
             // to ensure "meta" is required (not null)
             if (meta == null) {
@@ -60,14 +60,13 @@ namespace FactSet.SDK.OpenRisk.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
-        public SuccessResponseMeta Meta { get; set; }
+        public SecurityOnlySuccessResponseMeta Meta { get; set; }
 
         /// <summary>
-        /// Calculation results aligned to the input list of requested risk statistics
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>Calculation results aligned to the input list of requested risk statistics</value>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public List<Object> Data { get; set; }
+        public List<RiskMappingEntry> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

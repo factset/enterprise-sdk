@@ -4,7 +4,6 @@ All URIs are relative to *https://api.factset.com/analytics/openrisk*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Documentation**](AboutApi.md#documentation) | **GET** /linear/{version} | Get OpenAPI Specification documentation
 [**HealthStatus**](AboutApi.md#healthstatus) | **GET** /linear/{version}/health | Get health of service
 [**ListRiskModels**](AboutApi.md#listriskmodels) | **GET** /linear/{version}/riskmodels | Get available risk models
 [**RiskModelMetadata**](AboutApi.md#riskmodelmetadata) | **GET** /linear/{version}/riskmodels/{modelCode} | Get risk model details
@@ -13,111 +12,9 @@ Method | HTTP request | Description
 
 
 
-<a name="documentation"></a>
-# **Documentation**
-> InlineResponse200 Documentation (string version)
-
-Get OpenAPI Specification documentation
-
-The service documentation as this OpenAPI Specification JSON document for the corresponding major version number
-
-### Example
-
-> [!IMPORTANT]
-> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
-
-#### Example Code
-
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.OpenRisk.Api;
-using FactSet.SDK.OpenRisk.Client;
-using FactSet.SDK.OpenRisk.Model;
-
-namespace Example
-{
-    public class DocumentationExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.OpenRisk.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            //
-            // The confidential client instance should be reused in production environments.
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new AboutApi(config);
-
-            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-
-            try
-            {
-                // Get OpenAPI Specification documentation
-                InlineResponse200 result = apiInstance.Documentation(version);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling AboutApi.Documentation: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
-
-### Return type
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, text/plain
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The service documentation as this OpenAPI Specification JSON document for the corresponding major version number |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
-| **401** | Missing or invalid authentication |  -  |
-| **404** | Endpoint not found |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
-| **429** | Rate limit reached. Wait until the time specified in header &#39;Retry-After&#39; has elapsed before making further requests. |  * Retry-After -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
-| **500** | Internal server error occurred |  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
 <a name="healthstatus"></a>
 # **HealthStatus**
-> InlineResponse2003 HealthStatus (string version)
+> InlineResponse2002 HealthStatus (string version)
 
 Get health of service
 
@@ -172,7 +69,7 @@ namespace Example
             try
             {
                 // Get health of service
-                InlineResponse2003 result = apiInstance.HealthStatus(version);
+                InlineResponse2002 result = apiInstance.HealthStatus(version);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -193,7 +90,7 @@ Name | Type | Description  | Notes
  **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
 
 ### Return type
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -219,7 +116,7 @@ Name | Type | Description  | Notes
 
 <a name="listriskmodels"></a>
 # **ListRiskModels**
-> InlineResponse2001 ListRiskModels (string version)
+> InlineResponse200 ListRiskModels (string version)
 
 Get available risk models
 
@@ -274,7 +171,7 @@ namespace Example
             try
             {
                 // Get available risk models
-                InlineResponse2001 result = apiInstance.ListRiskModels(version);
+                InlineResponse200 result = apiInstance.ListRiskModels(version);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -295,7 +192,7 @@ Name | Type | Description  | Notes
  **version** | **string**| Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. | 
 
 ### Return type
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -321,7 +218,7 @@ Name | Type | Description  | Notes
 
 <a name="riskmodelmetadata"></a>
 # **RiskModelMetadata**
-> InlineResponse2002 RiskModelMetadata (string version, string modelCode)
+> InlineResponse2001 RiskModelMetadata (string version, string modelCode)
 
 Get risk model details
 
@@ -377,7 +274,7 @@ namespace Example
             try
             {
                 // Get risk model details
-                InlineResponse2002 result = apiInstance.RiskModelMetadata(version, modelCode);
+                InlineResponse2001 result = apiInstance.RiskModelMetadata(version, modelCode);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -399,7 +296,7 @@ Name | Type | Description  | Notes
  **modelCode** | **string**| Model code | 
 
 ### Return type
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

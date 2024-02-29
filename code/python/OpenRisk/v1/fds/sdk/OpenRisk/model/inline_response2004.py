@@ -31,10 +31,10 @@ from fds.sdk.OpenRisk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.OpenRisk.model.stats_results import StatsResults
-    from fds.sdk.OpenRisk.model.success_response_meta import SuccessResponseMeta
-    globals()['StatsResults'] = StatsResults
-    globals()['SuccessResponseMeta'] = SuccessResponseMeta
+    from fds.sdk.OpenRisk.model.risk_mapping_entry import RiskMappingEntry
+    from fds.sdk.OpenRisk.model.security_only_success_response_meta import SecurityOnlySuccessResponseMeta
+    globals()['RiskMappingEntry'] = RiskMappingEntry
+    globals()['SecurityOnlySuccessResponseMeta'] = SecurityOnlySuccessResponseMeta
 
 
 class InlineResponse2004(ModelNormal):
@@ -65,6 +65,9 @@ class InlineResponse2004(ModelNormal):
     }
 
     validations = {
+        ('data',): {
+            'min_items': 1,
+        },
     }
 
     @cached_property
@@ -90,8 +93,8 @@ class InlineResponse2004(ModelNormal):
         """
         lazy_import()
         return {
-            'meta': (SuccessResponseMeta,),  # noqa: E501
-            'data': (StatsResults,),  # noqa: E501
+            'meta': (SecurityOnlySuccessResponseMeta,),  # noqa: E501
+            'data': ([RiskMappingEntry],),  # noqa: E501
         }
 
     @cached_property
@@ -115,8 +118,8 @@ class InlineResponse2004(ModelNormal):
         """InlineResponse2004 - a model defined in OpenAPI
 
         Args:
-            meta (SuccessResponseMeta):
-            data (StatsResults):
+            meta (SecurityOnlySuccessResponseMeta):
+            data ([RiskMappingEntry]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -202,8 +205,8 @@ class InlineResponse2004(ModelNormal):
         """InlineResponse2004 - a model defined in OpenAPI
 
         Args:
-            meta (SuccessResponseMeta):
-            data (StatsResults):
+            meta (SecurityOnlySuccessResponseMeta):
+            data ([RiskMappingEntry]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

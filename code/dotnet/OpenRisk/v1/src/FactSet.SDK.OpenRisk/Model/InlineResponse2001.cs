@@ -41,7 +41,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public InlineResponse2001(List<InlineResponse2001Data> data)
+        public InlineResponse2001(InlineResponse2001Data data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {
@@ -54,7 +54,7 @@ namespace FactSet.SDK.OpenRisk.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public List<InlineResponse2001Data> Data { get; set; }
+        public InlineResponse2001Data Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,9 +102,8 @@ namespace FactSet.SDK.OpenRisk.Model
             return 
                 (
                     this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 

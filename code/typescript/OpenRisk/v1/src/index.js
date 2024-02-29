@@ -33,16 +33,12 @@ import IDsAndMarketValues from './model/IDsAndMarketValues';
 import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse2001 from './model/InlineResponse2001';
 import InlineResponse2001Data from './model/InlineResponse2001Data';
+import InlineResponse2001DataFactors from './model/InlineResponse2001DataFactors';
+import InlineResponse2001DataRiskModelAppendFormat from './model/InlineResponse2001DataRiskModelAppendFormat';
 import InlineResponse2002 from './model/InlineResponse2002';
-import InlineResponse2002Data from './model/InlineResponse2002Data';
-import InlineResponse2002DataFactors from './model/InlineResponse2002DataFactors';
-import InlineResponse2002DataRiskModelAppendFormat from './model/InlineResponse2002DataRiskModelAppendFormat';
 import InlineResponse2003 from './model/InlineResponse2003';
 import InlineResponse2004 from './model/InlineResponse2004';
-import InlineResponse2005 from './model/InlineResponse2005';
-import InlineResponse200Components from './model/InlineResponse200Components';
-import InlineResponse200Info from './model/InlineResponse200Info';
-import InlineResponse200Servers from './model/InlineResponse200Servers';
+import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse403 from './model/InlineResponse403';
 import InlineResponse404 from './model/InlineResponse404';
 import InputToResultSecurityIndexMapping from './model/InputToResultSecurityIndexMapping';
@@ -248,28 +244,22 @@ export {
     InlineResponse2001Data,
 
     /**
+     * The InlineResponse2001DataFactors model constructor.
+     * @property {module:model/InlineResponse2001DataFactors}
+     */
+    InlineResponse2001DataFactors,
+
+    /**
+     * The InlineResponse2001DataRiskModelAppendFormat model constructor.
+     * @property {module:model/InlineResponse2001DataRiskModelAppendFormat}
+     */
+    InlineResponse2001DataRiskModelAppendFormat,
+
+    /**
      * The InlineResponse2002 model constructor.
      * @property {module:model/InlineResponse2002}
      */
     InlineResponse2002,
-
-    /**
-     * The InlineResponse2002Data model constructor.
-     * @property {module:model/InlineResponse2002Data}
-     */
-    InlineResponse2002Data,
-
-    /**
-     * The InlineResponse2002DataFactors model constructor.
-     * @property {module:model/InlineResponse2002DataFactors}
-     */
-    InlineResponse2002DataFactors,
-
-    /**
-     * The InlineResponse2002DataRiskModelAppendFormat model constructor.
-     * @property {module:model/InlineResponse2002DataRiskModelAppendFormat}
-     */
-    InlineResponse2002DataRiskModelAppendFormat,
 
     /**
      * The InlineResponse2003 model constructor.
@@ -284,28 +274,10 @@ export {
     InlineResponse2004,
 
     /**
-     * The InlineResponse2005 model constructor.
-     * @property {module:model/InlineResponse2005}
+     * The InlineResponse200Data model constructor.
+     * @property {module:model/InlineResponse200Data}
      */
-    InlineResponse2005,
-
-    /**
-     * The InlineResponse200Components model constructor.
-     * @property {module:model/InlineResponse200Components}
-     */
-    InlineResponse200Components,
-
-    /**
-     * The InlineResponse200Info model constructor.
-     * @property {module:model/InlineResponse200Info}
-     */
-    InlineResponse200Info,
-
-    /**
-     * The InlineResponse200Servers model constructor.
-     * @property {module:model/InlineResponse200Servers}
-     */
-    InlineResponse200Servers,
+    InlineResponse200Data,
 
     /**
      * The InlineResponse403 model constructor.

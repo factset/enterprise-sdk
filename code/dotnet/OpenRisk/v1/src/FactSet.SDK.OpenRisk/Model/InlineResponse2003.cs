@@ -27,31 +27,11 @@ using OpenAPIDateConverter = FactSet.SDK.OpenRisk.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.OpenRisk.Model
 {
     /// <summary>
-    /// Response from the health check route in the event of a &#39;pass&#39; status
+    /// InlineResponse2003
     /// </summary>
     [DataContract(Name = "inline_response_200_3")]
     public partial class InlineResponse2003 : IEquatable<InlineResponse2003>, IValidatableObject
     {
-        /// <summary>
-        /// Defines Status
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            /// <summary>
-            /// Enum Pass for value: pass
-            /// </summary>
-            [EnumMember(Value = "pass")]
-            Pass = 1
-
-        }
-
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
-        public StatusEnum Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
         /// </summary>
@@ -60,24 +40,34 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
         /// </summary>
-        /// <param name="status">status (required).</param>
-        /// <param name="version">Full requested semantic version string (required).</param>
-        public InlineResponse2003(StatusEnum status, string version)
+        /// <param name="meta">meta (required).</param>
+        /// <param name="data">Calculation results aligned to the input list of requested risk statistics (required).</param>
+        public InlineResponse2003(SuccessResponseMeta meta, List<Object> data)
         {
-            this.Status = status;
-            // to ensure "version" is required (not null)
-            if (version == null) {
-                throw new ArgumentNullException("version is a required property for InlineResponse2003 and cannot be null");
+            // to ensure "meta" is required (not null)
+            if (meta == null) {
+                throw new ArgumentNullException("meta is a required property for InlineResponse2003 and cannot be null");
             }
-            this._Version = version;
+            this.Meta = meta;
+            // to ensure "data" is required (not null)
+            if (data == null) {
+                throw new ArgumentNullException("data is a required property for InlineResponse2003 and cannot be null");
+            }
+            this.Data = data;
         }
 
         /// <summary>
-        /// Full requested semantic version string
+        /// Gets or Sets Meta
         /// </summary>
-        /// <value>Full requested semantic version string</value>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
-        public string _Version { get; set; }
+        [DataMember(Name = "meta", IsRequired = true, EmitDefaultValue = false)]
+        public SuccessResponseMeta Meta { get; set; }
+
+        /// <summary>
+        /// Calculation results aligned to the input list of requested risk statistics
+        /// </summary>
+        /// <value>Calculation results aligned to the input list of requested risk statistics</value>
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
+        public List<Object> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -87,8 +77,8 @@ namespace FactSet.SDK.OpenRisk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003 {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,13 +115,15 @@ namespace FactSet.SDK.OpenRisk.Model
             }
             return 
                 (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 
@@ -144,10 +136,13 @@ namespace FactSet.SDK.OpenRisk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this._Version != null)
+                if (this.Meta != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
+                if (this.Data != null)
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
                 }
                 return hashCode;
             }
@@ -160,12 +155,6 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // _Version (string) minLength
-            if (this._Version != null && this._Version.Length < 5)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be greater than 5.", new [] { "_Version" });
-            }
-
             yield break;
         }
     }

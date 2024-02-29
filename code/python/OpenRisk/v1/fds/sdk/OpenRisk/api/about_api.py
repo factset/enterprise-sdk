@@ -29,7 +29,6 @@ from fds.sdk.OpenRisk.model.error_response import ErrorResponse
 from fds.sdk.OpenRisk.model.inline_response200 import InlineResponse200
 from fds.sdk.OpenRisk.model.inline_response2001 import InlineResponse2001
 from fds.sdk.OpenRisk.model.inline_response2002 import InlineResponse2002
-from fds.sdk.OpenRisk.model.inline_response2003 import InlineResponse2003
 from fds.sdk.OpenRisk.model.inline_response403 import InlineResponse403
 from fds.sdk.OpenRisk.model.inline_response404 import InlineResponse404
 from fds.sdk.OpenRisk.model.risk_model_code import RiskModelCode
@@ -52,75 +51,10 @@ class AboutApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        self.documentation_endpoint = _Endpoint(
-            settings={
-                'response_type': (
-                  { 200: (InlineResponse200,), 401: (str,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
-                  None
-                ),
-                'auth': [
-                    'FactSetApiKey',
-                    'FactSetOAuth2'
-                ],
-                'endpoint_path': '/linear/{version}',
-                'operation_id': 'documentation',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'version',
-                ],
-                'required': [
-                    'version',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                    'version',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('version',): {
-
-                        'min_length': 1,
-                        'regex': {
-                            'pattern': r'^(?:v?(?:(?:[0-9]+|[Xx*])(?:\.(?:[0-9]+|[Xx*])){0,2}))$',  # noqa: E501
-                        },
-                    },
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'version':
-                        (str,),
-                },
-                'attribute_map': {
-                    'version': 'version',
-                },
-                'location_map': {
-                    'version': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-
         self.health_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2003,), 401: (str,), 403: (InlineResponse403,), 404: (InlineResponse404,),  },
+                  { 200: (InlineResponse2002,), 401: (str,), 403: (InlineResponse403,), 404: (InlineResponse404,),  },
                   None
                 ),
                 'auth': [
@@ -185,7 +119,7 @@ class AboutApi(object):
         self.list_risk_models_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2001,), 401: (str,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  { 200: (InlineResponse200,), 401: (str,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -250,7 +184,7 @@ class AboutApi(object):
         self.risk_model_metadata_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2002,), 401: (str,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  { 200: (InlineResponse2001,), 401: (str,), 404: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -462,14 +396,201 @@ class AboutApi(object):
         kwargs["_host_index"] = kwargs.get("_host_index")
 
 
-    def documentation(
+    def health_status(
+        self,
+        version,
+        **kwargs
+    ) -> InlineResponse2002:
+        """Get health of service  # noqa: E501
+
+        Health status of the service  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2002
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['version'] = \
+            version
+        return self.health_status_endpoint.call_with_http_info(**kwargs)
+
+    def health_status_with_http_info(
+        self,
+        version,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
+        """Get health of service  # noqa: E501
+
+        Health status of the service  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2002
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['version'] = \
+            version
+        return self.health_status_endpoint.call_with_http_info(**kwargs)
+
+    def health_status_async(
+        self,
+        version,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2002]":
+        """Get health of service  # noqa: E501
+
+        Health status of the service  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2002]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['version'] = \
+            version
+        return self.health_status_endpoint.call_with_http_info(**kwargs)
+
+    def health_status_with_http_info_async(
+        self,
+        version,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
+        """Get health of service  # noqa: E501
+
+        Health status of the service  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2002, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['version'] = \
+            version
+        return self.health_status_endpoint.call_with_http_info(**kwargs)
+
+
+    def list_risk_models(
         self,
         version,
         **kwargs
     ) -> InlineResponse200:
-        """Get OpenAPI Specification documentation  # noqa: E501
+        """Get available risk models  # noqa: E501
 
-        The service documentation as this OpenAPI Specification JSON document for the corresponding major version number  # noqa: E501
+        Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -506,16 +627,16 @@ class AboutApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['version'] = \
             version
-        return self.documentation_endpoint.call_with_http_info(**kwargs)
+        return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
 
-    def documentation_with_http_info(
+    def list_risk_models_with_http_info(
         self,
         version,
         **kwargs
     ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
-        """Get OpenAPI Specification documentation  # noqa: E501
+        """Get available risk models  # noqa: E501
 
-        The service documentation as this OpenAPI Specification JSON document for the corresponding major version number  # noqa: E501
+        Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -556,16 +677,16 @@ class AboutApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
         kwargs['version'] = \
             version
-        return self.documentation_endpoint.call_with_http_info(**kwargs)
+        return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
 
-    def documentation_async(
+    def list_risk_models_async(
         self,
         version,
         **kwargs
     ) -> "ApplyResult[InlineResponse200]":
-        """Get OpenAPI Specification documentation  # noqa: E501
+        """Get available risk models  # noqa: E501
 
-        The service documentation as this OpenAPI Specification JSON document for the corresponding major version number  # noqa: E501
+        Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -601,16 +722,16 @@ class AboutApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['version'] = \
             version
-        return self.documentation_endpoint.call_with_http_info(**kwargs)
+        return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
 
-    def documentation_with_http_info_async(
+    def list_risk_models_with_http_info_async(
         self,
         version,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
-        """Get OpenAPI Specification documentation  # noqa: E501
+        """Get available risk models  # noqa: E501
 
-        The service documentation as this OpenAPI Specification JSON document for the corresponding major version number  # noqa: E501
+        Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -646,208 +767,23 @@ class AboutApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['version'] = \
             version
-        return self.documentation_endpoint.call_with_http_info(**kwargs)
+        return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
 
 
-    def health_status(
+    def risk_model_metadata(
         self,
         version,
-        **kwargs
-    ) -> InlineResponse2003:
-        """Get health of service  # noqa: E501
-
-        Health status of the service  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2003
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
-        return self.health_status_endpoint.call_with_http_info(**kwargs)
-
-    def health_status_with_http_info(
-        self,
-        version,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse2003, int, typing.MutableMapping]:
-        """Get health of service  # noqa: E501
-
-        Health status of the service  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2003
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
-        return self.health_status_endpoint.call_with_http_info(**kwargs)
-
-    def health_status_async(
-        self,
-        version,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse2003]":
-        """Get health of service  # noqa: E501
-
-        Health status of the service  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse2003]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
-        return self.health_status_endpoint.call_with_http_info(**kwargs)
-
-    def health_status_with_http_info_async(
-        self,
-        version,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2003, int, typing.MutableMapping]]":
-        """Get health of service  # noqa: E501
-
-        Health status of the service  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse2003, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
-        return self.health_status_endpoint.call_with_http_info(**kwargs)
-
-
-    def list_risk_models(
-        self,
-        version,
+        model_code,
         **kwargs
     ) -> InlineResponse2001:
-        """Get available risk models  # noqa: E501
+        """Get risk model details  # noqa: E501
 
-        Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
+        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+            model_code (RiskModelCode): Model code
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -880,20 +816,24 @@ class AboutApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['version'] = \
             version
-        return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
+        kwargs['model_code'] = \
+            model_code
+        return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
 
-    def list_risk_models_with_http_info(
+    def risk_model_metadata_with_http_info(
         self,
         version,
+        model_code,
         **kwargs
     ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
-        """Get available risk models  # noqa: E501
+        """Get risk model details  # noqa: E501
 
-        Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
+        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
             version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+            model_code (RiskModelCode): Model code
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -930,20 +870,24 @@ class AboutApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
         kwargs['version'] = \
             version
-        return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
+        kwargs['model_code'] = \
+            model_code
+        return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
 
-    def list_risk_models_async(
+    def risk_model_metadata_async(
         self,
         version,
+        model_code,
         **kwargs
     ) -> "ApplyResult[InlineResponse2001]":
-        """Get available risk models  # noqa: E501
+        """Get risk model details  # noqa: E501
 
-        Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
+        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
             version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+            model_code (RiskModelCode): Model code
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -975,20 +919,24 @@ class AboutApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['version'] = \
             version
-        return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
+        kwargs['model_code'] = \
+            model_code
+        return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
 
-    def list_risk_models_with_http_info_async(
+    def risk_model_metadata_with_http_info_async(
         self,
         version,
+        model_code,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
-        """Get available risk models  # noqa: E501
+        """Get risk model details  # noqa: E501
 
-        Get the list of available risk models, including their respective model codes required for use with other routes.  # noqa: E501
+        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
             version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+            model_code (RiskModelCode): Model code
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1016,207 +964,6 @@ class AboutApi(object):
                 Default is read from the configuration.
         Returns:
             ApplyResult[(InlineResponse2001, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['version'] = \
-            version
-        return self.list_risk_models_endpoint.call_with_http_info(**kwargs)
-
-
-    def risk_model_metadata(
-        self,
-        version,
-        model_code,
-        **kwargs
-    ) -> InlineResponse2002:
-        """Get risk model details  # noqa: E501
-
-        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            model_code (RiskModelCode): Model code
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2002
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['version'] = \
-            version
-        kwargs['model_code'] = \
-            model_code
-        return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
-
-    def risk_model_metadata_with_http_info(
-        self,
-        version,
-        model_code,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
-        """Get risk model details  # noqa: E501
-
-        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            model_code (RiskModelCode): Model code
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2002
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['version'] = \
-            version
-        kwargs['model_code'] = \
-            model_code
-        return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
-
-    def risk_model_metadata_async(
-        self,
-        version,
-        model_code,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse2002]":
-        """Get risk model details  # noqa: E501
-
-        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            model_code (RiskModelCode): Model code
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse2002]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['version'] = \
-            version
-        kwargs['model_code'] = \
-            model_code
-        return self.risk_model_metadata_endpoint.call_with_http_info(**kwargs)
-
-    def risk_model_metadata_with_http_info_async(
-        self,
-        version,
-        model_code,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
-        """Get risk model details  # noqa: E501
-
-        Get the meta data of the risk model for the corresponding modelCode. modelCode can be obtained via '/linear/{version}/riskmodels/' route.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            version (str): Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
-            model_code (RiskModelCode): Model code
-
-        Keyword Args:
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse2002, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['version'] = \

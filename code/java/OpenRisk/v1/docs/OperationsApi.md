@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## calculateFromHoldings
 
-> InlineResponse2004 calculateFromHoldings(version, calculateFromHoldingsRequestBody)
+> InlineResponse2003 calculateFromHoldings(version, calculateFromHoldingsRequestBody)
 
 Calculate risk statistics
 
@@ -61,7 +61,7 @@ public class Example {
         String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody = new CalculateFromHoldingsRequestBody(); // CalculateFromHoldingsRequestBody | 
         try {
-            InlineResponse2004 result = apiInstance.calculateFromHoldings(version, calculateFromHoldingsRequestBody);
+            InlineResponse2003 result = apiInstance.calculateFromHoldings(version, calculateFromHoldingsRequestBody);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## generateIdMapping
 
-> InlineResponse2005 generateIdMapping(version, generateIDMappingRequestBody)
+> InlineResponse2004 generateIdMapping(version, generateIDMappingRequestBody)
 
 Generate risk model ID mapping
 
@@ -160,7 +160,7 @@ public class Example {
         String version = "v1"; // String | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
         GenerateIDMappingRequestBody generateIDMappingRequestBody = new GenerateIDMappingRequestBody(); // GenerateIDMappingRequestBody | 
         try {
-            InlineResponse2005 result = apiInstance.generateIdMapping(version, generateIDMappingRequestBody);
+            InlineResponse2004 result = apiInstance.generateIdMapping(version, generateIDMappingRequestBody);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

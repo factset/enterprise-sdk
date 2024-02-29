@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2001DataFactors from './InlineResponse2001DataFactors';
+import InlineResponse2001DataRiskModelAppendFormat from './InlineResponse2001DataRiskModelAppendFormat';
 
 /**
  * The InlineResponse2001Data model module.
@@ -21,15 +23,21 @@ class InlineResponse2001Data {
     /**
      * Constructs a new <code>InlineResponse2001Data</code>.
      * @alias module:model/InlineResponse2001Data
-     * @param available {Boolean} If the model is available for use
-     * @param category {String} Model category
      * @param code {String} Model code
+     * @param currencies {Array.<String>} Currencies that can be used with the model
+     * @param currency {String} ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via 'compositeAssets' field.
+     * @param factors {Array.<module:model/InlineResponse2001DataFactors>} Factors of the model
+     * @param factorIdToIsoCurrency {Object.<String, String>} Map of currency factor IDs to ISO currency code.
+     * @param firstDate {Date} **(since 1.12.0)**  Date format YYYY-MM-DD.
+     * @param frequency {String} Frequency of the model
+     * @param latestDate {Date} **(since 1.12.0)**  Date format YYYY-MM-DD.
      * @param name {String} Model name
+     * @param universeCount {Number} Total universe count of the model
      * @param vendor {String} Model vendor
      */
-    constructor(available, category, code, name, vendor) { 
+    constructor(code, currencies, currency, factors, factorIdToIsoCurrency, firstDate, frequency, latestDate, name, universeCount, vendor) { 
         
-        InlineResponse2001Data.initialize(this, available, category, code, name, vendor);
+        InlineResponse2001Data.initialize(this, code, currencies, currency, factors, factorIdToIsoCurrency, firstDate, frequency, latestDate, name, universeCount, vendor);
     }
 
     /**
@@ -37,11 +45,17 @@ class InlineResponse2001Data {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, available, category, code, name, vendor) { 
-        obj['available'] = available;
-        obj['category'] = category;
+    static initialize(obj, code, currencies, currency, factors, factorIdToIsoCurrency, firstDate, frequency, latestDate, name, universeCount, vendor) { 
         obj['code'] = code;
+        obj['currencies'] = currencies;
+        obj['currency'] = currency;
+        obj['factors'] = factors;
+        obj['factorIdToIsoCurrency'] = factorIdToIsoCurrency;
+        obj['firstDate'] = firstDate;
+        obj['frequency'] = frequency;
+        obj['latestDate'] = latestDate;
         obj['name'] = name;
+        obj['universeCount'] = universeCount;
         obj['vendor'] = vendor;
     }
 
@@ -56,17 +70,38 @@ class InlineResponse2001Data {
         if (data) {
             obj = obj || new InlineResponse2001Data();
 
-            if (data.hasOwnProperty('available')) {
-                obj['available'] = ApiClient.convertToType(data['available'], 'Boolean');
-            }
-            if (data.hasOwnProperty('category')) {
-                obj['category'] = ApiClient.convertToType(data['category'], 'String');
-            }
             if (data.hasOwnProperty('code')) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
+            if (data.hasOwnProperty('currencies')) {
+                obj['currencies'] = ApiClient.convertToType(data['currencies'], ['String']);
+            }
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
+            }
+            if (data.hasOwnProperty('factors')) {
+                obj['factors'] = ApiClient.convertToType(data['factors'], [InlineResponse2001DataFactors]);
+            }
+            if (data.hasOwnProperty('factorIdToIsoCurrency')) {
+                obj['factorIdToIsoCurrency'] = ApiClient.convertToType(data['factorIdToIsoCurrency'], {'String': 'String'});
+            }
+            if (data.hasOwnProperty('firstDate')) {
+                obj['firstDate'] = ApiClient.convertToType(data['firstDate'], 'Date');
+            }
+            if (data.hasOwnProperty('frequency')) {
+                obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
+            }
+            if (data.hasOwnProperty('latestDate')) {
+                obj['latestDate'] = ApiClient.convertToType(data['latestDate'], 'Date');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('riskModelAppendFormat')) {
+                obj['riskModelAppendFormat'] = ApiClient.convertToType(data['riskModelAppendFormat'], [InlineResponse2001DataRiskModelAppendFormat]);
+            }
+            if (data.hasOwnProperty('universeCount')) {
+                obj['universeCount'] = ApiClient.convertToType(data['universeCount'], 'Number');
             }
             if (data.hasOwnProperty('vendor')) {
                 obj['vendor'] = ApiClient.convertToType(data['vendor'], 'String');
@@ -79,28 +114,70 @@ class InlineResponse2001Data {
 }
 
 /**
- * If the model is available for use
- * @member {Boolean} available
- */
-InlineResponse2001Data.prototype['available'] = undefined;
-
-/**
- * Model category
- * @member {String} category
- */
-InlineResponse2001Data.prototype['category'] = undefined;
-
-/**
  * Model code
  * @member {String} code
  */
 InlineResponse2001Data.prototype['code'] = undefined;
 
 /**
+ * Currencies that can be used with the model
+ * @member {Array.<String>} currencies
+ */
+InlineResponse2001Data.prototype['currencies'] = undefined;
+
+/**
+ * ISO-4217 currency code for risk model and holdings data to fetch and use. Ignored only for composite asset definitions provided as inputs via 'compositeAssets' field.
+ * @member {String} currency
+ */
+InlineResponse2001Data.prototype['currency'] = undefined;
+
+/**
+ * Factors of the model
+ * @member {Array.<module:model/InlineResponse2001DataFactors>} factors
+ */
+InlineResponse2001Data.prototype['factors'] = undefined;
+
+/**
+ * Map of currency factor IDs to ISO currency code.
+ * @member {Object.<String, String>} factorIdToIsoCurrency
+ */
+InlineResponse2001Data.prototype['factorIdToIsoCurrency'] = undefined;
+
+/**
+ * **(since 1.12.0)**  Date format YYYY-MM-DD.
+ * @member {Date} firstDate
+ */
+InlineResponse2001Data.prototype['firstDate'] = undefined;
+
+/**
+ * Frequency of the model
+ * @member {String} frequency
+ */
+InlineResponse2001Data.prototype['frequency'] = undefined;
+
+/**
+ * **(since 1.12.0)**  Date format YYYY-MM-DD.
+ * @member {Date} latestDate
+ */
+InlineResponse2001Data.prototype['latestDate'] = undefined;
+
+/**
  * Model name
  * @member {String} name
  */
 InlineResponse2001Data.prototype['name'] = undefined;
+
+/**
+ * List of fields which are supported by the risk model for appending additional asset data
+ * @member {Array.<module:model/InlineResponse2001DataRiskModelAppendFormat>} riskModelAppendFormat
+ */
+InlineResponse2001Data.prototype['riskModelAppendFormat'] = undefined;
+
+/**
+ * Total universe count of the model
+ * @member {Number} universeCount
+ */
+InlineResponse2001Data.prototype['universeCount'] = undefined;
 
 /**
  * Model vendor

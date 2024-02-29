@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="calculatefromholdings"></a>
 # **CalculateFromHoldings**
-> InlineResponse2004 CalculateFromHoldings (string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
+> InlineResponse2003 CalculateFromHoldings (string version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody)
 
 Calculate risk statistics
 
@@ -67,7 +67,7 @@ namespace Example
             try
             {
                 // Calculate risk statistics
-                InlineResponse2004 result = apiInstance.CalculateFromHoldings(version, calculateFromHoldingsRequestBody);
+                InlineResponse2003 result = apiInstance.CalculateFromHoldings(version, calculateFromHoldingsRequestBody);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
  **calculateFromHoldingsRequestBody** | [**CalculateFromHoldingsRequestBody**](CalculateFromHoldingsRequestBody.md)|  | 
 
 ### Return type
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 <a name="generateidmapping"></a>
 # **GenerateIdMapping**
-> InlineResponse2005 GenerateIdMapping (string version, GenerateIDMappingRequestBody generateIDMappingRequestBody)
+> InlineResponse2004 GenerateIdMapping (string version, GenerateIDMappingRequestBody generateIDMappingRequestBody)
 
 Generate risk model ID mapping
 
@@ -173,7 +173,7 @@ namespace Example
             try
             {
                 // Generate risk model ID mapping
-                InlineResponse2005 result = apiInstance.GenerateIdMapping(version, generateIDMappingRequestBody);
+                InlineResponse2004 result = apiInstance.GenerateIdMapping(version, generateIDMappingRequestBody);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
  **generateIDMappingRequestBody** | [**GenerateIDMappingRequestBody**](GenerateIDMappingRequestBody.md)|  | 
 
 ### Return type
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

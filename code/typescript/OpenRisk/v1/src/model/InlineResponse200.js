@@ -12,9 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse200Components from './InlineResponse200Components';
-import InlineResponse200Info from './InlineResponse200Info';
-import InlineResponse200Servers from './InlineResponse200Servers';
+import InlineResponse200Data from './InlineResponse200Data';
 
 /**
  * The InlineResponse200 model module.
@@ -24,16 +22,11 @@ class InlineResponse200 {
     /**
      * Constructs a new <code>InlineResponse200</code>.
      * @alias module:model/InlineResponse200
-     * @param openapi {String} OpenAPI Specification version
-     * @param info {module:model/InlineResponse200Info} 
-     * @param servers {Array.<module:model/InlineResponse200Servers>} 
-     * @param paths {Object} 
-     * @param components {module:model/InlineResponse200Components} 
-     * @param security {Array.<Object>} 
+     * @param data {Array.<module:model/InlineResponse200Data>} 
      */
-    constructor(openapi, info, servers, paths, components, security) { 
+    constructor(data) { 
         
-        InlineResponse200.initialize(this, openapi, info, servers, paths, components, security);
+        InlineResponse200.initialize(this, data);
     }
 
     /**
@@ -41,13 +34,8 @@ class InlineResponse200 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, openapi, info, servers, paths, components, security) { 
-        obj['openapi'] = openapi;
-        obj['info'] = info;
-        obj['servers'] = servers;
-        obj['paths'] = paths;
-        obj['components'] = components;
-        obj['security'] = security;
+    static initialize(obj, data) { 
+        obj['data'] = data;
     }
 
     /**
@@ -61,23 +49,8 @@ class InlineResponse200 {
         if (data) {
             obj = obj || new InlineResponse200();
 
-            if (data.hasOwnProperty('openapi')) {
-                obj['openapi'] = ApiClient.convertToType(data['openapi'], 'String');
-            }
-            if (data.hasOwnProperty('info')) {
-                obj['info'] = InlineResponse200Info.constructFromObject(data['info']);
-            }
-            if (data.hasOwnProperty('servers')) {
-                obj['servers'] = ApiClient.convertToType(data['servers'], [InlineResponse200Servers]);
-            }
-            if (data.hasOwnProperty('paths')) {
-                obj['paths'] = ApiClient.convertToType(data['paths'], Object);
-            }
-            if (data.hasOwnProperty('components')) {
-                obj['components'] = InlineResponse200Components.constructFromObject(data['components']);
-            }
-            if (data.hasOwnProperty('security')) {
-                obj['security'] = ApiClient.convertToType(data['security'], [Object]);
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse200Data]);
             }
         }
         return obj;
@@ -87,35 +60,9 @@ class InlineResponse200 {
 }
 
 /**
- * OpenAPI Specification version
- * @member {String} openapi
+ * @member {Array.<module:model/InlineResponse200Data>} data
  */
-InlineResponse200.prototype['openapi'] = undefined;
-
-/**
- * @member {module:model/InlineResponse200Info} info
- */
-InlineResponse200.prototype['info'] = undefined;
-
-/**
- * @member {Array.<module:model/InlineResponse200Servers>} servers
- */
-InlineResponse200.prototype['servers'] = undefined;
-
-/**
- * @member {Object} paths
- */
-InlineResponse200.prototype['paths'] = undefined;
-
-/**
- * @member {module:model/InlineResponse200Components} components
- */
-InlineResponse200.prototype['components'] = undefined;
-
-/**
- * @member {Array.<Object>} security
- */
-InlineResponse200.prototype['security'] = undefined;
+InlineResponse200.prototype['data'] = undefined;
 
 
 

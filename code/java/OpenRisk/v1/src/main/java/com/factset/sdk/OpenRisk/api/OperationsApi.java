@@ -14,8 +14,8 @@ import java.util.Objects;
 import com.factset.sdk.OpenRisk.models.CalculateFromHoldingsRequestBody;
 import com.factset.sdk.OpenRisk.models.ErrorResponse;
 import com.factset.sdk.OpenRisk.models.GenerateIDMappingRequestBody;
+import com.factset.sdk.OpenRisk.models.InlineResponse2003;
 import com.factset.sdk.OpenRisk.models.InlineResponse2004;
-import com.factset.sdk.OpenRisk.models.InlineResponse2005;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OperationsApi {
@@ -31,7 +31,7 @@ public class OperationsApi {
   
   private static final Map<Integer, GenericType> calculateFromHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    calculateFromHoldingsResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+    calculateFromHoldingsResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
     calculateFromHoldingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     calculateFromHoldingsResponseTypeMap.put(401, new GenericType<String>(){});
     calculateFromHoldingsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -41,7 +41,7 @@ public class OperationsApi {
 
   private static final Map<Integer, GenericType> generateIdMappingResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    generateIdMappingResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+    generateIdMappingResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
     generateIdMappingResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     generateIdMappingResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     generateIdMappingResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
@@ -74,7 +74,7 @@ public class OperationsApi {
    * Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
    * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param calculateFromHoldingsRequestBody  (required)
-   * @return InlineResponse2004
+   * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -88,7 +88,7 @@ public class OperationsApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2004 calculateFromHoldings(String version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody) throws ApiException {
+  public InlineResponse2003 calculateFromHoldings(String version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody) throws ApiException {
     return calculateFromHoldingsWithHttpInfo(version, calculateFromHoldingsRequestBody).getData();
   }
 
@@ -97,7 +97,7 @@ public class OperationsApi {
    * Calculate predicted risk statistics for provided holdings using risk model data. Asset symbols and market values/weights are required.
    * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param calculateFromHoldingsRequestBody  (required)
-   * @return ApiResponse&lt;InlineResponse2004&gt;
+   * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -111,7 +111,7 @@ public class OperationsApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> calculateFromHoldingsWithHttpInfo(String version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody) throws ApiException {
+  public ApiResponse<InlineResponse2003> calculateFromHoldingsWithHttpInfo(String version, CalculateFromHoldingsRequestBody calculateFromHoldingsRequestBody) throws ApiException {
     Object localVarPostBody = calculateFromHoldingsRequestBody;
     
     // verify the required parameter 'version' is set
@@ -153,7 +153,7 @@ public class OperationsApi {
 
     ApiResponse<
         
-        InlineResponse2004
+        InlineResponse2003
       
     > apiResponse = apiClient.invokeAPI("OperationsApi.calculateFromHoldings", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -167,7 +167,7 @@ public class OperationsApi {
    * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
    * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param generateIDMappingRequestBody  (required)
-   * @return InlineResponse2005
+   * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -180,7 +180,7 @@ public class OperationsApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse2005 generateIdMapping(String version, GenerateIDMappingRequestBody generateIDMappingRequestBody) throws ApiException {
+  public InlineResponse2004 generateIdMapping(String version, GenerateIDMappingRequestBody generateIDMappingRequestBody) throws ApiException {
     return generateIdMappingWithHttpInfo(version, generateIDMappingRequestBody).getData();
   }
 
@@ -189,7 +189,7 @@ public class OperationsApi {
    * Resolve all input holdings IDs against a risk model for coverage and provide a mapping to security indices in the model or the reason for exclusion
    * @param version Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns. (required)
    * @param generateIDMappingRequestBody  (required)
-   * @return ApiResponse&lt;InlineResponse2005&gt;
+   * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -202,7 +202,7 @@ public class OperationsApi {
        <tr><td> 500 </td><td> Internal server error occurred </td><td>  * api-supported-versions -  <br>  * api-version -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2005> generateIdMappingWithHttpInfo(String version, GenerateIDMappingRequestBody generateIDMappingRequestBody) throws ApiException {
+  public ApiResponse<InlineResponse2004> generateIdMappingWithHttpInfo(String version, GenerateIDMappingRequestBody generateIDMappingRequestBody) throws ApiException {
     Object localVarPostBody = generateIDMappingRequestBody;
     
     // verify the required parameter 'version' is set
@@ -244,7 +244,7 @@ public class OperationsApi {
 
     ApiResponse<
         
-        InlineResponse2005
+        InlineResponse2004
       
     > apiResponse = apiClient.invokeAPI("OperationsApi.generateIdMapping", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

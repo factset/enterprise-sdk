@@ -4,16 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **String** |  | 
-**version** | **String** | Full requested semantic version string | 
-
-
-
-## Enum: StatusEnum
-
-
-* `pass` (value: `"pass"`)
-
-
+**meta** | [**SuccessResponseMeta**](SuccessResponseMeta.md) |  | 
+**data** | **[Object]** | Calculation results aligned to the input list of requested risk statistics | 
 
 

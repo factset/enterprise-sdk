@@ -63,9 +63,6 @@ class InlineResponse2001(ModelNormal):
     }
 
     validations = {
-        ('data',): {
-            'min_items': 1,
-        },
     }
 
     @cached_property
@@ -91,7 +88,7 @@ class InlineResponse2001(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse2001Data],),  # noqa: E501
+            'data': (InlineResponse2001Data,),  # noqa: E501
         }
 
     @cached_property
@@ -114,7 +111,7 @@ class InlineResponse2001(ModelNormal):
         """InlineResponse2001 - a model defined in OpenAPI
 
         Args:
-            data ([InlineResponse2001Data]):
+            data (InlineResponse2001Data):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +196,7 @@ class InlineResponse2001(ModelNormal):
         """InlineResponse2001 - a model defined in OpenAPI
 
         Args:
-            data ([InlineResponse2001Data]):
+            data (InlineResponse2001Data):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

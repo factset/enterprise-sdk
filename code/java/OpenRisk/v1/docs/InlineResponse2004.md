@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**SuccessResponseMeta**](SuccessResponseMeta.md) |  | 
-**data** | [**java.util.List&lt;Object&gt;**](Object.md) | Calculation results aligned to the input list of requested risk statistics | 
+**meta** | [**SecurityOnlySuccessResponseMeta**](SecurityOnlySuccessResponseMeta.md) |  | 
+**data** | [**java.util.List&lt;RiskMappingEntry&gt;**](RiskMappingEntry.md) |  | 
 
 
 ## Implemented Interfaces

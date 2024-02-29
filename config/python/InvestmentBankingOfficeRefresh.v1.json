@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.InvestmentBankingOfficeRefresh",
+  "projectName": "fds.sdk.InvestmentBankingOfficeRefresh",
+  "packageVersion": "0.21.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Investment Banking Office Refresh client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/InvestmentBankingOfficeRefresh/v1",
+  "httpUserAgent": "fds-sdk/python/InvestmentBankingOfficeRefresh/0.21.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

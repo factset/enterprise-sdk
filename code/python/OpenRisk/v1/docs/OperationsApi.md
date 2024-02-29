@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **calculate_from_holdings**
-> InlineResponse2004 calculate_from_holdings(version, calculate_from_holdings_request_body)
+> InlineResponse2003 calculate_from_holdings(version, calculate_from_holdings_request_body)
 
 Calculate risk statistics
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_id_mapping**
-> InlineResponse2005 generate_id_mapping(version, generate_id_mapping_request_body)
+> InlineResponse2004 generate_id_mapping(version, generate_id_mapping_request_body)
 
 Generate risk model ID mapping
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

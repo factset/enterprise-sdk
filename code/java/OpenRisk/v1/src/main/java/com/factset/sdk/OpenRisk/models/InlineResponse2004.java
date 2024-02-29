@@ -17,11 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.OpenRisk.models.ErrorItem;
-import com.factset.sdk.OpenRisk.models.StatCalculationLevel;
-import com.factset.sdk.OpenRisk.models.StatCalculationSettings;
-import com.factset.sdk.OpenRisk.models.StatResultValue;
-import com.factset.sdk.OpenRisk.models.SuccessResponseMeta;
+import com.factset.sdk.OpenRisk.models.RiskMappingEntry;
+import com.factset.sdk.OpenRisk.models.SecurityOnlySuccessResponseMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,25 +43,25 @@ public class InlineResponse2004 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private SuccessResponseMeta meta;
+  private SecurityOnlySuccessResponseMeta meta;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<Object> data = new java.util.ArrayList<>();
+  private java.util.List<RiskMappingEntry> data = new java.util.ArrayList<>();
 
   public InlineResponse2004() { 
   }
 
   @JsonCreator
   public InlineResponse2004(
-    @JsonProperty(value=JSON_PROPERTY_META, required=true) SuccessResponseMeta meta, 
-    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<Object> data
+    @JsonProperty(value=JSON_PROPERTY_META, required=true) SecurityOnlySuccessResponseMeta meta, 
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<RiskMappingEntry> data
   ) {
     this();
     this.meta = meta;
     this.data = data;
   }
 
-  public InlineResponse2004 meta(SuccessResponseMeta meta) {
+  public InlineResponse2004 meta(SecurityOnlySuccessResponseMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -78,45 +75,45 @@ public class InlineResponse2004 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public SuccessResponseMeta getMeta() {
+  public SecurityOnlySuccessResponseMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMeta(SuccessResponseMeta meta) {
+  public void setMeta(SecurityOnlySuccessResponseMeta meta) {
     this.meta = meta;
   }
 
 
-  public InlineResponse2004 data(java.util.List<Object> data) {
+  public InlineResponse2004 data(java.util.List<RiskMappingEntry> data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse2004 addDataItem(Object dataItem) {
+  public InlineResponse2004 addDataItem(RiskMappingEntry dataItem) {
     this.data.add(dataItem);
     return this;
   }
 
    /**
-   * Calculation results aligned to the input list of requested risk statistics
+   * Get data
    * @return data
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Calculation results aligned to the input list of requested risk statistics")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public java.util.List<Object> getData() {
+  public java.util.List<RiskMappingEntry> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(java.util.List<Object> data) {
+  public void setData(java.util.List<RiskMappingEntry> data) {
     this.data = data;
   }
 

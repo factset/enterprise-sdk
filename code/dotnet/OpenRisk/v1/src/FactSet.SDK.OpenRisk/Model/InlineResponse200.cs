@@ -40,82 +40,21 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="openapi">OpenAPI Specification version (required).</param>
-        /// <param name="info">info (required).</param>
-        /// <param name="servers">servers (required).</param>
-        /// <param name="paths">paths (required).</param>
-        /// <param name="components">components (required).</param>
-        /// <param name="security">security (required).</param>
-        public InlineResponse200(string openapi, InlineResponse200Info info, List<InlineResponse200Servers> servers, Object paths, InlineResponse200Components components, List<Object> security)
+        /// <param name="data">data (required).</param>
+        public InlineResponse200(List<InlineResponse200Data> data)
         {
-            // to ensure "openapi" is required (not null)
-            if (openapi == null) {
-                throw new ArgumentNullException("openapi is a required property for InlineResponse200 and cannot be null");
+            // to ensure "data" is required (not null)
+            if (data == null) {
+                throw new ArgumentNullException("data is a required property for InlineResponse200 and cannot be null");
             }
-            this.Openapi = openapi;
-            // to ensure "info" is required (not null)
-            if (info == null) {
-                throw new ArgumentNullException("info is a required property for InlineResponse200 and cannot be null");
-            }
-            this.Info = info;
-            // to ensure "servers" is required (not null)
-            if (servers == null) {
-                throw new ArgumentNullException("servers is a required property for InlineResponse200 and cannot be null");
-            }
-            this.Servers = servers;
-            // to ensure "paths" is required (not null)
-            if (paths == null) {
-                throw new ArgumentNullException("paths is a required property for InlineResponse200 and cannot be null");
-            }
-            this.Paths = paths;
-            // to ensure "components" is required (not null)
-            if (components == null) {
-                throw new ArgumentNullException("components is a required property for InlineResponse200 and cannot be null");
-            }
-            this.Components = components;
-            // to ensure "security" is required (not null)
-            if (security == null) {
-                throw new ArgumentNullException("security is a required property for InlineResponse200 and cannot be null");
-            }
-            this.Security = security;
+            this.Data = data;
         }
 
         /// <summary>
-        /// OpenAPI Specification version
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>OpenAPI Specification version</value>
-        [DataMember(Name = "openapi", IsRequired = true, EmitDefaultValue = false)]
-        public string Openapi { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Info
-        /// </summary>
-        [DataMember(Name = "info", IsRequired = true, EmitDefaultValue = false)]
-        public InlineResponse200Info Info { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Servers
-        /// </summary>
-        [DataMember(Name = "servers", IsRequired = true, EmitDefaultValue = false)]
-        public List<InlineResponse200Servers> Servers { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Paths
-        /// </summary>
-        [DataMember(Name = "paths", IsRequired = true, EmitDefaultValue = false)]
-        public Object Paths { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Components
-        /// </summary>
-        [DataMember(Name = "components", IsRequired = true, EmitDefaultValue = false)]
-        public InlineResponse200Components Components { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Security
-        /// </summary>
-        [DataMember(Name = "security", IsRequired = true, EmitDefaultValue = false)]
-        public List<Object> Security { get; set; }
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
+        public List<InlineResponse200Data> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -125,12 +64,7 @@ namespace FactSet.SDK.OpenRisk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200 {\n");
-            sb.Append("  Openapi: ").Append(Openapi).Append("\n");
-            sb.Append("  Info: ").Append(Info).Append("\n");
-            sb.Append("  Servers: ").Append(Servers).Append("\n");
-            sb.Append("  Paths: ").Append(Paths).Append("\n");
-            sb.Append("  Components: ").Append(Components).Append("\n");
-            sb.Append("  Security: ").Append(Security).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,36 +101,10 @@ namespace FactSet.SDK.OpenRisk.Model
             }
             return 
                 (
-                    this.Openapi == input.Openapi ||
-                    (this.Openapi != null &&
-                    this.Openapi.Equals(input.Openapi))
-                ) && 
-                (
-                    this.Info == input.Info ||
-                    (this.Info != null &&
-                    this.Info.Equals(input.Info))
-                ) && 
-                (
-                    this.Servers == input.Servers ||
-                    this.Servers != null &&
-                    input.Servers != null &&
-                    this.Servers.SequenceEqual(input.Servers)
-                ) && 
-                (
-                    this.Paths == input.Paths ||
-                    (this.Paths != null &&
-                    this.Paths.Equals(input.Paths))
-                ) && 
-                (
-                    this.Components == input.Components ||
-                    (this.Components != null &&
-                    this.Components.Equals(input.Components))
-                ) && 
-                (
-                    this.Security == input.Security ||
-                    this.Security != null &&
-                    input.Security != null &&
-                    this.Security.SequenceEqual(input.Security)
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 
@@ -209,29 +117,9 @@ namespace FactSet.SDK.OpenRisk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Openapi != null)
+                if (this.Data != null)
                 {
-                    hashCode = (hashCode * 59) + this.Openapi.GetHashCode();
-                }
-                if (this.Info != null)
-                {
-                    hashCode = (hashCode * 59) + this.Info.GetHashCode();
-                }
-                if (this.Servers != null)
-                {
-                    hashCode = (hashCode * 59) + this.Servers.GetHashCode();
-                }
-                if (this.Paths != null)
-                {
-                    hashCode = (hashCode * 59) + this.Paths.GetHashCode();
-                }
-                if (this.Components != null)
-                {
-                    hashCode = (hashCode * 59) + this.Components.GetHashCode();
-                }
-                if (this.Security != null)
-                {
-                    hashCode = (hashCode * 59) + this.Security.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
                 }
                 return hashCode;
             }
@@ -244,12 +132,6 @@ namespace FactSet.SDK.OpenRisk.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // Openapi (string) minLength
-            if (this.Openapi != null && this.Openapi.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Openapi, length must be greater than 1.", new [] { "Openapi" });
-            }
-
             yield break;
         }
     }

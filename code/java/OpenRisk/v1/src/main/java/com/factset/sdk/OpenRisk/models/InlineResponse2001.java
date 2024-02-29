@@ -41,26 +41,21 @@ public class InlineResponse2001 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<InlineResponse2001Data> data = new java.util.ArrayList<>();
+  private InlineResponse2001Data data;
 
   public InlineResponse2001() { 
   }
 
   @JsonCreator
   public InlineResponse2001(
-    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<InlineResponse2001Data> data
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) InlineResponse2001Data data
   ) {
     this();
     this.data = data;
   }
 
-  public InlineResponse2001 data(java.util.List<InlineResponse2001Data> data) {
+  public InlineResponse2001 data(InlineResponse2001Data data) {
     this.data = data;
-    return this;
-  }
-
-  public InlineResponse2001 addDataItem(InlineResponse2001Data dataItem) {
-    this.data.add(dataItem);
     return this;
   }
 
@@ -73,14 +68,14 @@ public class InlineResponse2001 implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public java.util.List<InlineResponse2001Data> getData() {
+  public InlineResponse2001Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(java.util.List<InlineResponse2001Data> data) {
+  public void setData(InlineResponse2001Data data) {
     this.data = data;
   }
 
