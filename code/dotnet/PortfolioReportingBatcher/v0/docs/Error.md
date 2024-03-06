@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** | The error code | [optional] 
 **Detail** | **string** | Explanation specific to the occurrence of the error | [optional] 
-**Id** | **string** | Identifier for the error | [optional] 
+**Id** | **string** | Identifier for the error (the Chain ID) | [optional] 
 **Source** | [**ErrorSource**](ErrorSource.md) |  | [optional] 
 **Title** | **string** | The title of the error | [optional] 
 

@@ -4,9 +4,87 @@ All URIs are relative to *https://api.factset.com/analytics/prb/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cancelRunId**](RunsApi.md#cancelRunId) | **DELETE** /runs/{id} | cancel runs
 [**checkRunStatus**](RunsApi.md#checkRunStatus) | **GET** /runs/{id}/status | check the status for a particular run ID
 [**startJobRun**](RunsApi.md#startJobRun) | **POST** /runs | trigger PRB jobs
 
+
+
+## cancelRunId
+
+> cancelRunId(id)
+
+cancel runs
+
+Use this endpoint with the DELETE method to cancel a specific run
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, RunsApi } = require('@factset/sdk-portfolioreportingbatcher');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new RunsApi();
+const id = "id_example"; // String | 
+
+// Call api endpoint
+apiInstance.cancelRunId(id).then(
+  () => {
+    console.log('API called successfully.');
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## checkRunStatus

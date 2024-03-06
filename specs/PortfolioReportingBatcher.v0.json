@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Portfolio Reporting Batcher",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application. With the initial release, clients can\n- trigger existing jobs\n- check status of running jobs\n- get various details of existing jobs",
     "license": {
       "name": "Apache License, Version 2.0",
@@ -277,6 +277,13 @@
           },
           "429": {
             "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/clientErrorResponse"
+                }
+              }
+            },
             "headers": {
               "X-DataDirect-Request-Key": {
                 "$ref": "#/components/headers/X-DataDirect-Request-Key"
@@ -284,11 +291,17 @@
               "X-FactSet-Api-Request-Key": {
                 "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
               "Retry-After": {
-                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/Retry-After"
               }
             }
           },
@@ -471,6 +484,13 @@
           },
           "429": {
             "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/clientErrorResponse"
+                }
+              }
+            },
             "headers": {
               "X-DataDirect-Request-Key": {
                 "$ref": "#/components/headers/X-DataDirect-Request-Key"
@@ -478,11 +498,14 @@
               "X-FactSet-Api-Request-Key": {
                 "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
               "Retry-After": {
-                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
-                "schema": {
-                  "type": "string"
-                }
+                "$ref": "#/components/headers/Retry-After"
               }
             }
           },
@@ -822,8 +845,8 @@
               }
             }
           },
-          "429": {
-            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+          "404": {
+            "description": "Not Found - runID does not exist",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "$ref": "#/components/headers/X-DataDirect-Request-Key"
@@ -831,11 +854,51 @@
               "X-FactSet-Api-Request-Key": {
                 "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
-              "Retry-After": {
-                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/clientErrorResponse"
                 }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/clientErrorResponse"
+                }
+              }
+            },
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
               }
             }
           },
@@ -878,6 +941,247 @@
           "description": "run id"
         }
       ]
+    },
+    "/runs/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "description": "Use this endpoint with the DELETE method to cancel a specific run",
+        "summary": "cancel runs",
+        "tags": [
+          "Runs"
+        ],
+        "operationId": "cancelRunId",
+        "responses": {
+          "204": {
+            "description": "No Content - expected response",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - runID does not exist",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/clientErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Cannot cancel run, run has already been cancelled, completed, or failed (please see error details for more info)",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/clientErrorResponse"
+                },
+                "examples": {
+                  "Job has already completed": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "Bad Request",
+                          "detail": "The job has already completed its execution",
+                          "id": "ABC123",
+                          "title": "Failed to process request"
+                        }
+                      ]
+                    }
+                  },
+                  "Nothing to cancel as job has failed": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "Bad Request",
+                          "detail": "There is nothing to cancel as the job has failed",
+                          "id": "ABC123",
+                          "title": "Failed to process request"
+                        }
+                      ]
+                    }
+                  },
+                  "Job failed to start": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "Bad Request",
+                          "detail": "The job has failed to start",
+                          "id": "ABC123",
+                          "title": "Failed to process request"
+                        }
+                      ]
+                    }
+                  },
+                  "Job has not yet started": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "Bad Request",
+                          "detail": "The job submission is in progress. Please retry after some time",
+                          "id": "ABC123",
+                          "title": "Failed to process request"
+                        }
+                      ]
+                    }
+                  },
+                  "Job has already been cancelled": {
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "Bad Request",
+                          "detail": "The job has already been cancelled",
+                          "id": "ABC123",
+                          "title": "Failed to process request"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/clientErrorResponse"
+                }
+              }
+            },
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -992,7 +1296,7 @@
             "type": "string"
           },
           "id": {
-            "description": "Identifier for the error",
+            "description": "Identifier for the error (the Chain ID)",
             "type": "string"
           },
           "source": {
@@ -1159,7 +1463,7 @@
         "type": "object"
       },
       "jobTypes": {
-        "description": "PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, Portfolio Vault - vault",
+        "description": "PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault",
         "enum": [
           "ADF",
           "PA",
@@ -1352,6 +1656,12 @@
       }
     },
     "headers": {
+      "Retry-After": {
+        "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+        "schema": {
+          "type": "string"
+        }
+      },
       "X-DataDirect-Request-Key": {
         "description": "FactSet's request key header.",
         "schema": {

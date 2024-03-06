@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Portfolio Reporting Batcher
-  version: 0.3.0
+  version: 0.4.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api
@@ -216,6 +216,10 @@ paths:
             X-FactSet-Api-RateLimit-Reset:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
         "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clientErrorResponse'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -223,13 +227,14 @@ paths:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
               $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
             Retry-After:
-              description: Time to wait in seconds before making a new request as
-                the rate limit has reached.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/Retry-After'
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -405,6 +410,10 @@ paths:
             X-FactSet-Api-RateLimit-Reset:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
         "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clientErrorResponse'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -412,13 +421,12 @@ paths:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
               $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
             Retry-After:
-              description: Time to wait in seconds before making a new request as
-                the rate limit has reached.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/Retry-After'
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -588,7 +596,28 @@ paths:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
             X-FactSet-Api-RateLimit-Reset:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clientErrorResponse'
+          description: Not Found - runID does not exist
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
         "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clientErrorResponse'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -596,13 +625,14 @@ paths:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
               $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
             Retry-After:
-              description: Time to wait in seconds before making a new request as
-                the rate limit has reached.
-              explode: false
-              schema:
-                type: string
-              style: simple
+              $ref: '#/components/headers/Retry-After'
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -622,8 +652,172 @@ paths:
       tags:
       - Runs
       x-accepts: application/json
+  /runs/{id}:
+    delete:
+      description: Use this endpoint with the DELETE method to cancel a specific run
+      operationId: cancelRunId
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content - expected response
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clientErrorResponse'
+          description: Not Found - runID does not exist
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "409":
+          content:
+            application/json:
+              examples:
+                Job has already completed:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: The job has already completed its execution
+                      id: ABC123
+                      title: Failed to process request
+                Nothing to cancel as job has failed:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: There is nothing to cancel as the job has failed
+                      id: ABC123
+                      title: Failed to process request
+                Job failed to start:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: The job has failed to start
+                      id: ABC123
+                      title: Failed to process request
+                Job has not yet started:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: The job submission is in progress. Please retry after
+                        some time
+                      id: ABC123
+                      title: Failed to process request
+                Job has already been cancelled:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: The job has already been cancelled
+                      id: ABC123
+                      title: Failed to process request
+              schema:
+                $ref: '#/components/schemas/clientErrorResponse'
+          description: Cannot cancel run, run has already been cancelled, completed,
+            or failed (please see error details for more info)
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clientErrorResponse'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: cancel runs
+      tags:
+      - Runs
+      x-accepts: application/json
 components:
   headers:
+    Retry-After:
+      description: Time to wait in seconds before making a new request as the rate
+        limit has reached.
+      explode: false
+      schema:
+        type: string
+      style: simple
     X-DataDirect-Request-Key:
       description: FactSet's request key header.
       explode: false
@@ -753,7 +947,7 @@ components:
           description: Explanation specific to the occurrence of the error
           type: string
         id:
-          description: Identifier for the error
+          description: Identifier for the error (the Chain ID)
           type: string
         source:
           $ref: '#/components/schemas/errorSource'
@@ -895,7 +1089,7 @@ components:
       type: object
     jobTypes:
       description: PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed,
-        PI - Portfolio Insight, PD - Portfolio Dashboard, Portfolio Vault - vault
+        PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault
       enum:
       - ADF
       - PA
