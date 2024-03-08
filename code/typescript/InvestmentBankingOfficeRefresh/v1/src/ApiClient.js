@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/InvestmentBankingOfficeRefresh/0.21.0'
+            'User-Agent': 'fds-sdk/javascript/InvestmentBankingOfficeRefresh/1.0.0'
         };
 
         /**
