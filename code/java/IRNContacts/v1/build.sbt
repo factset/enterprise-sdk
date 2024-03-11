@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.factset.sdk",
     name := "irncontacts",
-    version := "1.0.8",
+    version := "1.0.9",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),

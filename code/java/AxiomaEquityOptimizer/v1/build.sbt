@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.factset.sdk",
     name := "axiomaequityoptimizer",
-    version := "0.8.11",
+    version := "0.8.12",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),

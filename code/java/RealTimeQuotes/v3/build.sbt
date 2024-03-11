@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.factset.sdk",
     name := "realtimequotes",
-    version := "0.12.2",
+    version := "0.12.3",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),

@@ -5,7 +5,7 @@
     <artifactId>overviewreportbuilder</artifactId>
     <packaging>jar</packaging>
     <name>overviewreportbuilder</name>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Overview Report Builder client library for Java</description>
     <scm>

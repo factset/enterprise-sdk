@@ -5,7 +5,7 @@
     <artifactId>realtimetimeseries</artifactId>
     <packaging>jar</packaging>
     <name>realtimetimeseries</name>
-    <version>0.11.0</version>
+    <version>0.11.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Real-Time Time Series client library for Java</description>
     <scm>

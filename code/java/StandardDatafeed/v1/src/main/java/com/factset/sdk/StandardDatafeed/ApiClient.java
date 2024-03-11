@@ -122,7 +122,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/StandardDatafeed/0.21.9");
+    setUserAgent("fds-sdk/java/StandardDatafeed/0.21.10");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -1144,11 +1144,24 @@ public class ApiClient extends JavaTimeFormatter {
    */
   protected Client buildHttpClient() {
     // recreate the client config to pickup changes
-    clientConfig = getDefaultClientConfig();
+    if (clientConfig == null) {
+      clientConfig = getDefaultClientConfig();
+    }
 
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     customizeClientBuilder(clientBuilder);
     clientBuilder = clientBuilder.withConfig(clientConfig);
+
+    if (debugging) {
+      clientConfig.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME), java.util.logging.Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, 1024*50 /* Log payloads up to 50K */));
+      clientConfig.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
+      // Set logger to ALL
+      java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME).setLevel(java.util.logging.Level.ALL);
+    } else {
+      // suppress warnings for payloads with DELETE calls:
+      java.util.logging.Logger.getLogger("org.glassfish.jersey.client").setLevel(java.util.logging.Level.SEVERE);
+    }
+
     return clientBuilder.build();
   }
 
@@ -1165,15 +1178,6 @@ public class ApiClient extends JavaTimeFormatter {
     clientConfig.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
     // turn off compliance validation to be able to send payloads with DELETE calls
     clientConfig.property(ClientProperties.SUPPRESS_HTTP_COMPLIANCE_VALIDATION, true);
-    if (debugging) {
-      clientConfig.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME), java.util.logging.Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, 1024*50 /* Log payloads up to 50K */));
-      clientConfig.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
-      // Set logger to ALL
-      java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME).setLevel(java.util.logging.Level.ALL);
-    } else {
-      // suppress warnings for payloads with DELETE calls:
-      java.util.logging.Logger.getLogger("org.glassfish.jersey.client").setLevel(java.util.logging.Level.SEVERE);
-    }
 
     return clientConfig;
   }

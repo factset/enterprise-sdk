@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.factset.sdk",
     name := "capitalstructurereportbuilder",
-    version := "1.0.7",
+    version := "1.0.8",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),

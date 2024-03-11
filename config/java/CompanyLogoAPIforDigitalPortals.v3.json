@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "companylogoapifordigitalportals",
-  "artifactVersion": "0.10.10",
+  "artifactVersion": "0.10.11",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Company Logo API for Digital Portals client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/CompanyLogoAPIforDigitalPortals/0.10.10",
+  "httpUserAgent": "fds-sdk/java/CompanyLogoAPIforDigitalPortals/0.10.11",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

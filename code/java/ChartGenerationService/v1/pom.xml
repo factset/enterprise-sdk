@@ -5,7 +5,7 @@
     <artifactId>chartgenerationservice</artifactId>
     <packaging>jar</packaging>
     <name>chartgenerationservice</name>
-    <version>0.21.8</version>
+    <version>0.21.9</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Chart Generation Service client library for Java</description>
     <scm>

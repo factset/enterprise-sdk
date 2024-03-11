@@ -5,7 +5,7 @@
     <artifactId>eventcalendar</artifactId>
     <packaging>jar</packaging>
     <name>eventcalendar</name>
-    <version>0.20.6</version>
+    <version>0.20.7</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Event Calendar client library for Java</description>
     <scm>

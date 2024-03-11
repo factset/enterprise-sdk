@@ -5,7 +5,7 @@
     <artifactId>irnmeetings</artifactId>
     <packaging>jar</packaging>
     <name>irnmeetings</name>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>IRN Meetings client library for Java</description>
     <scm>

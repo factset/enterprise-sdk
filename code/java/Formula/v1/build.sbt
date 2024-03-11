@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.factset.sdk",
     name := "formula",
-    version := "3.1.3",
+    version := "3.1.4",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),
