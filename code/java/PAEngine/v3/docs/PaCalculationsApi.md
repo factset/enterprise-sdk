@@ -530,7 +530,9 @@ Remarks:
 
 *   Componentdetail supports securities, groups, groupsall, and totals levels of granularity. However, if no value is passed, the default value is 'securities'.
     Additionally, while 'groupsall' returns all the group levels in the PA component,
-    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component.
+    setting componentdetail to 'groups' only returns the expanded or collapsed group levels within the PA component. 
+
+* Multi-horizon frequencies are not supported through this endpoint.
 
 ### Example
 

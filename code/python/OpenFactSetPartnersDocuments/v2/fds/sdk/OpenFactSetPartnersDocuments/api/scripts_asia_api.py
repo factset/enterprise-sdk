@@ -212,7 +212,7 @@ class ScriptsAsiaApi(object):
     ) -> ScriptsAsiaResponse:
         """Returns the daily files from Open:FactSet Partner - Scripts Asia.  # noqa: E501
 
-        Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta returns the files from March 1st 2023 to current date. - type=full will returns the files from start of date until Feb 28th 2023.  # noqa: E501
+        Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta Will get the latest 7 days files. Will run every two hours. - type=full Will get complete history except the latest 7 days. Will run weekly once on Friday.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
 
@@ -265,7 +265,7 @@ class ScriptsAsiaApi(object):
     ) -> typing.Tuple[ScriptsAsiaResponse, int, typing.MutableMapping]:
         """Returns the daily files from Open:FactSet Partner - Scripts Asia.  # noqa: E501
 
-        Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta returns the files from March 1st 2023 to current date. - type=full will returns the files from start of date until Feb 28th 2023.  # noqa: E501
+        Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta Will get the latest 7 days files. Will run every two hours. - type=full Will get complete history except the latest 7 days. Will run weekly once on Friday.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
 
@@ -322,7 +322,7 @@ class ScriptsAsiaApi(object):
     ) -> "ApplyResult[ScriptsAsiaResponse]":
         """Returns the daily files from Open:FactSet Partner - Scripts Asia.  # noqa: E501
 
-        Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta returns the files from March 1st 2023 to current date. - type=full will returns the files from start of date until Feb 28th 2023.  # noqa: E501
+        Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta Will get the latest 7 days files. Will run every two hours. - type=full Will get complete history except the latest 7 days. Will run weekly once on Friday.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
 
@@ -374,7 +374,7 @@ class ScriptsAsiaApi(object):
     ) -> "ApplyResult[typing.Tuple[ScriptsAsiaResponse, int, typing.MutableMapping]]":
         """Returns the daily files from Open:FactSet Partner - Scripts Asia.  # noqa: E501
 
-        Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta returns the files from March 1st 2023 to current date. - type=full will returns the files from start of date until Feb 28th 2023.  # noqa: E501
+        Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta Will get the latest 7 days files. Will run every two hours. - type=full Will get complete history except the latest 7 days. Will run weekly once on Friday.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
 

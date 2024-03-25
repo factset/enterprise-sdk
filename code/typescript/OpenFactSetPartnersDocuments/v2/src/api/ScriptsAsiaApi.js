@@ -37,7 +37,7 @@ export default class ScriptsAsiaApi {
 
     /**
      * Returns the daily files from Open:FactSet Partner - Scripts Asia.
-     * Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta returns the files from March 1st 2023 to current date. - type=full will returns the files from start of date until Feb 28th 2023.
+     * Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta Will get the latest 7 days files. Will run every two hours. - type=full Will get complete history except the latest 7 days. Will run weekly once on Friday.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.sort Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used. (default to '-startDate')
      * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per result. (default to 20)
@@ -94,7 +94,7 @@ export default class ScriptsAsiaApi {
 
     /**
      * Returns the daily files from Open:FactSet Partner - Scripts Asia.
-     * Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta returns the files from March 1st 2023 to current date. - type=full will returns the files from start of date until Feb 28th 2023.
+     * Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type=delta Will get the latest 7 days files. Will run every two hours. - type=full Will get complete history except the latest 7 days. Will run weekly once on Friday.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.sort Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used. (default to '-startDate')
      * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per result. (default to 20)

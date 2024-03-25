@@ -1,0 +1,1233 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: "[The Standard DataFeed (SDF) Download API](https://www.factset.com/marketplace/catalog/product/factset-standard-datafeed-download-api)\
+    \ \nprovides an alternative method for users to request and retrieve SDF packages\
+    \ (schemas & bundles). \nThis service is not a direct replacement and does not\
+    \ have 100% feature parity with the Loader Application. \nThis API provides an\
+    \ alternative for users who are unable to utilize the Loader application due to\
+    \ the following reasons:\n\n* Inability to install 3rd party executables due to\
+    \ Corporate Security policies.\n\n* Inability to utilize the Loader application\
+    \ due to limitations or restrictions with the environment used to consume Standard\
+    \ Datafeed.\n\n* Clients who are utilizing existing delivery methods like FTP,\
+    \ who may want to use a more secure & modern solution.\n\nThis API allows users\
+    \ to retrieve\n\n* Both SDF and the QFL (Quant Factor Library (Factor Family &\
+    \ Factor Groups)) packages they have subscriptions for, with data available since\
+    \ January 1, 1995.\n\nAdditional parameters are available to filter requests to\
+    \ get the exact files users are looking for.\n\nQFL data is delivered through\
+    \ Content API & Bulk Data API (SDF API).\n\n* Content API: Provides direct access\
+    \ to FactSet-hosted QFL data. Suitable for interactive, ad hoc QFL requests. Constraints\
+    \ on large extracts. Costs are based on consumption, i.e. more calls can result\
+    \ in more costs.\n\n* Bulk Data API: Provides access to download locations of\
+    \ zip files for client download. Suitable for production processes within a client\
+    \ environment. Cost is based on the use case and fixed unless scope changes (same\
+    \ as other SDFs).\n\nPlease find all the content-related comprehensive documentation\
+    \ [here](https://my.apps.factset.com/oa/pages/15222).\n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Standard DataFeed (SDF) Download API
+  version: 2.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/standard-datafeed-api
+servers:
+- url: https://api.factset.com/bulk-documents/sdf/v2
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: This will allow access to detailed schema information and a comprehensive
+    list of client-subscribed SDF schemas.
+  name: Schema
+- description: This will allow access to all subscribed schema files and their historical
+    data.
+  name: SDF and QFL Content Library
+paths:
+  /list-schemas:
+    get:
+      description: |
+        This helper endpoint provides the list of schemas subscribed by the client and their corresponding versions.
+      operationId: getListSchemaswithoutwithooutRequiredParameters
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                No Parameters Response:
+                  $ref: '#/components/examples/ListSchemaResponse'
+              schema:
+                $ref: '#/components/schemas/ListSchema'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            The USERNAME-SERIAL attempted to request the endpoint but is not authorized to access it. The request was legal, but the server is refusing to respond. Please reach out to the FactSet Account Team for assistance with authorization.
+        "429":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/QuantityLimitsExceededErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Quantity Limits Exceeded
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: List of Standard DataFeed (SDF) schemas.
+      tags:
+      - Schema
+      x-accepts: application/json
+  /schema-details:
+    get:
+      description: |
+        If the schema and version number are passed in the request, this endpoint provides a pre-signed URL pointing to the location from where the schema details can be downloaded.
+      operationId: getSchemaDetails
+      parameters:
+      - description: Name of the schema.
+        example: fgp_v1
+        explode: true
+        in: query
+        name: schema
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Version number of the schema.
+        example: 5
+        explode: true
+        in: query
+        name: version
+        required: true
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Required Parameters Response:
+                  $ref: '#/components/examples/SchemaDetailResponse'
+              schema:
+                $ref: '#/components/schemas/SchemaDetail'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            The USERNAME-SERIAL attempted to request the endpoint but is not authorized to access it. The request was legal, but the server is refusing to respond. Please reach out to the FactSet Account Team for assistance with authorization.
+        "429":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/QuantityLimitsExceededErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Quantity Limits Exceeded
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: Schema Details.
+      tags:
+      - Schema
+      x-accepts: application/json
+  /list-files:
+    get:
+      description: "This endpoint returns delta and full files for all the schemas\
+        \ subscribed by the client.\n\n- If the request does not include a date range\
+        \ filter, this endpoint returns the past 10 days of data by default. \n- If\
+        \ filtered by a date range, the data is limited to maximum of latest 30 days.\n\
+        \n\n            \n"
+      operationId: getListFiles
+      parameters:
+      - description: Name of the schema.
+        example: fgp_v1
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Name of the bundle.
+        example: fgp_global_prices_am_v1
+        explode: true
+        in: query
+        name: bundle
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Type of the file.\n\nNote:\n- Full files are snapshots of the\
+          \ bundle capturing the most recent version of the bundle generated every\
+          \ weekend. When requesting 'Full' files, ensure that the date range includes\
+          \ weekend dates.\n- Delta files include the incremental changes (inserts,\
+          \ updates, deletes), since the last file and have incremental sequence numbers.\
+          \  \n"
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          default: delta
+          enum:
+          - full
+          - delta
+          type: string
+        style: form
+      - description: |
+          The earliest date of the feed file the API should fetch based on the file timestamp. Consider the following points:
+
+
+          - Dates provided in `startDate` and `endDate` along with `schema` parameter: The returned dataset is limited to a maximum of latest 30 days' worth of records.
+          - Format: Should be absolute (YYYY-MM-DD).
+        example: 2023-01-01
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          The earliest date of the feed file the API should fetch based on the file timestamp. Consider the following points:
+
+          - Dates provided in `startDate` and `endDate` along with `schema` parameter: The returned dataset is limited to a maximum of latest 30 days' worth of records.
+          - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+          *Note:*
+          - *Either `startDate` or `startDateRelative` should be used, but not both.*
+          - *If both `startDate` and `startDateRelative` are provided in the same request, the API will return an error.*
+          - *If users provide future dates in requests for `startDate` or `startDateRelative`, the API will not return any data.*
+        explode: true
+        in: query
+        name: startDateRelative
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: |
+          The latest date of the feed file the API should fetch for based on the file timestamp.
+
+          - Format: Should be absolute - YYYY-MM-DD.
+        example: 2023-01-28T00:00:00.000Z
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          The latest date of the feed file the API should fetch for based on the file timestamp.
+
+          - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+          *Note:*
+          - *Either `endDate` or `endDateRelative` should be used, but not both.*
+          - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.*
+          - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.*
+        explode: true
+        in: query
+        name: endDateRelative
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies the number of results to return per page.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 20
+          maximum: 500
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on startDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -startDate
+          items:
+            enum:
+            - startDate
+            - -startDate
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ListFiles200ResponseExample:
+                  $ref: '#/components/examples/ListFilesResponse'
+              schema:
+                $ref: '#/components/schemas/ListFile'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            The USERNAME-SERIAL attempted to request the endpoint but is not authorized to access it. The request was legal, but the server is refusing to respond. Please reach out to the FactSet Account Team for assistance with authorization.
+        "429":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/QuantityLimitsExceededErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Quantity Limits Exceeded
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: Returns delta & full files for the schemas.
+      tags:
+      - SDF and QFL Content Library
+      x-accepts: application/json
+  /historical-files:
+    get:
+      description: |
+        This endpoint returns historical data for the specified schema and bundle.
+
+        - If no date range is specified, this endpoint grants access to all archived records back to the first full.
+        - If filtered by a date range, the endpoint provides records within the specified date range; if it precedes the first full, all available records are included.
+      operationId: gethistoricalFiles
+      parameters:
+      - description: Name of the schema.
+        example: fgp_v1
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Name of the bundle.
+        example: fgp_global_prices_am_v1
+        explode: true
+        in: query
+        name: bundle
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Type of the file.\n\nNote:\n- Full files are snapshots of the\
+          \ bundle capturing the most recent version of the bundle generated every\
+          \ weekend. When requesting 'Full' files, ensure that the date range includes\
+          \ weekend dates.\n- Delta files include the incremental changes (inserts,\
+          \ updates, deletes), since the last file and have incremental sequence numbers.\
+          \  \n"
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          default: delta
+          enum:
+          - full
+          - delta
+          type: string
+        style: form
+      - description: "The earliest date of the feed file the API should fetch based\
+          \ on the file timestamp. \n\n\n- Format: Should be absolute (YYYY-MM-DD).\n"
+        example: 2021-01-25
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "The earliest date of the feed file the API should fetch based\
+          \ on the file timestamp. \n\n\n- Format: Specify the date using a relative\
+          \ term as an integer: '0' for today, '-1' for yesterday, '-2' for two days\
+          \ ago, and so forth. Negative values are used to represent past dates.\n\
+          \n*Note:*\n- *Either `startDate` or `startDateRelative` should be used,\
+          \ but not both.*\n- *If both `startDate` and `startDateRelative` are provided\
+          \ in the same request, the API will return an error.*\n- *If users provide\
+          \ future dates in requests for `startDate` or `startDateRelative`, the API\
+          \ will not return any data.*\n"
+        explode: true
+        in: query
+        name: startDateRelative
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: |
+          The latest date of the feed file the API should fetch for based on the file timestamp.
+
+          - Format: Should be absolute - YYYY-MM-DD.
+        example: 2023-01-28T00:00:00.000Z
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          The latest date of the feed file the API should fetch for based on the file timestamp.
+
+          - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+          *Note:*
+          - *Either `endDate` or `endDateRelative` should be used, but not both.*
+          - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.*
+          - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.*
+        explode: true
+        in: query
+        name: endDateRelative
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Specifies the number of results to return per page.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 20
+          maximum: 500
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on startDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -startDate
+          items:
+            enum:
+            - startDate
+            - -startDate
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ListFiles200ResponseExample:
+                  $ref: '#/components/examples/HistoricalFilesResponse'
+              schema:
+                $ref: '#/components/schemas/HistoricalFile'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            The USERNAME-SERIAL attempted to request the endpoint but is not authorized to access it. The request was legal, but the server is refusing to respond. Please reach out to the FactSet Account Team for assistance with authorization.
+        "429":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/QuantityLimitsExceededErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Quantity Limits Exceeded
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/serverErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: Returns full historic data of specified schema and bundle.
+      tags:
+      - SDF and QFL Content Library
+      x-accepts: application/json
+components:
+  examples:
+    ErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Bad Request
+          title: parameterError:['_paginationLimit'] is not a valid parameter(s).
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    AuthErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Not Authenticated
+          title: Unauthenticated USERNAME-SERIAL.
+          id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+    AuthorizationErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Forbidden
+          title: USERNAME-SERIAL does not have permission.
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    serverErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Internal Server Error
+          title: An unexpected error happened.
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    QuantityLimitsExceededErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Too Many Requests
+          title: The application or user has exceeded the permitted request quantities.
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    ListFilesResponse:
+      summary: Sample Response
+      value:
+        data:
+        - type: delta
+          bundle: fgp_ca_events_am_v1
+          schema: fgp_v1
+          version: "555"
+          relatedBundles:
+          - bundle: fgp_ca_events_ap_v1
+            version: "523"
+          - bundle: fgp_ca_events_eu_v1
+            version: "576"
+          timestamp: 2021-04-22T19:59:53Z
+          url: https://fdss3-sdf-publish-prod.s3.amazonaws.com/prod/04/22/22A8B666-A3A5-11EB-94AA-8CA2536ACF03?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDJ4GMEZEZ%2F20210512%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210512T172835Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaCXVzLWVhc3QtMSJHMEUCIQCU337Iqg7hGI84ohliykGkMwyuxkv5ZepMXlOkjFuT0gIgAUfMuxk0Ue7nbo7WdhclIUaUe6dlwHso2lDHKXzbUQkq2QEIw%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDFL7Kj2AKk4MnRzXJiqtAXmh3NCgz9Z%2F%2FgI6ARqtFaKmP%2BpWfojZI6c%2FSLDceZE4q0qRKVU5Nh%2Fk5cH%2FC4E8acrjupEmeaLIsUEm%2F%2F7W1kla6nJ%2B%2Bwx9ViaOBfbP1wjG6dDY%2BMwalM3lq1bCpZbDFvOt1uUMBSUgJd5UJbdvMVtivXkkzKh%2B2dvt0fMHIgIMUnJzsSbFcLgKnS3lYEp5y%2B0622wrK90RIfw7Q8rN6W9OoFJ4UiCJJpE9OH5ZMNGd8IQGOuABNzZAf%2FHtTM9NmNIQwLpMSivjlhLl6chrPWvt4T6OQMN%2B6yaBz%2F%2BOig3Zc29HuR45dZ35QPd30mswAX0Md637pBkB7vjkakp70fbvIlGwsJ0vPq01a3SVfS0wsW6MRgGNdxJbItuZ9XKrV2SRSZFHntOH1BHHHtbR5hpSUg5HTpasOT%2BWNXHJKjTXVjjWmt3t3ATOUOcFluxt6UL5eg2hBY8UsAbgs2zxzRlzeEJU%2Bnq9%2BQc9TSE9Ia%2BOqKWSVUs6qQ0zyZ5G9OL8hs%2B9pdgQemrquBKXZ9FBHiEyr38OY0c%3D&X-Amz-Signature=e76cf34978304834e809144f126830c2fe65cb8301e67659fb281eb4734de3b8
+          fileSize: 25.5MB
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    HistoricalFilesResponse:
+      summary: Sample Response
+      value:
+        data:
+        - type: full
+          bundle: ff_advanced_ap_v3
+          schema: ff_v3
+          version: "5179"
+          relatedBundles:
+          - bundle: ff_advanced_am_v3
+            version: "5214"
+          - bundle: ff_advanced_eu_v3
+            version: "5194"
+          timestamp: 2021-09-25T07:31:32Z
+          url: https://fdss3-sdf-publish-prod.s3.amazonaws.com/prod/09/25/0E8FE550-1DD0-11EC-A6DC-A3F9DE12AB53?response-content-disposition=attachment%3B%20filename%3Dff_advanced_ap_v3_full_5179.zip&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VE6OFUYRDO%2F20240117%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T134508Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBYaCXVzLWVhc3QtMSJHMEUCIQC%2BVTeJ%2FN9sV3LMXabZFPfoxhRiUdeY4oHgxRHYEMsqhAIgJNOjBJpVv%2FDO0Z7ZOAfUqZ7Z6WNrQ1ubc44lF6YsVIcq%2FwIIv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgw5NjYyODIxMTY0MjUiDJQqUfqVIClNcSto%2FyrTAioF561zvgrWnvhe1Nd53Mv6Apw7V7Sa00x70gsEHVrisce%2F4kMmzNFPoy2kQZDFnXIL94MsV8uvndTeTwUz5hU10fLHUfHJXfDHN46JgQzKrGW5vb9CXI0j0hykeL1aMUPFAOtxZmZD8j2OlyezIUV6n9FOE7MMRcISSujSA6z0w2lUZX7Q0wc5aulh4naN%2BnuDbUd2k%2FKWdNQ%2Fjc%2B5NDlJ9x1iHKCSHTGbzjZDy8MxHB94sInNKtPdJNY8YBYTvZUcYp9aaFSpNZR%2ByBayDKgNWj49pQ1XF6c2bKZa8r1iLgCpNAr3n1lf0hUlzz3wVjm7cql0q%2BH5IVDsUEL1UPw%2BfJQTy8jwI3f9lPkBnV1KiFfcD57cLaSIRhiqvBT1BfPemTydUrVltvJUN3w5nuvrLsIbIR9opMMZiiq2opvWPR9tBXiGorpfUKxyPWM1KFS4czC0sp%2BtBjqeAYJKePynHCif6kSGxK9mLClanNkxWtkXzPXBa0UE6KuusiwjmutNzzDVWAIv2LctBndUbxIF%2BIQueNvMCxRkRzlI84VPRpxDepTxD7wMfEdhaK203eDYa2D21Jw%2BAk94OyBJJ%2FGJgwY2Ognh4ofBnZ5uwoReN3TpwxyGhERotR276DD4cHrdbrHS8gnbPVabZPzXsbyWHeM6hSkZML6Q&X-Amz-Signature=e3575febc146f9f31264b5f2c4e2a05c565170702d459204f77ca7f788b21851
+          fileSize: 673.06MB
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    SchemaDetailResponse:
+      summary: Required Parameters Response
+      value:
+        data:
+        - schema: fgp_v1
+          version: 26
+          url: https://fdss3-bulk-data-delivery-sdf.s3.amazonaws.com/schema/fgp_v1/555/2020-05-28_14_18_33.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDMSAGCE52%2F20210511%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210511T170435Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECIaCXVzLWVhc3QtMSJIMEYCIQD1He0st1G1qElczFiEEG0DVpLHRkTfIyCgA9pUbHmT4wIhAPyz46DpoaSZDfmk%2FZqbG7xUZjZjDyCbr5uBRw5jlz1JKtkBCKr%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMODUyNTYyNjIwODcwIgzHhlGrM5TOWg50o9IqrQGOySsSusfChhxaGUj7dfJDMdnJBOJtm6O5pAnVMnzuHhyr%2FLg69QHy%2BmxSO6SdqykHRjuLMnUeNgQ34n75gaLQDe7B%2Bsw9jSZV3NI6O6B2G4Gjga4X7%2Fm1OlKbStb0CgTVjYTjSI4vIMMn1jKmGZvosl9ZSJgpEbeYk5kKG4Kmr%2FXDGbn4C0ZKXbdnWY4yZCaZitNAkJ74hQSxlk7DWBrTKY1QZUT7WBvd3hRXRTCY8uqEBjrfAdcXYNIJmuyJRel22QcGZ24xPyUXJyW9%2B3vbmDQx3QHLyyHZq%2BbKGKt0sphxhfna%2Bu9qdApKhkBbk1N1%2Bv%2FXLvItRG5Y38ZPpy4gj6hgs6h5%2Buay1Esb32f4083L8uBL26NuUDg09odjE6sBpuqkJoTiBMXaKdlHbU0GfrOli2dK46rhDmY6m1jbF2Najd1v5rbDW%2FPRzYnpM638paqbwUev%2FcLgGvRI%2FXuWoNH%2FfhXFCZf9G20BGWWyhuOoq0%2BSL0a4BQkZXHNjiCXQrysuQtonI4NF%2BD%2FfwZtPuD%2BEsJg%3D&X-Amz-Signature=58517963bbb5b77b481ce68df391c7e29166ac330c552c79f4df68cfdd0585ab
+          timestamp: 2020-05-28 14:18:33
+    ListSchemaResponse:
+      summary: No Parameters Response
+      value:
+        data:
+        - schemaName: acta_v1
+          schemaVersion: "8"
+        - schemaName: actr_v1
+          schemaVersion: "2"
+        - schemaName: qfl_v1
+          schemaVersion: "2"
+  parameters:
+    schema:
+      description: Name of the schema.
+      example: fgp_v1
+      explode: true
+      in: query
+      name: schema
+      required: true
+      schema:
+        type: string
+      style: form
+    version:
+      description: Version number of the schema.
+      example: 5
+      explode: true
+      in: query
+      name: version
+      required: true
+      schema:
+        type: integer
+      style: form
+    schemaListFiles:
+      description: Name of the schema.
+      example: fgp_v1
+      explode: true
+      in: query
+      name: schema
+      required: false
+      schema:
+        type: string
+      style: form
+    schemaHistoricalFiles:
+      description: Name of the schema.
+      example: fgp_v1
+      explode: true
+      in: query
+      name: schema
+      required: false
+      schema:
+        type: string
+      style: form
+    bundle:
+      description: Name of the bundle.
+      example: fgp_global_prices_am_v1
+      explode: true
+      in: query
+      name: bundle
+      required: false
+      schema:
+        type: string
+      style: form
+    type:
+      description: "Type of the file.\n\nNote:\n- Full files are snapshots of the\
+        \ bundle capturing the most recent version of the bundle generated every weekend.\
+        \ When requesting 'Full' files, ensure that the date range includes weekend\
+        \ dates.\n- Delta files include the incremental changes (inserts, updates,\
+        \ deletes), since the last file and have incremental sequence numbers.  \n"
+      explode: true
+      in: query
+      name: type
+      required: false
+      schema:
+        default: delta
+        enum:
+        - full
+        - delta
+        type: string
+      style: form
+    startDate:
+      description: |
+        The earliest date of the feed file the API should fetch based on the file timestamp. Consider the following points:
+
+
+        - Dates provided in `startDate` and `endDate` along with `schema` parameter: The returned dataset is limited to a maximum of latest 30 days' worth of records.
+        - Format: Should be absolute (YYYY-MM-DD).
+      example: 2023-01-01
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: string
+      style: form
+    startDateRelative:
+      description: |
+        The earliest date of the feed file the API should fetch based on the file timestamp. Consider the following points:
+
+        - Dates provided in `startDate` and `endDate` along with `schema` parameter: The returned dataset is limited to a maximum of latest 30 days' worth of records.
+        - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+        *Note:*
+        - *Either `startDate` or `startDateRelative` should be used, but not both.*
+        - *If both `startDate` and `startDateRelative` are provided in the same request, the API will return an error.*
+        - *If users provide future dates in requests for `startDate` or `startDateRelative`, the API will not return any data.*
+      explode: true
+      in: query
+      name: startDateRelative
+      required: false
+      schema:
+        format: int32
+        type: integer
+      style: form
+    startDateHistorical:
+      description: "The earliest date of the feed file the API should fetch based\
+        \ on the file timestamp. \n\n\n- Format: Should be absolute (YYYY-MM-DD).\n"
+      example: 2021-01-25
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: string
+      style: form
+    startDateRelativeHistorical:
+      description: "The earliest date of the feed file the API should fetch based\
+        \ on the file timestamp. \n\n\n- Format: Specify the date using a relative\
+        \ term as an integer: '0' for today, '-1' for yesterday, '-2' for two days\
+        \ ago, and so forth. Negative values are used to represent past dates.\n\n\
+        *Note:*\n- *Either `startDate` or `startDateRelative` should be used, but\
+        \ not both.*\n- *If both `startDate` and `startDateRelative` are provided\
+        \ in the same request, the API will return an error.*\n- *If users provide\
+        \ future dates in requests for `startDate` or `startDateRelative`, the API\
+        \ will not return any data.*\n"
+      explode: true
+      in: query
+      name: startDateRelative
+      required: false
+      schema:
+        format: int32
+        type: integer
+      style: form
+    endDate:
+      description: |
+        The latest date of the feed file the API should fetch for based on the file timestamp.
+
+        - Format: Should be absolute - YYYY-MM-DD.
+      example: 2023-01-28T00:00:00.000Z
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: string
+      style: form
+    endDateRelative:
+      description: |
+        The latest date of the feed file the API should fetch for based on the file timestamp.
+
+        - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.
+
+        *Note:*
+        - *Either `endDate` or `endDateRelative` should be used, but not both.*
+        - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.*
+        - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.*
+      explode: true
+      in: query
+      name: endDateRelative
+      required: false
+      schema:
+        format: int32
+        type: integer
+      style: form
+    _paginationLimit:
+      description: Specifies the number of results to return per page.
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        default: 20
+        maximum: 500
+        type: integer
+      style: form
+    _paginationOffset:
+      description: Specifies the starting point for pagination. This parameter is
+        used to identify the beginning of next set of results.
+      explode: true
+      in: query
+      name: _paginationOffset
+      required: false
+      schema:
+        default: 0
+        type: integer
+      style: form
+    _sort:
+      description: |
+        Enables sorting data in ascending or descending chronological order based on startDate.
+      explode: false
+      in: query
+      name: _sort
+      required: false
+      schema:
+        default:
+        - -startDate
+        items:
+          enum:
+          - startDate
+          - -startDate
+          type: string
+        maxItems: 2
+        type: array
+      style: form
+  schemas:
+    ErrorResponse:
+      description: Error Response Object
+      properties:
+        errors:
+          description: An array containing errors.
+          items:
+            $ref: '#/components/schemas/ErrorExample'
+          type: array
+      type: object
+    ErrorExample:
+      description: Error Example Object
+      properties:
+        code:
+          description: Specifies the error code.
+          type: string
+        title:
+          description: Specifies the error message.
+          type: string
+        id:
+          description: Specifies the ID.
+          type: string
+      type: object
+    SchemaDetail:
+      description: Schema Details Object.
+      example:
+        data:
+        - schema: schema
+          version: 0
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - schema: schema
+          version: 0
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        data:
+          description: Schema Details Data Array.
+          items:
+            $ref: '#/components/schemas/SchemaDetailObject'
+          type: array
+      required:
+      - data
+      title: SchemaDetails
+      type: object
+    SchemaDetailObject:
+      example:
+        schema: schema
+        version: 0
+        url: url
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        schema:
+          description: Name of the schema.
+          type: string
+        version:
+          description: Version number of the schema.
+          type: integer
+        url:
+          description: Pre-signed URL pointing to the location from where the schema
+            details can be downloaded.
+          type: string
+        timestamp:
+          description: Timestamp of when the schema version was last updated.
+          format: date-time
+          type: string
+      type: object
+    ListSchema:
+      description: Schema List Object.
+      example:
+        data:
+        - schemaVersion: schemaVersion
+          schemaName: schemaName
+        - schemaVersion: schemaVersion
+          schemaName: schemaName
+      properties:
+        data:
+          description: Schema List Data Array.
+          items:
+            $ref: '#/components/schemas/ListSchemaObject'
+          type: array
+      required:
+      - data
+      title: SchemaList
+      type: object
+    ListSchemaObject:
+      example:
+        schemaVersion: schemaVersion
+        schemaName: schemaName
+      properties:
+        schemaName:
+          description: The name of the schema.
+          type: string
+        schemaVersion:
+          description: The version of the schema.
+          type: string
+      type: object
+    ListFile:
+      description: List Files Object
+      example:
+        data:
+        - schema: schema
+          fileSize: fileSize
+          type: type
+          relatedBundles:
+          - bundle: bundle
+            version: version
+          - bundle: bundle
+            version: version
+          bundle: bundle
+          version: version
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - schema: schema
+          fileSize: fileSize
+          type: type
+          relatedBundles:
+          - bundle: bundle
+            version: version
+          - bundle: bundle
+            version: version
+          bundle: bundle
+          version: version
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: List Files Data Array.
+          items:
+            $ref: '#/components/schemas/ListFileObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/meta'
+      required:
+      - data
+      title: ListFilesObject
+      type: object
+    ListFileObject:
+      example:
+        schema: schema
+        fileSize: fileSize
+        type: type
+        relatedBundles:
+        - bundle: bundle
+          version: version
+        - bundle: bundle
+          version: version
+        bundle: bundle
+        version: version
+        url: url
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        type:
+          description: 'File type: full or delta.'
+          type: string
+        bundle:
+          description: Bundle name.
+          type: string
+        schema:
+          description: Schema name.
+          type: string
+        version:
+          description: Full or delta file version.
+          type: string
+        relatedBundles:
+          description: Bundles related to the version number.
+          items:
+            $ref: '#/components/schemas/ListFileObjectObject'
+          type: array
+        timestamp:
+          description: Timestamp of when the bundle was generated.
+          format: date-time
+          type: string
+        url:
+          description: Pre-signed URL pointing to the location from where the schema
+            details can be downloaded.
+          type: string
+        fileSize:
+          description: File size of the particular bundle.
+          type: string
+      type: object
+    ListFileObjectObject:
+      example:
+        bundle: bundle
+        version: version
+      properties:
+        bundle:
+          description: Bundle name.
+          type: string
+        version:
+          description: Bundle version.
+          type: string
+      type: object
+    meta:
+      description: Array of metadata objects.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+      title: Meta
+      type: object
+    pagination:
+      description: List of pagination objects
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of files the API returns for a particular query.
+          type: integer
+        isEstimatedTotal:
+          description: Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to False as the API
+            should always return the exact count.
+          type: boolean
+      title: Pagination
+      type: object
+    HistoricalFile:
+      description: Historical Files Object
+      example:
+        data:
+        - schema: schema
+          fileSize: fileSize
+          type: type
+          relatedBundles:
+          - bundle: bundle
+            version: version
+          - bundle: bundle
+            version: version
+          bundle: bundle
+          version: version
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - schema: schema
+          fileSize: fileSize
+          type: type
+          relatedBundles:
+          - bundle: bundle
+            version: version
+          - bundle: bundle
+            version: version
+          bundle: bundle
+          version: version
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: Historical Files Data Array.
+          items:
+            $ref: '#/components/schemas/HistoricalFileObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/meta'
+      required:
+      - data
+      title: HistoricalFilesObject
+      type: object
+    HistoricalFileObject:
+      example:
+        schema: schema
+        fileSize: fileSize
+        type: type
+        relatedBundles:
+        - bundle: bundle
+          version: version
+        - bundle: bundle
+          version: version
+        bundle: bundle
+        version: version
+        url: url
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        type:
+          description: 'File type: full or delta.'
+          type: string
+        bundle:
+          description: Bundle name.
+          type: string
+        schema:
+          description: Schema name.
+          type: string
+        version:
+          description: Full or delta file version.
+          type: string
+        relatedBundles:
+          description: Bundles related to the version number.
+          items:
+            $ref: '#/components/schemas/HistoricalFileObjectObject'
+          type: array
+        timestamp:
+          description: Timestamp of when the bundle was generated.
+          format: date-time
+          type: string
+        url:
+          description: Pre-signed URL pointing to the location from where the schema
+            details can be downloaded.
+          type: string
+        fileSize:
+          description: File size of the particular bundle.
+          type: string
+      type: object
+    HistoricalFileObjectObject:
+      example:
+        bundle: bundle
+        version: version
+      properties:
+        bundle:
+          description: Bundle name.
+          type: string
+        version:
+          description: Bundle version.
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

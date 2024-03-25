@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: SDF Download API
-  version: 1.0.0
+  version: 1.2.0
   contact:
     name: Team Mustang
     email: teammustang@factset.com
@@ -15,9 +15,8 @@ info:
       - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed
       - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution  
 
-     This API allows users to retrieve
-     - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,
-     - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.
+     This API allows users to retrieve maximum of latest 30 days of data
+
      
      Additional parameters are available to filter requests to get the exact files users are looking for.
      
@@ -71,16 +70,15 @@ paths:
         - SDF and QFL Content Library
       operationId: get-v1-list-files
       description: >
-        <a
-        href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a>
-        end point provides the delta & full files in a reverse chronological
-        order by default for all the schemas & bundles subscribed by the client
+        This endpoint returns delta and full files for all the schemas
+        subscribed by the client.
 
 
-         QFL:-
-           - In case of QFL, <a href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a> end point provides the "Historical & Year to Date (YTD)" data in a reverse chronological order by default for all the factor families & groups subscribed to by the user</p> Provides "full files" only for historical bundles[data available from 1995 to previous year], "full & delta files" for YTD bundles[data available for current year]
-           
-           If startDate and endDate parameters are not specified in the request, this endpoint returns past 10 days data by default.
+        - If the request does not include a date range filter, this endpoint
+        returns the past 10 days of data by default. 
+
+        - If filtered by a date range, the data is limited to maximum of latest
+        30 days.
       parameters:
         - $ref: '#/components/parameters/schema'
         - $ref: '#/components/parameters/bundle'
@@ -167,16 +165,6 @@ components:
         file type = Full or Delta</p> Full files are weekly files generated
         every weekend (Saturday). **The date range should include weekend dates
         if requesting for "Full" files**
-
-
-        QFL:- In case of QFL we have
-
-        - Historical files (1995 to previous year)- Always "Full" . A "Full"
-        file is generated for each year
-
-        - For YTD (Current year)- "Full" files are weekly files generated every
-        weekend (Saturday). The date range should include weekend dates if
-        requesting for "Full" files
       required: false
       schema:
         type: string
@@ -192,23 +180,15 @@ components:
 
 
 
-        - If schema parameter is not specified in the request, then data
-        requested should be in batches of 10days or less**(Date range should be
-        less than or equal to 10)**
+
 
         - If the schema parameter is specified in the request, date range can be
-        greater than 10 days
+        greater than 10 days maximum upto latest 30 days.
 
         - If startDate and endDate parameters are not specified in the request,
         this endpoint returns past 10 days data by default.
 
         - startDate can be absolute- YYYY-MM-DD or relative:-  -1 for yesterday
-
-
-        QFL:- In case of QFL
-
-        - Historical files available from 1995-01-01 to 2021-12-31. YTD files
-        are current year files.
       required: false
       schema:
         type: string

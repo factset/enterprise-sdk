@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.PAEngine",
-  "packageVersion": "1.0.1",
+  "packageVersion": "1.0.2",
   "packageGuid": "{1cae57c4-b7c1-5755-adb4-f4152973e126}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/PAEngine/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/PAEngine/1.0.1",
+  "httpUserAgent": "fds-sdk/dotnet/PAEngine/1.0.2",
   "files": {
     "LICENSE": {}
   },

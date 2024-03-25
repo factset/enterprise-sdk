@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Returns the daily files from Open:FactSet Partner - Scripts Asia.
 
-Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type&#x3D;delta returns the files from March 1st 2023 to current date. - type&#x3D;full will returns the files from start of date until Feb 28th 2023.
+Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type&#x3D;delta Will get the latest 7 days files. Will run every two hours. - type&#x3D;full Will get complete history except the latest 7 days. Will run weekly once on Friday.
 
 ### Example
 

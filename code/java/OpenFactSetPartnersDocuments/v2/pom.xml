@@ -5,7 +5,7 @@
     <artifactId>openfactsetpartnersdocuments</artifactId>
     <packaging>jar</packaging>
     <name>openfactsetpartnersdocuments</name>
-    <version>3.0.5</version>
+    <version>3.0.6</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Open:FactSet Partners - Documents client library for Java</description>
     <scm>

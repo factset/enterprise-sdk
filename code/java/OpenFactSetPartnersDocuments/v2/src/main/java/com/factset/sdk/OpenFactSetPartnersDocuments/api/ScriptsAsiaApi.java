@@ -59,7 +59,7 @@ public class ScriptsAsiaApi {
 
   /**
    * Returns the daily files from Open:FactSet Partner - Scripts Asia.
-   * Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type&#x3D;delta returns the files from March 1st 2023 to current date. - type&#x3D;full will returns the files from start of date until Feb 28th 2023.
+   * Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type&#x3D;delta Will get the latest 7 days files. Will run every two hours. - type&#x3D;full Will get complete history except the latest 7 days. Will run weekly once on Friday.
    * @param sort Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used. (optional, default to -startDate)
    * @param paginationLimit Specifies the maximum number of results to return per result. (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)
@@ -90,7 +90,7 @@ public class ScriptsAsiaApi {
 
   /**
    * Returns the daily files from Open:FactSet Partner - Scripts Asia.
-   * Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type&#x3D;delta returns the files from March 1st 2023 to current date. - type&#x3D;full will returns the files from start of date until Feb 28th 2023.
+   * Returns XML files and relevant metadata provided by Open: FactSet Partner – Scripts Asia. - type&#x3D;delta Will get the latest 7 days files. Will run every two hours. - type&#x3D;full Will get complete history except the latest 7 days. Will run weekly once on Friday.
    * @param sort Enables to get the data in ascending or descending order based on startTime. Results are in reverse chronological order if this parameter is not used. (optional, default to -startDate)
    * @param paginationLimit Specifies the maximum number of results to return per result. (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. Using this parameter can fetch maximum of first 10000 records. (optional, default to 0)

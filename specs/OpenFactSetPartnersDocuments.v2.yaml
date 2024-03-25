@@ -1039,10 +1039,10 @@ paths:
         Returns XML files and relevant metadata provided by Open: FactSet
         Partner – Scripts Asia.
 
-        - type=delta returns the files from March 1st 2023 to current date.
+        - type=delta Will get the latest 7 days files. Will run every two hours.
 
-        - type=full will returns the files from start of date until Feb 28th
-        2023.
+        - type=full Will get complete history except the latest 7 days. Will run
+        weekly once on Friday.
       parameters:
         - $ref: '#/components/parameters/_sort'
         - $ref: '#/components/parameters/_paginationLimit'
@@ -2845,9 +2845,7 @@ tags:
       <a
       href=https://go.factset.com/marketplace/catalog/product/china-a-shares-transcripts>Orbit</a>
       API covers full universe of almost 4,800 companies since the early 2000's.
-      Content covers 3 types, both in Chinese and English: 1) Earning Call
-      Transcripts 2) Public disclosures on broker onsite research 3) Executive
-      official responses on online platforms.
+      Content covers Earning Call Transcripts in Chinese and English.
   - name: Ozmosi
     description: >
       <a href=https://open.factset.com/partners/ozmosi/en-us>Ozmosi</a> API

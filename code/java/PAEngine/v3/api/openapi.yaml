@@ -5084,7 +5084,8 @@ paths:
         \ levels of granularity. However, if no value is passed, the default value\
         \ is 'securities'.\r\n    Additionally, while 'groupsall' returns all the\
         \ group levels in the PA component,\r\n    setting componentdetail to 'groups'\
-        \ only returns the expanded or collapsed group levels within the PA component."
+        \ only returns the expanded or collapsed group levels within the PA component.\
+        \ \r\n\n* Multi-horizon frequencies are not supported through this endpoint."
       operationId: postAndCalculate
       parameters:
       - description: Long running deadline in seconds when only one unit is passed
