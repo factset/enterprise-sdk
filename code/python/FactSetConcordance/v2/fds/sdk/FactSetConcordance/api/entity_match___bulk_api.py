@@ -509,7 +509,8 @@ class EntityMatchBulkApi(object):
             limit (int): Limits the number of records in the response.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -557,7 +558,8 @@ class EntityMatchBulkApi(object):
             limit (int): Limits the number of records in the response.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -609,7 +611,8 @@ class EntityMatchBulkApi(object):
             limit (int): Limits the number of records in the response.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -656,7 +659,8 @@ class EntityMatchBulkApi(object):
             limit (int): Limits the number of records in the response.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -746,7 +750,8 @@ class EntityMatchBulkApi(object):
             additional_context_columns ([str]): Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. . [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -844,7 +849,8 @@ class EntityMatchBulkApi(object):
             additional_context_columns ([str]): Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. . [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -946,7 +952,8 @@ class EntityMatchBulkApi(object):
             additional_context_columns ([str]): Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. . [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -1043,7 +1050,8 @@ class EntityMatchBulkApi(object):
             additional_context_columns ([str]): Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. . [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -1098,7 +1106,8 @@ class EntityMatchBulkApi(object):
             status ([str]): Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. . [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -1143,7 +1152,8 @@ class EntityMatchBulkApi(object):
             status ([str]): Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. . [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -1192,7 +1202,8 @@ class EntityMatchBulkApi(object):
             status ([str]): Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. . [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -1236,7 +1247,8 @@ class EntityMatchBulkApi(object):
             status ([str]): Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. . [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.

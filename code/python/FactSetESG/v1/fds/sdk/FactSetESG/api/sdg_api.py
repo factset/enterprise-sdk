@@ -246,7 +246,8 @@ class SDGApi(object):
             frequency (str): Controls the display frequency of the data returned.   * **D** = Daily data (to receive most recent day's values, you must use daily frequency).   * **W** = Weekly, End of week as of UTC Sunday at 12 AM.   * **M** = Monthly, End of month as of UTC 12 AM.   * **CY** = Yearly, End of year as of UTC 12 AM.    . [optional] if omitted the server will use the default value of "M"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -303,7 +304,8 @@ class SDGApi(object):
             frequency (str): Controls the display frequency of the data returned.   * **D** = Daily data (to receive most recent day's values, you must use daily frequency).   * **W** = Weekly, End of week as of UTC Sunday at 12 AM.   * **M** = Monthly, End of month as of UTC 12 AM.   * **CY** = Yearly, End of year as of UTC 12 AM.    . [optional] if omitted the server will use the default value of "M"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -364,7 +366,8 @@ class SDGApi(object):
             frequency (str): Controls the display frequency of the data returned.   * **D** = Daily data (to receive most recent day's values, you must use daily frequency).   * **W** = Weekly, End of week as of UTC Sunday at 12 AM.   * **M** = Monthly, End of month as of UTC 12 AM.   * **CY** = Yearly, End of year as of UTC 12 AM.    . [optional] if omitted the server will use the default value of "M"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -420,7 +423,8 @@ class SDGApi(object):
             frequency (str): Controls the display frequency of the data returned.   * **D** = Daily data (to receive most recent day's values, you must use daily frequency).   * **W** = Weekly, End of week as of UTC Sunday at 12 AM.   * **M** = Monthly, End of month as of UTC 12 AM.   * **CY** = Yearly, End of year as of UTC 12 AM.    . [optional] if omitted the server will use the default value of "M"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -470,7 +474,8 @@ class SDGApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -516,7 +521,8 @@ class SDGApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -566,7 +572,8 @@ class SDGApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -611,7 +618,8 @@ class SDGApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.

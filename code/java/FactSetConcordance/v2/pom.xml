@@ -5,7 +5,7 @@
     <artifactId>factsetconcordance</artifactId>
     <packaging>jar</packaging>
     <name>factsetconcordance</name>
-    <version>0.24.4</version>
+    <version>0.24.5</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Concordance client library for Java</description>
     <scm>

@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetConcordance",
   "projectName": "fds.sdk.FactSetConcordance",
-  "packageVersion": "0.24.2",
+  "packageVersion": "0.24.3",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet Concordance client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetConcordance/v2",
-  "httpUserAgent": "fds-sdk/python/FactSetConcordance/0.24.2",
+  "httpUserAgent": "fds-sdk/python/FactSetConcordance/0.24.3",
   "files": {
     "LICENSE": {}
   }

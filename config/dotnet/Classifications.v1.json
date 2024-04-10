@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Classifications",
-  "packageVersion": "1.0.7",
+  "packageVersion": "1.0.8",
   "packageGuid": "{e2635312-f13d-55cc-ad5c-e8dc27d9188b}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/Classifications/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Classifications/1.0.7",
+  "httpUserAgent": "fds-sdk/dotnet/Classifications/1.0.8",
   "files": {
     "LICENSE": {}
   },

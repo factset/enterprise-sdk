@@ -33,7 +33,7 @@ namespace FactSet.SDK.SPAREngine.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.SPAREngine.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/SPAREngine/1.0.1";
+            UserAgent = "fds-sdk/dotnet/SPAREngine/1.0.2";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.SPAREngine.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3.13.4\n";
-            report += "    SDK Package Version: 1.0.1\n";
+            report += "    SDK Package Version: 1.0.2\n";
 
             return report;
         }

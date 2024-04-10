@@ -346,7 +346,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -392,7 +393,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -442,7 +444,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -487,7 +490,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -533,7 +537,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -579,7 +584,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -629,7 +635,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -674,7 +681,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -725,7 +733,8 @@ class MappingsApi(object):
             sort ([str]): Sort clientId, createdTime, updatedTime, clientName, entityId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc). [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -776,7 +785,8 @@ class MappingsApi(object):
             sort ([str]): Sort clientId, createdTime, updatedTime, clientName, entityId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc). [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -831,7 +841,8 @@ class MappingsApi(object):
             sort ([str]): Sort clientId, createdTime, updatedTime, clientName, entityId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc). [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -881,7 +892,8 @@ class MappingsApi(object):
             sort ([str]): Sort clientId, createdTime, updatedTime, clientName, entityId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc). [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -927,7 +939,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -973,7 +986,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -1023,7 +1037,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -1068,7 +1083,8 @@ class MappingsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.

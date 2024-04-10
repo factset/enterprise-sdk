@@ -312,7 +312,8 @@ class RefreshOperationsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -358,7 +359,8 @@ class RefreshOperationsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -408,7 +410,8 @@ class RefreshOperationsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -453,7 +456,8 @@ class RefreshOperationsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -499,7 +503,8 @@ class RefreshOperationsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -545,7 +550,8 @@ class RefreshOperationsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -595,7 +601,8 @@ class RefreshOperationsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -640,7 +647,8 @@ class RefreshOperationsApi(object):
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -689,7 +697,8 @@ class RefreshOperationsApi(object):
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -738,7 +747,8 @@ class RefreshOperationsApi(object):
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -791,7 +801,8 @@ class RefreshOperationsApi(object):
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -839,7 +850,8 @@ class RefreshOperationsApi(object):
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.

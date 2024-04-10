@@ -13,7 +13,7 @@
     <Description>FactSet Global Prices client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.FactSetGlobalPrices</RootNamespace>
-    <Version>2.1.0</Version>
+    <Version>2.1.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.FactSetGlobalPrices.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>
@@ -28,7 +28,7 @@
   <ItemGroup>
     <PackageReference Include="FactSet.SDK.Utils" Version="1.*" />
     <PackageReference Include="JsonSubTypes" Version="1.8.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.*" />
     <PackageReference Include="RestSharp" Version="106.15.0" />
     <PackageReference Include="Polly" Version="7.2.2" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />

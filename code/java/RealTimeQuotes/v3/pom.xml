@@ -5,7 +5,7 @@
     <artifactId>realtimequotes</artifactId>
     <packaging>jar</packaging>
     <name>realtimequotes</name>
-    <version>0.12.3</version>
+    <version>0.12.4</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Real-Time Quotes client library for Java</description>
     <scm>

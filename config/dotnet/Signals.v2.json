@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Signals",
-  "packageVersion": "0.22.8",
+  "packageVersion": "0.22.9",
   "packageGuid": "{eeaa5466-aede-5e6e-b463-2791301c75e8}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/Signals/v2",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Signals/0.22.8",
+  "httpUserAgent": "fds-sdk/dotnet/Signals/0.22.9",
   "files": {
     "LICENSE": {}
   },

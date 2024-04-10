@@ -115,7 +115,7 @@ namespace FactSet.SDK.Classifications.Client
                     var filePath = string.IsNullOrEmpty(_configuration.TempFolderPath)
                         ? Path.GetTempPath()
                         : _configuration.TempFolderPath;
-                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
+                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+[^;'""\s])['""]?");
                     foreach (var header in response.Headers)
                     {
                         var match = regex.Match(header.ToString());

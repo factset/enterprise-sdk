@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/StandardDatafeed/0.20.0'
+            'User-Agent': 'fds-sdk/javascript/StandardDatafeed/0.40.0'
         };
 
         /**

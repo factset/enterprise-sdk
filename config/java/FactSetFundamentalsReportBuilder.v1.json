@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "factsetfundamentalsreportbuilder",
-  "artifactVersion": "1.0.8",
+  "artifactVersion": "1.0.9",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "FactSet Fundamentals Report Builder client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/FactSetFundamentalsReportBuilder/1.0.8",
+  "httpUserAgent": "fds-sdk/java/FactSetFundamentalsReportBuilder/1.0.9",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.FactSetTermsandConditions"
-VERSION = "1.0.7"
+VERSION = "1.0.8"
 # To install the library, run the following
 #
 # python setup.py install

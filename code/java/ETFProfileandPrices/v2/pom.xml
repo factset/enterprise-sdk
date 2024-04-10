@@ -5,7 +5,7 @@
     <artifactId>etfprofileandprices</artifactId>
     <packaging>jar</packaging>
     <name>etfprofileandprices</name>
-    <version>0.10.10</version>
+    <version>0.10.11</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>ETF Profile and Prices client library for Java</description>
     <scm>

@@ -5,7 +5,7 @@
     <artifactId>exchangedatafeedsnapshotapisymbollist</artifactId>
     <packaging>jar</packaging>
     <name>exchangedatafeedsnapshotapisymbollist</name>
-    <version>0.21.10</version>
+    <version>0.21.11</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Exchange DataFeed Snapshot API - Symbol List client library for Java</description>
     <scm>

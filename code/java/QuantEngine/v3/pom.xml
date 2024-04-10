@@ -5,7 +5,7 @@
     <artifactId>quantengine</artifactId>
     <packaging>jar</packaging>
     <name>quantengine</name>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Quant Engine client library for Java</description>
     <scm>

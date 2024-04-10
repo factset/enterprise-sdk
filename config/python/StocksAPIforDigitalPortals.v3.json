@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.StocksAPIforDigitalPortals",
   "projectName": "fds.sdk.StocksAPIforDigitalPortals",
-  "packageVersion": "0.10.13",
+  "packageVersion": "0.10.14",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Stocks API for Digital Portals client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/StocksAPIforDigitalPortals/v3",
-  "httpUserAgent": "fds-sdk/python/StocksAPIforDigitalPortals/0.10.13",
+  "httpUserAgent": "fds-sdk/python/StocksAPIforDigitalPortals/0.10.14",
   "files": {
     "LICENSE": {}
   }

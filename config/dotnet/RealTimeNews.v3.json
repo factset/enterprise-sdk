@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.RealTimeNews",
-  "packageVersion": "0.11.1",
+  "packageVersion": "0.11.2",
   "packageGuid": "{31de2e45-da90-5883-ac09-c65d13c4066f}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/RealTimeNews/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/RealTimeNews/0.11.1",
+  "httpUserAgent": "fds-sdk/dotnet/RealTimeNews/0.11.2",
   "files": {
     "LICENSE": {}
   },

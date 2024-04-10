@@ -5,7 +5,7 @@
     <artifactId>factsetportfoliooptimizer</artifactId>
     <packaging>jar</packaging>
     <name>factsetportfoliooptimizer</name>
-    <version>0.21.9</version>
+    <version>0.21.10</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Portfolio Optimizer client library for Java</description>
     <scm>

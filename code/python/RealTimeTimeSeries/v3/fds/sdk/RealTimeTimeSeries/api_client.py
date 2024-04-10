@@ -106,7 +106,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/RealTimeTimeSeries/0.11.0'
+        self.user_agent = 'fds-sdk/python/RealTimeTimeSeries/0.11.1'
 
     def __enter__(self):
         return self

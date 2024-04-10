@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.StreetAccountNews",
-  "packageVersion": "0.20.2",
+  "packageVersion": "0.20.3",
   "packageGuid": "{e6d35ccd-bbaf-5f64-ba80-1f4962ac193c}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/StreetAccountNews/v0",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/StreetAccountNews/0.20.2",
+  "httpUserAgent": "fds-sdk/dotnet/StreetAccountNews/0.20.3",
   "files": {
     "LICENSE": {}
   },

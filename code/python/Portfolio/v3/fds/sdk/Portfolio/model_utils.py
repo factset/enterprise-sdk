@@ -1392,16 +1392,29 @@ def deserialize_file(response_data, configuration, content_disposition=None):
         (file_type): the deserialized file which is open
             The user is responsible for closing and reading the file
     """
-    fd, path = tempfile.mkstemp(dir=configuration.temp_folder_path)
-    os.close(fd)
-    os.remove(path)
+    filename = None
 
     if content_disposition:
-        filename = re.search(r'filename=[\'"]?([^\'"\s]+)[\'"]?',
-                             content_disposition).group(1)
-        path = os.path.join(os.path.dirname(path), filename)
+        matcher = re.search(r'filename=[\'"]?([^\'"\s]+[^;\'"\s])[\'"]?',
+                             content_disposition)
+        if matcher:
+            filename = matcher.group(1)
 
-    with open(path, "wb") as f:
+    prefix, suffix = None, None
+    if filename == None:
+        prefix = 'download-'
+        suffix = ''
+    else:
+        pos = filename.rfind('.')
+        if pos == -1:
+            prefix = f'{filename}-'
+        else:
+            prefix = f'{filename[:pos]}-'
+            suffix = filename[pos:]
+
+    fd, path = tempfile.mkstemp(dir=configuration.temp_folder_path, suffix=suffix, prefix=prefix)
+
+    with os.fdopen(fd, "wb") as f:
         if isinstance(response_data, str):
             # change str to bytes so we can write it
             response_data = response_data.encode('utf-8')

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.RealTimeQuotes",
-  "packageVersion": "0.12.1",
+  "packageVersion": "0.12.2",
   "packageGuid": "{7120f175-9ec1-5125-9b86-1acd934354f0}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/RealTimeQuotes/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/RealTimeQuotes/0.12.1",
+  "httpUserAgent": "fds-sdk/dotnet/RealTimeQuotes/0.12.2",
   "files": {
     "LICENSE": {}
   },

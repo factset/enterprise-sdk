@@ -33,7 +33,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.11.0";
+        public const string Version = "0.11.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,7 +105,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/RealTimeTimeSeries/0.11.0";
+            UserAgent = "fds-sdk/dotnet/RealTimeTimeSeries/0.11.1";
             BasePath = "https://api.factset.com/wealth/v3";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -461,7 +461,7 @@ namespace FactSet.SDK.RealTimeTimeSeries.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3.0.0\n";
-            report += "    SDK Package Version: 0.11.0\n";
+            report += "    SDK Package Version: 0.11.1\n";
 
             return report;
         }

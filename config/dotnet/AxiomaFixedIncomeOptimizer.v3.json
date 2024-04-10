@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.AxiomaFixedIncomeOptimizer",
-  "packageVersion": "0.21.8",
+  "packageVersion": "0.21.9",
   "packageGuid": "{5c0af458-81bb-5e11-bf3f-a37bdca25d6a}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/AxiomaFixedIncomeOptimizer/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/AxiomaFixedIncomeOptimizer/0.21.8",
+  "httpUserAgent": "fds-sdk/dotnet/AxiomaFixedIncomeOptimizer/0.21.9",
   "files": {
     "LICENSE": {}
   },

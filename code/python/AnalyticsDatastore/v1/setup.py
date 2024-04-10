@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.AnalyticsDatastore"
-VERSION = "0.22.1"
+VERSION = "0.22.2"
 # To install the library, run the following
 #
 # python setup.py install

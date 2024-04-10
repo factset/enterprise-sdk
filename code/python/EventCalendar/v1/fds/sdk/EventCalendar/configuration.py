@@ -430,7 +430,7 @@ conf = fds.sdk.EventCalendar.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 0.20.7".\
+               "SDK Package Version: 0.20.8".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

@@ -5,7 +5,7 @@
     <artifactId>factsetpeople</artifactId>
     <packaging>jar</packaging>
     <name>factsetpeople</name>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet People client library for Java</description>
     <scm>

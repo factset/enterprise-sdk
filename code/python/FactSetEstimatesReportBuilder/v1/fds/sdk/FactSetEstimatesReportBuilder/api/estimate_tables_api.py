@@ -135,7 +135,8 @@ class EstimateTablesApi(object):
             metric (str): Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034).. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -182,7 +183,8 @@ class EstimateTablesApi(object):
             metric (str): Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034).. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -233,7 +235,8 @@ class EstimateTablesApi(object):
             metric (str): Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034).. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.
@@ -279,7 +282,8 @@ class EstimateTablesApi(object):
             metric (str): Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034).. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
-                Default is True.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
             _request_timeout (int/float/tuple): timeout setting for this request. If
                 one number provided, it will be total request timeout. It can also
                 be a pair (tuple) of (connection, read) timeouts.

@@ -122,7 +122,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/RealTimePriceAlerting/0.11.3");
+    setUserAgent("fds-sdk/java/RealTimePriceAlerting/0.11.4");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -921,7 +921,7 @@ public class ApiClient extends JavaTimeFormatter {
     String contentDisposition = (String) response.getHeaders().getFirst("Content-Disposition");
     if (contentDisposition != null && !"".equals(contentDisposition)) {
       // Get filename from the Content-Disposition header.
-      Pattern pattern = Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
+      Pattern pattern = Pattern.compile("filename=['\"]?([^'\"\\s]+[^;'\"\\s])['\"]?");
       Matcher matcher = pattern.matcher(contentDisposition);
       if (matcher.find())
         filename = matcher.group(1);
