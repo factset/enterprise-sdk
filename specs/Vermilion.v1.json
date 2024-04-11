@@ -1,13 +1,55 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "v1",
+    "version": "1.0.0",
     "title": "VRS API documentation",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "email": "api@factset.com",
+      "url": "https://developer.factset.com/contact"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
     "description": "Documentation on all available end points in the VRSAPI"
   },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/vermilion-api"
+  },
+  "tags": [
+    {
+      "name": "Datasource"
+    },
+    {
+      "name": "Entity"
+    },
+    {
+      "name": "Report"
+    },
+    {
+      "name": "Report instance"
+    },
+    {
+      "name": "SCIM"
+    },
+    {
+      "name": "Version"
+    }
+  ],
   "paths": {
     "/v1/{tenant}/data-sources": {
       "get": {
+        "operationId": "getAllDataSources",
         "tags": [
           "Datasource"
         ],
@@ -21,42 +63,68 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "query",
             "name": "_sort",
             "description": "The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done",
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
-              "type": "string"
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
             },
             "examples": {
               "name": {
-                "value": "_sort=name",
+                "value": [
+                  "name"
+                ],
                 "description": "The name of the datasource to sort"
               },
               "type": {
-                "value": "_sort=type",
+                "value": [
+                  "type"
+                ],
                 "description": "The type of the datasource to sort"
               },
               "outputRecordSet": {
-                "value": "_sort=outputRecordSet",
+                "value": [
+                  "outputRecordSet"
+                ],
                 "description": "The output recordset of the datasource to sort"
               },
               "code": {
-                "value": "_sort=code",
+                "value": [
+                  "code"
+                ],
                 "description": "The code of the datasource to sort"
               },
               "releaseTag": {
-                "value": "_sort=releaseTag",
+                "value": [
+                  "releaseTag"
+                ],
                 "description": "The release tag of the datasource to sort"
               },
               "lastUpdatedBy": {
-                "value": "_sort=lastUpdatedBy",
+                "value": [
+                  "lastUpdatedBy"
+                ],
                 "description": "The last updated by user of the datasource to sort"
               },
               "lastUpdated": {
-                "value": "_sort=lastUpdated",
+                "value": [
+                  "lastUpdated"
+                ],
                 "description": "The last updated by date of the datasource to sort"
               }
             }
@@ -69,7 +137,7 @@
               "type": "integer"
             },
             "examples": {
-              "pageSize": {
+              "_paginationLimit": {
                 "value": 25,
                 "description": "Non-negative maximum number of entries to return"
               }
@@ -83,7 +151,7 @@
               "type": "integer"
             },
             "examples": {
-              "startIndex": {
+              "_paginationOffset": {
                 "value": 0,
                 "description": "Non-negative number of entries to skip"
               }
@@ -106,30 +174,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -139,30 +193,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -172,30 +212,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -205,6 +231,7 @@
     },
     "/v1/{tenant}/data-sources/{dataSourceCode}": {
       "get": {
+        "operationId": "getDataSourceByCode",
         "tags": [
           "Datasource"
         ],
@@ -218,7 +245,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "path",
@@ -227,7 +259,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "dataSourceCode": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           }
         ],
         "responses": {
@@ -246,30 +283,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -279,30 +302,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -312,30 +321,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notFound",
-                          "title": "The datasource code passed was not found"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The datasource code passed was not found"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -345,30 +340,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -378,11 +359,12 @@
     },
     "/v1/{tenant}/data-sources/{dataSourceCode}/data": {
       "get": {
+        "operationId": "getDataSourceData",
         "tags": [
           "Datasource"
         ],
         "summary": "Gets the data for the datasource",
-        "description": "Gets the data for the datasource. There are optional query parameters to filter the da",
+        "description": "Gets the data for the datasource. There are optional query parameters to filter the data",
         "parameters": [
           {
             "in": "path",
@@ -391,7 +373,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "path",
@@ -400,7 +387,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "dataSourceCode": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "query",
@@ -408,6 +400,11 @@
             "description": "A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS",
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "entityCodes": {
+                "value": "FUNDS"
+              }
             }
           },
           {
@@ -416,235 +413,10 @@
             "description": "A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2",
             "schema": {
               "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation - returns data for the datasource",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/DataSourceDataInstance"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The supplied datasource code was either missing or invalid, or the query parameters are invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "parameterError",
-                          "title": "The datasource code passed was invalid"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorised",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "No permissions to view datasources in VRS",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The supplied datasource code was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notFound",
-                          "title": "The datasource code passed was not found"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Unsupported Accept header. Header needs to be set to application/json.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/{tenant}/entities/{entityCode}/values": {
-      "get": {
-        "tags": [
-          "Entity"
-        ],
-        "summary": "Gets the entity values",
-        "description": "Gets the entity values for the specified entity",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "tenant",
-            "description": "The code of the tenancy",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "entityCode",
-            "description": "The code of the entity",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "_sort",
-            "description": "The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default",
-            "schema": {
-              "type": "string"
             },
             "examples": {
-              "entity key field": {
-                "value": "_sort=entity key field",
-                "description": "The name of the entity key field"
-              },
-              "entity description field": {
-                "value": "_sort=entity description field",
-                "description": "The name of the entity description field"
-              },
-              "entity secondary key field": {
-                "value": "_sort=entity secondary key field",
-                "description": "The name of the entity secondary key field"
+              "entityKeys": {
+                "value": "Test2"
               }
             }
           },
@@ -656,7 +428,7 @@
               "type": "integer"
             },
             "examples": {
-              "pageSize": {
+              "_paginationLimit": {
                 "value": 25,
                 "description": "Non-negative maximum number of entries to return"
               }
@@ -670,9 +442,233 @@
               "type": "integer"
             },
             "examples": {
-              "startIndex": {
+              "_paginationOffset": {
                 "value": 0,
                 "description": "Non-negative number of entries to skip"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation - returns data for the datasource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceDataInstance"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The supplied datasource code was either missing or invalid, or the query parameters are invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The datasource code passed was invalid"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorised",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "No permissions to view datasources in VRS",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The supplied datasource code was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The datasource code passed was not found"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/{tenant}/entities/{entityCode}/values": {
+      "get": {
+        "operationId": "getEntityValuesByCode",
+        "tags": [
+          "Entity"
+        ],
+        "summary": "Gets the entity values",
+        "description": "Gets the entity values for the specified entity",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant",
+            "description": "The code of the tenancy",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
+          },
+          {
+            "in": "path",
+            "name": "entityCode",
+            "description": "The code of the entity",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "examples": {
+              "entityCode": {
+                "value": "XXXXXXXXXX"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "_sort",
+            "description": "The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "entity key field": {
+                "value": [
+                  "entity key field"
+                ],
+                "description": "The name of the entity key field"
+              },
+              "entity description field": {
+                "value": [
+                  "entity description field"
+                ],
+                "description": "The name of the entity description field"
+              },
+              "entity secondary key field": {
+                "value": [
+                  "entity secondary key field"
+                ],
+                "description": "The name of the entity secondary key field"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "_paginationLimit",
+            "description": "Non-negative maximum number of entries to return. Default is 25",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "_paginationLimit": {
+                "value": 25,
+                "description": "Non-negative maximum number of entries to return"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "_paginationOffset",
+            "description": "Non-negative number of entries to skip. Default is 0",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "_paginationOffset": {
+                "value": 0,
+                "description": "Non-negative number of entries to skip"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "showAll",
+            "description": "Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false)",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "showAll": {
+                "value": 1,
+                "description": "Show all field values in a JSON array named \"fieldsWithValues\", with each array value being a string in the format of \"**<FIELD_NAME> : <FIELD_VALUE>**\". Both key and description field values will be included in this JSON array too."
               }
             }
           }
@@ -693,30 +689,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "parameterError",
-                          "title": "The entity code passed was invalid"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The entity code passed was invalid"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -726,30 +708,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -759,30 +727,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -792,30 +746,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notFound",
-                          "title": "The entity code passed was not found"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The entity code passed was not found"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -825,30 +765,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -858,6 +784,7 @@
     },
     "/v1/{tenant}/reports": {
       "get": {
+        "operationId": "getAllReportDefinitions",
         "tags": [
           "Report"
         ],
@@ -871,38 +798,62 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "query",
             "name": "_sort",
             "description": "The column to sort on. Can add - to sort",
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
-              "type": "string"
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
             },
             "examples": {
               "name": {
-                "value": "_sort=name",
+                "value": [
+                  "name"
+                ],
                 "description": "The name of the report to sort"
               },
               "type": {
-                "value": "_sort=templateOwner",
+                "value": [
+                  "templateOwner"
+                ],
                 "description": "The template owner of the report to sort"
               },
               "code": {
-                "value": "_sort=code",
+                "value": [
+                  "code"
+                ],
                 "description": "The code of the report to sort"
               },
               "releaseTag": {
-                "value": "_sort=releaseTag",
+                "value": [
+                  "releaseTag"
+                ],
                 "description": "The release tag of the report to sort"
               },
               "lastUpdatedBy": {
-                "value": "_sort=lastUpdatedBy",
+                "value": [
+                  "lastUpdatedBy"
+                ],
                 "description": "The last updated by user of the report to sort"
               },
               "lastModifiedBy": {
-                "value": "_sort=lastModifiedBy",
+                "value": [
+                  "lastModifiedBy"
+                ],
                 "description": "The last updated by date of the report to sort"
               }
             }
@@ -915,7 +866,7 @@
               "type": "integer"
             },
             "examples": {
-              "pageSize": {
+              "_paginationLimit": {
                 "value": 25,
                 "description": "Non-negative maximum number of entries to return"
               }
@@ -929,7 +880,7 @@
               "type": "integer"
             },
             "examples": {
-              "startIndex": {
+              "_paginationOffset": {
                 "value": 0,
                 "description": "Non-negative maximum number of entries to return"
               }
@@ -942,10 +893,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ReportDefinitionList"
-                  }
+                  "$ref": "#/components/schemas/ReportDefinitionList"
                 }
               }
             }
@@ -955,30 +903,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "parameterError",
-                          "title": "The report definition code passed was invalid"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The report definition code passed was invalid"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -988,30 +922,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1021,30 +941,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1054,30 +960,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1087,6 +979,7 @@
     },
     "/v1/{tenant}/reports/{reportDefinitionCode}": {
       "get": {
+        "operationId": "getReportDefinitionByCode",
         "tags": [
           "Report"
         ],
@@ -1100,7 +993,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "path",
@@ -1109,6 +1007,11 @@
             "required": true,
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "reportDefinitionCode": {
+                "value": "XXXXXXXXXX"
+              }
             }
           }
         ],
@@ -1128,30 +1031,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "parameterError",
-                          "title": "The report definition code passed was invalid"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The report definition code passed was invalid"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1161,30 +1050,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1194,30 +1069,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1227,30 +1088,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notFound",
-                          "title": "The report definition code passed was not found"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The report definition code passed was not found"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1260,30 +1107,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1293,6 +1126,7 @@
     },
     "/v1/report-instances/generate": {
       "post": {
+        "operationId": "startReportGeneration",
         "tags": [
           "Report instance"
         ],
@@ -1303,53 +1137,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "vrs": {
-                    "type": "object",
-                    "properties": {
-                      "instanceId": {
-                        "type": "object",
-                        "properties": {
-                          "tenancy": {
-                            "type": "string"
-                          },
-                          "reportCode": {
-                            "type": "string"
-                          },
-                          "outputFormat": {
-                            "type": "string"
-                          },
-                          "entity": {
-                            "type": "object",
-                            "properties": {
-                              "key": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "example": {
-                  "vrs": {
-                    "1": {
-                      "report": "MONTHLY_REPORT",
-                      "tenancy": "CLIENT_REPORTING",
-                      "outputFormat": "PDF",
-                      "sectionFilter": "Section One",
-                      "entitySelection": {
-                        "ACCOUNT": {
-                          "key": "Account name"
-                        },
-                        "PORTFOLIO": {
-                          "key": "Test fund"
-                        },
-                        "DATE": {
-                          "key": "2020-01-01 00:00:00"
-                        }
+                "$ref": "#/components/schemas/ReportGenerationRequestBody"
+              },
+              "example": {
+                "vrs": {
+                  "1": {
+                    "report": "MONTHLY_REPORT",
+                    "tenancy": "CLIENT_REPORTING",
+                    "outputFormat": "PDF",
+                    "sectionFilter": "Section One",
+                    "priority": "2",
+                    "startDate": "15 December 2023 00:00:00",
+                    "entitySelection": {
+                      "ACCOUNT": {
+                        "key": "Account name"
+                      },
+                      "PORTFOLIO": {
+                        "key": "Test fund"
+                      },
+                      "DATE": {
+                        "key": "2020-01-01 00:00:00"
                       }
                     }
                   }
@@ -1390,30 +1197,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "parameterError",
-                          "title": "The report definition code passed was invalid"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The report definition code passed was invalid"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1423,30 +1216,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             },
@@ -1464,30 +1243,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1497,30 +1262,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notFound",
-                          "title": "The report definition code passed was not found"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The report definition code passed was not found"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1530,30 +1281,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1563,6 +1300,7 @@
     },
     "/v1/{tenant}/report-instances/{reportInstanceId}": {
       "delete": {
+        "operationId": "cancelReportGeneration",
         "tags": [
           "Report instance"
         ],
@@ -1576,7 +1314,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "path",
@@ -1585,6 +1328,11 @@
             "required": true,
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "reportInstanceId": {
+                "value": "123456789"
+              }
             }
           }
         ],
@@ -1597,30 +1345,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "parameterError",
-                          "title": "The ID passed is not a numerical value"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The ID passed is not a numerical value"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1630,30 +1364,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1663,30 +1383,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1696,30 +1402,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notFound",
-                          "title": "The report definition code passed was not found"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The report definition code passed was not found"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1729,30 +1421,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1760,6 +1438,7 @@
         }
       },
       "get": {
+        "operationId": "getReportInstanceById",
         "tags": [
           "Report instance"
         ],
@@ -1773,7 +1452,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "reportInstanceId": {
+                "value": "1256789"
+              }
+            }
           },
           {
             "in": "path",
@@ -1782,12 +1466,24 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Report generation has completed and the report is ready to download",
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportInstanceData"
+                }
+              }
+            },
             "headers": {
               "Location": {
                 "schema": {
@@ -1797,45 +1493,21 @@
               }
             }
           },
-          "202": {
-            "description": "Expected response returned if the report generation is not yet completed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReportInstanceData"
-                }
-              }
-            }
-          },
           "400": {
             "description": "The supplied report instance id was either missing or invalid, or the report instance was not found",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "parameterError",
-                          "title": "The ID passed is not a numerical value"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The ID passed is not a numerical value"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1845,30 +1517,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1878,30 +1536,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1911,30 +1555,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notFound",
-                          "title": "The report definition code passed was not found"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The report definition code passed was not found"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1944,30 +1574,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -1977,6 +1593,7 @@
     },
     "/v1/{tenant}/report-instances": {
       "get": {
+        "operationId": "getAllReportInstances",
         "tags": [
           "Report instance"
         ],
@@ -1990,7 +1607,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "query",
@@ -1998,6 +1620,11 @@
             "description": "Acts as a filter for the retrieval process. Filters the report instances that match the report definition code",
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "reportDefinitionCode": {
+                "value": "XXXXXXXXXX"
+              }
             }
           },
           {
@@ -2006,6 +1633,11 @@
             "description": "A series of query parameters used to filter the report instances by entity code. E.g: entityCode=DATE&entityCode=SYSTEM_LANG",
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "entityCodes": {
+                "value": "SYSTEM_LANG"
+              }
             }
           },
           {
@@ -2014,6 +1646,11 @@
             "description": "A series of query parameters used to filter the report instances by entity keys. E.g: entityKey=en-gb",
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "entityKeys": {
+                "value": "en-gb"
+              }
             }
           },
           {
@@ -2022,6 +1659,11 @@
             "description": "Acts as a filter for the retrieval process. Filters the report instances that match the section filter",
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "sectionFilter": {
+                "value": "testFilter"
+              }
             }
           },
           {
@@ -2030,6 +1672,64 @@
             "description": "Acts as a filter for the retrieval process. Filters the report instances that match the output format",
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "outputFormat": {
+                "value": "pdf"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "_sort",
+            "description": "The column to sort on. Append - to sort in descending order. If parameter is not given, sorting will be based on the report instance id in descending order",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "reportInstanceId": {
+                "value": [
+                  "reportInstanceId"
+                ],
+                "description": "The id of report instance to sort"
+              },
+              "reportStatus": {
+                "value": [
+                  "reportStatus"
+                ],
+                "description": "The status of the report to sort"
+              },
+              "startDate": {
+                "value": [
+                  "startDate"
+                ],
+                "description": "The start date of the report to sort"
+              },
+              "finishDate": {
+                "value": [
+                  "finishDate"
+                ],
+                "description": "The finish date of the report to sort"
+              },
+              "signOffStatus": {
+                "value": [
+                  "signOffStatus"
+                ],
+                "description": "The sign off status of the report to sort"
+              },
+              "outputFormat": {
+                "value": [
+                  "outputFormat"
+                ],
+                "description": "The output format of report to sort"
+              }
             }
           },
           {
@@ -2040,7 +1740,7 @@
               "type": "integer"
             },
             "examples": {
-              "pageSize": {
+              "_paginationLimit": {
                 "value": 25,
                 "description": "Non-negative maximum number of entries to return"
               }
@@ -2054,7 +1754,7 @@
               "type": "integer"
             },
             "examples": {
-              "startIndex": {
+              "_paginationOffset": {
                 "value": 0,
                 "description": "Non-negative maximum number of entries to return"
               }
@@ -2077,30 +1777,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2110,30 +1796,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2143,30 +1815,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2176,11 +1834,12 @@
     },
     "/v1/{tenant}/report-instances/{reportInstanceId}/results/{reportFileName}": {
       "get": {
+        "operationId": "downloadReportFile",
         "tags": [
           "Report instance"
         ],
         "summary": "Gets the generated file",
-        "description": "Get the generated file for a report instance. Users can fetch the generated report once the genration is finished. The report instance id and the report file name are passed in as path paramters",
+        "description": "Get the generated file for a report instance. Users can fetch the generated report once the generation is finished. The report instance id and the report file name are passed in as path paramters. The following mapping defines the respective Content-Type for the outputFormat defined during report generation.\n| outputFormat | Content-Type |\n| ---------------- | ------------|\n|WORD     | application/msword |\n|WORD2010 |   application/vnd.openxmlformats-officedocument.wordprocessingml.document|\n|EXCEL    |   application/vnd.ms-excel|\n|EXCEL2010|   application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|\n|PPT      |   application/vnd.ms-powerpoint|\n|PPT2010  |   application/vnd.openxmlformats-officedocument.presentationml.presentation|\n|PDF      |   application/pdf|\n|CSV      |   text/csv|\n|XML      |   application/xml|\n|VXML     |   application/xml|\n|HTML     |   text/html|\n|PS       |   application/postscript|",
         "parameters": [
           {
             "in": "path",
@@ -2189,7 +1848,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "path",
@@ -2198,7 +1862,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "reportInstanceId": {
+                "value": "123456789"
+              }
+            }
           },
           {
             "in": "path",
@@ -2207,42 +1876,95 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "reportFileName": {
+                "value": "xyz.pdf"
+              }
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Successful operation",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/vnd.ms-powerpoint": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/vnd.ms-excel": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/msword": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/postscript": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              },
+              "application/zip": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDataResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "The supplied report instance id was either missing or invalid or the report instance was not found. The supplied report file name was either invalid or not found",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "parameterError",
-                          "title": "The ID passed is not a numerical value"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "parameterError",
+                      "title": "The ID passed is not a numerical value"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2252,30 +1974,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2285,63 +1993,35 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
           },
           "406": {
-            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "description": "Unsupported Accept header.",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header."
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2351,6 +2031,7 @@
     },
     "/v1/{tenant}/report-instances/{reportInstanceId}/logs": {
       "get": {
+        "operationId": "getReportGenerationLogs",
         "tags": [
           "Report instance"
         ],
@@ -2364,7 +2045,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "tenant": {
+                "value": "XXXXXXXXXX"
+              }
+            }
           },
           {
             "in": "path",
@@ -2373,38 +2059,63 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "reportInstanceId": {
+                "value": "123456789"
+              }
+            }
           },
           {
             "in": "query",
-            "name": "fullLog",
-            "description": "Determines if the endpoint should return a full set of logs or just the errors and warnings E.g: fullLog=true",
+            "name": "errorsOnly",
+            "description": "If the parameter is set to true the endpoint should return just errors and warnings E.g: errorsOnly=true",
             "schema": {
               "type": "string"
+            },
+            "examples": {
+              "errorsOnly": {
+                "value": "true"
+              }
             }
           },
           {
             "in": "query",
             "name": "_sort",
             "description": "The column to sort on. Can add - to sort",
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
-              "type": "string"
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
             },
             "examples": {
               "sequenceNumber": {
-                "value": "_sort=sequenceNumber",
+                "value": [
+                  "sequenceNumber"
+                ],
                 "description": "The sequence number of the log entry"
               },
               "message": {
-                "value": "_sort=message",
+                "value": [
+                  "message"
+                ],
                 "description": "The log message to sort"
               },
               "type": {
-                "value": "_sort=type",
+                "value": [
+                  "type"
+                ],
                 "description": "The type of the log to sort"
               },
               "updatedDate": {
-                "value": "_sort=updatdeDate",
+                "value": [
+                  "updatdeDate"
+                ],
                 "description": "The updated date of the log to sort"
               }
             }
@@ -2417,7 +2128,7 @@
               "type": "integer"
             },
             "examples": {
-              "pageSize": {
+              "_paginationLimit": {
                 "value": 25,
                 "description": "Non-negative maximum number of entries to return"
               }
@@ -2431,7 +2142,7 @@
               "type": "integer"
             },
             "examples": {
-              "startIndex": {
+              "_paginationOffset": {
                 "value": 0,
                 "description": "Non-negative maximum number of entries to return"
               }
@@ -2454,30 +2165,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthenticated",
-                          "title": "User is not authenticated"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2487,30 +2184,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAuthorized",
-                          "title": "No permissions to view this item"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthorized",
+                      "title": "No permissions to view this item"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2520,30 +2203,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notFound",
-                          "title": "The report instance ID passed was not found"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notFound",
+                      "title": "The report instance ID passed was not found"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2553,30 +2222,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          }
-                        },
-                        "example": {
-                          "id": "ID of the error",
-                          "code": "notAcceptable",
-                          "title": "Unsupported Accept header. Header needs to be set to application/json"
-                        }
-                      }
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAcceptable",
+                      "title": "Unsupported Accept header. Header needs to be set to\n    application/json"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -2584,13 +2239,14 @@
         }
       }
     },
-    "/scim/v2/Users/": {
+    "/scim/v2/Users": {
       "get": {
+        "operationId": "getAllUsers",
         "tags": [
           "SCIM"
         ],
         "summary": "Retrieves a list of VRS users",
-        "description": "Retrieves a VRS users",
+        "description": "Retrieves a list of VRS users",
         "parameters": [
           {
             "in": "query",
@@ -2637,25 +2293,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to view roles",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have view or update permission",
+                  "status": "403"
                 }
               }
             }
@@ -2663,6 +2308,7 @@
         }
       },
       "post": {
+        "operationId": "createUser",
         "tags": [
           "SCIM"
         ],
@@ -2674,6 +2320,31 @@
             "application/scim+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateScimUserJSONRequest"
+              },
+              "example": {
+                "userName": "vrstestuser",
+                "name": {
+                  "formatted": "Vrstest User"
+                },
+                "userType": "Employee",
+                "active": true,
+                "authenticatedUserName": "vrstestuser",
+                "tenant": "XXXXXXXXXX",
+                "emails": [
+                  {
+                    "value": "xyz@email.com",
+                    "type": "work",
+                    "primary": true
+                  }
+                ],
+                "phoneNumbers": [
+                  {
+                    "value": "1234567890",
+                    "type": "work",
+                    "primary": true
+                  }
+                ],
+                "domainCode": "XXXXXXXXXX"
               }
             }
           }
@@ -2702,25 +2373,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "No tenant code given",
-                    "status": "400"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "No tenant code given",
+                  "status": "400"
                 }
               }
             }
@@ -2730,25 +2390,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have update permission for users",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have update permission for users",
+                  "status": "403"
                 }
               }
             }
@@ -2758,26 +2407,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User already exists",
-                    "scimType": "uniqueness",
-                    "status": "409"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User already exists",
+                  "status": "409"
                 }
               }
             }
@@ -2787,6 +2424,7 @@
     },
     "/scim/v2/Users/{userId}": {
       "get": {
+        "operationId": "getUserById",
         "tags": [
           "SCIM"
         ],
@@ -2800,7 +2438,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "userId": {
+                "value": "scimuser1"
+              }
+            }
           }
         ],
         "responses": {
@@ -2827,25 +2470,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to view users",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to view users",
+                  "status": "403"
                 }
               }
             }
@@ -2855,25 +2487,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "Resource 1 not found",
-                    "status": "404"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "Resource 1 not found",
+                  "status": "404"
                 }
               }
             }
@@ -2881,6 +2502,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteUserById",
         "tags": [
           "SCIM"
         ],
@@ -2894,7 +2516,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "userId": {
+                "value": "scimuser1"
+              }
+            }
           }
         ],
         "responses": {
@@ -2906,25 +2533,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to delete users",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to delete users",
+                  "status": "403"
                 }
               }
             }
@@ -2934,25 +2550,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "Resource 1 not found",
-                    "status": "404"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "Resource 1 not found",
+                  "status": "404"
                 }
               }
             }
@@ -2960,6 +2565,7 @@
         }
       },
       "patch": {
+        "operationId": "patchUserById",
         "tags": [
           "SCIM"
         ],
@@ -2973,7 +2579,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "userId": {
+                "value": "scimuser1"
+              }
+            }
           }
         ],
         "requestBody": {
@@ -2981,48 +2592,19 @@
           "content": {
             "application/scim+json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "Schemas": {
-                    "type": "string"
-                  },
-                  "Operations": {
-                    "type": "array",
-                    "items": {
-                      "properties": {
-                        "op": {
-                          "type": "string"
-                        },
-                        "path": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "array",
-                          "items": {
-                            "properties": {
-                              "display": {
-                                "type": "string"
-                              },
-                              "$ref": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "example": {
-                  "Schemas": [
-                    "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-                  ],
-                  "Operations": {
+                "$ref": "#/components/schemas/ScimUserPatchRequestBody"
+              },
+              "example": {
+                "schemas": [
+                  "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+                ],
+                "Operations": [
+                  {
                     "op": "replace",
                     "path": "name.formatted",
                     "value": "vrstestuser1"
                   }
-                }
+                ]
               }
             }
           }
@@ -3051,25 +2633,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to update users",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to update users",
+                  "status": "403"
                 }
               }
             }
@@ -3079,25 +2650,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "Resource 1 not found",
-                    "status": "404"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "Resource 1 not found",
+                  "status": "404"
                 }
               }
             }
@@ -3105,6 +2665,7 @@
         }
       },
       "put": {
+        "operationId": "updateUserById",
         "tags": [
           "SCIM"
         ],
@@ -3118,7 +2679,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "userId": {
+                "value": "scimuser1"
+              }
+            }
           }
         ],
         "requestBody": {
@@ -3127,6 +2693,31 @@
             "application/scim+json": {
               "schema": {
                 "$ref": "#/components/schemas/ScimUser"
+              },
+              "example": {
+                "userName": "vrstestuser",
+                "name": {
+                  "formatted": "Vrstest User"
+                },
+                "userType": "Employee",
+                "active": true,
+                "authenticatedUserName": "vrstestuser",
+                "tenant": "XXXXXXXXXX",
+                "emails": [
+                  {
+                    "value": "xyz@email.com",
+                    "type": "work",
+                    "primary": true
+                  }
+                ],
+                "phoneNumbers": [
+                  {
+                    "value": "1234567890",
+                    "type": "work",
+                    "primary": true
+                  }
+                ],
+                "domainCode": "XXXXXXXXXX"
               }
             }
           }
@@ -3155,25 +2746,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to update users",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to update users",
+                  "status": "403"
                 }
               }
             }
@@ -3183,25 +2763,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "Resource 1 not found",
-                    "status": "404"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "Resource 1 not found",
+                  "status": "404"
                 }
               }
             }
@@ -3209,8 +2778,9 @@
         }
       }
     },
-    "/scim/v2/Groups/": {
+    "/scim/v2/Groups": {
       "get": {
+        "operationId": "getAllGroups",
         "tags": [
           "SCIM"
         ],
@@ -3262,25 +2832,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to view roles",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to view roles",
+                  "status": "403"
                 }
               }
             }
@@ -3288,6 +2847,7 @@
         }
       },
       "post": {
+        "operationId": "createGroup",
         "tags": [
           "SCIM"
         ],
@@ -3299,6 +2859,18 @@
             "application/scim+json": {
               "schema": {
                 "$ref": "#/components/schemas/ScimGroup"
+              },
+              "example": {
+                "displayName": "vrstestgroup",
+                "members": [
+                  {
+                    "value": "scimuser1",
+                    "type": "user",
+                    "$ref": "VRSAPI/scim/v2/Users/1"
+                  }
+                ],
+                "tenant": "XXXXXXXXXX",
+                "domainCode": "XXXXXXXXXX"
               }
             }
           }
@@ -3327,25 +2899,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to create groups",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to create groups",
+                  "status": "403"
                 }
               }
             }
@@ -3355,26 +2916,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "Group already exists",
-                    "scimType": "uniqueness",
-                    "status": "409"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "Group already exists",
+                  "status": "409"
                 }
               }
             }
@@ -3384,6 +2933,7 @@
     },
     "/scim/v2/Groups/{groupId}": {
       "get": {
+        "operationId": "getGroupById",
         "tags": [
           "SCIM"
         ],
@@ -3397,7 +2947,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "groupId": {
+                "value": "scimgroup1"
+              }
+            }
           }
         ],
         "responses": {
@@ -3424,25 +2979,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to view roles",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to view roles",
+                  "status": "403"
                 }
               }
             }
@@ -3452,25 +2996,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "Resource 1 not found",
-                    "status": "404"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "Resource 1 not found",
+                  "status": "404"
                 }
               }
             }
@@ -3478,6 +3011,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteGroupById",
         "tags": [
           "SCIM"
         ],
@@ -3491,7 +3025,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "groupId": {
+                "value": "scimgroup1"
+              }
+            }
           }
         ],
         "responses": {
@@ -3503,25 +3042,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to delete roles",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to delete roles",
+                  "status": "403"
                 }
               }
             }
@@ -3531,25 +3059,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "Resource 1 not found",
-                    "status": "404"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "Resource 1 not found",
+                  "status": "404"
                 }
               }
             }
@@ -3557,6 +3074,7 @@
         }
       },
       "patch": {
+        "operationId": "patchGroupById",
         "tags": [
           "SCIM"
         ],
@@ -3570,7 +3088,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "groupId": {
+                "value": "scimgroup1"
+              }
+            }
           }
         ],
         "requestBody": {
@@ -3578,58 +3101,29 @@
           "content": {
             "application/scim+json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "Schemas": {
-                    "type": "string"
-                  },
-                  "Operations": {
-                    "type": "array",
-                    "items": {
-                      "properties": {
-                        "op": {
-                          "type": "string"
-                        },
-                        "path": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "array",
-                          "items": {
-                            "properties": {
-                              "display": {
-                                "type": "string"
-                              },
-                              "$ref": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "example": {
-                  "Schemas": [
-                    "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-                  ],
-                  "Operations": {
+                "$ref": "#/components/schemas/ScimGroupPatchRequestBody"
+              },
+              "example": {
+                "schemas": [
+                  "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+                ],
+                "Operations": [
+                  {
                     "op": "add",
                     "path": "members",
                     "value": {
                       "display": "Test user",
-                      "$ref": "VRSAPI/scim/v1/Users/1",
+                      "$ref": "VRSAPI/scim/v2/Users/1",
                       "value": "1"
                     }
                   }
-                }
+                ]
               }
             }
           }
         },
         "responses": {
-          "204": {
+          "200": {
             "description": "Successfully added user to group",
             "content": {
               "application/scim+json": {
@@ -3642,6 +3136,7 @@
         }
       },
       "put": {
+        "operationId": "updateGroupById",
         "tags": [
           "SCIM"
         ],
@@ -3655,7 +3150,12 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "examples": {
+              "groupId": {
+                "value": "scimgroup1"
+              }
+            }
           }
         ],
         "requestBody": {
@@ -3664,6 +3164,18 @@
             "application/scim+json": {
               "schema": {
                 "$ref": "#/components/schemas/ScimGroup"
+              },
+              "example": {
+                "displayName": "vrstestgroup",
+                "members": [
+                  {
+                    "value": "scimuser1",
+                    "type": "user",
+                    "$ref": "VRSAPI/scim/v2/Users/1"
+                  }
+                ],
+                "tenant": "XXXXXXXXXX",
+                "domainCode": "XXXXXXXXXX"
               }
             }
           }
@@ -3692,25 +3204,14 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "User does not have permission to update groups",
-                    "status": "403"
-                  }
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "User does not have permission to update groups",
+                  "status": "403"
                 }
               }
             }
@@ -3720,25 +3221,55 @@
             "content": {
               "application/scim+json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "schemas": {
-                      "type": "string"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
+                  "$ref": "#/components/schemas/ScimError"
+                },
+                "example": {
+                  "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:Error"
+                  ],
+                  "detail": "Resource 1 not found",
+                  "status": "404"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/version": {
+      "get": {
+        "operationId": "getVersion",
+        "tags": [
+          "Version"
+        ],
+        "summary": "Gets the version of VRS,WRS and DBServer",
+        "description": "Gets the version of VRS,WRS and DBServer",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionResponseBody"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorised",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorList"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "ID of the error",
+                      "code": "notAuthenticated",
+                      "title": "User is not authenticated"
                     }
-                  },
-                  "example": {
-                    "schemas": [
-                      "urn:ietf:params:scim:api:messages:2.0:Error"
-                    ],
-                    "detail": "Resource 1 not found",
-                    "status": "404"
-                  }
+                  ]
                 }
               }
             }
@@ -3748,8 +3279,24 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
     "schemas": {
       "DataSourceList": {
+        "type": "object",
         "properties": {
           "meta": {
             "type": "object",
@@ -3762,12 +3309,6 @@
                   },
                   "isEstimatedTotal": {
                     "type": "boolean"
-                  },
-                  "next": {
-                    "type": "string"
-                  },
-                  "previous": {
-                    "type": "string"
                   }
                 }
               },
@@ -3788,6 +3329,7 @@
         }
       },
       "DataSourceData": {
+        "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/DataSourceDTO"
@@ -3827,6 +3369,12 @@
           "releaseTag": {
             "type": "string"
           },
+          "defaultDataSourceName": {
+            "type": "string"
+          },
+          "dataPreview": {
+            "type": "string"
+          },
           "lastUpdatedBy": {
             "type": "string"
           },
@@ -3836,6 +3384,7 @@
         }
       },
       "DataSourceDataInstance": {
+        "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/DataSourceAllData"
@@ -3843,9 +3392,13 @@
         }
       },
       "DataSourceAllData": {
+        "type": "object",
         "properties": {
           "fields": {
-            "$ref": "#/components/schemas/RecordSetFields"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecordSetFields"
+            }
           },
           "dstInstance": {
             "$ref": "#/components/schemas/DataSourceInstance"
@@ -3853,12 +3406,13 @@
         }
       },
       "DataSourceInstance": {
+        "type": "object",
         "properties": {
-          "instanceId": {
+          "dstInstanceId": {
             "type": "integer"
           },
-          "instanceType": {
-            "type": "integer"
+          "dstInstanceType": {
+            "type": "string"
           },
           "rows": {
             "type": "array",
@@ -3869,19 +3423,24 @@
         }
       },
       "DataSourceInstanceRows": {
+        "type": "object",
         "properties": {
           "rowId": {
             "type": "integer"
           },
-          "rowOrder": {
+          "order": {
             "type": "integer"
           },
           "fields": {
-            "$ref": "#/components/schemas/RecordSetFieldValues"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecordSetFieldValues"
+            }
           }
         }
       },
       "RecordSetFieldValues": {
+        "type": "object",
         "properties": {
           "fieldId": {
             "type": "integer"
@@ -3890,8 +3449,11 @@
             "type": "string",
             "enum": [
               "BOOLEAN",
+              "COLOUR",
               "DATETIME",
               "DECIMAL",
+              "FONT",
+              "FONTSIZE",
               "HTML",
               "INTEGER",
               "TEXT"
@@ -3903,13 +3465,17 @@
         }
       },
       "RecordSetFields": {
+        "type": "object",
         "properties": {
           "fieldType": {
             "type": "string",
             "enum": [
               "BOOLEAN",
+              "COLOUR",
               "DATETIME",
               "DECIMAL",
+              "FONT",
+              "FONTSIZE",
               "HTML",
               "INTEGER",
               "TEXT"
@@ -3930,6 +3496,7 @@
         }
       },
       "EntityDTO": {
+        "type": "object",
         "properties": {
           "entityId": {
             "type": "integer",
@@ -3944,6 +3511,7 @@
         }
       },
       "EntityFieldValueDTO": {
+        "type": "object",
         "properties": {
           "meta": {
             "type": "object",
@@ -3956,12 +3524,6 @@
                   },
                   "isEstimatedTotal": {
                     "type": "boolean"
-                  },
-                  "next": {
-                    "type": "string"
-                  },
-                  "previous": {
-                    "type": "string"
                   }
                 }
               },
@@ -3977,7 +3539,7 @@
             "type": "array",
             "items": {
               "properties": {
-                "rowId": {
+                "entityRowId": {
                   "type": "integer"
                 },
                 "keyValue": {
@@ -3985,6 +3547,12 @@
                 },
                 "descriptionValue": {
                   "type": "string"
+                },
+                "fieldsWithValues": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -3992,6 +3560,7 @@
         }
       },
       "ReportInstanceDataResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ReportInstanceId"
@@ -3999,6 +3568,7 @@
         }
       },
       "ReportInstanceId": {
+        "type": "object",
         "properties": {
           "reportInstanceId": {
             "type": "integer"
@@ -4006,6 +3576,7 @@
         }
       },
       "ReportInstanceList": {
+        "type": "object",
         "properties": {
           "meta": {
             "type": "object",
@@ -4018,12 +3589,6 @@
                   },
                   "isEstimatedTotal": {
                     "type": "boolean"
-                  },
-                  "next": {
-                    "type": "string"
-                  },
-                  "previous": {
-                    "type": "string"
                   }
                 }
               }
@@ -4038,29 +3603,8 @@
         }
       },
       "ReportInstanceLogList": {
+        "type": "object",
         "properties": {
-          "meta": {
-            "type": "object",
-            "properties": {
-              "pagination": {
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "isEstimatedTotal": {
-                    "type": "boolean"
-                  },
-                  "next": {
-                    "type": "string"
-                  },
-                  "previous": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
           "data": {
             "type": "array",
             "items": {
@@ -4070,6 +3614,7 @@
         }
       },
       "ReportInstanceData": {
+        "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ReportInstanceDTO"
@@ -4077,6 +3622,7 @@
         }
       },
       "ReportInstanceDTO": {
+        "type": "object",
         "properties": {
           "reportInstanceId": {
             "type": "integer",
@@ -4100,10 +3646,14 @@
           },
           "reportRevision": {
             "$ref": "#/components/schemas/ReportRevisionDTO"
+          },
+          "name": {
+            "type": "string"
           }
         }
       },
       "ReportInstanceLogDTO": {
+        "type": "object",
         "properties": {
           "sequenceNumber": {
             "type": "integer",
@@ -4125,6 +3675,7 @@
         }
       },
       "ReportDefinitionList": {
+        "type": "object",
         "properties": {
           "meta": {
             "type": "object",
@@ -4137,12 +3688,6 @@
                   },
                   "isEstimatedTotal": {
                     "type": "boolean"
-                  },
-                  "next": {
-                    "type": "string"
-                  },
-                  "previous": {
-                    "type": "string"
                   }
                 }
               }
@@ -4157,6 +3702,7 @@
         }
       },
       "ReportDefinitionData": {
+        "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ReportDefinitionDTO"
@@ -4164,6 +3710,7 @@
         }
       },
       "ReportDefinitionDTO": {
+        "type": "object",
         "properties": {
           "name": {
             "type": "string"
@@ -4183,6 +3730,7 @@
         }
       },
       "ReportRevisionDTO": {
+        "type": "object",
         "properties": {
           "reportStatus": {
             "type": "string",
@@ -4192,6 +3740,7 @@
               "RETRIEVING_REQUEST",
               "CONTENT_FILTER",
               "STYLE_PROCESSING",
+              "STYLE_PREPROCESSING",
               "RULE_PROCESSING",
               "GETTING_DATA",
               "RI_PROCESSING",
@@ -4206,7 +3755,10 @@
               "COMPONENT_PROCESSING",
               "POST_PROCESSING",
               "POSTING_TO_WRS",
+              "POSTED_TO_WRS",
               "RENDERING",
+              "DOC_CREATION",
+              "PDF_CONVERSION",
               "ABORTED",
               "COMPLETED",
               "COMPLETED_CAUTIONS",
@@ -4239,6 +3791,12 @@
           "reportReasonCd": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
+          "languageCode": {
+            "type": "string"
+          },
           "outputFormat": {
             "type": "string"
           },
@@ -4248,10 +3806,83 @@
           }
         }
       },
-      "ScimUser": {
+      "ReportGenerationRequestBody": {
+        "type": "object",
         "properties": {
+          "vrs": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ReportGenerationRequest"
+            }
+          }
+        }
+      },
+      "ReportGenerationRequest": {
+        "type": "object",
+        "properties": {
+          "report": {
+            "type": "string"
+          },
+          "tenancy": {
+            "type": "string"
+          },
+          "outputFormat": {
+            "type": "string",
+            "enum": [
+              "WORD",
+              "WORD2010",
+              "EXCEL",
+              "EXCEL2010",
+              "PPT",
+              "PPT2010",
+              "PDF",
+              "CSV",
+              "XML",
+              "VXML",
+              "HTML",
+              "PS"
+            ]
+          },
+          "sectionFilter": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "entitySelection": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EntitySelection"
+            }
+          }
+        }
+      },
+      "EntitySelection": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        }
+      },
+      "ReportDataResponse": {
+        "type": "string",
+        "format": "binary"
+      },
+      "ScimUser": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "id": {
-            "type": "integer"
+            "type": "string"
           },
           "userName": {
             "type": "string"
@@ -4269,6 +3900,12 @@
           },
           "active": {
             "type": "boolean"
+          },
+          "authenticatedUserName": {
+            "type": "string"
+          },
+          "tenant": {
+            "type": "string"
           },
           "phoneNumbers": {
             "type": "array",
@@ -4288,21 +3925,40 @@
               "$ref": "#/components/schemas/ScimPhoto"
             }
           },
+          "tenancies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tenancy"
+            }
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScimUserGroup"
+            }
+          },
           "domainCode": {
             "type": "string"
           },
           "isAdministrator": {
             "type": "boolean"
           },
-          "tenant": {
-            "type": "string"
+          "meta": {
+            "$ref": "#/components/schemas/ScimMeta"
           }
         }
       },
       "CreatedScimUserJSONResponse": {
+        "type": "object",
         "properties": {
+          "schemas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "id": {
-            "type": "integer"
+            "type": "string"
           },
           "userName": {
             "type": "string"
@@ -4340,6 +3996,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ScimEmail"
+            }
+          },
+          "tenancies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tenancy"
             }
           },
           "photos": {
@@ -4374,6 +4036,7 @@
         }
       },
       "CreateScimUserJSONRequest": {
+        "type": "object",
         "properties": {
           "userName": {
             "type": "string"
@@ -4401,6 +4064,9 @@
           "tenant": {
             "type": "string"
           },
+          "domainCode": {
+            "type": "string"
+          },
           "phoneNumbers": {
             "type": "array",
             "items": {
@@ -4418,10 +4084,90 @@
             "items": {
               "$ref": "#/components/schemas/ScimPhoto"
             }
+          },
+          "tenancies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tenancy"
+            }
+          }
+        }
+      },
+      "ScimUserPatchRequestBody": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScimUserPatchOperation"
+            }
+          }
+        }
+      },
+      "ScimGroupPatchRequestBody": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScimGroupPatchOperation"
+            }
+          }
+        }
+      },
+      "ScimUserPatchOperation": {
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "ScimGroupPatchOperation": {
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "value": {
+            "type": "object",
+            "properties": {
+              "display": {
+                "type": "string"
+              },
+              "$ref": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
           }
         }
       },
       "ScimPhone": {
+        "type": "object",
         "properties": {
           "value": {
             "type": "string"
@@ -4435,6 +4181,7 @@
         }
       },
       "ScimEmail": {
+        "type": "object",
         "properties": {
           "value": {
             "type": "string"
@@ -4448,6 +4195,7 @@
         }
       },
       "ScimPhoto": {
+        "type": "object",
         "properties": {
           "value": {
             "type": "string"
@@ -4460,8 +4208,23 @@
           }
         }
       },
-      "ScimGroup": {
+      "Tenancy": {
+        "type": "object",
         "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "ScimGroup": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "id": {
             "type": "string"
           },
@@ -4469,17 +4232,24 @@
             "type": "string"
           },
           "members": {
-            "$ref": "#/components/schemas/ScimGroupMember"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScimGroupMember"
+            }
           },
           "tenant": {
             "type": "string"
           },
           "domainCode": {
             "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ScimMeta"
           }
         }
       },
       "ScimGroupMember": {
+        "type": "object",
         "properties": {
           "value": {
             "type": "string"
@@ -4493,7 +4263,27 @@
           }
         }
       },
+      "ScimUserGroup": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "$ref": {
+            "type": "string",
+            "description": "A callback link which can be used to get the information of the user"
+          },
+          "type": {
+            "type": "string"
+          },
+          "display": {
+            "type": "string",
+            "description": "Name of the group"
+          }
+        }
+      },
       "ScimGroupListResponse": {
+        "type": "object",
         "properties": {
           "totalResults": {
             "type": "integer"
@@ -4513,6 +4303,7 @@
         }
       },
       "ScimUserListResponse": {
+        "type": "object",
         "properties": {
           "totalResults": {
             "type": "integer"
@@ -4530,85 +4321,89 @@
             }
           }
         }
-      }
-    },
-    "examples": {
-      "UnauthorisedExample": {
-        "value": {
-          "error": {
-            "id": "ID of the error to match in the logs",
-            "code": "notAuthenticated",
-            "title": "User is not authenticated"
-          }
-        },
-        "summary": "Unauthorised error sample"
       },
-      "BadIdExample": {
-        "value": {
-          "error": {
-            "id": "ID of the error to match in the logs",
-            "code": "parameterError",
-            "title": "The ID passed is not a numerical value"
-          }
-        },
-        "summary": "400 Bad requesst error sample"
-      },
-      "NoPermissionsExample": {
-        "value": {
-          "error": {
-            "id": "ID of the error to match in the logs",
-            "code": "notAuthorized",
-            "title": "No permissions to view this item"
+      "ScimMeta": {
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string"
+          },
+          "lastModified": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
           }
         }
       },
-      "NotFoundExample": {
-        "value": {
-          "error": {
-            "id": "ID of the error to match in the logs",
-            "code": "notFound",
-            "title": "No object found for code"
+      "Error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
           }
         }
       },
-      "MeRequest": {
-        "value": {
-          "userId": "me"
-        },
-        "summary": "ME request - user can pass 'me' to request their own details"
-      },
-      "ScimNotFound": {
-        "value": {
-          "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:Error"
-          ],
-          "detail": "Resource 1 not found",
-          "status": "404"
-        }
-      }
-    },
-    "securitySchemes": {
-      "FactSetOAuth2": {
-        "type": "oauth2",
-        "flows": {
-          "clientCredentials": {
-            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
-            "scopes": {}
+      "ErrorList": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
           }
         }
       },
-      "FactSetApiKey": {
-        "type": "http",
-        "scheme": "basic"
+      "ScimError": {
+        "type": "object",
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "detail": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "VersionResponseBody": {
+        "type": "object",
+        "description": "details of VRS WRS versions",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "vrsVersion": {
+                "type": "string",
+                "description": "VRS version"
+              },
+              "wrsVersion": {
+                "type": "string",
+                "description": "WRS version"
+              },
+              "dbServer": {
+                "type": "string",
+                "description": "DB version"
+              }
+            }
+          }
+        }
       }
     }
-  },
-  "security": [
-    {
-      "FactSetApiKey": []
-    },
-    {
-      "FactSetOAuth2": []
-    }
-  ]
+  }
 }

@@ -122,7 +122,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/Vermilion/0.9.0");
+    setUserAgent("fds-sdk/java/Vermilion/0.1.0");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -921,7 +921,7 @@ public class ApiClient extends JavaTimeFormatter {
     String contentDisposition = (String) response.getHeaders().getFirst("Content-Disposition");
     if (contentDisposition != null && !"".equals(contentDisposition)) {
       // Get filename from the Content-Disposition header.
-      Pattern pattern = Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
+      Pattern pattern = Pattern.compile("filename=['\"]?([^'\"\\s]+[^;'\"\\s])['\"]?");
       Matcher matcher = pattern.matcher(contentDisposition);
       if (matcher.find())
         filename = matcher.group(1);
@@ -966,11 +966,12 @@ public class ApiClient extends JavaTimeFormatter {
    * @param accept The request's Accept header
    * @param contentType The request's Content-Type header
    * @param authNames The authentications to apply
-   * @param returnType The return type into which to deserialize the response
+   * @param returnTypeMap The return type into which to deserialize the response for a given status code
    * @param isBodyNullable True if the body is nullable
    * @return The response body in type of string
    * @throws ApiException API exception
    */
+  @SuppressWarnings("unchecked")
   public <T> ApiResponse<T> invokeAPI(
       String operation,
       String path,
@@ -983,10 +984,9 @@ public class ApiClient extends JavaTimeFormatter {
       String accept,
       String contentType,
       String[] authNames,
-      GenericType<T> returnType,
+      Map<Integer, GenericType> returnTypeMap,
       boolean isBodyNullable)
       throws ApiException {
-
     // Not using `.target(targetURL).path(path)` below,
     // to support (constant) query string in `path`, e.g. "/posts?draft=1"
     String targetURL;
@@ -1063,19 +1063,41 @@ public class ApiClient extends JavaTimeFormatter {
 
     try {
       response = sendRequest(method, invocationBuilder, entity);
-
       int statusCode = response.getStatusInfo().getStatusCode();
       Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
 
       if (response.getStatusInfo() == Status.NO_CONTENT) {
         return new ApiResponse<T>(statusCode, responseHeaders);
-      } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
-        if (returnType == null) {
-          return new ApiResponse<T>(statusCode, responseHeaders);
-        } else {
-          return new ApiResponse<T>(statusCode, responseHeaders, deserialize(response, returnType));
+      }
+
+      if(returnTypeMap.keySet().contains(statusCode)){
+
+        if(response.getStatusInfo().getFamily() != Status.Family.SUCCESSFUL){
+
+
+
+          String message = "error";
+          String respBody = null;
+          if (response.hasEntity()) {
+            try {
+              respBody = String.valueOf(response.readEntity(String.class));
+              message = respBody;
+            } catch (RuntimeException e) {
+              // e.printStackTrace();
+            }
+          }
+          throw new ApiException(response.getStatus(), message, buildResponseHeaders(response), respBody);
+
         }
-      } else {
+
+        T deserializedResponse = deserialize(response,  (GenericType<T>) returnTypeMap.get(statusCode));
+
+        return new ApiResponse<T>(statusCode, responseHeaders, deserializedResponse);
+      }
+
+      if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
+        return new ApiResponse<T>(statusCode, responseHeaders);
+      } else{
         String message = "error";
         String respBody = null;
         if (response.hasEntity()) {
@@ -1086,8 +1108,8 @@ public class ApiClient extends JavaTimeFormatter {
             // e.printStackTrace();
           }
         }
-        throw new ApiException(
-            response.getStatus(), message, buildResponseHeaders(response), respBody);
+        throw new ApiException(response.getStatus(), message, buildResponseHeaders(response), respBody);
+
       }
     } finally {
       try {
@@ -1116,25 +1138,30 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * @deprecated Add qualified name of the operation as a first parameter.
-   */
-  @Deprecated
-  public <T> ApiResponse<T> invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType, boolean isBodyNullable) throws ApiException {
-    return invokeAPI(null, path, method, queryParams, body, headerParams, cookieParams, formParams, accept, contentType, authNames, returnType, isBodyNullable);
-  }
-
-  /**
    * Build the Client used to make HTTP requests.
    *
    * @return Client
    */
   protected Client buildHttpClient() {
     // recreate the client config to pickup changes
-    clientConfig = getDefaultClientConfig();
+    if (clientConfig == null) {
+      clientConfig = getDefaultClientConfig();
+    }
 
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     customizeClientBuilder(clientBuilder);
     clientBuilder = clientBuilder.withConfig(clientConfig);
+
+    if (debugging) {
+      clientConfig.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME), java.util.logging.Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, 1024*50 /* Log payloads up to 50K */));
+      clientConfig.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
+      // Set logger to ALL
+      java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME).setLevel(java.util.logging.Level.ALL);
+    } else {
+      // suppress warnings for payloads with DELETE calls:
+      java.util.logging.Logger.getLogger("org.glassfish.jersey.client").setLevel(java.util.logging.Level.SEVERE);
+    }
+
     return clientBuilder.build();
   }
 
@@ -1151,15 +1178,6 @@ public class ApiClient extends JavaTimeFormatter {
     clientConfig.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
     // turn off compliance validation to be able to send payloads with DELETE calls
     clientConfig.property(ClientProperties.SUPPRESS_HTTP_COMPLIANCE_VALIDATION, true);
-    if (debugging) {
-      clientConfig.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME), java.util.logging.Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, 1024*50 /* Log payloads up to 50K */));
-      clientConfig.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
-      // Set logger to ALL
-      java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME).setLevel(java.util.logging.Level.ALL);
-    } else {
-      // suppress warnings for payloads with DELETE calls:
-      java.util.logging.Logger.getLogger("org.glassfish.jersey.client").setLevel(java.util.logging.Level.SEVERE);
-    }
 
     return clientConfig;
   }

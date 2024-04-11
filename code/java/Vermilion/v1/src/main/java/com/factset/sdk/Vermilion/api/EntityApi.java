@@ -7,13 +7,12 @@ import com.factset.sdk.Vermilion.Configuration;
 import com.factset.sdk.Vermilion.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Vermilion.models.EntityFieldValueDTO;
-import com.factset.sdk.Vermilion.models.InlineResponse4001;
-import com.factset.sdk.Vermilion.models.InlineResponse401;
-import com.factset.sdk.Vermilion.models.InlineResponse403;
-import com.factset.sdk.Vermilion.models.InlineResponse4041;
-import com.factset.sdk.Vermilion.models.InlineResponse406;
+import com.factset.sdk.Vermilion.models.ErrorList;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EntityApi {
@@ -26,6 +25,19 @@ public class EntityApi {
   public EntityApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> getEntityValuesByCodeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityValuesByCodeResponseTypeMap.put(200, new GenericType<EntityFieldValueDTO>(){});
+    getEntityValuesByCodeResponseTypeMap.put(400, new GenericType<ErrorList>(){});
+    getEntityValuesByCodeResponseTypeMap.put(401, new GenericType<ErrorList>(){});
+    getEntityValuesByCodeResponseTypeMap.put(403, new GenericType<ErrorList>(){});
+    getEntityValuesByCodeResponseTypeMap.put(404, new GenericType<ErrorList>(){});
+    getEntityValuesByCodeResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+  }
+
+  
+
 
   /**
    * Get the API client
@@ -53,6 +65,7 @@ public class EntityApi {
    * @param sort The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)
    * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional)
    * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional)
+   * @param showAll Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)
    * @return EntityFieldValueDTO
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -66,8 +79,8 @@ public class EntityApi {
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
      </table>
    */
-  public EntityFieldValueDTO v1TenantEntitiesEntityCodeValuesGet(String tenant, String entityCode, String sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
-    return v1TenantEntitiesEntityCodeValuesGetWithHttpInfo(tenant, entityCode, sort, paginationLimit, paginationOffset).getData();
+  public EntityFieldValueDTO getEntityValuesByCode(String tenant, String entityCode, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset, Integer showAll) throws ApiException {
+    return getEntityValuesByCodeWithHttpInfo(tenant, entityCode, sort, paginationLimit, paginationOffset, showAll).getData();
   }
 
   /**
@@ -78,6 +91,7 @@ public class EntityApi {
    * @param sort The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)
    * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional)
    * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional)
+   * @param showAll Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)
    * @return ApiResponse&lt;EntityFieldValueDTO&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -91,17 +105,17 @@ public class EntityApi {
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EntityFieldValueDTO> v1TenantEntitiesEntityCodeValuesGetWithHttpInfo(String tenant, String entityCode, String sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+  public ApiResponse<EntityFieldValueDTO> getEntityValuesByCodeWithHttpInfo(String tenant, String entityCode, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset, Integer showAll) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling v1TenantEntitiesEntityCodeValuesGet");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getEntityValuesByCode");
     }
     
     // verify the required parameter 'entityCode' is set
     if (entityCode == null) {
-      throw new ApiException(400, "Missing the required parameter 'entityCode' when calling v1TenantEntitiesEntityCodeValuesGet");
+      throw new ApiException(400, "Missing the required parameter 'entityCode' when calling getEntityValuesByCode");
     }
     
     // create path and map variables
@@ -115,9 +129,10 @@ public class EntityApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "showAll", showAll));
 
     
     
@@ -134,10 +149,16 @@ public class EntityApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityFieldValueDTO> localVarReturnType = new GenericType<EntityFieldValueDTO>() {};
 
-    return apiClient.invokeAPI("EntityApi.v1TenantEntitiesEntityCodeValuesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityFieldValueDTO
+      
+    > apiResponse = apiClient.invokeAPI("EntityApi.getEntityValuesByCode", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityValuesByCodeResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

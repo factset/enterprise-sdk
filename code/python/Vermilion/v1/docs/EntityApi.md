@@ -4,11 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1_tenant_entities_entity_code_values_get**](EntityApi.md#v1_tenant_entities_entity_code_values_get) | **GET** /v1/{tenant}/entities/{entityCode}/values | Gets the entity values
+[**get_entity_values_by_code**](EntityApi.md#get_entity_values_by_code) | **GET** /v1/{tenant}/entities/{entityCode}/values | Gets the entity values
 
 
-# **v1_tenant_entities_entity_code_values_get**
-> EntityFieldValueDTO v1_tenant_entities_entity_code_values_get(tenant, entity_code)
+
+# **get_entity_values_by_code**
+> EntityFieldValueDTO get_entity_values_by_code(tenant, entity_code)
 
 Gets the entity values
 
@@ -16,19 +17,17 @@ Gets the entity values for the specified entity
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vermilion
 from fds.sdk.Vermilion.api import entity_api
-from fds.sdk.Vermilion.model.inline_response403 import InlineResponse403
-from fds.sdk.Vermilion.model.inline_response4041 import InlineResponse4041
-from fds.sdk.Vermilion.model.inline_response401 import InlineResponse401
-from fds.sdk.Vermilion.model.inline_response406 import InlineResponse406
-from fds.sdk.Vermilion.model.entity_field_value_dto import EntityFieldValueDTO
-from fds.sdk.Vermilion.model.inline_response4001 import InlineResponse4001
+from fds.sdk.Vermilion.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -39,6 +38,8 @@ from pprint import pprint
 # (Preferred) OAuth 2.0: FactSetOAuth2
 # See https://github.com/FactSet/enterprise-sdk#oauth-20
 # for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vermilion.Configuration(
@@ -57,28 +58,30 @@ configuration = fds.sdk.Vermilion.Configuration(
 with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_api.EntityApi(api_client)
-    tenant = "tenant_example" # str | The code of the tenancy
-    entity_code = "entityCode_example" # str | The code of the entity
-    sort = "_sort=entity key field" # str | The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)
+
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    entity_code = "XXXXXXXXXX" # str | The code of the entity
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    sort = ["entity key field"] # [str] | The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \"-\" to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 25 # int | Non-negative maximum number of entries to return. Default is 25 (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    show_all = 1 # int | Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Gets the entity values
-        api_response = api_instance.v1_tenant_entities_entity_code_values_get(tenant, entity_code)
-        pprint(api_response)
-    except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling EntityApi->v1_tenant_entities_entity_code_values_get: %s\n" % e)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_entity_values_by_code(tenant, entity_code, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset, show_all=show_all)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Gets the entity values
-        api_response = api_instance.v1_tenant_entities_entity_code_values_get(tenant, entity_code, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
+
     except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling EntityApi->v1_tenant_entities_entity_code_values_get: %s\n" % e)
+        print("Exception when calling EntityApi->get_entity_values_by_code: %s\n" % e)
 ```
 
 
@@ -88,9 +91,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **str**| The code of the tenancy |
  **entity_code** | **str**| The code of the entity |
- **sort** | **str**| The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default | [optional]
+ **sort** | **[str]**| The entity field to sort on. Can only be sorted on entity key, description or secondary key fields. Append \&quot;-\&quot; to sort in descending order. If no parameter given, it will be sorted by key field in ascending order by default | [optional]
  **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional]
  **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional]
+ **show_all** | **int**| Whether to show all field values for each entity row. Value should either be 1 or 0. Default is 0 (false) | [optional]
 
 ### Return type
 

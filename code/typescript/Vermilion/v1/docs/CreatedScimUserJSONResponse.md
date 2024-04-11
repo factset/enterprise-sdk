@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [optional] 
+**schemas** | **[String]** |  | [optional] 
+**id** | **String** |  | [optional] 
 **userName** | **String** |  | [optional] 
 **name** | [**ScimUserName**](ScimUserName.md) |  | [optional] 
 **userType** | **String** |  | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **tenant** | **String** |  | [optional] 
 **phoneNumbers** | [**[ScimPhone]**](ScimPhone.md) |  | [optional] 
 **emails** | [**[ScimEmail]**](ScimEmail.md) |  | [optional] 
+**tenancies** | [**[Tenancy]**](Tenancy.md) |  | [optional] 
 **photos** | [**[ScimPhoto]**](ScimPhoto.md) |  | [optional] 
 **domainCode** | **String** |  | [optional] 
 **isAdministrator** | **Boolean** |  | [optional] 

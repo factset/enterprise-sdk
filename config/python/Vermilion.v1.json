@@ -1,13 +1,14 @@
 {
   "packageName": "fds.sdk.Vermilion",
   "projectName": "fds.sdk.Vermilion",
-  "packageVersion": "0.9.0",
+  "packageVersion": "0.1.0",
   "packageAuthor": "FactSet Research Systems",
-  "packageLicense": "Apache-2.0",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Vermilion client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/Vermilion/v1",
-  "httpUserAgent": "fds-sdk/python/Vermilion/0.9.0",
+  "httpUserAgent": "fds-sdk/python/Vermilion/0.1.0",
   "files": {
     "LICENSE": {}
   }

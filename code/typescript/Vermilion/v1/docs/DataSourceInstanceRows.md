@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **rowId** | **Number** |  | [optional] 
-**rowOrder** | **Number** |  | [optional] 
-**fields** | [**RecordSetFieldValues**](RecordSetFieldValues.md) |  | [optional] 
+**order** | **Number** |  | [optional] 
+**fields** | [**[RecordSetFieldValues]**](RecordSetFieldValues.md) |  | [optional] 
 
 

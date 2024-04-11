@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **userFriendlyReportName** | **String** |  | [optional] 
 **extension** | **String** |  | [optional] 
 **reportRevision** | [**ReportRevisionDTO**](ReportRevisionDTO.md) |  | [optional] 
+**name** | **String** |  | [optional] 
 
 

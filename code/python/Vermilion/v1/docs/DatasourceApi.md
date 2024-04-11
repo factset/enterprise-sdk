@@ -4,33 +4,32 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1_tenant_data_sources_data_source_code_data_get**](DatasourceApi.md#v1_tenant_data_sources_data_source_code_data_get) | **GET** /v1/{tenant}/data-sources/{dataSourceCode}/data | Gets the data for the datasource
-[**v1_tenant_data_sources_data_source_code_get**](DatasourceApi.md#v1_tenant_data_sources_data_source_code_get) | **GET** /v1/{tenant}/data-sources/{dataSourceCode} | Gets a datasource
-[**v1_tenant_data_sources_get**](DatasourceApi.md#v1_tenant_data_sources_get) | **GET** /v1/{tenant}/data-sources | Lists all datasources
+[**get_all_data_sources**](DatasourceApi.md#get_all_data_sources) | **GET** /v1/{tenant}/data-sources | Lists all datasources
+[**get_data_source_by_code**](DatasourceApi.md#get_data_source_by_code) | **GET** /v1/{tenant}/data-sources/{dataSourceCode} | Gets a datasource
+[**get_data_source_data**](DatasourceApi.md#get_data_source_data) | **GET** /v1/{tenant}/data-sources/{dataSourceCode}/data | Gets the data for the datasource
 
 
-# **v1_tenant_data_sources_data_source_code_data_get**
-> [DataSourceDataInstance] v1_tenant_data_sources_data_source_code_data_get(tenant, data_source_code)
 
-Gets the data for the datasource
+# **get_all_data_sources**
+> DataSourceList get_all_data_sources(tenant)
 
-Gets the data for the datasource. There are optional query parameters to filter the da
+Lists all datasources
+
+List all datasources the user has permission to see
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vermilion
 from fds.sdk.Vermilion.api import datasource_api
-from fds.sdk.Vermilion.model.inline_response400 import InlineResponse400
-from fds.sdk.Vermilion.model.data_source_data_instance import DataSourceDataInstance
-from fds.sdk.Vermilion.model.inline_response403 import InlineResponse403
-from fds.sdk.Vermilion.model.inline_response401 import InlineResponse401
-from fds.sdk.Vermilion.model.inline_response406 import InlineResponse406
-from fds.sdk.Vermilion.model.inline_response404 import InlineResponse404
+from fds.sdk.Vermilion.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -41,6 +40,8 @@ from pprint import pprint
 # (Preferred) OAuth 2.0: FactSetOAuth2
 # See https://github.com/FactSet/enterprise-sdk#oauth-20
 # for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vermilion.Configuration(
@@ -59,27 +60,26 @@ configuration = fds.sdk.Vermilion.Configuration(
 with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = datasource_api.DatasourceApi(api_client)
-    tenant = "tenant_example" # str | The code of the tenancy
-    data_source_code = "dataSourceCode_example" # str | The code of the datasource
-    entity_codes = "entityCodes_example" # str | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS (optional)
-    entity_keys = "entityKeys_example" # str | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2 (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Gets the data for the datasource
-        api_response = api_instance.v1_tenant_data_sources_data_source_code_data_get(tenant, data_source_code)
-        pprint(api_response)
-    except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling DatasourceApi->v1_tenant_data_sources_data_source_code_data_get: %s\n" % e)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    sort = ["name"] # [str] | The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    pagination_limit = 25 # int | Non-negative maximum number of entries to return. Default is 25 (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
-        # Gets the data for the datasource
-        api_response = api_instance.v1_tenant_data_sources_data_source_code_data_get(tenant, data_source_code, entity_codes=entity_codes, entity_keys=entity_keys)
+        # Lists all datasources
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_all_data_sources(tenant, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
+
         pprint(api_response)
+
     except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling DatasourceApi->v1_tenant_data_sources_data_source_code_data_get: %s\n" % e)
+        print("Exception when calling DatasourceApi->get_all_data_sources: %s\n" % e)
 ```
 
 
@@ -88,13 +88,13 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **str**| The code of the tenancy |
- **data_source_code** | **str**| The code of the datasource |
- **entity_codes** | **str**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional]
- **entity_keys** | **str**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional]
+ **sort** | **[str]**| The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done | [optional]
+ **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional]
+ **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional]
 
 ### Return type
 
-[**[DataSourceDataInstance]**](DataSourceDataInstance.md)
+[**DataSourceList**](DataSourceList.md)
 
 ### Authorization
 
@@ -110,17 +110,15 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation - returns data for the datasource |  -  |
-**400** | The supplied datasource code was either missing or invalid, or the query parameters are invalid |  -  |
+**200** | Successful operation |  -  |
 **401** | Unauthorised |  -  |
 **403** | No permissions to view datasources in VRS |  -  |
-**404** | The supplied datasource code was not found |  -  |
 **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_tenant_data_sources_data_source_code_get**
-> DataSourceData v1_tenant_data_sources_data_source_code_get(tenant, data_source_code)
+# **get_data_source_by_code**
+> DataSourceData get_data_source_by_code(tenant, data_source_code)
 
 Gets a datasource
 
@@ -128,18 +126,17 @@ Gets a datasource based on the code passed
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vermilion
 from fds.sdk.Vermilion.api import datasource_api
-from fds.sdk.Vermilion.model.inline_response403 import InlineResponse403
-from fds.sdk.Vermilion.model.inline_response401 import InlineResponse401
-from fds.sdk.Vermilion.model.inline_response406 import InlineResponse406
-from fds.sdk.Vermilion.model.data_source_data import DataSourceData
-from fds.sdk.Vermilion.model.inline_response404 import InlineResponse404
+from fds.sdk.Vermilion.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -150,6 +147,8 @@ from pprint import pprint
 # (Preferred) OAuth 2.0: FactSetOAuth2
 # See https://github.com/FactSet/enterprise-sdk#oauth-20
 # for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vermilion.Configuration(
@@ -168,16 +167,21 @@ configuration = fds.sdk.Vermilion.Configuration(
 with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = datasource_api.DatasourceApi(api_client)
-    tenant = "tenant_example" # str | The code of the tenancy
-    data_source_code = "dataSourceCode_example" # str | The code of the datasource
 
-    # example passing only required values which don't have defaults set
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    data_source_code = "XXXXXXXXXX" # str | The code of the datasource
+
     try:
         # Gets a datasource
-        api_response = api_instance.v1_tenant_data_sources_data_source_code_get(tenant, data_source_code)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_data_source_by_code(tenant, data_source_code)
+
         pprint(api_response)
+
     except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling DatasourceApi->v1_tenant_data_sources_data_source_code_get: %s\n" % e)
+        print("Exception when calling DatasourceApi->get_data_source_by_code: %s\n" % e)
 ```
 
 
@@ -214,26 +218,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_tenant_data_sources_get**
-> DataSourceList v1_tenant_data_sources_get(tenant)
+# **get_data_source_data**
+> DataSourceDataInstance get_data_source_data(tenant, data_source_code)
 
-Lists all datasources
+Gets the data for the datasource
 
-List all datasources the user has permission to see
+Gets the data for the datasource. There are optional query parameters to filter the data
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vermilion
 from fds.sdk.Vermilion.api import datasource_api
-from fds.sdk.Vermilion.model.data_source_list import DataSourceList
-from fds.sdk.Vermilion.model.inline_response403 import InlineResponse403
-from fds.sdk.Vermilion.model.inline_response401 import InlineResponse401
-from fds.sdk.Vermilion.model.inline_response406 import InlineResponse406
+from fds.sdk.Vermilion.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -244,6 +248,8 @@ from pprint import pprint
 # (Preferred) OAuth 2.0: FactSetOAuth2
 # See https://github.com/FactSet/enterprise-sdk#oauth-20
 # for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vermilion.Configuration(
@@ -262,27 +268,30 @@ configuration = fds.sdk.Vermilion.Configuration(
 with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = datasource_api.DatasourceApi(api_client)
-    tenant = "tenant_example" # str | The code of the tenancy
-    sort = "_sort=name" # str | The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done (optional)
+
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    data_source_code = "XXXXXXXXXX" # str | The code of the datasource
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    entity_codes = "FUNDS" # str | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    entity_keys = "Test2" # str | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2 (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 25 # int | Non-negative maximum number of entries to return. Default is 25 (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional)
 
-    # example passing only required values which don't have defaults set
     try:
-        # Lists all datasources
-        api_response = api_instance.v1_tenant_data_sources_get(tenant)
-        pprint(api_response)
-    except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling DatasourceApi->v1_tenant_data_sources_get: %s\n" % e)
+        # Gets the data for the datasource
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_data_source_data(tenant, data_source_code, entity_codes=entity_codes, entity_keys=entity_keys, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Lists all datasources
-        api_response = api_instance.v1_tenant_data_sources_get(tenant, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
+
     except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling DatasourceApi->v1_tenant_data_sources_get: %s\n" % e)
+        print("Exception when calling DatasourceApi->get_data_source_data: %s\n" % e)
 ```
 
 
@@ -291,13 +300,15 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **str**| The code of the tenancy |
- **sort** | **str**| The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done | [optional]
+ **data_source_code** | **str**| The code of the datasource |
+ **entity_codes** | **str**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional]
+ **entity_keys** | **str**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional]
  **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional]
  **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional]
 
 ### Return type
 
-[**DataSourceList**](DataSourceList.md)
+[**DataSourceDataInstance**](DataSourceDataInstance.md)
 
 ### Authorization
 
@@ -313,9 +324,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Successful operation - returns data for the datasource |  -  |
+**400** | The supplied datasource code was either missing or invalid, or the query parameters are invalid |  -  |
 **401** | Unauthorised |  -  |
 **403** | No permissions to view datasources in VRS |  -  |
+**404** | The supplied datasource code was not found |  -  |
 **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

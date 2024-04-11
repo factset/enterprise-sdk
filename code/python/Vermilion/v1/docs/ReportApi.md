@@ -4,12 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1_tenant_reports_get**](ReportApi.md#v1_tenant_reports_get) | **GET** /v1/{tenant}/reports | Gets all report definitions
-[**v1_tenant_reports_report_definition_code_get**](ReportApi.md#v1_tenant_reports_report_definition_code_get) | **GET** /v1/{tenant}/reports/{reportDefinitionCode} | Gets a report definition
+[**get_all_report_definitions**](ReportApi.md#get_all_report_definitions) | **GET** /v1/{tenant}/reports | Gets all report definitions
+[**get_report_definition_by_code**](ReportApi.md#get_report_definition_by_code) | **GET** /v1/{tenant}/reports/{reportDefinitionCode} | Gets a report definition
 
 
-# **v1_tenant_reports_get**
-> [ReportDefinitionList] v1_tenant_reports_get(tenant)
+
+# **get_all_report_definitions**
+> ReportDefinitionList get_all_report_definitions(tenant)
 
 Gets all report definitions
 
@@ -17,18 +18,17 @@ Gets all report definitions the user has permissions for
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vermilion
 from fds.sdk.Vermilion.api import report_api
-from fds.sdk.Vermilion.model.inline_response4002 import InlineResponse4002
-from fds.sdk.Vermilion.model.inline_response403 import InlineResponse403
-from fds.sdk.Vermilion.model.inline_response401 import InlineResponse401
-from fds.sdk.Vermilion.model.inline_response406 import InlineResponse406
-from fds.sdk.Vermilion.model.report_definition_list import ReportDefinitionList
+from fds.sdk.Vermilion.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -39,6 +39,8 @@ from pprint import pprint
 # (Preferred) OAuth 2.0: FactSetOAuth2
 # See https://github.com/FactSet/enterprise-sdk#oauth-20
 # for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vermilion.Configuration(
@@ -57,27 +59,26 @@ configuration = fds.sdk.Vermilion.Configuration(
 with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = report_api.ReportApi(api_client)
-    tenant = "tenant_example" # str | The code of the tenancy
-    sort = "_sort=name" # str | The column to sort on. Can add - to sort (optional)
+
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    sort = ["name"] # [str] | The column to sort on. Can add - to sort (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_limit = 25 # int | Non-negative maximum number of entries to return (optional)
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
     pagination_offset = 0 # int | Non-negative number of entries to skip (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Gets all report definitions
-        api_response = api_instance.v1_tenant_reports_get(tenant)
-        pprint(api_response)
-    except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling ReportApi->v1_tenant_reports_get: %s\n" % e)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_all_report_definitions(tenant, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Gets all report definitions
-        api_response = api_instance.v1_tenant_reports_get(tenant, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
+
     except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling ReportApi->v1_tenant_reports_get: %s\n" % e)
+        print("Exception when calling ReportApi->get_all_report_definitions: %s\n" % e)
 ```
 
 
@@ -86,13 +87,13 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **str**| The code of the tenancy |
- **sort** | **str**| The column to sort on. Can add - to sort | [optional]
+ **sort** | **[str]**| The column to sort on. Can add - to sort | [optional]
  **pagination_limit** | **int**| Non-negative maximum number of entries to return | [optional]
  **pagination_offset** | **int**| Non-negative number of entries to skip | [optional]
 
 ### Return type
 
-[**[ReportDefinitionList]**](ReportDefinitionList.md)
+[**ReportDefinitionList**](ReportDefinitionList.md)
 
 ### Authorization
 
@@ -116,8 +117,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_tenant_reports_report_definition_code_get**
-> ReportDefinitionData v1_tenant_reports_report_definition_code_get(tenant, report_definition_code)
+# **get_report_definition_by_code**
+> ReportDefinitionData get_report_definition_by_code(tenant, report_definition_code)
 
 Gets a report definition
 
@@ -125,19 +126,17 @@ Gets a report defintion based on the code specified
 
 ### Example
 
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vermilion
 from fds.sdk.Vermilion.api import report_api
-from fds.sdk.Vermilion.model.inline_response4002 import InlineResponse4002
-from fds.sdk.Vermilion.model.report_definition_data import ReportDefinitionData
-from fds.sdk.Vermilion.model.inline_response403 import InlineResponse403
-from fds.sdk.Vermilion.model.inline_response4042 import InlineResponse4042
-from fds.sdk.Vermilion.model.inline_response401 import InlineResponse401
-from fds.sdk.Vermilion.model.inline_response406 import InlineResponse406
+from fds.sdk.Vermilion.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,6 +147,8 @@ from pprint import pprint
 # (Preferred) OAuth 2.0: FactSetOAuth2
 # See https://github.com/FactSet/enterprise-sdk#oauth-20
 # for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vermilion.Configuration(
@@ -166,16 +167,21 @@ configuration = fds.sdk.Vermilion.Configuration(
 with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = report_api.ReportApi(api_client)
-    tenant = "tenant_example" # str | The code of the tenancy
-    report_definition_code = "reportDefinitionCode_example" # str | The code of the report definition
 
-    # example passing only required values which don't have defaults set
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    tenant = "XXXXXXXXXX" # str | The code of the tenancy
+    # NOTE: The parameter variable defined below is just an example and may potentially contain non valid values. So please replace this with valid values.
+    report_definition_code = "XXXXXXXXXX" # str | The code of the report definition
+
     try:
         # Gets a report definition
-        api_response = api_instance.v1_tenant_reports_report_definition_code_get(tenant, report_definition_code)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_report_definition_by_code(tenant, report_definition_code)
+
         pprint(api_response)
+
     except fds.sdk.Vermilion.ApiException as e:
-        print("Exception when calling ReportApi->v1_tenant_reports_report_definition_code_get: %s\n" % e)
+        print("Exception when calling ReportApi->get_report_definition_by_code: %s\n" % e)
 ```
 
 

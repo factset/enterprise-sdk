@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **entities** | [**java.util.List&lt;EntityDTO&gt;**](EntityDTO.md) |  |  [optional]
 **outputRecordSet** | **String** |  |  [optional]
 **releaseTag** | **String** |  |  [optional]
+**defaultDataSourceName** | **String** |  |  [optional]
+**dataPreview** | **String** |  |  [optional]
 **lastUpdatedBy** | **String** |  |  [optional]
 **lastUpdated** | **BigDecimal** |  |  [optional]
 

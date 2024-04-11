@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **Entities** | [**List&lt;EntityDTO&gt;**](EntityDTO.md) |  | [optional] 
 **OutputRecordSet** | **string** |  | [optional] 
 **ReleaseTag** | **string** |  | [optional] 
+**DefaultDataSourceName** | **string** |  | [optional] 
+**DataPreview** | **string** |  | [optional] 
 **LastUpdatedBy** | **string** |  | [optional] 
 **LastUpdated** | **decimal** |  | [optional] 
 

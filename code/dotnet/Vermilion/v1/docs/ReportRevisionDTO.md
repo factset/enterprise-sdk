@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **SignOffStatus** | **string** |  | [optional] 
 **SignOffNotes** | **string** |  | [optional] 
 **ReportReasonCd** | **string** |  | [optional] 
+**Description** | **string** |  | [optional] 
+**LanguageCode** | **string** |  | [optional] 
 **OutputFormat** | **string** |  | [optional] 
 **PercentageComplete** | **int** |  | [optional] 
 

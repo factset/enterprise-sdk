@@ -7,7 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  |  [optional]
+**schemas** | **java.util.List&lt;String&gt;** |  |  [optional]
+**id** | **String** |  |  [optional]
 **userName** | **String** |  |  [optional]
 **name** | [**ScimUserName**](ScimUserName.md) |  |  [optional]
 **userType** | **String** |  |  [optional]
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 **tenant** | **String** |  |  [optional]
 **phoneNumbers** | [**java.util.List&lt;ScimPhone&gt;**](ScimPhone.md) |  |  [optional]
 **emails** | [**java.util.List&lt;ScimEmail&gt;**](ScimEmail.md) |  |  [optional]
+**tenancies** | [**java.util.List&lt;Tenancy&gt;**](Tenancy.md) |  |  [optional]
 **photos** | [**java.util.List&lt;ScimPhoto&gt;**](ScimPhoto.md) |  |  [optional]
 **domainCode** | **String** |  |  [optional]
 **isAdministrator** | **Boolean** |  |  [optional]

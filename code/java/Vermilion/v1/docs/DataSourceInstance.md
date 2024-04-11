@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instanceId** | **Integer** |  |  [optional]
-**instanceType** | **Integer** |  |  [optional]
+**dstInstanceId** | **Integer** |  |  [optional]
+**dstInstanceType** | **String** |  |  [optional]
 **rows** | [**java.util.List&lt;DataSourceInstanceRows&gt;**](DataSourceInstanceRows.md) |  |  [optional]
 
 

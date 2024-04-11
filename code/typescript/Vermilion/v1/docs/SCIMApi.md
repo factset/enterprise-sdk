@@ -4,30 +4,35 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**scimV2GroupsGet**](SCIMApi.md#scimV2GroupsGet) | **GET** /scim/v2/Groups/ | Retrieves a list of VRS role
-[**scimV2GroupsGroupIdDelete**](SCIMApi.md#scimV2GroupsGroupIdDelete) | **DELETE** /scim/v2/Groups/{groupId} | Deletes a VRS role
-[**scimV2GroupsGroupIdGet**](SCIMApi.md#scimV2GroupsGroupIdGet) | **GET** /scim/v2/Groups/{groupId} | Retrieves a VRS role
-[**scimV2GroupsGroupIdPatch**](SCIMApi.md#scimV2GroupsGroupIdPatch) | **PATCH** /scim/v2/Groups/{groupId} | Add or remove a user to/from a group
-[**scimV2GroupsGroupIdPut**](SCIMApi.md#scimV2GroupsGroupIdPut) | **PUT** /scim/v2/Groups/{groupId} | Updates a VRS Group
-[**scimV2GroupsPost**](SCIMApi.md#scimV2GroupsPost) | **POST** /scim/v2/Groups/ | Creates a role
-[**scimV2UsersGet**](SCIMApi.md#scimV2UsersGet) | **GET** /scim/v2/Users/ | Retrieves a list of VRS users
-[**scimV2UsersPost**](SCIMApi.md#scimV2UsersPost) | **POST** /scim/v2/Users/ | Creates a user
-[**scimV2UsersUserIdDelete**](SCIMApi.md#scimV2UsersUserIdDelete) | **DELETE** /scim/v2/Users/{userId} | Deletes a VRS user
-[**scimV2UsersUserIdGet**](SCIMApi.md#scimV2UsersUserIdGet) | **GET** /scim/v2/Users/{userId} | Retrieves a VRS User
-[**scimV2UsersUserIdPatch**](SCIMApi.md#scimV2UsersUserIdPatch) | **PATCH** /scim/v2/Users/{userId} | Add or remove VRS user attributes
-[**scimV2UsersUserIdPut**](SCIMApi.md#scimV2UsersUserIdPut) | **PUT** /scim/v2/Users/{userId} | Updates a VRS user
+[**createGroup**](SCIMApi.md#createGroup) | **POST** /scim/v2/Groups | Creates a role
+[**createUser**](SCIMApi.md#createUser) | **POST** /scim/v2/Users | Creates a user
+[**deleteGroupById**](SCIMApi.md#deleteGroupById) | **DELETE** /scim/v2/Groups/{groupId} | Deletes a VRS role
+[**deleteUserById**](SCIMApi.md#deleteUserById) | **DELETE** /scim/v2/Users/{userId} | Deletes a VRS user
+[**getAllGroups**](SCIMApi.md#getAllGroups) | **GET** /scim/v2/Groups | Retrieves a list of VRS role
+[**getAllUsers**](SCIMApi.md#getAllUsers) | **GET** /scim/v2/Users | Retrieves a list of VRS users
+[**getGroupById**](SCIMApi.md#getGroupById) | **GET** /scim/v2/Groups/{groupId} | Retrieves a VRS role
+[**getUserById**](SCIMApi.md#getUserById) | **GET** /scim/v2/Users/{userId} | Retrieves a VRS User
+[**patchGroupById**](SCIMApi.md#patchGroupById) | **PATCH** /scim/v2/Groups/{groupId} | Add or remove a user to/from a group
+[**patchUserById**](SCIMApi.md#patchUserById) | **PATCH** /scim/v2/Users/{userId} | Add or remove VRS user attributes
+[**updateGroupById**](SCIMApi.md#updateGroupById) | **PUT** /scim/v2/Groups/{groupId} | Updates a VRS Group
+[**updateUserById**](SCIMApi.md#updateUserById) | **PUT** /scim/v2/Users/{userId} | Updates a VRS user
 
 
 
-## scimV2GroupsGet
+## createGroup
 
-> ScimGroupListResponse scimV2GroupsGet(opts)
+> ScimGroup createGroup(scimGroup)
 
-Retrieves a list of VRS role
+Creates a role
 
-Retrieves a VRS roles
+Creates a VRS role
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
@@ -41,6 +46,320 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new SCIMApi();
+const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"scimuser1","type":"user","$ref":"VRSAPI/scim/v2/Users/1"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
+
+// Call api endpoint
+apiInstance.createGroup(scimGroup).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scimGroup** | [**ScimGroup**](ScimGroup.md)|  | 
+
+### Return type
+
+[**ScimGroup**](ScimGroup.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/scim+json
+- **Accept**: application/scim+json
+
+
+## createUser
+
+> CreatedScimUserJSONResponse createUser(createScimUserJSONRequest)
+
+Creates a user
+
+Creates a VRS user
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new SCIMApi();
+const createScimUserJSONRequest = {"userName":"vrstestuser","name":{"formatted":"Vrstest User"},"userType":"Employee","active":true,"authenticatedUserName":"vrstestuser","tenant":"XXXXXXXXXX","emails":[{"value":"xyz@email.com","type":"work","primary":true}],"phoneNumbers":[{"value":"1234567890","type":"work","primary":true}],"domainCode":"XXXXXXXXXX"}; // CreateScimUserJSONRequest | 
+
+// Call api endpoint
+apiInstance.createUser(createScimUserJSONRequest).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createScimUserJSONRequest** | [**CreateScimUserJSONRequest**](CreateScimUserJSONRequest.md)|  | 
+
+### Return type
+
+[**CreatedScimUserJSONResponse**](CreatedScimUserJSONResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/scim+json
+- **Accept**: application/scim+json
+
+
+## deleteGroupById
+
+> deleteGroupById(groupId)
+
+Deletes a VRS role
+
+Deletes a VRS role
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new SCIMApi();
+const groupId = scimgroup1; // String | The ID of the group
+
+// Call api endpoint
+apiInstance.deleteGroupById(groupId).then(
+  () => {
+    console.log('API called successfully.');
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **String**| The ID of the group | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/scim+json
+
+
+## deleteUserById
+
+> deleteUserById(userId)
+
+Deletes a VRS user
+
+Deletes a VRS user (this marks them as &#39;Deleted&#39; in the database)
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new SCIMApi();
+const userId = scimuser1; // String | The ID of the user
+
+// Call api endpoint
+apiInstance.deleteUserById(userId).then(
+  () => {
+    console.log('API called successfully.');
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**| The ID of the user | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/scim+json
+
+
+## getAllGroups
+
+> ScimGroupListResponse getAllGroups(opts)
+
+Retrieves a list of VRS role
+
+Retrieves a VRS roles
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -59,8 +378,9 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.scimV2GroupsGet(opts).then(
+apiInstance.getAllGroups(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -94,373 +414,20 @@ Name | Type | Description  | Notes
 - **Accept**: application/scim+json
 
 
-## scimV2GroupsGroupIdDelete
+## getAllUsers
 
-> scimV2GroupsGroupIdDelete(groupId)
-
-Deletes a VRS role
-
-Deletes a VRS role
-
-### Example
-
-```javascript
-const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new SCIMApi();
-const groupId = "groupId_example"; // String | The ID of the group
-
-// Call api endpoint
-apiInstance.scimV2GroupsGroupIdDelete(groupId).then(
-  () => {
-    console.log('API called successfully.');
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **String**| The ID of the group | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json
-
-
-## scimV2GroupsGroupIdGet
-
-> ScimGroup scimV2GroupsGroupIdGet(groupId)
-
-Retrieves a VRS role
-
-Retrieves a VRS role based on the ID
-
-### Example
-
-```javascript
-const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new SCIMApi();
-const groupId = "groupId_example"; // String | The ID of the role
-
-// Call api endpoint
-apiInstance.scimV2GroupsGroupIdGet(groupId).then(
-  data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **String**| The ID of the role | 
-
-### Return type
-
-[**ScimGroup**](ScimGroup.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json
-
-
-## scimV2GroupsGroupIdPatch
-
-> ScimGroup scimV2GroupsGroupIdPatch(groupId, inlineObject2)
-
-Add or remove a user to/from a group
-
-Adds or removes a VRS user to/from a VRS role
-
-### Example
-
-```javascript
-const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new SCIMApi();
-const groupId = "groupId_example"; // String | The ID of the role
-const inlineObject2 = new vermilion.InlineObject2(); // InlineObject2 | 
-
-// Call api endpoint
-apiInstance.scimV2GroupsGroupIdPatch(groupId, inlineObject2).then(
-  data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **String**| The ID of the role | 
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
-
-### Return type
-
-[**ScimGroup**](ScimGroup.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
-
-
-## scimV2GroupsGroupIdPut
-
-> ScimGroup scimV2GroupsGroupIdPut(groupId, scimGroup)
-
-Updates a VRS Group
-
-Updates (replaces) a VRS Group with the properties in the JSON
-
-### Example
-
-```javascript
-const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new SCIMApi();
-const groupId = "groupId_example"; // String | The ID of the group
-const scimGroup = new vermilion.ScimGroup(); // ScimGroup | 
-
-// Call api endpoint
-apiInstance.scimV2GroupsGroupIdPut(groupId, scimGroup).then(
-  data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **String**| The ID of the group | 
- **scimGroup** | [**ScimGroup**](ScimGroup.md)|  | 
-
-### Return type
-
-[**ScimGroup**](ScimGroup.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
-
-
-## scimV2GroupsPost
-
-> ScimGroup scimV2GroupsPost(scimGroup)
-
-Creates a role
-
-Creates a VRS role
-
-### Example
-
-```javascript
-const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new SCIMApi();
-const scimGroup = new vermilion.ScimGroup(); // ScimGroup | 
-
-// Call api endpoint
-apiInstance.scimV2GroupsPost(scimGroup).then(
-  data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scimGroup** | [**ScimGroup**](ScimGroup.md)|  | 
-
-### Return type
-
-[**ScimGroup**](ScimGroup.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
-
-
-## scimV2UsersGet
-
-> ScimUserListResponse scimV2UsersGet(opts)
+> ScimUserListResponse getAllUsers(opts)
 
 Retrieves a list of VRS users
 
-Retrieves a VRS users
+Retrieves a list of VRS users
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
@@ -474,6 +441,8 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -492,8 +461,9 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.scimV2UsersGet(opts).then(
+apiInstance.getAllUsers(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -527,15 +497,20 @@ Name | Type | Description  | Notes
 - **Accept**: application/scim+json
 
 
-## scimV2UsersPost
+## getGroupById
 
-> CreatedScimUserJSONResponse scimV2UsersPost(createScimUserJSONRequest)
+> ScimGroup getGroupById(groupId)
 
-Creates a user
+Retrieves a VRS role
 
-Creates a VRS user
+Retrieves a VRS role based on the ID
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
@@ -549,6 +524,8 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -561,11 +538,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const createScimUserJSONRequest = new vermilion.CreateScimUserJSONRequest(); // CreateScimUserJSONRequest | 
+const groupId = scimgroup1; // String | The ID of the role
 
 // Call api endpoint
-apiInstance.scimV2UsersPost(createScimUserJSONRequest).then(
+apiInstance.getGroupById(groupId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -582,81 +560,11 @@ apiInstance.scimV2UsersPost(createScimUserJSONRequest).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createScimUserJSONRequest** | [**CreateScimUserJSONRequest**](CreateScimUserJSONRequest.md)|  | 
+ **groupId** | **String**| The ID of the role | 
 
 ### Return type
 
-[**CreatedScimUserJSONResponse**](CreatedScimUserJSONResponse.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
-
-
-## scimV2UsersUserIdDelete
-
-> scimV2UsersUserIdDelete(userId)
-
-Deletes a VRS user
-
-Deletes a VRS user (this marks them as &#39;Deleted&#39; in the database)
-
-### Example
-
-```javascript
-const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new SCIMApi();
-const userId = "userId_example"; // String | The ID of the user
-
-// Call api endpoint
-apiInstance.scimV2UsersUserIdDelete(userId).then(
-  () => {
-    console.log('API called successfully.');
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| The ID of the user | 
-
-### Return type
-
-null (empty response body)
+[**ScimGroup**](ScimGroup.md)
 
 ### Authorization
 
@@ -668,9 +576,9 @@ null (empty response body)
 - **Accept**: application/scim+json
 
 
-## scimV2UsersUserIdGet
+## getUserById
 
-> ScimUser scimV2UsersUserIdGet(userId)
+> ScimUser getUserById(userId)
 
 Retrieves a VRS User
 
@@ -678,6 +586,11 @@ Retrieves a VRS user based on their ID
 
 ### Example
 
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```javascript
 const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
 const { ConfidentialClient } = require('@factset/sdk-utils');
@@ -690,6 +603,8 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -702,11 +617,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const userId = "userId_example"; // String | The ID of the user
+const userId = scimuser1; // String | The ID of the user
 
 // Call api endpoint
-apiInstance.scimV2UsersUserIdGet(userId).then(
+apiInstance.getUserById(userId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -739,15 +655,20 @@ Name | Type | Description  | Notes
 - **Accept**: application/scim+json
 
 
-## scimV2UsersUserIdPatch
+## patchGroupById
 
-> ScimUser scimV2UsersUserIdPatch(userId, inlineObject1)
+> ScimGroup patchGroupById(groupId, scimGroupPatchRequestBody)
 
-Add or remove VRS user attributes
+Add or remove a user to/from a group
 
-Adds or removes VRS user attributes based on the JSON properties
+Adds or removes a VRS user to/from a VRS role
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
@@ -761,6 +682,8 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -773,12 +696,94 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const userId = "userId_example"; // String | The ID of the user
-const inlineObject1 = new vermilion.InlineObject1(); // InlineObject1 | 
+const groupId = scimgroup1; // String | The ID of the role
+const scimGroupPatchRequestBody = {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"add","path":"members","value":{"display":"Test user","$ref":"VRSAPI/scim/v2/Users/1","value":"1"}}]}; // ScimGroupPatchRequestBody | 
 
 // Call api endpoint
-apiInstance.scimV2UsersUserIdPatch(userId, inlineObject1).then(
+apiInstance.patchGroupById(groupId, scimGroupPatchRequestBody).then(
   data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **String**| The ID of the role | 
+ **scimGroupPatchRequestBody** | [**ScimGroupPatchRequestBody**](ScimGroupPatchRequestBody.md)|  | 
+
+### Return type
+
+[**ScimGroup**](ScimGroup.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/scim+json
+- **Accept**: application/scim+json
+
+
+## patchUserById
+
+> ScimUser patchUserById(userId, scimUserPatchRequestBody)
+
+Add or remove VRS user attributes
+
+Adds or removes VRS user attributes based on the JSON properties
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new SCIMApi();
+const userId = scimuser1; // String | The ID of the user
+const scimUserPatchRequestBody = {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","path":"name.formatted","value":"vrstestuser1"}]}; // ScimUserPatchRequestBody | 
+
+// Call api endpoint
+apiInstance.patchUserById(userId, scimUserPatchRequestBody).then(
+  data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -796,7 +801,7 @@ apiInstance.scimV2UsersUserIdPatch(userId, inlineObject1).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The ID of the user | 
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **scimUserPatchRequestBody** | [**ScimUserPatchRequestBody**](ScimUserPatchRequestBody.md)|  | 
 
 ### Return type
 
@@ -812,15 +817,20 @@ Name | Type | Description  | Notes
 - **Accept**: application/scim+json
 
 
-## scimV2UsersUserIdPut
+## updateGroupById
 
-> ScimUser scimV2UsersUserIdPut(userId, scimUser)
+> ScimGroup updateGroupById(groupId, scimGroup)
 
-Updates a VRS user
+Updates a VRS Group
 
-Updates (replaces) a VRS user with the properties in the JSON
+Updates (replaces) a VRS Group with the properties in the JSON
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
@@ -834,6 +844,8 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -846,12 +858,94 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SCIMApi();
-const userId = "userId_example"; // String | The ID of the user
-const scimUser = new vermilion.ScimUser(); // ScimUser | 
+const groupId = scimgroup1; // String | The ID of the group
+const scimGroup = {"displayName":"vrstestgroup","members":[{"value":"scimuser1","type":"user","$ref":"VRSAPI/scim/v2/Users/1"}],"tenant":"XXXXXXXXXX","domainCode":"XXXXXXXXXX"}; // ScimGroup | 
 
 // Call api endpoint
-apiInstance.scimV2UsersUserIdPut(userId, scimUser).then(
+apiInstance.updateGroupById(groupId, scimGroup).then(
   data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **String**| The ID of the group | 
+ **scimGroup** | [**ScimGroup**](ScimGroup.md)|  | 
+
+### Return type
+
+[**ScimGroup**](ScimGroup.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/scim+json
+- **Accept**: application/scim+json
+
+
+## updateUserById
+
+> ScimUser updateUserById(userId, scimUser)
+
+Updates a VRS user
+
+Updates (replaces) a VRS user with the properties in the JSON
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, SCIMApi } = require('@factset/sdk-vermilion');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new SCIMApi();
+const userId = scimuser1; // String | The ID of the user
+const scimUser = {"userName":"vrstestuser","name":{"formatted":"Vrstest User"},"userType":"Employee","active":true,"authenticatedUserName":"vrstestuser","tenant":"XXXXXXXXXX","emails":[{"value":"xyz@email.com","type":"work","primary":true}],"phoneNumbers":[{"value":"1234567890","type":"work","primary":true}],"domainCode":"XXXXXXXXXX"}; // ScimUser | 
+
+// Call api endpoint
+apiInstance.updateUserById(userId, scimUser).then(
+  data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

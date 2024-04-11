@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instanceId** | **Number** |  | [optional] 
-**instanceType** | **Number** |  | [optional] 
+**dstInstanceId** | **Number** |  | [optional] 
+**dstInstanceType** | **String** |  | [optional] 
 **rows** | [**[DataSourceInstanceRows]**](DataSourceInstanceRows.md) |  | [optional] 
 
 

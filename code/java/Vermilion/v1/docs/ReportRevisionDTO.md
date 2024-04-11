@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **signOffStatus** | [**SignOffStatusEnum**](#SignOffStatusEnum) |  |  [optional]
 **signOffNotes** | **String** |  |  [optional]
 **reportReasonCd** | **String** |  |  [optional]
+**description** | **String** |  |  [optional]
+**languageCode** | **String** |  |  [optional]
 **outputFormat** | **String** |  |  [optional]
 **percentageComplete** | **Integer** |  |  [optional]
 
@@ -27,6 +29,7 @@ STARTING | &quot;STARTING&quot;
 RETRIEVING_REQUEST | &quot;RETRIEVING_REQUEST&quot;
 CONTENT_FILTER | &quot;CONTENT_FILTER&quot;
 STYLE_PROCESSING | &quot;STYLE_PROCESSING&quot;
+STYLE_PREPROCESSING | &quot;STYLE_PREPROCESSING&quot;
 RULE_PROCESSING | &quot;RULE_PROCESSING&quot;
 GETTING_DATA | &quot;GETTING_DATA&quot;
 RI_PROCESSING | &quot;RI_PROCESSING&quot;
@@ -41,7 +44,10 @@ TOC_PROCESSING_STATUS | &quot;TOC_PROCESSING_STATUS&quot;
 COMPONENT_PROCESSING | &quot;COMPONENT_PROCESSING&quot;
 POST_PROCESSING | &quot;POST_PROCESSING&quot;
 POSTING_TO_WRS | &quot;POSTING_TO_WRS&quot;
+POSTED_TO_WRS | &quot;POSTED_TO_WRS&quot;
 RENDERING | &quot;RENDERING&quot;
+DOC_CREATION | &quot;DOC_CREATION&quot;
+PDF_CONVERSION | &quot;PDF_CONVERSION&quot;
 ABORTED | &quot;ABORTED&quot;
 COMPLETED | &quot;COMPLETED&quot;
 COMPLETED_CAUTIONS | &quot;COMPLETED_CAUTIONS&quot;

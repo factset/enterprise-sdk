@@ -7,12 +7,11 @@ import com.factset.sdk.Vermilion.Configuration;
 import com.factset.sdk.Vermilion.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.factset.sdk.Vermilion.models.InlineResponse4002;
-import com.factset.sdk.Vermilion.models.InlineResponse401;
-import com.factset.sdk.Vermilion.models.InlineResponse403;
-import com.factset.sdk.Vermilion.models.InlineResponse4042;
-import com.factset.sdk.Vermilion.models.InlineResponse406;
+import com.factset.sdk.Vermilion.models.ErrorList;
 import com.factset.sdk.Vermilion.models.ReportDefinitionData;
 import com.factset.sdk.Vermilion.models.ReportDefinitionList;
 
@@ -27,6 +26,28 @@ public class ReportApi {
   public ReportApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+  
+  private static final Map<Integer, GenericType> getAllReportDefinitionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAllReportDefinitionsResponseTypeMap.put(200, new GenericType<ReportDefinitionList>(){});
+    getAllReportDefinitionsResponseTypeMap.put(400, new GenericType<ErrorList>(){});
+    getAllReportDefinitionsResponseTypeMap.put(401, new GenericType<ErrorList>(){});
+    getAllReportDefinitionsResponseTypeMap.put(403, new GenericType<ErrorList>(){});
+    getAllReportDefinitionsResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+  }
+
+  private static final Map<Integer, GenericType> getReportDefinitionByCodeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getReportDefinitionByCodeResponseTypeMap.put(200, new GenericType<ReportDefinitionData>(){});
+    getReportDefinitionByCodeResponseTypeMap.put(400, new GenericType<ErrorList>(){});
+    getReportDefinitionByCodeResponseTypeMap.put(401, new GenericType<ErrorList>(){});
+    getReportDefinitionByCodeResponseTypeMap.put(403, new GenericType<ErrorList>(){});
+    getReportDefinitionByCodeResponseTypeMap.put(404, new GenericType<ErrorList>(){});
+    getReportDefinitionByCodeResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+  }
+
+  
+
 
   /**
    * Get the API client
@@ -53,7 +74,7 @@ public class ReportApi {
    * @param sort The column to sort on. Can add - to sort (optional)
    * @param paginationLimit Non-negative maximum number of entries to return (optional)
    * @param paginationOffset Non-negative number of entries to skip (optional)
-   * @return java.util.List&lt;ReportDefinitionList&gt;
+   * @return ReportDefinitionList
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -65,8 +86,8 @@ public class ReportApi {
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<ReportDefinitionList> v1TenantReportsGet(String tenant, String sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
-    return v1TenantReportsGetWithHttpInfo(tenant, sort, paginationLimit, paginationOffset).getData();
+  public ReportDefinitionList getAllReportDefinitions(String tenant, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getAllReportDefinitionsWithHttpInfo(tenant, sort, paginationLimit, paginationOffset).getData();
   }
 
   /**
@@ -76,7 +97,7 @@ public class ReportApi {
    * @param sort The column to sort on. Can add - to sort (optional)
    * @param paginationLimit Non-negative maximum number of entries to return (optional)
    * @param paginationOffset Non-negative number of entries to skip (optional)
-   * @return ApiResponse&lt;java.util.List&lt;ReportDefinitionList&gt;&gt;
+   * @return ApiResponse&lt;ReportDefinitionList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -88,12 +109,12 @@ public class ReportApi {
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<ReportDefinitionList>> v1TenantReportsGetWithHttpInfo(String tenant, String sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+  public ApiResponse<ReportDefinitionList> getAllReportDefinitionsWithHttpInfo(String tenant, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling v1TenantReportsGet");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getAllReportDefinitions");
     }
     
     // create path and map variables
@@ -106,7 +127,7 @@ public class ReportApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
 
@@ -125,11 +146,17 @@ public class ReportApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<ReportDefinitionList>> localVarReturnType = new GenericType<java.util.List<ReportDefinitionList>>() {};
 
-    return apiClient.invokeAPI("ReportApi.v1TenantReportsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReportDefinitionList
+      
+    > apiResponse = apiClient.invokeAPI("ReportApi.getAllReportDefinitions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAllReportDefinitionsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets a report definition
@@ -149,8 +176,8 @@ public class ReportApi {
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
      </table>
    */
-  public ReportDefinitionData v1TenantReportsReportDefinitionCodeGet(String tenant, String reportDefinitionCode) throws ApiException {
-    return v1TenantReportsReportDefinitionCodeGetWithHttpInfo(tenant, reportDefinitionCode).getData();
+  public ReportDefinitionData getReportDefinitionByCode(String tenant, String reportDefinitionCode) throws ApiException {
+    return getReportDefinitionByCodeWithHttpInfo(tenant, reportDefinitionCode).getData();
   }
 
   /**
@@ -171,17 +198,17 @@ public class ReportApi {
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ReportDefinitionData> v1TenantReportsReportDefinitionCodeGetWithHttpInfo(String tenant, String reportDefinitionCode) throws ApiException {
+  public ApiResponse<ReportDefinitionData> getReportDefinitionByCodeWithHttpInfo(String tenant, String reportDefinitionCode) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling v1TenantReportsReportDefinitionCodeGet");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getReportDefinitionByCode");
     }
     
     // verify the required parameter 'reportDefinitionCode' is set
     if (reportDefinitionCode == null) {
-      throw new ApiException(400, "Missing the required parameter 'reportDefinitionCode' when calling v1TenantReportsReportDefinitionCodeGet");
+      throw new ApiException(400, "Missing the required parameter 'reportDefinitionCode' when calling getReportDefinitionByCode");
     }
     
     // create path and map variables
@@ -211,10 +238,16 @@ public class ReportApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReportDefinitionData> localVarReturnType = new GenericType<ReportDefinitionData>() {};
 
-    return apiClient.invokeAPI("ReportApi.v1TenantReportsReportDefinitionCodeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReportDefinitionData
+      
+    > apiResponse = apiClient.invokeAPI("ReportApi.getReportDefinitionByCode", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getReportDefinitionByCodeResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

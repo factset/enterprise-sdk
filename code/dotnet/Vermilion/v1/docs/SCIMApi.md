@@ -4,486 +4,36 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ScimV2GroupsGet**](SCIMApi.md#scimv2groupsget) | **GET** /scim/v2/Groups/ | Retrieves a list of VRS role
-[**ScimV2GroupsGroupIdDelete**](SCIMApi.md#scimv2groupsgroupiddelete) | **DELETE** /scim/v2/Groups/{groupId} | Deletes a VRS role
-[**ScimV2GroupsGroupIdGet**](SCIMApi.md#scimv2groupsgroupidget) | **GET** /scim/v2/Groups/{groupId} | Retrieves a VRS role
-[**ScimV2GroupsGroupIdPatch**](SCIMApi.md#scimv2groupsgroupidpatch) | **PATCH** /scim/v2/Groups/{groupId} | Add or remove a user to/from a group
-[**ScimV2GroupsGroupIdPut**](SCIMApi.md#scimv2groupsgroupidput) | **PUT** /scim/v2/Groups/{groupId} | Updates a VRS Group
-[**ScimV2GroupsPost**](SCIMApi.md#scimv2groupspost) | **POST** /scim/v2/Groups/ | Creates a role
-[**ScimV2UsersGet**](SCIMApi.md#scimv2usersget) | **GET** /scim/v2/Users/ | Retrieves a list of VRS users
-[**ScimV2UsersPost**](SCIMApi.md#scimv2userspost) | **POST** /scim/v2/Users/ | Creates a user
-[**ScimV2UsersUserIdDelete**](SCIMApi.md#scimv2usersuseriddelete) | **DELETE** /scim/v2/Users/{userId} | Deletes a VRS user
-[**ScimV2UsersUserIdGet**](SCIMApi.md#scimv2usersuseridget) | **GET** /scim/v2/Users/{userId} | Retrieves a VRS User
-[**ScimV2UsersUserIdPatch**](SCIMApi.md#scimv2usersuseridpatch) | **PATCH** /scim/v2/Users/{userId} | Add or remove VRS user attributes
-[**ScimV2UsersUserIdPut**](SCIMApi.md#scimv2usersuseridput) | **PUT** /scim/v2/Users/{userId} | Updates a VRS user
-
-
-<a name="scimv2groupsget"></a>
-# **ScimV2GroupsGet**
-> ScimGroupListResponse ScimV2GroupsGet (int? count = null, int? startIndex = null)
-
-Retrieves a list of VRS role
-
-Retrieves a VRS roles
-
-### Example
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.Vermilion.Api;
-using FactSet.SDK.Vermilion.Client;
-using FactSet.SDK.Vermilion.Model;
-
-namespace Example
-{
-    public class ScimV2GroupsGetExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new SCIMApi(config);
-            var count = 25;  // int? | Non-negative maximum number of entries to return (optional) 
-            var startIndex = 1;  // int? | The 1-based index of the first query result (optional) 
-
-            try
-            {
-                // Retrieves a list of VRS role
-                ScimGroupListResponse result = apiInstance.ScimV2GroupsGet(count, startIndex);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2GroupsGet: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **count** | **int?**| Non-negative maximum number of entries to return | [optional] 
- **startIndex** | **int?**| The 1-based index of the first query result | [optional] 
-
-### Return type
-
-[**ScimGroupListResponse**](ScimGroupListResponse.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **403** | Forbidden, user does not have permission to view roles |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="scimv2groupsgroupiddelete"></a>
-# **ScimV2GroupsGroupIdDelete**
-> void ScimV2GroupsGroupIdDelete (string groupId)
-
-Deletes a VRS role
-
-Deletes a VRS role
-
-### Example
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.Vermilion.Api;
-using FactSet.SDK.Vermilion.Client;
-using FactSet.SDK.Vermilion.Model;
-
-namespace Example
-{
-    public class ScimV2GroupsGroupIdDeleteExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new SCIMApi(config);
-            var groupId = "groupId_example";  // string | The ID of the group
-
-            try
-            {
-                // Deletes a VRS role
-                apiInstance.ScimV2GroupsGroupIdDelete(groupId);
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2GroupsGroupIdDelete: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The ID of the group | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **403** | Forbidden, user does not have permission to delete roles |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="scimv2groupsgroupidget"></a>
-# **ScimV2GroupsGroupIdGet**
-> ScimGroup ScimV2GroupsGroupIdGet (string groupId)
-
-Retrieves a VRS role
-
-Retrieves a VRS role based on the ID
-
-### Example
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.Vermilion.Api;
-using FactSet.SDK.Vermilion.Client;
-using FactSet.SDK.Vermilion.Model;
-
-namespace Example
-{
-    public class ScimV2GroupsGroupIdGetExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new SCIMApi(config);
-            var groupId = "groupId_example";  // string | The ID of the role
-
-            try
-            {
-                // Retrieves a VRS role
-                ScimGroup result = apiInstance.ScimV2GroupsGroupIdGet(groupId);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2GroupsGroupIdGet: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The ID of the role | 
-
-### Return type
-
-[**ScimGroup**](ScimGroup.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful operation |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
-| **403** | Forbidden, user does not have permission to view roles |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="scimv2groupsgroupidpatch"></a>
-# **ScimV2GroupsGroupIdPatch**
-> ScimGroup ScimV2GroupsGroupIdPatch (string groupId, InlineObject2 inlineObject2)
-
-Add or remove a user to/from a group
-
-Adds or removes a VRS user to/from a VRS role
-
-### Example
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.Vermilion.Api;
-using FactSet.SDK.Vermilion.Client;
-using FactSet.SDK.Vermilion.Model;
-
-namespace Example
-{
-    public class ScimV2GroupsGroupIdPatchExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new SCIMApi(config);
-            var groupId = "groupId_example";  // string | The ID of the role
-            var inlineObject2 = new InlineObject2(); // InlineObject2 | 
-
-            try
-            {
-                // Add or remove a user to/from a group
-                ScimGroup result = apiInstance.ScimV2GroupsGroupIdPatch(groupId, inlineObject2);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2GroupsGroupIdPatch: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The ID of the role | 
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
-
-### Return type
-
-[**ScimGroup**](ScimGroup.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/scim+json
- - **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Successfully added user to group |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="scimv2groupsgroupidput"></a>
-# **ScimV2GroupsGroupIdPut**
-> ScimGroup ScimV2GroupsGroupIdPut (string groupId, ScimGroup scimGroup)
-
-Updates a VRS Group
-
-Updates (replaces) a VRS Group with the properties in the JSON
-
-### Example
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.Vermilion.Api;
-using FactSet.SDK.Vermilion.Client;
-using FactSet.SDK.Vermilion.Model;
-
-namespace Example
-{
-    public class ScimV2GroupsGroupIdPutExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new SCIMApi(config);
-            var groupId = "groupId_example";  // string | The ID of the group
-            var scimGroup = new ScimGroup(); // ScimGroup | 
-
-            try
-            {
-                // Updates a VRS Group
-                ScimGroup result = apiInstance.ScimV2GroupsGroupIdPut(groupId, scimGroup);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2GroupsGroupIdPut: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The ID of the group | 
- **scimGroup** | [**ScimGroup**](ScimGroup.md)|  | 
-
-### Return type
-
-[**ScimGroup**](ScimGroup.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/scim+json
- - **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully updated group |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
-| **403** | Forbidden, user does not have permission to update groups |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="scimv2groupspost"></a>
-# **ScimV2GroupsPost**
-> ScimGroup ScimV2GroupsPost (ScimGroup scimGroup)
+[**CreateGroup**](SCIMApi.md#creategroup) | **POST** /scim/v2/Groups | Creates a role
+[**CreateUser**](SCIMApi.md#createuser) | **POST** /scim/v2/Users | Creates a user
+[**DeleteGroupById**](SCIMApi.md#deletegroupbyid) | **DELETE** /scim/v2/Groups/{groupId} | Deletes a VRS role
+[**DeleteUserById**](SCIMApi.md#deleteuserbyid) | **DELETE** /scim/v2/Users/{userId} | Deletes a VRS user
+[**GetAllGroups**](SCIMApi.md#getallgroups) | **GET** /scim/v2/Groups | Retrieves a list of VRS role
+[**GetAllUsers**](SCIMApi.md#getallusers) | **GET** /scim/v2/Users | Retrieves a list of VRS users
+[**GetGroupById**](SCIMApi.md#getgroupbyid) | **GET** /scim/v2/Groups/{groupId} | Retrieves a VRS role
+[**GetUserById**](SCIMApi.md#getuserbyid) | **GET** /scim/v2/Users/{userId} | Retrieves a VRS User
+[**PatchGroupById**](SCIMApi.md#patchgroupbyid) | **PATCH** /scim/v2/Groups/{groupId} | Add or remove a user to/from a group
+[**PatchUserById**](SCIMApi.md#patchuserbyid) | **PATCH** /scim/v2/Users/{userId} | Add or remove VRS user attributes
+[**UpdateGroupById**](SCIMApi.md#updategroupbyid) | **PUT** /scim/v2/Groups/{groupId} | Updates a VRS Group
+[**UpdateUserById**](SCIMApi.md#updateuserbyid) | **PUT** /scim/v2/Users/{userId} | Updates a VRS user
+
+
+
+<a name="creategroup"></a>
+# **CreateGroup**
+> ScimGroup CreateGroup (ScimGroup scimGroup)
 
 Creates a role
 
 Creates a VRS role
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -494,11 +44,11 @@ using FactSet.SDK.Vermilion.Model;
 
 namespace Example
 {
-    public class ScimV2GroupsPostExample
+    public class CreateGroupExample
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -506,6 +56,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -518,17 +70,18 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SCIMApi(config);
+
             var scimGroup = new ScimGroup(); // ScimGroup | 
 
             try
             {
                 // Creates a role
-                ScimGroup result = apiInstance.ScimV2GroupsPost(scimGroup);
+                ScimGroup result = apiInstance.CreateGroup(scimGroup);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2GroupsPost: " + e.Message );
+                Console.WriteLine("Exception when calling SCIMApi.CreateGroup: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -544,7 +97,6 @@ Name | Type | Description  | Notes
  **scimGroup** | [**ScimGroup**](ScimGroup.md)|  | 
 
 ### Return type
-
 [**ScimGroup**](ScimGroup.md)
 
 ### Authorization
@@ -566,107 +118,22 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="scimv2usersget"></a>
-# **ScimV2UsersGet**
-> ScimUserListResponse ScimV2UsersGet (int? count = null, int? startIndex = null)
 
-Retrieves a list of VRS users
-
-Retrieves a VRS users
-
-### Example
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.Vermilion.Api;
-using FactSet.SDK.Vermilion.Client;
-using FactSet.SDK.Vermilion.Model;
-
-namespace Example
-{
-    public class ScimV2UsersGetExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new SCIMApi(config);
-            var count = 25;  // int? | Non-negative maximum number of entries to return (optional) 
-            var startIndex = 1;  // int? | The 1-based index of the first query result (optional) 
-
-            try
-            {
-                // Retrieves a list of VRS users
-                ScimUserListResponse result = apiInstance.ScimV2UsersGet(count, startIndex);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2UsersGet: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **count** | **int?**| Non-negative maximum number of entries to return | [optional] 
- **startIndex** | **int?**| The 1-based index of the first query result | [optional] 
-
-### Return type
-
-[**ScimUserListResponse**](ScimUserListResponse.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **403** | Forbidden, user does not have permission to view users |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="scimv2userspost"></a>
-# **ScimV2UsersPost**
-> CreatedScimUserJSONResponse ScimV2UsersPost (CreateScimUserJSONRequest createScimUserJSONRequest)
+<a name="createuser"></a>
+# **CreateUser**
+> CreatedScimUserJSONResponse CreateUser (CreateScimUserJSONRequest createScimUserJSONRequest)
 
 Creates a user
 
 Creates a VRS user
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -677,11 +144,11 @@ using FactSet.SDK.Vermilion.Model;
 
 namespace Example
 {
-    public class ScimV2UsersPostExample
+    public class CreateUserExample
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -689,6 +156,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -701,17 +170,18 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SCIMApi(config);
+
             var createScimUserJSONRequest = new CreateScimUserJSONRequest(); // CreateScimUserJSONRequest | 
 
             try
             {
                 // Creates a user
-                CreatedScimUserJSONResponse result = apiInstance.ScimV2UsersPost(createScimUserJSONRequest);
+                CreatedScimUserJSONResponse result = apiInstance.CreateUser(createScimUserJSONRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2UsersPost: " + e.Message );
+                Console.WriteLine("Exception when calling SCIMApi.CreateUser: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -727,7 +197,6 @@ Name | Type | Description  | Notes
  **createScimUserJSONRequest** | [**CreateScimUserJSONRequest**](CreateScimUserJSONRequest.md)|  | 
 
 ### Return type
-
 [**CreatedScimUserJSONResponse**](CreatedScimUserJSONResponse.md)
 
 ### Authorization
@@ -750,15 +219,22 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="scimv2usersuseriddelete"></a>
-# **ScimV2UsersUserIdDelete**
-> void ScimV2UsersUserIdDelete (string userId)
 
-Deletes a VRS user
+<a name="deletegroupbyid"></a>
+# **DeleteGroupById**
+> void DeleteGroupById (string groupId)
 
-Deletes a VRS user (this marks them as 'Deleted' in the database)
+Deletes a VRS role
+
+Deletes a VRS role
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -769,11 +245,11 @@ using FactSet.SDK.Vermilion.Model;
 
 namespace Example
 {
-    public class ScimV2UsersUserIdDeleteExample
+    public class DeleteGroupByIdExample
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -781,6 +257,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -793,16 +271,116 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SCIMApi(config);
-            var userId = "userId_example";  // string | The ID of the user
+
+            var groupId = "scimgroup1";  // string | The ID of the group
+
+            try
+            {
+                // Deletes a VRS role
+                apiInstance.DeleteGroupById(groupId);
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling SCIMApi.DeleteGroupById: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **string**| The ID of the group | 
+
+### Return type
+void (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/scim+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden, user does not have permission to delete roles |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="deleteuserbyid"></a>
+# **DeleteUserById**
+> void DeleteUserById (string userId)
+
+Deletes a VRS user
+
+Deletes a VRS user (this marks them as 'Deleted' in the database)
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.Vermilion.Api;
+using FactSet.SDK.Vermilion.Client;
+using FactSet.SDK.Vermilion.Model;
+
+namespace Example
+{
+    public class DeleteUserByIdExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new SCIMApi(config);
+
+            var userId = "scimuser1";  // string | The ID of the user
 
             try
             {
                 // Deletes a VRS user
-                apiInstance.ScimV2UsersUserIdDelete(userId);
+                apiInstance.DeleteUserById(userId);
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2UsersUserIdDelete: " + e.Message );
+                Console.WriteLine("Exception when calling SCIMApi.DeleteUserById: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -818,7 +396,6 @@ Name | Type | Description  | Notes
  **userId** | **string**| The ID of the user | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -840,15 +417,22 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="scimv2usersuseridget"></a>
-# **ScimV2UsersUserIdGet**
-> ScimUser ScimV2UsersUserIdGet (string userId)
 
-Retrieves a VRS User
+<a name="getallgroups"></a>
+# **GetAllGroups**
+> ScimGroupListResponse GetAllGroups (int? count = null, int? startIndex = null)
 
-Retrieves a VRS user based on their ID
+Retrieves a list of VRS role
+
+Retrieves a VRS roles
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -859,11 +443,11 @@ using FactSet.SDK.Vermilion.Model;
 
 namespace Example
 {
-    public class ScimV2UsersUserIdGetExample
+    public class GetAllGroupsExample
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -871,6 +455,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -883,17 +469,320 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SCIMApi(config);
-            var userId = "userId_example";  // string | The ID of the user
+
+            var count = 25;  // int? | Non-negative maximum number of entries to return (optional) 
+            var startIndex = 1;  // int? | The 1-based index of the first query result (optional) 
 
             try
             {
-                // Retrieves a VRS User
-                ScimUser result = apiInstance.ScimV2UsersUserIdGet(userId);
+                // Retrieves a list of VRS role
+                ScimGroupListResponse result = apiInstance.GetAllGroups(count, startIndex);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2UsersUserIdGet: " + e.Message );
+                Console.WriteLine("Exception when calling SCIMApi.GetAllGroups: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **count** | **int?**| Non-negative maximum number of entries to return | [optional] 
+ **startIndex** | **int?**| The 1-based index of the first query result | [optional] 
+
+### Return type
+[**ScimGroupListResponse**](ScimGroupListResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/scim+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **403** | Forbidden, user does not have permission to view roles |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="getallusers"></a>
+# **GetAllUsers**
+> ScimUserListResponse GetAllUsers (int? count = null, int? startIndex = null)
+
+Retrieves a list of VRS users
+
+Retrieves a list of VRS users
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.Vermilion.Api;
+using FactSet.SDK.Vermilion.Client;
+using FactSet.SDK.Vermilion.Model;
+
+namespace Example
+{
+    public class GetAllUsersExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new SCIMApi(config);
+
+            var count = 25;  // int? | Non-negative maximum number of entries to return (optional) 
+            var startIndex = 1;  // int? | The 1-based index of the first query result (optional) 
+
+            try
+            {
+                // Retrieves a list of VRS users
+                ScimUserListResponse result = apiInstance.GetAllUsers(count, startIndex);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling SCIMApi.GetAllUsers: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **count** | **int?**| Non-negative maximum number of entries to return | [optional] 
+ **startIndex** | **int?**| The 1-based index of the first query result | [optional] 
+
+### Return type
+[**ScimUserListResponse**](ScimUserListResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/scim+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **403** | Forbidden, user does not have permission to view users |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="getgroupbyid"></a>
+# **GetGroupById**
+> ScimGroup GetGroupById (string groupId)
+
+Retrieves a VRS role
+
+Retrieves a VRS role based on the ID
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.Vermilion.Api;
+using FactSet.SDK.Vermilion.Client;
+using FactSet.SDK.Vermilion.Model;
+
+namespace Example
+{
+    public class GetGroupByIdExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new SCIMApi(config);
+
+            var groupId = "scimgroup1";  // string | The ID of the role
+
+            try
+            {
+                // Retrieves a VRS role
+                ScimGroup result = apiInstance.GetGroupById(groupId);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling SCIMApi.GetGroupById: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **string**| The ID of the role | 
+
+### Return type
+[**ScimGroup**](ScimGroup.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/scim+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
+| **403** | Forbidden, user does not have permission to view roles |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="getuserbyid"></a>
+# **GetUserById**
+> ScimUser GetUserById (string userId)
+
+Retrieves a VRS User
+
+Retrieves a VRS user based on their ID
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.Vermilion.Api;
+using FactSet.SDK.Vermilion.Client;
+using FactSet.SDK.Vermilion.Model;
+
+namespace Example
+{
+    public class GetUserByIdExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new SCIMApi(config);
+
+            var userId = "scimuser1";  // string | The ID of the user
+
+            try
+            {
+                // Retrieves a VRS User
+                ScimUser result = apiInstance.GetUserById(userId);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling SCIMApi.GetUserById: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -909,7 +798,6 @@ Name | Type | Description  | Notes
  **userId** | **string**| The ID of the user | 
 
 ### Return type
-
 [**ScimUser**](ScimUser.md)
 
 ### Authorization
@@ -931,15 +819,22 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="scimv2usersuseridpatch"></a>
-# **ScimV2UsersUserIdPatch**
-> ScimUser ScimV2UsersUserIdPatch (string userId, InlineObject1 inlineObject1)
 
-Add or remove VRS user attributes
+<a name="patchgroupbyid"></a>
+# **PatchGroupById**
+> ScimGroup PatchGroupById (string groupId, ScimGroupPatchRequestBody scimGroupPatchRequestBody)
 
-Adds or removes VRS user attributes based on the JSON properties
+Add or remove a user to/from a group
+
+Adds or removes a VRS user to/from a VRS role
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -950,11 +845,11 @@ using FactSet.SDK.Vermilion.Model;
 
 namespace Example
 {
-    public class ScimV2UsersUserIdPatchExample
+    public class PatchGroupByIdExample
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -962,6 +857,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -974,18 +871,119 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SCIMApi(config);
-            var userId = "userId_example";  // string | The ID of the user
-            var inlineObject1 = new InlineObject1(); // InlineObject1 | 
+
+            var groupId = "scimgroup1";  // string | The ID of the role
+            var scimGroupPatchRequestBody = new ScimGroupPatchRequestBody(); // ScimGroupPatchRequestBody | 
 
             try
             {
-                // Add or remove VRS user attributes
-                ScimUser result = apiInstance.ScimV2UsersUserIdPatch(userId, inlineObject1);
+                // Add or remove a user to/from a group
+                ScimGroup result = apiInstance.PatchGroupById(groupId, scimGroupPatchRequestBody);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2UsersUserIdPatch: " + e.Message );
+                Console.WriteLine("Exception when calling SCIMApi.PatchGroupById: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **string**| The ID of the role | 
+ **scimGroupPatchRequestBody** | [**ScimGroupPatchRequestBody**](ScimGroupPatchRequestBody.md)|  | 
+
+### Return type
+[**ScimGroup**](ScimGroup.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/scim+json
+ - **Accept**: application/scim+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully added user to group |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="patchuserbyid"></a>
+# **PatchUserById**
+> ScimUser PatchUserById (string userId, ScimUserPatchRequestBody scimUserPatchRequestBody)
+
+Add or remove VRS user attributes
+
+Adds or removes VRS user attributes based on the JSON properties
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.Vermilion.Api;
+using FactSet.SDK.Vermilion.Client;
+using FactSet.SDK.Vermilion.Model;
+
+namespace Example
+{
+    public class PatchUserByIdExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new SCIMApi(config);
+
+            var userId = "scimuser1";  // string | The ID of the user
+            var scimUserPatchRequestBody = new ScimUserPatchRequestBody(); // ScimUserPatchRequestBody | 
+
+            try
+            {
+                // Add or remove VRS user attributes
+                ScimUser result = apiInstance.PatchUserById(userId, scimUserPatchRequestBody);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling SCIMApi.PatchUserById: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -999,10 +997,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| The ID of the user | 
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **scimUserPatchRequestBody** | [**ScimUserPatchRequestBody**](ScimUserPatchRequestBody.md)|  | 
 
 ### Return type
-
 [**ScimUser**](ScimUser.md)
 
 ### Authorization
@@ -1024,15 +1021,22 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="scimv2usersuseridput"></a>
-# **ScimV2UsersUserIdPut**
-> ScimUser ScimV2UsersUserIdPut (string userId, ScimUser scimUser)
 
-Updates a VRS user
+<a name="updategroupbyid"></a>
+# **UpdateGroupById**
+> ScimGroup UpdateGroupById (string groupId, ScimGroup scimGroup)
 
-Updates (replaces) a VRS user with the properties in the JSON
+Updates a VRS Group
+
+Updates (replaces) a VRS Group with the properties in the JSON
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -1043,11 +1047,11 @@ using FactSet.SDK.Vermilion.Model;
 
 namespace Example
 {
-    public class ScimV2UsersUserIdPutExample
+    public class UpdateGroupByIdExample
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -1055,6 +1059,8 @@ namespace Example
             /* (Preferred) OAuth 2.0: FactSetOAuth2 */
             // See https://github.com/FactSet/enterprise-sdk#oauth-20
             // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
             // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
             // for more information on using the ConfidentialClient class
             ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
@@ -1067,18 +1073,121 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SCIMApi(config);
-            var userId = "userId_example";  // string | The ID of the user
+
+            var groupId = "scimgroup1";  // string | The ID of the group
+            var scimGroup = new ScimGroup(); // ScimGroup | 
+
+            try
+            {
+                // Updates a VRS Group
+                ScimGroup result = apiInstance.UpdateGroupById(groupId, scimGroup);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling SCIMApi.UpdateGroupById: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **string**| The ID of the group | 
+ **scimGroup** | [**ScimGroup**](ScimGroup.md)|  | 
+
+### Return type
+[**ScimGroup**](ScimGroup.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/scim+json
+ - **Accept**: application/scim+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully updated group |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
+| **403** | Forbidden, user does not have permission to update groups |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="updateuserbyid"></a>
+# **UpdateUserById**
+> ScimUser UpdateUserById (string userId, ScimUser scimUser)
+
+Updates a VRS user
+
+Updates (replaces) a VRS user with the properties in the JSON
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.Vermilion.Api;
+using FactSet.SDK.Vermilion.Client;
+using FactSet.SDK.Vermilion.Model;
+
+namespace Example
+{
+    public class UpdateUserByIdExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.Vermilion.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new SCIMApi(config);
+
+            var userId = "scimuser1";  // string | The ID of the user
             var scimUser = new ScimUser(); // ScimUser | 
 
             try
             {
                 // Updates a VRS user
-                ScimUser result = apiInstance.ScimV2UsersUserIdPut(userId, scimUser);
+                ScimUser result = apiInstance.UpdateUserById(userId, scimUser);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling SCIMApi.ScimV2UsersUserIdPut: " + e.Message );
+                Console.WriteLine("Exception when calling SCIMApi.UpdateUserById: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -1095,7 +1204,6 @@ Name | Type | Description  | Notes
  **scimUser** | [**ScimUser**](ScimUser.md)|  | 
 
 ### Return type
-
 [**ScimUser**](ScimUser.md)
 
 ### Authorization
@@ -1116,4 +1224,5 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

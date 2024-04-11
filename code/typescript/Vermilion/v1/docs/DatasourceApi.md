@@ -4,21 +4,26 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1TenantDataSourcesDataSourceCodeDataGet**](DatasourceApi.md#v1TenantDataSourcesDataSourceCodeDataGet) | **GET** /v1/{tenant}/data-sources/{dataSourceCode}/data | Gets the data for the datasource
-[**v1TenantDataSourcesDataSourceCodeGet**](DatasourceApi.md#v1TenantDataSourcesDataSourceCodeGet) | **GET** /v1/{tenant}/data-sources/{dataSourceCode} | Gets a datasource
-[**v1TenantDataSourcesGet**](DatasourceApi.md#v1TenantDataSourcesGet) | **GET** /v1/{tenant}/data-sources | Lists all datasources
+[**getAllDataSources**](DatasourceApi.md#getAllDataSources) | **GET** /v1/{tenant}/data-sources | Lists all datasources
+[**getDataSourceByCode**](DatasourceApi.md#getDataSourceByCode) | **GET** /v1/{tenant}/data-sources/{dataSourceCode} | Gets a datasource
+[**getDataSourceData**](DatasourceApi.md#getDataSourceData) | **GET** /v1/{tenant}/data-sources/{dataSourceCode}/data | Gets the data for the datasource
 
 
 
-## v1TenantDataSourcesDataSourceCodeDataGet
+## getAllDataSources
 
-> [DataSourceDataInstance] v1TenantDataSourcesDataSourceCodeDataGet(tenant, dataSourceCode, opts)
+> DataSourceList getAllDataSources(tenant, opts)
 
-Gets the data for the datasource
+Lists all datasources
 
-Gets the data for the datasource. There are optional query parameters to filter the da
+List all datasources the user has permission to see
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DatasourceApi } = require('@factset/sdk-vermilion');
@@ -32,6 +37,8 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -44,16 +51,17 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DatasourceApi();
-const tenant = "tenant_example"; // String | The code of the tenancy
-const dataSourceCode = "dataSourceCode_example"; // String | The code of the datasource
+const tenant = XXXXXXXXXX; // String | The code of the tenancy
 const opts = {
-  'entityCodes': "entityCodes_example", // String | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS
-  'entityKeys': "entityKeys_example" // String | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2
+  'sort': ["name"], // [String] | The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done
+  'paginationLimit': 25, // Number | Non-negative maximum number of entries to return. Default is 25
+  'paginationOffset': 0 // Number | Non-negative number of entries to skip. Default is 0
 };
 
 // Call api endpoint
-apiInstance.v1TenantDataSourcesDataSourceCodeDataGet(tenant, dataSourceCode, opts).then(
+apiInstance.getAllDataSources(tenant, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -71,13 +79,13 @@ apiInstance.v1TenantDataSourcesDataSourceCodeDataGet(tenant, dataSourceCode, opt
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **String**| The code of the tenancy | 
- **dataSourceCode** | **String**| The code of the datasource | 
- **entityCodes** | **String**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional] 
- **entityKeys** | **String**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional] 
+ **sort** | [**[String]**](String.md)| The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done | [optional] 
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] 
+ **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] 
 
 ### Return type
 
-[**[DataSourceDataInstance]**](DataSourceDataInstance.md)
+[**DataSourceList**](DataSourceList.md)
 
 ### Authorization
 
@@ -89,15 +97,20 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1TenantDataSourcesDataSourceCodeGet
+## getDataSourceByCode
 
-> DataSourceData v1TenantDataSourcesDataSourceCodeGet(tenant, dataSourceCode)
+> DataSourceData getDataSourceByCode(tenant, dataSourceCode)
 
 Gets a datasource
 
 Gets a datasource based on the code passed
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DatasourceApi } = require('@factset/sdk-vermilion');
@@ -111,6 +124,8 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -123,12 +138,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DatasourceApi();
-const tenant = "tenant_example"; // String | The code of the tenancy
-const dataSourceCode = "dataSourceCode_example"; // String | The code of the datasource
+const tenant = XXXXXXXXXX; // String | The code of the tenancy
+const dataSourceCode = XXXXXXXXXX; // String | The code of the datasource
 
 // Call api endpoint
-apiInstance.v1TenantDataSourcesDataSourceCodeGet(tenant, dataSourceCode).then(
+apiInstance.getDataSourceByCode(tenant, dataSourceCode).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -162,15 +178,20 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1TenantDataSourcesGet
+## getDataSourceData
 
-> DataSourceList v1TenantDataSourcesGet(tenant, opts)
+> DataSourceDataInstance getDataSourceData(tenant, dataSourceCode, opts)
 
-Lists all datasources
+Gets the data for the datasource
 
-List all datasources the user has permission to see
+Gets the data for the datasource. There are optional query parameters to filter the data
 
 ### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
 
 ```javascript
 const { ApiClient, DatasourceApi } = require('@factset/sdk-vermilion');
@@ -184,6 +205,8 @@ const apiClient = ApiClient.instance;
 // (Preferred) OAuth 2.0: FactSetOAuth2
 // See https://github.com/FactSet/enterprise-sdk#oauth-20
 // for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
 // See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
 // for more information on using the ConfidentialClient class
 apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
@@ -196,16 +219,19 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DatasourceApi();
-const tenant = "tenant_example"; // String | The code of the tenancy
+const tenant = XXXXXXXXXX; // String | The code of the tenancy
+const dataSourceCode = XXXXXXXXXX; // String | The code of the datasource
 const opts = {
-  'sort': _sort=name, // String | The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done
+  'entityCodes': FUNDS, // String | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS
+  'entityKeys': Test2, // String | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2
   'paginationLimit': 25, // Number | Non-negative maximum number of entries to return. Default is 25
   'paginationOffset': 0 // Number | Non-negative number of entries to skip. Default is 0
 };
 
 // Call api endpoint
-apiInstance.v1TenantDataSourcesGet(tenant, opts).then(
+apiInstance.getDataSourceData(tenant, dataSourceCode, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -223,13 +249,15 @@ apiInstance.v1TenantDataSourcesGet(tenant, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **String**| The code of the tenancy | 
- **sort** | **String**| The column to sort on. Append - to sort in descending order. If parameter is not given, no sorting will be done | [optional] 
+ **dataSourceCode** | **String**| The code of the datasource | 
+ **entityCodes** | **String**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional] 
+ **entityKeys** | **String**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional] 
  **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] 
  **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] 
 
 ### Return type
 
-[**DataSourceList**](DataSourceList.md)
+[**DataSourceDataInstance**](DataSourceDataInstance.md)
 
 ### Authorization
 

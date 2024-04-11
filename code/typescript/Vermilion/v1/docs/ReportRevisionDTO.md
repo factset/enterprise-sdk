@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **signOffStatus** | **String** |  | [optional] 
 **signOffNotes** | **String** |  | [optional] 
 **reportReasonCd** | **String** |  | [optional] 
+**description** | **String** |  | [optional] 
+**languageCode** | **String** |  | [optional] 
 **outputFormat** | **String** |  | [optional] 
 **percentageComplete** | **Number** |  | [optional] 
 
@@ -27,6 +29,8 @@ Name | Type | Description | Notes
 * `CONTENT_FILTER` (value: `"CONTENT_FILTER"`)
 
 * `STYLE_PROCESSING` (value: `"STYLE_PROCESSING"`)
+
+* `STYLE_PREPROCESSING` (value: `"STYLE_PREPROCESSING"`)
 
 * `RULE_PROCESSING` (value: `"RULE_PROCESSING"`)
 
@@ -56,7 +60,13 @@ Name | Type | Description | Notes
 
 * `POSTING_TO_WRS` (value: `"POSTING_TO_WRS"`)
 
+* `POSTED_TO_WRS` (value: `"POSTED_TO_WRS"`)
+
 * `RENDERING` (value: `"RENDERING"`)
+
+* `DOC_CREATION` (value: `"DOC_CREATION"`)
+
+* `PDF_CONVERSION` (value: `"PDF_CONVERSION"`)
 
 * `ABORTED` (value: `"ABORTED"`)
 

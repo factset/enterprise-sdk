@@ -15,9 +15,15 @@ Name | Type | Description | Notes
 
 * `BOOLEAN` (value: `"BOOLEAN"`)
 
+* `COLOUR` (value: `"COLOUR"`)
+
 * `DATETIME` (value: `"DATETIME"`)
 
 * `DECIMAL` (value: `"DECIMAL"`)
+
+* `FONT` (value: `"FONT"`)
+
+* `FONTSIZE` (value: `"FONTSIZE"`)
 
 * `HTML` (value: `"HTML"`)
 

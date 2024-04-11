@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "vermilion",
-  "artifactVersion": "0.9.0",
+  "artifactVersion": "0.1.0",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Vermilion client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -15,8 +15,8 @@
   "developerEmail": "api@factset.com",
   "developerOrganization": "FactSet Research Systems",
   "developerOrganizationUrl": "https://developer.factset.com/",
-  "licenseName": "The Apache Software License, Version 2.0",
-  "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+  "licenseName": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "serializableModel": true,
   "fullJavaUtil": true,
   "withXml": false,
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/Vermilion/0.9.0",
+  "httpUserAgent": "fds-sdk/java/Vermilion/0.1.0",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {
@@ -34,5 +34,6 @@
       "folder": "src/main/java/com/factset/sdk/Vermilion/auth",
       "destinationFilename": "FactSetOAuth2ClientAuth.java"
     }
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }
