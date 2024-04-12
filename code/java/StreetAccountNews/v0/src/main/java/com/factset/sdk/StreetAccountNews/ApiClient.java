@@ -122,7 +122,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/StreetAccountNews/0.20.5");
+    setUserAgent("fds-sdk/java/StreetAccountNews/0.20.6");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -1076,7 +1076,7 @@ public class ApiClient extends JavaTimeFormatter {
 
 
 
-          String message = "error";
+          String message = String.valueOf(statusCode).concat(" ").concat(response.getStatusInfo().getReasonPhrase());
           String respBody = null;
           if (response.hasEntity()) {
             try {
@@ -1098,7 +1098,7 @@ public class ApiClient extends JavaTimeFormatter {
       if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
         return new ApiResponse<T>(statusCode, responseHeaders);
       } else{
-        String message = "error";
+        String message = String.valueOf(statusCode).concat(" ").concat(response.getStatusInfo().getReasonPhrase());
         String respBody = null;
         if (response.hasEntity()) {
           try {

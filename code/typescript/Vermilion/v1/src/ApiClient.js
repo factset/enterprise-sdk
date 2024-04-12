@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/Vermilion/0.1.0'
+            'User-Agent': 'fds-sdk/javascript/Vermilion/1.0.0'
         };
 
         /**

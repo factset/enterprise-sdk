@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "etfprofileandprices",
-  "artifactVersion": "0.10.11",
+  "artifactVersion": "0.10.12",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "ETF Profile and Prices client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/ETFProfileandPrices/0.10.11",
+  "httpUserAgent": "fds-sdk/java/ETFProfileandPrices/0.10.12",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {
